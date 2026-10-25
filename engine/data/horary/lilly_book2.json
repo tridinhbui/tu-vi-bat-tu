@@ -1405,6 +1405,2179 @@
     }
    ],
    "example": "Lilly's 1st-house example, pp.135-142 (not transcribed as a test: it concerns length of life)."
+  },
+  {
+   "id": "lilly.land.house_signification",
+   "category": "house",
+   "title_en": "The fourth house: parents, land, houses, things hidden in the ground",
+   "title_vi": "Cung 4: cha mẹ, đất đai, nhà cửa, vật chôn dưới đất",
+   "statement_en": "The fourth is the house of parents, lands, tenements, hereditaments, cities, towns, villages, farms, manors, castles, treasure-trove, or anything hid in the ground.",
+   "statement_vi": "Cung 4 là cung của cha mẹ, đất đai, nhà ở, tài sản thừa kế, thành phố, thị trấn, làng mạc, trang trại, điền trang, lâu đài, kho báu tìm được, hoặc bất cứ thứ gì chôn dưới đất.",
+   "conditions": "topic routing: land, houses, farms, inheritance of land -> 4th house",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 202,
+     "quote": "This is the House of Parents, of Lands, Tenements, Hereditaments, Cities, Towns, Villages, Farmes, Mannours, Castles, Treasure-trove"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.land.buy_sell_significators",
+   "category": "topic",
+   "title_en": "Buying and selling lands or houses: significators",
+   "title_vi": "Mua bán đất, nhà: các sao chủ",
+   "statement_en": "Give the ascendant, its lord and the planet from which the Moon separates to the querent or buyer; the 7th, its lord and the planet to which the Moon applies to the seller; the 4th, a planet in it, and the lord of the 4th (with the Moon) to the house, ground or manor to be bought; the 10th, planets in it and its lord to the price (cheap or dear).",
+   "statement_vi": "Cung Mệnh, chủ Mệnh và sao mà Mặt Trăng vừa rời khỏi thuộc về người hỏi (người mua); cung 7, chủ cung 7 và sao mà Trăng sắp chiếu tới thuộc về người bán; cung 4, sao nằm trong đó và chủ cung 4 (cùng Mặt Trăng) chỉ ngôi nhà, mảnh đất, điền trang được mua; cung 10, sao trong đó và chủ cung 10 chỉ giá cả (rẻ hay đắt).",
+   "conditions": "buyer = 1st + lord 1 + planet the Moon separates from; seller = 7th + lord 7 + planet the Moon applies to; property = 4th + planets in it + lord 4 (+ Moon); price = 10th + planets in it + lord 10",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 204,
+     "quote": "Give the Ascendant and Lord thereof, and Planet from whom the Moon is separated to the Querent or Buyer"
+    },
+    {
+     "work": "LILLY",
+     "page": 205,
+     "quote": "Let the tenth house, a Planet or Planets posited therein, and Lord of that house signifie the Price"
+    }
+   ],
+   "example": "lilly.ex.purchase_houses_1634"
+  },
+  {
+   "id": "lilly.land.buy_perfection",
+   "category": "topic",
+   "title_en": "Whether the purchase will be concluded",
+   "title_vi": "Có mua được (thương vụ có thành) không",
+   "statement_en": "Lord 1 and lord 7 in amicable aspect, lord 7 applying to lord 1: the seller is willing. With essential dignities and application or translation by conjunction (sextile/trine implied), they agree with little labour; by square or opposition they bargain at last, but with many words, likely breaking off and much time. Lord 1 or the Moon applying to lord 4, or lord 4 or the Moon to lord 1 (lord 1 receiving lord 4), or lord 1 or the Moon in the 4th, or lord 4 in the ascendant: the querent buys. Without that, if the Moon translates lord 4's light to lord 1, the bargain is concluded by messengers or brokers. No application or translation at all: no bargain.",
+   "statement_vi": "Chủ Mệnh và chủ cung 7 chiếu nhau thân thiện, chủ cung 7 tiến tới chủ Mệnh: người bán sẵn lòng bán. Có đắc địa và thế chiếu hay chuyển ánh sáng bằng hợp (hoặc lục/tam hợp) thì hai bên dễ thỏa thuận; bằng vuông hay xung thì cuối cùng vẫn mua bán được nhưng nhiều lời qua lại, suýt đổ vỡ, tốn nhiều thời gian. Chủ Mệnh hay Trăng tiến tới chủ cung 4, hoặc chủ cung 4 hay Trăng tiến tới chủ Mệnh (chủ Mệnh tiếp nhận chủ cung 4), hoặc chủ Mệnh hay Trăng ở cung 4, hoặc chủ cung 4 ở cung Mệnh: người hỏi sẽ mua được. Nếu không có những điều đó nhưng Trăng chuyển ánh sáng của chủ cung 4 sang chủ Mệnh, thương vụ thành qua người môi giới. Không có thế chiếu hay chuyển ánh sáng nào: không có giao dịch.",
+   "conditions": "perfection lord1-lord7 (willingness) and lord1/Moon-lord4 (acquiring the property); aspect type grades ease; translation by the Moon -> via brokers; none -> no bargain",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 205,
+     "quote": "you may judge the Seller hath good will to sell and to deale with the Querent or Buyer"
+    },
+    {
+     "work": "LILLY",
+     "page": 205,
+     "quote": "the two Parties will at last bargaine, but with many words and probabilities of breaking off, and after much expence of time."
+    },
+    {
+     "work": "LILLY",
+     "page": 205,
+     "quote": "the Bargaine will be concluded, but rather by Messengers or Brokers, then by the personall treaty of the two principall Agents."
+    },
+    {
+     "work": "LILLY",
+     "page": 205,
+     "quote": "If there be no application or translation, or transferring the light of one Planet to another, it's not like there will be any Bargaine concluded."
+    }
+   ],
+   "example": "lilly.ex.purchase_houses_1634"
+  },
+  {
+   "id": "lilly.land.goodness_of_property",
+   "category": "topic",
+   "title_en": "Whether the land or house is good, and lasting in the family",
+   "title_vi": "Đất, nhà có tốt và giữ được lâu trong dòng họ không",
+   "statement_en": "Both infortunes in the 4th, very potent or peregrine, or lord 4 retrograde, unfortunate, in fall or detriment: it will never continue long with your posterity. Jupiter, Venus or the North Node in the 4th, or lord 4 in his own house in the 4th: good success, long continuance with posterity, and good increase for the money.",
+   "statement_vi": "Cả hai hung tinh ở cung 4, rất mạnh hoặc lạc vị, hoặc chủ cung 4 nghịch hành, bất lợi, ở vị trí suy hay tổn hại: tài sản sẽ không ở lâu với con cháu. Mộc Tinh, Kim Tinh hay La Hầu đầu (North Node) ở cung 4, hoặc chủ cung 4 ở nhà mình trong cung 4: thành công, con cháu giữ được lâu, và đồng tiền bỏ ra sinh lời tốt.",
+   "conditions": "4th house contents and lord 4 condition",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 206,
+     "quote": "'twill never continue long with your Posterity."
+    },
+    {
+     "work": "LILLY",
+     "page": 206,
+     "quote": "the Purchaser may expect good successe in the Land or House now in buying, and that it may continue a long time with his Posterity"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.land.quality_tenants_wood_soil",
+   "category": "topic",
+   "title_en": "Land: tenants (1st), soil (4th), herbage (7th), wood (10th)",
+   "title_vi": "Đất: người thuê (cung 1), thổ nhưỡng (cung 4), cỏ cây thấp (cung 7), gỗ rừng (cung 10)",
+   "statement_en": "For arable land: the ascendant signifies tenants and farmers occupying it (infortune there: deceitful tenants; direct, they waste the land; retrograde, they throw up their leases; fortune: honest tenants); the 4th the soil or the houses; the 7th the herbage; the 10th the wood and trees (fortune direct: good timber; retrograde: many trees, little timber; infortune: few trees or wasted; no planet: lord 10 aspecting the 10th from dignity, some wood). Signs on the 4th: Aries, Leo, Sagittarius hilly and dry; Taurus, Virgo, Capricorn plain and good pasture; Gemini, Libra, Aquarius mixed; Cancer, Scorpio, Pisces water. An infortune in the 4th retrograde or debilitated taints the land with its nature. Price: lord 10 angular, direct, dignified - dear; cadent, combust, retrograde, slow, afflicted - not high.",
+   "statement_vi": "Với đất canh tác: cung Mệnh chỉ người thuê, nông dân đang cày cấy (hung tinh ở đó: người thuê gian dối; thuận hành thì làm kiệt đất, nghịch hành thì bỏ hợp đồng; cát tinh: người thuê lương thiện); cung 4 chỉ thổ nhưỡng hoặc nhà cửa; cung 7 chỉ cỏ, cây thấp; cung 10 chỉ gỗ, cây lớn (cát tinh thuận hành: nhiều gỗ tốt; nghịch hành: nhiều cây nhưng ít gỗ; hung tinh: ít cây hoặc bị phá; không sao nào: xét chủ cung 10). Cung trên đỉnh cung 4: Bạch Dương, Sư Tử, Nhân Mã – đồi núi, khô; Kim Ngưu, Xử Nữ, Ma Kết – bằng phẳng, đồng cỏ tốt; Song Tử, Thiên Bình, Bảo Bình – lẫn lộn; Cự Giải, Hổ Cáp, Song Ngư – có sông nước. Hung tinh ở cung 4 nghịch hành hay suy yếu làm đất mang tính xấu của nó. Giá: chủ cung 10 ở cung góc, thuận hành, đắc địa – đắt; ở cung suy, bị đốt, nghịch hành, chậm, bị hại – giá không cao.",
+   "conditions": "descriptive rules for land quality and price",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 206,
+     "quote": "make the ascendant the Significator of the Tenants, Husbandmen and Farmers occupying it"
+    },
+    {
+     "work": "LILLY",
+     "page": 206,
+     "quote": "The Angle of the West shall signifie the Herbage thereof"
+    },
+    {
+     "work": "LILLY",
+     "page": 207,
+     "quote": "it's a hilly, mountainous, dry and hard piece of ground"
+    },
+    {
+     "work": "LILLY",
+     "page": 208,
+     "quote": "This is knowne by the Lord of the tenth, for if he be Angular, Direct, and strong in essentiall Dignities, the price will be high"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.land.hire_or_lease",
+   "category": "topic",
+   "title_en": "Whether good to hire or take a farm, house or land",
+   "title_vi": "Có nên thuê trang trại, nhà, đất không",
+   "statement_en": "Ascendant and lord: the one who would hire; 7th and lord: the one letting; 10th and lord: the profit; 4th and planets in it: the end of the matter. Lord 1 in the ascendant or in sextile/trine to the ascending degree (within half his orb), or a fortune or the North Node in the ascendant unimpedited: he will take it and profit. An infortune in the ascendant: if already taken he repents, otherwise he has no will to it. Lord 7 in the 7th or aspecting its cusp benevolently, or a fortune there: the landlord keeps his word (and profits); an infortune in the 7th not its lord: beware the covenants. A fortune in or aspecting the 10th: they proceed despite rubs; an infortune there or opposing/squaring it: nothing taken (disputes over timber, building or repairs). A fortune or lord 4 in the 4th or aspecting it well: a good end pleasing both; an infortune there: neither pleased.",
+   "statement_vi": "Cung Mệnh và chủ Mệnh: người muốn thuê; cung 7 và chủ: người cho thuê; cung 10 và chủ: lợi nhuận; cung 4 và sao trong đó: kết cục. Chủ Mệnh ở cung Mệnh hoặc lục/tam hợp độ Mọc (trong nửa orb của nó), hoặc cát tinh hay La Hầu đầu ở cung Mệnh không bị hại: sẽ thuê và có lời. Hung tinh ở cung Mệnh: nếu đã thuê thì nay hối hận, nếu chưa thì không muốn thuê. Chủ cung 7 ở cung 7 hoặc chiếu tốt tới đỉnh cung, hoặc có cát tinh ở đó: chủ đất giữ lời; hung tinh ở cung 7 mà không phải chủ cung: cẩn thận các điều khoản. Cát tinh ở hoặc chiếu cung 10: dù trục trặc vẫn tiến hành; hung tinh ở đó hoặc xung/vuông cung 10: không thuê được (tranh chấp về gỗ, xây dựng hay sửa chữa). Cát tinh hoặc chủ cung 4 ở cung 4 hay chiếu tốt: kết cục tốt, hai bên hài lòng; hung tinh ở đó: không ai vừa ý.",
+   "conditions": "lessee = 1st; lessor = 7th; profit = 10th; end = 4th",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 208,
+     "quote": "Let the tenth house and the Lord thereof signifie the Profit which may arise by that undertaking."
+    },
+    {
+     "work": "LILLY",
+     "page": 209,
+     "quote": "if the man have taken the thing ere he come unto you, it now repents him"
+    },
+    {
+     "work": "LILLY",
+     "page": 209,
+     "quote": "there will come a good end of the matter in hand, both parties will be pleased"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.land.father_estate",
+   "category": "topic",
+   "title_en": "Whether the querent shall enjoy his father's estate",
+   "title_vi": "Người hỏi có được hưởng tài sản của cha không",
+   "statement_en": "Querent: ascendant and lord; father: the 4th, its lord and planets in it; the father's moveable goods: the 5th (the 2nd from the 4th). Lord 2 and lord 5 in mutual reception (lord 5 in the 2nd, lord 2 in the 5th): a competent fortune from the father. Lord 5 retrograde or badly aspected by a malefic: part will be wasted or disposed elsewhere; the impeding planet's house shows who persuades the father. Lord 5 disposing of the Part of Fortune and in the 1st or 2nd; Jupiter or Venus from the 5th aspecting a planet in the 2nd; the Moon separating from lord 5 to a sextile/trine of lord 2 or lord 1: the querent obtains it. An infortune in the 4th without dignity: the father is unwilling to part with money. Lords 2 and 5 applying by retrogradation to a good aspect: estate comes suddenly.",
+   "statement_vi": "Người hỏi: cung Mệnh và chủ; người cha: cung 4, chủ cung 4 và sao trong đó; động sản của cha: cung 5 (cung 2 tính từ cung 4). Chủ cung 2 và chủ cung 5 tiếp nhận lẫn nhau (chủ 5 ở cung 2, chủ 2 ở cung 5): được phần tài sản đáng kể từ cha. Chủ cung 5 nghịch hành hay bị hung tinh chiếu xấu: một phần sẽ bị phung phí hay cho người khác; cung của sao gây cản cho biết ai thuyết phục người cha. Chủ cung 5 cai quản Điểm Phúc và ở cung 1 hoặc 2; Mộc hay Kim từ cung 5 chiếu tốt tới sao trong cung 2; Trăng rời chủ cung 5 rồi lục/tam hợp chủ cung 2 hoặc chủ Mệnh: người hỏi được như ý. Hung tinh ở cung 4 không đắc địa: cha không muốn bỏ tiền ra. Chủ cung 2 và 5 tiến tới góc tốt bằng nghịch hành: tài sản đến bất ngờ.",
+   "conditions": "father = 4th; father's goods = 5th (derived 2nd of the 4th); querent's estate = 2nd",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 210,
+     "quote": "the personall Estate or Goods moveable of the Father, are signified by the fift house"
+    },
+    {
+     "work": "LILLY",
+     "page": 210,
+     "quote": "there's no doubt to be made but the Querent shall have a competent fortune out of the Estate of his Father"
+    },
+    {
+     "work": "LILLY",
+     "page": 211,
+     "quote": "the Querent will receive some Estate from his Father suddenly, ere he be aware"
+    }
+   ],
+   "example": "Lilly turns the chart: the 5th is the father's 2nd."
+  },
+  {
+   "id": "lilly.land.remove_or_stay",
+   "category": "topic",
+   "title_en": "Whether good to remove (move house) or stay",
+   "title_vi": "Có nên dọn đi (chuyển nhà) hay ở lại",
+   "statement_en": "See the lords of the 1st, 4th and 7th. Lord 4 a good planet in the 7th, lords 1 and 7 good or strong, direct, swift and aspecting good planets: better to stay. Lord 7 with a good planet and lord 4 with an evil one: not good to stay. Lilly's own practice: he advised removal when lord 1 had lately separated from a square or opposition of lord 6, 8 or 12 (the Moon concurring), or an infortune peregrine or retrograde was in the ascendant, or a peregrine or unfortunate planet in the 4th, or lord 2 weak; the afflicting planet's house names the cause (lord 6: health or servants; lord 12: slanderous neighbours; lord 2 or Part of Fortune in 12/8/6: estate consumed; lord 10: reputation and trade; lord 4: an unlucky house; lord 7: competing neighbours). Direction: the quarter of the sign of the strongest, most fortunate planet best aspecting lord 1 or lord 2. Some say: Moon separating from a fortune, stay; from an infortune, remove; a fortune in the ascendant bids stay, an infortune remove.",
+   "statement_vi": "Xét chủ cung 1, 4 và 7. Chủ cung 4 là cát tinh ở cung 7, chủ cung 1 và 7 tốt hay mạnh, thuận hành, nhanh và chiếu với cát tinh: nên ở lại. Chủ cung 7 đi với cát tinh còn chủ cung 4 đi với hung tinh: không nên ở. Thực hành của Lilly: ông khuyên dọn đi khi chủ Mệnh vừa rời góc vuông hay xung của chủ cung 6, 8 hoặc 12 (Trăng cũng vậy), hoặc có hung tinh lạc vị hay nghịch hành ở cung Mệnh, hoặc sao lạc vị/bất lợi ở cung 4, hoặc chủ cung 2 yếu; cung của sao gây hại cho biết nguyên nhân (chủ 6: sức khỏe, người làm; chủ 12: láng giềng nói xấu; chủ 2 hay Điểm Phúc ở cung 12/8/6: hao tài; chủ 10: danh tiếng, buôn bán; chủ 4: ngôi nhà xui; chủ 7: hàng xóm cạnh tranh). Hướng đi: phương của cung hoàng đạo chứa sao mạnh, tốt nhất và chiếu thân thiện nhất với chủ Mệnh hay chủ cung 2. Có người nói: Trăng rời cát tinh thì ở, rời hung tinh thì đi; cát tinh ở cung Mệnh bảo ở, hung tinh bảo đi.",
+   "conditions": "lords 1, 4, 7 condition; Lilly's practical tests for removal; direction by the quarter of the best planet's sign",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 212,
+     "quote": "it is good then to abide still and not remove from the place where the Querent is"
+    },
+    {
+     "work": "LILLY",
+     "page": 212,
+     "quote": "if the Lord of the ascendant did lately separate from the square or opposition of the Lord of the sixth, eighth or twelfth"
+    },
+    {
+     "work": "LILLY",
+     "page": 213,
+     "quote": "look what quarter of Heaven the Signe that Planet was in did signifie, to that part did I ever advise the Querent to remove"
+    },
+    {
+     "work": "LILLY",
+     "page": 214,
+     "quote": "bids you stay; an Infortune remove"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.land.directions_of_signs",
+   "category": "lost_object",
+   "title_en": "Quarters of heaven signified by the signs (for things lost, mislaid, fugitives)",
+   "title_vi": "Phương hướng của các cung hoàng đạo (cho đồ mất, để quên, người trốn)",
+   "statement_en": "For things lost, mislaid or fugitives the signs signify: Aries east, Leo east by north, Sagittarius east by south; Libra west, Gemini west by south, Aquarius west by north; Cancer north, Scorpio north by east, Pisces north by west; Capricorn south, Taurus south by east, Virgo south by west (the cardinal signs give the four cardinal points).",
+   "statement_vi": "Với đồ mất, đồ để quên hay người trốn, các cung chỉ phương: Bạch Dương – đông, Sư Tử – đông lệch bắc, Nhân Mã – đông lệch nam; Thiên Bình – tây, Song Tử – tây lệch nam, Bảo Bình – tây lệch bắc; Cự Giải – bắc, Hổ Cáp – bắc lệch đông, Song Ngư – bắc lệch tây; Ma Kết – nam, Kim Ngưu – nam lệch đông, Xử Nữ – nam lệch tây (bốn cung khởi đầu cho bốn phương chính).",
+   "conditions": "table: Aries E, Leo E by N, Sagittarius E by S; Libra W, Gemini W by S, Aquarius W by N; Cancer N, Scorpio N by E, Pisces N by W; Capricorn S, Taurus S by E, Virgo S by W",
+   "exceptions": [],
+   "effect": "table",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 204,
+     "quote": "for things lost, mislaid or fugitives, these are the true quarters of Heaven the Signes signifie"
+    },
+    {
+     "work": "LILLY",
+     "page": 204,
+     "quote": "East and by North, East and by South"
+    }
+   ],
+   "example": "Sign glyphs read from the page image (p.204)."
+  },
+  {
+   "id": "lilly.lost.mislaid_significators",
+   "category": "lost_object",
+   "title_en": "A thing hid or mislaid (not stolen): whose goods, which lord",
+   "title_vi": "Đồ cất giấu hoặc để quên (không bị trộm): đồ của ai, xét chủ cung nào",
+   "statement_en": "Take the ascendant exactly and consider whose goods they are: the querent's own goods, the lord of the 2nd; a brother's or sister's, the lord of the 4th; the father's, the lord of the 5th; the mother's, the lord of the 11th; and so in order (the 2nd from the owner's house). Lord 2 in an angle: the thing is within the querent's house; in the ascendant, or in the sign of lord 1 or one of his houses: where the querent most frequents or keeps his own things; in the 10th: in his shop (tradesman), hall or dining room (gentleman), common room (husbandman); in the 7th: where his wife or maidservants most are; in the 4th: where the eldest of the house lodges, the middle or most ancient part of the house.",
+   "statement_vi": "Lấy độ Mọc thật chính xác và xét đồ của ai: đồ của chính người hỏi – chủ cung 2; của anh chị em – chủ cung 4; của cha – chủ cung 5; của mẹ – chủ cung 11; cứ thế theo thứ tự (cung thứ 2 tính từ cung của chủ đồ). Chủ cung 2 ở cung góc: đồ vẫn ở trong nhà người hỏi; ở cung Mệnh, hoặc trong cung của chủ Mệnh: ở chỗ người hỏi hay lui tới hoặc hay cất đồ của mình; ở cung 10: trong cửa hàng (thợ), phòng khách hay phòng ăn (quý ông), gian chung (nông dân); ở cung 7: chỗ vợ hoặc người hầu gái hay ở; ở cung 4: chỗ người già nhất trong nhà ngủ, giữa nhà hoặc phần cũ nhất của ngôi nhà.",
+   "conditions": "owner's goods = 2nd house from the owner's house (querent: 2nd; sibling: 4th; father: 5th; mother: 11th); place inside the house by the house of that lord",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 202,
+     "quote": "if the Goods be the Querents owne Commodity, then see to the Lord of the second; if it belong to his Brother or Sister, then have regard to the Lord of the fourth"
+    },
+    {
+     "work": "LILLY",
+     "page": 202,
+     "quote": "If you find the Lord of the second in any Angle, you may judge the thing lost, hid or missing, is within the house of him that demands the Question"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.lost.mislaid_place_by_sign",
+   "category": "lost_object",
+   "title_en": "Mislaid things: quarter and kind of place from the signs (Lilly's own method)",
+   "title_vi": "Đồ để quên: phương hướng và loại chỗ theo cung hoàng đạo (cách riêng của Lilly)",
+   "statement_en": "The ancients judged the part of the house by the lord of the hour (10th/11th south toward east, between 4th and ascendant north-east, etc.); Lilly found this not very exact. His method: consider the signs of the ascendant, of lord 1, of the 4th cusp, of lord 4, of the Moon, of the 2nd cusp, of lord 2 and of the Part of Fortune; take the quarter (east, west, north, south) by the greater number of testimonies (see lilly.land.directions_of_signs). The nature of the signs shows the place: airy, above ground or high; fiery, near a wall, partition or chimney; earthy, on the floor or ground; watery, near a moist place, buttery, dairy, water. A significator leaving one sign for another: behind something, fallen between two rooms or near a threshold.",
+   "statement_vi": "Người xưa định phần nhà theo chủ giờ (cung 10/11: phía nam lệch đông; giữa cung 4 và Mệnh: đông bắc...); Lilly thấy cách này không chính xác lắm. Cách của ông: xét cung hoàng đạo của độ Mọc, của chủ Mệnh, của đỉnh cung 4, chủ cung 4, Mặt Trăng, đỉnh cung 2, chủ cung 2 và Điểm Phúc; lấy phương (đông, tây, nam, bắc) theo số đông chứng cứ (xem lilly.land.directions_of_signs). Tính chất cung cho biết loại chỗ: cung Khí – trên cao; cung Hỏa – gần tường, vách ngăn hay ống khói; cung Đất – trên sàn, dưới đất; cung Thủy – chỗ ẩm, kho thức uống, chỗ làm bơ sữa, gần nước. Sao chủ đang rời cung này sang cung khác: đồ ở sau một vật gì đó, rơi giữa hai phòng hoặc gần ngưỡng cửa.",
+   "conditions": "count the directions of 8 sign testimonies (asc, lord 1, 4th cusp, lord 4, Moon, 2nd cusp, lord 2, Part of Fortune); majority = quarter; element of the strongest significators = kind of place",
+   "exceptions": [
+    "Lilly: 'A few experiments I know may better this Judgment' (p.204)"
+   ],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 203,
+     "quote": "however, I have not found this judgment very exact, therefore I laboured to find a more certaine manner"
+    },
+    {
+     "work": "LILLY",
+     "page": 204,
+     "quote": "according to the greater number of testimonies"
+    },
+    {
+     "work": "LILLY",
+     "page": 204,
+     "quote": "aiery Signes, above ground; fiery Signes, neer a Wall or Partition; earthly Signes, on the Floor; watry, neere a moyst place in the roome"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.lost.moon_significator_recovery",
+   "category": "lost_object",
+   "title_en": "Things lost or strayed: the Moon signifies; whether found",
+   "title_vi": "Đồ mất hoặc vật đi lạc: Mặt Trăng là sao chủ; có tìm lại được không",
+   "statement_en": "(Chap. L, compiled from older authors.) The significator of the thing lost is the Moon: the Moon applying to lord 1, to the lord of the 2nd (Lilly's p.323 version), or to the lord of the sign she is in (her dispositor), the thing shall be found; applying to none of these, nor in the ascendant or the 2nd, not found. The Moon's dispositor in the 3rd or sextile the ascendant gives some hope; the dispositor separating from lord 6, 8 or 12 and applying to the degree of the 2nd cusp gives hope. Moon fortunate by Jupiter or Venus: the thing is in the hands of a trusty person who will restore it; Moon afflicted by lord 6, 8 or 12: in the hands of an ill person who will not part with it.",
+   "statement_vi": "(Chương L, tổng hợp từ các tác giả cũ.) Sao chủ của đồ mất là Mặt Trăng: Trăng tiến tới chủ Mệnh, chủ cung 2 (theo bản p.323 của Lilly), hoặc chủ cung mà Trăng đang đóng (dispositor), thì tìm lại được; không tiến tới ai trong số đó, cũng không ở cung Mệnh hay cung 2, thì không tìm thấy. Chủ của Trăng ở cung 3 hoặc lục hợp độ Mọc cho chút hy vọng; chủ của Trăng rời chủ cung 6, 8, 12 để tiến tới độ đỉnh cung 2 cũng có hy vọng. Trăng được Mộc hay Kim làm tốt: đồ ở trong tay người tử tế sẽ trả lại; Trăng bị chủ cung 6, 8, 12 làm hại: đồ ở trong tay kẻ xấu không chịu trả.",
+   "conditions": "Moon applying to lord 1 / lord 2 / her dispositor; Moon in 1st or 2nd; dispositor of the Moon in the 3rd or sextile the ascendant; benefic vs malefic contact of the Moon",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 319,
+     "quote": "The Signifier of the thing lost is the Moon"
+    },
+    {
+     "work": "LILLY",
+     "page": 320,
+     "quote": "but if the Moon apply to none of these, nor abide in the ascendant nor in the second house, the thing lost or miscarried shall not be found"
+    },
+    {
+     "work": "LILLY",
+     "page": 320,
+     "quote": "the thing that is lost chanced into the hands of some trusty body, which keepeth the same, and would faine restore it againe"
+    },
+    {
+     "work": "LILLY",
+     "page": 323,
+     "quote": "the Moon applying to the Lord of the ascendant, or second house, or to her Dispositor, it shall be found, otherwise not"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.lost.place_and_distance",
+   "category": "lost_object",
+   "title_en": "Where the lost thing is, and how far",
+   "title_vi": "Đồ mất ở đâu, xa hay gần",
+   "statement_en": "The place is by the Moon: her sign's quarter (eastern sign, east, etc.) and her house (in the ascendant east; 10th south; 7th west; 4th north). Her dispositor in a human sign: where men use to be; fiery sign: near fire; watery: near water. Moon with lord 1 in one quarter with no more than one sign between them: the thing is in or about the owner's house; more than 30 and less than 70 degrees: in the town where the owner is; not in one quarter (or beyond 90 degrees): far off. Moon within 30 degrees of lord 1: with the loser or near him; more than 30: far off.",
+   "statement_vi": "Nơi chốn xét theo Mặt Trăng: phương của cung Trăng đóng (cung phương đông thì ở phía đông...) và nhà Trăng đóng (ở cung Mệnh – đông; cung 10 – nam; cung 7 – tây; cung 4 – bắc). Chủ của Trăng ở cung hình người: nơi người hay lui tới; cung Hỏa: gần lửa; cung Thủy: gần nước. Trăng và chủ Mệnh cùng một phần tư bầu trời, cách nhau không quá một cung: đồ ở trong hoặc quanh nhà chủ; cách hơn 30 và dưới 70 độ: ở trong thị trấn nơi chủ sống; không cùng phần tư (hoặc xa hơn 90 độ): ở xa. Trăng trong vòng 30 độ của chủ Mệnh: đồ ở với người mất hoặc gần họ; hơn 30 độ: ở xa.",
+   "conditions": "Moon's sign direction and house; dispositor's sign type; angular distance Moon-lord 1 (<= 1 sign / 30-70 deg / other quarter)",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 320,
+     "quote": "is the place of the Moon according to the nature of the Signe she is in, for if the Signe be Orientall, it is in the east part"
+    },
+    {
+     "work": "LILLY",
+     "page": 320,
+     "quote": "the thing lost is in the house of him that lost it, or about it"
+    },
+    {
+     "work": "LILLY",
+     "page": 326,
+     "quote": "the thing lost is in the Town, and in the same limits and bounds where the owner is"
+    },
+    {
+     "work": "LILLY",
+     "page": 323,
+     "quote": "in a humane Signe, it is in a place where men use"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.lost.stolen_or_strayed",
+   "category": "lost_object",
+   "title_en": "Stolen or strayed of itself",
+   "title_vi": "Bị trộm hay tự đi lạc",
+   "statement_en": "If the Moon's dispositor separates from any planet, the beast fled of its own accord; if another planet separates from the Moon's dispositor, someone took it (driven away or stolen); if neither, judge likewise by the lord of the 2nd; if no separation at all, it is still in its place or near it. Also: the thief's significator in the ascendant or giving his virtue to the Moon (or she to him), lord 1 applying to the thief's significator, or the thief's significator applying to lord 1 by square or opposition, etc., show theft; if none of these, it is not stolen, unless an infortune is in the 1st or 2nd or the related lords are unfortunate, which signify losing.",
+   "statement_vi": "Nếu chủ của Mặt Trăng đang rời khỏi một sao nào đó, con vật tự bỏ đi; nếu có sao khác đang rời khỏi chủ của Trăng, có người đã bắt (dắt đi hay trộm); nếu không có cả hai, xét tương tự bằng chủ cung 2; không có thế rời nào cả thì vật vẫn ở chỗ cũ hoặc gần đó. Ngoài ra: sao chủ kẻ trộm ở cung Mệnh hoặc truyền sức cho Trăng (hay Trăng truyền cho nó), chủ Mệnh tiến tới sao chủ kẻ trộm, hoặc sao chủ kẻ trộm tiến tới chủ Mệnh bằng vuông hay xung... là có trộm; nếu không có những điều đó thì không phải bị trộm, trừ khi có hung tinh ở cung 1 hay 2 hoặc các chủ cung liên quan bị hại – khi ấy là bị đánh mất.",
+   "conditions": "Moon's dispositor separating from a planet -> strayed; a planet separating from the dispositor -> taken; else lord 2 likewise; none -> still near",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 322,
+     "quote": "say then, that he fled away of his owne accord"
+    },
+    {
+     "work": "LILLY",
+     "page": 322,
+     "quote": "say that the Beast is still in his place, or neer it, and that he fled not away."
+    },
+    {
+     "work": "LILLY",
+     "page": 322,
+     "quote": "if some of these constellations be not, it is not stolen"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.lost.thief_significator",
+   "category": "lost_object",
+   "title_en": "The significator of the thief",
+   "title_vi": "Sao chủ của kẻ trộm",
+   "statement_en": "Querent: the ascendant and its lord; goods: the 2nd, its lord and the Moon; place where they are: the 4th and its lord; thief: the 7th and its lord, a peregrine planet in an angle, and the lord of the hour. A peregrine planet in the ascendant is the thief, especially if lord of the 7th; otherwise a peregrine planet in another angle; if none, the lord of the hour (more radical if it is also lord of the 7th). Lord 7 in the ascendant: the querent is the thief, where just suspicion falls on him. Lilly's own practice: a peregrine planet in the ascendant was ever the thief; next he preferred the 10th, then the 7th, then the 4th, last the 2nd; with several peregrine planets in angles prefer the one nearest the cusp of its angle. He reports Allen of Oxford's view that the thief's planet must behold the 7th house.",
+   "statement_vi": "Người hỏi: cung Mệnh và chủ Mệnh; đồ vật: cung 2, chủ cung 2 và Mặt Trăng; nơi cất đồ: cung 4 và chủ cung 4; kẻ trộm: cung 7 và chủ cung 7, một sao lạc vị (peregrine) ở cung góc, và chủ giờ. Sao lạc vị ở cung Mệnh là kẻ trộm, nhất là khi nó làm chủ cung 7; nếu không thì sao lạc vị ở cung góc khác; không có thì lấy chủ giờ (càng xác đáng nếu chủ giờ cũng là chủ cung 7). Chủ cung 7 ở cung Mệnh: chính người hỏi là kẻ trộm, khi có nghi ngờ chính đáng về họ. Thực hành của Lilly: sao lạc vị ở cung Mệnh luôn là kẻ trộm; sau đó ông ưu tiên cung 10, rồi cung 7, cung 4, cuối cùng cung 2; nếu nhiều sao lạc vị ở các cung góc thì chọn sao gần đỉnh cung góc nhất. Ông ghi lại ý của Allen ở Oxford rằng sao chủ kẻ trộm phải nhìn thấy cung 7.",
+   "conditions": "thief = peregrine planet in the 1st > 10th > 7th > 4th > 2nd (Lilly's order; nearest to its angle's cusp), else lord 7, else lord of the hour; a dignified planet is not the thief (lilly.ex.money_lost_1647)",
+   "exceptions": [
+    "Allen of Oxford: a peregrine planet is the thief only if it beholds the 7th or has dignity in the 7th cusp degree (p.394) - reported, not Lilly's rule"
+   ],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 331,
+     "quote": "The Lord of the seventh commonly signifies the Thief, but especially if he be peregrine in the ascendant, or in any other angle"
+    },
+    {
+     "work": "LILLY",
+     "page": 332,
+     "quote": "the fourth house and his Lord shall signifie the place where it is laid, put or done, or conveyed unto"
+    },
+    {
+     "work": "LILLY",
+     "page": 394,
+     "quote": "The truth is, I have ever found that if a peregrine Planet were in the ascendant, he was Significator of the Thiefe"
+    },
+    {
+     "work": "LILLY",
+     "page": 395,
+     "quote": "ever prefer that peregrine Planet for your Significator, who is neerest to the cuspe of the angle he is in."
+    }
+   ],
+   "example": "lilly.ex.money_lost_1647; lilly.ex.fish_stolen_1638"
+  },
+  {
+   "id": "lilly.lost.recovery_aphorisms",
+   "category": "lost_object",
+   "title_en": "Aphorisms of recovery and of no recovery (theft)",
+   "title_vi": "Các câu cách ngôn về lấy lại được hay không (mất trộm)",
+   "statement_en": "Recovery: lord 8 in the ascendant or with lord 1; lord 2 in the ascendant (recovered, none shall know how); lord 1 in the 2nd (after long search); lord 7 in the ascendant (restored); lord 1 in the 7th (found after much enquiry); application or translation between lord 8 and lord 2, or lord 8 in the 2nd; Moon in the 2nd with a fortune or aspecting her own house or dispositor well; Sun and Moon in trine, or both beholding the ascendant; Sun in the ascendant (except in Libra or Aquarius); lord 2 in its exaltation. No recovery: Saturn, Mars or the South Node in the 2nd; lord 2 in the 8th, combust, cadent, or applying to lord 8; both luminaries under the earth. The 2nd house or its lord hindered: not all recovered.",
+   "statement_vi": "Lấy lại được: chủ cung 8 ở cung Mệnh hoặc đi cùng chủ Mệnh; chủ cung 2 ở cung Mệnh (lấy lại mà không ai biết bằng cách nào); chủ Mệnh ở cung 2 (sau khi tìm lâu); chủ cung 7 ở cung Mệnh (được trả lại); chủ Mệnh ở cung 7 (tìm thấy sau nhiều dò hỏi); có thế chiếu hay chuyển ánh sáng giữa chủ cung 8 và chủ cung 2, hoặc chủ cung 8 ở cung 2; Trăng ở cung 2 với cát tinh hoặc chiếu tốt về nhà mình hay về chủ của mình; Mặt Trời và Trăng tam hợp, hoặc cả hai cùng nhìn cung Mệnh; Mặt Trời ở cung Mệnh (trừ Thiên Bình, Bảo Bình); chủ cung 2 ở vượng địa. Không lấy lại được: Thổ, Hỏa hoặc nút Nam ở cung 2; chủ cung 2 ở cung 8, bị đốt, ở cung suy, hoặc tiến tới chủ cung 8; cả hai đại tinh ở dưới đường chân trời. Cung 2 hay chủ cung 2 bị cản: không lấy lại được tất cả.",
+   "conditions": "count recovery vs no-recovery testimonies as listed",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 356,
+     "quote": "The Lord of the eight in the Ascendant, or with the Lord"
+    },
+    {
+     "work": "LILLY",
+     "page": 357,
+     "quote": "When both the Luminaries are under the earth it cannot be recovered."
+    },
+    {
+     "work": "LILLY",
+     "page": 358,
+     "quote": "or when the Lord of the second applieth to the Lord of the eighth with any aspect, all or any of these are signes of no recovery."
+    },
+    {
+     "work": "LILLY",
+     "page": 359,
+     "quote": "if the Lord of the second be in the ascendant, it will be had againe, and none shall know how"
+    }
+   ],
+   "example": "lilly.ex.money_lost_1647; lilly.ex.fish_stolen_1638"
+  },
+  {
+   "id": "lilly.lost.recovery_degree_of_dignity",
+   "category": "lost_object",
+   "title_en": "Lilly's summary: discovery, full or partial recovery",
+   "title_vi": "Tóm tắt của Lilly: phát hiện, lấy lại toàn bộ hay một phần",
+   "statement_en": "From his fish example Lilly concludes: the peregrine planet in an angle describes the thief; the Sun or Moon in the ascendant in essential dignity gives assured hope of discovering who it was; the Moon applying to the lord of the 2nd argues recovery: full if both the Moon and lord 2 are essentially dignified, part if (only) accidentally fortified, a discovery but no recovery if both are peregrine.",
+   "statement_vi": "Từ ví dụ mất cá, Lilly kết luận: sao lạc vị ở cung góc mô tả kẻ trộm; Mặt Trời hoặc Trăng ở cung Mệnh có phẩm vị bản chất cho hy vọng chắc chắn tìm ra ai lấy; Trăng tiến tới chủ cung 2 là dấu hiệu lấy lại được: toàn bộ nếu cả Trăng và chủ cung 2 đều đắc địa bản chất, một phần nếu chỉ mạnh về vị trí (accidental), biết được kẻ lấy nhưng không lấy lại nếu cả hai đều lạc vị.",
+   "conditions": "Moon applying to lord 2: both essentially dignified -> full; accidentally fortified -> partial; both peregrine -> discovery only",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 399,
+     "quote": "the application of Moon to the Lord of the second, argues recovery; a full recovery, if both the Moon and the Lord of the second be essentially dignified"
+    },
+    {
+     "work": "LILLY",
+     "page": 399,
+     "quote": "a discovery, but no recovery, if they apply and be both peregrine."
+    }
+   ],
+   "example": "lilly.ex.fish_stolen_1638"
+  },
+  {
+   "id": "lilly.timing.recovery",
+   "category": "timing",
+   "title_en": "Time of recovery of stolen goods",
+   "title_vi": "Thời điểm lấy lại đồ bị trộm",
+   "statement_en": "Number the degrees between the two planets that signify recovery (or to their place of application): moveable signs, the shorter time (weeks, or months); fixed signs, months or years; common signs, a mean between both; a swift significator, quickly; significators falling from angles (cadent), a shorter time. Lilly adds these judgments are proper to this chapter and not to be used in other matters. Also: the degrees from the recovery planet to the angle it goes to first give the time; and the time is when the Moon or lord 1 reaches the body of the planet signifying recovery (sudden if by retrogradation).",
+   "statement_vi": "Đếm số độ giữa hai sao chỉ việc lấy lại (hoặc đến chỗ chúng chiếu nhau): cung động – thời gian ngắn hơn (tuần, hoặc tháng); cung cố định – tháng hay năm; cung biến động – ở giữa; sao chủ đi nhanh – sớm; sao chủ ở cung suy (rơi khỏi góc) – thời gian ngắn hơn. Lilly nói thêm các phán đoán này chỉ dùng cho chương này, không áp cho việc khác. Ngoài ra: số độ từ sao chỉ việc lấy lại đến cung góc đầu tiên nó tới cho biết thời gian; và thời điểm là khi Trăng hay chủ Mệnh tới đúng thân sao chỉ việc lấy lại (nhanh bất ngờ nếu do nghịch hành).",
+   "conditions": "degrees between recovery significators; units by sign quality (moveable shortest, fixed longest, common between); cadent = shorter (inverse of the general house rule)",
+   "exceptions": [
+    "Lilly: 'you must not judge in other things by these, or by this Method' (p.356)"
+   ],
+   "effect": "timing_method",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 356,
+     "quote": "in fixed Signes it Signifies Moneths or Yeers; in common Signs, a meane betwixt both"
+    },
+    {
+     "work": "LILLY",
+     "page": 356,
+     "quote": "These Judgements are made properly for this Chapter; you must not judge in other things by these"
+    },
+    {
+     "work": "LILLY",
+     "page": 358,
+     "quote": "unto the angle he goeth first to, and the number of those degrees is the time of recovery."
+    }
+   ],
+   "example": "lilly.ex.money_lost_1647 (4 degrees -> four days; returned within three)"
+  },
+  {
+   "id": "lilly.lost.fugitive",
+   "category": "lost_object",
+   "title_en": "Fugitives and strayed persons: whether found or return",
+   "title_vi": "Người bỏ trốn: có tìm được hay tự về không",
+   "statement_en": "Querent: ascendant, its lord and the Moon; fugitive: the 7th and its lord. Lord 1 applying to lord 7 by sextile or trine, or lord 1 in the 7th: recovered; lord 7 in the ascendant or applying to lord 1, or translation between them: more easily. The Moon is natural significatrix of fugitives: in the ascendant or applying well to lord 1, or lord 7 or the Moon separating from fortunes to infortunes: he returns or is hindered and comes back. Moon increasing: long search; decreasing: soon found. Lord 7 combust: taken willy-nilly. Lord 7 joined to an infortune in an angle: taken. Lord 7 in the ascendant: returns of his own accord. Lilly: fugitives usually go by the Moon; judge by the stronger of the significator and the Moon.",
+   "statement_vi": "Người hỏi: cung Mệnh, chủ Mệnh và Mặt Trăng; người bỏ trốn: cung 7 và chủ cung 7. Chủ Mệnh tiến tới chủ cung 7 bằng lục hợp hay tam hợp, hoặc chủ Mệnh ở cung 7: tìm lại được; chủ cung 7 ở cung Mệnh hoặc tiến tới chủ Mệnh, hoặc có chuyển ánh sáng giữa hai sao: càng dễ. Trăng là sao chủ tự nhiên của người bỏ trốn: Trăng ở cung Mệnh hoặc chiếu tốt tới chủ Mệnh, hoặc chủ cung 7 hay Trăng rời cát tinh để gặp hung tinh: người ấy quay về hoặc bị cản trở mà phải về. Trăng tròn dần: tìm lâu; khuyết dần: sớm tìm thấy. Chủ cung 7 bị đốt: bị bắt dù muốn hay không. Chủ cung 7 kết với hung tinh ở cung góc: bị bắt. Chủ cung 7 ở cung Mệnh: tự quay về. Lilly: người bỏ trốn thường đi theo Mặt Trăng; hãy luận theo sao mạnh hơn giữa sao chủ và Trăng.",
+   "conditions": "fugitive = 7th + lord 7 (+ Moon as natural significatrix); perfection lord1-lord7; Moon phase; lord 7 combust / with malefic in angle",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 328,
+     "quote": "it betokeneth the Querent shall recover the things lost or Fugitive, gone away"
+    },
+    {
+     "work": "LILLY",
+     "page": 329,
+     "quote": "the Lord of the seventh Combust, signifies the Fugitive will be taken"
+    },
+    {
+     "work": "LILLY",
+     "page": 329,
+     "quote": "If the Lord of the seventh be in the ascendant, the Fugitive will returne of his owne accord"
+    },
+    {
+     "work": "LILLY",
+     "page": 394,
+     "quote": "Usually I find, that all Fugitives goe by the"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.lost.lilly_dislikes_theft_questions",
+   "category": "method",
+   "title_en": "Lilly's stance on questions of fugitives and thefts",
+   "title_vi": "Thái độ của Lilly với câu hỏi về người trốn và mất trộm",
+   "statement_en": "Lilly says he cannot endure questions of fugitives or thefts and would never have done any but with intention to benefit posterity.",
+   "statement_vi": "Lilly nói ông không chịu nổi những câu hỏi về người bỏ trốn hay mất trộm, và nếu có làm thì chỉ để giúp ích cho người đời sau.",
+   "conditions": "context note",
+   "exceptions": [],
+   "effect": "warning",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 394,
+     "quote": "I cannot endure Questions of Fugitives or Thefts, nor ever would have done any thing, but with intention to benefit Posterity."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.02_degrees_ascending_meaning",
+   "category": "radicality",
+   "title_en": "Aphorism 2: early or late degrees ascending - not ripe or already elapsed",
+   "title_vi": "Cách ngôn 2: độ Mọc quá sớm hay quá muộn – việc chưa chín hoặc đã qua",
+   "statement_en": "Be not confident of the judgment if the first or later degrees of any sign ascend: few degrees ascending, the matter is not yet ripe for judgment; later degrees, the matter is elapsed, and the querent has probably been tampering with others or despairs of success; however, the heavens advise you not to meddle with it at that time. (Aphorisms and Considerations for better judging any horary question, pp.298-302, stated by Lilly as applying to 'the whole body of Astrology', p.297.)",
+   "statement_vi": "Đừng tin chắc vào lời luận nếu độ Mọc ở những độ đầu hoặc cuối của cung: ít độ thì việc chưa chín để luận; độ cuối thì việc đã qua, có lẽ người hỏi đã nhờ người khác hoặc đã tuyệt vọng; dù sao trời cũng khuyên đừng dính vào việc ấy lúc đó. (Trích 'Các cách ngôn và điều cần xét để luận tốt hơn mọi câu hỏi giờ' tr.298-302; Lilly nói chúng soi sáng 'toàn bộ chiêm tinh', tr.297.)",
+   "conditions": "ascendant in early degrees (< 3) or late degrees (>= 27): see lilly.consider.asc_early_degrees / asc_late_degrees for the numeric limits Lilly gives on p.122",
+   "exceptions": [],
+   "effect": "caution_radicality",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 297,
+     "quote": "have also published forty three significant Aphorismes; which, if well understood, will give great light"
+    },
+    {
+     "work": "LILLY",
+     "page": 298,
+     "quote": "if few degrees ascend, the matter is not yet ripe for judgment: if the later degrees arise, the matter of the Question is elapsed"
+    },
+    {
+     "work": "LILLY",
+     "page": 298,
+     "quote": "however, the Heavens advise you not to meddle with it at that time."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.03_malefics_in_tenth",
+   "category": "radicality",
+   "title_en": "Aphorism 3: Saturn or Mars (peregrine/unfortunate) or the South Node in the 10th",
+   "title_vi": "Cách ngôn 3: Thổ hoặc Hỏa (lạc vị/bất lợi) hay nút Nam ở cung 10",
+   "statement_en": "Saturn or Mars in the tenth, peregrine or unfortunate, or the South Node in that house: the artist hardly gets credit by that question.",
+   "statement_vi": "Thổ Tinh hoặc Hỏa Tinh ở cung 10, lạc vị hay bất lợi, hoặc nút Nam (Đuôi Rồng) ở cung này: người thầy khó được tiếng nhờ câu hỏi đó.",
+   "conditions": "Saturn or Mars in the 10th and peregrine/afflicted; or south node in the 10th",
+   "exceptions": [],
+   "effect": "caution_radicality",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 298,
+     "quote": "in that house, the Artist hardly gets credit by that Question."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.04_trivial_questions",
+   "category": "radicality",
+   "title_en": "Aphorism 4: do not judge light or trivial questions",
+   "title_vi": "Cách ngôn 4: đừng luận câu hỏi bông đùa, vụn vặt",
+   "statement_en": "Judge not upon every light motion, or without premeditation of the querent, nor upon slight and trivial questions, or when the querent has not wit to know what he would demand.",
+   "statement_vi": "Đừng luận theo mọi ý thoáng qua, hay khi người hỏi không suy nghĩ trước, cũng đừng luận câu hỏi vụn vặt, hay khi người hỏi không biết mình muốn hỏi gì.",
+   "conditions": "question must be considered and serious (product: the user is asked to state one real question)",
+   "exceptions": [],
+   "effect": "caution_radicality",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 298,
+     "quote": "Judge not upon every light motion, or without premeditation of the Querent, nor upon slight and triviall Questions"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.05_moon_strength",
+   "category": "moon",
+   "title_en": "Aphorism 5: the Moon's condition matters more than the lord of the ascendant's",
+   "title_vi": "Cách ngôn 5: tình trạng Mặt Trăng quan trọng hơn của chủ Mệnh",
+   "statement_en": "Have special regard to the strength or debility of the Moon: it is far better that the lord of the ascendant be unfortunate than she, for she brings to us the strength and virtue of all the other planets, and of one planet to another.",
+   "statement_vi": "Phải đặc biệt xét Mặt Trăng mạnh hay yếu: chủ Mệnh bị hại còn đỡ hơn Trăng bị hại nhiều, vì Trăng mang đến cho ta sức mạnh của mọi hành tinh khác và truyền sức từ sao này sang sao khác.",
+   "conditions": "weight Moon affliction above lord-1 affliction",
+   "exceptions": [],
+   "effect": "modifies",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 298,
+     "quote": "and it's farre better the Lord of the ascendant be unfortunate then she, for she brings unto us the strength and vertue of all the other Planets"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.06_08_malefics_benefics",
+   "category": "significator",
+   "title_en": "Aphorisms 6-8, 14, 16-18, 20-21, 24: infortunes and fortunes as significators",
+   "title_vi": "Cách ngôn 6–8, 14, 16–18, 20–21, 24: hung tinh và cát tinh làm sao chủ",
+   "statement_en": "Saturn (excess of cold) and Mars (too much heat) show tardity and detriment in all questions unless the Moon and they receive each other. Jupiter and Venus, naturally fortunes, put the matter forward even without reception, best when they apply by trine or sextile, and to purpose when in essential dignity. Where fortunes are significators hope well; where infortunes, fear the worst. Evil planets as significators: evil is heavier, good is less than expected and comes only with infinite solicitation. Fortunes casting an aspect to infortune significators lessen the evil. Fortunes cadent, ill placed, not beholding the ascendant or retrograde perform little unless received. Reception from an infortune performs but little; with fortunes as significators the thing is perfected. Yet Saturn or Mars in house, exaltation, triplicity and angular perform the thing. Trust a fortune's help only if it is in essential dignity; otherwise it performs by halves. Two infortunes joined: promised good has no effect; promised evil falls out with more malice.",
+   "statement_vi": "Thổ Tinh (quá lạnh) và Hỏa Tinh (quá nóng) gây chậm trễ và tổn hại trong mọi câu hỏi, trừ khi Trăng và chúng tiếp nhận nhau. Mộc Tinh và Kim Tinh vốn là cát tinh, đẩy việc tiến lên kể cả khi không có tiếp nhận, tốt nhất khi chiếu bằng tam hợp hay lục hợp, và hiệu quả khi đắc địa bản chất. Cát tinh làm sao chủ thì hy vọng; hung tinh thì lo điều xấu nhất. Sao xấu làm sao chủ: điều xấu nặng hơn, điều tốt ít hơn mong đợi và chỉ đến sau vô vàn cầu cạnh. Cát tinh chiếu tới hung tinh làm sao chủ thì giảm bớt cái xấu. Cát tinh ở cung suy, đóng xấu, không nhìn cung Mệnh hay nghịch hành thì làm được ít, trừ khi được tiếp nhận. Tiếp nhận từ hung tinh chẳng giúp được bao nhiêu; cát tinh làm sao chủ thì việc thành. Tuy vậy Thổ hay Hỏa ở nhà, vượng, tam hợp và ở cung góc vẫn làm việc thành. Chỉ tin sự giúp của cát tinh khi nó đắc địa bản chất; nếu không chỉ giúp được một nửa. Hai hung tinh kết nhau: điều tốt hứa hẹn không thành; điều xấu xảy ra còn tệ hơn.",
+   "conditions": "nature of significators: malefic vs benefic; reception with the Moon; benefic's dignity and placement; malefic's dignity and angularity",
+   "exceptions": [
+    "Saturn or Mars in domicile, exaltation or triplicity and angular perform the thing (aph. 20)"
+   ],
+   "effect": "modifies",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 298,
+     "quote": "and therefore in all Questions they shew tardity and detriment in the Question, unlesse the"
+    },
+    {
+     "work": "LILLY",
+     "page": 298,
+     "quote": "In every Question where the Fortunes are Significators, hope well; but if the Infortunes, then fear the worst"
+    },
+    {
+     "work": "LILLY",
+     "page": 299,
+     "quote": "if they foretell of any good, it's lesse then what is expected, it's imperfect"
+    },
+    {
+     "work": "LILLY",
+     "page": 299,
+     "quote": "Notwithstanding Reception, if he be an Infortune, he performes but little"
+    },
+    {
+     "work": "LILLY",
+     "page": 300,
+     "quote": "for then he performes matters wholly, else but by halves."
+    },
+    {
+     "work": "LILLY",
+     "page": 300,
+     "quote": "One Infortune joyned to another, if good be signified by their aspect, yet will it have no effect"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.09_11_moon_voc_separation_application",
+   "category": "moon",
+   "title_en": "Aphorisms 9-12: Moon void of course; her separation and application",
+   "title_vi": "Cách ngôn 9–12: Trăng vô hành; Trăng rời và tiến tới",
+   "statement_en": "If the Moon is void of course there is no great hope the question will be effected; yet in Cancer, Taurus, Sagittarius or Pisces the fear may be less. The planet the Moon separated from shows what has already been done (good from a fortune, ill from a malefic, by the nature of the house). Her application shows the present condition of the thing: applying by good aspect, in a good house, to a good planet, strong hopes. The Moon applying to a planet in its fall signifies anguish, trouble and delays.",
+   "statement_vi": "Nếu Mặt Trăng vô hành thì không mấy hy vọng việc thành; tuy nhiên ở Cự Giải, Kim Ngưu, Nhân Mã hay Song Ngư thì đỡ lo hơn. Sao mà Trăng vừa rời cho biết việc đã xảy ra (tốt nếu là cát tinh, xấu nếu là hung tinh, theo tính chất cung). Thế chiếu tới của Trăng cho biết tình trạng hiện tại: chiếu tốt, ở nhà tốt, tới sao tốt – rất hy vọng. Trăng tiến tới sao đang ở vị trí suy (fall): đau khổ, rắc rối và chậm trễ.",
+   "conditions": "Moon VOC (softened in Cancer, Taurus, Sagittarius, Pisces); Moon's last separation (past) and next application (present/future); application to a planet in fall",
+   "exceptions": [],
+   "effect": "testimony_against",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 299,
+     "quote": "there's no great hopes of the Question propounded, that it shall be effected"
+    },
+    {
+     "work": "LILLY",
+     "page": 299,
+     "quote": "your fear may be the lesse, for then she is not much impedited by being voyd of course."
+    },
+    {
+     "work": "LILLY",
+     "page": 299,
+     "quote": "to a Planet in his Fall, signifies anguish, trouble and delayes in the thing demanded."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.13_15_retrograde_slow",
+   "category": "motion",
+   "title_en": "Aphorisms 13, 15: retrograde, first station, slow motion",
+   "title_vi": "Cách ngôn 13, 15: nghịch hành, trạm thứ nhất, đi chậm",
+   "statement_en": "A retrograde planet, or one in its first station, as significator denotes ill in the question, discord and much contradiction. A planet slow in motion prolongs the thing so that it is hardly performed; the nature of the sign much helps the judgment.",
+   "statement_vi": "Sao chủ nghịch hành, hoặc đang ở trạm thứ nhất (first station, sắp nghịch), báo điều xấu, bất hòa và nhiều trái ngược. Sao đi chậm kéo dài việc khiến khó thành; tính chất cung mà sao đóng giúp luận thêm.",
+   "conditions": "significator retrograde or stationing retrograde -> against; slow -> delay",
+   "exceptions": [],
+   "effect": "testimony_against",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 299,
+     "quote": "A Retrograde Planet, or one in his first station, Significator in the Question, denotes ill in the Question, discord and much contradiction."
+    },
+    {
+     "work": "LILLY",
+     "page": 299,
+     "quote": "A Planet that is slow in motion, prolongs the thing quesited after, so that it's hardly performed"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.19_peregrine",
+   "category": "dignity_essential",
+   "title_en": "Aphorism 19: a peregrine planet is malicious beyond expression",
+   "title_vi": "Cách ngôn 19: sao lạc vị ác ý khôn tả",
+   "statement_en": "A peregrine planet (no essential dignity where it is) is malicious beyond expression; in essential dignities, less so, like a noble soul that has his enemy in his clutches but scorns to hurt him.",
+   "statement_vi": "Sao lạc vị (không có phẩm vị bản chất nào ở chỗ nó đứng) ác ý khôn tả; nếu đắc địa thì bớt, như người cao thượng nắm kẻ thù trong tay mà không thèm làm hại.",
+   "conditions": "peregrine malefic/afflictor -> stronger harm; dignified -> less",
+   "exceptions": [],
+   "effect": "modifies",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 299,
+     "quote": "A Planet Peregrine, viz. having no essentiall Dignities where he is, he is malicious beyond expression"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.22_equal_weak",
+   "category": "method",
+   "title_en": "Aphorism 22: fortunes and infortunes equally weak - promise no success",
+   "title_vi": "Cách ngôn 22: cát và hung đều yếu như nhau – đừng hứa thành công",
+   "statement_en": "When both fortunes and infortunes are either weak or equally ill placed, promise no success upon that demand; defer the judgment until the heavens have a better position.",
+   "statement_vi": "Khi cả cát tinh và hung tinh đều yếu hoặc đóng xấu như nhau, đừng hứa thành công; hãy hoãn luận cho đến khi trời có vị thế tốt hơn.",
+   "conditions": "all benefics and malefics weak/afflicted equally -> no promise, defer",
+   "exceptions": [],
+   "effect": "warning",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 300,
+     "quote": "promise no successe upon that demand; deferre the Judgment untill the Heavens have a better Position."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.23_26_35_combustion_cazimi",
+   "category": "sun",
+   "title_en": "Aphorisms 23, 26, 35: combustion, opposition to the Sun, under the beams, cazimi",
+   "title_vi": "Cách ngôn 23, 26, 35: bị đốt, xung Mặt Trời, dưới tia, cazimi",
+   "statement_en": "When the significator of the question is combust or in opposition to the Sun, it signifies nothing of the matter, no good, and can bring nothing to perfection. A planet within twelve degrees of the Sun is under his beams and has no fortitude, whatever sign; within sixteen minutes it is in cazimi, an addition of fortune, wondrous strong. No affliction to the Moon is as great as her conjunction with the Sun (combustion), greater than the ill aspects of the infortunes.",
+   "statement_vi": "Khi sao chủ của câu hỏi bị đốt (combust) hoặc xung chiếu Mặt Trời, nó không chỉ được gì cho việc, không tốt, không làm gì thành được. Sao trong vòng mười hai độ của Mặt Trời là 'dưới tia' (under the beams), không còn sức, dù ở cung nào; trong vòng mười sáu phút là cazimi (ở tim Mặt Trời), được thêm phúc, cực mạnh. Không có sự tổn hại nào với Mặt Trăng lớn bằng khi Trăng hợp Mặt Trời (bị đốt), nặng hơn cả góc xấu của hung tinh.",
+   "conditions": "significator combust or opposite the Sun -> cannot perfect; within 12° of Sun -> under the beams (no fortitude); within 0°16' -> cazimi (very strong); Moon conjunct Sun -> her worst affliction",
+   "exceptions": [
+    "cazimi within 16 minutes (aph. 26)"
+   ],
+   "effect": "testimony_against",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 300,
+     "quote": "when the Significator of the question is either Combust, or in Opposition to the"
+    },
+    {
+     "work": "LILLY",
+     "page": 300,
+     "quote": "A Planet within twelve degrees of the"
+    },
+    {
+     "work": "LILLY",
+     "page": 300,
+     "quote": "he is said to be in Cazimi, or heat of the"
+    },
+    {
+     "work": "LILLY",
+     "page": 301,
+     "quote": "the ill aspects of the Infortunes doth much afflict her, but none so powerfull as her Combustion."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.25_lord1_debilitated",
+   "category": "significator",
+   "title_en": "Aphorism 25: lord of the ascendant out of dignity and cadent - querent without hope",
+   "title_vi": "Cách ngôn 25: chủ Mệnh mất phẩm vị và ở cung suy – người hỏi hết hy vọng",
+   "statement_en": "The lord of the ascendant out of his essential dignities, cadent, etc., shows the querent is out of all hopes in his business.",
+   "statement_vi": "Chủ Mệnh không có phẩm vị bản chất, ở cung suy..., cho thấy người hỏi đã hết hy vọng vào việc của mình.",
+   "conditions": "lord 1 peregrine and cadent -> querent's state: hopeless",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 300,
+     "quote": "shewes the Querent is out of all hopes in his businesse."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.27_28_orientality_sign_quality",
+   "category": "timing",
+   "title_en": "Aphorisms 27-28: oriental superiors hasten; fixed, common, moveable signs",
+   "title_vi": "Cách ngôn 27–28: sao trên phương đông làm nhanh; cung cố định, biến động, động",
+   "statement_en": "See to what planet the significator commits its disposition: if to Saturn, Jupiter or Mars oriental, the matter is sooner performed, later if occidental; the contrary in Venus and Mercury. Fixed signs show stability and that the thing shall continue; common signs the oft probability of perfecting it and yet not its conclusion; moveable signs a sudden resolution or conclusion one way or other.",
+   "statement_vi": "Xét sao chủ trao quyền (commits its disposition) cho sao nào: nếu cho Thổ, Mộc hay Hỏa đang ở phương đông (oriental) thì việc thành sớm hơn, ở phương tây (occidental) thì muộn hơn; ngược lại với Kim và Thủy. Cung cố định cho thấy ổn định, việc sẽ bền; cung biến động cho thấy nhiều lần tưởng sắp thành mà chưa kết thúc; cung động cho thấy việc được quyết nhanh theo hướng này hay hướng khác.",
+   "conditions": "receiving planet: superior oriental -> sooner, occidental -> later; Venus/Mercury the reverse; significator's sign quality -> stability / indecision / sudden resolution",
+   "exceptions": [],
+   "effect": "modifies",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 300,
+     "quote": "See to what Planet the Significator commits his disposition, and if Orientall or Occidentall"
+    },
+    {
+     "work": "LILLY",
+     "page": 300,
+     "quote": "fixed Signes shew stability, and that the thing shall continue"
+    },
+    {
+     "work": "LILLY",
+     "page": 300,
+     "quote": "moveable Signes shew a sudden resolution or conclusion of the matter one way or other."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.29_31_nodes_eclipse_moon",
+   "category": "moon",
+   "title_en": "Aphorisms 29-31: Dragon's head or tail; eclipse degree; the Moon impedited",
+   "title_vi": "Cách ngôn 29–31: đầu/đuôi Rồng; độ nhật/nguyệt thực; Trăng bị cản",
+   "statement_en": "Lord 1 or the Moon with the Head or Tail of the Dragon brings damage to the question (read from the house they are in). If the ascendant degree or the significator's place is the place of an eclipse at hand, the matter, though in a fair way, shall insensibly receive prejudice and hardly be concluded. If the Moon is impedited there will be the like stay or hindrance; seldom good end comes of a question where the Moon is impedited (war: fear for the querent's life; journey: ill success; marriage: an ill end of wooing).",
+   "statement_vi": "Chủ Mệnh hay Trăng đi cùng Đầu hoặc Đuôi Rồng (các nút) gây hại cho câu hỏi (đọc theo cung chúng đóng). Nếu độ Mọc hay vị trí sao chủ trùng chỗ một lần thực sắp đến, việc dù đang thuận cũng sẽ âm thầm bị tổn hại và khó kết thúc. Nếu Trăng bị cản thì việc cũng bị trì hoãn, cản trở tương tự; câu hỏi mà Trăng bị cản hiếm khi có kết cục tốt (đi đánh trận: lo cho tính mạng; đi xa: không thành; hôn nhân: tán tỉnh kết thúc xấu).",
+   "conditions": "lord 1 or Moon conjunct a node; asc degree or significator on a coming eclipse degree; Moon afflicted",
+   "exceptions": [],
+   "effect": "testimony_against",
+   "school": "lilly",
+   "status": "operationalised",
+   "engine_choice": "Lilly gives no orb for 'with' the nodes, no orb for the eclipse degree and no window for 'at hand'; whatever values the engine uses are its own choice and must be labelled as such in traces (open decision).",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 301,
+     "quote": "brings damage to the Question propounded; see in what house they are in, and receive signification from thence."
+    },
+    {
+     "work": "LILLY",
+     "page": 301,
+     "quote": "yet shall it insensibly receive prejudice when least is expected, and hardly be concluded."
+    },
+    {
+     "work": "LILLY",
+     "page": 301,
+     "quote": "there's seldome good end comes of a Question where the"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.32_sign_opposite_house",
+   "category": "dignity_essential",
+   "title_en": "Aphorism 32: significator in the sign opposite its own house",
+   "title_vi": "Cách ngôn 32: sao chủ ở cung đối diện nhà của nó",
+   "statement_en": "If the lord of the question or the Moon is in a sign opposite to its own house (as Mercury in Sagittarius or Pisces), the querent has no good hopes of his demands, despairs, does not delight in it, nor cares whether it is performed.",
+   "statement_vi": "Nếu chủ của câu hỏi hay Mặt Trăng ở cung đối diện nhà mình (như Thủy Tinh ở Nhân Mã hay Song Ngư – tức ở vị trí tổn hại, detriment), người hỏi không mấy hy vọng, chán nản, không còn thích thú và chẳng màng việc có thành hay không.",
+   "conditions": "querent's significator or Moon in detriment -> querent's attitude: despair/indifference",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 301,
+     "quote": "the Querent hath no good hopes of his demands, he despaires, nor doth he delight in it"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.33_34_36_38_impeding_angularity",
+   "category": "denial",
+   "title_en": "Aphorisms 33-34, 36-38: impeding planet, angularity, frustration and prohibition",
+   "title_vi": "Cách ngôn 33–34, 36–38: sao cản, vị trí góc, hụt (frustration) và ngăn chặn (prohibition)",
+   "statement_en": "Consider the planet impeding the significator of the thing and the house it rules or occupies: from that house take the cause obstructing. The nearer your significator is to an angle the more good; less if succedent; little if cadent. An infortune aspecting your significator, both peregrine, retrograde, cadent or in signs contrary to their nature: the mischief may be inevitable according to natural causes. Significators in conjunction in a sign agreeing with their nature: perfection with ease, else not. Regard whether any frustration or prohibition comes before the perfect aspect: the frustrating planet describes the party or cause hindering.",
+   "statement_vi": "Xét sao cản trở sao chủ của việc và cung nó cai quản hay đóng: lấy nguyên nhân cản trở từ cung đó. Sao chủ càng gần cung góc càng tốt; kém hơn nếu ở cung kế góc; ít nếu ở cung suy. Hung tinh chiếu sao chủ của bạn mà cả hai đều lạc vị, nghịch hành, ở cung suy hay ở cung trái bản tính: tai họa có thể không tránh được theo lẽ tự nhiên. Các sao chủ hợp nhau trong cung hợp bản tính: việc thành dễ dàng, nếu không thì không. Xét có sự hụt (frustration) hay ngăn chặn (prohibition) nào trước khi thành góc chiếu đúng không: sao gây hụt mô tả người hay nguyên nhân cản trở.",
+   "conditions": "identify impeding/frustrating planet (house = cause); angularity grading of significators; frustration/prohibition before perfection -> denial (definitions in Lilly Book I)",
+   "exceptions": [],
+   "effect": "testimony_against",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 301,
+     "quote": "The neerer your Significator is to an Angle, the more good you may expect; lesse, if placed in a Succedant house; little, if in a Cadent."
+    },
+    {
+     "work": "LILLY",
+     "page": 301,
+     "quote": "whether any frustration or prohibition be before the perfect aspect: the Planet frustrating describes the party or cause hindering the matter demanded."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.39_42_43_fortune_benefics_tail",
+   "category": "house",
+   "title_en": "Aphorisms 39, 42-43: the Part of Fortune, Jupiter/Venus and the Dragon's Tail by house",
+   "title_vi": "Cách ngôn 39, 42–43: Điểm Phúc, Mộc/Kim và Đuôi Rồng theo cung",
+   "statement_en": "The Part of Fortune well dignified in any house: the querent gains by men or things of that house; ill dignified, damage from thence. Where Jupiter and Venus are well dignified, expect benefit from the men and things of that house (3rd kindred, 4th father or lands, 5th play...). Beware men and things of the house where the Dragon's Tail is; it seldom fails but the querent receives damage, scandal or slander from them.",
+   "statement_vi": "Điểm Phúc đắc địa ở cung nào thì người hỏi được lợi nhờ người và việc của cung ấy; bị hại thì chịu thiệt từ đó. Mộc và Kim đắc địa ở cung nào thì mong được lợi từ người và việc của cung đó (cung 3 – họ hàng, cung 4 – cha hay đất đai, cung 5 – vui chơi...). Hãy cảnh giác với người và việc của cung có Đuôi Rồng; hiếm khi sai, người hỏi sẽ bị thiệt, tai tiếng hay vu khống từ đó.",
+   "conditions": "house placement of Part of Fortune, Jupiter, Venus, south node",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 301,
+     "quote": "which if well dignified in any house, the querent gets by men, or things denoted by that house"
+    },
+    {
+     "work": "LILLY",
+     "page": 302,
+     "quote": "you may expect benefit from such men and things as are signified by that house"
+    },
+    {
+     "work": "LILLY",
+     "page": 302,
+     "quote": "it seldome failes, but the querent shall receive damage, scandall or slander from men and matter signified by the house he is in."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.aph.40_unfortunate_in_seventh_marriage",
+   "category": "topic",
+   "title_en": "Aphorism 40: an unfortunate planet in the 7th in marriage questions",
+   "title_vi": "Cách ngôn 40: sao xấu ở cung 7 trong câu hỏi hôn nhân",
+   "statement_en": "In questions of marriage an unfortunate planet in the seventh threatens ill agreement in marriage, unless the same planet be a significator at the birth.",
+   "statement_vi": "Trong câu hỏi hôn nhân, một sao xấu ở cung 7 báo hiệu vợ chồng không hòa thuận, trừ khi chính sao ấy là sao chủ trong lá số sinh.",
+   "conditions": "marriage question; afflicted planet in the 7th",
+   "exceptions": [
+    "the same planet a significator in the nativity (not available to the product)"
+   ],
+   "effect": "testimony_against",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 302,
+     "quote": "an unfortunate Planet in the seventh threatens ill agreement in Marriage, unlesse the same Planet be a Significator at the Birth."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.love.significators",
+   "category": "topic",
+   "title_en": "Marriage: significators of querent and quesited (7th house)",
+   "title_vi": "Hôn nhân: sao chủ của người hỏi và người được hỏi (cung 7)",
+   "statement_en": "In a question of marriage give the querent the ascendant, its lord, the Moon and the planet from which the Moon separates; give the person asked about the 7th, its lord and the planet to which the Moon applies (also a planet in the 7th). If a man asks, join the Sun with his significators as natural significator of men; if a woman asks, join Venus as natural significatrix of women.",
+   "statement_vi": "Trong câu hỏi hôn nhân, người hỏi được cung Mệnh, chủ Mệnh, Mặt Trăng và sao mà Trăng vừa rời; người được hỏi được cung 7, chủ cung 7 và sao mà Trăng sắp chiếu tới (cùng sao nằm trong cung 7). Nếu người hỏi là nam, thêm Mặt Trời – sao chủ tự nhiên của nam giới; nếu là nữ, thêm Kim Tinh – sao chủ tự nhiên của nữ giới.",
+   "conditions": "querent = 1st, lord 1, Moon, planet the Moon separates from (+ Sun for a man / Venus for a woman); quesited = 7th, lord 7, planet the Moon applies to, planet in the 7th",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 302,
+     "quote": "and the seventh house, and the Lord thereof, and the Planet to whom the"
+    },
+    {
+     "work": "LILLY",
+     "page": 304,
+     "quote": "If a man aske, his Significators are, first, the Lord of the ascendant: secondly, the"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.love.perfection",
+   "category": "topic",
+   "title_en": "Whether the marriage shall take effect",
+   "title_vi": "Hôn sự có thành không",
+   "statement_en": "Lord 1 or the Moon applying to lord 7: the querent obtains his desire but with many petitions and solicitations (by his own labour); by square or opposition with reception, slowly and with labour. Lord 7 applying to lord 1, or in the ascendant: brought about easily, with the good will of the quesited (Chap. XLIX) - though another passage of the same chapter says 'unwillingly consented unto by the party desired'. Translation of light between them: by friends or acquaintance; the Moon in the 10th, or the Moon applying to Venus, or Sun and Venus applying, the same by mediation of friends. Lilly's own section (p.317): lord 1 or the Moon joined to lord 7 in lord 7's dignities, in the 1st, 11th or 10th (hardly in the 7th): obtained; sextile or trine from good houses, with or without reception, no prohibition, frustration, abscission or retrogradation intervening: concluded if the querent please; square or opposition without reception: comes to nothing; square with reception: perfected with a little difficulty. A translating planet that is not retrograde, combust, unfortunate or cadent and not afflicted by an infortune without reception: effected and lasting, especially a fortune.",
+   "statement_vi": "Chủ Mệnh hay Trăng tiến tới chủ cung 7: người hỏi được như ý nhưng phải cầu xin, nài nỉ nhiều (tự mình cố gắng); bằng vuông hay xung có tiếp nhận: thành chậm và vất vả. Chủ cung 7 tiến tới chủ Mệnh, hoặc ở cung Mệnh: thành dễ dàng, do thiện chí của người được hỏi (Chương XLIX) – dù một đoạn khác cùng chương nói 'người kia ưng thuận một cách miễn cưỡng'. Có chuyển ánh sáng giữa hai sao: thành nhờ bạn bè, người quen; Trăng ở cung 10, hoặc Trăng tiến tới Kim Tinh, hoặc Mặt Trời và Kim Tinh tiến tới nhau: cũng thành nhờ người trung gian. Phần riêng của Lilly (tr.317): chủ Mệnh hay Trăng kết với chủ cung 7 trong phẩm vị của chủ cung 7, ở cung 1, 11 hay 10 (khó ở cung 7): được người mình muốn; lục hợp hay tam hợp từ các nhà tốt, có hay không có tiếp nhận, không bị ngăn chặn, hụt, cắt hay nghịch hành xen vào: thành nếu người hỏi muốn; vuông hay xung không tiếp nhận: không thành; vuông có tiếp nhận: thành nhưng hơi khó. Sao chuyển ánh sáng không nghịch hành, không bị đốt, không bất lợi hay ở cung suy, không bị hung tinh hại mà không tiếp nhận: thành và bền, nhất là khi nó là cát tinh.",
+   "conditions": "perfection between querent's and quesited's significators; aspect type and reception grade it; no prohibition/frustration/abscission/retrogradation before perfection",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "disputed",
+   "dispute": "Within Lilly's own compilation (Chap. XLIX): p.303 says lord 7 applying to lord 1 or in the ascendant brings the matter 'easily to passe, with great good will' of the quesited; p.304 says lord 7 in the ascendant or applying to lord 1 'will unwillingly be consented unto by the party desired'. Both are quoted from older sources; Lilly's own observation (p.317) is that lord 7 in the ascendant shows the querent loving most.",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 302,
+     "quote": "it doth signifie the Querent shall have his or her desire, yet with many petitions, solicitations and prayers"
+    },
+    {
+     "work": "LILLY",
+     "page": 303,
+     "quote": "the matter shall be brought easily to passe, with great good will of the man or woman quesited after"
+    },
+    {
+     "work": "LILLY",
+     "page": 304,
+     "quote": "it will unwillingly be consented unto by the party desired"
+    },
+    {
+     "work": "LILLY",
+     "page": 317,
+     "quote": "no prohibition, frustration or abscission, or Retrogradation of the principall Significators intervening, the Match will be concluded if the querent please"
+    },
+    {
+     "work": "LILLY",
+     "page": 317,
+     "quote": "if no Reception be, there's onely hopes, no grounds whereby to judge the thing shall be effected really."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.love.who_loves_most",
+   "category": "topic",
+   "title_en": "Who loves most",
+   "title_vi": "Ai yêu nhiều hơn",
+   "statement_en": "The compiled rule (p.305): lord 7 in the ascendant, the party desired loves best; lord 1 in the 7th, the querent loves best (those that apply argue most love). Lord 7 in the 7th, especially in his own house: the party desired is free from love and has little mind to marriage. Significators of the desired party not beholding the querent's: love of some other, or aversion. Lilly's own experience, 'contrary to all the rules of the Ancients': when lord 7 was in the ascendant the querent loved most, and when lord 1 was in the 7th the quesited loved best.",
+   "statement_vi": "Quy tắc tổng hợp (tr.305): chủ cung 7 ở cung Mệnh – người được mong muốn yêu nhiều hơn; chủ Mệnh ở cung 7 – người hỏi yêu nhiều hơn (bên nào tiến tới chiếu là yêu nhiều hơn). Chủ cung 7 ở cung 7, nhất là ở nhà mình: người kia không vướng tình, ít muốn kết hôn. Sao chủ của người kia không nhìn sao chủ người hỏi: họ yêu người khác, hoặc không thích người hỏi. Kinh nghiệm riêng của Lilly, 'trái với mọi quy tắc của người xưa': khi chủ cung 7 ở cung Mệnh thì người hỏi yêu nhiều hơn, khi chủ Mệnh ở cung 7 thì người được hỏi yêu nhiều hơn.",
+   "conditions": "lord 7 in the 1st / lord 1 in the 7th; lord 7 in its own house in the 7th; no aspect between the parties' significators",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "disputed",
+   "dispute": "The older rule Lilly prints on p.305 (lord 7 in the ascendant: the party desired loves best) is reversed by his own practice on p.317 (lord 7 in the ascendant: the querent loved most). The engine should follow Lilly's own observation and report the older rule as the Ancients' view.",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 305,
+     "quote": "The Lord of the seventh in the seventh, especially in one of his owne houses, the party desired is free from love, hath little mind to Marriage"
+    },
+    {
+     "work": "LILLY",
+     "page": 317,
+     "quote": "Contrary to all the rules of the Ancients, I have ever found, that when the Lord of the seventh hath been in the ascendant, the querent hath loved most"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.love.hindrance_by_house",
+   "category": "topic",
+   "title_en": "What hinders (or furthers) the marriage: the house of the obstructing planet",
+   "title_vi": "Điều gì cản (hay giúp) hôn sự: cung của sao cản trở",
+   "statement_en": "Find the evil planet that hinders the reception of the significators, frustrates or prohibits their aspect, or casts its rays between them; its house names the cause: lord 2, the querent's want of money; lord 3, kindred, neighbours or a journey; lord 4, the parent will settle no estate; lord 5, children or scandal about them; lord 6, father's kin, a servant or the querent's sickness; a planet in the 7th, a rival, open enemy or lawsuit; lord 8, death or an insufficient portion; lord 9, the quesited's kin, religion, a priest, a long journey; lord 10, the quesited's father or querent's mother or a magistrate; lord 11, friends dislike the match; lord 12, underhand dealing and secret slander. By the same rules (varied), the house of a translating or collecting planet shows who will help (lord 2 a friend promising dowry, 3 a brother, 10 a mother, 5 or 11 a friend, 6 an uncle, aunt or servant). Perfection by square or opposition: much ado; by sextile or trine: easy; with reception: best of all.",
+   "statement_vi": "Tìm hung tinh cản trở sự tiếp nhận giữa các sao chủ, làm hụt hay ngăn chặn góc chiếu, hoặc chen tia vào giữa; cung của nó cho biết nguyên nhân: chủ 2 – người hỏi thiếu tiền; chủ 3 – họ hàng, láng giềng hay một chuyến đi; chủ 4 – cha mẹ không chịu cho tài sản; chủ 5 – con cái hay tai tiếng về con; chủ 6 – họ hàng bên cha, người làm, hoặc bệnh của người hỏi; sao trong cung 7 – tình địch, kẻ thù công khai hay kiện tụng; chủ 8 – cái chết hoặc của hồi môn không đủ; chủ 9 – họ hàng bên kia, tôn giáo, giáo sĩ, chuyến đi xa; chủ 10 – cha của người kia hay mẹ người hỏi, quan chức; chủ 11 – bạn bè không ưng; chủ 12 – mưu ngầm và vu khống bí mật. Cũng theo cách đó, cung của sao chuyển hay thu ánh sáng cho biết ai giúp (chủ 2: bạn hứa của hồi môn; 3: anh em; 10: mẹ; 5 hay 11: bạn; 6: chú bác, cô dì hay người làm). Thành bằng vuông hay xung: rất lôi thôi; lục hay tam hợp: dễ; có tiếp nhận: tốt nhất.",
+   "conditions": "obstructing/frustrating planet's house rulership -> cause; translator/collector's house -> helper",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 305,
+     "quote": "consider what evill Planet it is who doth hinder the Reception of the disposition of the Significators"
+    },
+    {
+     "work": "LILLY",
+     "page": 306,
+     "quote": "If the Lord of the twelfth, then there is some under-hand dealing and much Jugling in the businesse"
+    },
+    {
+     "work": "LILLY",
+     "page": 305,
+     "quote": "Reception, best of all."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.love.whether_marry_and_timing",
+   "category": "timing",
+   "title_en": "Whether a man shall marry, and when",
+   "title_vi": "Người hỏi có kết hôn không, và khi nào",
+   "statement_en": "The Moon beholding the Sun or Venus by good aspect, or lord 1 in the 7th or lord 7 in the 1st, or the two beholding each other well: marriage. Lilly observes: significators in prolific signs or in Venus's dignities, the querent marries. Time: the degrees of the application of the Sun, Moon or lord 1 to lord 7 (or lord 7 to lord 1): moveable signs, days; common signs, months; fixed signs, years - understood only when testimonies of marriage are strong and the significators swift.",
+   "statement_vi": "Trăng chiếu tốt Mặt Trời hoặc Kim Tinh, hoặc chủ Mệnh ở cung 7 hay chủ cung 7 ở cung Mệnh, hoặc hai sao chiếu tốt nhau: có kết hôn. Lilly nhận xét: sao chủ ở cung sinh sản (prolific) hoặc trong phẩm vị của Kim Tinh thì người hỏi lập gia đình. Thời gian: số độ của thế chiếu từ Mặt Trời, Trăng hay chủ Mệnh tới chủ cung 7 (hoặc ngược lại): cung động – ngày; cung biến động – tháng; cung cố định – năm; chỉ áp dụng khi chứng cứ hôn nhân mạnh và các sao chủ đi nhanh.",
+   "conditions": "units by the sign quality of the application: moveable days, common months, fixed years; only with strong testimonies and swift significators",
+   "exceptions": [
+    "only when testimonies are strong and significators swift (p.307)"
+   ],
+   "effect": "timing_method",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 307,
+     "quote": "I observe, if the Significators be in Prolificall Signes, or Dignities of"
+    },
+    {
+     "work": "LILLY",
+     "page": 307,
+     "quote": "if it be in moveable Signs, Dayes; in common Signes, Moneths; in fixed Signes, Yeers"
+    },
+    {
+     "work": "LILLY",
+     "page": 307,
+     "quote": "This must be understood when you find strong testimonies of Marriage, and that the Significators are swift."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.love.agreement_after",
+   "category": "topic",
+   "title_en": "How they shall agree after marriage; who shall be master; the cause of strife",
+   "title_vi": "Sau cưới có hòa thuận không; ai làm chủ; nguyên nhân bất hòa",
+   "statement_en": "If the figure promises marriage: lords 1 and 7 in trine or sextile, they agree well; the Moon beholding her dispositor or the lord of her exaltation well, the same. The weightier of the two significators in an angle shall be master. Lords 1 and 7 in square or opposition, or a retrograde or combust planet in the ascendant: contention, begun by the querent (the like on the quesited's side by lord 7). The planet that afflicts shows the cause (lord 3 in the 1st or 7th: kindred; an infortune in the 10th: chiding; in the 4th: divorce or dowry trouble). Who is richer: lord 8 or a planet in the 8th strong, or the Moon applying well to lord 8, she (the quesited) is wealthy.",
+   "statement_vi": "Nếu lá số hứa có cưới: chủ cung 1 và 7 tam hợp hay lục hợp – hòa thuận; Trăng chiếu tốt chủ của mình hay chủ vượng địa của cung mình đóng – cũng vậy. Sao nặng hơn trong hai sao chủ ở cung góc sẽ làm chủ gia đình. Chủ 1 và 7 vuông hay xung, hoặc sao nghịch hành hay bị đốt ở cung Mệnh: bất hòa, do người hỏi gây ra (tương tự phía người kia với chủ cung 7). Sao gây hại cho biết nguyên nhân (chủ 3 ở cung 1 hay 7: họ hàng; hung tinh ở cung 10: cãi cọ; ở cung 4: ly dị hay rắc rối của hồi môn). Ai giàu: chủ cung 8 hay sao trong cung 8 mạnh, hoặc Trăng chiếu tốt chủ cung 8 – người kia giàu.",
+   "conditions": "aspect lord1-lord7 after a positive verdict; heavier angular significator = master; 8th = partner's wealth",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 309,
+     "quote": "note if the Lord of the ascendant and Lord of the seventh aspect each other with trine or sextile they agree well"
+    },
+    {
+     "work": "LILLY",
+     "page": 309,
+     "quote": "If the man aske, see the Lord of the eighth, or Planet in the eighth, for if they be strong"
+    },
+    {
+     "work": "LILLY",
+     "page": 310,
+     "quote": "doth note contention ever by the querent"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.love.broken_off",
+   "category": "denial",
+   "title_en": "That the intended marriage shall be broken off",
+   "title_vi": "Hôn sự dự định sẽ đổ vỡ",
+   "statement_en": "Behold the planet that receives the light of the significators: if it is heavy and hindered by square or opposition of an ill planet, or cadent, the intended marriage shall be broken off though at present very feasible. The hindering planet's house names the cause (lord 2 or 8: dowry; lord 3: brother; lord 4 or 10: father or mother). An ill planet carrying the light between them: by means of a messenger.",
+   "statement_vi": "Xét sao nhận ánh sáng của các sao chủ: nếu là sao nặng và bị hung tinh chiếu vuông hay xung, hoặc ở cung suy, hôn sự dự định sẽ đổ vỡ dù hiện tại có vẻ rất khả thi. Cung của sao cản cho biết nguyên nhân (chủ 2 hay 8: của hồi môn; chủ 3: anh em; chủ 4 hay 10: cha hay mẹ). Hung tinh chuyển ánh sáng giữa hai bên: đổ vỡ qua tay một người đưa tin.",
+   "conditions": "receiving (collecting) planet heavy and afflicted by square/opposition of a malefic, or cadent -> broken off",
+   "exceptions": [],
+   "effect": "testimony_against",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 310,
+     "quote": "Behold the Planet who receiveth the light of the Significators if he be a heavy Planet, and be hindered by square or opposition of an ill"
+    },
+    {
+     "work": "LILLY",
+     "page": 311,
+     "quote": "the intended Marriage shall be broken off againe, though at present it is very feasible."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.love.reconciliation",
+   "category": "topic",
+   "title_en": "Reconciliation: whether a woman (or lover) living apart shall return or be received",
+   "title_vi": "Hòa giải: người vợ (hay người yêu) sống xa có quay về hay được đón nhận lại không",
+   "statement_en": "If the absent woman asks whether she shall be received again: the 7th is ever given to the banished or expelled party. If lord 7 beholds the ascendant as partilly and well as lord 1 does, she shall return and come into favour; if lord 7 beholds another unimpedited planet that beholds the ascendant, by mediation of some person who reconciles them. Otherwise see the Sun (natural significator of the man) and Venus (of the woman): Sun above the earth and Venus beholding the ascendant by sextile or trine, she returns with ease; Sun under the earth and Venus above beholding the ascendant, received but with delays and much ado. Moon increasing and in good aspect to the ascendant: returns with much solicitation; decreasing, beholding the ascendant, not near the Sun's beams: returns with ease and quickly. Venus occidental, retrograde and hastening to combustion: she returns of her own accord. Of a woman flying from her husband (p.330): Sun under the earth, Venus occidental and retrograde, she returns of her own will; Venus oriental, she comes but unwillingly; lord 1, Moon and lord 7 in trine, she returns; in square or opposition without reception, never; the same serves for a mistress or sweetheart.",
+   "statement_vi": "Nếu người phụ nữ sống xa hỏi mình có được đón nhận lại không: cung 7 luôn dành cho bên bị đuổi hay bỏ đi. Nếu chủ cung 7 nhìn cung Mệnh đúng độ và tốt như chủ Mệnh nhìn, cô ấy sẽ trở về và được yêu thương lại; nếu chủ cung 7 nhìn một sao khác không bị hại mà sao ấy nhìn cung Mệnh, sẽ được hòa giải qua người trung gian. Nếu không, xét Mặt Trời (sao chủ tự nhiên của người chồng) và Kim Tinh (của người vợ): Mặt Trời trên đường chân trời và Kim Tinh lục/tam hợp cung Mệnh, cô ấy về dễ dàng; Mặt Trời dưới chân trời và Kim Tinh ở trên nhìn cung Mệnh, được đón nhận nhưng chậm trễ, nhiều lôi thôi. Trăng tròn dần và chiếu tốt cung Mệnh: về nhưng phải nài nỉ nhiều; khuyết dần, nhìn cung Mệnh, không gần tia Mặt Trời: về dễ và nhanh. Kim Tinh ở phương tây, nghịch hành và đang tiến tới bị đốt: cô ấy tự ý quay về. Về người vợ bỏ chồng (tr.330): Mặt Trời dưới chân trời, Kim Tinh phương tây và nghịch hành, cô ấy tự về; Kim Tinh phương đông, về nhưng miễn cưỡng; chủ Mệnh, Trăng và chủ cung 7 tam hợp, cô ấy về; vuông hay xung không tiếp nhận, không bao giờ; cũng dùng cho tình nhân, người yêu.",
+   "conditions": "absent party = 7th; lord 7's aspect to the ascendant; Sun/Venus above or below the earth and their aspects to the ascendant; Moon phase; Venus occidental retrograde",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 318,
+     "quote": "for the seventh is ever given to the banished or expulsed party"
+    },
+    {
+     "work": "LILLY",
+     "page": 318,
+     "quote": "This Question will as well resolve the doubt concerning a Mistris, &c. or Sweetheart."
+    },
+    {
+     "work": "LILLY",
+     "page": 319,
+     "quote": "she shall returne, but with much solicitation."
+    },
+    {
+     "work": "LILLY",
+     "page": 330,
+     "quote": "she will returne of her owne will"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.love.whether_lover_has_another",
+   "category": "topic",
+   "title_en": "Whether one's lover has another sweetheart",
+   "title_vi": "Người yêu có người khác không",
+   "statement_en": "Any planet in the 7th (not its lord): she has a lover of that planet's complexion; none in the 7th, none (for the man, relate to the 11th). Lord 7 void of course, none. Lord 7 or the Moon joined to Mars: a sweetheart or familiar, 'but I say not in any dishonest way'. Planet-by-planet readings follow (Mars in the 7th not in his own house: she has one; Saturn: loves one but lies not with him; etc.).",
+   "statement_vi": "Có sao trong cung 7 (không phải chủ cung 7): cô ấy có người yêu mang dáng vẻ của sao đó; không có sao nào trong cung 7: không có (với đàn ông thì xét cung 11). Chủ cung 7 vô hành: không có. Chủ cung 7 hay Trăng kết với Hỏa Tinh: có người thân thiết, 'nhưng tôi không nói là không đứng đắn'. Sau đó Lilly giải theo từng sao trong cung 7.",
+   "conditions": "planets in the 7th other than its lord; lord 7 void of course; lord 7 or Moon with Mars",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 316,
+     "quote": "Any Planet in the seventh, (so he be not the Lord of the seventh) she hath one of his complexion"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.business.seventh_house_scope",
+   "category": "house",
+   "title_en": "The seventh house: controversies, contracts, wars, bargains",
+   "title_vi": "Cung 7: tranh chấp, hợp đồng, chiến tranh, mua bán",
+   "statement_en": "Lilly heads the seventh house as the house of controversies, contracts, wars and bargains (also marriage, partners, open enemies, thieves and fugitives), and says its questions need more consideration and are harder to judge than any other house.",
+   "statement_vi": "Lilly mở đầu cung 7 là cung của tranh chấp, hợp đồng, chiến tranh và mua bán (cùng hôn nhân, đối tác, kẻ thù công khai, kẻ trộm, người bỏ trốn), và nói các câu hỏi của cung này cần cân nhắc nhiều hơn và khó luận hơn mọi cung khác.",
+   "conditions": "topic routing: partnership, contracts, bargains, adversaries -> 7th house",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 297,
+     "quote": "require more consideration, and are more difficult to judge then of any other house"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.business.partnership_whether",
+   "category": "topic",
+   "title_en": "Partnership: whether it shall be, and whether the partners agree",
+   "title_vi": "Hợp tác: có thành không, các bên có hợp nhau không",
+   "statement_en": "(Chap. LII, compiled.) Good planets in the 7th and 1st: the partnership shall be and good will come of it; its continuance is known by lord 7; a good planet in the 7th, it shall be that year. Lords 1 and 7 agreeing in nature and quality: the parties agree; if not, perpetual or frequent jangling. Which partner gains: the one whose significator is in better dignities; the one whose significator is cadent does worst; compare the 2nd (querent's substance) and the 8th (partner's riches): the house with the better planet, or whose lord is better placed, gains most; both good, both gain; both ill, both lose.",
+   "statement_vi": "(Chương LII, tổng hợp.) Cát tinh ở cung 7 và cung 1: sự hợp tác sẽ thành và có kết quả tốt; thời gian kéo dài xét theo chủ cung 7; có cát tinh ở cung 7 thì thành ngay trong năm. Chủ cung 1 và 7 hợp bản tính: hai bên hợp nhau; nếu không, cãi cọ triền miên hay thường xuyên. Ai được lợi hơn: bên có sao chủ đắc địa hơn; bên có sao chủ ở cung suy thì thiệt nhất; so cung 2 (của cải người hỏi) với cung 8 (của cải đối tác): cung có sao tốt hơn, hoặc chủ cung đóng tốt hơn, sẽ được nhiều hơn; cả hai tốt thì cả hai cùng lợi; cả hai xấu thì cùng thiệt.",
+   "conditions": "querent = 1st/lord 1; partner = 7th/lord 7; partner's money = 8th (derived 2nd); compare dignities and house placement",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 369,
+     "quote": "If good Planets be in the seventh and first, the Society shall be, and good will come of it"
+    },
+    {
+     "work": "LILLY",
+     "page": 369,
+     "quote": "If the Lord of the Ascendant and seventh agree in nature and quality, the Parties will agree"
+    },
+    {
+     "work": "LILLY",
+     "page": 370,
+     "quote": "The second house sheweth the querents substance, the eight the riches of the Companion or Partner"
+    }
+   ],
+   "example": "Lilly turns the chart: the 8th is the partner's 2nd."
+  },
+  {
+   "id": "lilly.business.partnership_lilly",
+   "category": "topic",
+   "title_en": "Partnership (Chap. LV): Lilly's fuller rules",
+   "title_vi": "Hợp tác (Chương LV): các quy tắc đầy đủ hơn của Lilly",
+   "statement_en": "Lord 1 for the querent, lord 7 for the intended partner, but if a planet is in or near the 7th cusp and better describes the partner, take that planet; the Moon is partner in signification; the 10th shows the credit of the partnership; the 4th, its lord, planets in it and the planet the Moon applies to show whether it ends in good or ill. Lord 1 and the Moon in moveable signs without reception: contention, reconciled, mistrust, little good; in fixed signs: long continuance, but without reception little profit and goods lie long on their hands; in common signs: gainful and faithful. Ill planets aspecting both significators: ill for both; an evil planet in the 1st (querent false) or 7th (partner false). Moon from fortune to fortune: begin and end well; from good to ill: end in strife; from ill: begin with repining and end with lawsuits. A good planet in the 10th: reputation; in the 2nd best for the querent, in the 7th (8th) for the partner; an ill planet in the 2nd: the querent cheated. Lord 4 applying to lord 11 by sextile/trine, a good planet in the 4th, lords 11 and 4 in reception, or good planets aspecting lords 1 and 7: a good end.",
+   "statement_vi": "Chủ Mệnh cho người hỏi, chủ cung 7 cho đối tác dự định, nhưng nếu có sao ở trong hoặc gần đỉnh cung 7 mô tả đối tác đúng hơn thì lấy sao ấy; Mặt Trăng cùng làm sao chủ; cung 10 cho biết uy tín của sự hợp tác; cung 4, chủ cung 4, sao trong đó và sao mà Trăng sắp chiếu tới cho biết kết cục tốt hay xấu. Chủ Mệnh và Trăng ở cung động không có tiếp nhận: tranh cãi, rồi làm lành, nghi kỵ, ít lợi; ở cung cố định: bền lâu, nhưng không có tiếp nhận thì ít lời, hàng tồn lâu; ở cung biến động: có lời, trung thành với nhau. Hung tinh chiếu cả hai sao chủ: xấu cho cả hai; hung tinh ở cung 1 (người hỏi gian) hay cung 7 (đối tác gian). Trăng từ cát tinh sang cát tinh: khởi đầu và kết thúc tốt; từ tốt sang xấu: kết thúc bằng tranh chấp; từ xấu: khởi đầu cằn nhằn, kết thúc kiện tụng. Cát tinh ở cung 10: có tiếng tốt; ở cung 2 tốt cho người hỏi, ở cung 7 (8) cho đối tác; hung tinh ở cung 2: người hỏi bị lừa. Chủ cung 4 lục/tam hợp chủ cung 11, cát tinh ở cung 4, chủ 11 và 4 tiếp nhận nhau, hoặc cát tinh chiếu chủ 1 và 7: kết cục tốt.",
+   "conditions": "as listed; Moon's separation/application sequence; sign quality of lord 1 and Moon; 10th = credit; 4th = end",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 377,
+     "quote": "take that Planet for his Significator who is neerest to his description"
+    },
+    {
+     "work": "LILLY",
+     "page": 377,
+     "quote": "the tenth house shall shew what credit there may come of the Partnership"
+    },
+    {
+     "work": "LILLY",
+     "page": 378,
+     "quote": "if the Significators be in common Signes, it promises a gainfull Partnership, and that they will be faithfull to each other"
+    },
+    {
+     "work": "LILLY",
+     "page": 378,
+     "quote": "they will begin Partnership with muttering and repining, continue it with feares and jealousies, end it with Law-suits."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.business.buying_selling_commodities",
+   "category": "topic",
+   "title_en": "Buying and selling commodities (contracts of sale)",
+   "title_vi": "Mua bán hàng hóa (hợp đồng mua bán)",
+   "statement_en": "Buyer: lord 1 and the Moon; seller: lord 7. The Moon joined with lord 7: the querent buys, and quickly. Lord 1 the lighter planet: the querent occasions the sale (and the contrary). No aspect between them, but the Moon or another planet translates: a friend drives on the bargain. Distinguish the commodity: small cattle or a servant, the 6th; horses and great cattle, the 12th; a house, town or castle, the 4th. Lord 7 in the ascendant: the seller importunes the buyer; lord 1 in the 7th: the querent most wants to buy. Jupiter or Venus in the ascendant (or the Sun not conjoined, or Mercury or the Moon unafflicted): the buyer succeeds without labour; Saturn, Mars or the South Node there: labour and difficulty, a deceitful buyer; infortunes in the 7th: a crafty seller. Moon void of course, unless the significators apply strongly: seldom any bargain, though meetings to no purpose.",
+   "statement_vi": "Người mua: chủ Mệnh và Mặt Trăng; người bán: chủ cung 7. Trăng kết với chủ cung 7: người hỏi mua được, và nhanh. Chủ Mệnh là sao nhẹ hơn: người hỏi chủ động thúc việc mua bán (và ngược lại). Hai bên không chiếu nhau nhưng Trăng hay sao khác chuyển ánh sáng: có người bạn đứng ra lo giao dịch. Phân biệt món hàng: gia súc nhỏ hay người làm – cung 6; ngựa, gia súc lớn – cung 12; nhà, thị trấn, lâu đài – cung 4. Chủ cung 7 ở cung Mệnh: người bán nài người mua; chủ Mệnh ở cung 7: người hỏi muốn mua nhất. Mộc hay Kim ở cung Mệnh (hoặc Mặt Trời không hợp với sao nào, hoặc Thủy hay Trăng không bị hại): người mua làm được mà không vất vả; Thổ, Hỏa hay nút Nam ở đó: khó nhọc, người mua gian; hung tinh ở cung 7: người bán xảo quyệt. Trăng vô hành, trừ khi các sao chủ chiếu nhau mạnh: hiếm khi giao dịch thành, gặp nhau vô ích.",
+   "conditions": "buyer = lord 1 + Moon; seller = lord 7; goods by kind (6th small animals, 12th large, 4th real estate, otherwise the house of the thing); Moon VOC -> seldom concluded",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 376,
+     "quote": "the querent may then buy the thing or Commodity he desires, and this quickly"
+    },
+    {
+     "work": "LILLY",
+     "page": 376,
+     "quote": "a Friend shall then appeare who will drive on the bargaine for them both"
+    },
+    {
+     "work": "LILLY",
+     "page": 377,
+     "quote": "there's seldome any Bargaine concluded, or Commodity at that time bought, and yet both parties wrangle"
+    }
+   ],
+   "example": "lilly.ex.purchase_houses_1634 (real estate uses the 4th: lilly.land.buy_sell_significators)"
+  },
+  {
+   "id": "lilly.business.adversaries",
+   "category": "topic",
+   "title_en": "Open enemies and adversaries",
+   "title_vi": "Kẻ thù công khai và đối thủ",
+   "statement_en": "If a person is named, judge from the 7th and its lord: lord 7 aspecting lord 1 or the Moon by square or opposition, the party envies the querent; separating, they have lately been at odds; applying, the enmity will grow. Lord 7 in the 12th from the ascendant, or the 12th sign from lord 1 or the Moon, or joined to a planet that squares or opposes lord 1 or the Moon without reception: an enemy; otherwise not. If the question is absolute ('have I enemies?'), judge from the 12th: lord 12 in square or opposition to the Moon, he has secret enemies; lord 12's house shows who; many planets in the 7th, many enemies.",
+   "statement_vi": "Nếu nêu tên một người, xét cung 7 và chủ cung 7: chủ cung 7 vuông hay xung chủ Mệnh hoặc Trăng – người ấy ghen ghét người hỏi; đang rời góc – vừa xích mích; đang tiến tới – mâu thuẫn sẽ tăng. Chủ cung 7 ở cung 12 tính từ cung Mệnh, hoặc ở cung thứ 12 tính từ chủ Mệnh hay Trăng, hoặc kết với sao đang vuông/xung chủ Mệnh hay Trăng mà không có tiếp nhận: là kẻ thù; nếu không thì không. Nếu hỏi chung ('tôi có kẻ thù không?'), xét cung 12: chủ cung 12 vuông hay xung Trăng – có kẻ thù ngầm; cung chủ 12 đóng cho biết là ai; nhiều sao trong cung 7 – nhiều kẻ thù.",
+   "conditions": "named adversary = 7th; unnamed enemies = 12th (secret); square/opposition applying vs separating",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 384,
+     "quote": "If any be nominated, require judgment from the seventh house and Lord thereof"
+    },
+    {
+     "work": "LILLY",
+     "page": 384,
+     "quote": "the enmity, difference or controversie is approaching, is not yet over, will grow to a greater height then now it is"
+    },
+    {
+     "work": "LILLY",
+     "page": 384,
+     "quote": "you must require judgment herein from the twelfth house"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.business.neighbour_friendship_duration",
+   "category": "timing",
+   "title_en": "Familiarity between neighbours: how long it endures",
+   "title_vi": "Tình láng giềng: kéo dài bao lâu",
+   "statement_en": "A good planet in the 7th: the other means real good fellowship, especially if it or lord 7 beholds the ascendant or its lord by trine or sextile; it endures so many months, days or years as the planet has degrees to go in the same house or sign, fixed, common or moveable.",
+   "statement_vi": "Cát tinh ở cung 7: người kia thật lòng muốn làm bạn, nhất là khi sao ấy hoặc chủ cung 7 tam hợp hay lục hợp cung Mệnh hay chủ Mệnh; tình bạn kéo dài bấy nhiêu tháng, ngày hay năm bằng số độ sao ấy còn phải đi trong cùng nhà hay cung, tùy cung cố định, biến động hay động.",
+   "conditions": "units by sign quality (Lilly does not say which unit for which quality here)",
+   "exceptions": [],
+   "effect": "timing_method",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 370,
+     "quote": "also it shall endure so many Months, Dayes or Years, as he hath Degrees to goe in the same House, or Signe, fixed, common, or moveable."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.journey.short_whether",
+   "category": "topic",
+   "title_en": "Short journey (3rd house): whether good to go, and which way",
+   "title_vi": "Chuyến đi ngắn (cung 3): có nên đi không, đi hướng nào",
+   "statement_en": "By a short journey Lilly means twenty, thirty or forty miles, or so far that one may go and come in a day or by the next. Consider the lord of the ascendant: swift or slow; in any dignity of lord 3, or in the 3rd, or in sextile, trine or conjunction with lord 3 or with a benefic in the 3rd; or the Moon applying to lord 3 or a planet in the 3rd, or in the 3rd, or casting her sextile (or square in signs of short ascension) to the ascending sign, or swift: all or any argue the party shall go, and with good success. Direction: the strongest in essential dignity of the 3rd-cusp sign, lord 3's sign and the Moon's sign; a northern sign, north, and so of the rest.",
+   "statement_vi": "Lilly gọi chuyến đi ngắn là hai mươi, ba mươi hay bốn mươi dặm, hoặc đủ gần để đi và về trong một ngày hay ngày hôm sau. Xét chủ Mệnh: nhanh hay chậm; ở một phẩm vị của chủ cung 3, hoặc ở cung 3, hoặc lục hợp, tam hợp hay hợp với chủ cung 3 hoặc với cát tinh trong cung 3; hoặc Trăng tiến tới chủ cung 3 hay sao trong cung 3, hoặc ở cung 3, hoặc lục hợp (hay vuông, nếu ở cung mọc nhanh) với cung Mọc, hoặc Trăng đi nhanh: tất cả hay bất kỳ điều nào đều cho thấy người ấy sẽ đi, và thành công. Hướng đi: theo cung mạnh nhất về phẩm vị bản chất trong ba cung – cung trên đỉnh cung 3, cung của chủ cung 3 và cung của Trăng; cung phương bắc thì đi về bắc, v.v.",
+   "conditions": "short journey = 3rd house (a day's going and coming); testimonies via lord 1 and the Moon to lord 3 / planets in the 3rd; direction from the strongest of three signs",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 195,
+     "quote": "By a short Journey I intend, twenty, thirty or forty miles, or so farre from ones home, as he may goe and come in a day"
+    },
+    {
+     "work": "LILLY",
+     "page": 196,
+     "quote": "all, or any of these are arguments, that the party shall goe his short Journey, and with good successe"
+    },
+    {
+     "work": "LILLY",
+     "page": 196,
+     "quote": "if the principall Significator be in a Northerne Signe, then his Journey is intended North"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.journey.ninth_house_general",
+   "category": "topic",
+   "title_en": "Ninth house: long journeys and voyages - general good or ill",
+   "title_vi": "Cung 9: chuyến đi xa và đi biển – tốt xấu chung",
+   "statement_en": "The ninth is the house of long journeys, religion, pilgrimage, dreams. Good planets ruling, placed in, or aspecting the 9th without the testimonies of infortunes: good in all its questions. Voyage by sea: the 9th good, strong and aspected by good planets, especially with lords 1 and 10 well affected, very good; Saturn, Mars or the South Node there, the way is evil; lord 9 with an evil planet, he shall not speed well nor gain by the voyage (Mars: thieves or pirates; Saturn: loss of goods or sickness; the Tail: like Mars but with cozenage). The substance of the journey is from the 10th, the 2nd from the 9th (fortunes there: wealth; infortunes: loss); see also the 8th for wealth to be got.",
+   "statement_vi": "Cung 9 là cung của chuyến đi xa, tôn giáo, hành hương, giấc mơ. Cát tinh cai quản, nằm trong hoặc chiếu cung 9 mà không có hung tinh xen vào: tốt cho mọi câu hỏi của cung này. Đi biển: cung 9 tốt, mạnh, được cát tinh chiếu, nhất là khi chủ cung 1 và 10 cũng tốt – rất tốt; Thổ, Hỏa hay nút Nam ở đó – đường đi xấu; chủ cung 9 đi với hung tinh – đi không thuận, không kiếm được của (Hỏa: trộm cướp, hải tặc; Thổ: mất của hay bệnh; Đuôi Rồng: như Hỏa nhưng kèm lừa gạt). Của cải từ chuyến đi xét ở cung 10, tức cung 2 tính từ cung 9 (cát tinh ở đó: có của; hung tinh: thua lỗ); xét thêm cung 8 xem có kiếm được của không.",
+   "conditions": "long journey = 9th; its gain = 10th (derived 2nd of the 9th); malefics in the 9th = dangers on the way",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 422,
+     "quote": "Long Journeys, Religion, Pilgrimage, Dreames"
+    },
+    {
+     "work": "LILLY",
+     "page": 422,
+     "quote": "if the Lord of the ninth be with an evill Planet, it is evill, and he shall not speed well in the way, or get any wealth by that Voyage"
+    },
+    {
+     "work": "LILLY",
+     "page": 422,
+     "quote": "The substance of the Journey is from the tenth, because it is the second from the ninth"
+    }
+   ],
+   "example": "Lilly turns the chart: the 10th as the 2nd from the 9th."
+  },
+  {
+   "id": "lilly.journey.success_by_angles",
+   "category": "topic",
+   "title_en": "Success of a journey by the angles",
+   "title_vi": "Thành bại của chuyến đi theo các cung góc",
+   "statement_en": "Behold the planets in the angles: a fortune in the ascendant, success at the beginning or before he removes; in the midheaven, happiness on the way; in the 7th, content in the place he goes to; in the 4th, at his return home. The house the fortune rules shows by whom the benefit comes. Also lord 1, the 9th house and the Moon all well affected: a fortunate journey.",
+   "statement_vi": "Xét các sao ở cung góc: cát tinh ở cung Mệnh – thuận lợi lúc khởi hành hay trước khi đi; ở thiên đỉnh (cung 10) – vui vẻ trên đường; ở cung 7 – hài lòng ở nơi đến; ở cung 4 – lúc trở về nhà. Cung mà cát tinh cai quản cho biết lợi đến nhờ ai. Ngoài ra chủ Mệnh, cung 9 và Mặt Trăng đều tốt: chuyến đi may mắn.",
+   "conditions": "fortunes in 1st/10th/7th/4th -> beginning/way/destination/return; lord 1, 9th and Moon well affected -> fortunate",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 423,
+     "quote": "if that good Fortune be in the Mid-heaven, he shall have much happinesse in his Journey"
+    },
+    {
+     "work": "LILLY",
+     "page": 429,
+     "quote": "behold the Lord of the ascendant, the ninth house and the"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.journey.length_and_return",
+   "category": "timing",
+   "title_en": "Short or long absence; speedy return",
+   "title_vi": "Đi ngắn hay lâu; có sớm về không",
+   "statement_en": "The significator of the journey swift, occidental and in moveable signs: a short journey with trouble; swift and oriental: quick and without trouble. Lord 1 applying to lord 9, lord 9 to lord 1, translation between them, lord 9 in the ascendant, lord 7 in the ascendant or lord 1 in the 7th: short return or good speed. If none of these, or most significators in angles, especially fixed signs: the journey destroyed, or slow, or long absent. Lord 9 in a fixed sign: long tarrying; in a common sign: he changes his mind or goes from one journey to another. Lord 9 in the ascendant or lord 1 in the 9th (or 7th), significators cadent or in moveable signs, or moveable angles: hastens the journey; fixed angles with significators there: prolongs it; significators and the Moon slow: a tedious journey. For one already gone: lord 1 in the 1st or 10th, or giving power to a planet there, he returns and is thinking of it; lord 1 in the 7th or 4th, his return is prolonged.",
+   "statement_vi": "Sao chủ chuyến đi nhanh, ở phương tây và ở cung động: chuyến đi ngắn nhưng vất vả; nhanh và ở phương đông: nhanh mà không vất vả. Chủ Mệnh tiến tới chủ cung 9, chủ cung 9 tiến tới chủ Mệnh, có chuyển ánh sáng giữa hai sao, chủ cung 9 ở cung Mệnh, chủ cung 7 ở cung Mệnh hay chủ Mệnh ở cung 7: về sớm hoặc đi thuận. Không có những điều đó, hoặc phần lớn sao chủ ở cung góc, nhất là cung cố định: chuyến đi hỏng, chậm, hay vắng nhà lâu. Chủ cung 9 ở cung cố định: ở lại lâu; ở cung biến động: đổi ý hay đi hết chuyến này đến chuyến khác. Chủ cung 9 ở cung Mệnh hay chủ Mệnh ở cung 9 (hoặc 7), sao chủ ở cung suy hay cung động, hoặc các cung góc là cung động: chuyến đi nhanh; cung góc cố định có sao chủ ở đó: kéo dài; sao chủ và Trăng đi chậm: chuyến đi tẻ nhạt, dài. Với người đã đi: chủ Mệnh ở cung 1 hay 10, hoặc trao sức cho sao ở đó, người ấy sẽ về và đang nghĩ đến chuyện về; chủ Mệnh ở cung 7 hay 4, việc về còn kéo dài.",
+   "conditions": "journey significator's speed and orientality; perfection lord1-lord9; angularity and sign quality of significators; for the absent, lord 1's house",
+   "exceptions": [],
+   "effect": "timing_method",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 424,
+     "quote": "it signifieth his journey to be short, and not much tarrying from home"
+    },
+    {
+     "work": "LILLY",
+     "page": 425,
+     "quote": "If the Lord of the house of Journeys be in a fixed Signe, it signifieth continuance and long tarrying"
+    },
+    {
+     "work": "LILLY",
+     "page": 429,
+     "quote": "If the angles be fixed, and the Significators posited therein, it prolongeth the journey"
+    },
+    {
+     "work": "LILLY",
+     "page": 425,
+     "quote": "it signifieth that he shall returne, and is thinking of it"
+    }
+   ],
+   "example": "lilly.ex.absent_brother_1645 (3rd-house absent person: news and return)"
+  },
+  {
+   "id": "lilly.journey.cause_and_letters",
+   "category": "topic",
+   "title_en": "Cause of a journey; news and letters from the absent",
+   "title_vi": "Lý do chuyến đi; tin tức, thư từ của người vắng nhà",
+   "statement_en": "The Moon applying to the Sun: he goes to kings or states or in their service; to Saturn, directed by old men; to Jupiter, employed by religious persons or gentlemen; to Mars, men of war; to Venus, women or things women love; to Mercury, merchants, scholars, or to see countries and learn languages; the Moon herself significator, hired or publicly employed. The cause is also taken from the house where lord 9 is (in the 1st, of his own accord; in the 2nd, for gain; in the 3rd, purposely to travel). For one absent: Mercury or the Moon in the ascendant or midheaven, letters or news shortly; the news good if Mercury and the Moon separate from a fortune, ill from an infortune. Whether a letter is true: Mercury in a moveable sign beholding Saturn or Mars, a lie; in a fixed sign, true; in a common sign, part true and part false. Combustion of the absent party's significator is ill (captivity, imprisonment or a great let).",
+   "statement_vi": "Trăng tiến tới Mặt Trời: đi gặp vua quan hoặc phục vụ họ; tới Thổ: theo lệnh người già; tới Mộc: được giáo sĩ hay quý ông thuê; tới Hỏa: quân nhân; tới Kim: vì phụ nữ hay những thứ phụ nữ thích; tới Thủy: thương nhân, học giả, hoặc đi xem các nước và học ngoại ngữ; chính Trăng là sao chủ: được thuê hay làm việc công. Lý do còn xét theo cung chủ cung 9 đóng (ở cung 1: tự mình muốn đi; cung 2: vì lợi; cung 3: đi để du ngoạn). Với người vắng nhà: Thủy hay Trăng ở cung Mệnh hoặc thiên đỉnh – sắp có thư hay tin; tin tốt nếu Thủy và Trăng rời cát tinh, xấu nếu rời hung tinh. Thư có thật không: Thủy ở cung động và nhìn Thổ hay Hỏa – nói dối; ở cung cố định – thật; ở cung biến động – nửa thật nửa giả. Sao chủ người vắng nhà bị đốt là xấu (bị bắt, giam giữ hay trở ngại lớn).",
+   "conditions": "Moon's next application = cause; lord 9's house = cause; Mercury/Moon angular = news; Mercury's sign quality and malefic aspect = truth of a letter",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 428,
+     "quote": "Merchants, Schollers, or he travels to see variety of Countryes, and to learne the languages"
+    },
+    {
+     "work": "LILLY",
+     "page": 428,
+     "quote": "if in a fixed Signe, judge it is true; in a common Signe, part true and part false"
+    },
+    {
+     "work": "LILLY",
+     "page": 427,
+     "quote": "Note that Combustion in a question of one that is absent is ill, for that signifieth captivity, imprisonment, or some great let"
+    }
+   ],
+   "example": "lilly.ex.cambridge_report_1643 (a 3rd-house report judged false)"
+  },
+  {
+   "id": "lilly.journey.direction",
+   "category": "topic",
+   "title_en": "To what part of the world to travel",
+   "title_vi": "Nên đi về phương nào",
+   "statement_en": "Consider in what quarter of the figure the fortunate planets are placed and most fortified, and direct the querent there (east quadrant eastward, south quarter southward, and so on), and dissuade from the quarters where the infortunes are; count the South Node among the infortunes. In all journeys have special care of the 2nd and 8th: an infortune in the 8th, little gain in the country he goes to; in the 2nd, little success where he will settle after the voyage.",
+   "statement_vi": "Xét các cát tinh nằm ở phần tư nào của lá số và mạnh nhất ở đâu, rồi khuyên người hỏi đi về hướng đó (phần tư phía đông thì đi đông, phía nam thì đi nam...), và khuyên tránh hướng có hung tinh; tính cả nút Nam là hung tinh. Trong mọi chuyến đi phải đặc biệt xét cung 2 và 8: hung tinh ở cung 8 – ít lợi ở nơi đến; ở cung 2 – ít thành công ở nơi sẽ định cư sau chuyến đi.",
+   "conditions": "quadrant of the strongest benefics -> direction; 8th = gain abroad; 2nd = success after returning/settling",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 431,
+     "quote": "Doe you herein consider in what quarter of the Figure the fortunate Planets are posited"
+    },
+    {
+     "work": "LILLY",
+     "page": 431,
+     "quote": "for an Infortunate Planet in the eighth portends or signifies little gaine, or small successe in the Countrey the Traveller is going unto"
+    }
+   ],
+   "example": "Lilly's 1st-house example (pp.135-138) directs the querent's travel by the quarter of the Sun and the Moon's application."
+  },
+  {
+   "id": "lilly.learning.profit_by_knowledge",
+   "category": "topic",
+   "title_en": "Whether one shall profit by his knowledge (9th house)",
+   "title_vi": "Có thành đạt nhờ hiểu biết, tay nghề của mình không (cung 9)",
+   "statement_en": "Chap. LXXV, 'If one shall profit by his knowledge, be it in what kind it will; Chymistry, Chyrurgery, &c. or if he be perfect': give the querent the ascendant, its lord and the Moon; the 9th house, a planet in it and its lord for the science sought. If lord 9 is a fortune and beholds lord 1 by sextile or trine, the man has good knowledge, what is reported of him is true, and he will do good by it (more with reception); by square or opposition, he knows much but shall do no good thereby; an infortune aspecting lord 9 or lord 1, he has wearied himself to no purpose and shall never attain the perfection of the knowledge he desires.",
+   "statement_vi": "Chương LXXV, 'Có thành đạt nhờ hiểu biết của mình không, bất kể loại nào – hóa học, phẫu thuật... – và có tinh thông không': người hỏi được cung Mệnh, chủ Mệnh và Mặt Trăng; cung 9, sao trong cung 9 và chủ cung 9 là môn học, tri thức người ấy theo đuổi. Nếu chủ cung 9 là cát tinh và lục hợp hay tam hợp chủ Mệnh, người ấy có hiểu biết thật, lời đồn về họ là đúng, và sẽ thành đạt nhờ đó (càng tốt nếu có tiếp nhận); bằng vuông hay xung, biết nhiều nhưng không làm nên gì; hung tinh chiếu chủ cung 9 hay chủ Mệnh, người ấy đã mệt mỏi vô ích và sẽ không bao giờ đạt đến sự tinh thông mong muốn.",
+   "conditions": "querent = 1st, lord 1, Moon; the knowledge = 9th, planet in it, lord 9; lord 9's nature and aspect to lord 1 (sextile/trine vs square/opposition); infortune aspecting lord 9 or lord 1",
+   "exceptions": [],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 429,
+     "quote": "the ninth house, Planet therein posited, and Lord thereof for the Science endeavoured to be attained"
+    },
+    {
+     "work": "LILLY",
+     "page": 429,
+     "quote": "the man knowes much, but shall doe no good thereby"
+    },
+    {
+     "work": "LILLY",
+     "page": 429,
+     "quote": "he shall never attain the perfection of the knowledge he desires."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.learning.science_in_a_man",
+   "category": "topic",
+   "title_en": "Of science, cunning or wisdom in a man, whether it be true or not",
+   "title_vi": "Một người có thật sự có học thức, tài khéo hay không",
+   "statement_en": "Give the ascendant to the person asked about and the 9th to the science. Fortunes in the 9th, or lord 9 fortunate and beholding lord 1: there is science in that man; infortunes in the 9th, or lord 9 unfortunate and not beholding lord 1: none or little knowledge. The Moon and lord 9 both applying to fortunes: knowledge; to infortunes, the contrary. (Note: in this copy the leaf the page tool calls p.430 prints the number 431, and the next prints 430 - a misnumbering in the 1647 book.)",
+   "statement_vi": "Cung Mệnh dành cho người được hỏi tới, cung 9 cho học thức. Cát tinh ở cung 9, hoặc chủ cung 9 tốt và nhìn chủ Mệnh: người ấy có học thức; hung tinh ở cung 9, hoặc chủ cung 9 bị hại và không nhìn chủ Mệnh: không có hoặc ít hiểu biết. Trăng và chủ cung 9 cùng tiến tới cát tinh: có hiểu biết; tới hung tinh: ngược lại. (Ghi chú: trong bản này, trang mà công cụ gọi là tr.430 in số 431, trang sau in 430 – lỗi đánh số của sách 1647.)",
+   "conditions": "the person = 1st; knowledge = 9th; fortunes/infortunes in the 9th; lord 9's condition and aspect to lord 1; Moon and lord 9's next applications",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 430,
+     "quote": "and if there be Fortunes in the ninth house, or the Lord of the ninth fortunate, and behold the Lord of the ascendant"
+    },
+    {
+     "work": "LILLY",
+     "page": 430,
+     "quote": "it signifies no knowledge in him, or such as by which he will never doe himselfe good"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.study.none",
+   "category": "topic",
+   "title_en": "Study, examinations, admission: Lilly has no chapter",
+   "title_vi": "Học hành, thi cử, xét tuyển: Lilly không có chương nào",
+   "statement_en": "Book II of Christian Astrology has no chapter on examinations, school or university admission, degrees, scholarships or tests. Chapters checked: the 9th-house chapters 'If one shall profit by his Knowledge... or if he be perfect' (p.429) and 'Of Science, Cunning or Wisdome in a man, whether it be true or not' (p.430) - about whether a person has or will profit by a skill, not about passing an examination; 'If attaine the Philosophers Stone?' (Chap. LXXXI, p.442, an alchemical pursuit); the 10th-house 'Of the Profession, Magistery or Trade any one is capable of' (Chap. LXXXIV, p.450); and the scholar advised to turn physician in the 2nd-house means of wealth (p.170). A text search of pp.121-474 for 'examin', 'schol', 'universit', 'learn', 'student' finds no examination or admission question. Any rule for exams is therefore an engine operationalisation (e.g. by analogy with the 9th-house knowledge chapter or the 10th-house office chapter) and must be labelled as such; none is recorded here as Lilly's.",
+   "statement_vi": "Quyển II của Christian Astrology không có chương nào về thi cử, nhập học trường hay đại học, bằng cấp, học bổng hay kiểm tra. Các chương đã kiểm tra: chương cung 9 'Có thành đạt nhờ hiểu biết của mình không... có tinh thông không' (tr.429) và 'Một người có thật sự có học thức, tài khéo không' (tr.430) – nói về việc có tài thật hay sẽ thành đạt nhờ tài, không phải về thi đỗ; 'Có tìm ra Hòn đá Triết gia không?' (Chương LXXXI, tr.442, một theo đuổi giả kim); chương cung 10 'Nghề nghiệp một người có khả năng làm' (Chương LXXXIV, tr.450); và câu khuyên người có học nên làm thầy thuốc trong phần cung 2 (tr.170). Tìm từ khóa 'examin', 'schol', 'universit', 'learn', 'student' trong tr.121–474 không thấy câu hỏi nào về thi cử hay xét tuyển. Vì vậy mọi quy tắc về thi cử là sự vận dụng của engine (ví dụ suy từ chương học thức cung 9 hay chương chức vụ cung 10) và phải được ghi rõ như vậy; ở đây không ghi quy tắc nào là của Lilly.",
+   "conditions": "question about exams/school/admission: no Lilly rule; the product must say so (or fall back on the 9th-house knowledge rules, labelled as an analogy)",
+   "exceptions": [],
+   "effect": "warning",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 429,
+     "quote": "If one shall profit by his Knowledge, be it in what kind it will"
+    },
+    {
+     "work": "LILLY",
+     "page": 442,
+     "quote": "Philosophers Stone"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.career.office",
+   "category": "topic",
+   "title_en": "Office, dignity, preferment or command: whether attainable (10th house)",
+   "title_vi": "Chức vụ, phẩm hàm, thăng tiến hay quyền chỉ huy: có đạt được không (cung 10)",
+   "statement_en": "Chap. LXXXII. The 1st house and its lord are the querent; the 10th and its lord the place, office, preferment, command or honour. Lord 1 and the Moon both joined to the Sun or to lord 10 (or either of them), and lord 10 beholding the 10th or in it: he obtains it, 'but not gratis' - he must bestir himself and use his friends. If none is joined to lord 10, lord 1 or the Moon in the 10th unimpedited: he attains it. Lord 10 in the 1st, if lighter than lord 1, even without aspect: attained, with more ease when lord 10 in the ascendant applies to conjunction, sextile or trine of lord 1. Lord 10 joined to Jupiter or Venus and in the ascendant: with ease; lord 10 joined to Mars or Saturn, they in the ascendant in their own house or exaltation, oriental, direct, not opposite: obtained with much importunity. Lord 10 receiving lord 1 or the Moon by any reception: effected with content and profit. A planet transferring lord 1's virtue to lord 10: by means of another who labours in it (employ a man described by that planet). Lord 1 applying to lord 10 (not the reverse) without abscission: obtained with hard labour. A chain of planets ending at lord 10: obtained with infinite perplexities and many solicitors. Lord 1 joined to lord 4, or lord 4 to lord 1, argues perfection; lord 1 to lord 4 and lord 4 to lord 10, at last, after despair.",
+   "statement_vi": "Chương LXXXII. Cung 1 và chủ cung 1 là người hỏi; cung 10 và chủ cung 10 là vị trí, chức vụ, thăng tiến, quyền chỉ huy hay danh vọng. Chủ Mệnh và Mặt Trăng cùng kết với Mặt Trời hoặc với chủ cung 10 (hay một trong hai), và chủ cung 10 nhìn cung 10 hoặc nằm trong đó: sẽ đạt được, 'nhưng không phải tự nhiên mà có' – phải tự xoay xở và nhờ cậy bạn bè. Nếu không sao nào kết với chủ cung 10, chủ Mệnh hay Trăng ở cung 10 không bị hại: đạt được. Chủ cung 10 ở cung 1, nếu nhẹ hơn chủ Mệnh, dù không có góc chiếu: vẫn đạt, càng dễ khi chủ cung 10 ở cung Mệnh đang tiến tới hợp, lục hợp hay tam hợp chủ Mệnh. Chủ cung 10 kết với Mộc hay Kim và ở cung Mệnh: dễ dàng; chủ cung 10 kết với Hỏa hay Thổ, và chúng ở cung Mệnh trong nhà hay vượng địa của mình, ở phương đông, thuận hành, không xung nhau: đạt được nhưng phải nài nỉ nhiều. Chủ cung 10 tiếp nhận chủ Mệnh hay Trăng bằng bất kỳ cách tiếp nhận nào: thành, vừa ý và có lợi. Có sao chuyển sức của chủ Mệnh sang chủ cung 10: thành nhờ người khác lo liệu (nên nhờ người có dáng vẻ của sao đó). Chủ Mệnh tiến tới chủ cung 10 (chứ không phải ngược lại) mà không bị cắt: đạt nhưng phải vất vả. Một chuỗi sao nối nhau đến chủ cung 10: đạt sau vô vàn rối ren và nhờ nhiều người. Chủ Mệnh kết với chủ cung 4, hoặc ngược lại: thành; chủ Mệnh tới chủ cung 4 rồi chủ cung 4 tới chủ cung 10: cuối cùng vẫn thành, sau khi tưởng đã tuyệt vọng.",
+   "conditions": "querent = 1st/lord 1 (+ Moon); office = 10th/lord 10 (+ Sun as natural significator of honour); perfection by conjunction/aspect, translation, reception (lord 10 receiving lord 1 or Moon), lord 10 in the 1st, lord 1/Moon in the 10th",
+   "exceptions": [
+    "if the significator 'be impedited' the placement in the 10th does not suffice (p.444)"
+   ],
+   "effect": "significator_assignment",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 444,
+     "quote": "Of Government, Office, Dignity, Preferment, or any place of Command or Trust, whether attainable or not"
+    },
+    {
+     "work": "LILLY",
+     "page": 444,
+     "quote": "the tenth house and his Lord shall signifie the Place, Office, Preferment, Command, Honour, &c. enquired after"
+    },
+    {
+     "work": "LILLY",
+     "page": 444,
+     "quote": "the querent shall then have the thing sought after, but not gratis; nay, he must bestir himselfe, and use all the friends he can about it"
+    },
+    {
+     "work": "LILLY",
+     "page": 445,
+     "quote": "If the Lord of the tenth receive the Lord of the first or the"
+    },
+    {
+     "work": "LILLY",
+     "page": 445,
+     "quote": "the Office will be obtained, but the querent must labour hard for it."
+    },
+    {
+     "work": "LILLY",
+     "page": 446,
+     "quote": "the matter shall be effected, but with so much strugling and delaying"
+    }
+   ],
+   "example": "Lilly's 'If attain the Preferment desired?' (Chap. LXXXVI, pp.456-457): Venus (querent) in the 10th, Moon applying to trine of Saturn (exaltation in the ascendant, mutual reception with Venus); obtained within three weeks despite a false Solar friend. Its figure (p.455, shared with Chap. LXXXV) prints no date, so it is not a regression example."
+  },
+  {
+   "id": "lilly.career.office_qualifiers",
+   "category": "topic",
+   "title_en": "Office: further qualifiers (planets in 1st/10th, malefic aspects, angularity, the Moon)",
+   "title_vi": "Chức vụ: các yếu tố bổ sung (sao ở cung 1/10, hung tinh chiếu, vị trí góc, Mặt Trăng)",
+   "statement_en": "Any of the planets mentioned in the 1st or the 10th: a fortune there notes obtaining, received or not; another planet so posited must receive the Moon or lord 1, else not. A malefic placed in the 10th that is its house or exaltation performs the business whether it receives or not. Any significator in an angle hastens the matter; in a succedent it goes slowly; in a cadent it goes backward, yet at last is performed. An ill planet squaring or opposing lord 1 or the Moon without reception hinders by means of the person soliciting (they fall out); by trine or sextile he will not be angry though he performs not. Lords 1 and 10 committing their disposition to a planet not retrograde, combust or cadent (nor leaving its sign before the conjunction) with the Moon joined to lord 1 or 10: obtained. All astrologers conclude: lords 1 and 10 joined and the Moon applying to either, effected; best when the Moon separates from lord 10 and applies to lord 1.",
+   "statement_vi": "Sao nào đã nêu ở cung 1 hay cung 10: nếu là cát tinh thì đạt được, có tiếp nhận hay không; sao khác ở đó phải tiếp nhận Trăng hay chủ Mệnh, nếu không thì không. Hung tinh ở cung 10 mà cung 10 là nhà hay vượng địa của nó: vẫn làm việc thành dù có tiếp nhận hay không. Sao chủ ở cung góc làm việc nhanh; ở cung kế góc thì chậm; ở cung suy thì việc lùi dần, nhưng cuối cùng vẫn thành. Hung tinh vuông hay xung chủ Mệnh hoặc Trăng mà không tiếp nhận: cản trở qua chính người đứng ra lo việc (hai bên sẽ bất hòa); bằng tam hay lục hợp: người đó không giận dù không làm được. Chủ 1 và chủ 10 trao quyền cho một sao không nghịch hành, không bị đốt, không ở cung suy (và không rời cung trước khi hợp), cùng Trăng kết với chủ 1 hay 10: đạt được. Mọi nhà chiêm tinh đều kết luận: chủ 1 và chủ 10 hợp nhau, Trăng tiến tới một trong hai, thì thành; tốt nhất khi Trăng rời chủ 10 để tới chủ Mệnh.",
+   "conditions": "as listed; angularity speed rule applies to every question (p.446)",
+   "exceptions": [],
+   "effect": "modifies",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 446,
+     "quote": "In every Question you must observe, that what Planet soever is Significator of any thing, if he be in an angle, he hastens to effect the matter"
+    },
+    {
+     "work": "LILLY",
+     "page": 446,
+     "quote": "but best of all when the Moon separates from the Lord of the tenth, and applyes to the Lord of the ascendant."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.career.continue",
+   "category": "topic",
+   "title_en": "Whether one shall continue in the office or command he holds",
+   "title_vi": "Có giữ được chức vụ, quyền chỉ huy đang có không",
+   "statement_en": "Lilly has this chapter ('If one shall continue in the Office or Command he is in', p.447). Behold lords 1 and 10: if in aspect or near conjunction, and the more ponderous of the two (the receiver of the disposition) is in any angle but the 4th, he shall not be removed till his appointed time; if the receiver is under the earth or in the descending part of heaven, he shall depart or lose it for a time but return more confirmed; if the receiver is itself received, he returns with more honour and speedily. If they are separated from each other, he does not return. Lord 1, lord 10 or the Moon committing disposition to a slow planet in an angle (not the 4th): not removed until that receiver turns retrograde, approaches combustion or leaves its sign - about that time removed. The Moon joined to lord 10 in the 10th: not put from office. Lord 1 or the Moon joined to a heavier lord 10 well placed (10th, 11th or 5th) and free from impediment: if lord 10 does not behold the 10th, transferred to another place; if it does, he continues. Lord 1 and the Moon angular in moveable signs (Moon not joined to the lord of her exaltation sign), the Moon joined to a peregrine planet (unless a fortune by sextile/trine in the 3rd or 9th), lord 4 or the Moon in the 4th in Aries, Cancer or Capricorn, the Moon in Capricorn, or the Moon void of course: he shall leave his office.",
+   "statement_vi": "Lilly có chương này ('Có giữ được chức vụ hay quyền chỉ huy đang có không', tr.447). Xét chủ cung 1 và 10: nếu chiếu nhau hoặc gần hợp, và sao nặng hơn (sao nhận quyền) ở một cung góc trừ cung 4, thì không bị cách chức cho đến hết nhiệm kỳ; nếu sao nhận quyền ở dưới chân trời hoặc ở nửa trời đang lặn, sẽ rời chức hay mất chức một thời gian nhưng trở lại vững hơn; nếu sao nhận quyền lại được tiếp nhận, trở lại vinh dự hơn và nhanh. Nếu hai sao đã rời nhau, không trở lại. Chủ 1, chủ 10 hay Trăng trao quyền cho một sao chậm ở cung góc (không phải cung 4): không bị cách chức cho đến khi sao ấy nghịch hành, sắp bị đốt hoặc rời cung – khoảng lúc đó sẽ bị thay. Trăng kết với chủ cung 10 đang ở cung 10: không bị mất chức. Chủ Mệnh hay Trăng kết với chủ cung 10 nặng hơn, đóng tốt (cung 10, 11 hay 5), không bị hại: nếu chủ 10 không nhìn cung 10 thì được chuyển sang chỗ khác; nếu nhìn thì giữ nguyên. Chủ Mệnh và Trăng ở cung góc là cung động (Trăng không kết với chủ vượng địa của cung mình), Trăng kết với sao lạc vị (trừ cát tinh lục/tam hợp ở cung 3 hay 9), chủ cung 4 hay Trăng ở cung 4 thuộc Bạch Dương, Cự Giải hay Ma Kết, Trăng ở Ma Kết, hoặc Trăng vô hành: sẽ rời chức.",
+   "conditions": "lords 1 and 10 aspect/near conjunction; receiver of disposition angular (not 4th) vs under the earth; slow receiver's station/combustion/sign change times removal; Moon VOC or in Capricorn etc. -> leaves office",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 447,
+     "quote": "If one shall continue in the Office or Command he is in"
+    },
+    {
+     "work": "LILLY",
+     "page": 447,
+     "quote": "say then, he shall not be removed from his Office untill his appointed time comes out"
+    },
+    {
+     "work": "LILLY",
+     "page": 447,
+     "quote": "untill that Receiver become Retrograde or approach to Combustion, or goe out of the Signe wherein he is"
+    },
+    {
+     "work": "LILLY",
+     "page": 448,
+     "quote": "the Governour or Officer shall not be put from his Office or Dignity."
+    },
+    {
+     "work": "LILLY",
+     "page": 448,
+     "quote": "or if the Moon be voyd of course"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.career.return_to_office",
+   "category": "topic",
+   "title_en": "Whether one removed from his office (or a king expelled) shall return",
+   "title_vi": "Người bị mất chức (hay vua bị truất) có trở lại không",
+   "statement_en": "Chap. LXXXIII: the 1st and its lord are the querent, king or officer. Lord 1 in conjunction with lord 10 and the more ponderous (receiver) beholding the 10th: he returns to power; if not, see the Moon: joined to a planet in the 1st or 10th, return (sooner if she is in Aries, Cancer or Capricorn); the Moon joined to lord 10 and beholding the 10th, unless she commits disposition to a peregrine planet under the earth; lord 1 received by an unimpedited planet, returns; not received, no return. Lord 10 and the Moon impedited in an angle by bodily conjunction of an infortune: no return. Lilly notes that gentry asking whether they should return to their former estates is not a 10th-house question.",
+   "statement_vi": "Chương LXXXIII: cung 1 và chủ cung 1 là người hỏi, dù là vua hay quan. Chủ Mệnh hợp chủ cung 10 và sao nặng hơn (sao nhận) nhìn cung 10: trở lại nắm quyền; nếu không, xét Trăng: kết với sao ở cung 1 hay 10 – trở lại (sớm hơn nếu Trăng ở Bạch Dương, Cự Giải hay Ma Kết); Trăng kết với chủ cung 10 và nhìn cung 10, trừ khi Trăng trao quyền cho sao lạc vị dưới chân trời; chủ Mệnh được một sao không bị hại tiếp nhận – trở lại; không được tiếp nhận – không trở lại. Chủ 10 và Trăng bị hung tinh hợp thân làm hại ở cung góc: không trở lại. Lilly ghi chú: giới quý tộc hỏi có được lấy lại điền sản cũ không thì không phải câu hỏi của cung 10.",
+   "conditions": "lord 1 - lord 10 conjunction and receiver beholding the 10th; Moon's joining; reception of lord 1",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 448,
+     "quote": "Whether a King expulsed his Kingdome, or an Officer removed from his government shall return to his Kingdome or Office."
+    },
+    {
+     "work": "LILLY",
+     "page": 449,
+     "quote": "if the Lord of the first be received of a Planet not impedited, he returnes: if not received, no returne."
+    },
+    {
+     "work": "LILLY",
+     "page": 450,
+     "quote": "shall returne againe to their former Dignity, Rule or Command"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.career.profession",
+   "category": "topic",
+   "title_en": "What profession or trade one is capable of",
+   "title_vi": "Người ấy hợp với nghề nghiệp nào",
+   "statement_en": "Chap. LXXXIV, for parents without a child's nativity: consider the ascendant and its lord, lord 10 and the 10th, and especially Mars and Venus, the significators of magistery, trade or profession: take the more powerful and see its sign (Aries: cattle, horses, smiths, butchers, etc.; Gemini: scrivener, clerk, surveyor, astrologer; Virgo: secretary, schoolmaster, accountant, printer; Libra: poet, orator, musician, pedagogue; Scorpio: surgeon, apothecary, physician, brewer; Sagittarius: cattle dealer, chemistry, churchman, cook; and so on), with the planets in the angles; if the significator is exalted, better to serve the king or a nobleman than a servile trade.",
+   "statement_vi": "Chương LXXXIV, dành cho cha mẹ không biết giờ sinh của con: xét cung Mệnh và chủ Mệnh, chủ cung 10 và cung 10, nhất là Hỏa Tinh và Kim Tinh – hai sao chủ của tay nghề, nghề nghiệp: lấy sao mạnh hơn và xem nó ở cung nào (Bạch Dương: gia súc, ngựa, thợ rèn, đồ tể...; Song Tử: thư ký, kế toán, trắc địa, chiêm tinh; Xử Nữ: thư ký cho quý tộc, thầy giáo, kế toán, thợ in; Thiên Bình: nhà thơ, nhà hùng biện, nhạc công, gia sư; Hổ Cáp: bác sĩ phẫu thuật, dược sĩ, thầy thuốc, nấu bia; Nhân Mã: buôn gia súc, hóa học, giáo sĩ, đầu bếp...), cùng các sao ở cung góc; nếu sao chủ ở vượng địa, nên phục vụ vua chúa, quý tộc hơn là làm nghề hạ đẳng.",
+   "conditions": "profession significator = the stronger of Mars and Venus; its sign gives the trade; angles modify",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 450,
+     "quote": "for these two Planets are the Significators of Magistery, Trade or Profession"
+    },
+    {
+     "work": "LILLY",
+     "page": 451,
+     "quote": "he will make a good Secretary to a King or Nobleman, a School-master, an Accountant, a Stationer, or Printer"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.career.great_person_and_trade",
+   "category": "topic",
+   "title_en": "Career links in the 2nd-house chapter: service of great persons, trade, the 10th as trade",
+   "title_vi": "Liên hệ nghề nghiệp trong chương cung 2: phục vụ người quyền thế, nghề buôn, cung 10 là nghề",
+   "statement_en": "Lord 2 fortunate in the 10th, lords 10 and 2 in reception, or lord 10 well aspecting lord 2 or the 2nd: seek service of a king, nobleman or master, learn a trade after the 10th sign and its lord, or expect public office (p.171). In the 1634 example Lilly reads the 10th as the querent's trade and calls Jupiter in the 10th 'a certaine and infallible argument' of plenty of trading or a gainful profession (p.183).",
+   "statement_vi": "Chủ cung 2 tốt ở cung 10, chủ 10 và chủ 2 tiếp nhận nhau, hoặc chủ 10 chiếu tốt chủ 2 hay cung 2: nên tìm phục vụ vua, quý tộc hay chủ, học nghề theo cung 10 và chủ của nó, hoặc mong chức vụ công (tr.171). Trong ví dụ năm 1634, Lilly đọc cung 10 là nghề buôn của người hỏi và gọi Mộc Tinh ở cung 10 là 'chứng cứ chắc chắn, không sai' về buôn bán đắt hàng hay nghề có lời (tr.183).",
+   "conditions": "lord 2 - lord 10 links; benefic in the 10th = trade prospers",
+   "exceptions": [],
+   "effect": "testimony_for",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 171,
+     "quote": "let him expect an Office or Publique imployment in the Common-wealth"
+    },
+    {
+     "work": "LILLY",
+     "page": 183,
+     "quote": "for Jupiter in the tenth is a certaine and infallible argument (according to naturall causes) that the querent shall have plenty of Trading"
+    }
+   ],
+   "example": "lilly.ex.rich_or_poor_1634"
+  },
+  {
+   "id": "lilly.career.salary_from_superior",
+   "category": "topic",
+   "title_en": "Wages or salary owed by a superior (cross-reference)",
+   "title_vi": "Lương bổng do cấp trên trả (tham chiếu)",
+   "statement_en": "Salary, wages or stipend expected from a king, nobleman, general, commonwealth or great person is judged by the 10th (the person) and the 11th (his money): see lilly.money.from_great_person (pp.174-175).",
+   "statement_vi": "Lương, tiền công hay bổng lộc mong nhận từ vua, quý tộc, tướng lĩnh, nhà nước hay người quyền thế được luận theo cung 10 (người đó) và cung 11 (tiền của họ): xem lilly.money.from_great_person (tr.174–175).",
+   "conditions": "cross-reference",
+   "exceptions": [],
+   "effect": "definition",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 174,
+     "quote": "the Querent is much inferiour to the Quesited or from whom he expects the accomplishment"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.boundary.life_and_death",
+   "category": "topic",
+   "title_en": "Boundary: length of life and death (1st and 8th house chapters)",
+   "title_vi": "Ranh giới: tuổi thọ và cái chết (các chương cung 1 và cung 8)",
+   "statement_en": "Lilly has chapters on whether the querent shall live long (Chap. XXII, pp.129-142, with a worked example), whether an absent party is alive or dead (pp.153-156 and Chap. LXVII, pp.404-406), which of husband and wife dies first (p.311) and other 8th-house questions (pp.404-421). He himself warns against pronouncing death rashly upon one testimony and says he has refrained from judging the absolute time of death. The product does not judge these questions; this record only marks that the chapters exist.",
+   "statement_vi": "Lilly có các chương về việc người hỏi có sống lâu không (Chương XXII, tr.129–142, kèm ví dụ), người vắng nhà còn sống hay đã chết (tr.153–156 và Chương LXVII, tr.404–406), vợ hay chồng ai chết trước (tr.311) và các câu hỏi khác của cung 8 (tr.404–421). Chính ông cảnh báo không được vội phán cái chết dựa trên một chứng cứ, và nói ông đã tránh luận thời điểm chết. Sản phẩm không luận các câu hỏi này; bản ghi này chỉ đánh dấu các chương ấy tồn tại.",
+   "conditions": "question about death, lifespan, whether someone is alive -> refuse to judge",
+   "exceptions": [],
+   "effect": "warning",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 129,
+     "quote": "If the Querent is likely to live long yea or not"
+    },
+    {
+     "work": "LILLY",
+     "page": 132,
+     "quote": "You must carefully avoid pronouncing Death rashly, and upon one single testimony"
+    },
+    {
+     "work": "LILLY",
+     "page": 404,
+     "quote": "If the absent party be alive or dead?"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.boundary.sickness",
+   "category": "topic",
+   "title_en": "Boundary: sickness and its outcome (6th house chapters)",
+   "title_vi": "Ranh giới: bệnh tật và kết cục (các chương cung 6)",
+   "statement_en": "Lilly's 6th-house section (Chap. XLIV-XLVII, pp.243-296) judges diseases, their cause, length, crisis, whether the sick shall live or die, with worked examples. The product does not judge health outcomes; this record only marks the chapters.",
+   "statement_vi": "Phần cung 6 của Lilly (Chương XLIV–XLVII, tr.243–296) luận bệnh tật, nguyên nhân, thời gian kéo dài, cơn khủng hoảng, người bệnh sống hay chết, kèm các ví dụ. Sản phẩm không luận kết cục sức khỏe; bản ghi này chỉ đánh dấu các chương.",
+   "conditions": "health / sickness outcome question -> refuse to judge",
+   "exceptions": [],
+   "effect": "warning",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 247,
+     "quote": "Whether the Disease will be long or short."
+    },
+    {
+     "work": "LILLY",
+     "page": 290,
+     "quote": "Of the Crisis in Diseases."
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.boundary.pregnancy_children",
+   "category": "topic",
+   "title_en": "Boundary: pregnancy, conception, sex of the child, birth (5th house chapters)",
+   "title_vi": "Ranh giới: mang thai, thụ thai, giới tính thai nhi, sinh nở (các chương cung 5)",
+   "statement_en": "Lilly's 5th-house chapters (Chap. XXXIX-XLIII, pp.222-242) judge whether one shall have children, whether a woman is with child, of male or female, the time of birth, and the legitimacy of a child (p.318). The product does not judge these; this record only marks the chapters.",
+   "statement_vi": "Các chương cung 5 của Lilly (Chương XXXIX–XLIII, tr.222–242) luận việc có con không, người phụ nữ có mang thai không, con trai hay gái, thời điểm sinh, và đứa trẻ có phải con chính thức không (tr.318). Sản phẩm không luận các câu hỏi này; bản ghi chỉ đánh dấu các chương.",
+   "conditions": "pregnancy / conception / sex of child / paternity question -> refuse to judge",
+   "exceptions": [],
+   "effect": "warning",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 222,
+     "quote": "If one shall have Children, yea or no?"
+    },
+    {
+     "work": "LILLY",
+     "page": 229,
+     "quote": "Whether a Woman be with Childe or not"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.boundary.lawsuits",
+   "category": "topic",
+   "title_en": "Boundary: lawsuits and their outcome (7th house)",
+   "title_vi": "Ranh giới: kiện tụng và kết quả (cung 7)",
+   "statement_en": "Lilly judges who shall do best in a suit of law (p.369) and gives a full method for lawsuits (pp.372-376): querent the 1st, adversary the 7th, judge the 10th, end the 4th. The product does not predict the outcome of legal proceedings; this record only marks the chapters (agreement or settlement between parties is covered under lilly.business.* only as a business relationship, not as a legal verdict).",
+   "statement_vi": "Lilly luận ai thắng trong vụ kiện (tr.369) và đưa ra phương pháp đầy đủ cho kiện tụng (tr.372–376): người hỏi – cung 1, đối phương – cung 7, quan tòa – cung 10, kết cục – cung 4. Sản phẩm không dự đoán kết quả tố tụng; bản ghi này chỉ đánh dấu các chương (thỏa thuận giữa các bên chỉ được xét ở lilly.business.* như quan hệ làm ăn, không phải phán quyết pháp lý).",
+   "conditions": "lawsuit outcome question -> refuse to judge",
+   "exceptions": [],
+   "effect": "warning",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 369,
+     "quote": "Who shall doe best in a suit of Law"
+    },
+    {
+     "work": "LILLY",
+     "page": 375,
+     "quote": "the Judge by the Lord of the tenth, the end of the matter from the Lord of the fourth"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.boundary.prison_captivity_witchcraft",
+   "category": "topic",
+   "title_en": "Boundary: imprisonment, captivity, witchcraft (12th house)",
+   "title_vi": "Ranh giới: tù tội, bị bắt giữ, bùa ngải (cung 12)",
+   "statement_en": "Lilly's 12th-house chapters judge secret enemies (p.460), the imprisoned and captives (Chap. XC-XCI, pp.461-464) and whether one is bewitched (Chap. XCII, pp.464-466). The product does not judge imprisonment or witchcraft; this record only marks the chapters.",
+   "statement_vi": "Các chương cung 12 của Lilly luận kẻ thù ngầm (tr.460), người bị giam và tù binh (Chương XC–XCI, tr.461–464) và việc có bị bỏ bùa không (Chương XCII, tr.464–466). Sản phẩm không luận chuyện tù tội hay bùa ngải; bản ghi chỉ đánh dấu các chương.",
+   "conditions": "prison / captivity / witchcraft question -> refuse to judge",
+   "exceptions": [],
+   "effect": "warning",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 462,
+     "quote": "If a Question be asked for a Captive or Prisoner."
+    },
+    {
+     "work": "LILLY",
+     "page": 464,
+     "quote": "If one be Bewitched or not"
+    }
+   ],
+   "example": ""
+  },
+  {
+   "id": "lilly.boundary.war_ships",
+   "category": "topic",
+   "title_en": "Boundary: war, sieges, armies; safety of ships",
+   "title_vi": "Ranh giới: chiến tranh, vây thành, quân đội; an toàn của tàu thuyền",
+   "statement_en": "Lilly judges battles and war (Chap. LI, pp.366-369; Chap. LVI-LVII, pp.379-383, with political examples pp.399-403, 452-456) and the safety or destruction of a ship (Chap. XXVI, pp.157-166). These concern violence and loss of life; the product does not judge them.",
+   "statement_vi": "Lilly luận trận đánh và chiến tranh (Chương LI, tr.366–369; Chương LVI–LVII, tr.379–383, với các ví dụ chính trị tr.399–403, 452–456) và tàu thuyền an toàn hay bị đắm (Chương XXVI, tr.157–166). Các việc này liên quan đến bạo lực và tính mạng; sản phẩm không luận.",
+   "conditions": "war / battle / ship safety question -> refuse to judge",
+   "exceptions": [],
+   "effect": "warning",
+   "school": "lilly",
+   "status": "classical",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 366,
+     "quote": "Of Battle, Warre, or other Contentions"
+    },
+    {
+     "work": "LILLY",
+     "page": 157,
+     "quote": "Of a Ship, and whatever are in her, her Safety or Destruction"
+    }
+   ],
+   "example": ""
   }
  ]
 }

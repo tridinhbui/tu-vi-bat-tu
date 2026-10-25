@@ -268,6 +268,11 @@ def judge(chart, frame_d: dict, school: str = "lilly") -> dict:
         T.append(Testimony("cauda_in_quesited", -1, "minor", f"Kế Đô (Cauda Draconis) ở nhà {qh}, nhà của việc",
             "Lilly: Kế Đô ở nhà nào thì báo tổn hại, trở ngại cho việc của nhà đó.", [], [qh], rule="lilly.method.cauda_draconis"))
 
+    from . import topics
+    tt, answers = topics.apply(chart, frame_d, pairs, strength, recs)
+    T.extend(tt)
+    if any(t.tier == "decisive" for t in tt):          # a topic chapter's own perfection test replaces 'no connection'
+        T = [t for t in T if t.id != "no_connection"]
     verdict = _weigh(T, cons)
     timing_out = None
     pos = [t for t in T if t.tier == "decisive" and t.polarity > 0 and t.jd]
@@ -284,7 +289,7 @@ def judge(chart, frame_d: dict, school: str = "lilly") -> dict:
             deg = None
         timing_out = timing(chart, cfg, deg) if deg is not None else None
 
-    return {"frame": frame_d, "significators": sig, "considerations": [c.as_dict() for c in cons],
+    return {"frame": frame_d, "significators": sig, "considerations": [c.as_dict() for c in cons], "answers": answers,
             "testimonies": sorted([t.as_dict() for t in T], key=lambda t: (TIER_ORDER[t["tier"]], -abs(t["polarity"]))),
             "verdict": verdict, "timing": timing_out, "moon_course": mc,
             "configurations": {"main": [c.as_dict() for c in main], "moon": [c.as_dict() for c in moon_cfg]},

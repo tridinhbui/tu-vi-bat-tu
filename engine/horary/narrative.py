@@ -143,6 +143,10 @@ def _mechanism(t: dict) -> str:
         return f"{PLANET[t['planets'][0]]} bị Mặt Trời đốt"
     if i == "same_ruler":
         return "một hành tinh đại diện cho cả hai bên"
+    if i == "topic.lost.moon_applies":
+        return "Mặt Trăng, sao chỉ đồ mất, đang tiến tới " + _lower_first(t["vi"].split("tiến tới ", 1)[-1].split(" (")[0])
+    if i == "topic.lost.moon_none":
+        return "Mặt Trăng, sao chỉ đồ mất, không tiến tới chủ tinh nào giúp tìm lại"
     return _lower_first(t["vi"])
 
 
@@ -173,6 +177,8 @@ def compose(chart, frame: dict, j: dict) -> dict:
     neg = [t for t in dec if t["polarity"] < 0]
     strong = [t for t in tests if t["tier"] == "strong"]
     conds = [c for c in (_conditions(t) for t in pos) if c] + [_mechanism(t) for t in strong if t["polarity"] < 0]
+    note126 = ", điều Lilly đòi hỏi ở tr.126 (dù tr.111 không đòi)"
+    conds = [c if i == 0 or note126 not in conds[0] else c.replace(note126, "") for i, c in enumerate(conds)]
     ground = _main_ground(chart, j, L1, LQ, qname)
 
     # ---------------- quick
@@ -184,6 +190,10 @@ def compose(chart, frame: dict, j: dict) -> dict:
         quick.append(_p(f"Về thời gian, thước đo tượng trưng của Lilly cho khoảng {tm['house_rule']['value']} {tm['house_rule']['unit']} "
                         f"(theo vị trí nhà) hoặc {tm['sign_rule']['value']} {tm['sign_rule']['unit']} (theo tính chất cung); "
                         "đây không phải ngày dự báo.", [tm["house_rule"]["rule"], tm["sign_rule"]["rule"]]))
+    ans = j.get("answers") or {}
+    if frame["topic"] == "lost" and ans:
+        keys = ("quarter", "place_conflict", "recovery_degree") if "place_conflict" in ans else ("in_house", "quarter", "distance", "recovery_degree")
+        quick.append(_p(" ".join(ans[k]["vi"].rstrip(".") + "." for k in keys if k in ans), [ans[k]["rule"] for k in keys if k in ans]))
     quick.append(_p(CONFIDENCE_VI[v["confidence"]], v["cautions"]))
     if frame.get("caution"):
         quick.append(_p(frame["caution"]))
@@ -286,6 +296,10 @@ def compose(chart, frame: dict, j: dict) -> dict:
     else:
         why = " Không có chứng cứ quyết định ở bên nào; Lilly khuyên hoãn luận khi chứng cứ cân bằng."
     concl = [_p(head + why, [t["id"] for t in dec])]
+    ans = j.get("answers") or {}
+    if ans:
+        concl.append(_p("Những điều Lilly nói riêng cho loại câu hỏi này: " + " ".join(a["vi"].rstrip(".") + "." for a in ans.values()),
+                        [a["rule"] for a in ans.values()]))
     if j["timing"]:
         tm = j["timing"]
         concl.append(_p(tm["house_rule"]["vi"] + " " + tm["sign_rule"]["vi"] + " " + tm["caveat"]
@@ -316,6 +330,10 @@ def _main_ground(chart, j, L1, LQ, qname) -> str:
     who = f"{PLANET[L1]} (đại diện cho bạn) và {PLANET[LQ]} (đại diện cho {qname})"
     first = next((t for t in dec if t["polarity"] > 0), None)
     block = next((t for t in dec if t["polarity"] < 0), None)
+    lm = next((t for t in dec if t["id"] in ("topic.lost.moon_applies", "topic.lost.moon_none")), None)
+    if lm:
+        return _mechanism(lm)[:1].upper() + _mechanism(lm)[1:] + "; theo chương đồ mất của Lilly, đây là phép thử chính." + (
+            " Bên cạnh đó, " + _lower_first(_mechanism(first)) + "." if first and first is not lm and first["polarity"] > 0 else "")
     if "same_ruler" in ids:
         return f"Một hành tinh duy nhất, {PLANET[L1]}, đại diện cho cả bạn lẫn {qname}, nên chính tình trạng của nó và Mặt Trăng quyết định."
     if first and first["id"] == "translation":

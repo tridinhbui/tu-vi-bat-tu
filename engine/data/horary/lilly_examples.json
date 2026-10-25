@@ -629,6 +629,637 @@
      "quote": "and so in short, I judged Cambridge was not taken"
     }
    ]
+  },
+  {
+   "id": "lilly.ex.purchase_houses_1634",
+   "pages": [
+    219,
+    220,
+    221
+   ],
+   "topic": "land / buying a house",
+   "house": 4,
+   "question": "If I should purchase Master B. his houses. ... I had a desire to know if I should deal with the seller and procure Moneys in convenient time to pay for the Purchase ... I took my owne Question my selfe",
+   "date_as_printed": {
+    "printed": "31 Mar. 1634 / 6 Hor: P M:",
+    "day": 31,
+    "month": 3,
+    "year": 1634,
+    "hour": 6,
+    "minute": 0,
+    "ampm": "P.M.",
+    "calendar": "Julian (Old Style); in England the civil year 1634 began 25 March, so 31 March 1634 is unambiguous",
+    "place": "London (the house Lilly lived in, 1647)",
+    "also_printed": "Dns diei Moon; Hor: astr: Sun; 'Moon a conjunction Mars ad square Saturn' (Moon from the conjunction of Mars to the square of Saturn)"
+   },
+   "figure": {
+    "format": "square figure with inner square, east (1st) on the left",
+    "cusps": {
+     "1": "Libra 13:45",
+     "2": "Scorpio 6:26",
+     "3": "Sagittarius 6:58",
+     "4": "Capricorn 18:00",
+     "5": "Aquarius 25:36",
+     "6": "Pisces 22:15",
+     "7": "Aries 13:45",
+     "8": "Taurus 6:26",
+     "9": "Gemini 6:58",
+     "10": "Cancer 18:00",
+     "11": "Leo 25:36",
+     "12": "Virgo 22:15"
+    },
+    "planets": {
+     "Sun": {
+      "sign": "Aries",
+      "deg": 20,
+      "min": 56,
+      "retro": false,
+      "printed_in_house": 7
+     },
+     "Moon": {
+      "sign": "Virgo",
+      "deg": 19,
+      "min": 38,
+      "retro": false,
+      "printed_in_house": 11
+     },
+     "Mercury": {
+      "sign": "Taurus",
+      "deg": 3,
+      "min": 38,
+      "retro": false,
+      "printed_in_house": 7
+     },
+     "Venus": {
+      "sign": "Aries",
+      "deg": 14,
+      "min": 35,
+      "retro": false,
+      "printed_in_house": 7
+     },
+     "Mars": {
+      "sign": "Virgo",
+      "deg": 11,
+      "min": 6,
+      "retro": true,
+      "printed_in_house": 11
+     },
+     "Jupiter": {
+      "sign": "Gemini",
+      "deg": 25,
+      "min": 37,
+      "retro": false,
+      "printed_in_house": 9
+     },
+     "Saturn": {
+      "sign": "Sagittarius",
+      "deg": 21,
+      "min": 25,
+      "retro": true,
+      "printed_in_house": 3
+     }
+    },
+    "other": {
+     "part_of_fortune": "Pisces 12:27 (6th)",
+     "south_node": "Virgo 27:48 (printed in the 12th compartment)",
+     "north_node": "Pisces 27:48"
+    },
+    "legibility": "legible. MC/IC print only degrees (Cancer 18, Capricorn 18). Sun and Venus minutes are crowded together (Sun 20:56, Venus 14:35); the printed Part of Fortune (Pisces 12:27) back-computes exactly to Sun 20:56 and Lilly's 'Venus wanted six degrees of the body of the Sun' agrees. The retrograde mark by Mars is a small rotated R."
+   },
+   "significators": [
+    {
+     "role": "querent (Lilly, buyer)",
+     "planet": "Venus",
+     "why": "lady of the ascendant (Libra)"
+    },
+    {
+     "role": "seller",
+     "planet": "Sun",
+     "why": "placed in the 7th ('locally placed in the seventh is for the Seller'); also lord of the 11th"
+    },
+    {
+     "role": "the houses (thing bought)",
+     "planet": "Saturn",
+     "why": "lord of the 4th (Capricorn); also has exaltation in the ascendant, so also signifies the querent"
+    },
+    {
+     "role": "querent's money",
+     "planet": "Mars",
+     "why": "lord of the 2nd, retrograde"
+    },
+    {
+     "role": "price",
+     "planet": "Sun",
+     "why": "exalted and angular: seller high in his demands"
+    }
+   ],
+   "configurations": [
+    {
+     "type": "reception",
+     "planets": [
+      "Sun",
+      "Venus"
+     ],
+     "aspects": [
+      "Sun receives Venus in his exaltation (Venus in Aries)"
+     ],
+     "words": "the Sun receives Venus in his Exaltation",
+     "page": 220
+    },
+    {
+     "type": "aspect",
+     "planets": [
+      "Venus",
+      "Saturn"
+     ],
+     "aspects": [
+      "Venus applying to trine Saturn (lord of 4); Saturn retrograde, both apply"
+     ],
+     "words": "had no abscission or frustration ere the perfect aspect; a maine strong argument that I should buy the houses",
+     "page": 220
+    },
+    {
+     "type": "aspect",
+     "planets": [
+      "Sun",
+      "Saturn"
+     ],
+     "aspects": [
+      "Sun in (near) perfect trine with Saturn: lord of 11 and lord of 4"
+     ],
+     "words": "I also considered the Sun was in perfect trine with Saturn",
+     "page": 220
+    },
+    {
+     "type": "translation",
+     "planets": [
+      "Moon",
+      "Mars",
+      "Saturn"
+     ],
+     "aspects": [
+      "Moon separating from conjunction Mars (dignities in the 7th)",
+      "Moon applying to square Saturn (virtue in the ascendant), signs of long ascension"
+     ],
+     "words": "The Moon in the next place translating the influence of Mars, who hath Dignities in the seventh, to Saturn having vertue in the ascendant, though by a square aspect",
+     "page": 220
+    },
+    {
+     "type": "timing",
+     "planets": [
+      "Venus",
+      "Sun"
+     ],
+     "aspects": [
+      "Venus about 6 degrees from conjunction with the Sun"
+     ],
+     "words": "so was it six weekes and some dayes from the time of the Question ere I perfected what the Figure promised",
+     "page": 221
+    },
+    {
+     "type": "station",
+     "planets": [
+      "Mars"
+     ],
+     "aspects": [
+      "Mars (lord of 2) retrograde turns direct twelve days later"
+     ],
+     "words": "and Mars became direct, which he did twelve dayes after, at what time a friend lent me 500 l.",
+     "page": 221
+    }
+   ],
+   "judgment": {
+    "paraphrase_en": "He would proceed and conclude the purchase (Venus received by the Sun, Venus applying to trine Saturn lord of the 4th without abscission or frustration, Moon translating Mars to Saturn), but slowly and with many meetings (square of the translation, Venus and Moon afflicted); the seller would be high in his demands (Sun exalted and angular); his own money would not come in (Mars lord of 2 retrograde) but a friend would lend it; the houses old but strong (Saturn lord of the 4th).",
+    "paraphrase_vi": "Lilly sẽ tiến hành và mua được (Kim Tinh được Mặt Trời tiếp nhận, Kim Tinh tiến tới tam hợp Thổ Tinh – chủ cung 4 – mà không bị cắt hay hụt, Trăng chuyển ánh sáng của Hỏa Tinh sang Thổ Tinh), nhưng chậm và phải gặp nhiều lần (sự chuyển qua góc vuông, Kim và Trăng bị hại); người bán sẽ đòi giá cao (Mặt Trời vượng ở cung góc); tiền của chính ông không thu về được (Hỏa Tinh chủ cung 2 nghịch hành) nhưng sẽ có bạn cho vay; nhà cũ nhưng chắc (Thổ Tinh chủ cung 4).",
+    "quote": "a maine strong argument that I should buy the houses"
+   },
+   "outcome": "A jovial man tried to buy them first but failed; the seller would not abate a penny of 530 pounds; when Mars turned direct twelve days later a friend lent Lilly 500 pounds; he bargained on 25 April (Venus conjunct Sun) and paid and sealed the conveyance on 17 May; Lilly calls it a hard bargain (pp.220-221).",
+   "notes": "Lilly's own question (he defends this on pp.166-167). Example of reception by exaltation with a perfecting trine, translation by square from signs of long ascension, and timing by the querent's significator's distance to the seller's significator (6 degrees = six weeks and some days).",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 219,
+     "quote": "I had a desire to know if I should deal with the seller and procure Moneys in convenient time to pay for the Purchase"
+    },
+    {
+     "work": "LILLY",
+     "page": 220,
+     "quote": "had no abscission or frustration ere the perfect aspect; a maine strong argument that I should buy the houses"
+    },
+    {
+     "work": "LILLY",
+     "page": 220,
+     "quote": "the Seller not abating one penny of five hundred and thirty pounds, being the first penny he demanded"
+    },
+    {
+     "work": "LILLY",
+     "page": 221,
+     "quote": "so was it six weekes and some dayes from the time of the Question ere I perfected what the Figure promised"
+    },
+    {
+     "work": "LILLY",
+     "page": 221,
+     "quote": "which he did twelve dayes after, at what time a friend lent me 500"
+    }
+   ]
+  },
+  {
+   "id": "lilly.ex.money_lost_1647",
+   "pages": [
+    395,
+    396
+   ],
+   "topic": "theft / lost goods (who stole it, recovery)",
+   "house": 7,
+   "question": "Money lost, who stole it? if recoverable?",
+   "date_as_printed": {
+    "printed": "24 May. 1647 / 5 hor: P: M / Hor: astr: Jupiter",
+    "day": 24,
+    "month": 5,
+    "year": 1647,
+    "hour": 5,
+    "minute": 0,
+    "ampm": "P.M.",
+    "calendar": "Julian (Old Style)",
+    "place": "London (Lilly's practice in 1647; not stated on the page)",
+    "also_printed": "a Moon glyph above the date (no 'Dns diei' label); 'Moon a conjunction Sun ad sextile Mars' (Moon from the conjunction of the Sun to the sextile of Mars)"
+   },
+   "figure": {
+    "format": "round figure with lens-shaped cusp labels (degrees only), east (1st) on the left",
+    "cusps": {
+     "1": "Scorpio 8",
+     "2": "Sagittarius 3",
+     "3": "Capricorn 8",
+     "4": "Aquarius 23",
+     "5": "Pisces 20",
+     "6": "Aries 19",
+     "7": "Taurus 8",
+     "8": "Gemini 3",
+     "9": "Cancer 8",
+     "10": "Leo 23",
+     "11": "Virgo 20",
+     "12": "Libra 19"
+    },
+    "planets": {
+     "Sun": {
+      "sign": "Gemini",
+      "deg": 12,
+      "min": 48,
+      "retro": false,
+      "printed_in_house": 8
+     },
+     "Moon": {
+      "sign": "Gemini",
+      "deg": 20,
+      "min": 36,
+      "retro": false,
+      "printed_in_house": 8
+     },
+     "Mercury": {
+      "sign": "Taurus",
+      "deg": 24,
+      "min": 42,
+      "retro": false,
+      "printed_in_house": 7
+     },
+     "Venus": {
+      "sign": "Cancer",
+      "deg": 10,
+      "min": null,
+      "retro": false,
+      "printed_in_house": 9,
+      "note": "only '10' legible"
+     },
+     "Mars": {
+      "sign": "Leo",
+      "deg": 25,
+      "min": 2,
+      "retro": false,
+      "printed_in_house": 10
+     },
+     "Jupiter": {
+      "sign": "Leo",
+      "deg": 5,
+      "min": 10,
+      "retro": false,
+      "printed_in_house": 9
+     },
+     "Saturn": {
+      "sign": "Taurus",
+      "deg": 24,
+      "min": 22,
+      "retro": false,
+      "printed_in_house": 7
+     }
+    },
+    "other": {
+     "part_of_fortune": "Scorpio 15:24 (1st)",
+     "north_node": "Cancer 13 (9th)",
+     "south_node": "Capricorn 13 (3rd)"
+    },
+    "legibility": "cusps print whole degrees only; Venus's and the Node's minutes not printed or illegible; otherwise legible."
+   },
+   "significators": [
+    {
+     "role": "querent",
+     "planet": "Mars",
+     "why": "lord of the ascendant (Scorpio); 'Mars his mind and disposition'"
+    },
+    {
+     "role": "thief",
+     "planet": "Mercury",
+     "why": "truly peregrine in Taurus 24:42; Mars (angular, in his own terms and decanate) and Saturn (in the 7th, in his own terms and decanate) are rejected because essentially dignified"
+    },
+    {
+     "role": "the money / recovery",
+     "planet": "Mars",
+     "why": "dispositor of the Part of Fortune, which is in the ascendant; Moon applying to Mars's sextile"
+    }
+   ],
+   "configurations": [
+    {
+     "type": "thief_selection",
+     "planets": [
+      "Mars",
+      "Saturn",
+      "Mercury"
+     ],
+     "aspects": [
+      "peregrine planet chosen over angular but dignified planets"
+     ],
+     "words": "him I found truly peregrine, viz. having no essentiall Dignity where he is, therefore I adjudged Mercury to be Significator of the Thief.",
+     "page": 396
+    },
+    {
+     "type": "aspect",
+     "planets": [
+      "Mercury",
+      "Mars",
+      "Saturn"
+     ],
+     "aspects": [
+      "Mercury lately separated from square of Mars",
+      "Mercury almost in partile conjunction with Saturn"
+     ],
+     "words": "lately separated or rather in square of Mars, and now almost in partill conjunction with Saturn",
+     "page": 396
+    },
+    {
+     "type": "moon",
+     "planets": [
+      "Moon",
+      "Mars"
+     ],
+     "aspects": [
+      "Moon applying to sextile of Mars, about 4 degrees short"
+     ],
+     "words": "the Moon applyed to his sextile aspect, and was within four degrees of the aspect: I judged he should not onely heare of, but have his Money within four dayes",
+     "page": 396
+    }
+   ],
+   "judgment": {
+    "paraphrase_en": "The thief was a male youth of fifteen or sixteen (Mercury, Moon newly past the Sun), a neighbour's child (Mercury conjunct Saturn lord of the 3rd and 4th), dwelling opposite the querent or a little south-west; the money would be recovered within four days (Part of Fortune in the ascendant disposed by Mars, Moon 4 degrees from his sextile).",
+    "paraphrase_vi": "Kẻ trộm là một thiếu niên nam mười lăm, mười sáu tuổi (Thủy Tinh; Trăng vừa rời Mặt Trời), con nhà hàng xóm (Thủy Tinh hợp Thổ Tinh – chủ cung 3 và 4), ở đối diện nhà người hỏi hoặc hơi chếch tây nam; tiền sẽ lấy lại được trong vòng bốn ngày (Điểm Phúc ở cung Mệnh do Hỏa Tinh cai quản, Trăng còn 4 độ đến lục hợp Hỏa Tinh).",
+    "quote": "I judged he should not onely heare of, but have his Money within four dayes after the Question."
+   },
+   "outcome": "The event proved true both as to the person described and to the day: the money was returned within three days (p.396). The querent had insisted a woman-servant (Mars) and another (Saturn) were thieves; Lilly refused because both were essentially dignified.",
+   "notes": "Good test of Lilly's thief-significator rule (peregrine planet in an angle preferred; dignified planets rejected).",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 395,
+     "quote": "Money lost, who stole it? if recoverable?"
+    },
+    {
+     "work": "LILLY",
+     "page": 395,
+     "quote": "is angular, and but two minutes entred his own Termes, yet being in his Decanate, I refused him for Significator of the Thiefe"
+    },
+    {
+     "work": "LILLY",
+     "page": 396,
+     "quote": "therefore I adjudged Mercury to be Significator of the Thief."
+    },
+    {
+     "work": "LILLY",
+     "page": 396,
+     "quote": "and would not consent unto it, because both those Planets were essentially dignified"
+    },
+    {
+     "work": "LILLY",
+     "page": 396,
+     "quote": "and to the day of the money returned, which was within three dayes after."
+    }
+   ]
+  },
+  {
+   "id": "lilly.ex.fish_stolen_1638",
+   "pages": [
+    397,
+    398,
+    399
+   ],
+   "topic": "theft / lost goods",
+   "house": 7,
+   "question": "Fish Stolen. ... my Fish stolen: I took the exact time when I first heard the report, and erected the Figure accordingly, endeavouring to give my selfe satisfaction what became of my goods, and, if possible, to recover part or all of them againe.",
+   "date_as_printed": {
+    "printed": "Saturn: 10: Feb. 1638 / 8: 45' A.M.",
+    "day": 10,
+    "month": 2,
+    "year": 1638,
+    "hour": 8,
+    "minute": 45,
+    "ampm": "A.M.",
+    "calendar": "Julian (Old Style). The figure prints 1638 (year counted from 1 January); Lilly's text says 'Living in the Country 1637' (English civil year, which began 25 March), so the same day is 10 February 1637/8. The Saturn glyph = Saturday, which agrees with 10 Feb 1638 Julian.",
+    "place": "Walton-on-Thames, Surrey ('it came down by the Barge at Walton', p.397); Lilly was then 'Living in the Country'",
+    "also_printed": "'Moon {a opposition Jupiter / ad sextile Mercury}' (Moon from the opposition of Jupiter to the sextile of Mercury)"
+   },
+   "figure": {
+    "format": "square figure with curved compartments, east (1st) on the left",
+    "cusps": {
+     "1": "Taurus 4:27",
+     "2": "Gemini 13:28",
+     "3": "Cancer 1:02",
+     "4": "Cancer 14",
+     "5": "Cancer 29:33",
+     "6": "Virgo 0:33",
+     "7": "Scorpio 4:27",
+     "8": "Sagittarius 13:28",
+     "9": "Capricorn 1:02",
+     "10": "Capricorn 14",
+     "11": "Capricorn 29:33",
+     "12": "Pisces 0:33"
+    },
+    "planets": {
+     "Sun": {
+      "sign": "Pisces",
+      "deg": null,
+      "min": null,
+      "retro": false,
+      "printed_in_house": 12,
+      "note": "drawn beside the 12th-cusp label 'Pisces 0:33' with no degrees of its own; the printed Part of Fortune (Cancer 17:30) with Asc Taurus 4:27 and Moon Taurus 15:03 back-computes to Sun Pisces 2:00"
+     },
+     "Moon": {
+      "sign": "Taurus",
+      "deg": 15,
+      "min": 3,
+      "retro": false,
+      "printed_in_house": 1,
+      "note": "printed '15' with a following '3' squeezed against the ascendant label; minute reading uncertain"
+     },
+     "Mercury": {
+      "sign": "Pisces",
+      "deg": 18,
+      "min": 0,
+      "retro": false,
+      "printed_in_house": 12
+     },
+     "Venus": {
+      "sign": "Aries",
+      "deg": 18,
+      "min": 20,
+      "retro": false,
+      "printed_in_house": 12
+     },
+     "Mars": {
+      "sign": "Scorpio",
+      "deg": 29,
+      "min": 50,
+      "retro": false,
+      "printed_in_house": 7
+     },
+     "Jupiter": {
+      "sign": "Scorpio",
+      "deg": 5,
+      "min": 3,
+      "retro": null,
+      "printed_in_house": 7,
+      "note": "a retrograde mark is printed between the Mars and Jupiter entries; which planet it belongs to is not certain (a modern ephemeris has Jupiter retrograde, nearly stationary, and Mars direct)"
+     },
+     "Saturn": {
+      "sign": "Aquarius",
+      "deg": 1,
+      "min": 46,
+      "retro": false,
+      "printed_in_house": 11
+     }
+    },
+    "other": {
+     "part_of_fortune": "Cancer 17:30 (4th)",
+     "north_node": "Capricorn 12 (10th)",
+     "south_node": "Cancer 12 (3rd/4th)"
+    },
+    "legibility": "mostly legible but crowded: the Sun has no degrees printed, the Moon's minutes and the owner of the R mark are uncertain; MC/IC print degrees only."
+   },
+   "significators": [
+    {
+     "role": "thief",
+     "planet": "Jupiter",
+     "why": "the only peregrine planet in an angle, upon the cusp of the 7th, in Scorpio (a moist sign)"
+    },
+    {
+     "role": "querent's goods",
+     "planet": "Mercury",
+     "why": "lord of the 2nd (Gemini), in Pisces (his fall and detriment) but in his own terms"
+    },
+    {
+     "role": "Part of Fortune",
+     "planet": "Moon",
+     "why": "lady of the Part of Fortune (in Cancer)"
+    },
+    {
+     "role": "the thief's house/removal",
+     "planet": "Mars",
+     "why": "lord of the 7th, departing Scorpio (his own sign) for another sign"
+    }
+   ],
+   "configurations": [
+    {
+     "type": "thief_selection",
+     "planets": [
+      "Jupiter"
+     ],
+     "aspects": [
+      "peregrine in an angle (7th cusp)"
+     ],
+     "words": "there was no peregrine Planet in angle but Jupiter whom I found upon the cusp of the seventh house",
+     "page": 397
+    },
+    {
+     "type": "aspect",
+     "planets": [
+      "Moon",
+      "Mercury"
+     ],
+     "aspects": [
+      "Mercury (lord of 2) applied to by the Moon's sextile; Moon lady of the Part of Fortune"
+     ],
+     "words": "Lord of my house of Substance, was applyed unto by a sextile of Moon, who was Lady of my Part of Fortune",
+     "page": 398
+    },
+    {
+     "type": "aspect",
+     "planets": [
+      "Mercury",
+      "Part of Fortune"
+     ],
+     "aspects": [
+      "Mercury trine the Part of Fortune; Mercury in fall and detriment but in own terms"
+     ],
+     "words": "but as he was in his own Termes, and had a trine aspect to Part of Fortune, there was hopes of some of my Goods.",
+     "page": 398
+    },
+    {
+     "type": "sign_change",
+     "planets": [
+      "Mars"
+     ],
+     "aspects": [
+      "Mars (lord 7) leaving Scorpio"
+     ],
+     "words": "because Mars Lord of the 7th was departing the Sign Scorpio, viz. his owne, and entring another",
+     "page": 398
+    }
+   ],
+   "judgment": {
+    "paraphrase_en": "The thief lived by the water (all significators in watery signs; Jupiter in Scorpio), a fisherman who was selling land or moving house (Mars leaving his own sign); the goods were in a moist or low place (Part of Fortune in Cancer, Moon in an earthy sign); he would hear of the goods (Moon sextile Mercury lord of 2) but recover only part (Mercury in fall and detriment, but in his terms and trine the Part).",
+    "paraphrase_vi": "Kẻ trộm sống gần nước (mọi sao chủ ở cung Thủy; Mộc Tinh ở Hổ Cáp), là người đánh cá đang bán đất hay dọn nhà (Hỏa Tinh rời cung nhà mình); đồ ở nơi ẩm hoặc thấp (Điểm Phúc ở Cự Giải, Trăng ở cung Đất); sẽ có tin về đồ mất (Trăng lục hợp Thủy Tinh – chủ cung 2) nhưng chỉ lấy lại được một phần (Thủy Tinh ở vị trí suy và tổn hại, nhưng ở giới hạn của mình và tam hợp Điểm Phúc).",
+    "quote": "the application of Moon to the Lord of the second, argues recovery; a full recovery, if both the Moon and the Lord of the second be essentially dignified"
+   },
+   "outcome": "With a warrant, on Sunday 18 February Lilly searched the suspected fisherman's house and found part of the fish in water, part eaten, part not consumed; all confessed (p.398).",
+   "notes": "Lilly's own question. On p.399 he draws the general lesson: the peregrine planet in an angle describes the thief; the Sun or Moon in the ascendant with dignity gives hope of discovery; the Moon applying to lord 2 argues recovery (full if both dignified, partial if only accidentally fortified, discovery without recovery if both peregrine).",
+   "sources": [
+    {
+     "work": "LILLY",
+     "page": 397,
+     "quote": "it came down by the Barge at Walton, on Saturday the 10. of Febr."
+    },
+    {
+     "work": "LILLY",
+     "page": 397,
+     "quote": "there was no peregrine Planet in angle but"
+    },
+    {
+     "work": "LILLY",
+     "page": 398,
+     "quote": "but as he was in his own Termes"
+    },
+    {
+     "work": "LILLY",
+     "page": 398,
+     "quote": "I found part of my Fish in water, part eaten, part not consumed, all confessed."
+    },
+    {
+     "work": "LILLY",
+     "page": 399,
+     "quote": "So that you see the peregrine Planet in an angle describes the Thiefe"
+    },
+    {
+     "work": "LILLY",
+     "page": 399,
+     "quote": "a full recovery, if both the Moon and the Lord of the second be essentially dignified; part, if accidentally fortified"
+    }
+   ]
   }
  ]
 }
