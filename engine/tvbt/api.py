@@ -504,6 +504,10 @@ phi_hoa_api.register(app, BirthReq, _compute)
 from . import growth_api  # noqa: E402  (Personal Growth layer, behind TVBT_GROWTH)
 growth_api.register(app, BirthReq, _compute)
 
+# Western astrology (engine/western/, kept apart from tvbt): /api/west/*
+from western.api import router as west_router  # noqa: E402
+app.include_router(west_router)
+
 # Everything else under web/ (generated article pages, xem-ngay, manifest, service worker, icons): last, so it never shadows an API
 # route. Production serves these as Worker static assets; this mount makes a local uvicorn run match.
 app.mount("/", StaticFiles(directory=ROOT / "web", html=True), name="web")
