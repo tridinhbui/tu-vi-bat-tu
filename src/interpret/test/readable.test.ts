@@ -75,7 +75,5 @@ test('Mệnh content measures no worse than the luận cung baseline (docs/LUAN-
   const d = distinct(luanSaid, K, bench, rates);
   console.log(`# benchmark20 luận cung Mệnh: Barnum ${(100 * d.barnum).toFixed(1)}%, strip ${d.stripSim}`);
   assert.ok(d.barnum <= 0.4055, `Barnum ${d.barnum}`);
-  // 0.0655 until 2026-10-24; Tử Vi Hàm Số's palace readings add cross-palace sentences to the Mệnh chapter, told in the shared ledger
-  // frames, and the text-only similarity went 0.061 → 0.067 while the content measures stayed (Barnum 0.401, content Jaccard 0.214)
-  assert.ok(d.stripSim <= 0.068, `strip ${d.stripSim}`);
+  assert.ok(d.stripSim <= 0.0655, `strip ${d.stripSim}`);
 });

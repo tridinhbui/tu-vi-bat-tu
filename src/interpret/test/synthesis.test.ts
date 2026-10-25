@@ -86,13 +86,11 @@ test('2002 Phu Thê: Cơ–Âm vượng, Văn Xương hóa Kỵ, Đà La and Tu�
   const body = c.paragraphs.slice(1).map(p => p.text).join(' ');
   for (const x of ['Đà La', 'Tuần', 'Hóa Kỵ']) assert.ok(body.includes(x), `${x} faced in the reading`);
   const end = conclusions(c, 'hon_nhan');
-  // no book sentence decides between sự hòa hợp and sự trắc trở, and Tuần's timing reading no longer ties them (owner review 2026-10-22).
-  // Until 2026-10-24 the system's scale weighed them (Thái Âm vượng, a chính tinh, against Đà La: nghiêng về thuận, owner decision 2026-10-23).
-  // Tử Vi Hàm Số adds two strain readings in this very palace (Hóa Kỵ ở Phu Thê: vợ chồng hay cãi vã, HS p.169; Tuần ở Phu Thê: trắc trở,
-  // HS p.227) and two harmony ones (Quang Quý, HS p.147; Cơ Nguyệt ở Dần Thân, HS p.119): the scale no longer separates the sides, so they
-  // are named and left unresolved (docs/audit/HAM-SO.md, lá số 2002)
-  assert.ok(end.length && end.every(s => s.trace.ledger!.verdict === 'chua_phan_xu'), end.map(s => s.text).join(' | '));
+  // no book sentence decides between sự hòa hợp and sự trắc trở, and Tuần's timing reading no longer ties them (owner review 2026-10-22);
+  // the system's scale weighs them (Thái Âm vượng, a chính tinh, against Đà La) and says so as its own tổng hợp (owner decision 2026-10-23)
+  assert.ok(end.length && end.every(s => s.trace.ledger!.verdict === 'nghieng_ve'), end.map(s => s.text).join(' | '));
   assert.ok(end.some(s => /sự hòa hợp/.test(s.text) && /sự trắc trở/.test(s.text)), 'both sides named');
+  assert.ok(end.some(s => s.trace.step === 'ledger:hon_nhan:weigh' && /Thái Âm/.test(s.text)), 'the reason the heavier side weighs more');
   assert.ok(end.some(s => /Đà La/.test(s.text) && /Tuần/.test(s.text)), 'the limits of the palace are named with the conclusion');
   assert.ok(end.some(s => s.trace.part === 5));
   // Văn Xương carries Kỵ: every strength resting on it is followed by its caveat
@@ -110,9 +108,7 @@ test('2002 Quan Lộc: borrowed Cơ–Âm, Thân cư and tam hợp; no conclusio
   const plan = reasonPalace(REF, K, 'Quan Lộc', infer(REF, K));
   for (const t of plan.theses) for (const cl of t.claims.filter(x => x.single)) {
     const at = sentences(c).findIndex(s => s.trace.step === `claim:${t.id}:${cl.concept}`);
-    // its caveat, or another palace saying the same (luan.ts caveats(): a corroboration makes the claim more than one star's)
-    if (at >= 0) assert.ok(sentences(c).slice(at, at + 4).some(s => s.trace.step?.startsWith('single:') || (s.trace.step?.startsWith('corroborated:') && s.trace.concepts.includes(cl.concept))),
-      `one-star claim ${cl.concept} has its caveat`);
+    if (at >= 0) assert.ok(sentences(c).slice(at, at + 4).some(s => s.trace.step?.startsWith('single:')), `one-star claim ${cl.concept} has its caveat`);
   }
   const L = buildLedger(REF, K, infer(REF, K).resolved).domains.find(d => d.id === 'cong_danh')!;
   assert.notEqual(L.verdict, 'thuan');
