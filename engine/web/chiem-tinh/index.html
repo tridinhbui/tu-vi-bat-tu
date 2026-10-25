@@ -67,7 +67,6 @@
 <section class="wt-start" id="lap-ban-do" aria-labelledby="lap-h">
 <h2 id="lap-h" class="sr-only">Nhập thông tin sinh</h2>
 <form id="birth-form" class="bform wt-form" novalidate method="post" action="#">
-  <label class="fld"><span>Tên <small class="wt-opt">(không bắt buộc)</small></span><input name="name" maxlength="80" autocomplete="off" placeholder="vd. Minh Anh"></label>
   <fieldset class="f-set">
     <legend>Ngày sinh (dương lịch)</legend>
     <div class="f-row f-3">
@@ -84,17 +83,17 @@
   </div>
   <div class="fld wt-plfld">
     <label for="f-place">Nơi sinh</label>
-    <div class="wt-plbox"><input id="f-place" name="place" autocomplete="off" placeholder="Gõ tên thành phố, vd. Hà Nội, Sài Gòn, Paris" aria-describedby="f-place-info f-attr">
+    <div class="wt-plbox"><input id="f-place" name="place" autocomplete="off" placeholder="Tên thành phố, vd. Hà Nội, Sài Gòn, Paris" aria-describedby="f-place-info">
     <ul id="f-place-list" class="wt-pl" hidden></ul></div>
     <p class="wt-plinfo" id="f-place-info" aria-live="polite"></p>
-    <p class="hint" id="f-attr">Dữ liệu địa danh: <a class="link" href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (CC BY 4.0). Múi giờ và giờ mùa hè theo cơ sở dữ liệu IANA, kể cả các thay đổi trong lịch sử.</p>
   </div>
-  <fieldset class="fld fld-radio wt-gender"><legend>Giới tính <small class="wt-opt">(không bắt buộc)</small></legend>
-    <div class="seg" role="radiogroup" aria-describedby="g-hint"><label><input type="radio" name="gender" value="male"><span>Nam</span></label><label><input type="radio" name="gender" value="female"><span>Nữ</span></label><label><input type="radio" name="gender" value="" checked><span>Không nêu</span></label></div>
-    <em class="hint" id="g-hint">Chỉ dùng cho phần luận giải: Lilly và Ptolemy đọc hôn nhân khác nhau theo giới tính. Bản đồ sao không phụ thuộc vào ô này.</em></fieldset>
   <details class="adv">
-    <summary>Tùy chọn nâng cao<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <summary>Tên, giới tính và tùy chọn nâng cao<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
     <div class="adv-b">
+      <label class="fld"><span>Tên <small class="wt-opt">(không bắt buộc)</small></span><input name="name" maxlength="80" autocomplete="off" placeholder="vd. Minh Anh"></label>
+      <fieldset class="fld fld-radio wt-gender"><legend>Giới tính <small class="wt-opt">(không bắt buộc)</small></legend>
+      <div class="seg" role="radiogroup" aria-describedby="g-hint"><label><input type="radio" name="gender" value="male"><span>Nam</span></label><label><input type="radio" name="gender" value="female"><span>Nữ</span></label><label><input type="radio" name="gender" value="" checked><span>Không nêu</span></label></div>
+      <em class="hint" id="g-hint">Chỉ dùng cho phần luận giải: Lilly và Ptolemy đọc hôn nhân khác nhau theo giới tính. Bản đồ sao không phụ thuộc vào ô này.</em></fieldset>
       <p class="help">Chọn nơi sinh sẽ tự điền ba ô dưới. Sửa tay nếu nơi sinh không có trong danh sách.</p>
       <div class="f-row f-3 wt-coords">
         <label class="fld"><span>Vĩ độ</span><input name="lat" type="number" step="any" min="-90" max="90" inputmode="decimal" placeholder="21.0245"></label>
@@ -117,6 +116,7 @@
   </details>
   <div id="form-err" role="alert" hidden></div>
   <button class="btn btn-lg" type="submit"><span class="btn-t">Lập bản đồ sao</span><span class="btn-spin" aria-hidden="true"></span></button>
+  <p class="hint wt-attr" id="f-attr">Dữ liệu địa danh: <a class="link" href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (CC BY 4.0). Múi giờ và giờ mùa hè theo cơ sở dữ liệu IANA, kể cả các thay đổi trong lịch sử.</p>
   <p class="privacy">Ngày giờ sinh chỉ được xử lý tức thời để tính bản đồ, máy chủ không lưu lại. Hồ sơ bạn lưu chỉ nằm trong trình duyệt này.</p>
 </form>
 <aside class="wt-side" id="profiles" aria-label="Hồ sơ đã lưu và lịch sử">

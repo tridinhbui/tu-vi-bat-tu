@@ -65,7 +65,7 @@ export function initBirthForm(form, { onSubmit, ids = {} }) {
   };
   placeBox($('#' + I.place, form), $('#' + I.list, form), {
     onPick: p => { picked = p; f('lat').value = p.lat; f('lon').value = p.lon; f('tz').value = p.tz; showInfo(); },
-    onType: () => { picked = null; },
+    onType: () => { picked = null; ['lat', 'lon', 'tz'].forEach(n => { f(n).value = ''; }); showInfo(); },   // a new name, new coordinates
   });
   ['lat', 'lon', 'tz'].forEach(n => f(n).addEventListener('input', () => { picked = null; showInfo(); }));
   const noTime = f('notime'), time = f('time');
@@ -86,7 +86,7 @@ export function initBirthForm(form, { onSubmit, ids = {} }) {
       hour = +t[1]; minute = +t[2];
     }
     const lat = parseFloat(f('lat').value), lon = parseFloat(f('lon').value), tz = f('tz').value.trim();
-    if (!Number.isFinite(lat) || !Number.isFinite(lon) || !tz) throw new Error('Hãy chọn nơi sinh trong danh sách gợi ý, hoặc nhập vĩ độ, kinh độ và múi giờ IANA trong phần nâng cao.');
+    if (!Number.isFinite(lat) || !Number.isFinite(lon) || !tz) throw new Error('Hãy nhập nơi sinh: tên thành phố là đủ, ví dụ Hà Nội.');
     if (Math.abs(lat) > 90 || Math.abs(lon) > 180) throw new Error('Vĩ độ phải trong khoảng −90 đến 90, kinh độ trong khoảng −180 đến 180.');
     const off = f('offset').value.trim();
     const birth = { year: y, month: m, day: d, hour, minute, lat, lon, tz, place: (picked?.name || f('place').value.split(',')[0] || '').trim().slice(0, 120),
@@ -116,9 +116,17 @@ export function initBirthForm(form, { onSubmit, ids = {} }) {
     if (o.minor_aspects != null && f('minor')) f('minor').checked = o.minor_aspects;
     showInfo();
   }
+  /** A city typed but not picked from the list: the gazetteer's first match is taken, so the city name alone is enough. */
+  async function resolvePlace() {
+    const q = f('place').value.split(',')[0].trim();
+    if (picked || q.length < 2 || (Number.isFinite(parseFloat(f('lat').value)) && f('tz').value.trim())) return;
+    const r = await searchPlaces(q).catch(() => null), p = r?.results?.[0];
+    if (!p) throw new Error(`Chưa tìm thấy nơi sinh “${q}”. Thử tên không dấu hoặc tên tiếng Anh, ví dụ Ha Noi, Saigon.`);
+    picked = p; f('place').value = p.name + (p.country ? ', ' + p.country : ''); f('lat').value = p.lat; f('lon').value = p.lon; f('tz').value = p.tz; showInfo();
+  }
   form.addEventListener('submit', async e => {
     e.preventDefault(); err.hidden = true;
-    let inp; try { inp = read(); } catch (x) { fail(x.message); return; }
+    let inp; try { await resolvePlace(); inp = read(); } catch (x) { fail(x.message); return; }
     const btn = $('[type=submit]', form); btn.classList.add('busy'); btn.disabled = true;
     try { await onSubmit(inp); } catch (x) { fail(x.message); } finally { btn.classList.remove('busy'); btn.disabled = false; }
   });
