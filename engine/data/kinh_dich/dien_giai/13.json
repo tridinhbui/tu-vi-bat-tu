@@ -1,0 +1,200 @@
+{
+ "number": 13,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Đồng Nhân là cùng người khác làm một việc chung; cái chung ấy thông suốt khi đặt ở chỗ rộng, công bằng, không vì thân sơ, và khi mọi người đã cùng một lòng thì vượt được chỗ khó.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Đồng nhân là chung cùng với người."},
+    {"seg": "thoan", "layer": "chu_hy", "quote": "Ở đồng ý nói rộng xa mà không riêng tây, thì có đạo hanh"},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "thiên hạ đã chung cùng, thì còn sự hiểm trở nào không thể vượt qua?"}
+   ]
+  },
+  "image": {
+   "text": "Lửa bốc lên gặp trời ở trên, hai thứ cùng một chiều: cái chung đến từ chỗ cùng tính, nhưng muốn hợp cho đúng thì phải biết xếp loại, phân biệt chỗ giống chỗ khác.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "chu_hy", "quote": "Trời ở trên mà lửa bốc lên, ấy là tính nó giống nhau, chia loại các giống, phân biệt các vật, là để xét sự khác nhau mà làm cho giống nhau."}
+   ]
+  },
+  "structure": {
+   "text": "Cả quẻ chỉ có một hào âm ở giữa quẻ dưới, ứng với hào Chín Năm; các hào dương đều muốn cùng nó, nên hai hào đứng giữa nảy ý tranh giành, ngăn cách.",
+   "from": [
+    {"seg": "intro", "layer": "trinh_di", "quote": "Lại nữa, quẻ này có một hào Âm, các hào Dương đều muốn chung cùng với nó, đó cũng là nghĩa cùng người."},
+    {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Hào Hai là kẻ mà các hào Dương cùng muốn, chỉ riêng hào Ba hào Tư có nghĩa tranh cướp"}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Kẻ xem như thế thì hanh thông mà lại có thể vượt qua chỗ hiểm. Nhưng, cái người mà mình chung cùng phải hợp với đạo quân tử thì mới có lợi."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Một nhóm làm việc mạnh khi tụ người vì việc chung chứ không vì cùng phe; ai chỉ kéo người mình ưa và gạt người mình ghét thì nhóm ấy chỉ còn là bè đảng.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Kẻ tiểu nhân thì chỉ chuyên dùng ý riêng, người họ yêu dù trái họ cũng chung cùng người họ ghét dù phải họ cũng trái khác, cho nên sự chung cùng của họ chỉ là hùa đảng"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Góp vốn hay chia của với người khác nên phân minh từ đầu chỗ chung chỗ riêng; khoản nào mình không có lý thì đừng cố giành, biết dừng lại mới tốt.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "nghĩa là theo từng nòi giống mà phân biệt các vật giống nhau khác nhau"},
+     {"seg": "tieu_tuong4", "layer": "chu_hy", "quote": "Biết theo nghĩa quyết đoán, cùng khốn mà quay về phép tắc, cho nên được tốt."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Mở rộng làm ăn ra xa, với cả người chưa quen, theo lối sòng phẳng thì thuận; chỉ buôn bán trong vòng họ hàng quen biết thì hẹp và đáng tiếc.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Cho nên cần phải ở đồng, nghĩa là không vì tính riêng gần gũi, mà phải ở nơi đồng cõi rộng xa."},
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "cùng nhau bằng tình riêng, tức là đáng tiếc."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Hiểu rõ lẽ phải thì thấy được chỗ chung giữa nhiều ý kiến khác nhau; học cùng người khác thuận khi mỗi người chịu gác thiên kiến riêng để tìm cái lý chung.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Chí của thiên hạ muôn thứ khác nhau, lý thì có một."},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "cứng mạnh thì có thể thắng lòng riêng mình"}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Tình cảm thật lòng giữa hai người có sức vượt qua sự ngăn trở của người ngoài; có điều, hai người chỉ quấn lấy nhau mà khép kín với mọi người thì vòng tình cảm hẹp lại.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "hai người đồng tâm, thì không có thể ngăn cách"},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Ấy là tính gần gũi riêng tây, không phải là thể đại đồng."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Gắn bó với người nhà là điều tốt, nhưng chỉ khép mình trong họ hàng và thiên vị người thân thì hẹp; đối xử đều tay với người gần kẻ xa thì nhà ít bị trách.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "thì là có sự thiên tư, ở đạo cùng người, thế là riêng tây hẹp hòi"},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Người ta cùng nhau thường có hậu bạc thân sơ khác nhau, tội lỗi do đó mà ra"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Khi muốn giành điều không thuộc về mình, nấp chờ và dò xét mãi cũng không dám ra tay; nhận ra lý không thẳng mà quay về thì lại thành điều tốt.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Như thế đến ba năm trời, rút lại, vẫn không dám nổi lên."},
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Sở dĩ được tốt là vì nghĩa đã không thắng, khốn cùng mà phải quay về phép tắc."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Tìm người cùng làm ở ngoài vòng quen biết, chọn theo lẽ phải chứ không theo tình riêng, và phân rõ chỗ giống chỗ khác trước khi bắt tay.",
+   "from": [
+    {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Ra cửa cùng người ở ngoài, đó là sự “cùng” đã rộng, không có thiên tư."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "đấng quân tử có thể phân biệt rõ ràng, cho nên khu xử các vật không mất phương pháp."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Sự hợp nhau chỉ có lợi khi người mình chung cùng đi đúng lẽ; hợp vì tình riêng thì không đem lại sự thông suốt hay sức vượt khó.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "chu_hy", "quote": "Nếu không thế thì là sự kết hợp bằng tình riêng mà thôi, lấy gì mà đem đến cho sự hanh thông và lợi cho sự qua chỗ hiểm?"}
+    ]
+   },
+   {
+    "text": "Bị ngăn cách mà mình có lý thì sau cùng vẫn gặp được nhau, nhưng có thể phải dốc nhiều sức mới vượt qua kẻ đứng giữa.",
+    "from": [
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Tuy là kẻ địch cứng mạnh, đến nỗi phải dùng đại quân, nhưng mà nghĩa thẳng lý thẳng, rút lại vẫn được"}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Vừa ra khỏi cửa nhà đã cùng người: chưa gắn với riêng ai, kết giao rộng và công bằng nên chẳng ai trách được.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Ra cửa nghĩa là ở ngoài, ở ngoài thì không có sự thiên lệch về tình riêng gần"},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "đã không bè đảng thiên lệch với ai, thì còn ai trách được nữa?"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dưới, trên không có hào nào hệ ứng: không bị ràng buộc với riêng ai.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "là hào cứng, ở ngôi dưới, trên không có gì hệ ứng, có thể không lỗi"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "nghia", "quote": "Hào Chín Đầu: Cùng người ở cửa, không lỗi"}
+  },
+  "2": {
+   "gist": {
+    "text": "Chỉ cùng người trong họ, trong phe mình: đức tốt, chỗ đứng đúng, nhưng gắn với một mối riêng nên cái chung hẹp lại, đáng tiếc.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "Hào Sáu tuy là ở giữa và chính ngôi, nhưng nó có kẻ ứng với ở trên, không thể đại đồng, mà còn vướng về tình riêng, đó là cách đáng tiếc"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, chính ứng với hào Chín Năm: mối ứng ấy ở quẻ khác là hay, ở đây lại thành chỗ thiên tư.",
+    "from": [
+     {"seg": "tieu_tuong2", "layer": "trinh_di", "quote": "Các quẻ lấy sự trung chính ứng nhau làm hay, mà ở quẻ Đồng nhân thì là đáng tiếc"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "nghia", "quote": "Hào Sáu Hai: Cùng người ở họ, đáng tiếc."}
+  },
+  "3": {
+   "gist": {
+    "text": "Muốn giành người đã có chỗ ứng mà biết lý mình không thẳng, nên chỉ nấp trong bụi rậm, leo gò cao dò ngóng; vì không dám ra mặt nên chưa đến nỗi hung.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "song lý không thẳng, nghĩa không thẳng cho nên không dám phát ra một cách rõ rệt, phải núp quân ở trong rừng rậm"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "là vì nó đã không dám phát lộ, nên chưa đến hung."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi dương mà không ở giữa: cứng quá mức, dễ sinh hung hăng.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Hào Ba là thể Dương, ở ngôi cứng, mà không được giữa, ấy là người cường bạo."}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "nghia", "quote": "Hào Chín Ba: Phục quân ở rừng, lên thửa gò cao, ba năm không dấy lên."}
+  },
+  "4": {
+   "gist": {
+    "text": "Đã trèo lên tường định đánh, nhưng tự thấy nghĩa không cho phép nên dừng tay; biết sai mà quay lại thì được tốt.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "chu_hy", "quote": "Cưỡi lên tường rồi thì không phải sức nó không đủ, chỉ vì nghĩa không được mà không đánh thôi."},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Nếu đã tự biết là nghĩa không thẳng mà không dám đánh, thì tức là tốt."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm: cứng mà có chỗ mềm, nên tự quay lại được.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Nhưng vì nó lấy đức cứng ở ngôi mềm, cho nên có Tượng “tự quay trở lại mà không thể đánh”."}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Kẻ xem như thế, thì là biết cải quá mà được tốt lành."}
+  },
+  "5": {
+   "gist": {
+    "text": "Hai bên thật lòng với nhau mà bị kẻ đứng giữa ngăn trở: trước uất ức kêu gào, phải dồn nhiều sức mới vượt qua, sau cùng gặp nhau và cười.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "ấy là đồng tâm với nhau, mà bị hào Ba Tư ngăn cách, không được cùng nhau"},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "nhưng mà kẻ cong không thể thắng được kẻ ngay, tuy bị ngăn cách, sau chót ắt được hợp nhau, cho nên về sau lại cười."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi tôn, ứng với hào Sáu Hai cùng trung chính; nhưng người đứng đầu mà chỉ riêng với một người thì chưa xứng tầm chỗ mình đứng.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Năm là một hào cứng mà trung chính hào Hai lấy đức mềm mà trung chính ứng nhau với nó ở dưới"},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Ông vua thì nên đại đồng với thiên hạ, mà lại riêng với một người, ấy là không phải đạo vua."}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "nghia", "quote": "Hào Chín Năm: Cùng với người, trước kêu gào mà sau cười, quân lớn được, gặp nhau."},
+   "topics": {
+    "tinh_cam": {
+     "text": "Mối quan hệ bị người khác chen ngang: nếu hai người cùng một lòng và có lý, qua những ngày uất ức vẫn đến được với nhau.",
+     "from": [
+      {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "Lúc trước sở dĩ kêu gào là vì lòng thành lý phải, cho nên khôn xiết phẫn uất mà đến như thế."}
+     ]
+    }
+   }
+  },
+  "6": {
+   "gist": {
+    "text": "Ở tận chốn ngoài xa, không ai để cùng: không vướng ai nên khỏi phải ăn năn, nhưng ý muốn cùng người chưa thành, cũng chưa phải cách xử khéo.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Ở ngoài không có hào nào ứng với, tức là không ai cùng mình, cũng có thể là không phải ăn năn"},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "tuy là không phải ăn năn, nhưng cũng không phải là kẻ khéo xử."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "nghia", "quote": "Hào Chín Trên: Cùng người ở đồng, không ăn năn."}
+  }
+ }
+}

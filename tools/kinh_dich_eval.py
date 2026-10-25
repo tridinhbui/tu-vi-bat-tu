@@ -80,6 +80,8 @@ def main(out_path: Path | None) -> int:
             j = jac(gs[a], gs[b])
             if j >= J_MAX:
                 worst.append((j, k, a, b))
+        if k == "hao.position":                # positions are facts of the same kind in every quẻ, not advice that fits any quẻ
+            continue
         for n, xs in per.items():
             for x in xs:
                 g = grams(x)

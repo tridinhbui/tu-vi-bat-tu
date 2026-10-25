@@ -109,7 +109,7 @@ def labelled_key(b: dict) -> str | None:
 
 def block_layers(b: dict) -> dict:
     """Layers of one block, footnote marks taken out; other_commentary (lời bàn of the tiên nho and of named scholars) becomes tien_nho,
-    each part headed by its printed label when that is not the generic 'Lời bàn của Tiên Nho'."""
+    each part headed by its printed label when that is not the generic 'Lời bàn của Tiên Nho' (an empty label: a paragraph printed under GIẢI NGHĨA with no name)."""
     out = {}
     for layer in LAYERS:
         v = (b.get(layer) or "").strip()

@@ -15,7 +15,9 @@ from .texts import DATA, LAYERS, quẻ_texts
 TOPICS = {"su_nghiep": "Sự nghiệp", "tai_chinh": "Tài chính", "kinh_doanh": "Kinh doanh", "hoc_tap": "Học tập",
           "tinh_cam": "Tình cảm", "gia_dinh": "Gia đình", "lua_chon": "Lựa chọn cá nhân"}
 # the reader's own words never talk about books, pages or rules (src/interpret/prose/lint.ts META / ABSOLUTE, same lists)
-META = ("sách ", "căn cứ", "quy tắc", "nhận định", "trang ", "tr.", "luận đoán", "hệ thống")
+META = ("sách ", "căn cứ", "quy tắc", "nhận định", "luận đoán", "hệ thống")
+# a page reference ('trang 12', 'tr. 5'), not 'trang sức' / 'trang nghiêm'
+PAGE_REF = re.compile(r"\b(trang|tr\.)\s*\d")
 ABSOLUTE = ("chắc chắn", "nhất định", "suốt đời", "trọn đời", "không bao giờ", "luôn luôn", "tuyệt đối", "định mệnh")
 
 
@@ -88,6 +90,8 @@ def lint(n: int) -> list[str]:
         for w in META + ABSOLUTE:
             if w in low:
                 bad.append(f"{where}: '{w.strip()}'")
+        if PAGE_REF.search(low):
+            bad.append(f"{where}: page reference")
     q = d.get("que", {})
     for k in ("core", "image", "traditional", "advice"):
         if not q.get(k):

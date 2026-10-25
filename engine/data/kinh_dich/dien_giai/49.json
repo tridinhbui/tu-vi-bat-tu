@@ -1,0 +1,208 @@
+{
+ "number": 49,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Cách là lúc bỏ cái cũ đã hỏng để đổi sang cái mới cho thông suốt; người xung quanh chưa tin ngay, phải qua một thời gian, và cuộc đổi chỉ trọn khi nó ngay chính.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Cách là đổi cái cũ, đổi cái cũ thì người ta chưa chịu tin ngay, cho nên phải đợi hết ngày, lòng người mới tin theo"},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Có hỏng nát mới phải thay đổi, mà thay đổi là để làm cho hanh thông"},
+    {"seg": "thoan", "layer": "trinh_di", "quote": "đổi đi mà lợi về chính đạo, thì có lâu dài mà được cái nghĩa “bỏ cũ”"}
+   ]
+  },
+  "image": {
+   "text": "Lửa ở dưới, nước chằm ở trên, khắc chế và làm tắt lẫn nhau: thế giằng co ấy không giữ nguyên được, và phải có cái dứt đi thì cái mới mới sinh ra.",
+   "from": [
+    {"seg": "intro", "layer": "trinh_di", "quote": "Nay lửa ở dưới mà nước ở trên, ấy là nói tới với nhau, khắc chế nhau, làm tắt dứt nhau, vì vậy là cách."},
+    {"seg": "thoan_truyen", "layer": "chu_hy", "quote": "Tức là dứt tắt, lại là nghĩa sinh đẻ, có đứt mà sau mới sinh đẻ được."}
+   ]
+  },
+  "structure": {
+   "text": "Sáu hào là các chặng của một cuộc đổi: hào Chín Đầu còn phải giữ mình, hào giữa đợi lúc và bàn cho chín, hào Chín Năm đổi sáng rõ, đến hào Sáu Trên việc đã thành thì chỉ nên giữ.",
+   "from": [
+    {"seg": "hao1", "layer": "chu_hy", "quote": "Lời Chiêm của hào này là nên cố giữ bền chặt, không thể làm gì."},
+    {"seg": "hao5", "layer": "trinh_di", "quote": "Lấy đạo “người lớn trung chính” mà cải cách việc đời, rõ rệt sáng sủa"},
+    {"seg": "hao6", "layer": "trinh_di", "quote": "Cuối cuộc đổi tức là đạo đổi đã thành."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "lời Chiêm của nó là hễ có thay đổi thì đều cả hanh, mà được chính đạo, những sự thay đổi xứng đáng mà sự ăn năn về cái thay đổi đó đều mất. Nếu có gì bất chính, thì việc thay đổi không được ai tin, không thể hanh thông, lại có ăn năn nữa."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Muốn sửa một nề nếp đã hỏng ở chỗ làm, đừng vội làm người đi đầu: đợi đến khi người trên kẻ dưới tin mình rồi hãy đổi, và đổi là để việc chạy thông hơn chứ không để đổi cho có.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "ắt đợi trên dưới tin mình, cho nên hết ngày mới đổi"},
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Có hỏng nát mới phải thay đổi, mà thay đổi là để làm cho hanh thông"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Một khoản tiền đang yên chỗ mà muốn chuyển sang hướng khác, hãy hỏi cuộc đổi ấy có ích rõ rệt không: đổi mà ích ít đã đáng tiếc, đổi mà thiệt thì càng nặng.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "Đổi thay mà không ích lắm, còn đáng ăn năn, huống chi đổi thay mà lại có hại."}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Khi tái tổ chức cách làm ăn, kế hoạch đổi mới nên được bàn đi bàn lại và nghe ý chung của những người liên quan; bàn đến ba lần mà vẫn hợp thì mới đủ tin để làm.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "xét những lời bàn về cuộc thay đổi đến ba lần mà đều hợp thì có thể tin"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Cốt ở giữ trinh chính, nhớ lo sợ, thuận theo công luận, thì có thể làm mà không ngờ gì."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Như người làm lịch theo dõi trăng sao để biết thứ tự bốn mùa, người học nên quan sát kỹ nhịp tiến bộ của mình rồi mới đổi cách học, không đổi theo cơn nóng vội.",
+    "from": [
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "suy xét sự dời dịch của mặt trời mặt trăng ngôi sao, vì sao, để làm lịch số, tỏ rõ thứ tự của bốn mùa"},
+     {"seg": "dai_tuong", "layer": "trinh_di", "quote": "xem bốn mùa mà thay đổi theo đó, thì sẽ hợp thứ tự với trời đất vậy"}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Hai người chung một mái nhà mà chí hướng không hợp là hình ảnh của quẻ: mối quan hệ đang ở lúc phải đổi khác, và sự đổi ấy chỉ êm khi hai bên thật lòng tin nhau.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "hai con gái cùng ở, mà bụng dạ không hợp nhau, gọi rằng Cách"},
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Đổi mệnh mà tốt, là vì trên dưới tin bụng của nhau."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Sau một lần thay nếp nhà, khi mọi người đã chịu theo dù chưa thật lòng, đừng truy mãi bắt sửa thêm; giữ cho nếp mới đứng vững lúc này khó hơn và cần hơn.",
+    "from": [
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "đấng quân tử cũng nên dong họ, nếu lại theo đổi mà trị họ nữa thì hung"},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Việc trong thiên hạ, lúc đầu thì lo khó đổi khi đã đổi rồi thì lo khó giữ"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Đứng trước việc bỏ cái cũ, hãy xét ba điều: thời đã tới chưa, chỗ đứng của mình có cho phép không, sức mình có kham nổi không; còn thiếu thì cứ giữ mình mà chờ.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Biến đổi là việc lớn, ắt phải có thời có ngôi có tài, xét lo cẩn thận sẽ hành động, thì sau mới khỏi ăn năn."},
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Là hào Chín Đầu, thì, ngôi và tài đều không thể làm gì, cho nên, chỉ lấy đức giữa thuận tự giữ cho bền."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Trước khi đổi, bàn cho kỹ và để mọi người có thời gian tin; khi đổi, làm bằng lòng chí thành; đổi xong thì dừng, dồn sức giữ cái mới thay vì đẩy tiếp.",
+   "from": [
+    {"seg": "hao3", "layer": "trinh_di", "quote": "Ý nói cực kỳ thận trọng, có thể như thế, thì ắt được xứng đáng rất mực, mới là có tin."},
+    {"seg": "hao4", "layer": "trinh_di", "quote": "Thay đổi đã xứng đáng cốt ở xử trí bằng lòng chí thành"},
+    {"seg": "hao6", "layer": "chu_hy", "quote": "không nên đi nữa, mà cứ ở chính thì tốt"}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Đổi không đúng lẽ thì lại sinh ra tệ mới; chỉ cuộc đổi thật xứng đáng mới xóa được cả điều đáng hối cũ lẫn mới.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Việc trong thiên hạ, thay đổi không phải đạo, thì sẽ lại đến tệ hại"},
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "chỉ có thay đổi rất xứng đáng, thì sự ăn năn mới cũ đều mất"}
+    ]
+   },
+   {
+    "text": "Lòng người chưa tin thì khó kéo ai theo, việc đổi khó thành; được tin rồi thì sự đổi mới có đà.",
+    "from": [
+     {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Lòng người không tin, khó mà bắt họ làm gương, không thể thành công."}
+    ]
+   },
+   {
+    "text": "Đổi xong mà không giữ vững bằng sự ngay thẳng, bền bỉ thì cái mới lại bị đổi đi mất.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Cuộc đổi đến chót mà không giữ bằng cách chính bền, thì sự đổi đó sẽ lại thay đổi đi mất."}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Thời đổi đã đến nhưng mình còn ở chỗ thấp, chưa có ai hỗ trợ: nên tự ràng mình cho vững bằng sự mềm thuận, chưa phải lúc ra tay.",
+    "from": [
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Dẫu đương thì đổi, nhưng hào này ở ngôi Đầu, không có ứng viện, chưa thể làm gì, cho nên mới là Tượng ấy."},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "cần phải lấy đạo giữa thuận, tự giữ cho bền chớ có động càn"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở dưới cùng, không có hào ứng, cứng mà không giữa, lại thuộc thể lửa: dễ nóng vội hành động.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "Bởi vì có cứng mà không giữa, lại ở vào thể nóng nảy"},
+     {"seg": "hao1", "layer": "trinh_di", "quote": "không có thời không có ứng viện"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "chu_hy", "quote": "Lời Chiêm của hào này là nên cố giữ bền chặt, không thể làm gì. Thánh nhân với việc biến cách, cẩn thận như vậy."}
+  },
+  "2": {
+   "gist": {
+    "text": "Đủ tài, đủ chỗ đứng để sửa cái cũ, lại có người trên ủng hộ; vẫn nên đợi mọi người tin rồi mới đổi, khi ấy tiến lên thì tốt, còn chần chừ thì lỡ dịp.",
+    "from": [
+     {"seg": "hao2", "layer": "chu_hy", "quote": "có ứng viện ở trên, với tư cách ấy có thể cải cách được rồi"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "ắt đợi trên dưới tin mình, cho nên hết ngày mới đổi"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Nếu không tiến lên thì mất cơ hội có thể làm việc, tức là có lỗi."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi âm, giữa quẻ dưới, ứng với hào Chín Năm: ngay ngắn, không thiên lệch, có người trên cùng chí.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Lấy hào Sáu ở ngôi Hai, mềm thuận mà được trung chính"},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "trung chính thì không thiên tư"}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "chu_hy", "quote": "ắt phải đợi hết ngày rồi sẽ cải cách, thì đi được tốt mà không có lỗi. Đó là răn kẻ xem không nên biến cải một cách vội vàng vậy."}
+  },
+  "3": {
+   "gist": {
+    "text": "Nóng vội mà đổi thì hỏng, dù ngay thẳng cũng phải giữ lòng lo sợ; lối ra là bàn đi bàn lại, thuận ý chung, đến khi mình và mọi người cùng tin thì làm.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "dùng kiểu đó mà đi, thì hung"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Cốt ở giữ trinh chính, nhớ lo sợ, thuận theo công luận, thì có thể làm mà không ngờ gì."},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "“Có tin” nghĩa là mình tin được mà mọi người cũng tin nữa như thế thì có thay đổi."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở trên cùng quẻ dưới, quá cứng mà không giữa, đứng ở chỗ tột của thể lửa: dễ nóng nảy.",
+    "from": [
+     {"seg": "hao3", "layer": "chu_hy", "quote": "Quá cứng không giữa, ở chỗ cùng cực của thể Ly"}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Quá cứng không giữa, ở chỗ cùng cực của thể Ly, là kẻ nóng nảy về sự cải cách, cho nên lời Chiêm của nó mới có câu răn “đi hung, chính nguy”."}
+  },
+  "4": {
+   "gist": {
+    "text": "Thời đổi đang thịnh, mình có tài và đúng chỗ để sửa cái đã hỏng; đổi bằng lòng chí thành, người trên tin, người dưới theo, thì điều đáng hối tan đi và việc tốt.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Chín Tư là lúc cuộc đổi đương thịnh"},
+     {"seg": "hao4", "layer": "trinh_di", "quote": "Việc đã xứng đáng, mối tệ đã đổi rồi, lại thi hành bằng cách chí thành, người trên tin mà người dưới theo, đủ biết là tốt."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm, cứng mềm xen nhau, nằm giữa nước và lửa: không thiên một bề, đúng chỗ của người làm cuộc đổi.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "nhằm vào khoảng giữa nước lửa, tức là lúc đáng cải cách, mà hào này cứng mềm không thiên"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "chu_hy", "quote": "Kẻ xem có đức ấy, gặp thời ấy, lại ắt phải có đức tin, thì sự ăn năn mới mất và mới được tốt."}
+  },
+  "5": {
+   "gist": {
+    "text": "Người đứng đầu đổi mới sáng rõ như con cọp thay lông, vằn hiện tươi: lẽ phải rõ đến mức chưa cần xem xét mọi người đã tin, nhưng điều ấy đến với người vốn đã được tin.",
+    "from": [
+     {"seg": "hao5", "layer": "tien_nho", "quote": "“Cọp biến” là nó thưa da mà lông mượt"},
+     {"seg": "hao5", "layer": "trinh_di", "quote": "rõ rệt sáng sủa, không đợi xem xét đã biết là rất xứng đáng, thiên hạ ắt tin"},
+     {"seg": "hao5", "layer": "chu_hy", "quote": "ắt phải tự khi chưa xem, người ta đã tin mình như thế, thì mới có thể đương nổi"}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở giữa quẻ trên, đúng ngôi và ở chỗ cao nhất: có tài, có đức, đủ tư cách làm chủ cuộc đổi.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Chín Năm lấy tài Dương cứng, đức giữa chính, ở ngôi tôn, là người lớn đó."},
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Hào Chín Năm lấy đức Dương cương trung chính làm chủ cuộc đổi"}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Kẻ xem mà được hào này thì cũng có sự ứng nghiệm đó, nhưng ắt phải tự khi chưa xem, người ta đã tin mình như thế, thì mới có thể đương nổi."}
+  },
+  "6": {
+   "gist": {
+    "text": "Cuộc đổi đã thành: người thật lòng thì đổi hẳn, người còn lại cũng đổi bề ngoài mà theo; lúc này đẩy tiếp thì hỏng, giữ yên cho ngay chính thì tốt.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Đạo đổi đã thành, đấng quân tử như beo đổi vằn, kẻ tiểu nhân cũng đổi mặt nghe theo, không nên đi nữa, mà cứ ở chính thì tốt."},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Quá thậm là không phải đạo"}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "Cái việc biến cách, là việc không đừng được, không thể làm quá, mà tài của hào Sáu Trên cũng không có thể làm lớn, cho nên kẻ xem cũng như thế."}
+  }
+ }
+}

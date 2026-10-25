@@ -1,0 +1,198 @@
+{
+ "number": 51,
+ "status": "draft",
+ "author": "Thiên Bàn (bản nháp, chưa duyệt)",
+ "que": {
+  "core": {
+   "text": "Chấn là cú chấn động như sấm dậy, ai cũng giật mình; người biết sợ mà tự sửa, tự giữ mình thì qua cơn sợ lại được yên và nỗi sợ thành phúc.",
+   "from": [
+    {"seg": "thoan", "layer": "trinh_di", "quote": "Lại, chấn là động, là sợ hãi, có khi chủ về nhức mà phấn phát, động mà tiến lên, sợ hãi mà sửa mình"},
+    {"seg": "thoan_truyen", "layer": "trinh_di", "quote": "Nhức lại mà biết lo sợ, tự sửa mình, tự giữ mình, tự gìn giữ, thì lại có thể đem đến phúc lành."}
+   ]
+  },
+  "image": {
+   "text": "Sấm nối sấm, tiếng sau dồn tiếng trước: gặp chuyện khiến mình sợ hãi thì nhân đó tự ngẫm, tự sửa lỗi mình, chứ không chỉ ngồi chờ cho qua.",
+   "from": [
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Sấm động trùng điệp thì oai càng thịnh."},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "tự mình sửa sang, tự mình ngẫm xét"},
+    {"seg": "dai_tuong", "layer": "trinh_di", "quote": "Chẳng những trong lúc sấm động, hễ gặp phải việc sợ hãi đều nên như thế."}
+   ]
+  },
+  "structure": {
+   "text": "Một hào dương mới sinh dưới hai hào âm, đội lên mà động; hào Chín Đầu vừa là gốc gây nên cơn chấn vừa đứng ở đầu cuộc sợ.",
+   "from": [
+    {"seg": "thoan", "layer": "chu_hy", "quote": "một khí Dương mới sinh dưới hai khí Âm, nhức mà tự động"},
+    {"seg": "hao1", "layer": "trinh_di", "quote": "Hào Đầu là chủ làm nên quẻ Chấn, tức là kẻ đem lại sự sợ; ở dưới quẻ là ở vào đầu cuộc sợ."}
+   ]
+  },
+  "traditional": {"seg": "thoan", "layer": "chu_hy", "quote": "Lời Chiêm quẻ này là biết lo sợ thì đem được phúc đến mà chẳng bị mất cái sở chủ hệ trọng của mình."},
+  "topics": {
+   "su_nghiep": {
+    "text": "Trước một biến động lớn ở nơi làm việc, như sấm vang trăm dặm, người giữ được việc mình đang cầm là người vẫn chú tâm, kính cẩn với phận sự, không hoảng mà buông tay.",
+    "from": [
+     {"seg": "thoan", "layer": "trinh_di", "quote": "chỉ có cúng tế ở nhà tôn miếu, kẻ cầm môi và rượu Xưởng thì không đến nỗi mất"},
+     {"seg": "thoan", "layer": "trinh_di", "quote": "tới cuộc sợ hãi to lớn, có thể yên ổn mà không hoảng hốt, chỉ nhờ về lòng thành kính mà thôi"}
+    ]
+   },
+   "tai_chinh": {
+    "text": "Cơn chấn đến dữ, liệu chừng phải mất của thì lui lên chỗ cao mà tránh, đừng chạy theo đòi lại; giữ được mình thì qua thời ấy mọi sự trở lại bình thường, cái mất có thể tự về.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Sự nhức kéo lại dữ dội, đoán chừng không thể đương nổi mà ắt phải mất cái của mình có, thì lên hẳn chỗ rất cao, để mà tránh nó."},
+     {"seg": "hao2", "layer": "trinh_di", "quote": "nó qua thì lại trở lại bình thường, ấy là không đuổi mà tự nhiên vẫn được"}
+    ]
+   },
+   "kinh_doanh": {
+    "text": "Khi thị trường rung lắc hết đợt này đến đợt khác, tiến hay lùi đều có rủi ro; người cầm trịch giữ được mực trung, không làm quá tay, thì tuy nguy vẫn không mất gì và còn làm được việc.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "thế là đi lại đều nguy"},
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Vì nó được giữa, cho nên không mất gì, mà còn có thể có việc."}
+    ]
+   },
+   "hoc_tap": {
+    "text": "Một cú vấp bất ngờ như tiếng sấm, chẳng hạn một kết quả kém, là dịp để xét lại chỗ mình sai mà sửa; nhờ biết sợ mà có nề nếp, về sau mới thong dong được.",
+    "from": [
+     {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Nhân lo sợ mà tự mình tu tỉnh, chẳng dám trái với phép tắc, thế là bởi sự sợ mà sau có phép tắc, cho nên có thể giữ được yên lành mà cười nói khanh khách vậy."}
+    ]
+   },
+   "tinh_cam": {
+    "text": "Khi sóng gió mới chạm tới người bên cạnh mà chưa tới mình, biết lo xa mà điều chỉnh từ lúc ấy thì không lỗi, chứ đừng đợi đến khi chính mình bị cuốn vào.",
+    "from": [
+     {"seg": "hao6", "layer": "nghia", "quote": "nhức chẳng chưng thửa mình, chưng thửa láng giềng, không lỗi"},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Biết lo sợ trước khi nó chưa tới mình, thì không đến nỗi cùng cực, cho nên mới được không lỗi."}
+    ]
+   },
+   "gia_dinh": {
+    "text": "Người con cả giữ đồ thờ và việc tế lễ là hình ảnh của quẻ: ai gánh vai ấy trong nhà cần đủ thành kính, vững lòng, để lúc có biến vẫn không bỏ phận sự.",
+    "from": [
+     {"seg": "intro", "layer": "trinh_di", "quote": "Chủ về đồ đạc, không ai bằng con lớn"},
+     {"seg": "thoan_truyen", "layer": "nghia", "quote": "Ra khá lấy giữ tôn miếu xã tắc, để làm chủ tế vậy."},
+     {"seg": "thoan", "layer": "trinh_di", "quote": "hết lòng thành kính như thế, thì tuy oai của sấm động, cũng không khiến mình sợ hãi mà đánh mất cái của mình giữ"}
+    ]
+   },
+   "lua_chon": {
+    "text": "Đứng giữa ở lại hay ra đi, nếu cơn chấn động cho mình thấy chỗ đang đứng không đúng thì đó là lúc rời đi: nhân nỗi sợ mà bỏ chỗ không ngay để tới chỗ ngay.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Nếu nó nhân sự nhức sợ mà biết đi đi, bỏ chỗ bất chính để tới chỗ chính, thì có thể không có tội lỗi."}
+    ]
+   }
+  },
+  "advice": {
+   "text": "Khi chuyện dữ ập đến, nhận lấy nỗi sợ rồi dùng nó để xét lại và sửa mình; giữ lòng thành với việc đang cầm trong tay, đừng chạy theo cái đã mất mà đánh mất sự tự chủ.",
+   "from": [
+    {"seg": "tieu_tuong1", "layer": "trinh_di", "quote": "Sự sợ đến nơi mà biết lo hãi, đoái ngắm thì sẽ không có vạ lo, thế là lo sợ mà đến được phúc."},
+    {"seg": "hao2", "layer": "trinh_di", "quote": "Đuổi là đi theo vật khác, đem mình đi theo vật khác, thế là mất sự tự chủ, cho nên răn rằng chớ đuổi."}
+   ]
+  },
+  "conditions": [
+   {
+    "text": "Nỗi sợ chỉ thành phúc khi nó dẫn tới việc tự sửa; sợ đến tan tác chí khí mà vẫn cứ lao đi khi việc đã đến cùng cực thì hỏng.",
+    "from": [
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Hào Sáu lấy chất Âm mềm ở chỗ cùng cực cuộc nhức động, kinh sợ tệ quá, chí khí tan tác đi hết."},
+     {"seg": "tieu_tuong6", "layer": "trinh_di", "quote": "Cùng cực rồi mà lại đi nữa thì hung."}
+    ]
+   },
+   {
+    "text": "Đã mất thế cứng cỏi, ngay thẳng của mình thì gặp cơn chấn dễ sa lầy, không tự vực dậy được.",
+    "from": [
+     {"seg": "tieu_tuong4", "layer": "trinh_di", "quote": "Vì mất sự cương chính mà bị hãm giữa hai hào Âm đến nỗi “bèn đắm”, há có thể sáng?"}
+    ]
+   }
+  ]
+ },
+ "hao": {
+  "1": {
+   "gist": {
+    "text": "Cơn chấn vừa đến, mình là người đầu tiên đứng trước nó: biết sợ mà dè dặt, ngó trước ngó sau, thì về sau giữ được yên lành và cười nói thong thả.",
+    "from": [
+     {"seg": "hao1", "layer": "trinh_di", "quote": "nếu biết sợ hãi mà quanh co lo ngắm, ngơm ngớp vậy không dám yên đậu, thì sau ắt giữ được yên lành"},
+     {"seg": "hao1", "layer": "chu_hy", "quote": "Hào này là chủ làm nên quẻ Chấn ở đầu cuộc sợ"}
+    ]
+   },
+   "traditional": {"seg": "hao1", "layer": "nghia", "quote": "Nhức lại ngơm ngớp, sau cười nói khanh khách, tốt."}
+  },
+  "2": {
+   "gist": {
+    "text": "Cơn chấn ập tới mạnh, sức mình không chống nổi: lánh đi mà vẫn giữ mực trung chính của mình, không đuổi theo cái đã mất thì về sau tự khắc được lại.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Cái quý của hào Hai là đức trung chính, gặp khi nhức sợ kéo đến, tuy phải lượng thế nhún tránh, cũng nên giữ đức trung chính, chớ để mất đi."},
+     {"seg": "hao2", "layer": "chu_hy", "quote": "nó mềm thuận trung chính, đủ để tự giữ, cho nên không tìm mà tự được"}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở giữa quẻ dưới, đúng ngôi, nhưng cưỡi trên hào Chín Đầu cứng mạnh: đứng đúng chỗ mà ngay sát nguồn chấn.",
+    "from": [
+     {"seg": "hao2", "layer": "trinh_di", "quote": "Hào Sáu Hai ở giữa, được chỗ chính, là kẻ khéo ở cuộc sợ, mà cưỡi lên hào Chín Đầu là một hào cứng"},
+     {"seg": "tieu_tuong2", "layer": "nghia", "quote": "Nhức lại, nguy, cưỡi cứng vậy."}
+    ]
+   },
+   "traditional": {"seg": "hao2", "layer": "trinh_di", "quote": "Đuổi là đi theo vật khác, đem mình đi theo vật khác, thế là mất sự tự chủ, cho nên răn rằng chớ đuổi."}
+  },
+  "3": {
+   "gist": {
+    "text": "Đứng ở chỗ không đúng, cơn chấn làm mình thấp thỏm, rã rời; nếu nhân nỗi sợ ấy mà bước đi, rời chỗ sai sang chỗ đúng thì tránh được tai lỗi.",
+    "from": [
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Thom Thỏm là vẻ thần khí hoãn tan tự mất."},
+     {"seg": "hao3", "layer": "chu_hy", "quote": "Kẻ xem nếu nhân sự lo sợ mà biết đi đi, để bỏ chỗ bất chính, thì có thể không tội."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi dương, không giữa không chính: chỗ đứng vốn chẳng yên, gặp lúc chấn càng chao đảo.",
+    "from": [
+     {"seg": "tieu_tuong3", "layer": "trinh_di", "quote": "Chẳng giữa chẳng chính, thì yên sao được?"},
+     {"seg": "hao3", "layer": "trinh_di", "quote": "Ở chỗ bất chính, lúc bình thì không thể yên, huống chi ở lúc nhức sợ"}
+    ]
+   },
+   "traditional": {"seg": "hao3", "layer": "chu_hy", "quote": "Kẻ xem nếu nhân sự lo sợ mà biết đi đi, để bỏ chỗ bất chính, thì có thể không tội."}
+  },
+  "4": {
+   "gist": {
+    "text": "Gặp lúc chấn mà mình đã mất thế cứng, lại bị kẹp giữa hai bên mềm yếu, thì chìm lầy, không tự vực lên được; cái sáng sủa của sự động chưa hiện ra.",
+    "from": [
+     {"seg": "hao4", "layer": "chu_hy", "quote": "Lấy chất cứng ở chỗ mềm, chẳng giữa, chẳng chính, lại bị hãm giữa hai hào Âm, là kẻ không thể tự mình phấn chấn vậy."},
+     {"seg": "tieu_tuong4", "layer": "nghia", "quote": "Nhức bèn đắm, chưa sáng vậy."}
+    ]
+   },
+   "position": {
+    "text": "Hào dương ở ngôi âm, không giữa không chính, trên dưới đều là hào âm vây quanh.",
+    "from": [
+     {"seg": "hao4", "layer": "trinh_di", "quote": "lấy chất Dương bất chính, mà trên dưới đều hai hào Âm, thì sao khỏi đắm?"}
+    ]
+   },
+   "traditional": {"seg": "hao4", "layer": "nghia", "quote": "Nhức bèn đắm."}
+  },
+  "5": {
+   "gist": {
+    "text": "Cơn chấn đi rồi lại đến, lên hay xuống đều nguy; người ở chỗ cao mà sức mềm, nếu giữ được mực giữa thì tự đứng vững, không mất gì.",
+    "from": [
+     {"seg": "hao5", "layer": "chu_hy", "quote": "Lấy hào Sáu đóng ngôi Năm mà ở thì nhức, chẳng lúc nào mà không nguy."},
+     {"seg": "tieu_tuong5", "layer": "trinh_di", "quote": "“Thửa việc” chỉ về đức giữa; không mất đức giữa, thì tự giữ được."}
+    ]
+   },
+   "position": {
+    "text": "Hào âm ở ngôi tôn, được giữa nhưng không phải chất cứng, lại không có người giúp: vì thế mà gặp nguy.",
+    "from": [
+     {"seg": "hao5", "layer": "trinh_di", "quote": "Hào Năm sở dĩ phải nguy, vì không phải Dương cương, lại không có kẻ giúp đỡ."}
+    ]
+   },
+   "traditional": {"seg": "hao5", "layer": "chu_hy", "quote": "Kẻ xem không mất đức giữa, thì tuy có nguy cũng chẳng mất gì."}
+  },
+  "6": {
+   "gist": {
+    "text": "Ở cuối cơn chấn, sợ đến rã rời, mắt ngó ngơ ngác, cứ thế mà đi thì hỏng; biết lo từ khi cơn chấn mới đến người bên cạnh mà sửa mình thì không lỗi.",
+    "from": [
+     {"seg": "hao6", "layer": "chu_hy", "quote": "Lấy chất Âm mềm ở chỗ cùng cực cuộc nhức, cho nên có Tượng: “xơ xác ngơ ngác”."},
+     {"seg": "hao6", "layer": "trinh_di", "quote": "Biết lo sợ trước khi nó chưa tới mình, thì không đến nỗi cùng cực, cho nên mới được không lỗi."}
+    ]
+   },
+   "traditional": {"seg": "hao6", "layer": "chu_hy", "quote": "nếu trong khi sự nhức sợ chưa tới mình, mà biết lo hãi tử tỉnh, thì có thể không lỗi"},
+   "topics": {
+    "tinh_cam": {
+     "text": "Chuyện cưới hỏi, họ hàng hai bên lúc này dễ có lời ra tiếng vào, nhất là khi mình rút khỏi một việc mà người thân đang cùng theo đuổi.",
+     "from": [
+      {"seg": "hao6", "layer": "trinh_di", "quote": "Dâu gia là người mình thân chỉ về kẻ cùng động. Có nói là có lời oán trách."}
+     ]
+    }
+   }
+  }
+ }
+}
