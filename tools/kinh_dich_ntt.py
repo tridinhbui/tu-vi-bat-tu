@@ -703,8 +703,18 @@ def finalize(work: Path, out: Path = OUT) -> None:
                 s["status_reason"] = why
         (out / f"{n}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", "utf-8")
         written.append(n)
-    (out / "misprints.json").write_text(json.dumps({"note": "Hán of LỜI KINH lines where this printing differs from zh.wikisource 周易, "
-        "each difference seen on the page image; the transcription keeps the print", "han": misprints}, ensure_ascii=False, indent=1) + "\n", "utf-8")
+    vi = []                                       # Vietnamese oddities flagged by readers and confirmed on the image as printed
+    if (work / "writers" / "sample30_verdicts.json").exists():
+        items = json.loads((work / "writers" / "sample30.json").read_text("utf-8"))
+        for v in json.loads((work / "writers" / "sample30_verdicts.json").read_text("utf-8")):
+            it = items[v["i"]]
+            if v["verdict"] == "print":
+                vi.append({"number": it["n"], "where": it["where"], "page": v["page"], "text": it["quote"], "print": v["print_text"],
+                           "checked": "seen on the page image"})
+    (out / "misprints.json").write_text(json.dumps({"note": "han: Hán of LỜI KINH lines where this printing differs from zh.wikisource 周易, "
+        "each difference seen on the page image; vietnamese: oddities in the Vietnamese layers that readers flagged and that the page image "
+        "shows as printed (a random 30 of 152 flags, all 30 printed so). The transcription keeps the print in both.", "han": misprints,
+        "vietnamese": vi}, ensure_ascii=False, indent=1) + "\n", "utf-8")
     print("written:", written)
 
 

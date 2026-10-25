@@ -1,5 +1,5 @@
 {
- "note": "Hán of LỜI KINH lines where this printing differs from zh.wikisource 周易, each difference seen on the page image; the transcription keeps the print",
+ "note": "han: Hán of LỜI KINH lines where this printing differs from zh.wikisource 周易, each difference seen on the page image; vietnamese: oddities in the Vietnamese layers that readers flagged and that the page image shows as printed (a random 30 of 152 flags, all 30 printed so). The transcription keeps the print in both.",
  "han": [
   {
    "number": 1,
@@ -192,6 +192,54 @@
   },
   {
    "number": 2,
+   "kind": "hao",
+   "hao": 3,
+   "book": "含章可真或從王事無成有終",
+   "reference": "含章可貞或從王事無成有終",
+   "differences": [
+    {
+     "page": 109,
+     "book": "真",
+     "zhouyi": "貞",
+     "print": "真"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 2,
+   "kind": "tieu_tuong",
+   "hao": 3,
+   "book": "含章可真以時發也或從王事知光大也",
+   "reference": "含章可貞以時發也或從王事知光大也",
+   "differences": [
+    {
+     "page": 110,
+     "book": "真",
+     "zhouyi": "貞",
+     "print": "真"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 2,
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "地勢坤君子以厚得載物",
+   "reference": "地勢坤君子以厚德載物",
+   "differences": [
+    {
+     "page": 106,
+     "book": "得",
+     "zhouyi": "德",
+     "print": "得"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 2,
    "kind": "tieu_tuong",
    "hao": 2,
    "book": "六一之動直以方也不習無不利地道光也",
@@ -242,22 +290,6 @@
   },
   {
    "number": 2,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "地勢坤君子以厚得載物",
-   "reference": "地勢坤君子以厚德載物",
-   "differences": [
-    {
-     "page": 106,
-     "book": "得",
-     "zhouyi": "德",
-     "print": "得"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 2,
    "kind": "thoan_truyen",
    "hao": null,
    "book": "至哉坤元萬物資生乃順承天坤厚載物德合無疆含弘光大品物咸亨牝馬地類行地無疆柔順利貞君子攸行先迷失道後順得常西南得朋乃與類行東北喪朋乃中有慶安貞之吉應地無疆",
@@ -268,54 +300,6 @@
      "book": "中",
      "zhouyi": "終",
      "print": "中"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 2,
-   "kind": "tieu_tuong",
-   "hao": 3,
-   "book": "含章可真以時發也或從王事知光大也",
-   "reference": "含章可貞以時發也或從王事知光大也",
-   "differences": [
-    {
-     "page": 110,
-     "book": "真",
-     "zhouyi": "貞",
-     "print": "真"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 2,
-   "kind": "hao",
-   "hao": 3,
-   "book": "含章可真或從王事無成有終",
-   "reference": "含章可貞或從王事無成有終",
-   "differences": [
-    {
-     "page": 109,
-     "book": "真",
-     "zhouyi": "貞",
-     "print": "真"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 3,
-   "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "貞其膏施未光也",
-   "reference": "屯其膏施未光也",
-   "differences": [
-    {
-     "page": 128,
-     "book": "貞",
-     "zhouyi": "屯",
-     "print": "貞"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -353,23 +337,49 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 4,
+   "number": 3,
    "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "子克家剛接柔也",
-   "reference": "子克家剛柔接也",
+   "hao": 5,
+   "book": "貞其膏施未光也",
+   "reference": "屯其膏施未光也",
    "differences": [
     {
-     "page": 136,
-     "book": "",
-     "zhouyi": "柔",
-     "print": ""
-    },
+     "page": 128,
+     "book": "貞",
+     "zhouyi": "屯",
+     "print": "貞"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 4,
+   "kind": "hao",
+   "hao": 6,
+   "book": "擊蒙不利為寇利御寇",
+   "reference": "擊蒙不利為寇利禦寇",
+   "differences": [
     {
-     "page": 136,
-     "book": "柔",
-     "zhouyi": "",
-     "print": "柔"
+     "page": 140,
+     "book": "御",
+     "zhouyi": "禦",
+     "print": "御"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 4,
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "利用御寇上下順也",
+   "reference": "利禦寇上下順也",
+   "differences": [
+    {
+     "page": 140,
+     "book": "用御",
+     "zhouyi": "禦",
+     "print": "用御"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -393,53 +403,37 @@
   {
    "number": 4,
    "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "利用御寇上下順也",
-   "reference": "利禦寇上下順也",
+   "hao": 2,
+   "book": "子克家剛接柔也",
+   "reference": "子克家剛柔接也",
    "differences": [
     {
-     "page": 140,
-     "book": "用御",
-     "zhouyi": "禦",
-     "print": "用御"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 4,
-   "kind": "hao",
-   "hao": 6,
-   "book": "擊蒙不利為寇利御寇",
-   "reference": "擊蒙不利為寇利禦寇",
-   "differences": [
+     "page": 136,
+     "book": "",
+     "zhouyi": "柔",
+     "print": ""
+    },
     {
-     "page": 140,
-     "book": "御",
-     "zhouyi": "禦",
-     "print": "御"
+     "page": 136,
+     "book": "柔",
+     "zhouyi": "",
+     "print": "柔"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
    "number": 5,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "需于沙衍在中也雖小有言以終吉也",
-   "reference": "需于沙衍在中也雖小有言以吉終也",
+   "kind": "hao",
+   "hao": 3,
+   "book": "需于泥至寇至",
+   "reference": "需于泥致寇至",
    "differences": [
     {
      "page": 145,
-     "book": "",
-     "zhouyi": "吉",
-     "print": ""
-    },
-    {
-     "page": 145,
-     "book": "吉",
-     "zhouyi": "",
-     "print": "吉"
+     "book": "至",
+     "zhouyi": "致",
+     "print": "至"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -462,38 +456,22 @@
   },
   {
    "number": 5,
-   "kind": "hao",
-   "hao": 3,
-   "book": "需于泥至寇至",
-   "reference": "需于泥致寇至",
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "需于沙衍在中也雖小有言以終吉也",
+   "reference": "需于沙衍在中也雖小有言以吉終也",
    "differences": [
     {
      "page": 145,
-     "book": "至",
-     "zhouyi": "致",
-     "print": "至"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 6,
-   "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "訟元吉以正中也",
-   "reference": "訟元吉以中正也",
-   "differences": [
-    {
-     "page": 158,
      "book": "",
-     "zhouyi": "中",
+     "zhouyi": "吉",
      "print": ""
     },
     {
-     "page": 158,
-     "book": "中",
+     "page": 145,
+     "book": "吉",
      "zhouyi": "",
-     "print": "中"
+     "print": "吉"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -531,17 +509,23 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 7,
+   "number": 6,
    "kind": "tieu_tuong",
    "hao": 5,
-   "book": "長子師師以中行也弟子輿尸使不當也",
-   "reference": "長子帥師以中行也弟子輿尸使不當也",
+   "book": "訟元吉以正中也",
+   "reference": "訟元吉以中正也",
    "differences": [
     {
-     "page": 167,
-     "book": "師",
-     "zhouyi": "帥",
-     "print": "師"
+     "page": 158,
+     "book": "",
+     "zhouyi": "中",
+     "print": ""
+    },
+    {
+     "page": 158,
+     "book": "中",
+     "zhouyi": "",
+     "print": "中"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -564,28 +548,16 @@
   },
   {
    "number": 7,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "師眾也貞正也能以眾正可以王也剛中而應行險而順依此毒天下而民從之吉又何咎也",
-   "reference": "師眾也貞正也能以眾正可以王矣剛中而應行險而順以此毒天下而民從之吉又何咎矣",
+   "kind": "tieu_tuong",
+   "hao": 5,
+   "book": "長子師師以中行也弟子輿尸使不當也",
+   "reference": "長子帥師以中行也弟子輿尸使不當也",
    "differences": [
     {
-     "page": 161,
-     "book": "也",
-     "zhouyi": "矣",
-     "print": "也"
-    },
-    {
-     "page": 161,
-     "book": "依",
-     "zhouyi": "以",
-     "print": "依"
-    },
-    {
-     "page": 161,
-     "book": "也",
-     "zhouyi": "矣",
-     "print": "也"
+     "page": 167,
+     "book": "師",
+     "zhouyi": "帥",
+     "print": "師"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -623,17 +595,29 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 8,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "比之子内不自失也",
-   "reference": "比之自内不自失也",
+   "number": 7,
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "師眾也貞正也能以眾正可以王也剛中而應行險而順依此毒天下而民從之吉又何咎也",
+   "reference": "師眾也貞正也能以眾正可以王矣剛中而應行險而順以此毒天下而民從之吉又何咎矣",
    "differences": [
     {
-     "page": 174,
-     "book": "子",
-     "zhouyi": "自",
-     "print": "子"
+     "page": 161,
+     "book": "也",
+     "zhouyi": "矣",
+     "print": "也"
+    },
+    {
+     "page": 161,
+     "book": "依",
+     "zhouyi": "以",
+     "print": "依"
+    },
+    {
+     "page": 161,
+     "book": "也",
+     "zhouyi": "矣",
+     "print": "也"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -656,6 +640,22 @@
   },
   {
    "number": 8,
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "比之子内不自失也",
+   "reference": "比之自内不自失也",
+   "differences": [
+    {
+     "page": 174,
+     "book": "子",
+     "zhouyi": "自",
+     "print": "子"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 8,
    "kind": "hao",
    "hao": 5,
    "book": "顯比王用三驅失前禽邑人不誡吉",
@@ -666,38 +666,6 @@
      "book": "驅",
      "zhouyi": "敺",
      "print": "驅"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 9,
-   "kind": "hao",
-   "hao": 5,
-   "book": "孚攣如富以其鄰",
-   "reference": "有孚攣如富以其鄰",
-   "differences": [
-    {
-     "page": 186,
-     "book": "",
-     "zhouyi": "有",
-     "print": ""
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 9,
-   "kind": "hao",
-   "hao": 6,
-   "book": "既雨既處尚德載婦貞厲月幾望君子征凶",
-   "reference": "既雨既處尚得載婦貞厲月幾望君子征凶",
-   "differences": [
-    {
-     "page": 187,
-     "book": "德",
-     "zhouyi": "得",
-     "print": "德"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -725,33 +693,49 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 10,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "上天下澤履君子以辯上下定民志",
-   "reference": "上天下澤履君子以辨上下定民志",
+   "number": 9,
+   "kind": "hao",
+   "hao": 6,
+   "book": "既雨既處尚德載婦貞厲月幾望君子征凶",
+   "reference": "既雨既處尚得載婦貞厲月幾望君子征凶",
    "differences": [
     {
-     "page": 190,
-     "book": "辯",
-     "zhouyi": "辨",
-     "print": "辯"
+     "page": 187,
+     "book": "德",
+     "zhouyi": "得",
+     "print": "德"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 9,
+   "kind": "hao",
+   "hao": 5,
+   "book": "孚攣如富以其鄰",
+   "reference": "有孚攣如富以其鄰",
+   "differences": [
+    {
+     "page": 186,
+     "book": "",
+     "zhouyi": "有",
+     "print": ""
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
    "number": 10,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "履柔履剛也說而應乎乾是以履虎尾不咥人亨剛中正履帝位而不疚光明也",
-   "reference": "履柔履剛也說而應乎乾是以履虎尾不咥人亨利貞剛中正履帝位而不疚光明也",
+   "kind": "hao",
+   "hao": 3,
+   "book": "眇能視跛能履履虎尾咥人凶武人為乎大君",
+   "reference": "眇能視跛能履履虎尾咥人凶武人為于大君",
    "differences": [
     {
-     "page": 190,
-     "book": "",
-     "zhouyi": "利貞",
-     "print": ""
+     "page": 192,
+     "book": "乎",
+     "zhouyi": "于",
+     "print": "乎"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -790,32 +774,70 @@
   },
   {
    "number": 10,
-   "kind": "hao",
-   "hao": 3,
-   "book": "眇能視跛能履履虎尾咥人凶武人為乎大君",
-   "reference": "眇能視跛能履履虎尾咥人凶武人為于大君",
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "上天下澤履君子以辯上下定民志",
+   "reference": "上天下澤履君子以辨上下定民志",
    "differences": [
     {
-     "page": 192,
-     "book": "乎",
-     "zhouyi": "于",
-     "print": "乎"
+     "page": 190,
+     "book": "辯",
+     "zhouyi": "辨",
+     "print": "辯"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 10,
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "履柔履剛也說而應乎乾是以履虎尾不咥人亨剛中正履帝位而不疚光明也",
+   "reference": "履柔履剛也說而應乎乾是以履虎尾不咥人亨利貞剛中正履帝位而不疚光明也",
+   "differences": [
+    {
+     "page": 190,
+     "book": "",
+     "zhouyi": "利貞",
+     "print": ""
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
    "number": 11,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "苞荒得尚于中行以光大也",
-   "reference": "包荒得尚于中行以光大也",
+   "kind": "hao",
+   "hao": 3,
+   "book": "無平不陂無往不復難貞無咎勿恤其孚于食有福",
+   "reference": "無平不陂無往不復艱貞無咎勿恤其孚于食有福",
    "differences": [
     {
      "page": 200,
-     "book": "苞",
-     "zhouyi": "包",
-     "print": "苞"
+     "book": "難",
+     "zhouyi": "艱",
+     "print": "難"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 11,
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "天地交泰後以裁成天地之道輔相天地之宜以左右民",
+   "reference": "天地交泰后以財成天地之道輔相天地之宜以左右民",
+   "differences": [
+    {
+     "page": 197,
+     "book": "後",
+     "zhouyi": "后",
+     "print": "後"
+    },
+    {
+     "page": 197,
+     "book": "裁",
+     "zhouyi": "財",
+     "print": "裁"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -847,22 +869,32 @@
   },
   {
    "number": 11,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "天地交泰後以裁成天地之道輔相天地之宜以左右民",
-   "reference": "天地交泰后以財成天地之道輔相天地之宜以左右民",
+   "kind": "tieu_tuong",
+   "hao": 1,
+   "book": "拔茅如征吉志在外也",
+   "reference": "拔茅征吉志在外也",
    "differences": [
     {
-     "page": 197,
-     "book": "後",
-     "zhouyi": "后",
-     "print": "後"
-    },
+     "page": 198,
+     "book": "如",
+     "zhouyi": "",
+     "print": "如"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 11,
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "苞荒得尚于中行以光大也",
+   "reference": "包荒得尚于中行以光大也",
+   "differences": [
     {
-     "page": 197,
-     "book": "裁",
-     "zhouyi": "財",
-     "print": "裁"
+     "page": 200,
+     "book": "苞",
+     "zhouyi": "包",
+     "print": "苞"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -884,49 +916,33 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 11,
+   "number": 12,
    "kind": "tieu_tuong",
-   "hao": 1,
-   "book": "拔茅如征吉志在外也",
-   "reference": "拔茅征吉志在外也",
+   "hao": 6,
+   "book": "否終得傾何可長也",
+   "reference": "否終則傾何可長也",
    "differences": [
     {
-     "page": 198,
-     "book": "如",
-     "zhouyi": "",
-     "print": "如"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 11,
-   "kind": "hao",
-   "hao": 3,
-   "book": "無平不陂無往不復難貞無咎勿恤其孚于食有福",
-   "reference": "無平不陂無往不復艱貞無咎勿恤其孚于食有福",
-   "differences": [
-    {
-     "page": 200,
-     "book": "難",
-     "zhouyi": "艱",
-     "print": "難"
+     "page": 212,
+     "book": "得",
+     "zhouyi": "則",
+     "print": "得"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
    "number": 12,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "大人否亨不亂君也",
-   "reference": "大人否亨不亂群也",
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "天地不交否君子以儉德辟難不可榮與祿",
+   "reference": "天地不交否君子以儉德辟難不可榮以祿",
    "differences": [
     {
-     "page": 209,
-     "book": "君",
-     "zhouyi": "群",
-     "print": "君"
+     "page": 207,
+     "book": "與",
+     "zhouyi": "以",
+     "print": "與"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -951,48 +967,16 @@
   },
   {
    "number": 12,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "天地不交否君子以儉德辟難不可榮與祿",
-   "reference": "天地不交否君子以儉德辟難不可榮以祿",
-   "differences": [
-    {
-     "page": 207,
-     "book": "與",
-     "zhouyi": "以",
-     "print": "與"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 12,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "否之匪人不利君子貞大往小來則是天地不交而萬物不通也上下不交而天下無邦也内陰而外陽内肉而外剛内小人而外君子小人道長君子道消也",
-   "reference": "否之匪人不利君子貞大往小來則是天地不交而萬物不通也上下不交而天下無邦也内陰而外陽内柔而外剛内小人而外君子小人道長君子道消也",
-   "differences": [
-    {
-     "page": 207,
-     "book": "肉",
-     "zhouyi": "柔",
-     "print": "肉"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 12,
    "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "否終得傾何可長也",
-   "reference": "否終則傾何可長也",
+   "hao": 2,
+   "book": "大人否亨不亂君也",
+   "reference": "大人否亨不亂群也",
    "differences": [
     {
-     "page": 212,
-     "book": "得",
-     "zhouyi": "則",
-     "print": "得"
+     "page": 209,
+     "book": "君",
+     "zhouyi": "群",
+     "print": "君"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1020,17 +1004,17 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 13,
-   "kind": "hao",
-   "hao": 4,
-   "book": "乘其墉弗克攻吉",
-   "reference": "乘其庸弗克攻吉",
+   "number": 12,
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "否之匪人不利君子貞大往小來則是天地不交而萬物不通也上下不交而天下無邦也内陰而外陽内肉而外剛内小人而外君子小人道長君子道消也",
+   "reference": "否之匪人不利君子貞大往小來則是天地不交而萬物不通也上下不交而天下無邦也内陰而外陽内柔而外剛内小人而外君子小人道長君子道消也",
    "differences": [
     {
-     "page": 219,
-     "book": "墉",
-     "zhouyi": "庸",
-     "print": "墉"
+     "page": 207,
+     "book": "肉",
+     "zhouyi": "柔",
+     "print": "肉"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1053,10 +1037,10 @@
   },
   {
    "number": 13,
-   "kind": "tieu_tuong",
+   "kind": "hao",
    "hao": 6,
-   "book": "同人于交志未得也",
-   "reference": "同人于郊志未得也",
+   "book": "同人于交無悔",
+   "reference": "同人于郊無悔",
    "differences": [
     {
      "page": 221,
@@ -1069,16 +1053,16 @@
   },
   {
    "number": 13,
-   "kind": "hao",
-   "hao": 5,
-   "book": "同人先嚎啕而後笑大師克相遇",
-   "reference": "同人先號啕而後笑大師克相遇",
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "同人于交志未得也",
+   "reference": "同人于郊志未得也",
    "differences": [
     {
-     "page": 220,
-     "book": "嚎",
-     "zhouyi": "號",
-     "print": "嚎"
+     "page": 221,
+     "book": "交",
+     "zhouyi": "郊",
+     "print": "交"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1102,47 +1086,111 @@
   {
    "number": 13,
    "kind": "hao",
-   "hao": 6,
-   "book": "同人于交無悔",
-   "reference": "同人于郊無悔",
+   "hao": 4,
+   "book": "乘其墉弗克攻吉",
+   "reference": "乘其庸弗克攻吉",
    "differences": [
     {
-     "page": 221,
-     "book": "交",
-     "zhouyi": "郊",
-     "print": "交"
+     "page": 219,
+     "book": "墉",
+     "zhouyi": "庸",
+     "print": "墉"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 14,
-   "kind": "tieu_tuong",
+   "number": 13,
+   "kind": "hao",
    "hao": 5,
-   "book": "厥孚交如信以發志也威如之吉易以無備也",
-   "reference": "厥孚交如信以發志也威如之吉易而無備也",
+   "book": "同人先嚎啕而後笑大師克相遇",
+   "reference": "同人先號啕而後笑大師克相遇",
    "differences": [
     {
-     "page": 228,
-     "book": "以",
-     "zhouyi": "而",
-     "print": "以"
+     "page": 220,
+     "book": "嚎",
+     "zhouyi": "號",
+     "print": "嚎"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
    "number": 14,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "大車以載積中不敗也",
-   "reference": "大轝以載積中不敗也",
+   "kind": "hao",
+   "hao": 3,
+   "book": "公用亨于天子小人不克",
+   "reference": "公用亨于天子小人弗克",
    "differences": [
     {
      "page": 225,
-     "book": "車",
-     "zhouyi": "轝",
-     "print": "車"
+     "book": "不",
+     "zhouyi": "弗",
+     "print": "不"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 14,
+   "kind": "hao",
+   "hao": 6,
+   "book": "自天祐之吉無不利",
+   "reference": "自天佑之吉無不利",
+   "differences": [
+    {
+     "page": 228,
+     "book": "祐",
+     "zhouyi": "佑",
+     "print": "祐"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 14,
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "大有上吉自天祐之",
+   "reference": "大有上吉自天佑也",
+   "differences": [
+    {
+     "page": 229,
+     "book": "祐之",
+     "zhouyi": "佑也",
+     "print": "祐之"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 14,
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "火在天上大月君子以遏惡揚善順天休命",
+   "reference": "火在天上大有君子以遏惡揚善順天休命",
+   "differences": [
+    {
+     "page": 223,
+     "book": "月",
+     "zhouyi": "有",
+     "print": "月"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 14,
+   "kind": "tieu_tuong",
+   "hao": 4,
+   "book": "匪其彭無咎明辯晢也",
+   "reference": "匪其彭無咎明辨晰也",
+   "differences": [
+    {
+     "page": 227,
+     "book": "辯晢",
+     "zhouyi": "辨晰",
+     "print": "辯晢 (言 in the middle of 辯); first transcribed 明[?]晢"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1181,16 +1229,16 @@
   },
   {
    "number": 14,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "火在天上大月君子以遏惡揚善順天休命",
-   "reference": "火在天上大有君子以遏惡揚善順天休命",
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "大車以載積中不敗也",
+   "reference": "大轝以載積中不敗也",
    "differences": [
     {
-     "page": 223,
-     "book": "月",
-     "zhouyi": "有",
-     "print": "月"
+     "page": 225,
+     "book": "車",
+     "zhouyi": "轝",
+     "print": "車"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1198,15 +1246,15 @@
   {
    "number": 14,
    "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "大有上吉自天祐之",
-   "reference": "大有上吉自天佑也",
+   "hao": 5,
+   "book": "厥孚交如信以發志也威如之吉易以無備也",
+   "reference": "厥孚交如信以發志也威如之吉易而無備也",
    "differences": [
     {
-     "page": 229,
-     "book": "祐之",
-     "zhouyi": "佑也",
-     "print": "祐之"
+     "page": 228,
+     "book": "以",
+     "zhouyi": "而",
+     "print": "以"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1234,49 +1282,17 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 14,
+   "number": 15,
    "kind": "tieu_tuong",
    "hao": 4,
-   "book": "匪其彭無咎明辯晢也",
-   "reference": "匪其彭無咎明辨晰也",
+   "book": "無不利偽謙不違則也",
+   "reference": "無不利撝謙不違則也",
    "differences": [
     {
-     "page": 227,
-     "book": "辯晢",
-     "zhouyi": "辨晰",
-     "print": "辯晢 (言 in the middle of 辯); first transcribed 明[?]晢"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 14,
-   "kind": "hao",
-   "hao": 6,
-   "book": "自天祐之吉無不利",
-   "reference": "自天佑之吉無不利",
-   "differences": [
-    {
-     "page": 228,
-     "book": "祐",
-     "zhouyi": "佑",
-     "print": "祐"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 14,
-   "kind": "hao",
-   "hao": 3,
-   "book": "公用亨于天子小人不克",
-   "reference": "公用亨于天子小人弗克",
-   "differences": [
-    {
-     "page": 225,
-     "book": "不",
-     "zhouyi": "弗",
-     "print": "不"
+     "page": 235,
+     "book": "偽",
+     "zhouyi": "撝",
+     "print": "偽"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1314,22 +1330,6 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 15,
-   "kind": "tieu_tuong",
-   "hao": 4,
-   "book": "無不利偽謙不違則也",
-   "reference": "無不利撝謙不違則也",
-   "differences": [
-    {
-     "page": 235,
-     "book": "偽",
-     "zhouyi": "撝",
-     "print": "偽"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
    "number": 16,
    "kind": "thoan",
    "hao": null,
@@ -1341,22 +1341,6 @@
      "book": "後",
      "zhouyi": "侯",
      "print": "後"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 16,
-   "kind": "hao",
-   "hao": 4,
-   "book": "由豫大有得勿疑朋盍簪",
-   "reference": "由豫大有得勿疑朋盍戠",
-   "differences": [
-    {
-     "page": 243,
-     "book": "簪",
-     "zhouyi": "戠",
-     "print": "簪"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1378,33 +1362,17 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 17,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "係小子弗兼與也",
-   "reference": "系小子弗兼與也",
-   "differences": [
-    {
-     "page": 250,
-     "book": "係",
-     "zhouyi": "系",
-     "print": "係"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 17,
+   "number": 16,
    "kind": "hao",
-   "hao": 1,
-   "book": "管有渝貞吉出門交有功",
-   "reference": "官有渝貞吉出門交有功",
+   "hao": 4,
+   "book": "由豫大有得勿疑朋盍簪",
+   "reference": "由豫大有得勿疑朋盍戠",
    "differences": [
     {
-     "page": 249,
-     "book": "管",
-     "zhouyi": "官",
-     "print": "管"
+     "page": 243,
+     "book": "簪",
+     "zhouyi": "戠",
+     "print": "簪"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1442,39 +1410,33 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 18,
-   "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "乾父用譽乘以德也",
-   "reference": "幹父用譽承以德也",
+   "number": 17,
+   "kind": "hao",
+   "hao": 1,
+   "book": "管有渝貞吉出門交有功",
+   "reference": "官有渝貞吉出門交有功",
    "differences": [
     {
-     "page": 262,
-     "book": "乾",
-     "zhouyi": "幹",
-     "print": "乾"
-    },
-    {
-     "page": 262,
-     "book": "乘",
-     "zhouyi": "承",
-     "print": "乘"
+     "page": 249,
+     "book": "管",
+     "zhouyi": "官",
+     "print": "管"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 18,
+   "number": 17,
    "kind": "tieu_tuong",
    "hao": 2,
-   "book": "乾母之蠱得中道也",
-   "reference": "幹母之蠱得中道也",
+   "book": "係小子弗兼與也",
+   "reference": "系小子弗兼與也",
    "differences": [
     {
-     "page": 260,
-     "book": "乾",
-     "zhouyi": "幹",
-     "print": "乾"
+     "page": 250,
+     "book": "係",
+     "zhouyi": "系",
+     "print": "係"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1482,12 +1444,12 @@
   {
    "number": 18,
    "kind": "hao",
-   "hao": 1,
-   "book": "乾父之蠱有子考無咎厲終吉",
-   "reference": "幹父之蠱有子考無咎厲終吉",
+   "hao": 3,
+   "book": "乾父之蠱小有悔無大咎",
+   "reference": "幹父之蠱小有悔無大咎",
    "differences": [
     {
-     "page": 258,
+     "page": 260,
      "book": "乾",
      "zhouyi": "幹",
      "print": "乾"
@@ -1514,28 +1476,12 @@
   {
    "number": 18,
    "kind": "hao",
-   "hao": 2,
-   "book": "乾母之蠱不可貞",
-   "reference": "幹母之蠱不可貞",
+   "hao": 1,
+   "book": "乾父之蠱有子考無咎厲終吉",
+   "reference": "幹父之蠱有子考無咎厲終吉",
    "differences": [
     {
-     "page": 259,
-     "book": "乾",
-     "zhouyi": "幹",
-     "print": "乾"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 18,
-   "kind": "hao",
-   "hao": 5,
-   "book": "乾父之蠱用譽",
-   "reference": "幹父之蠱用譽",
-   "differences": [
-    {
-     "page": 261,
+     "page": 258,
      "book": "乾",
      "zhouyi": "幹",
      "print": "乾"
@@ -1567,13 +1513,67 @@
   },
   {
    "number": 18,
-   "kind": "hao",
-   "hao": 3,
-   "book": "乾父之蠱小有悔無大咎",
-   "reference": "幹父之蠱小有悔無大咎",
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "乾母之蠱得中道也",
+   "reference": "幹母之蠱得中道也",
    "differences": [
     {
      "page": 260,
+     "book": "乾",
+     "zhouyi": "幹",
+     "print": "乾"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 18,
+   "kind": "tieu_tuong",
+   "hao": 5,
+   "book": "乾父用譽乘以德也",
+   "reference": "幹父用譽承以德也",
+   "differences": [
+    {
+     "page": 262,
+     "book": "乾",
+     "zhouyi": "幹",
+     "print": "乾"
+    },
+    {
+     "page": 262,
+     "book": "乘",
+     "zhouyi": "承",
+     "print": "乘"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 18,
+   "kind": "hao",
+   "hao": 2,
+   "book": "乾母之蠱不可貞",
+   "reference": "幹母之蠱不可貞",
+   "differences": [
+    {
+     "page": 259,
+     "book": "乾",
+     "zhouyi": "幹",
+     "print": "乾"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 18,
+   "kind": "hao",
+   "hao": 5,
+   "book": "乾父之蠱用譽",
+   "reference": "幹父之蠱用譽",
+   "differences": [
+    {
+     "page": 261,
      "book": "乾",
      "zhouyi": "幹",
      "print": "乾"
@@ -1638,15 +1638,15 @@
   {
    "number": 21,
    "kind": "hao",
-   "hao": 1,
-   "book": "履校滅趾無咎",
-   "reference": "屨校滅趾無咎",
+   "hao": 3,
+   "book": "噬臘肉遇毒小吝無咎",
+   "reference": "噬昔肉遇毒小吝無咎",
    "differences": [
     {
-     "page": 283,
-     "book": "履",
-     "zhouyi": "屨",
-     "print": "履"
+     "page": 284,
+     "book": "臘",
+     "zhouyi": "昔",
+     "print": "臘"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1669,6 +1669,22 @@
   },
   {
    "number": 21,
+   "kind": "hao",
+   "hao": 1,
+   "book": "履校滅趾無咎",
+   "reference": "屨校滅趾無咎",
+   "differences": [
+    {
+     "page": 283,
+     "book": "履",
+     "zhouyi": "屨",
+     "print": "履"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 21,
    "kind": "tieu_tuong",
    "hao": 1,
    "book": "履消滅趾不行也",
@@ -1679,22 +1695,6 @@
      "book": "履消",
      "zhouyi": "屨校",
      "print": "履消"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 21,
-   "kind": "hao",
-   "hao": 3,
-   "book": "噬臘肉遇毒小吝無咎",
-   "reference": "噬昔肉遇毒小吝無咎",
-   "differences": [
-    {
-     "page": 284,
-     "book": "臘",
-     "zhouyi": "昔",
-     "print": "臘"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1718,15 +1718,53 @@
   {
    "number": 23,
    "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "以宮人寵終無憂也",
-   "reference": "以宮人寵終無尤也",
+   "hao": 3,
+   "book": "剝之無咎失天下也",
+   "reference": "剝之無咎失上下也",
+   "differences": [
+    {
+     "page": 302,
+     "book": "天",
+     "zhouyi": "上",
+     "print": "天"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 23,
+   "kind": "hao",
+   "hao": 6,
+   "book": "碩果不食君子得輿小人剝廬",
+   "reference": "碩果不食君子德車小人剝廬",
    "differences": [
     {
      "page": 303,
-     "book": "憂",
-     "zhouyi": "尤",
-     "print": "憂"
+     "book": "得輿",
+     "zhouyi": "德車",
+     "print": "得輿"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 23,
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "子君得輿民所載也小人剝廬終不可用也",
+   "reference": "君子得輿民所載也小人剝廬終不可用也",
+   "differences": [
+    {
+     "page": 304,
+     "book": "",
+     "zhouyi": "君",
+     "print": "子君"
+    },
+    {
+     "page": 304,
+     "book": "君",
+     "zhouyi": "",
+     "print": "子君"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1762,37 +1800,15 @@
   {
    "number": 23,
    "kind": "tieu_tuong",
-   "hao": 3,
-   "book": "剝之無咎失天下也",
-   "reference": "剝之無咎失上下也",
+   "hao": 5,
+   "book": "以宮人寵終無憂也",
+   "reference": "以宮人寵終無尤也",
    "differences": [
     {
-     "page": 302,
-     "book": "天",
-     "zhouyi": "上",
-     "print": "天"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 23,
-   "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "子君得輿民所載也小人剝廬終不可用也",
-   "reference": "君子得輿民所載也小人剝廬終不可用也",
-   "differences": [
-    {
-     "page": 304,
-     "book": "",
-     "zhouyi": "君",
-     "print": "子君"
-    },
-    {
-     "page": 304,
-     "book": "君",
-     "zhouyi": "",
-     "print": "子君"
+     "page": 303,
+     "book": "憂",
+     "zhouyi": "尤",
+     "print": "憂"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1814,17 +1830,17 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 23,
+   "number": 24,
    "kind": "hao",
    "hao": 6,
-   "book": "碩果不食君子得輿小人剝廬",
-   "reference": "碩果不食君子德車小人剝廬",
+   "book": "迷復凶有災眚用行師終有大敗以其國君凶至于十年不可征",
+   "reference": "迷復凶有災眚用行師終有大敗以其國君凶至于十年不克征",
    "differences": [
     {
-     "page": 303,
-     "book": "得輿",
-     "zhouyi": "德車",
-     "print": "得輿"
+     "page": 312,
+     "book": "可",
+     "zhouyi": "克",
+     "print": "可"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1869,22 +1885,6 @@
   },
   {
    "number": 24,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "復亨剛反動而以順行是以出入無疾朋來無咎反復其道七日來復天行也利有攸往剛長也復其見天地造化之心乎",
-   "reference": "復亨剛反動而以順行是以出入無疾朋來無咎反復其道七日來復天行也利有攸往剛長也復其見天地之心乎",
-   "differences": [
-    {
-     "page": 307,
-     "book": "造化",
-     "zhouyi": "",
-     "print": "造化"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 24,
    "kind": "tieu_tuong",
    "hao": 1,
    "book": "初九不遠復無祇悔元吉",
@@ -1913,16 +1913,32 @@
   },
   {
    "number": 24,
-   "kind": "hao",
-   "hao": 6,
-   "book": "迷復凶有災眚用行師終有大敗以其國君凶至于十年不可征",
-   "reference": "迷復凶有災眚用行師終有大敗以其國君凶至于十年不克征",
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "復亨剛反動而以順行是以出入無疾朋來無咎反復其道七日來復天行也利有攸往剛長也復其見天地造化之心乎",
+   "reference": "復亨剛反動而以順行是以出入無疾朋來無咎反復其道七日來復天行也利有攸往剛長也復其見天地之心乎",
    "differences": [
     {
-     "page": 312,
-     "book": "可",
-     "zhouyi": "克",
-     "print": "可"
+     "page": 307,
+     "book": "造化",
+     "zhouyi": "",
+     "print": "造化"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 25,
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "不耕獲未富也",
+   "reference": "不耕穫未富也",
+   "differences": [
+    {
+     "page": 319,
+     "book": "獲",
+     "zhouyi": "穫",
+     "print": "獲"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -1945,13 +1961,13 @@
   },
   {
    "number": 25,
-   "kind": "tieu_tuong",
+   "kind": "hao",
    "hao": 2,
-   "book": "不耕獲未富也",
-   "reference": "不耕穫未富也",
+   "book": "不耕獲不菑畬則利有攸往",
+   "reference": "不耕穫不菑畬則利有攸往",
    "differences": [
     {
-     "page": 319,
+     "page": 317,
      "book": "獲",
      "zhouyi": "穫",
      "print": "獲"
@@ -1982,49 +1998,17 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 25,
-   "kind": "hao",
-   "hao": 2,
-   "book": "不耕獲不菑畬則利有攸往",
-   "reference": "不耕穫不菑畬則利有攸往",
-   "differences": [
-    {
-     "page": 317,
-     "book": "獲",
-     "zhouyi": "穫",
-     "print": "獲"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
    "number": 26,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "輿說輻終無尤也",
-   "reference": "輿說輹中無尤也",
+   "kind": "hao",
+   "hao": 3,
+   "book": "良馬逐利艱貞曰賢輿衛利有攸往",
+   "reference": "良馬逐利艱貞吉日閑輿衛利有攸往",
    "differences": [
     {
      "page": 327,
-     "book": "輻終",
-     "zhouyi": "輹中",
-     "print": "輻終"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 26,
-   "kind": "hao",
-   "hao": 4,
-   "book": "童牛之梏元吉",
-   "reference": "童牛之告元吉",
-   "differences": [
-    {
-     "page": 328,
-     "book": "梏",
-     "zhouyi": "告",
-     "print": "梏"
+     "book": "曰賢",
+     "zhouyi": "吉日閑",
+     "print": "曰賢"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2070,6 +2054,38 @@
   {
    "number": 26,
    "kind": "hao",
+   "hao": 4,
+   "book": "童牛之梏元吉",
+   "reference": "童牛之告元吉",
+   "differences": [
+    {
+     "page": 328,
+     "book": "梏",
+     "zhouyi": "告",
+     "print": "梏"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 26,
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "輿說輻終無尤也",
+   "reference": "輿說輹中無尤也",
+   "differences": [
+    {
+     "page": 327,
+     "book": "輻終",
+     "zhouyi": "輹中",
+     "print": "輻終"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 26,
+   "kind": "hao",
    "hao": 2,
    "book": "輿說輻",
    "reference": "輿說輹",
@@ -2079,38 +2095,6 @@
      "book": "輻",
      "zhouyi": "輹",
      "print": "輻"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 26,
-   "kind": "hao",
-   "hao": 3,
-   "book": "良馬逐利艱貞曰賢輿衛利有攸往",
-   "reference": "良馬逐利艱貞吉日閑輿衛利有攸往",
-   "differences": [
-    {
-     "page": 327,
-     "book": "曰賢",
-     "zhouyi": "吉日閑",
-     "print": "曰賢"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 27,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "頤貞吉養正則吉也觀頤觀其所養也自求口實觀其自養也天地養萬物聖人養賢已及萬民頤之時大矣哉",
-   "reference": "頤貞吉養正則吉也觀頤觀其所養也自求口實觀其自養也天地養萬物聖人養賢以及萬民頤之時大矣哉",
-   "differences": [
-    {
-     "page": 333,
-     "book": "已",
-     "zhouyi": "以",
-     "print": "已"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2127,6 +2111,22 @@
      "book": "",
      "zhouyi": "頤",
      "print": "顛頤拂經于丘征凶 (no second 頤)"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 27,
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "頤貞吉養正則吉也觀頤觀其所養也自求口實觀其自養也天地養萬物聖人養賢已及萬民頤之時大矣哉",
+   "reference": "頤貞吉養正則吉也觀頤觀其所養也自求口實觀其自養也天地養萬物聖人養賢以及萬民頤之時大矣哉",
+   "differences": [
+    {
+     "page": 333,
+     "book": "已",
+     "zhouyi": "以",
+     "print": "已"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2159,6 +2159,70 @@
      "book": "梯",
      "zhouyi": "稊",
      "print": "梯"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 29,
+   "kind": "hao",
+   "hao": 3,
+   "book": "來之坎坎險且枕入于坎窞物用",
+   "reference": "來之坎坎險且枕入于坎窞勿用",
+   "differences": [
+    {
+     "page": 353,
+     "book": "物",
+     "zhouyi": "勿",
+     "print": "物"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 29,
+   "kind": "hao",
+   "hao": 6,
+   "book": "系用徽纆寘于叢棘三歲不得凶",
+   "reference": "係用徽纆寘于叢棘三歲不得凶",
+   "differences": [
+    {
+     "page": 357,
+     "book": "系",
+     "zhouyi": "係",
+     "print": "系"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 29,
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "水瀳至習坎君子以常德行習教事",
+   "reference": "水洊至習坎君子以常德行習教事",
+   "differences": [
+    {
+     "page": 351,
+     "book": "瀳",
+     "zhouyi": "洊",
+     "print": "瀳 (heavy dark glyph: 氵 + 薦, a variant of 洊); first transcribed [?]"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 29,
+   "kind": "tieu_tuong",
+   "hao": 4,
+   "book": "樽酒簋貳剛柔際也",
+   "reference": "樽酒簋貳剛柔济也",
+   "differences": [
+    {
+     "page": 355,
+     "book": "際",
+     "zhouyi": "济",
+     "print": "際"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2203,16 +2267,16 @@
   },
   {
    "number": 29,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "水瀳至習坎君子以常德行習教事",
-   "reference": "水洊至習坎君子以常德行習教事",
+   "kind": "hao",
+   "hao": 5,
+   "book": "坎不盈祇既平無咎",
+   "reference": "坎不盈禔既平無咎",
    "differences": [
     {
-     "page": 351,
-     "book": "瀳",
-     "zhouyi": "洊",
-     "print": "瀳 (heavy dark glyph: 氵 + 薦, a variant of 洊); first transcribed [?]"
+     "page": 356,
+     "book": "祇",
+     "zhouyi": "禔",
+     "print": "祇"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2234,65 +2298,17 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 29,
-   "kind": "hao",
-   "hao": 5,
-   "book": "坎不盈祇既平無咎",
-   "reference": "坎不盈禔既平無咎",
-   "differences": [
-    {
-     "page": 356,
-     "book": "祇",
-     "zhouyi": "禔",
-     "print": "祇"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 29,
-   "kind": "tieu_tuong",
-   "hao": 4,
-   "book": "樽酒簋貳剛柔際也",
-   "reference": "樽酒簋貳剛柔济也",
-   "differences": [
-    {
-     "page": 355,
-     "book": "際",
-     "zhouyi": "济",
-     "print": "際"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 29,
-   "kind": "hao",
-   "hao": 6,
-   "book": "系用徽纆寘于叢棘三歲不得凶",
-   "reference": "係用徽纆寘于叢棘三歲不得凶",
-   "differences": [
-    {
-     "page": 357,
-     "book": "系",
-     "zhouyi": "係",
-     "print": "系"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 29,
+   "number": 30,
    "kind": "hao",
    "hao": 3,
-   "book": "來之坎坎險且枕入于坎窞物用",
-   "reference": "來之坎坎險且枕入于坎窞勿用",
+   "book": "日昃之離不鼓缶而歌則大耋之嗟凶",
+   "reference": "日昃之離不鼓缶而歌則大耋之差凶",
    "differences": [
     {
-     "page": 353,
-     "book": "物",
-     "zhouyi": "勿",
-     "print": "物"
+     "page": 361,
+     "book": "嗟",
+     "zhouyi": "差",
+     "print": "嗟"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2309,22 +2325,6 @@
      "book": "乎",
      "zhouyi": "于",
      "print": "乎"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 30,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "離麗也日月麗乎天百穀草木麗乎地重明以麗乎正乃化成天下柔麗乎中正故亨是以畜牝牛吉也",
-   "reference": "離麗也日月麗乎天百穀草木麗乎土重明以麗乎正乃化成天下柔麗乎中正故亨是以畜牝牛吉也",
-   "differences": [
-    {
-     "page": 358,
-     "book": "地",
-     "zhouyi": "土",
-     "print": "地"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2353,48 +2353,32 @@
   },
   {
    "number": 30,
-   "kind": "hao",
-   "hao": 3,
-   "book": "日昃之離不鼓缶而歌則大耋之嗟凶",
-   "reference": "日昃之離不鼓缶而歌則大耋之差凶",
-   "differences": [
-    {
-     "page": 361,
-     "book": "嗟",
-     "zhouyi": "差",
-     "print": "嗟"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 31,
-   "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "咸其脢志未也",
-   "reference": "咸其脢志末也",
-   "differences": [
-    {
-     "page": 374,
-     "book": "未",
-     "zhouyi": "末",
-     "print": "未"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 31,
    "kind": "thoan_truyen",
    "hao": null,
-   "book": "咸感也柔尚而剛下二氣感應以相與止而說男下女是以亨利貞取女吉也天地感而萬物化生聖人感人心而天下和平觀其所感而天地萬物之情可見矣",
-   "reference": "咸感也柔上而剛下二氣感應以相與止而說男下女是以亨利貞取女吉也天地感而萬物化生聖人感人心而天下和平觀其所感而天地萬物之情可見矣",
+   "book": "離麗也日月麗乎天百穀草木麗乎地重明以麗乎正乃化成天下柔麗乎中正故亨是以畜牝牛吉也",
+   "reference": "離麗也日月麗乎天百穀草木麗乎土重明以麗乎正乃化成天下柔麗乎中正故亨是以畜牝牛吉也",
    "differences": [
     {
-     "page": 368,
-     "book": "尚",
-     "zhouyi": "上",
-     "print": "尚"
+     "page": 358,
+     "book": "地",
+     "zhouyi": "土",
+     "print": "地"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 31,
+   "kind": "hao",
+   "hao": 3,
+   "book": "咸其股執其雖往吝",
+   "reference": "咸其股執其隨往吝",
+   "differences": [
+    {
+     "page": 371,
+     "book": "雖",
+     "zhouyi": "隨",
+     "print": "雖"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2433,16 +2417,48 @@
   },
   {
    "number": 31,
-   "kind": "hao",
-   "hao": 3,
-   "book": "咸其股執其雖往吝",
-   "reference": "咸其股執其隨往吝",
+   "kind": "tieu_tuong",
+   "hao": 5,
+   "book": "咸其脢志未也",
+   "reference": "咸其脢志末也",
    "differences": [
     {
-     "page": 371,
-     "book": "雖",
-     "zhouyi": "隨",
-     "print": "雖"
+     "page": 374,
+     "book": "未",
+     "zhouyi": "末",
+     "print": "未"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 31,
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "咸感也柔尚而剛下二氣感應以相與止而說男下女是以亨利貞取女吉也天地感而萬物化生聖人感人心而天下和平觀其所感而天地萬物之情可見矣",
+   "reference": "咸感也柔上而剛下二氣感應以相與止而說男下女是以亨利貞取女吉也天地感而萬物化生聖人感人心而天下和平觀其所感而天地萬物之情可見矣",
+   "differences": [
+    {
+     "page": 368,
+     "book": "尚",
+     "zhouyi": "上",
+     "print": "尚"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 32,
+   "kind": "hao",
+   "hao": 6,
+   "book": "振恆凶",
+   "reference": "震恆凶",
+   "differences": [
+    {
+     "page": 385,
+     "book": "振",
+     "zhouyi": "震",
+     "print": "振"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2450,15 +2466,15 @@
   {
    "number": 32,
    "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "婦人吉從一而終也夫子制義從婦凶也",
-   "reference": "婦人貞吉從一而終也夫子制義從婦凶也",
+   "hao": 1,
+   "book": "浚恆志凶始求深也",
+   "reference": "浚恆之凶始求深也",
    "differences": [
     {
-     "page": 384,
-     "book": "",
-     "zhouyi": "貞",
-     "print": "婦人吉 (no 貞)"
+     "page": 381,
+     "book": "志",
+     "zhouyi": "之",
+     "print": "志"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2475,6 +2491,22 @@
      "book": "九",
      "zhouyi": "久",
      "print": "九"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 32,
+   "kind": "tieu_tuong",
+   "hao": 5,
+   "book": "婦人吉從一而終也夫子制義從婦凶也",
+   "reference": "婦人貞吉從一而終也夫子制義從婦凶也",
+   "differences": [
+    {
+     "page": 384,
+     "book": "",
+     "zhouyi": "貞",
+     "print": "婦人吉 (no 貞)"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2520,33 +2552,33 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 32,
-   "kind": "tieu_tuong",
-   "hao": 1,
-   "book": "浚恆志凶始求深也",
-   "reference": "浚恆之凶始求深也",
+   "number": 33,
+   "kind": "hao",
+   "hao": 3,
+   "book": "繫遯有疾厲畜臣妾吉",
+   "reference": "係遯有疾厲畜臣妾吉",
    "differences": [
     {
-     "page": 381,
-     "book": "志",
-     "zhouyi": "之",
-     "print": "志"
+     "page": 390,
+     "book": "繫",
+     "zhouyi": "係",
+     "print": "繫"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 32,
-   "kind": "hao",
-   "hao": 6,
-   "book": "振恆凶",
-   "reference": "震恆凶",
+   "number": 33,
+   "kind": "tieu_tuong",
+   "hao": 3,
+   "book": "繫遯之厲有疾憊也畜臣妾吉不可大事也",
+   "reference": "係遯之厲有疾憊也畜臣妾吉不可大事也",
    "differences": [
     {
-     "page": 385,
-     "book": "振",
-     "zhouyi": "震",
-     "print": "振"
+     "page": 391,
+     "book": "繫",
+     "zhouyi": "係",
+     "print": "繫"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2584,33 +2616,65 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 33,
+   "number": 34,
    "kind": "tieu_tuong",
    "hao": 3,
-   "book": "繫遯之厲有疾憊也畜臣妾吉不可大事也",
-   "reference": "係遯之厲有疾憊也畜臣妾吉不可大事也",
+   "book": "小人用壯君子用罔也",
+   "reference": "小人用壯君子罔也",
    "differences": [
     {
-     "page": 391,
-     "book": "繫",
-     "zhouyi": "係",
-     "print": "繫"
+     "page": 398,
+     "book": "用",
+     "zhouyi": "",
+     "print": "用"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 33,
+   "number": 34,
    "kind": "hao",
-   "hao": 3,
-   "book": "繫遯有疾厲畜臣妾吉",
-   "reference": "係遯有疾厲畜臣妾吉",
+   "hao": 6,
+   "book": "羝羊觸藩不能退不能逐無攸利艱則吉",
+   "reference": "羝羊觸藩不能退不能遂無攸利艱則吉",
    "differences": [
     {
-     "page": 390,
-     "book": "繫",
-     "zhouyi": "係",
-     "print": "繫"
+     "page": 400,
+     "book": "逐",
+     "zhouyi": "遂",
+     "print": "逐"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 34,
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "不能退不能逐不詳也艱則吉咎不長也",
+   "reference": "不能退不能遂不詳也艱則吉咎不長也",
+   "differences": [
+    {
+     "page": 401,
+     "book": "逐",
+     "zhouyi": "遂",
+     "print": "逐"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 34,
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "雷在天上大壯君子以肥禮弗履",
+   "reference": "雷在天上大壯君子以非禮弗履",
+   "differences": [
+    {
+     "page": 395,
+     "book": "肥",
+     "zhouyi": "非",
+     "print": "肥"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2639,22 +2703,6 @@
   },
   {
    "number": 34,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "雷在天上大壯君子以肥禮弗履",
-   "reference": "雷在天上大壯君子以非禮弗履",
-   "differences": [
-    {
-     "page": 395,
-     "book": "肥",
-     "zhouyi": "非",
-     "print": "肥"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 34,
    "kind": "thoan_truyen",
    "hao": null,
    "book": "大壯大者狀也剛以動故壯大壯利貞大者正也正大而天地之情可見矣",
@@ -2665,54 +2713,6 @@
      "book": "狀",
      "zhouyi": "壯",
      "print": "狀"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 34,
-   "kind": "tieu_tuong",
-   "hao": 3,
-   "book": "小人用壯君子用罔也",
-   "reference": "小人用壯君子罔也",
-   "differences": [
-    {
-     "page": 398,
-     "book": "用",
-     "zhouyi": "",
-     "print": "用"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 34,
-   "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "不能退不能逐不詳也艱則吉咎不長也",
-   "reference": "不能退不能遂不詳也艱則吉咎不長也",
-   "differences": [
-    {
-     "page": 401,
-     "book": "逐",
-     "zhouyi": "遂",
-     "print": "逐"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 34,
-   "kind": "hao",
-   "hao": 6,
-   "book": "羝羊觸藩不能退不能逐無攸利艱則吉",
-   "reference": "羝羊觸藩不能退不能遂無攸利艱則吉",
-   "differences": [
-    {
-     "page": 400,
-     "book": "逐",
-     "zhouyi": "遂",
-     "print": "逐"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2735,16 +2735,32 @@
   },
   {
    "number": 35,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "受兹介福以中正也",
-   "reference": "受茲介福以中正也",
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "火在地上晉君子以自昭明德",
+   "reference": "明出地上晉君子以自昭明德",
    "differences": [
     {
-     "page": 405,
-     "book": "兹",
-     "zhouyi": "茲",
-     "print": "兹"
+     "page": 403,
+     "book": "火在",
+     "zhouyi": "明出",
+     "print": "火在"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 35,
+   "kind": "tieu_tuong",
+   "hao": 4,
+   "book": "鼫鼠貞利位不當也",
+   "reference": "鼫鼠貞厲位不當也",
+   "differences": [
+    {
+     "page": 407,
+     "book": "利",
+     "zhouyi": "厲",
+     "print": "利"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2767,38 +2783,16 @@
   },
   {
    "number": 35,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "火在地上晉君子以自昭明德",
-   "reference": "明出地上晉君子以自昭明德",
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "受兹介福以中正也",
+   "reference": "受茲介福以中正也",
    "differences": [
     {
-     "page": 403,
-     "book": "火在",
-     "zhouyi": "明出",
-     "print": "火在"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 35,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "晉進也明出地上而麗乎大明柔進而上行是以康侯用錫馬蕃庶書日三接也",
-   "reference": "晉進也明出地上順而麗乎大明柔進而上行是以康侯用錫馬蕃庶晝日三接也",
-   "differences": [
-    {
-     "page": 403,
-     "book": "",
-     "zhouyi": "順",
-     "print": ""
-    },
-    {
-     "page": 403,
-     "book": "書",
-     "zhouyi": "晝",
-     "print": "書"
+     "page": 405,
+     "book": "兹",
+     "zhouyi": "茲",
+     "print": "兹"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2837,16 +2831,22 @@
   },
   {
    "number": 35,
-   "kind": "tieu_tuong",
-   "hao": 4,
-   "book": "鼫鼠貞利位不當也",
-   "reference": "鼫鼠貞厲位不當也",
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "晉進也明出地上而麗乎大明柔進而上行是以康侯用錫馬蕃庶書日三接也",
+   "reference": "晉進也明出地上順而麗乎大明柔進而上行是以康侯用錫馬蕃庶晝日三接也",
    "differences": [
     {
-     "page": 407,
-     "book": "利",
-     "zhouyi": "厲",
-     "print": "利"
+     "page": 403,
+     "book": "",
+     "zhouyi": "順",
+     "print": ""
+    },
+    {
+     "page": 403,
+     "book": "書",
+     "zhouyi": "晝",
+     "print": "書"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -2907,6 +2907,22 @@
   },
   {
    "number": 37,
+   "kind": "hao",
+   "hao": 3,
+   "book": "家人嗃嗃晦厲吉婦子嘻嘻終吝",
+   "reference": "家人嗃嗃悔厲吉婦子嘻嘻終吝",
+   "differences": [
+    {
+     "page": 423,
+     "book": "晦",
+     "zhouyi": "悔",
+     "print": "晦"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 37,
    "kind": "thoan",
    "hao": null,
    "book": "家人利女真",
@@ -2954,17 +2970,77 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 37,
+   "number": 38,
    "kind": "hao",
    "hao": 3,
-   "book": "家人嗃嗃晦厲吉婦子嘻嘻終吝",
-   "reference": "家人嗃嗃悔厲吉婦子嘻嘻終吝",
+   "book": "見與曳其牛掣其人天且劓無初有終",
+   "reference": "見輿曳其牛𧤊其人天且劓無初有終",
    "differences": [
     {
-     "page": 423,
-     "book": "晦",
-     "zhouyi": "悔",
-     "print": "晦"
+     "page": 433,
+     "book": "與",
+     "zhouyi": "輿",
+     "print": "與"
+    },
+    {
+     "page": 433,
+     "book": "掣",
+     "zhouyi": "𧤊",
+     "print": "掣"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 38,
+   "kind": "tieu_tuong",
+   "hao": 3,
+   "book": "見與曳位不當也無初有終遇剛也",
+   "reference": "見輿曳位不當也無初有終遇剛也",
+   "differences": [
+    {
+     "page": 433,
+     "book": "與",
+     "zhouyi": "輿",
+     "print": "與"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 38,
+   "kind": "hao",
+   "hao": 6,
+   "book": "睽孤見豕負涂載鬼一車先張之孤後說之孤匪寇婚媾往遇雨則吉",
+   "reference": "睽孤見豕負涂載鬼一車先張之弧後說之弧匪寇婚媾往遇雨則吉",
+   "differences": [
+    {
+     "page": 436,
+     "book": "孤",
+     "zhouyi": "弧",
+     "print": "先張之孤, 後説之孤: left radical 子 as in 睽孤 (second transcription and two image checks)"
+    },
+    {
+     "page": 436,
+     "book": "孤",
+     "zhouyi": "弧",
+     "print": "先張之孤, 後説之孤: left radical 子 as in 睽孤 (second transcription and two image checks)"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 38,
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "遇于之吉群疑亡也",
+   "reference": "遇雨之吉群疑亡也",
+   "differences": [
+    {
+     "page": 437,
+     "book": "于",
+     "zhouyi": "雨",
+     "print": "于"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3008,82 +3084,6 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 38,
-   "kind": "tieu_tuong",
-   "hao": 3,
-   "book": "見與曳位不當也無初有終遇剛也",
-   "reference": "見輿曳位不當也無初有終遇剛也",
-   "differences": [
-    {
-     "page": 433,
-     "book": "與",
-     "zhouyi": "輿",
-     "print": "與"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 38,
-   "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "遇于之吉群疑亡也",
-   "reference": "遇雨之吉群疑亡也",
-   "differences": [
-    {
-     "page": 437,
-     "book": "于",
-     "zhouyi": "雨",
-     "print": "于"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 38,
-   "kind": "hao",
-   "hao": 6,
-   "book": "睽孤見豕負涂載鬼一車先張之孤後說之孤匪寇婚媾往遇雨則吉",
-   "reference": "睽孤見豕負涂載鬼一車先張之弧後說之弧匪寇婚媾往遇雨則吉",
-   "differences": [
-    {
-     "page": 436,
-     "book": "孤",
-     "zhouyi": "弧",
-     "print": "先張之孤, 後説之孤: left radical 子 as in 睽孤 (second transcription and two image checks)"
-    },
-    {
-     "page": 436,
-     "book": "孤",
-     "zhouyi": "弧",
-     "print": "先張之孤, 後説之孤: left radical 子 as in 睽孤 (second transcription and two image checks)"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 38,
-   "kind": "hao",
-   "hao": 3,
-   "book": "見與曳其牛掣其人天且劓無初有終",
-   "reference": "見輿曳其牛𧤊其人天且劓無初有終",
-   "differences": [
-    {
-     "page": 433,
-     "book": "與",
-     "zhouyi": "輿",
-     "print": "與"
-    },
-    {
-     "page": 433,
-     "book": "掣",
-     "zhouyi": "𧤊",
-     "print": "掣"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
    "number": 39,
    "kind": "tieu_tuong",
    "hao": 6,
@@ -3095,28 +3095,6 @@
      "book": "之",
      "zhouyi": "志",
      "print": "之"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 40,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "解險以動動而免乎險解解利西南往得眾也其來復吉乃得中也有攸往夙吉往有功也天地解而雷雨作雷雨作而百果草木皆甲折解之時大矣哉",
-   "reference": "解險以動動而免乎險解解利西南往得眾也其來復吉乃得中也有攸往夙吉往有功也天地解而雷雨作雷雨作而百果草木皆甲坼解之時義大矣哉",
-   "differences": [
-    {
-     "page": 449,
-     "book": "折",
-     "zhouyi": "坼",
-     "print": "折"
-    },
-    {
-     "page": 449,
-     "book": "",
-     "zhouyi": "義",
-     "print": ""
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3146,6 +3124,22 @@
   {
    "number": 40,
    "kind": "hao",
+   "hao": 6,
+   "book": "公用射準于高墉之上獲之無不利",
+   "reference": "公用射隼于高墉之上獲之無不利",
+   "differences": [
+    {
+     "page": 454,
+     "book": "準",
+     "zhouyi": "隼",
+     "print": "準"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 40,
+   "kind": "hao",
    "hao": 5,
    "book": "君子維有解吉有孚于小人",
    "reference": "君子惟有解吉有孚于小人",
@@ -3161,16 +3155,22 @@
   },
   {
    "number": 40,
-   "kind": "hao",
-   "hao": 6,
-   "book": "公用射準于高墉之上獲之無不利",
-   "reference": "公用射隼于高墉之上獲之無不利",
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "解險以動動而免乎險解解利西南往得眾也其來復吉乃得中也有攸往夙吉往有功也天地解而雷雨作雷雨作而百果草木皆甲折解之時大矣哉",
+   "reference": "解險以動動而免乎險解解利西南往得眾也其來復吉乃得中也有攸往夙吉往有功也天地解而雷雨作雷雨作而百果草木皆甲坼解之時義大矣哉",
    "differences": [
     {
-     "page": 454,
-     "book": "準",
-     "zhouyi": "隼",
-     "print": "準"
+     "page": 449,
+     "book": "折",
+     "zhouyi": "坼",
+     "print": "折"
+    },
+    {
+     "page": 449,
+     "book": "",
+     "zhouyi": "義",
+     "print": ""
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3178,15 +3178,15 @@
   {
    "number": 41,
    "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "六五元吉自上祐也",
-   "reference": "六五元吉自上佑也",
+   "hao": 6,
+   "book": "弗損益之大得之也",
+   "reference": "弗損益之大得志也",
    "differences": [
     {
-     "page": 466,
-     "book": "祐",
-     "zhouyi": "佑",
-     "print": "祐"
+     "page": 467,
+     "book": "之",
+     "zhouyi": "志",
+     "print": "之"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3203,6 +3203,22 @@
      "book": "簣",
      "zhouyi": "簋",
      "print": "簣 (bamboo radical over 貴); first transcribed [?]"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 41,
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "善下有澤損君子以懲忿窒欲",
+   "reference": "山下有澤損君子以懲忿窒欲",
+   "differences": [
+    {
+     "page": 460,
+     "book": "善",
+     "zhouyi": "山",
+     "print": "善"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3241,16 +3257,16 @@
   },
   {
    "number": 41,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "善下有澤損君子以懲忿窒欲",
-   "reference": "山下有澤損君子以懲忿窒欲",
+   "kind": "tieu_tuong",
+   "hao": 5,
+   "book": "六五元吉自上祐也",
+   "reference": "六五元吉自上佑也",
    "differences": [
     {
-     "page": 460,
-     "book": "善",
-     "zhouyi": "山",
-     "print": "善"
+     "page": 466,
+     "book": "祐",
+     "zhouyi": "佑",
+     "print": "祐"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3284,17 +3300,33 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 41,
-   "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "弗損益之大得之也",
-   "reference": "弗損益之大得志也",
+   "number": 42,
+   "kind": "hao",
+   "hao": 3,
+   "book": "益之用凶事無咎有孚中行用告公用圭",
+   "reference": "益之用凶事無咎有孚中行告公用圭",
    "differences": [
     {
-     "page": 467,
-     "book": "之",
-     "zhouyi": "志",
-     "print": "之"
+     "page": 474,
+     "book": "用",
+     "zhouyi": "",
+     "print": "用"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 42,
+   "kind": "hao",
+   "hao": 6,
+   "book": "莫益之或擊之立新勿恆凶",
+   "reference": "莫益之或擊之立心勿恆凶",
+   "differences": [
+    {
+     "page": 477,
+     "book": "新",
+     "zhouyi": "心",
+     "print": "新"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3332,108 +3364,6 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 42,
-   "kind": "hao",
-   "hao": 6,
-   "book": "莫益之或擊之立新勿恆凶",
-   "reference": "莫益之或擊之立心勿恆凶",
-   "differences": [
-    {
-     "page": 477,
-     "book": "新",
-     "zhouyi": "心",
-     "print": "新"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 42,
-   "kind": "hao",
-   "hao": 3,
-   "book": "益之用凶事無咎有孚中行用告公用圭",
-   "reference": "益之用凶事無咎有孚中行告公用圭",
-   "differences": [
-    {
-     "page": 474,
-     "book": "用",
-     "zhouyi": "",
-     "print": "用"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 43,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "有戎勿恤得中道也",
-   "reference": "莫夜有戎得中道也",
-   "differences": [
-    {
-     "page": 484,
-     "book": "",
-     "zhouyi": "莫夜",
-     "print": ""
-    },
-    {
-     "page": 484,
-     "book": "勿恤",
-     "zhouyi": "",
-     "print": "勿恤"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 43,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "澤上於天夬君子以施祿及下居德則忌",
-   "reference": "澤上于天夬君子以施祿及下居德則忌",
-   "differences": [
-    {
-     "page": 482,
-     "book": "於",
-     "zhouyi": "于",
-     "print": "於"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 43,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "夬決也剛決柔也健而說決而和揚于王庭柔承五剛也孚號有厲其危乃光也告自邑不利即戎所尚乃窮也利有攸往剛長乃終也",
-   "reference": "夬決也剛決柔也健而說決而和揚于王庭柔乘五剛也孚號有厲其危乃光也告自邑不利即戎所尚乃窮也利有攸往剛長乃終也",
-   "differences": [
-    {
-     "page": 481,
-     "book": "承",
-     "zhouyi": "乘",
-     "print": "承"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 43,
-   "kind": "hao",
-   "hao": 5,
-   "book": "筧陸夬夬中行無咎",
-   "reference": "莧陸夬夬中行無咎",
-   "differences": [
-    {
-     "page": 487,
-     "book": "筧",
-     "zhouyi": "莧",
-     "print": "筧"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
    "number": 43,
    "kind": "hao",
    "hao": 3,
@@ -3462,17 +3392,71 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 44,
-   "kind": "hao",
-   "hao": 1,
-   "book": "繫于金柅貞吉有攸往見凶羸豕孚蹢躅",
-   "reference": "系于金柅貞吉有攸往見凶羸豕孚蹢躅",
+   "number": 43,
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "澤上於天夬君子以施祿及下居德則忌",
+   "reference": "澤上于天夬君子以施祿及下居德則忌",
    "differences": [
     {
-     "page": 493,
-     "book": "繫",
-     "zhouyi": "系",
-     "print": "繫"
+     "page": 482,
+     "book": "於",
+     "zhouyi": "于",
+     "print": "於"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 43,
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "有戎勿恤得中道也",
+   "reference": "莫夜有戎得中道也",
+   "differences": [
+    {
+     "page": 484,
+     "book": "",
+     "zhouyi": "莫夜",
+     "print": ""
+    },
+    {
+     "page": 484,
+     "book": "勿恤",
+     "zhouyi": "",
+     "print": "勿恤"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 43,
+   "kind": "hao",
+   "hao": 5,
+   "book": "筧陸夬夬中行無咎",
+   "reference": "莧陸夬夬中行無咎",
+   "differences": [
+    {
+     "page": 487,
+     "book": "筧",
+     "zhouyi": "莧",
+     "print": "筧"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 43,
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "夬決也剛決柔也健而說決而和揚于王庭柔承五剛也孚號有厲其危乃光也告自邑不利即戎所尚乃窮也利有攸往剛長乃終也",
+   "reference": "夬決也剛決柔也健而說決而和揚于王庭柔乘五剛也孚號有厲其危乃光也告自邑不利即戎所尚乃窮也利有攸往剛長乃終也",
+   "differences": [
+    {
+     "page": 481,
+     "book": "承",
+     "zhouyi": "乘",
+     "print": "承"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3495,6 +3479,22 @@
   },
   {
    "number": 44,
+   "kind": "hao",
+   "hao": 1,
+   "book": "繫于金柅貞吉有攸往見凶羸豕孚蹢躅",
+   "reference": "系于金柅貞吉有攸往見凶羸豕孚蹢躅",
+   "differences": [
+    {
+     "page": 493,
+     "book": "繫",
+     "zhouyi": "系",
+     "print": "繫"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 44,
    "kind": "tieu_tuong",
    "hao": 1,
    "book": "繫于金柅柔道牽也",
@@ -3505,6 +3505,22 @@
      "book": "繫",
      "zhouyi": "系",
      "print": "繫"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 45,
+   "kind": "hao",
+   "hao": 6,
+   "book": "齎咨涕洟無咎",
+   "reference": "齎資涕洟無咎",
+   "differences": [
+    {
+     "page": 509,
+     "book": "咨",
+     "zhouyi": "資",
+     "print": "書"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3543,6 +3559,22 @@
   },
   {
    "number": 45,
+   "kind": "hao",
+   "hao": 2,
+   "book": "引吉無咎孚乃利用〓",
+   "reference": "引吉無咎孚乃利用禴",
+   "differences": [
+    {
+     "page": 505,
+     "book": "〓",
+     "zhouyi": "禴",
+     "print": "利"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 45,
    "kind": "thoan_truyen",
    "hao": null,
    "book": "萃聚也順以說剛中而應故聚王假有廟致孝亨也利見大人亨聚以正也用大牲吉利有攸往順天命也觀其所聚而天地萬物之情可見矣",
@@ -3564,65 +3596,17 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 45,
-   "kind": "hao",
-   "hao": 2,
-   "book": "引吉無咎孚乃利用〓",
-   "reference": "引吉無咎孚乃利用禴",
-   "differences": [
-    {
-     "page": 505,
-     "book": "〓",
-     "zhouyi": "禴",
-     "print": "利"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 45,
+   "number": 46,
    "kind": "hao",
    "hao": 6,
-   "book": "齎咨涕洟無咎",
-   "reference": "齎資涕洟無咎",
+   "book": "冥升利于不息之升",
+   "reference": "冥升利于不息之貞",
    "differences": [
     {
-     "page": 509,
-     "book": "咨",
-     "zhouyi": "資",
-     "print": "書"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 46,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "往無咎上巽也",
-   "reference": "九二之孚有喜也",
-   "differences": [
-    {
-     "page": 514,
-     "book": "往無咎上巽",
-     "zhouyi": "九二之孚有喜",
-     "print": "志之"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 46,
-   "kind": "hao",
-   "hao": 4,
-   "book": "王用亨于岐山吉無咎",
-   "reference": "王用享于岐山吉無咎",
-   "differences": [
-    {
-     "page": 515,
-     "book": "亨",
-     "zhouyi": "享",
-     "print": "兹"
+     "page": 517,
+     "book": "升",
+     "zhouyi": "貞",
+     "print": "失"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3646,30 +3630,30 @@
   {
    "number": 46,
    "kind": "hao",
-   "hao": 6,
-   "book": "冥升利于不息之升",
-   "reference": "冥升利于不息之貞",
+   "hao": 4,
+   "book": "王用亨于岐山吉無咎",
+   "reference": "王用享于岐山吉無咎",
    "differences": [
     {
-     "page": 517,
-     "book": "升",
-     "zhouyi": "貞",
-     "print": "失"
+     "page": 515,
+     "book": "亨",
+     "zhouyi": "享",
+     "print": "兹"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 47,
+   "number": 46,
    "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "劓刖志位得也乃徐有說以中直也利用祭祀受福也",
-   "reference": "劓刖志未得也乃徐有說以中直也利用祭祀受福也",
+   "hao": 2,
+   "book": "往無咎上巽也",
+   "reference": "九二之孚有喜也",
    "differences": [
     {
-     "page": 526,
-     "book": "位",
-     "zhouyi": "未",
+     "page": 514,
+     "book": "往無咎上巽",
+     "zhouyi": "九二之孚有喜",
      "print": "志之"
     }
    ],
@@ -3677,60 +3661,16 @@
   },
   {
    "number": 47,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "九二困于酒食中有慶也",
-   "reference": "困于酒食中有慶也",
+   "kind": "hao",
+   "hao": 3,
+   "book": "困于石據于蒺藜入于其宮不見其妻凶",
+   "reference": "困于石據于蒺蔾入于其宮不見其妻凶",
    "differences": [
     {
      "page": 523,
-     "book": "九二",
-     "zhouyi": "",
-     "print": ""
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 47,
-   "kind": "hao",
-   "hao": 4,
-   "book": "來徐徐困于金車吝有終",
-   "reference": "來荼荼困于金轝吝有終",
-   "differences": [
-    {
-     "page": 524,
-     "book": "徐徐",
-     "zhouyi": "荼荼",
-     "print": "掣"
-    },
-    {
-     "page": 524,
-     "book": "車",
-     "zhouyi": "轝",
-     "print": "晦"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 47,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "困剛掩也險以說困而不失其亨其唯君子乎貞大人吉以剛中也有言不信尚口不窮也",
-   "reference": "困剛掩也險以說困而不失其所亨其唯君子乎貞大人吉以剛中也有言不信尚口乃窮也",
-   "differences": [
-    {
-     "page": 519,
-     "book": "",
-     "zhouyi": "所",
-     "print": "狀"
-    },
-    {
-     "page": 520,
-     "book": "不",
-     "zhouyi": "乃",
-     "print": "除"
+     "book": "藜",
+     "zhouyi": "蔾",
+     "print": "與"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3770,6 +3710,60 @@
   {
    "number": 47,
    "kind": "hao",
+   "hao": 4,
+   "book": "來徐徐困于金車吝有終",
+   "reference": "來荼荼困于金轝吝有終",
+   "differences": [
+    {
+     "page": 524,
+     "book": "徐徐",
+     "zhouyi": "荼荼",
+     "print": "掣"
+    },
+    {
+     "page": 524,
+     "book": "車",
+     "zhouyi": "轝",
+     "print": "晦"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 47,
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "九二困于酒食中有慶也",
+   "reference": "困于酒食中有慶也",
+   "differences": [
+    {
+     "page": 523,
+     "book": "九二",
+     "zhouyi": "",
+     "print": ""
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 47,
+   "kind": "tieu_tuong",
+   "hao": 5,
+   "book": "劓刖志位得也乃徐有說以中直也利用祭祀受福也",
+   "reference": "劓刖志未得也乃徐有說以中直也利用祭祀受福也",
+   "differences": [
+    {
+     "page": 526,
+     "book": "位",
+     "zhouyi": "未",
+     "print": "志之"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 47,
+   "kind": "hao",
    "hao": 2,
    "book": "困于酒食朱敝方來利用亨祀征凶無咎",
    "reference": "困于酒食朱紱方來利用亨祀征凶無咎",
@@ -3801,80 +3795,38 @@
   },
   {
    "number": 47,
-   "kind": "hao",
-   "hao": 3,
-   "book": "困于石據于蒺藜入于其宮不見其妻凶",
-   "reference": "困于石據于蒺蔾入于其宮不見其妻凶",
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "困剛掩也險以說困而不失其亨其唯君子乎貞大人吉以剛中也有言不信尚口不窮也",
+   "reference": "困剛掩也險以說困而不失其所亨其唯君子乎貞大人吉以剛中也有言不信尚口乃窮也",
    "differences": [
     {
-     "page": 523,
-     "book": "藜",
-     "zhouyi": "蔾",
-     "print": "與"
+     "page": 519,
+     "book": "",
+     "zhouyi": "所",
+     "print": "狀"
+    },
+    {
+     "page": 520,
+     "book": "不",
+     "zhouyi": "乃",
+     "print": "除"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
    "number": 48,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "九二井谷射鮒無與也",
-   "reference": "井谷射鮒無與也",
+   "kind": "hao",
+   "hao": 3,
+   "book": "井渫不食為我心惻可用汲王明并受其福",
+   "reference": "井渫不食為我心惻可用汲王明並受其福",
    "differences": [
     {
      "page": 534,
-     "book": "九二",
-     "zhouyi": "",
-     "print": "九二:井谷 射鮒"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 48,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "未上有水井君子以勞民勸相",
-   "reference": "木上有水井君子以勞民勸相",
-   "differences": [
-    {
-     "page": 532,
-     "book": "未",
-     "zhouyi": "木",
-     "print": "未上有水 (upper stroke shorter: 未)"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 48,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "巽乎水而上水井井養而不窮也改邑不改井乃以港中也汔至亦未繘井未有功也羸其瓶是以凶也",
-   "reference": "巽乎水而上水井井養而不窮也改邑不改井乃以剛中也汔至亦未繘井未有功也羸其瓶是以凶也",
-   "differences": [
-    {
-     "page": 531,
-     "book": "港",
-     "zhouyi": "剛",
-     "print": "乃以港中也"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 48,
-   "kind": "hao",
-   "hao": 2,
-   "book": "井谷射鮒甕敝漏",
-   "reference": "井谷射鮒瓮敝漏",
-   "differences": [
-    {
-     "page": 533,
-     "book": "甕",
-     "zhouyi": "瓮",
-     "print": "甕敝漏"
+     "book": "并",
+     "zhouyi": "並",
+     "print": "并受其福"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3899,16 +3851,80 @@
   },
   {
    "number": 48,
-   "kind": "hao",
-   "hao": 3,
-   "book": "井渫不食為我心惻可用汲王明并受其福",
-   "reference": "井渫不食為我心惻可用汲王明並受其福",
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "未上有水井君子以勞民勸相",
+   "reference": "木上有水井君子以勞民勸相",
+   "differences": [
+    {
+     "page": 532,
+     "book": "未",
+     "zhouyi": "木",
+     "print": "未上有水 (upper stroke shorter: 未)"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 48,
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "九二井谷射鮒無與也",
+   "reference": "井谷射鮒無與也",
    "differences": [
     {
      "page": 534,
-     "book": "并",
-     "zhouyi": "並",
-     "print": "并受其福"
+     "book": "九二",
+     "zhouyi": "",
+     "print": "九二:井谷 射鮒"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 48,
+   "kind": "hao",
+   "hao": 2,
+   "book": "井谷射鮒甕敝漏",
+   "reference": "井谷射鮒瓮敝漏",
+   "differences": [
+    {
+     "page": 533,
+     "book": "甕",
+     "zhouyi": "瓮",
+     "print": "甕敝漏"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 48,
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "巽乎水而上水井井養而不窮也改邑不改井乃以港中也汔至亦未繘井未有功也羸其瓶是以凶也",
+   "reference": "巽乎水而上水井井養而不窮也改邑不改井乃以剛中也汔至亦未繘井未有功也羸其瓶是以凶也",
+   "differences": [
+    {
+     "page": 531,
+     "book": "港",
+     "zhouyi": "剛",
+     "print": "乃以港中也"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 49,
+   "kind": "hao",
+   "hao": 6,
+   "book": "君子豹變小人革面征凶居貞",
+   "reference": "君子豹變小人革面征凶居貞吉",
+   "differences": [
+    {
+     "page": 545,
+     "book": "",
+     "zhouyi": "吉",
+     "print": "征凶,居貞."
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -3958,22 +3974,6 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 49,
-   "kind": "hao",
-   "hao": 6,
-   "book": "君子豹變小人革面征凶居貞",
-   "reference": "君子豹變小人革面征凶居貞吉",
-   "differences": [
-    {
-     "page": 545,
-     "book": "",
-     "zhouyi": "吉",
-     "print": "征凶,居貞."
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
    "number": 50,
    "kind": "hao",
    "hao": 4,
@@ -4013,16 +4013,32 @@
   },
   {
    "number": 51,
-   "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "震來厲危行也其事在中大無喪也",
-   "reference": "震往來厲危行也其事在中大無喪也",
+   "kind": "hao",
+   "hao": 3,
+   "book": "六我震蘇蘇震行無眚",
+   "reference": "震蘇蘇震行無眚",
    "differences": [
     {
-     "page": 561,
+     "page": 559,
+     "book": "六我",
+     "zhouyi": "",
+     "print": "亨"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 51,
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "索索中未得也雖凶無咎畏鄰戒也",
+   "reference": "震索索中未得也雖凶無咎畏鄰戒也",
+   "differences": [
+    {
+     "page": 562,
      "book": "",
-     "zhouyi": "往",
-     "print": "象曰:震來厲,危行也"
+     "zhouyi": "震",
+     "print": "新"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4051,6 +4067,22 @@
   },
   {
    "number": 51,
+   "kind": "tieu_tuong",
+   "hao": 4,
+   "book": "震逐泥未光也",
+   "reference": "震遂泥未光也",
+   "differences": [
+    {
+     "page": 560,
+     "book": "逐",
+     "zhouyi": "遂",
+     "print": "於"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 51,
    "kind": "hao",
    "hao": 4,
    "book": "震逐泥",
@@ -4067,32 +4099,16 @@
   },
   {
    "number": 51,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "震亨震來虩虩恐致福也笑言啞啞後有則也震驚百里警遠而懼邇也出可以守宗廟社稷以為祭主也",
-   "reference": "震亨震來虩虩恐致福也笑言啞啞後有則也震驚百里驚遠而懼邇也出可以守宗廟社稷以為祭主也",
-   "differences": [
-    {
-     "page": 556,
-     "book": "警",
-     "zhouyi": "驚",
-     "print": "雨"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 51,
    "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "索索中未得也雖凶無咎畏鄰戒也",
-   "reference": "震索索中未得也雖凶無咎畏鄰戒也",
+   "hao": 5,
+   "book": "震來厲危行也其事在中大無喪也",
+   "reference": "震往來厲危行也其事在中大無喪也",
    "differences": [
     {
-     "page": 562,
+     "page": 561,
      "book": "",
-     "zhouyi": "震",
-     "print": "新"
+     "zhouyi": "往",
+     "print": "象曰:震來厲,危行也"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4115,96 +4131,16 @@
   },
   {
    "number": 51,
-   "kind": "tieu_tuong",
-   "hao": 4,
-   "book": "震逐泥未光也",
-   "reference": "震遂泥未光也",
-   "differences": [
-    {
-     "page": 560,
-     "book": "逐",
-     "zhouyi": "遂",
-     "print": "於"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 51,
-   "kind": "hao",
-   "hao": 3,
-   "book": "六我震蘇蘇震行無眚",
-   "reference": "震蘇蘇震行無眚",
-   "differences": [
-    {
-     "page": 559,
-     "book": "六我",
-     "zhouyi": "",
-     "print": "亨"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 52,
-   "kind": "thoan",
+   "kind": "thoan_truyen",
    "hao": null,
-   "book": "艮其背捕獲其身行其庭不見其人無咎",
-   "reference": "艮其背不獲其身行其庭不見其人無咎",
+   "book": "震亨震來虩虩恐致福也笑言啞啞後有則也震驚百里警遠而懼邇也出可以守宗廟社稷以為祭主也",
+   "reference": "震亨震來虩虩恐致福也笑言啞啞後有則也震驚百里驚遠而懼邇也出可以守宗廟社稷以為祭主也",
    "differences": [
     {
-     "page": 563,
-     "book": "捕",
-     "zhouyi": "不",
-     "print": "捕獲其身"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 52,
-   "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "敦艮之疾以厚終也",
-   "reference": "敦艮之吉以厚終也",
-   "differences": [
-    {
-     "page": 570,
-     "book": "疾",
-     "zhouyi": "吉",
-     "print": "敦艮之疾"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 52,
-   "kind": "hao",
-   "hao": 5,
-   "book": "艮其輔言不序悔亡",
-   "reference": "艮其輔言有孚悔亡",
-   "differences": [
-    {
-     "page": 569,
-     "book": "不序",
-     "zhouyi": "有孚",
-     "print": "言不序"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 52,
-   "kind": "hao",
-   "hao": 6,
-   "book": "敦艮疾",
-   "reference": "敦艮吉",
-   "differences": [
-    {
-     "page": 569,
-     "book": "疾",
-     "zhouyi": "吉",
-     "print": "敦艮,疾."
+     "page": 556,
+     "book": "警",
+     "zhouyi": "驚",
+     "print": "雨"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4232,33 +4168,81 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 53,
-   "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "終莫之勝吉得所願也",
-   "reference": "終莫之勝吉得所愿也",
+   "number": 52,
+   "kind": "hao",
+   "hao": 6,
+   "book": "敦艮疾",
+   "reference": "敦艮吉",
    "differences": [
     {
-     "page": 577,
-     "book": "願",
-     "zhouyi": "愿",
-     "print": "得所願也"
+     "page": 569,
+     "book": "疾",
+     "zhouyi": "吉",
+     "print": "敦艮,疾."
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 52,
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "敦艮之疾以厚終也",
+   "reference": "敦艮之吉以厚終也",
+   "differences": [
+    {
+     "page": 570,
+     "book": "疾",
+     "zhouyi": "吉",
+     "print": "敦艮之疾"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 52,
+   "kind": "thoan",
+   "hao": null,
+   "book": "艮其背捕獲其身行其庭不見其人無咎",
+   "reference": "艮其背不獲其身行其庭不見其人無咎",
+   "differences": [
+    {
+     "page": 563,
+     "book": "捕",
+     "zhouyi": "不",
+     "print": "捕獲其身"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 52,
+   "kind": "hao",
+   "hao": 5,
+   "book": "艮其輔言不序悔亡",
+   "reference": "艮其輔言有孚悔亡",
+   "differences": [
+    {
+     "page": 569,
+     "book": "不序",
+     "zhouyi": "有孚",
+     "print": "言不序"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
    "number": 53,
-   "kind": "hao",
-   "hao": 4,
-   "book": "鴻漸于木獲得其桷無咎",
-   "reference": "鴻漸于木或得其桷無咎",
+   "kind": "tieu_tuong",
+   "hao": 3,
+   "book": "夫征不復離群醜也婦孕不育失其道也利用禦寇順相保也",
+   "reference": "夫征不復離群丑也婦孕不育失其道也利用禦寇順相保也",
    "differences": [
     {
      "page": 576,
-     "book": "獲",
-     "zhouyi": "或",
-     "print": "獲得其桷"
+     "book": "醜",
+     "zhouyi": "丑",
+     "print": "離群醜也"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4282,15 +4266,47 @@
   {
    "number": 53,
    "kind": "tieu_tuong",
-   "hao": 3,
-   "book": "夫征不復離群醜也婦孕不育失其道也利用禦寇順相保也",
-   "reference": "夫征不復離群丑也婦孕不育失其道也利用禦寇順相保也",
+   "hao": 4,
+   "book": "獲得其桷順以巽也",
+   "reference": "或得其桷順以巽也",
    "differences": [
     {
      "page": 576,
-     "book": "醜",
-     "zhouyi": "丑",
-     "print": "離群醜也"
+     "book": "獲",
+     "zhouyi": "或",
+     "print": "獲得其桷"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 53,
+   "kind": "hao",
+   "hao": 4,
+   "book": "鴻漸于木獲得其桷無咎",
+   "reference": "鴻漸于木或得其桷無咎",
+   "differences": [
+    {
+     "page": 576,
+     "book": "獲",
+     "zhouyi": "或",
+     "print": "獲得其桷"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 53,
+   "kind": "tieu_tuong",
+   "hao": 5,
+   "book": "終莫之勝吉得所願也",
+   "reference": "終莫之勝吉得所愿也",
+   "differences": [
+    {
+     "page": 577,
+     "book": "願",
+     "zhouyi": "愿",
+     "print": "得所願也"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4334,22 +4350,6 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 53,
-   "kind": "tieu_tuong",
-   "hao": 4,
-   "book": "獲得其桷順以巽也",
-   "reference": "或得其桷順以巽也",
-   "differences": [
-    {
-     "page": 576,
-     "book": "獲",
-     "zhouyi": "或",
-     "print": "獲得其桷"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
    "number": 54,
    "kind": "tieu_tuong",
    "hao": 2,
@@ -4377,6 +4377,76 @@
      "book": "二",
      "zhouyi": "而",
      "print": "不交二萬物"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 55,
+   "kind": "hao",
+   "hao": 3,
+   "book": "豐其沛日中見沫折其右肱無咎",
+   "reference": "豐其沛日中見沬折其右肱無咎",
+   "differences": [
+    {
+     "page": 592,
+     "book": "沫",
+     "zhouyi": "沬",
+     "print": "沫"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 55,
+   "kind": "tieu_tuong",
+   "hao": 3,
+   "book": "豐其沛不可大事也折其有肱終不可用也",
+   "reference": "豐其沛不可大事也折其右肱終不可用也",
+   "differences": [
+    {
+     "page": 593,
+     "book": "有",
+     "zhouyi": "右",
+     "print": "有"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 55,
+   "kind": "hao",
+   "hao": 6,
+   "book": "豐其屋蔀其家闚其戶闃其無人三歲不覿凶",
+   "reference": "豐其屋蔀其家窺其戶闃其無人三歲不觌凶",
+   "differences": [
+    {
+     "page": 596,
+     "book": "闚",
+     "zhouyi": "窺",
+     "print": "闚"
+    },
+    {
+     "page": 596,
+     "book": "覿",
+     "zhouyi": "觌",
+     "print": "覿"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 55,
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "豐其屋天際翔也闚其戶闃其無人自藏也",
+   "reference": "豐其屋天際翔也窺其戶闃其無人自藏也",
+   "differences": [
+    {
+     "page": 596,
+     "book": "闚",
+     "zhouyi": "窺",
+     "print": "闚"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4432,71 +4502,17 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 55,
-   "kind": "tieu_tuong",
-   "hao": 3,
-   "book": "豐其沛不可大事也折其有肱終不可用也",
-   "reference": "豐其沛不可大事也折其右肱終不可用也",
-   "differences": [
-    {
-     "page": 593,
-     "book": "有",
-     "zhouyi": "右",
-     "print": "有"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 55,
-   "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "豐其屋天際翔也闚其戶闃其無人自藏也",
-   "reference": "豐其屋天際翔也窺其戶闃其無人自藏也",
-   "differences": [
-    {
-     "page": 596,
-     "book": "闚",
-     "zhouyi": "窺",
-     "print": "闚"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 55,
-   "kind": "hao",
-   "hao": 6,
-   "book": "豐其屋蔀其家闚其戶闃其無人三歲不覿凶",
-   "reference": "豐其屋蔀其家窺其戶闃其無人三歲不觌凶",
-   "differences": [
-    {
-     "page": 596,
-     "book": "闚",
-     "zhouyi": "窺",
-     "print": "闚"
-    },
-    {
-     "page": 596,
-     "book": "覿",
-     "zhouyi": "觌",
-     "print": "覿"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 55,
+   "number": 56,
    "kind": "hao",
    "hao": 3,
-   "book": "豐其沛日中見沫折其右肱無咎",
-   "reference": "豐其沛日中見沬折其右肱無咎",
+   "book": "旅焚其次喪其童僕貞厲",
+   "reference": "旅焚其次喪其僮僕貞厲",
    "differences": [
     {
-     "page": 592,
-     "book": "沫",
-     "zhouyi": "沬",
-     "print": "沫"
+     "page": 601,
+     "book": "童",
+     "zhouyi": "僮",
+     "print": "童"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4513,22 +4529,6 @@
      "book": "信",
      "zhouyi": "心",
      "print": "信"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 56,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "旅小亨柔得終乎外而順乎剛止而麗乎明是以小亨旅貞吉也旅之時義大矣哉",
-   "reference": "旅小亨柔得中乎外而順乎剛止而麗乎明是以小亨旅貞吉也旅之時義大矣哉",
-   "differences": [
-    {
-     "page": 598,
-     "book": "終",
-     "zhouyi": "中",
-     "print": "終"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4567,16 +4567,86 @@
   },
   {
    "number": 56,
-   "kind": "hao",
-   "hao": 3,
-   "book": "旅焚其次喪其童僕貞厲",
-   "reference": "旅焚其次喪其僮僕貞厲",
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "旅小亨柔得終乎外而順乎剛止而麗乎明是以小亨旅貞吉也旅之時義大矣哉",
+   "reference": "旅小亨柔得中乎外而順乎剛止而麗乎明是以小亨旅貞吉也旅之時義大矣哉",
    "differences": [
     {
-     "page": 601,
-     "book": "童",
-     "zhouyi": "僮",
-     "print": "童"
+     "page": 598,
+     "book": "終",
+     "zhouyi": "中",
+     "print": "終"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 57,
+   "kind": "hao",
+   "hao": 6,
+   "book": "巽在牀上喪其資斧凶",
+   "reference": "巽在牀下喪其資斧貞凶",
+   "differences": [
+    {
+     "page": 612,
+     "book": "上",
+     "zhouyi": "下",
+     "print": "上"
+    },
+    {
+     "page": 612,
+     "book": "",
+     "zhouyi": "貞",
+     "print": "喪其資斧,凶 (no 貞)"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 57,
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "巽在牀上上窮也喪其資斧正乎凶也",
+   "reference": "巽在牀下上窮也喪其資斧正乎凶也",
+   "differences": [
+    {
+     "page": 613,
+     "book": "上",
+     "zhouyi": "下",
+     "print": "上"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 57,
+   "kind": "tieu_tuong",
+   "hao": 4,
+   "book": "田獲三品有攻也",
+   "reference": "田獲三品有功也",
+   "differences": [
+    {
+     "page": 611,
+     "book": "攻",
+     "zhouyi": "功",
+     "print": "攻"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 57,
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "紛若之吉德中也",
+   "reference": "紛若之吉得中也",
+   "differences": [
+    {
+     "page": 609,
+     "book": "德",
+     "zhouyi": "得",
+     "print": "德"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4605,38 +4675,6 @@
   },
   {
    "number": 57,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "紛若之吉德中也",
-   "reference": "紛若之吉得中也",
-   "differences": [
-    {
-     "page": 609,
-     "book": "德",
-     "zhouyi": "得",
-     "print": "德"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 57,
-   "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "巽在牀上上窮也喪其資斧正乎凶也",
-   "reference": "巽在牀下上窮也喪其資斧正乎凶也",
-   "differences": [
-    {
-     "page": 613,
-     "book": "上",
-     "zhouyi": "下",
-     "print": "上"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 57,
    "kind": "hao",
    "hao": 2,
    "book": "巽在牀上用史巫紛若吉無咎",
@@ -4647,60 +4685,6 @@
      "book": "上",
      "zhouyi": "下",
      "print": "上"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 57,
-   "kind": "tieu_tuong",
-   "hao": 4,
-   "book": "田獲三品有攻也",
-   "reference": "田獲三品有功也",
-   "differences": [
-    {
-     "page": 611,
-     "book": "攻",
-     "zhouyi": "功",
-     "print": "攻"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 57,
-   "kind": "hao",
-   "hao": 6,
-   "book": "巽在牀上喪其資斧凶",
-   "reference": "巽在牀下喪其資斧貞凶",
-   "differences": [
-    {
-     "page": 612,
-     "book": "上",
-     "zhouyi": "下",
-     "print": "上"
-    },
-    {
-     "page": 612,
-     "book": "",
-     "zhouyi": "貞",
-     "print": "喪其資斧,凶 (no 貞)"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 58,
-   "kind": "hao",
-   "hao": 1,
-   "book": "合兌吉",
-   "reference": "和兌吉",
-   "differences": [
-    {
-     "page": 616,
-     "book": "合",
-     "zhouyi": "和",
-     "print": "合"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4729,6 +4713,22 @@
   },
   {
    "number": 58,
+   "kind": "hao",
+   "hao": 1,
+   "book": "合兌吉",
+   "reference": "和兌吉",
+   "differences": [
+    {
+     "page": 616,
+     "book": "合",
+     "zhouyi": "和",
+     "print": "合"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 58,
    "kind": "thoan_truyen",
    "hao": null,
    "book": "兌說也剛中而柔外是以順乎天而應乎人說以先民民忘其勞說以犯難民念其死說之大民勸矣哉",
@@ -4745,6 +4745,44 @@
      "book": "念",
      "zhouyi": "忘",
      "print": "念"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 59,
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "風行水上渙先王以亨于帝立廟",
+   "reference": "風行水上渙先王以享于帝立廟",
+   "differences": [
+    {
+     "page": 623,
+     "book": "亨",
+     "zhouyi": "享",
+     "print": "亨"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 59,
+   "kind": "hao",
+   "hao": 1,
+   "book": "拯馬壯吉",
+   "reference": "用拯馬壯吉悔亡",
+   "differences": [
+    {
+     "page": 623,
+     "book": "",
+     "zhouyi": "用",
+     "print": "拯馬壯,吉 (no 用)"
+    },
+    {
+     "page": 623,
+     "book": "",
+     "zhouyi": "悔亡",
+     "print": "拯馬壯,吉 (no 悔亡)"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4774,44 +4812,6 @@
   {
    "number": 59,
    "kind": "hao",
-   "hao": 1,
-   "book": "拯馬壯吉",
-   "reference": "用拯馬壯吉悔亡",
-   "differences": [
-    {
-     "page": 623,
-     "book": "",
-     "zhouyi": "用",
-     "print": "拯馬壯,吉 (no 用)"
-    },
-    {
-     "page": 623,
-     "book": "",
-     "zhouyi": "悔亡",
-     "print": "拯馬壯,吉 (no 悔亡)"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 59,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "風行水上渙先王以亨于帝立廟",
-   "reference": "風行水上渙先王以享于帝立廟",
-   "differences": [
-    {
-     "page": 623,
-     "book": "亨",
-     "zhouyi": "享",
-     "print": "亨"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 59,
-   "kind": "hao",
    "hao": 2,
    "book": "渙奔其機悔亡",
    "reference": "渙奔其机悔亡",
@@ -4821,6 +4821,54 @@
      "book": "機",
      "zhouyi": "机",
      "print": "機"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 60,
+   "kind": "tieu_tuong",
+   "hao": 3,
+   "book": "不節之嗟有誰咎也",
+   "reference": "不節之嗟又誰咎也",
+   "differences": [
+    {
+     "page": 632,
+     "book": "有",
+     "zhouyi": "又",
+     "print": "有"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 60,
+   "kind": "hao",
+   "hao": 6,
+   "book": "若節貞凶悔亡",
+   "reference": "苦節貞凶悔亡",
+   "differences": [
+    {
+     "page": 634,
+     "book": "若",
+     "zhouyi": "苦",
+     "print": "若"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 60,
+   "kind": "tieu_tuong",
+   "hao": 6,
+   "book": "若節貞凶其道窮也",
+   "reference": "苦節貞凶其道窮也",
+   "differences": [
+    {
+     "page": 634,
+     "book": "若",
+     "zhouyi": "苦",
+     "print": "若"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4874,81 +4922,17 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 60,
+   "number": 61,
    "kind": "tieu_tuong",
    "hao": 3,
-   "book": "不節之嗟有誰咎也",
-   "reference": "不節之嗟又誰咎也",
+   "book": "或鼓或罷位不當也",
+   "reference": "可鼓或罷位不當也",
    "differences": [
     {
-     "page": 632,
-     "book": "有",
-     "zhouyi": "又",
-     "print": "有"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 60,
-   "kind": "tieu_tuong",
-   "hao": 6,
-   "book": "若節貞凶其道窮也",
-   "reference": "苦節貞凶其道窮也",
-   "differences": [
-    {
-     "page": 634,
-     "book": "若",
-     "zhouyi": "苦",
-     "print": "若"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 60,
-   "kind": "hao",
-   "hao": 6,
-   "book": "若節貞凶悔亡",
-   "reference": "苦節貞凶悔亡",
-   "differences": [
-    {
-     "page": 634,
-     "book": "若",
-     "zhouyi": "苦",
-     "print": "若"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 61,
-   "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "有孚攣如",
-   "reference": "有孚攣如位正當也",
-   "differences": [
-    {
-     "page": 640,
-     "book": "",
-     "zhouyi": "位正當也",
-     "print": "象曰: 有孚攣如 (line ends there)"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 61,
-   "kind": "tieu_tuong",
-   "hao": 2,
-   "book": "其子和之中心願也",
-   "reference": "其子和之中心愿也",
-   "differences": [
-    {
-     "page": 638,
-     "book": "願",
-     "zhouyi": "愿",
-     "print": "願"
+     "page": 639,
+     "book": "或",
+     "zhouyi": "可",
+     "print": "或"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4971,22 +4955,16 @@
   },
   {
    "number": 61,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "中孚柔在内而剛得中說而巽孚乃化邦也豚魚吉利涉大川承木舟虛也中孚以利貞乃應乎天也",
-   "reference": "中孚柔在内而剛得中說而巽孚乃化邦也豚魚吉信及豚魚也利涉大川乘木舟虛也中孚以利貞乃應乎天也",
+   "kind": "tieu_tuong",
+   "hao": 2,
+   "book": "其子和之中心願也",
+   "reference": "其子和之中心愿也",
    "differences": [
     {
-     "page": 636,
-     "book": "",
-     "zhouyi": "信及豚魚也",
-     "print": "豚魚吉; 利涉大川 (no 信及豚魚也)"
-    },
-    {
-     "page": 636,
-     "book": "承",
-     "zhouyi": "乘",
-     "print": "承"
+     "page": 638,
+     "book": "願",
+     "zhouyi": "愿",
+     "print": "願"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -4994,15 +4972,15 @@
   {
    "number": 61,
    "kind": "tieu_tuong",
-   "hao": 3,
-   "book": "或鼓或罷位不當也",
-   "reference": "可鼓或罷位不當也",
+   "hao": 5,
+   "book": "有孚攣如",
+   "reference": "有孚攣如位正當也",
    "differences": [
     {
-     "page": 639,
-     "book": "或",
-     "zhouyi": "可",
-     "print": "或"
+     "page": 640,
+     "book": "",
+     "zhouyi": "位正當也",
+     "print": "象曰: 有孚攣如 (line ends there)"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -5042,33 +5020,23 @@
    "checked": "each difference looked up on the page image"
   },
   {
-   "number": 62,
-   "kind": "tieu_tuong",
-   "hao": 5,
-   "book": "密雲不雨已上也",
-   "reference": "密云不雨已上也",
+   "number": 61,
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "中孚柔在内而剛得中說而巽孚乃化邦也豚魚吉利涉大川承木舟虛也中孚以利貞乃應乎天也",
+   "reference": "中孚柔在内而剛得中說而巽孚乃化邦也豚魚吉信及豚魚也利涉大川乘木舟虛也中孚以利貞乃應乎天也",
    "differences": [
     {
-     "page": 649,
-     "book": "雲",
-     "zhouyi": "云",
-     "print": "雲"
-    }
-   ],
-   "checked": "each difference looked up on the page image"
-  },
-  {
-   "number": 62,
-   "kind": "hao",
-   "hao": 4,
-   "book": "無咎孚過遇之往厲必戒勿用永貞",
-   "reference": "無咎弗過遇之往厲必戒勿用永貞",
-   "differences": [
+     "page": 636,
+     "book": "",
+     "zhouyi": "信及豚魚也",
+     "print": "豚魚吉; 利涉大川 (no 信及豚魚也)"
+    },
     {
-     "page": 647,
-     "book": "孚",
-     "zhouyi": "弗",
-     "print": "孚 (爫 over 子), compared with this font's 乎 (p.589) and 孚 (p.640); first transcribed 乎"
+     "page": 636,
+     "book": "承",
+     "zhouyi": "乘",
+     "print": "承"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -5103,22 +5071,48 @@
   },
   {
    "number": 62,
-   "kind": "thoan_truyen",
-   "hao": null,
-   "book": "小過小者過也而亨也過以利貞與時行也柔得中是以小事吉也剛失位而不中是以不可大事也有飛鳥之象焉飛鳥遺之音不宜上宜下大吉上逆而下順也",
-   "reference": "小過小者過而亨也過以利貞與時行也柔得中是以小事吉也剛失位而不中是以不可大事也有飛鳥之象焉有飛鳥遺之音不宜上宜下大吉上逆而下順也",
+   "kind": "tieu_tuong",
+   "hao": 4,
+   "book": "弗過遇之位不當也往厲必戒中不可長也",
+   "reference": "弗過遇之位不當也往厲必戒終不可長也",
    "differences": [
     {
-     "page": 643,
-     "book": "也",
-     "zhouyi": "",
-     "print": "小者過也"
-    },
+     "page": 648,
+     "book": "中",
+     "zhouyi": "終",
+     "print": "中"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 62,
+   "kind": "hao",
+   "hao": 4,
+   "book": "無咎孚過遇之往厲必戒勿用永貞",
+   "reference": "無咎弗過遇之往厲必戒勿用永貞",
+   "differences": [
     {
-     "page": 644,
-     "book": "",
-     "zhouyi": "有",
-     "print": "飛鳥遺之音 (no 有)"
+     "page": 647,
+     "book": "孚",
+     "zhouyi": "弗",
+     "print": "孚 (爫 over 子), compared with this font's 乎 (p.589) and 孚 (p.640); first transcribed 乎"
+    }
+   ],
+   "checked": "each difference looked up on the page image"
+  },
+  {
+   "number": 62,
+   "kind": "tieu_tuong",
+   "hao": 5,
+   "book": "密雲不雨已上也",
+   "reference": "密云不雨已上也",
+   "differences": [
+    {
+     "page": 649,
+     "book": "雲",
+     "zhouyi": "云",
+     "print": "雲"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -5147,32 +5141,38 @@
   },
   {
    "number": 62,
-   "kind": "tieu_tuong",
-   "hao": 4,
-   "book": "弗過遇之位不當也往厲必戒中不可長也",
-   "reference": "弗過遇之位不當也往厲必戒終不可長也",
+   "kind": "thoan_truyen",
+   "hao": null,
+   "book": "小過小者過也而亨也過以利貞與時行也柔得中是以小事吉也剛失位而不中是以不可大事也有飛鳥之象焉飛鳥遺之音不宜上宜下大吉上逆而下順也",
+   "reference": "小過小者過而亨也過以利貞與時行也柔得中是以小事吉也剛失位而不中是以不可大事也有飛鳥之象焉有飛鳥遺之音不宜上宜下大吉上逆而下順也",
    "differences": [
     {
-     "page": 648,
-     "book": "中",
-     "zhouyi": "終",
-     "print": "中"
+     "page": 643,
+     "book": "也",
+     "zhouyi": "",
+     "print": "小者過也"
+    },
+    {
+     "page": 644,
+     "book": "",
+     "zhouyi": "有",
+     "print": "飛鳥遺之音 (no 有)"
     }
    ],
    "checked": "each difference looked up on the page image"
   },
   {
    "number": 63,
-   "kind": "dai_tuong",
-   "hao": null,
-   "book": "水在火上既濟君子以思患而預防之",
-   "reference": "水在火上既濟君子以思患而豫防之",
+   "kind": "hao",
+   "hao": 3,
+   "book": "高宗伐鬼方三年克之小人無用",
+   "reference": "高宗伐鬼方三年克之小人勿用",
    "differences": [
     {
-     "page": 652,
-     "book": "預",
-     "zhouyi": "豫",
-     "print": "預"
+     "page": 654,
+     "book": "無",
+     "zhouyi": "勿",
+     "print": "無"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -5195,16 +5195,16 @@
   },
   {
    "number": 63,
-   "kind": "hao",
-   "hao": 3,
-   "book": "高宗伐鬼方三年克之小人無用",
-   "reference": "高宗伐鬼方三年克之小人勿用",
+   "kind": "dai_tuong",
+   "hao": null,
+   "book": "水在火上既濟君子以思患而預防之",
+   "reference": "水在火上既濟君子以思患而豫防之",
    "differences": [
     {
-     "page": 654,
-     "book": "無",
-     "zhouyi": "勿",
-     "print": "無"
+     "page": 652,
+     "book": "預",
+     "zhouyi": "豫",
+     "print": "預"
     }
    ],
    "checked": "each difference looked up on the page image"
@@ -5262,6 +5262,248 @@
     }
    ],
    "checked": "each difference looked up on the page image"
+  }
+ ],
+ "vietnamese": [
+  {
+   "number": 11,
+   "where": "thoan.trinh_di",
+   "page": 196,
+   "text": "lợi xướng",
+   "print": "Âm Dương lợi xướng",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 17,
+   "where": "thoan.chu_hy",
+   "page": 247,
+   "text": "phải lời về sự trinh",
+   "print": "nhưng phải lời về sự trinh",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 16,
+   "where": "hao6.nghia",
+   "page": 240,
+   "text": "Lời Tượng nói rằng:",
+   "print": "Dịch nghĩa. - Lời Tượng nói rằng: Sấm ra, đất",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 29,
+   "where": "hao3.trinh_di",
+   "page": 353,
+   "text": "mà đong chỗ",
+   "print": "Âm mềm mà đong chỗ không trung chính",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 23,
+   "where": "hao5.nghia",
+   "page": 303,
+   "text": "lấy cung nhân được yên",
+   "print": "lấy cung nhân được yên",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 12,
+   "where": "hao5.trinh_di",
+   "page": 206,
+   "text": "bĩ",
+   "print": "p.206 intro: 'hanh thái đã cực thì ắt phải bĩ' (as transcribed). The reader's actual spot (hao5 Trình Di, p.211) is also printed without bĩ: 'làm tắt nghỉ cuộc của thiên hạ'",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 16,
+   "where": "hao6.chu_hy",
+   "page": 245,
+   "text": "trời về đường thiện",
+   "print": "cái cửa “trời về / đường thiện”",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 41,
+   "where": "thoan_truyen.trinh_di",
+   "page": 460,
+   "text": "rộng",
+   "print": "hoặc / rộng, chỉ là tùy thời",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 37,
+   "where": "hao2.trinh_di",
+   "page": 423,
+   "text": "bào Trên",
+   "print": "hào Ba, bào Trên đó vậy",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 20,
+   "where": "hao6.trinh_di",
+   "page": 279,
+   "text": "tác là",
+   "print": "mà ra, tác là đức nghiệp",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 62,
+   "where": "hao5.trinh_di",
+   "page": 649,
+   "text": "thành mưu",
+   "print": "Âm không thể thành mưu, ở quẻ Tiểu súc",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 23,
+   "where": "hao3.chu_hy",
+   "page": 302,
+   "text": "một mình minh ứng",
+   "print": "mà một mình minh ứng với hào Dương",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 12,
+   "where": "tieu_tuong3.nghia",
+   "page": 210,
+   "text": "ngồi",
+   "print": "Bọc chứa sự hổ thẹn, ngồi / không đáng vậy",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 13,
+   "where": "thoan.chu_hy",
+   "page": 214,
+   "text": "hào Sáu Năm",
+   "print": "ở trên ứng với hào Sáu Năm, lại",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 16,
+   "where": "intro",
+   "page": 238,
+   "text": "hăng hái mà đánh",
+   "print": "thì nó hăng hái mà đánh, thông",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 45,
+   "where": "hao2.nghia",
+   "page": 505,
+   "text": "tin bèn lời",
+   "print": "không lỗi, tin bèn lời, dùng",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 33,
+   "where": "tieu_tuong3.trinh_di",
+   "page": 386,
+   "text": "không",
+   "print": "p.386 intro: 'các vật không thể ở lâu' (as transcribed). The reader's actual spot (tiểu tượng 3 Trình Di, p.391) is also printed without không: 'nhưng có thể đương nổi việc lớn.'",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 55,
+   "where": "hao5.chu_hy",
+   "page": 595,
+   "text": "mềm tốt",
+   "print": "Chất tuy mềm tốt ... Vì nó mềm tốt mới",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 30,
+   "where": "hao5.trinh_di",
+   "page": 363,
+   "text": "êb êb thiện",
+   "print": "đáng bảo là êb êb thiện.",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 25,
+   "where": "thoan.trinh_di",
+   "page": 314,
+   "text": "có lẻ cả hanh",
+   "print": "Không càn có lẻ cả hanh",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 14,
+   "where": "hao6.trinh_di",
+   "page": 228,
+   "text": "hạ chi",
+   "print": "mà hào Trên lại biết hạ chi để ứng nhau với",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 16,
+   "where": "hao2.trinh_di",
+   "page": 242,
+   "text": "tự thả",
+   "print": "đó là cái tượng tự thả. Đương",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 11,
+   "where": "thoan_truyen.nghia",
+   "page": 197,
+   "text": "trí giống nhau",
+   "print": "dưới giao nhau mà trí giống nhau vậy",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 29,
+   "where": "thoan_truyen.nghia",
+   "page": 350,
+   "text": "điềm tín",
+   "print": "đi chỗ hiểm mà không mất điềm / tín của mình",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 26,
+   "where": "tieu_tuong5.nghia",
+   "page": 330,
+   "text": "phúc vây",
+   "print": "có / phúc vây. (no dot below â)",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 15,
+   "where": "hao3.chu_hy",
+   "page": 234,
+   "text": "ở dưới thể trên",
+   "print": "Cả quẻ có một hào Dương, ở dưới thể / trên",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 15,
+   "where": "hao6.trinh_di",
+   "page": 236,
+   "text": "lợi vở sự",
+   "print": "cho nên nó lợi vở sự dùng",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 24,
+   "where": "thoan_truyen.nghia",
+   "page": 306,
+   "text": "động mà thấy sự thuận",
+   "print": "lại; động mà thấy sự thuận đi lên;",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 25,
+   "where": "thoan.chu_hy",
+   "page": 315,
+   "text": "ứng với hào Chín Hai",
+   "print": "đứng cứng ở giữa mà ứng với hào Chín Hai,",
+   "checked": "seen on the page image"
+  },
+  {
+   "number": 24,
+   "where": "hao1.trinh_di",
+   "page": 309,
+   "text": "Chữ Âm là chi",
+   "print": "Chữ Âm là chi, (no Hán character printed here)",
+   "checked": "seen on the page image"
   }
  ]
 }
