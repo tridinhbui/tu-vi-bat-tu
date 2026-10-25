@@ -120,5 +120,17 @@
   "{book} lấy: {statement}",
   "{book} ghi: {statement}",
   "Ở {book}: {statement}"
+ ],
+ "reach_bad": [
+  "Vì ở cung {pal}, phần xấu của cách {degree} lên {dom}",
+  "Đứng ở cung {pal}, cách xấu này {degree} lên {dom}"
+ ],
+ "f_head_than": [
+  "Cung an Thân ({pal}) thành cách {name}",
+  "Ở cung an Thân ({pal}) hiện cách {name}"
+ ],
+ "reach_than": [
+  "Cách đóng ở cung an Thân, được tính như ở Mệnh, nên {degree} lên cả đời người",
+  "Thân cũng là chỗ cách này được tính như Mệnh, nên cách {degree} lên toàn cục"
  ]
 }

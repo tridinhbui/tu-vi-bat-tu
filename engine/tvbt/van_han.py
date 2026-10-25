@@ -67,6 +67,9 @@ def vh_facts(tv: TuViChart, v: dict) -> dict:
     hoa_good = [k for k, x in tv.tu_hoa.items() if x["branch"] == v["branch_index"] and k in ("Hóa Khoa", "Hóa Quyền", "Hóa Lộc")]
     hoa_here = [k for k, x in tv.tu_hoa.items() if x.get("branch") == v["branch_index"]]
     ky = [x for k, x in tv.tu_hoa.items() if k == "Hóa Kỵ"]
+    by_idx = {p["branch_index"]: p for p in tv.palaces}
+    tp = sorted({s for k in (0, 4, 8, 6) for s in by_idx.get((v["branch_index"] + k) % 12, {"stars": []})["stars"]})   # palace, tam hợp, xung chiếu
+    year_stem, _, year_branch = getattr(tv, "year_gz", "").partition(" ")     # the test doubles of tests/test_van_han.py carry no year
     return {
         "vh.m_major": list(m["major_stars"]), "vh.m_no_major": not m["major_stars"], "vh.m_tuan": bool(m["tuan"]), "vh.m_triet": bool(m["triet"]),
         "vh.v_major": list(v["major_stars"]), "vh.v_stars": list(v["stars"]), "vh.v_tuan": bool(v["tuan"]), "vh.v_triet": bool(v["triet"]),
@@ -77,6 +80,8 @@ def vh_facts(tv: TuViChart, v: dict) -> dict:
         "vh.loc": "Lộc Tồn" in vs or "Hóa Lộc" in hoa_here, "vh.ta_huu": bool({"Tả Phụ", "Hữu Bật"} & vs),
         "vh.khoi_viet": bool({"Thiên Khôi", "Thiên Việt"} & vs), "vh.xk": bool({"Văn Xương", "Văn Khúc"} & vs),
         "vh.dao_hong": bool({"Hồng Loan", "Đào Hoa"} & vs),
+        "vh.year_stem": year_stem, "vh.year_branch": year_branch, "vh.tp_stars": tp,
+        "vh.thuong_su": [s for s in ("Thiên Thương", "Thiên Sứ") if s in vs], "vh.kinh_da": [s for s in ("Kình Dương", "Đà La") if s in vs],
     }
 
 
