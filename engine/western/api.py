@@ -123,7 +123,27 @@ def _transits(req):
         sky = _T.ingresses_and_stations(a, b, bodies=tuple(x for x in bodies if x != "moon"))
     except E.OutOfRange as e:
         raise HTTPException(422, str(e))
-    return {"start": a.isoformat(), "end": b.isoformat(), "orbs": _T.orb_table(), "events": ev, "sky": sky}
+    _score(natal, a, ev)
+    from .reading.milestones import NOTABLE
+    return {"start": a.isoformat(), "end": b.isoformat(), "orbs": _T.orb_table(), "events": ev, "sky": sky, "notable": NOTABLE,
+            "score_note": "Điểm chọn mốc nổi bật (quy ước Thiên Bàn, western/reading/milestones.py): hành tinh đi qua (Mộc, Thổ, Thiên Vương 3; "
+                          "Hỏa, Hải Vương, Diêm Vương, Chiron 1), điểm gốc (chủ năm +3, Mặt Trời/Mặt Trăng/ASC/MC +2, hành tinh khác +1), loại góc "
+                          "(trùng tụ 3, đối và vuông 2, tam hợp và lục hợp 1), chính xác trong khung +1, lặp lại trong một vòng nghịch hành +1."}
+
+
+def _score(natal: dict, when: _dt.datetime, ev: list[dict]) -> None:
+    """Each event gets the score of its retrograde loop (western/reading/milestones.py), so the timeline can show only the notable ones."""
+    from .reading import milestones as MS
+    lord = None
+    if "angles" in natal:
+        try:
+            lord = _R.profection(natal, _R.age_at(natal, when))["lord"]
+        except (E.OutOfRange, ValueError):
+            lord = None
+    by = {r.get("cycle"): r for r in MS.rank(ev, natal, lord)}
+    for e in ev:
+        r = by.get(e.get("cycle"))
+        e["score"], e["score_parts"] = (r["score"], r["score_parts"]) if r else (0, [])
 
 
 class ProgressionReq(ChartReq):

@@ -12,7 +12,7 @@ const DEFAULT_FILTER = { day: TRANSITING, month: TRANSITING.filter(x => x !== 'm
 const SCALE_VI = { day: 'Ngày', month: 'Tháng', year: 'Năm' };
 
 export function initForecast(root, { getCtx }) {
-  const T = { scale: 'month', filter: new Set(DEFAULT_FILTER.month), cache: new Map(), refMs: Date.now(), open: new Set() };
+  const T = { scale: 'month', filter: new Set(DEFAULT_FILTER.month), cache: new Map(), refMs: Date.now(), open: new Set(), notable: false };
   const ctx = () => getCtx();
   const tzOf = () => ctx()?.inp.birth.tz || 'UTC';
 
@@ -26,7 +26,8 @@ export function initForecast(root, { getCtx }) {
       <div class="seg" role="tablist" aria-label="Khung thời gian">${Object.entries(SCALE_VI).map(([k, v]) => `<button type="button" role="tab" data-scale="${k}" aria-selected="${k === T.scale}">${v}</button>`).join('')}</div>
       <div class="wt-tl-nav"><button type="button" class="btn btn-ghost btn-sm" id="tl-prev" aria-label="Khung trước">‹</button><b id="tl-label" aria-live="polite"></b><button type="button" class="btn btn-ghost btn-sm" id="tl-next" aria-label="Khung sau">›</button></div>
     </div>
-    <fieldset class="wt-filter"><legend>Hành tinh đang chạy</legend><div class="chips" id="tl-filter"></div></fieldset>
+    <fieldset class="wt-filter"><legend>Hành tinh đang chạy</legend><div class="chips" id="tl-filter"></div>
+      <label class="chip-c wt-fchip wt-notable"><input type="checkbox" id="tl-notable"><span>Chỉ mốc nổi bật</span></label><p class="hint" id="tl-note"></p></fieldset>
     <div id="tl-body" class="wt-tl-body" aria-live="polite"></div>
   </section>
   <section class="wt-panel" id="fc-prof" aria-labelledby="fc-pf-h">
@@ -68,7 +69,7 @@ export function initForecast(root, { getCtx }) {
   $('#tl-prev', root).onclick = () => shift(-1);
   $('#tl-next', root).onclick = () => shift(1);
   $$('[data-scale]', root).forEach(b => b.onclick = () => {
-    T.scale = b.dataset.scale; T.filter = new Set(DEFAULT_FILTER[T.scale]);
+    T.scale = b.dataset.scale; T.filter = new Set(DEFAULT_FILTER[T.scale]); T.notable = T.scale === 'year'; $('#tl-notable', root).checked = T.notable;
     $$('[data-scale]', root).forEach(x => x.setAttribute('aria-selected', String(x === b)));
     loadTransits();
   });
@@ -76,6 +77,7 @@ export function initForecast(root, { getCtx }) {
   const drawFilter = () => {
     filterEl.innerHTML = TRANSITING.map(id => `<label class="chip-c wt-fchip"><input type="checkbox" value="${id}"${T.filter.has(id) ? ' checked' : ''}><span>${bodyLabel(id)}</span></label>`).join('');
   };
+  $('#tl-notable', root).addEventListener('change', e => { T.notable = e.target.checked; drawTimeline(); });
   filterEl.addEventListener('change', e => {
     const v = e.target.value; e.target.checked ? T.filter.add(v) : T.filter.delete(v);
     drawTimeline();
@@ -107,6 +109,7 @@ export function initForecast(root, { getCtx }) {
 
   /** The engine gives one event per in-orb span; the spans of one retrograde loop share a `cycle` id and make one row. When a
    *  planet makes the same aspect to both sides of a natal point (a waxing and a waning square), the rows say which side. */
+  const SCORE_VI = { mover: 'hành tinh đi qua', lord: 'chạm chủ năm', light: 'chạm sao sáng hoặc trục chính', ruler: 'chạm chủ lá số', planet: 'chạm hành tinh gốc', aspect: 'loại góc', exact: 'chính xác trong khung', loop: 'lặp lại trong vòng nghịch hành' };
   function mergeCycles(events) {
     const by = new Map();
     for (const e of events) {
@@ -125,7 +128,9 @@ export function initForecast(root, { getCtx }) {
   function drawTimeline() {
     const body = $('#tl-body', root), d = T.data; if (!d) return;
     const [a, b] = T.win, tz = tzOf(), X = iso => Math.min(100, Math.max(0, (Date.parse(iso) - a) / (b - a) * 100));
-    const ev = mergeCycles(d.events.filter(e => T.filter.has(e.transiting)));
+    const all = mergeCycles(d.events.filter(e => T.filter.has(e.transiting)));
+    const cut = d.notable || 7, ev = T.notable ? all.filter(e => (e.score || 0) >= cut) : all;
+    $('#tl-note', root).textContent = T.notable ? `Đang hiện ${ev.length} trên ${all.length} góc transit, những góc có điểm từ ${cut} trở lên. ${d.score_note || ''}` : '';
     const sky = (d.sky || []).filter(s => T.filter.has(s.body));
     const now = Date.now(), nowX = now >= a && now < b ? (now - a) / (b - a) * 100 : null;
     const grid = ticks(a, b);
@@ -143,7 +148,7 @@ export function initForecast(root, { getCtx }) {
       const name = `${bodyName(e.transiting)} ${aspName(e.aspect)} ${bodyName(e.natal)} gốc${sideTxt}`;
       const exact = e.exact.map((t, i) => `<i class="wt-tl-ex${e.retro_at_exact[i] ? ' rx' : ''}" style="left:${X(t).toFixed(3)}%" title="Chính xác ${esc(fmtDate(t, tz, { time: true }))}${e.retro_at_exact[i] ? ' (nghịch hành)' : ''}"></i>`).join('');
       return `<li class="wt-tl-row tone-${ASPECT[e.aspect]?.tone || 'soft'}"><button type="button" class="wt-tl-lab" aria-expanded="${open}" data-row="${esc(id)}" aria-label="${esc(name)}, ${esc(e.start ? 'từ ' + fmtDate(e.start, tz) : 'đã trong orb từ trước')} ${esc(e.end ? 'đến ' + fmtDate(e.end, tz) : 'còn tiếp sau khung')}${e.passes > 1 ? `, ${e.passes} lần chính xác` : ''}">`
-        + `<span class="wt-g" aria-hidden="true">${bodyGlyph(e.transiting)} ${aspGlyph(e.aspect)} ${bodyGlyph(e.natal)}</span><span class="wt-tl-nm">${esc(aspName(e.aspect))} ${esc(bodyName(e.natal))}${esc(sideTxt)}</span>${e.passes > 1 ? `<small>${e.passes} lần</small>` : ''}</button>`
+        + `<span class="wt-g" aria-hidden="true">${bodyGlyph(e.transiting)} ${aspGlyph(e.aspect)} ${bodyGlyph(e.natal)}</span><span class="wt-tl-nm">${esc(aspName(e.aspect))} ${esc(bodyName(e.natal))}${esc(sideTxt)}</span>${e.passes > 1 ? `<small>${e.passes} lần</small>` : ''}${e.score ? `<small class="wt-score" title="${esc((e.score_parts || []).map(([k, v]) => `${SCORE_VI[k] || k} +${v}`).join(', '))}">điểm ${e.score}</small>` : ''}</button>`
         + `<div class="wt-tl-track">${e.spans.map(sp => { const l = sp.start ? X(sp.start) : 0, r = sp.end ? X(sp.end) : 100; return `<span class="wt-tl-bar${sp.start ? '' : ' cl'}${sp.end ? '' : ' cr'}" style="left:${l.toFixed(3)}%;width:${Math.max(.6, r - l).toFixed(3)}%"></span>`; }).join('')}${exact}</div>`
         + (open ? `<dl class="wt-tl-more wt-dl">${e.spans.length > 1 ? `<div class="wt-kv"><dt>Một vòng nghịch hành</dt><dd>${e.spans.length} lần vào orb của cùng một điểm, tính là một mốc</dd></div>` : ''}`
           + e.spans.map((sp, k) => `<div class="wt-kv"><dt>${e.spans.length > 1 ? `Lần ${k + 1}: vào → ra orb` : 'Vào → ra orb'}</dt><dd>${sp.start ? esc(fmtDate(sp.start, tz, { time: true })) : 'trước khung xem'} → ${sp.end ? esc(fmtDate(sp.end, tz, { time: true })) : 'sau khung xem'}</dd></div>`).join('')
@@ -155,6 +160,9 @@ export function initForecast(root, { getCtx }) {
       + (groups.length ? groups.map(([id, xs]) => `<section class="wt-tl-g"><h4>${bodyLabel(id)} <small>${xs.length} góc hợp</small></h4><ul>${xs.map(rowHtml).join('')}</ul></section>`).join('')
         : '<p class="note">Không có transit nào của các hành tinh đã chọn trong khung này.</p>')
       + `</div><p class="hint">Vạch mờ dần ở mép: góc hợp đã nằm trong orb trước khung xem hoặc còn kéo dài sau khung. Giờ theo múi ${esc(tz)}.</p>`;
+    // touch screens have no hover: tapping a sky marker or an exact-hit diamond writes its label under the timeline
+    body.insertAdjacentHTML('beforeend', '<p class="hint wt-tl-tip" aria-live="polite"></p>');
+    $$('.wt-tl-mk, .wt-tl-ex', body).forEach(m => m.addEventListener('click', ev => { ev.stopPropagation(); $('.wt-tl-tip', body).textContent = m.getAttribute('aria-label') || m.getAttribute('title') || ''; }));
     $$('[data-row]', body).forEach(btn => btn.onclick = () => { const id = btn.dataset.row; T.open.has(id) ? T.open.delete(id) : T.open.add(id); drawTimeline(); $(`[data-row="${CSS.escape(id)}"]`, body)?.focus(); });
     // Grid lines and the "now" marker are drawn once per row track so they line up everywhere.
     $$('.wt-tl-row:not(.wt-tl-head):not(.wt-tl-sky) .wt-tl-track', body).forEach(t => t.insertAdjacentHTML('afterbegin', lines));
@@ -222,9 +230,16 @@ export function initForecast(root, { getCtx }) {
 
   // one after another: the server computes Western requests one at a time anyway, and the small container is shared
   async function loadAll() { await loadProf(); await loadTransits(); await loadProg(); }
+  let loaded = null;
   return {
-    /** New natal chart: reset the reference date to today and reload all three panels. */
-    load() { $('#fc-tz', root).textContent = tzOf(); setRef(Date.now()); T.open.clear(); loadAll(); },
+    /** New natal chart: reset the reference date to today and reload all three panels (once per chart; `keepRef` reuses a load
+     *  already done, as the PDF button does). Resolves when the three panels are drawn. */
+    load({ keepRef = false } = {}) {
+      if (keepRef && loaded) return loaded;
+      $('#fc-tz', root).textContent = tzOf(); setRef(Date.now()); T.open.clear();
+      return (loaded = loadAll());
+    },
+    reset() { loaded = null; },
   };
 }
 export { PLANETS10 };

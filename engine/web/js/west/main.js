@@ -8,7 +8,7 @@ import { positionsTable, outerTable, cuspsTable, aspectsList, aspectsGrid, digni
 import { initBirthForm, placeBox, latLonTxt } from './form.js';
 import { initForecast } from './timeline.js';
 import { loadReading, redrawReading } from './reading.js';
-import { initGlossary } from '../glossary.js';
+import { initGlossary, loadGlossary, autoLink } from '../glossary.js';
 import { initPaywall } from '../paywall.js';
 import { initSynastry } from './synastry.js';
 import * as store from './store.js';
@@ -75,6 +75,24 @@ function renderHead() {
   if (t.lmt) notes.push(notice('Giờ địa phương trung bình', 'Thời điểm sinh trước khi nơi này dùng múi giờ chuẩn, nên giờ được quy đổi theo kinh độ nơi sinh (LMT).'));
   $('#res-notes').innerHTML = notes.join('');
   $$('[data-fold]').forEach(x => x.onclick = () => { const inp = structuredClone(S.inp); inp.birth.fold = +x.dataset.fold; $('#birth-form').dataset.fold = inp.birth.fold; compute(inp); });
+}
+
+// ----- "Hiểu bản đồ sao trong 3 phút": the page explained with this chart's own Sun, Moon and Ascendant -----
+function render3min() {
+  const n = S.natal, b = n.bodies, asc = n.angles?.asc, sys = HOUSE_SYS[n.houses?.system] || 'Placidus';
+  const li = (h, t) => `<li><b>${h}.</b> ${t}</li>`;
+  const host = $('#wt-3min-body');
+  host.innerHTML = `<ol class="wt-3min-l">`
+    + li('Bánh xe là bầu trời lúc bạn sinh', 'Vòng ngoài là mười hai cung hoàng đạo; các ký hiệu bên trong là vị trí các hành tinh nhìn từ nơi sinh; các đường kẻ ở giữa là góc hợp giữa hai hành tinh (đường đỏ: kiểu căng, đường xanh: kiểu hài hòa).')
+    + li('Ba điểm quan trọng nhất', `Mặt Trời của bạn ở ${signLabel(b.sun.sign)}: phần lõi bền của tính cách. Mặt Trăng ở ${signLabel(b.moon.sign)}: đời sống cảm xúc. `
+      + (asc ? `Cung Mọc ở ${signLabel(asc.sign)}: cách bạn hiện ra với người khác; cung Mọc đổi khoảng mỗi hai giờ nên cần giờ sinh đúng.` : 'Không có giờ sinh nên chưa biết cung Mọc, điểm cho biết cách bạn hiện ra với người khác.'))
+    + li('Mười hai nhà là mười hai mảng đời', `Nhà 1 là bản thân, Nhà 2 tiền bạc, Nhà 7 hôn nhân, Nhà 10 nghề nghiệp... Bánh xe chia nhà theo ${esc(sys)}; Lilly và Valens chia khác, nên một hành tinh có thể mang số nhà khác ở từng trường phái, và bài luận luôn ghi rõ đang dùng cách nào.`)
+    + li('Hành tinh mạnh hay yếu', 'Mỗi hành tinh mạnh lên hay yếu đi tùy cung nó đứng, gọi là phẩm vị (bảng "Phẩm vị"). Hành tinh đứng gần các trục chính (nhà góc) tác động rõ hơn.')
+    + li('Ba trường phái đặt cạnh nhau', 'Hy Lạp cổ đại (Ptolemy, Valens), truyền thống (Lilly, thế kỷ XVII) và hiện đại (Alan Leo, đầu thế kỷ XX). Mỗi đoạn luận ghi nó theo trường phái nào; khi hai trường phái cho kết quả khác nhau, bài luận nói rõ thay vì trộn lại.')
+    + li('Cách đọc trang này', '“Đọc nhanh” cho phần tóm tắt dễ hiểu của từng chương; “Đọc sâu” thêm lập luận, chứng thuận và nghịch, nguồn sách. Bấm vào một dữ kiện (ví dụ “Sao Kim 17°05′ Ma Kết”) để thấy nó trên bánh xe; bấm vào chữ gạch chấm để xem giải thích thuật ngữ.')
+    + li('Giới hạn', 'Chiêm tinh là một truyền thống đọc biểu tượng, không phải phép dự báo đã được khoa học kiểm chứng. Bài luận nói về khuynh hướng và thời điểm chủ đề được nhắc tới, không phải lời đoán chắc chắn.')
+    + '</ol>';
+  loadGlossary().then(() => autoLink(host, 'west'));
 }
 
 // ----- chart switcher -----
@@ -235,7 +253,7 @@ async function compute(inp0, { keepMode = false, scroll = true } = {}) {
   S.inp = inp; S.natal = natal; S.gender = gender || null;
   store.remember({ ...inp, gender: S.gender }); renderLists(); syn.refresh();
   res.hidden = false; $('#syn').hidden = false;
-  renderHead();
+  renderHead(); render3min();
   $('#act-save').textContent = store.isSaved(inp) ? 'Đã lưu hồ sơ' : 'Lưu hồ sơ';
   $('#share-box').hidden = true;
   if (!keepMode) { S.mode = 'natal'; S.whenMs = Date.now(); S.srYear = new Date().getFullYear(); S.srPlace = null; }
@@ -246,6 +264,7 @@ async function compute(inp0, { keepMode = false, scroll = true } = {}) {
   const fc = $('#forecast'), near = () => fc.getBoundingClientRect().top < innerHeight + 800;
   if (forecastIO) removeEventListener('scroll', forecastIO);
   forecastIO = null;
+  forecast.reset();
   reading.finally(() => {
     if (near()) { forecast.load(); return; }
     forecastIO = () => { if (near()) { removeEventListener('scroll', forecastIO); forecastIO = null; forecast.load(); } };
@@ -290,7 +309,18 @@ $('#share-copy').onclick = async () => {
   catch { $('#share-url').select(); $('#share-msg').textContent = 'Hãy sao chép thủ công (Ctrl/Cmd + C).'; }
 };
 $('#share-close').onclick = () => { $('#share-box').hidden = true; $('#act-share').focus(); };
-$('#act-pdf').onclick = () => window.print();
+$('#act-pdf').onclick = async () => {
+  // the printout carries the whole reading and the forecast panels, whatever is open on screen
+  const btn = $('#act-pdf'), deep0 = S.deep;
+  btn.disabled = true; btn.textContent = 'Đang chuẩn bị…';
+  try {
+    if (forecastIO) { removeEventListener('scroll', forecastIO); forecastIO = null; }
+    await forecast.load({ keepRef: true });
+    if (!deep0) setDeep(true);
+  } finally { btn.disabled = false; btn.textContent = 'Tải PDF'; }
+  window.print();
+  if (!deep0) setDeep(false);
+};
 $('#act-edit').onclick = () => { $('#lap-ban-do').scrollIntoView({ block: 'start' }); $('#birth-form [name=day]').focus({ preventScroll: true }); };
 addEventListener('beforeprint', () => { $$('#ket-qua details:not([open])').forEach(d => { d.open = true; d.dataset.printOpened = '1'; }); });
 addEventListener('afterprint', () => { $$('[data-print-opened]').forEach(d => { d.open = false; delete d.dataset.printOpened; }); });

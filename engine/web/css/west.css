@@ -345,3 +345,8 @@ button.wt-tl-lab:hover{background:var(--surface)}button.wt-tl-lab:focus-visible{
 .wt-why{margin:6px 0 0}.wt-why>summary{cursor:pointer;font-size:.85rem;color:var(--muted)}.wt-why[open]>summary{margin-bottom:4px}
 .wt-deep{max-width:820px}.wt-deep>.wt-para{margin-left:var(--s3);margin-right:var(--s3)}
 .wt-span path{fill:color-mix(in srgb,var(--cinnabar) 16%,transparent);stroke:var(--cinnabar);stroke-width:1.2;stroke-dasharray:5 3;pointer-events:none}
+.wt-3min{margin:var(--s3) 0;border:1px solid var(--line);border-radius:8px;padding:var(--s2) var(--s3);background:var(--raise)}
+.wt-3min>summary{cursor:pointer;font-weight:600}.wt-3min>summary .eyebrow{margin-right:8px}
+.wt-3min-l{margin:var(--s2) 0 0 1.2em;display:grid;gap:8px;max-width:60em;line-height:1.55}
+.wt-score{margin-left:6px;color:var(--muted)}.wt-notable{margin-top:6px}
+@media print{.wt-3min{display:none}}
