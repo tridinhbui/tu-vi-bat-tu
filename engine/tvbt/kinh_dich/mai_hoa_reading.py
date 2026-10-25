@@ -44,6 +44,12 @@ def frm(rule_id: str, part: str | None = None) -> list[dict]:
     return [{"rule": rule_id, "book": "WEB:zh_meihua", "path": r["path"], "quote": q or r["han_quote"]}]
 
 
+def clause(rule_id: str, han: str) -> list[dict]:
+    """One clause of a rule: the quote is the part of its han_quote this cast is read by (checked to be a substring)."""
+    assert han in rules()[rule_id]["han_quote"], (rule_id, han)
+    return [{"rule": rule_id, "book": "WEB:zh_meihua", "path": rules()[rule_id]["path"], "quote": han}]
+
+
 def rel_vi(rule_id: str, key: str) -> str | None:
     return (rules()[rule_id].get("vi_by_relation") or {}).get(key)
 
@@ -105,10 +111,15 @@ class MaiHoaReader:
         out = [S(f"Giữa chừng, hỗ của thể là {ho_the}, {REL_VI[r_ho]}; về sau, dụng biến thành {c['bien_dung']['trigram']}, {REL_VI[r_bien]}",
                  "tinh_toan", frm("t.hu_of_the") + frm("t.roles"))]
         start_good, end_good = self.rel["dung"] in GOOD, r_bien in GOOD
-        if start_good != end_good:
-            out.append(S(rules()["t.cat_hung_course"]["vi"], "kinh", frm("t.cat_hung_course"),
-                         note=("Dụng thuận mà biến nghịch: trước thuận sau trở." if start_good else "Dụng nghịch mà biến thuận: trước trở sau thuận.")))
-        out.append(S(rules()["t.bian_end"]["vi"], "kinh", frm("t.bian_end")))
+        # only the clause that fits this cast, quoted from its rule (體用總訣 用吉變凶…; 體用互變之訣 變卦克體… / 變生體及比和…)
+        if start_good and not end_good:
+            out.append(S("Dụng cát mà biến hung thì trước cát sau hung", "kinh", clause("t.cat_hung_course", "用吉變凶者，先吉後凶")))
+        elif end_good and not start_good:
+            out.append(S("Dụng hung mà biến cát thì trước hung sau cát", "kinh", clause("t.cat_hung_course", "用凶變吉者，先凶後吉")))
+        if r_bien == "khac_the":
+            out.append(S("Biến khắc thể thì về sau việc không cát", "kinh", clause("t.bian_end", "變卦克體，事於末後，必有不吉")))
+        elif r_bien in ("sinh_the", "ty_hoa"):
+            out.append(S("Biến sinh thể hoặc tỷ hòa thì cuối việc có lợi", "kinh", clause("t.bian_end", "變生體及比和，則事事臨終有吉利")))
         return {"id": "dien_tien", "title": "Diễn tiến", "paragraphs": [P(out)]}
 
     def sinh_khac(self) -> dict | None:

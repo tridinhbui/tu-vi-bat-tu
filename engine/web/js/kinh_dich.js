@@ -230,10 +230,10 @@ async function readMaiHoa(body) {
     <div class="kd-steps">${c.steps.map(s => `<div><b>${esc(s.label)}:</b> ${esc(s.expr)} → ${esc(String(s.result))}</div>`).join('')}</div>
     <div class="kd-figs">${figureBlock(c.ban, 'Quẻ chủ', { moving: [c.moving], roles: { upper: roles.upper, lower: roles.lower }, label: 'Quẻ chủ' })}
       <span class="kd-arrow" aria-hidden="true">→</span>${figureBlock(c.bien, 'Quẻ biến', { label: 'Quẻ biến' })}${figureBlock(c.ho, 'Quẻ hỗ', { label: 'Quẻ hỗ', cls: 'sm' })}</div>
-    <section class="kd-sec"><h3>Thể và dụng</h3>
+    <section class="kd-sec"><h3>Bảng thể, dụng, hỗ, biến</h3>
       <dl class="kd-rel"><dt>Thể</dt><dd>${esc(c.the.trigram)} (${esc(c.the.element)})${strength('the')}</dd>
       <dt>Dụng</dt><dd>${esc(c.dung.trigram)} (${esc(c.dung.element)}): ${esc(REL_VI[c.relations.dung])}${strength('dung')}</dd>
-      <dt>Hỗ</dt><dd>${esc(c.ho.upper)}: ${esc(REL_VI[c.relations.ho_upper])}; ${esc(c.ho.lower)}: ${esc(REL_VI[c.relations.ho_lower])}${c.ho_from === 'bien' ? ' (Kiền, Khôn không có hỗ: lấy hỗ của quẻ biến)' : ''}</dd>
+      <dt>Hỗ</dt><dd>${c.ho.upper === c.ho.lower ? `${esc(c.ho.upper)} cả hai: ${esc(REL_VI[c.relations.ho_upper])}` : `${esc(c.ho.upper)}: ${esc(REL_VI[c.relations.ho_upper])}; ${esc(c.ho.lower)}: ${esc(REL_VI[c.relations.ho_lower])}`}${c.ho_from === 'bien' ? ' (Kiền, Khôn không có hỗ: lấy hỗ của quẻ biến)' : ''}</dd>
       <dt>Biến</dt><dd>${esc(c.bien_dung.trigram)} (${esc(c.bien_dung.element)}): ${esc(REL_VI[c.relations.bien])}${strength('bien')}</dd></dl>
       ${c.season_vi ? `<p class="note small">Vượng, suy tính theo ${esc(c.season_vi)} (tháng ${c.month} âm lịch).</p>` : ''}</section>
     ${reading ? `<div class="kd-tools"><div class="seg kd-depth" role="group" aria-label="Mức đọc"><button type="button" data-depth="nhanh" aria-pressed="true">Đọc nhanh</button><button type="button" data-depth="sau" aria-pressed="false">Đọc sâu</button></div></div>
