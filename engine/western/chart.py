@@ -242,9 +242,10 @@ def _conditions(name: str, bodies: dict, is_day: bool | None, opts: ChartOptions
         d = abs(el)
         lim = kb.dignities()["solar_phase"][opts.solar_phase]
         phase = None
+        same_sign = b["sign"] == bodies["sun"]["sign"]
         if "cazimi_deg" in lim and d <= lim["cazimi_deg"]:
             phase = "cazimi"
-        elif "combust_deg" in lim and d <= lim["combust_deg"]:
+        elif "combust_deg" in lim and d <= lim["combust_deg"] and (same_sign or not lim.get("combust_same_sign")):
             phase = "combust"
         elif d <= lim["beams_deg"]:
             phase = "under_beams"

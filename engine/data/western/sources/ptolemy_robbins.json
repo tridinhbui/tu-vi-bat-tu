@@ -2955,5 +2955,1384 @@
    ],
    "ashmand_1822": "Ven 8, Jup 6, Mer 6, Mars 6/5 (cum. 26/25), Sat 4/5 (second figure badly printed, read as 5 from the cumulative 30)"
   }
+ },
+ {
+  "id": "soul.ruler.saturn.honourable",
+  "topic": "soul_ruler",
+  "rule_en": "Saturn sole ruler of the soul (dominating Mercury and the Moon), dignified position: traits listed in data.traits.",
+  "quote": "with reference to the universe and the angles, he makes his subjects lovers of the body, strong-minded, deep thinkers, austere, of a single purpose, laborious, dictatorial, ready to punish, lovers of property, avaricious, violent, amassing treasure, and jealous",
+  "locator": "III.13, p.341",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "'Honourable'/'dignified' is not defined by Ptolemy here; Robbins n.138 (after Bouche-Leclercq) glosses it as: own domains (house, triangle, exaltation, terms), solid sign, same-sex sign/quadrant, not in depression, angular (esp. MC) or trine/sextile an angle, not disjunct from the horoscope. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Saturn",
+   "condition": "honourable",
+   "traits": [
+    "lovers of the body",
+    "strong-minded",
+    "deep thinkers",
+    "austere",
+    "of a single purpose",
+    "laborious",
+    "dictatorial",
+    "ready to punish",
+    "lovers of property",
+    "avaricious",
+    "violent",
+    "amassing treasure",
+    "jealous"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.saturn.dishonourable",
+  "topic": "soul_ruler",
+  "rule_en": "Saturn sole ruler of the soul, undignified position.",
+  "quote": "but if his position is the opposite and without dignity, he makes them sordid, petty, mean-spirited, indifferent, mean-minded, malignant, cowardly, diffident, evil-speakers, solitary, tearful, shameless, superstitious, fond of toil, unfeeling, devisers of plots against their friends, gloomy, taking no care",
+  "locator": "III.13, p.341",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Saturn",
+   "condition": "opposite",
+   "traits": [
+    "sordid",
+    "petty",
+    "mean-spirited",
+    "indifferent",
+    "mean-minded",
+    "malignant",
+    "cowardly",
+    "diffident",
+    "evil-speakers",
+    "solitary",
+    "tearful",
+    "shameless",
+    "superstitious",
+    "fond of toil",
+    "unfeeling",
+    "devisers of plots against their friends",
+    "gloomy",
+    "taking no care of the body"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.jupiter.honourable",
+  "topic": "soul_ruler",
+  "rule_en": "Jupiter sole ruler of the soul, honourable position.",
+  "quote": "If Jupiter alone has the domination of the soul, in honourable positions he makes his subjects magnanimous, generous, god-fearing, honourable, pleasure-loving, kind, magnificent, liberal, just, high-minded, dignified, minding their own business, compassionate, fond of discussion, beneficent, affectionate, with qualities of",
+  "locator": "III.13, p.347",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "'Honourable'/'dignified' is not defined by Ptolemy here; Robbins n.138 (after Bouche-Leclercq) glosses it as: own domains (house, triangle, exaltation, terms), solid sign, same-sex sign/quadrant, not in depression, angular (esp. MC) or trine/sextile an angle, not disjunct from the horoscope. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Jupiter",
+   "condition": "honourable",
+   "traits": [
+    "magnanimous",
+    "generous",
+    "god-fearing",
+    "honourable",
+    "pleasure-loving",
+    "kind",
+    "magnificent",
+    "liberal",
+    "just",
+    "high-minded",
+    "dignified",
+    "minding their own business",
+    "compassionate",
+    "fond of discussion",
+    "beneficent",
+    "affectionate",
+    "with qualities of leadership"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.jupiter.dishonourable",
+  "topic": "soul_ruler",
+  "rule_en": "Jupiter sole ruler, opposite position: souls seem similar but humbler, less conspicuous, of poorer judgement; each virtue turns into its degraded form (see data.substitutions).",
+  "quote": "If he chances to be in the opposite kind of position, he makes their souls seem similar, to be sure, but with a difference in the direction of greater humility, less conspicuousness, and poorer judgement. For example, instead of magnanimity",
+  "locator": "III.13, p.347-349",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Ptolemy gives this case as substitutions, not as a plain list; data.traits lists the degraded forms. Robbins n.142 relates it to Aristotle's doctrine of the mean. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Jupiter",
+   "condition": "opposite",
+   "general": [
+    "greater humility",
+    "less conspicuousness",
+    "poorer judgement"
+   ],
+   "substitutions": [
+    {
+     "instead_of": "magnanimity",
+     "becomes": "prodigality"
+    },
+    {
+     "instead_of": "reverence for the gods",
+     "becomes": "superstition"
+    },
+    {
+     "instead_of": "modesty",
+     "becomes": "cowardice"
+    },
+    {
+     "instead_of": "dignity",
+     "becomes": "conceit"
+    },
+    {
+     "instead_of": "kindness",
+     "becomes": "foolish simplicity"
+    },
+    {
+     "instead_of": "the love of beauty",
+     "becomes": "love of pleasure"
+    },
+    {
+     "instead_of": "high-mindedness",
+     "becomes": "stupidity"
+    },
+    {
+     "instead_of": "liberality",
+     "becomes": "indifference"
+    }
+   ],
+   "traits": [
+    "prodigality",
+    "superstition",
+    "cowardice",
+    "conceit",
+    "foolish simplicity",
+    "love of pleasure",
+    "stupidity",
+    "indifference"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.mars.honourable",
+  "topic": "soul_ruler",
+  "rule_en": "Mars sole ruler of the soul, honourable position.",
+  "quote": "Mars alone, given the domination of the soul, in an honourable position makes his subjects noble, commanding, spirited, military, versatile, powerful, venturesome, rash, unruly, indifferent, stubborn, keen, headstrong, contemptuous, tyrannical, active, easily angered, with the qualities of leadership",
+  "locator": "III.13, p.353",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "'Honourable'/'dignified' is not defined by Ptolemy here; Robbins n.138 (after Bouche-Leclercq) glosses it as: own domains (house, triangle, exaltation, terms), solid sign, same-sex sign/quadrant, not in depression, angular (esp. MC) or trine/sextile an angle, not disjunct from the horoscope. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Mars",
+   "condition": "honourable",
+   "traits": [
+    "noble",
+    "commanding",
+    "spirited",
+    "military",
+    "versatile",
+    "powerful",
+    "venturesome",
+    "rash",
+    "unruly",
+    "indifferent",
+    "stubborn",
+    "keen",
+    "headstrong",
+    "contemptuous",
+    "tyrannical",
+    "active",
+    "easily angered",
+    "with the qualities of leadership"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.mars.dishonourable",
+  "topic": "soul_ruler",
+  "rule_en": "Mars sole ruler of the soul, opposite position.",
+  "quote": "In a position of the opposite kind he makes them savage, insolent, bloodthirsty, makers of disturbances, spendthrifts, loud-mouthed, quick-fisted, impetuous, drunken, rapacious, evil-doers, pitiless, unsettled, mad, haters of their own kin, impious.",
+  "locator": "III.13, p.353",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Mars",
+   "condition": "opposite",
+   "traits": [
+    "savage",
+    "insolent",
+    "bloodthirsty",
+    "makers of disturbances",
+    "spendthrifts",
+    "loud-mouthed",
+    "quick-fisted",
+    "impetuous",
+    "drunken",
+    "rapacious",
+    "evil-doers",
+    "pitiless",
+    "unsettled",
+    "mad",
+    "haters of their own kin",
+    "impious"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.venus.honourable",
+  "topic": "soul_ruler",
+  "rule_en": "Venus sole ruler of the soul, honourable position.",
+  "quote": "If Venus alone takes the domination of the soul, in an honourable position she makes her subjects pleasant, good, luxurious, eloquent, neat, cheerful, fond of dancing, eager for beauty, haters of evil, lovers of the arts, fond of spectacles, decorous",
+  "locator": "III.13, p.357",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "'Honourable'/'dignified' is not defined by Ptolemy here; Robbins n.138 (after Bouche-Leclercq) glosses it as: own domains (house, triangle, exaltation, terms), solid sign, same-sex sign/quadrant, not in depression, angular (esp. MC) or trine/sextile an angle, not disjunct from the horoscope. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Venus",
+   "condition": "honourable",
+   "traits": [
+    "pleasant",
+    "good",
+    "luxurious",
+    "eloquent",
+    "neat",
+    "cheerful",
+    "fond of dancing",
+    "eager for beauty",
+    "haters of evil",
+    "lovers of the arts",
+    "fond of spectacles",
+    "decorous",
+    "healthy",
+    "dreamers of pleasant dreams",
+    "affectionate",
+    "beneficent",
+    "compassionate",
+    "fastidious",
+    "easily conciliated",
+    "successful",
+    "in general, charming"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.venus.dishonourable",
+  "topic": "soul_ruler",
+  "rule_en": "Venus sole ruler of the soul, opposite position.",
+  "quote": "In the opposite position she makes them careless, erotic, effeminate, womanish, timid, indifferent, depraved, censorious, insignificant, meriting reproach.",
+  "locator": "III.13, p.357",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Venus",
+   "condition": "opposite",
+   "traits": [
+    "careless",
+    "erotic",
+    "effeminate",
+    "womanish",
+    "timid",
+    "indifferent",
+    "depraved",
+    "censorious",
+    "insignificant",
+    "meriting reproach"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.mercury.honourable",
+  "topic": "soul_ruler",
+  "rule_en": "Mercury sole ruler of the soul, honourable position.",
+  "quote": "Mercury, by himself taking the domination of the soul, in an honourable position makes those who are born under him wise, shrewd, thoughtful, learned, inventive, experienced, good calculators, inquirers into nature, speculative, gifted, emulous, beneficent, prudent, good at conjecture, mathematicians",
+  "locator": "III.13, p.359-361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "'Honourable'/'dignified' is not defined by Ptolemy here; Robbins n.138 (after Bouche-Leclercq) glosses it as: own domains (house, triangle, exaltation, terms), solid sign, same-sex sign/quadrant, not in depression, angular (esp. MC) or trine/sextile an angle, not disjunct from the horoscope. Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Mercury",
+   "condition": "honourable",
+   "traits": [
+    "wise",
+    "shrewd",
+    "thoughtful",
+    "learned",
+    "inventive",
+    "experienced",
+    "good calculators",
+    "inquirers into nature",
+    "speculative",
+    "gifted",
+    "emulous",
+    "beneficent",
+    "prudent",
+    "good at conjecture",
+    "mathematicians",
+    "partakers in mysteries",
+    "successful in attaining their ends"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.mercury.dishonourable",
+  "topic": "soul_ruler",
+  "rule_en": "Mercury sole ruler of the soul, opposite position.",
+  "quote": "In the opposite position he makes them utter rascals, precipitate, forgetful, impetuous, light-minded, fickle, prone to change their minds, foolish rogues, witless, sinful, liars, undiscriminating, unstable, undependable, avaricious, unjust, and, in general, unsteady in judgement and inclined to evil deeds.",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Full list as printed; no epithets omitted (the sole-ruler lists contain no extreme criminal/sexual terms; those occur in the two-planet lists, which were not extracted).",
+  "data": {
+   "planet": "Mercury",
+   "condition": "opposite",
+   "traits": [
+    "utter rascals",
+    "precipitate",
+    "forgetful",
+    "impetuous",
+    "light-minded",
+    "fickle",
+    "prone to change their minds",
+    "foolish rogues",
+    "witless",
+    "sinful",
+    "liars",
+    "undiscriminating",
+    "unstable",
+    "undependable",
+    "avaricious",
+    "unjust",
+    "in general, unsteady in judgement and inclined to evil deeds"
+   ]
+  }
+ },
+ {
+  "id": "soul.ruler.sun_moon_not_rulers",
+  "topic": "soul_ruler",
+  "rule_en": "Sun and Moon are never sole rulers of the soul in III.13; only the five planets are. The luminaries only modify (see soul.mod.*).",
+  "quote": "The sun also aids, when it is familiar with the planet that governs the temperament of the soul",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Requested 'seven planets as sole ruler' cannot be filled: Ptolemy gives sole-ruler lists for Saturn, Jupiter, Mars, Venus, Mercury only. Robbins n.151: 'the actual rulers are the five planets, and it is the role of the luminaries to assist'."
+ },
+ {
+  "id": "soul.ruler.pairs",
+  "topic": "soul_ruler",
+  "rule_en": "Two-planet soul rulers treated by Ptolemy (each with honourable and opposite trait lists): all 10 pairs of the five planets.",
+  "quote": "Saturn, allied with Jupiter in the way described, again in dignified positions",
+  "locator": "III.13, p.341",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Traits for pairs not extracted (by request). No combinations of three planets, and none involving the Sun or Moon.",
+  "data": {
+   "pairs": [
+    {
+     "pair": [
+      "Saturn",
+      "Jupiter"
+     ],
+     "opening_phrase": "Saturn, allied with Jupiter in the way described",
+     "locator": "III.13, p.341"
+    },
+    {
+     "pair": [
+      "Saturn",
+      "Mars"
+     ],
+     "opening_phrase": "Saturn, allied with Mars, in honourable positions",
+     "locator": "III.13, p.343"
+    },
+    {
+     "pair": [
+      "Saturn",
+      "Venus"
+     ],
+     "opening_phrase": "Allied with Venus in honourable positions Saturn",
+     "locator": "III.13, p.345"
+    },
+    {
+     "pair": [
+      "Saturn",
+      "Mercury"
+     ],
+     "opening_phrase": "Saturn, in familiarity with Mercury, in honourable positions",
+     "locator": "III.13, p.345"
+    },
+    {
+     "pair": [
+      "Jupiter",
+      "Mars"
+     ],
+     "opening_phrase": "Jupiter allied with Mars in honourable positions",
+     "locator": "III.13, p.349"
+    },
+    {
+     "pair": [
+      "Jupiter",
+      "Venus"
+     ],
+     "opening_phrase": "Jupiter, allied with Venus, in honourable positions",
+     "locator": "III.13, p.349"
+    },
+    {
+     "pair": [
+      "Jupiter",
+      "Mercury"
+     ],
+     "opening_phrase": "Jupiter allied with Mercury in honourable positions",
+     "locator": "III.13, p.351"
+    },
+    {
+     "pair": [
+      "Mars",
+      "Venus"
+     ],
+     "opening_phrase": "Allied with Venus, in honourable positions, Mars",
+     "locator": "III.13, p.353"
+    },
+    {
+     "pair": [
+      "Mars",
+      "Mercury"
+     ],
+     "opening_phrase": "Allied with Mercury, in honourable positions Mars",
+     "locator": "III.13, p.355"
+    },
+    {
+     "pair": [
+      "Venus",
+      "Mercury"
+     ],
+     "opening_phrase": "Joined with Mercury, in honourable positions Venus",
+     "locator": "III.13, p.357"
+    }
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.orient_horoscope_proper_face",
+  "topic": "soul_modifier",
+  "rule_en": "Rulers of the soul in the orient / at the ascendant, especially in proper face: open, strong character (data.traits).",
+  "quote": "Of configurations, positions in the orient and at the horoscope, and in particular those which are in proper face, produce liberal, simple, self-willed, strong, noble, keen, open",
+  "locator": "III.13, p.335",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.133: 'proper face' as in I.23.",
+  "data": {
+   "traits": [
+    "liberal",
+    "simple",
+    "self-willed",
+    "strong",
+    "noble",
+    "keen",
+    "open"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.morning_stations_culminations",
+  "topic": "soul_modifier",
+  "rule_en": "Rulers at morning (first) station or culminating: steady, intelligent, firm.",
+  "quote": "Morning stations and culminations make them calculating, patient, of good memory, firm, intelligent, magnanimous, accomplishing what they desire, inflexible, robust, rough, not readily deceived, critical, practical, prone to inflict punishment, gifted with understanding",
+  "locator": "III.13, p.335",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "",
+  "data": {
+   "traits": [
+    "calculating",
+    "patient",
+    "of good memory",
+    "firm",
+    "intelligent",
+    "magnanimous",
+    "accomplishing what they desire",
+    "inflexible",
+    "robust",
+    "rough",
+    "not readily deceived",
+    "critical",
+    "practical",
+    "prone to inflict punishment",
+    "gifted with understanding"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.precessions_settings",
+  "topic": "soul_modifier",
+  "rule_en": "Rulers advancing (direct motion between stations) or setting: unstable, weak.",
+  "quote": "Precessions and settings make them easily changed, unstable, weak, unable to bear labour, emotional, humble, cowardly, deceitful, bullying, dull, slow-witted, hard to arouse",
+  "locator": "III.13, p.335-337",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.134: 'precessions' = a planet's advances, as opposed to retrogradation or stations; ambiguous term.",
+  "data": {
+   "traits": [
+    "easily changed",
+    "unstable",
+    "weak",
+    "unable to bear labour",
+    "emotional",
+    "humble",
+    "cowardly",
+    "deceitful",
+    "bullying",
+    "dull",
+    "slow-witted",
+    "hard to arouse"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.evening_stations_lower_mc",
+  "topic": "soul_modifier",
+  "rule_en": "Rulers at evening (second) station or at the IC, and Mercury/Venus setting as evening stars by day or as morning stars by night: noble, wise, poor memory, seekers of hidden things (magicians, astrologers, philosophers, interpreters of dreams...).",
+  "quote": "Evening stations and position at mid-heaven beneath the earth, and furthermore, in the case of Mercury and Venus, by day evening settings and by night morning settings, produce souls noble and wise, but with mediocre memory",
+  "locator": "III.13, p.337",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "",
+  "data": {
+   "traits": [
+    "noble",
+    "wise",
+    "with mediocre memory",
+    "not painstaking nor fond of labour",
+    "investigators of hidden things",
+    "seekers after the unknown"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.own_or_familiar",
+  "topic": "soul_modifier",
+  "rule_en": "Governors of the soul in their own or familiar houses or sects: character open and effective; in alien places: obscure, imperfect, ineffective.",
+  "quote": "are in their own or familiar houses or sects, they make the characters of the soul open, unimpeded, spontaneous, and effective",
+  "locator": "III.13, p.337",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.135: the governors of the soul are Mercury and the Moon. Continues: 'if they are not so disposed ... it renders the properties of their own natures obscure, indistinct, imperfect, and ineffective'."
+ },
+ {
+  "id": "soul.mod.overcome",
+  "topic": "soul_modifier",
+  "rule_en": "Malefic-shaped characters are emboldened when their planets are in power, but checked when overcome by planets of the opposite sect; benefic-shaped characters prosper unless their planets are dominated by opposites.",
+  "quote": "if they are overcome by planets of the opposite sect, the men are lethargic, ineffective, and easily punished",
+  "locator": "III.13, p.339",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.137 on 'dominate/overcome'."
+ },
+ {
+  "id": "soul.mod.moon.limits",
+  "topic": "soul_modifier",
+  "rule_en": "Moon at its northern/southern latitude limits: more versatile, resourceful, changeable.",
+  "quote": "For when the moon happens to be at the bendings of its northern and southern limits, it helps, with respect to the character of the soul, in the direction of greater versatility, resourcefulness, and capacity for change",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.150-151: bendings and nodes of the Moon's orbit; the luminaries assist the five planetary rulers.",
+  "data": {
+   "traits": [
+    "greater versatility",
+    "resourcefulness",
+    "capacity for change"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.moon.nodes",
+  "topic": "soul_modifier",
+  "rule_en": "Moon at the nodes: keener, more active, excitable.",
+  "quote": "at the nodes, in the direction of greater keenness, activity, and excitability",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.150-151: bendings and nodes of the Moon's orbit; the luminaries assist the five planetary rulers.",
+  "data": {
+   "traits": [
+    "greater keenness",
+    "activity",
+    "excitability"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.moon.waxing",
+  "topic": "soul_modifier",
+  "rule_en": "Moon rising / waxing: greater endowments, renown, firmness, frankness.",
+  "quote": "again, at rising and in the increases of its illumination, towards greater natural endowments, renown, firmness, and frankness",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.150-151: bendings and nodes of the Moon's orbit; the luminaries assist the five planetary rulers.",
+  "data": {
+   "traits": [
+    "greater natural endowments",
+    "renown",
+    "firmness",
+    "frankness"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.moon.waning",
+  "topic": "soul_modifier",
+  "rule_en": "Moon waning or hidden: sluggish, dull, less fixed purpose, cautious, less renown.",
+  "quote": "and in the waning of its illumination, or its occultations towards greater sluggishness and dullness, less fixity of purpose, greater cautiousness, and less renown",
+  "locator": "III.13, p.361",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Robbins n.150-151: bendings and nodes of the Moon's orbit; the luminaries assist the five planetary rulers.",
+  "data": {
+   "traits": [
+    "greater sluggishness and dullness",
+    "less fixity of purpose",
+    "greater cautiousness",
+    "less renown"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.sun.honourable",
+  "topic": "soul_modifier",
+  "rule_en": "Sun familiar with the soul-ruler, honourable position: towards justice, success, honour, dignity, piety.",
+  "quote": "The sun also aids, when it is familiar with the planet that governs the temperament of the soul, in an honourable position modifying it in the direction of justice, success, honour, dignity, and reverence for the gods",
+  "locator": "III.13, p.361-363",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "",
+  "data": {
+   "traits": [
+    "justice",
+    "success",
+    "honour",
+    "dignity",
+    "reverence for the gods"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.sun.alien",
+  "topic": "soul_modifier",
+  "rule_en": "Sun in contrary/alien position: humbler, more industrious, less conspicuous, harsher, less successful.",
+  "quote": "but in the contrary and alien position making it humbler, more industrious, less conspicuous, more savage, more obstinate, harsher, with a harder life, and in general less successful.",
+  "locator": "III.13, p.363",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "",
+  "data": {
+   "traits": [
+    "humbler",
+    "more industrious",
+    "less conspicuous",
+    "more savage",
+    "more obstinate",
+    "harsher",
+    "with a harder life",
+    "less successful"
+   ]
+  }
+ },
+ {
+  "id": "soul.mod.no_luminary_sect_rule",
+  "topic": "soul_modifier",
+  "rule_en": "No separate rule in III.13 about the sect of the luminaries (day vs night birth) for the soul; sect enters only as the governors being in their own or familiar 'sects', and as being overcome by planets 'of the opposite sect'.",
+  "quote": "are in their own or familiar houses or sects",
+  "locator": "III.13, p.337",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3D*.html#13",
+  "notes": "Recorded so the absence is explicit; the oriental/occidental and angular effects are the configuration records above."
+ },
+ {
+  "id": "action.mercury.alone",
+  "topic": "occupation",
+  "rule_en": "Mercury governing action: scribes, business, calculators, teachers, merchants, bankers, soothsayers, astrologers, sacrificers; generally work by documents, interpretation, giving and taking.",
+  "quote": "For if Mercury governs action, to speak generally, he makes his subjects scribes, men of business, calculators, teachers, merchants, bankers, soothsayers, astrologers, sacrificers",
+  "locator": "IV.4, p.383",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Continues: 'and in general those who perform their functions by means of documents, interpretation, and giving and taking'.",
+  "data": {
+   "rulers": [
+    "Mercury"
+   ],
+   "testimony": null,
+   "occupations": [
+    "scribes",
+    "men of business",
+    "calculators",
+    "teachers",
+    "merchants",
+    "bankers",
+    "soothsayers",
+    "astrologers",
+    "sacrificers"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury.saturn",
+  "topic": "occupation",
+  "rule_en": "Mercury ruling, Saturn testifying.",
+  "quote": "And if Saturn testifies to him, they will be managers of the property of others, interpreters of dreams, or frequenters of temples for the purpose of prophecies and inspiration",
+  "locator": "IV.4, p.383",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mercury"
+   ],
+   "testimony": "Saturn",
+   "occupations": [
+    "managers of the property of others",
+    "interpreters of dreams",
+    "frequenters of temples for the purpose of prophecies and inspiration"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury.jupiter",
+  "topic": "occupation",
+  "rule_en": "Mercury ruling, Jupiter testifying.",
+  "quote": "If it is Jupiter that witnesses, they will be law-makers, orators, sophists, who enjoy familiarity with great persons",
+  "locator": "IV.4, p.383-385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Qualifier in the text: 'who enjoy familiarity with great persons'.",
+  "data": {
+   "rulers": [
+    "Mercury"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "law-makers",
+    "orators",
+    "sophists"
+   ]
+  }
+ },
+ {
+  "id": "action.venus.alone",
+  "topic": "occupation",
+  "rule_en": "Venus governing action: trades in flowers, unguents, wine, colours, dyes, spices, adornments.",
+  "quote": "as, for example, sellers of unguents, weavers of chaplets, innkeepers, wine-merchants, druggists, weavers, dealers in spices, painters, dyers, sellers of clothing",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Venus"
+   ],
+   "testimony": null,
+   "domains": [
+    "perfumes of flowers or of unguents",
+    "wine",
+    "colours",
+    "dyes",
+    "spices",
+    "adornments"
+   ],
+   "occupations": [
+    "sellers of unguents",
+    "weavers of chaplets",
+    "innkeepers",
+    "wine-merchants",
+    "druggists",
+    "weavers",
+    "dealers in spices",
+    "painters",
+    "dyers",
+    "sellers of clothing"
+   ]
+  }
+ },
+ {
+  "id": "action.venus.saturn",
+  "topic": "occupation",
+  "rule_en": "Venus ruling, Saturn testifying.",
+  "quote": "And if Saturn testifies to her, she makes them dealers in goods used for pleasure or adornment, sorcerers, poisoners, panders, and those who make their living from similar occupations",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Venus"
+   ],
+   "testimony": "Saturn",
+   "occupations": [
+    "dealers in goods used for pleasure or adornment",
+    "sorcerers",
+    "poisoners",
+    "panders",
+    "those who make their living from similar occupations"
+   ]
+  }
+ },
+ {
+  "id": "action.venus.jupiter",
+  "topic": "occupation",
+  "rule_en": "Venus ruling, Jupiter testifying.",
+  "quote": "If Jupiter testifies, they will be athletes, wearers of the wreath, persons deemed worthy of honours, and men who derive advancement from women",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Venus"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "athletes",
+    "wearers of the wreath",
+    "persons deemed worthy of honours",
+    "men who derive advancement from women"
+   ]
+  }
+ },
+ {
+  "id": "action.mars.with_sun",
+  "topic": "occupation",
+  "rule_en": "Mars governing action and in aspect with the Sun: crafts using fire.",
+  "quote": "Mars, in aspect with the sun, makes his subjects those who use fire in their crafts, such as cooks, moulders, cauterizers, smiths, workers in mines",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mars"
+   ],
+   "testimony": null,
+   "condition": "aspect with Sun",
+   "occupations": [
+    "cooks",
+    "moulders",
+    "cauterizers",
+    "smiths",
+    "workers in mines"
+   ]
+  }
+ },
+ {
+  "id": "action.mars.without_sun",
+  "topic": "occupation",
+  "rule_en": "Mars governing action, not with the Sun: workers with iron, wood, stone.",
+  "quote": "if he is not with the sun, those who work with iron, such as shipbuilders, carpenters, farmers, quarrymen, stone-dressers, jewellers, splitters of wood, and their subordinate workers",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mars"
+   ],
+   "testimony": null,
+   "condition": "not with Sun",
+   "occupations": [
+    "shipbuilders",
+    "carpenters",
+    "farmers",
+    "quarrymen",
+    "stone-dressers",
+    "jewellers",
+    "splitters of wood",
+    "their subordinate workers"
+   ]
+  }
+ },
+ {
+  "id": "action.mars.saturn",
+  "topic": "occupation",
+  "rule_en": "Mars ruling, Saturn testifying.",
+  "quote": "If Saturn testifies to him, he produces seamen, drawers of water, tunnelers, painters, gamekeepers, cooks, embalmers",
+  "locator": "IV.4, p.385",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mars"
+   ],
+   "testimony": "Saturn",
+   "occupations": [
+    "seamen",
+    "drawers of water",
+    "tunnelers",
+    "painters",
+    "gamekeepers",
+    "cooks",
+    "embalmers"
+   ]
+  }
+ },
+ {
+  "id": "action.mars.jupiter",
+  "topic": "occupation",
+  "rule_en": "Mars ruling, Jupiter testifying.",
+  "quote": "If Jupiter testifies, he produces soldiers, servants, publicans, innkeepers, ferrymen, assistants at sacrifice",
+  "locator": "IV.4, p.385-387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mars"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "soldiers",
+    "servants",
+    "publicans",
+    "innkeepers",
+    "ferrymen",
+    "assistants at sacrifice"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_venus",
+  "topic": "occupation",
+  "rule_en": "Mercury and Venus ruling action: arts of the Muses, music, poetry, rhythm, especially when in exchange.",
+  "quote": "For they produce workers in the theatre, actors, dealers in slaves, makers of musical instruments, members of the chorus, makers of strings, painters, dancers, weavers, and wax-moulders",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Preceded by: 'they bring about action expressed by the arts of the Muses, musical instruments, melodies, or poems, and rhythm, particularly when they have exchanged places'. 'Exchanged places' = mutual reception/exchange (not defined further).",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Venus"
+   ],
+   "testimony": null,
+   "occupations": [
+    "workers in the theatre",
+    "actors",
+    "dealers in slaves",
+    "makers of musical instruments",
+    "members of the chorus",
+    "makers of strings",
+    "painters",
+    "dancers",
+    "weavers",
+    "wax-moulders"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_venus.saturn",
+  "topic": "occupation",
+  "rule_en": "Mercury+Venus ruling, Saturn testifying.",
+  "quote": "if Saturn testifies to them, he produces those in the aforesaid callings, as well as dealers in feminine finery",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "'aforesaid callings' = the Mercury+Venus list (action.mercury_venus).",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Venus"
+   ],
+   "testimony": "Saturn",
+   "occupations": [
+    "those in the aforesaid callings",
+    "dealers in feminine finery"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_venus.jupiter",
+  "topic": "occupation",
+  "rule_en": "Mercury+Venus ruling, Jupiter testifying.",
+  "quote": "If Jupiter testifies, he produces lawyers, supervisors of counting houses, public officers, teachers of children, leaders of the populace",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Venus"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "lawyers",
+    "supervisors of counting houses",
+    "public officers",
+    "teachers of children",
+    "leaders of the populace"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_mars",
+  "topic": "occupation",
+  "rule_en": "Mercury and Mars ruling action.",
+  "quote": "If Mercury and Mars together assume lordship of action, they produce sculptors, armourers, makers of sacred monuments, modellers, wrestlers, physicians, surgeons, accusers, adulterers, evil-doers, forgers",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Omitted as extreme criminal/sexual epithets (3): adulterers, evil-doers, forgers.",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Mars"
+   ],
+   "testimony": null,
+   "occupations": [
+    "sculptors",
+    "armourers",
+    "makers of sacred monuments",
+    "modellers",
+    "wrestlers",
+    "physicians",
+    "surgeons",
+    "accusers"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_mars.saturn",
+  "topic": "occupation",
+  "rule_en": "Mercury+Mars ruling, Saturn testifying: criminal callings only.",
+  "quote": "If Saturn testifies to them, they produce murderers, sneak-thieves, burglars, pirates, cattle-thieves, villains",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "The whole list is criminal (murderers, thieves, pirates...); kept verbatim because it is the entire content of the rule.",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Mars"
+   ],
+   "testimony": "Saturn",
+   "all_negative": true,
+   "occupations": [
+    "murderers",
+    "sneak-thieves",
+    "burglars",
+    "pirates",
+    "cattle-thieves",
+    "villains"
+   ]
+  }
+ },
+ {
+  "id": "action.mercury_mars.jupiter",
+  "topic": "occupation",
+  "rule_en": "Mercury+Mars ruling, Jupiter testifying.",
+  "quote": "If Jupiter testifies, they produce men-at-arms, duellists, energetic, clever persons, busybodies",
+  "locator": "IV.4, p.387-389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Continues: 'who meddle in others' affairs and thereby gain their living'.",
+  "data": {
+   "rulers": [
+    "Mercury",
+    "Mars"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "men-at-arms",
+    "duellists",
+    "energetic, clever persons",
+    "busybodies"
+   ]
+  }
+ },
+ {
+  "id": "action.venus_mars",
+  "topic": "occupation",
+  "rule_en": "Venus and Mars ruling action.",
+  "quote": "But if Venus and Mars together dominate action, they produce dyers, perfumers, workers in tin, lead, gold, and silver, farmers, dancers in armour, druggists, physicians who employ drugs in their treatments",
+  "locator": "IV.4, p.389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "rulers": [
+    "Venus",
+    "Mars"
+   ],
+   "testimony": null,
+   "occupations": [
+    "dyers",
+    "perfumers",
+    "workers in tin, lead, gold, and silver",
+    "farmers",
+    "dancers in armour",
+    "druggists",
+    "physicians who employ drugs in their treatments"
+   ]
+  }
+ },
+ {
+  "id": "action.venus_mars.saturn",
+  "topic": "occupation",
+  "rule_en": "Venus+Mars ruling, Saturn testifying.",
+  "quote": "If Saturn testifies to them, they produce attendants of sacred animals, those who bury men, mourners, pipers at funerals, fanatics",
+  "locator": "IV.4, p.389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Continues: 'who resort to wherever there are mysteries, laments, and bloody rites'. Robbins n.16-17 on gamekeepers/embalmers relate to the Mars+Saturn list.",
+  "data": {
+   "rulers": [
+    "Venus",
+    "Mars"
+   ],
+   "testimony": "Saturn",
+   "occupations": [
+    "attendants of sacred animals",
+    "those who bury men",
+    "mourners",
+    "pipers at funerals",
+    "fanatics"
+   ]
+  }
+ },
+ {
+  "id": "action.venus_mars.jupiter",
+  "topic": "occupation",
+  "rule_en": "Venus+Mars ruling, Jupiter testifying.",
+  "quote": "But if Jupiter testifies, frequenters of temples, interpreters of omens, bearers of the sacred instruments, supervisors of women, interpreters of marriages and matches",
+  "locator": "IV.4, p.389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Continues: 'making their living by such occupations, and at the same time devoted to pleasure, and reckless.' Robbins n.20: 'interpreters of marriages' perhaps 'matrimonial agents'.",
+  "data": {
+   "rulers": [
+    "Venus",
+    "Mars"
+   ],
+   "testimony": "Jupiter",
+   "occupations": [
+    "frequenters of temples",
+    "interpreters of omens",
+    "bearers of the sacred instruments",
+    "supervisors of women",
+    "interpreters of marriages and matches"
+   ]
+  }
+ },
+ {
+  "id": "action.all_three_not_treated",
+  "topic": "occupation",
+  "rule_en": "Ptolemy treats only single rulers and the three pairs (Mercury+Venus, Mercury+Mars, Venus+Mars); no combination of all three is given.",
+  "quote": "Again, when two planets are found to rule action",
+  "locator": "IV.4, p.387",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Searched IV.4 fully: no 'all three' case. Saturn and Jupiter act only as testifiers, the Sun only as the condition for Mars (with/without the Sun)."
+ },
+ {
+  "id": "action.signs.anthropomorphic",
+  "topic": "occupation",
+  "rule_en": "Rulers of action in anthropomorphic (human-shaped) signs: scientific pursuits, things useful to man.",
+  "quote": "For anthropomorphic signs are of some assistance to all scientific pursuits or those useful to man",
+  "locator": "IV.4, p.389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Ptolemy does not list the signs. Robbins n.21 (from Hephaestion, editorial): Gemini, Virgo, Sagittarius (partly), Libra.",
+  "data": {
+   "sign_type": "anthropomorphic",
+   "domains": [
+    "all scientific pursuits",
+    "those useful to man"
+   ],
+   "signs_editorial": [
+    "Gemini",
+    "Virgo",
+    "Sagittarius (partly)",
+    "Libra"
+   ]
+  }
+ },
+ {
+  "id": "action.signs.quadrupedal",
+  "topic": "occupation",
+  "rule_en": "Quadrupedal signs: mines, commerce, building, carpentry.",
+  "quote": "the quadrupedal assist in those that concern mines, commerce, building, and carpentry",
+  "locator": "IV.4, p.389",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Robbins n.22 (editorial): Leo, Sagittarius.",
+  "data": {
+   "sign_type": "quadrupedal",
+   "domains": [
+    "mines",
+    "commerce",
+    "building",
+    "carpentry"
+   ],
+   "signs_editorial": [
+    "Leo",
+    "Sagittarius"
+   ]
+  }
+ },
+ {
+  "id": "action.signs.tropical_equinoctial",
+  "topic": "occupation",
+  "rule_en": "Solstitial and equinoctial signs: interpretation, barter, measuring, agriculture, religion.",
+  "quote": "the solstitial and equinoctial, those that are interpretative, involve barter, or concern measuring, agriculture, and religion",
+  "locator": "IV.4, p.389-391",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Robbins n.23: Cancer, Capricorn, Aries, Libra (= I.11 solstitial + equinoctial).",
+  "data": {
+   "sign_type": "solstitial and equinoctial",
+   "domains": [
+    "interpretative",
+    "barter",
+    "measuring",
+    "agriculture",
+    "religion"
+   ],
+   "signs_editorial": [
+    "Cancer",
+    "Capricorn",
+    "Aries",
+    "Libra"
+   ]
+  }
+ },
+ {
+  "id": "action.signs.terrestrial_aquatic",
+  "topic": "occupation",
+  "rule_en": "Terrestrial and aquatic signs: work in or with liquids, botany, shipbuilding, burial, pickling, salting.",
+  "quote": "the terrestrial and aquatic, activities in or with liquids, or those that are botanical, or concern shipbuilding, and furthermore burial, or pickling, or salting.",
+  "locator": "IV.4, p.391",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Ptolemy groups terrestrial and aquatic together. Robbins n.24-25 (editorial): terrestrial Aries, Taurus, Scorpio, Sagittarius; aquatic Pisces; Cancer and Capricorn amphibious.",
+  "data": {
+   "sign_type": "terrestrial and aquatic",
+   "domains": [
+    "activities in or with liquids",
+    "botanical",
+    "shipbuilding",
+    "burial",
+    "pickling",
+    "salting"
+   ],
+   "signs_editorial": {
+    "terrestrial": [
+     "Aries",
+     "Taurus",
+     "Scorpio",
+     "Sagittarius"
+    ],
+    "aquatic": [
+     "Pisces"
+    ],
+    "amphibious": [
+     "Cancer",
+     "Capricorn"
+    ]
+   }
+  }
+ },
+ {
+  "id": "action.moon_mercury_special",
+  "topic": "occupation",
+  "rule_en": "Special case: Moon holding the place of action, separating from conjunction, with Mercury - divinatory callings by sign group.",
+  "quote": "if the moon holds the place of action, and is moving away from conjunction, together with Mercury, in Taurus, Capricornus, and Cancer, she produces soothsayers, makers of sacrifices, and adepts in lekanomancy",
+  "locator": "IV.4, p.391",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "",
+  "data": {
+   "by_signs": {
+    "Taurus, Capricorn, Cancer": [
+     "soothsayers",
+     "makers of sacrifices",
+     "adepts in lekanomancy"
+    ],
+    "Sagittarius, Pisces": [
+     "necromancers",
+     "those who can arouse daemons"
+    ],
+    "Virgo, Scorpio": [
+     "magicians",
+     "astrologers",
+     "prophets",
+     "those who have second sight"
+    ],
+    "Libra, Aries, Leo": [
+     "persons inspired by the gods",
+     "interpreters of dreams",
+     "exorcists"
+    ]
+   }
+  }
+ },
+ {
+  "id": "action.modifiers.benefic_malefic",
+  "topic": "occupation",
+  "rule_en": "Rulers of action overcome by benefics: great, glorious, profitable work; by malefics: mean, inglorious, profitless.",
+  "quote": "when beneficent planets overcome them, great, glorious, profitable, unerring, and gracious; but if maleficent planets overcome them, mean, inglorious, profitless, and fallible.",
+  "locator": "IV.4, p.391",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Also: 'With Saturn in opposition, they bring cold and mixtures of colours; with Mars, temerity and notoriety; with both together, utter ruin of action.'"
+ },
+ {
+  "id": "action.modifiers.saturn_mars_opposition",
+  "topic": "occupation",
+  "rule_en": "Saturn opposing the rulers of action: cold and mixed results; Mars: rashness and notoriety; both: ruin of action.",
+  "quote": "With Saturn in opposition, they bring cold and mixtures of colours; with Mars, temerity and notoriety; with both together, utter ruin of action.",
+  "locator": "IV.4, p.391-393",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#4",
+  "notes": "Robbins n.28: the anonymous commentator explains 'mixtures of colours' as 'deformities' (i.e. unseemliness)."
+ },
+ {
+  "id": "fortune.material.source.saturn",
+  "topic": "material_fortune",
+  "rule_en": "Ruler of the Lot of Fortune = Saturn, in power: riches through building, agriculture, shipping ventures.",
+  "quote": "Saturn brings riches through building, or agriculture, or shipping ventures",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Split from fortune.material.sources; applies when the planets governing the Lot of Fortune are in power, especially with testimony of the luminaries.",
+  "data": {
+   "planet": "Saturn",
+   "sources": [
+    "building",
+    "agriculture",
+    "shipping ventures"
+   ]
+  }
+ },
+ {
+  "id": "fortune.material.source.jupiter",
+  "topic": "material_fortune",
+  "rule_en": "Ruler of the Lot of Fortune = Jupiter, in power: riches through fiduciary relationships, guardianships, priesthoods.",
+  "quote": "Jupiter through fiduciary relationships, guardianships, or priesthoods",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Split from fortune.material.sources; applies when the planets governing the Lot of Fortune are in power, especially with testimony of the luminaries.",
+  "data": {
+   "planet": "Jupiter",
+   "sources": [
+    "fiduciary relationships",
+    "guardianships",
+    "priesthoods"
+   ]
+  }
+ },
+ {
+  "id": "fortune.material.source.mars",
+  "topic": "material_fortune",
+  "rule_en": "Ruler of the Lot of Fortune = Mars, in power: riches through military operations, command.",
+  "quote": "Mars through military operations and command",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Split from fortune.material.sources; applies when the planets governing the Lot of Fortune are in power, especially with testimony of the luminaries.",
+  "data": {
+   "planet": "Mars",
+   "sources": [
+    "military operations",
+    "command"
+   ]
+  }
+ },
+ {
+  "id": "fortune.material.source.venus",
+  "topic": "material_fortune",
+  "rule_en": "Ruler of the Lot of Fortune = Venus, in power: riches through gifts from friends or women.",
+  "quote": "Venus through gifts from friends or women",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Split from fortune.material.sources; applies when the planets governing the Lot of Fortune are in power, especially with testimony of the luminaries.",
+  "data": {
+   "planet": "Venus",
+   "sources": [
+    "gifts from friends or women"
+   ]
+  }
+ },
+ {
+  "id": "fortune.material.source.mercury",
+  "topic": "material_fortune",
+  "rule_en": "Ruler of the Lot of Fortune = Mercury, in power: riches through eloquence, trade.",
+  "quote": "Mercury through eloquence and trade",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": "Split from fortune.material.sources; applies when the planets governing the Lot of Fortune are in power, especially with testimony of the luminaries.",
+  "data": {
+   "planet": "Mercury",
+   "sources": [
+    "eloquence",
+    "trade"
+   ]
+  }
+ },
+ {
+  "id": "fortune.material.inheritance",
+  "topic": "material_fortune",
+  "rule_en": "Saturn ruling the Lot and aspecting Jupiter: inheritances, especially on the upper angles with Jupiter in a bicorporeal sign or holding the Moon's application.",
+  "quote": "when Saturn is associated with material fortune, if he is in aspect with Jupiter, he is the cause of inheritances, particularly when this comes about upon the upper angles and Jupiter is in a bicorporeal sign",
+  "locator": "IV.2, p.375",
+  "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4A*.html#2",
+  "notes": ""
  }
 ]

@@ -171,12 +171,20 @@
     },
     "lilly": {
       "vi": "Truyền thống: nửa tổng orb (moiety) của hai hành tinh, theo Lilly",
-      "status": "pending_source",
+      "status": "verified",
       "source": [
-        "LILLY_CA"
+        "LILLY_CA:p.107"
       ],
-      "note": "Orb of an aspect = half the sum of the two planets' orbs (their moieties). Only the Ptolemaic aspects. Values filled from Christian Astrology.",
-      "planet_orbs": {}
+      "note": "Lilly's own column of the p.107 orb table; aspect orb = half the sum of the two planets' orbs (moieties), platick aspect (p.107). Only the Ptolemaic aspects.",
+      "planet_orbs": {
+        "saturn": 10.0,
+        "jupiter": 12.0,
+        "mars": 7.5,
+        "sun": 17.0,
+        "venus": 8.0,
+        "mercury": 7.0,
+        "moon": 12.5
+      }
     }
   },
   "patterns": {

@@ -668,5 +668,929 @@
   "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
   "notes": "",
   "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.planet.sun",
+  "topic": "planets",
+  "school": "hellenistic",
+  "rule_en": "Sun (Valens I.1) signifies: kingship, rule, authority over the masses; intellect, intelligence, judgement; beauty, motion; loftiness of fortune, public reputation, action; the ordinance of the gods; high priesthoods; the father; the master; friendship; noble personages; honours (pictures, statues, garlands); rule over one's country and other places.",
+  "locator": "Valens I.1 'The Nature of the Stars'; Riley tr. printed p.1 (PDF p.3); nearest preceding markers Kroll p.?, Pingree p.?",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Body parts, materials, colours, tastes and illnesses omitted as requested. Valens does not call the Sun or Moon benefic/malefic in I.1 or II.1; II.1 frames them as the sect leaders.",
+  "data": {
+   "signifies": [
+    "kingship, rule, authority over the masses",
+    "intellect, intelligence, judgement",
+    "beauty, motion",
+    "loftiness of fortune, public reputation, action",
+    "the ordinance of the gods; high priesthoods",
+    "the father; the master",
+    "friendship; noble personages",
+    "honours (pictures, statues, garlands)",
+    "rule over one's country and other places"
+   ],
+   "valence": "not labelled",
+   "valence_locator": null,
+   "sect": "day"
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.planet.moon",
+  "topic": "planets",
+  "school": "hellenistic",
+  "rule_en": "Moon (Valens I.1) signifies: life and the body; appearance, sight, beauty; the mother; conception; nurture; living together, i.e. legitimate marriage; the older brother; housekeeping; the queen; the mistress of the house; possessions, fortune, gains, expenses; the household; the city; the assembly of the people; voyages, travel and wanderings (not straight paths).",
+  "locator": "Valens I.1 'The Nature of the Stars'; Riley tr. printed p.1 (PDF p.3); nearest preceding markers Kroll p.?, Pingree p.?",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Body parts, materials, colours, tastes and illnesses omitted as requested. Valens does not call the Sun or Moon benefic/malefic in I.1 or II.1; II.1 frames them as the sect leaders.",
+  "data": {
+   "signifies": [
+    "life and the body; appearance, sight, beauty",
+    "the mother; conception; nurture",
+    "living together, i.e. legitimate marriage",
+    "the older brother",
+    "housekeeping; the queen; the mistress of the house",
+    "possessions, fortune, gains, expenses; the household",
+    "the city; the assembly of the people",
+    "voyages, travel and wanderings (not straight paths)"
+   ],
+   "valence": "not labelled",
+   "valence_locator": null,
+   "sect": "night"
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.planet.saturn",
+  "topic": "planets",
+  "school": "hellenistic",
+  "rule_en": "Saturn (Valens I.1) signifies: natives petty, malignant, care-worn, solitary, secretive, strict, downcast; humblings, sluggishness, unemployment, obstacles in business; interminable lawsuits; secrets; imprisonment, chains; griefs, accusations, tears, bereavement; exposure of children; serfs, farmers, renters of property, tax farmers (rule over land); nautical/waterside trades; also great ranks, supervisions, management of others' property; fathership of others' children; bachelors and widows; childlessness; the star of Nemesis.",
+  "locator": "Valens I.1 'The Nature of the Stars'; Riley tr. printed p.1 (PDF p.3); nearest preceding markers Kroll p.2, Pingree p.?",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Body parts, materials, colours, tastes and illnesses omitted as requested. I.1 itself only says in general that benefic stars well placed do good and badly placed show reversals, while malefic stars in their own sect and in operative places bestow good (PDF p.4). The per-planet labels come from II.1 (PDF p.27), quoted in data.valence_quote.",
+  "data": {
+   "signifies": [
+    "natives petty, malignant, care-worn, solitary, secretive, strict, downcast",
+    "humblings, sluggishness, unemployment, obstacles in business",
+    "interminable lawsuits; secrets; imprisonment, chains",
+    "griefs, accusations, tears, bereavement; exposure of children",
+    "serfs, farmers, renters of property, tax farmers (rule over land)",
+    "nautical/waterside trades",
+    "also great ranks, supervisions, management of others' property",
+    "fathership of others' children",
+    "bachelors and widows; childlessness",
+    "the star of Nemesis"
+   ],
+   "valence": "maleficent",
+   "valence_locator": "Valens II.1 'The Triangles'; Riley tr. printed p.25 (PDF p.27)",
+   "sect": "day"
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.planet.jupiter",
+  "topic": "planets",
+  "school": "hellenistic",
+  "rule_en": "Jupiter (Valens I.1) signifies: childbearing, engendering, desire, loves; political ties, acquaintance, friendships with great men; prosperity, salaries, great gifts, abundant crops; justice, offices, ranks, authority over temples, arbitrations; trusts, deposits in trust, stewardships, money; inheritance; brotherhood, fellowship, beneficence; secure possession of goods; relief from troubles; release from bonds; freedom.",
+  "locator": "Valens I.1 'The Nature of the Stars'; Riley tr. printed p.1 (PDF p.3); nearest preceding markers Kroll p.2, Pingree p.2",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Body parts, materials, colours, tastes and illnesses omitted as requested. I.1 itself only says in general that benefic stars well placed do good and badly placed show reversals, while malefic stars in their own sect and in operative places bestow good (PDF p.4). The per-planet labels come from II.1 (PDF p.27), quoted in data.valence_quote.",
+  "data": {
+   "signifies": [
+    "childbearing, engendering, desire, loves",
+    "political ties, acquaintance, friendships with great men",
+    "prosperity, salaries, great gifts, abundant crops",
+    "justice, offices, ranks, authority over temples, arbitrations",
+    "trusts, deposits in trust, stewardships, money",
+    "inheritance",
+    "brotherhood, fellowship, beneficence",
+    "secure possession of goods; relief from troubles; release from bonds; freedom"
+   ],
+   "valence": "beneficent",
+   "valence_locator": "Valens II.1 'The Triangles'; Riley tr. printed p.25 (PDF p.27)",
+   "sect": "day"
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.planet.mars",
+  "topic": "planets",
+  "school": "hellenistic",
+  "rule_en": "Mars (Valens I.1) signifies: force, wars, plunder, violence; loss of property; banishment, exile; alienation from parents; deaths of wives; love affairs; marriages; lies, vain hopes, robbery, banditry; quarrels, anger, fighting, abuse, hatreds, lawsuits; violent murders, bloodshed, fevers, burns (illness omitted); false oaths, wandering, difficult embassies; work with fire or iron; craftwork, masonry; commands, campaigns, leadership, governorships; infantry; hunting; falls from heights or from animals.",
+  "locator": "Valens I.1 'The Nature of the Stars'; Riley tr. printed p.1 (PDF p.3); nearest preceding markers Kroll p.2, Pingree p.2",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Body parts, materials, colours, tastes and illnesses omitted as requested. I.1 itself only says in general that benefic stars well placed do good and badly placed show reversals, while malefic stars in their own sect and in operative places bestow good (PDF p.4). The per-planet labels come from II.1 (PDF p.27), quoted in data.valence_quote.",
+  "data": {
+   "signifies": [
+    "force, wars, plunder, violence",
+    "loss of property; banishment, exile; alienation from parents",
+    "deaths of wives; love affairs; marriages",
+    "lies, vain hopes, robbery, banditry",
+    "quarrels, anger, fighting, abuse, hatreds, lawsuits",
+    "violent murders, bloodshed, fevers, burns (illness omitted)",
+    "false oaths, wandering, difficult embassies",
+    "work with fire or iron; craftwork, masonry",
+    "commands, campaigns, leadership, governorships; infantry",
+    "hunting; falls from heights or from animals"
+   ],
+   "valence": "maleficent",
+   "valence_locator": "Valens II.1 'The Triangles'; Riley tr. printed p.25 (PDF p.27)",
+   "sect": "night"
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.planet.venus",
+  "topic": "planets",
+  "school": "hellenistic",
+  "rule_en": "Venus (Valens I.1) signifies: desire and love; the mother; nurture; priesthoods; high offices with gold ring or crown; cheerfulness, friendship, companionship; acquisition of property; purchase of ornaments; favourable agreements; marriages; pure trades; music, fine voices, singing, beauty, painting, dyeing, unguents; work in precious stones, emeralds, ivory; gold-working; supervision of weights and measures, markets; giving and receiving gifts; benefits from royal women or one's own women.",
+  "locator": "Valens I.1 'The Nature of the Stars'; Riley tr. printed p.1 (PDF p.3); nearest preceding markers Kroll p.3, Pingree p.3",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Body parts, materials, colours, tastes and illnesses omitted as requested. I.1 itself only says in general that benefic stars well placed do good and badly placed show reversals, while malefic stars in their own sect and in operative places bestow good (PDF p.4). The per-planet labels come from II.1 (PDF p.27), quoted in data.valence_quote.",
+  "data": {
+   "signifies": [
+    "desire and love",
+    "the mother; nurture",
+    "priesthoods; high offices with gold ring or crown",
+    "cheerfulness, friendship, companionship",
+    "acquisition of property; purchase of ornaments; favourable agreements",
+    "marriages; pure trades",
+    "music, fine voices, singing, beauty, painting, dyeing, unguents",
+    "work in precious stones, emeralds, ivory; gold-working",
+    "supervision of weights and measures, markets; giving and receiving gifts",
+    "benefits from royal women or one's own women"
+   ],
+   "valence": "beneficent",
+   "valence_locator": "Valens II.1 'The Triangles'; Riley tr. printed p.25 (PDF p.27)",
+   "sect": "night"
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.planet.mercury",
+  "topic": "planets",
+  "school": "hellenistic",
+  "rule_en": "Mercury (Valens I.1) signifies: education, letters, disputation, reasoning, interpretation; brotherhood; lord of brothers and younger children; embassies, number, accounts, geometry; markets, gain, marketing and banking; testing of coinage; youth, games, sport, wrestling, declamation; theft, deception, gambling, sleight of hand; service, obedience, association, communication; forethought and intelligence; professions: secretaries, legal advisors, orators, philosophers, doctors, architects, prophets, astrologers; outcomes capricious; worse in malefic signs/degrees.",
+  "locator": "Valens I.1 'The Nature of the Stars'; Riley tr. printed p.2 (PDF p.4); nearest preceding markers Kroll p.4, Pingree p.4",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Body parts, materials, colours, tastes and illnesses omitted as requested. I.1 itself only says in general that benefic stars well placed do good and badly placed show reversals, while malefic stars in their own sect and in operative places bestow good (PDF p.4). The per-planet labels come from II.1 (PDF p.27), quoted in data.valence_quote.",
+  "data": {
+   "signifies": [
+    "education, letters, disputation, reasoning, interpretation",
+    "brotherhood; lord of brothers and younger children",
+    "embassies, number, accounts, geometry",
+    "markets, gain, marketing and banking; testing of coinage",
+    "youth, games, sport, wrestling, declamation",
+    "theft, deception, gambling, sleight of hand",
+    "service, obedience, association, communication",
+    "forethought and intelligence",
+    "professions: secretaries, legal advisors, orators, philosophers, doctors, architects, prophets, astrologers",
+    "outcomes capricious; worse in malefic signs/degrees"
+   ],
+   "valence": "common (both)",
+   "valence_locator": "Valens II.1 'The Triangles'; Riley tr. printed p.25 (PDF p.27)",
+   "sect": null
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.planet.rulerships_summary",
+  "topic": "planets",
+  "school": "hellenistic",
+  "rule_en": "Short summary at the end of I.1: Moon = foresight; Sun = light; Saturn = ignorance and necessity; Jupiter = rank, crowns, zeal; Mars = action and effort; Venus = love, desire, beauty; Mercury = law, friendship, trust.",
+  "locator": "Valens I.1; Riley tr. printed p.2 (PDF p.4); nearest preceding markers Kroll p.5, Pingree p.5",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "",
+  "data": {
+   "moon": "foresight",
+   "sun": "light",
+   "saturn": "ignorance and necessity",
+   "jupiter": "rank, crowns, zeal",
+   "mars": "action and effort",
+   "venus": "love, desire, beauty",
+   "mercury": "law, friendship, trust"
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.planet.benefic_malefic_conditional",
+  "topic": "planets",
+  "school": "hellenistic",
+  "rule_en": "Benefics well placed act according to their nature; badly placed they show reversals. Malefics operative in appropriate places and in their own sect bestow good and the greatest positions; inoperative, they bring disasters.",
+  "locator": "Valens I.1; Riley tr. printed p.2 (PDF p.4); nearest preceding markers Kroll p.5, Pingree p.5",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "See also II.2 (PDF p.28): 'these stars are not to be considered malefics in all cases; they can be bestowers of good.'",
+  "data": {
+   "benefics": [
+    "jupiter",
+    "venus"
+   ],
+   "malefics": [
+    "saturn",
+    "mars"
+   ],
+   "common": [
+    "mercury"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.aries",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Aries (Valens I.2): masculine, tropic, house of Mars; element words: fiery, terrestrial. Natives: brilliant, distinguished, authoritarian, just, hard on offenders, free, bold in thought, boastful, great-hearted, restless, unstable, haughty, quickly changing, wealthy.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.2 (PDF p.4); nearest preceding markers Kroll p.5, Pingree p.5",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted.",
+  "data": {
+   "domicile_of": "mars",
+   "gender": "masculine",
+   "modality": "tropic",
+   "element_words": [
+    "fiery",
+    "terrestrial"
+   ],
+   "wind": null,
+   "other": [
+    "governing",
+    "free",
+    "upward-trending",
+    "semi-vocal",
+    "noble",
+    "changeable",
+    "public",
+    "civic",
+    "few offspring",
+    "servile",
+    "Midheaven of the universe",
+    "cause of rank",
+    "unaspected",
+    "ecliptic"
+   ],
+   "natives": [
+    "brilliant",
+    "distinguished",
+    "authoritarian",
+    "just",
+    "hard on offenders",
+    "free",
+    "bold in thought",
+    "boastful",
+    "great-hearted",
+    "restless",
+    "unstable",
+    "haughty",
+    "quickly changing",
+    "wealthy"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.taurus",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Taurus (Valens I.2): feminine, solid; element words: earthy. Natives: noble, energetic, toilsome, good at keeping things, pleasure-loving, music-loving, generous, laborers, planters.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.3 (PDF p.5); nearest preceding markers Kroll p.6, Pingree p.6",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted. This chapter does NOT name the domicile lord of this sign; do not fill it from other books without labelling.",
+  "data": {
+   "domicile_of": null,
+   "gender": "feminine",
+   "modality": "solid",
+   "element_words": [
+    "earthy"
+   ],
+   "wind": null,
+   "other": [
+    "productive of order",
+    "rustic, farming",
+    "a freedman",
+    "downward-trending",
+    "few offspring",
+    "semi-vocal and mute",
+    "noble",
+    "invariable",
+    "energetic",
+    "indicative of estates and possessions"
+   ],
+   "natives": [
+    "noble",
+    "energetic",
+    "toilsome",
+    "good at keeping things",
+    "pleasure-loving",
+    "music-loving",
+    "generous",
+    "laborers, planters"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.gemini",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Gemini (Valens I.2): masculine, bicorporeal, house of Mercury; element words: celestial; lies toward the west wind. Natives: scholars, educators and letters, poets, music-lovers, stewards and trustees, translators, merchants, sensible, seekers after mystic lore.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.3 (PDF p.5); nearest preceding markers Kroll p.7, Pingree p.7",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted.",
+  "data": {
+   "domicile_of": "mercury",
+   "gender": "masculine",
+   "modality": "bicorporeal",
+   "element_words": [
+    "celestial"
+   ],
+   "wind": "west",
+   "other": [
+    "articulate",
+    "upward-trending",
+    "feminizing",
+    "a freedman",
+    "sterile",
+    "public"
+   ],
+   "natives": [
+    "scholars",
+    "educators and letters",
+    "poets",
+    "music-lovers",
+    "stewards and trustees",
+    "translators",
+    "merchants",
+    "sensible",
+    "seekers after mystic lore"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.cancer",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Cancer (Valens I.2): feminine, tropic (solstitial), house of Moon; element words: watery, amphibious. Natives: ambitious, popular, constantly changing, theatrical, cheerful, easily downcast, pleasure-loving, unsteady of mind, wanderers and travelers.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.4 (PDF p.6); nearest preceding markers Kroll p.8, Pingree p.8",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted.",
+  "data": {
+   "domicile_of": "moon",
+   "gender": "feminine",
+   "modality": "tropic (solstitial)",
+   "element_words": [
+    "watery",
+    "amphibious"
+   ],
+   "wind": null,
+   "other": [
+    "Ascendant of the universe",
+    "slavish",
+    "downward-trending",
+    "mute",
+    "noble",
+    "changeable",
+    "public",
+    "popular",
+    "civic",
+    "prolific"
+   ],
+   "natives": [
+    "ambitious",
+    "popular",
+    "constantly changing",
+    "theatrical",
+    "cheerful",
+    "easily downcast",
+    "pleasure-loving",
+    "unsteady of mind",
+    "wanderers and travelers"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.leo",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Leo (Valens I.2): masculine, solid, house of Sun; element words: fiery. Natives: distinguished, noble, steady, just, haters of evil, independent, haters of flattery, beneficent, inflated with lofty thoughts.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.4 (PDF p.6); nearest preceding markers Kroll p.9, Pingree p.9",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted.",
+  "data": {
+   "domicile_of": "sun",
+   "gender": "masculine",
+   "modality": "solid",
+   "element_words": [
+    "fiery"
+   ],
+   "wind": null,
+   "other": [
+    "free",
+    "temperate",
+    "intellectual",
+    "kingly",
+    "stable",
+    "upward-trending",
+    "governing",
+    "civic",
+    "imperious",
+    "irascible"
+   ],
+   "natives": [
+    "distinguished",
+    "noble",
+    "steady",
+    "just",
+    "haters of evil",
+    "independent",
+    "haters of flattery",
+    "beneficent",
+    "inflated with lofty thoughts"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.virgo",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Virgo (Valens I.2): feminine, bicorporeal, house of Mercury; element words: earthy. Natives: noble, modest, religious, burdened with care, varied life, administrators of others' goods, trusted stewards, secretaries, accountants, seekers after mystic lore, spendthrift early, prosperous later.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.4 (PDF p.6); nearest preceding markers Kroll p.10, Pingree p.10",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted. Riley footnotes add a 'later supplement from Ms Laurentianus 86.18' (weather, regions, body parts) for this sign; not Valens' text, not used.",
+  "data": {
+   "domicile_of": "mercury",
+   "gender": "feminine",
+   "modality": "bicorporeal",
+   "element_words": [
+    "earthy"
+   ],
+   "wind": null,
+   "other": [
+    "winged",
+    "anthropomorphic",
+    "barren",
+    "a freedman",
+    "downward-trending",
+    "semi-vocal or mute",
+    "concerned with the body",
+    "industrious",
+    "two-natured"
+   ],
+   "natives": [
+    "noble",
+    "modest",
+    "religious",
+    "burdened with care",
+    "varied life",
+    "administrators of others' goods",
+    "trusted stewards",
+    "secretaries, accountants",
+    "seekers after mystic lore",
+    "spendthrift early, prosperous later"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.libra",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Libra (Valens I.2): masculine, tropic (equinoctial), house of Venus; element words: airy. Natives: noble, just, malicious, covetous, average fortune, ups and downs, in charge of measures and grain supply.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.4 (PDF p.6); nearest preceding markers Kroll p.10, Pingree p.10",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted. Riley footnotes add a 'later supplement from Ms Laurentianus 86.18' (weather, regions, body parts) for this sign; not Valens' text, not used.",
+  "data": {
+   "domicile_of": "venus",
+   "gender": "masculine",
+   "modality": "tropic (equinoctial)",
+   "element_words": [
+    "airy"
+   ],
+   "wind": null,
+   "other": [
+    "anthropomorphic",
+    "vocal",
+    "noble",
+    "changeable",
+    "diminisher of estates",
+    "Lower Midheaven of the universe",
+    "public",
+    "ecliptic",
+    "supervisor of crops, measures, artisans"
+   ],
+   "natives": [
+    "noble",
+    "just",
+    "malicious",
+    "covetous",
+    "average fortune",
+    "ups and downs",
+    "in charge of measures and grain supply"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.scorpio",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Scorpio (Valens I.2): feminine, solid, house of Mars; element words: rainy. Natives: tricky, base, thieves, traitors, incorrigible, destroyers of property, connivers, perjurers, haters of their own family.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.4 (PDF p.6); nearest preceding markers Kroll p.10, Pingree p.10",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted. Riley footnotes add a 'later supplement from Ms Laurentianus 86.18' (weather, regions, body parts) for this sign; not Valens' text, not used.",
+  "data": {
+   "domicile_of": "mars",
+   "gender": "feminine",
+   "modality": "solid",
+   "element_words": [
+    "rainy"
+   ],
+   "wind": null,
+   "other": [
+    "fecund",
+    "destructive",
+    "downward-trending",
+    "mute",
+    "servile",
+    "unchangeable",
+    "destroyer of property",
+    "ecliptic"
+   ],
+   "natives": [
+    "tricky",
+    "base",
+    "thieves",
+    "traitors",
+    "incorrigible",
+    "destroyers of property",
+    "connivers",
+    "perjurers",
+    "haters of their own family"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.sagittarius",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Sagittarius (Valens I.2): masculine, bicorporeal, house of Jupiter; element words: fiery, moist (because of Argo). Natives: noble, just, great-hearted, judges, generous, love brothers and friends, lose and regain possessions, superior to enemies, benefactors, prominent.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.5 (PDF p.7); nearest preceding markers Kroll p.11, Pingree p.10",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted. Riley footnotes add a 'later supplement from Ms Laurentianus 86.18' (weather, regions, body parts) for this sign; not Valens' text, not used.",
+  "data": {
+   "domicile_of": "jupiter",
+   "gender": "masculine",
+   "modality": "bicorporeal",
+   "element_words": [
+    "fiery",
+    "moist (because of Argo)"
+   ],
+   "wind": null,
+   "other": [
+    "vocal",
+    "noble",
+    "winged",
+    "changeable",
+    "two-natured",
+    "mysterious",
+    "few offspring",
+    "governing",
+    "kingly"
+   ],
+   "natives": [
+    "noble",
+    "just",
+    "great-hearted",
+    "judges",
+    "generous",
+    "love brothers and friends",
+    "lose and regain possessions",
+    "superior to enemies",
+    "benefactors",
+    "prominent"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.capricorn",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Capricorn (Valens I.2): feminine, tropic, house of Saturn; element words: earthy, moist. Natives: bad, warped, pretend goodness, toilsome, burdened with care, fond of jokes, plotters of great deeds, fickle, always criticizing.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.5 (PDF p.7); nearest preceding markers Kroll p.11, Pingree p.10",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted.",
+  "data": {
+   "domicile_of": "saturn",
+   "gender": "feminine",
+   "modality": "tropic",
+   "element_words": [
+    "earthy",
+    "moist"
+   ],
+   "wind": null,
+   "other": [
+    "destructive",
+    "barren",
+    "chilling",
+    "mute",
+    "servile",
+    "cause of troubles",
+    "mysterious",
+    "two-natured",
+    "Descendant of the universe",
+    "misfortune and toil"
+   ],
+   "natives": [
+    "bad, warped",
+    "pretend goodness",
+    "toilsome",
+    "burdened with care",
+    "fond of jokes",
+    "plotters of great deeds",
+    "fickle",
+    "always criticizing"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.aquarius",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Aquarius (Valens I.2): masculine, solid; element words: celestial, somewhat damp, quite cold, wet; lies toward the west wind. Natives: malicious, haters of their own families, self-willed, deceitful, concealing, misanthropic, envious, occasionally generous, uncontrollable.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.5 (PDF p.7); nearest preceding markers Kroll p.11, Pingree p.11",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted. This chapter does NOT name the domicile lord of this sign; do not fill it from other books without labelling.",
+  "data": {
+   "domicile_of": null,
+   "gender": "masculine",
+   "modality": "solid",
+   "element_words": [
+    "celestial",
+    "somewhat damp",
+    "quite cold",
+    "wet"
+   ],
+   "wind": "west",
+   "other": [
+    "anthropomorphic",
+    "single",
+    "mute",
+    "free",
+    "upward-trending",
+    "feminizing",
+    "unchanging",
+    "base",
+    "few offspring",
+    "public",
+    "troubles from athletics, burdens, hard materials"
+   ],
+   "natives": [
+    "malicious",
+    "haters of their own families",
+    "self-willed",
+    "deceitful",
+    "concealing",
+    "misanthropic",
+    "envious",
+    "occasionally generous",
+    "uncontrollable"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.sign.pisces",
+  "topic": "signs",
+  "school": "hellenistic",
+  "rule_en": "Pisces (Valens I.2): feminine, bicorporeal; element words: moist, quite wet, celestial; lies toward the north wind. Natives: unsteady, unreliable, change from bad fortune to good, sexy, thievish, shameless, prolific, popular.",
+  "locator": "Valens I.2 'The Nature of the Twelve Zodiacal Signs'; Riley tr. printed p.6 (PDF p.8); nearest preceding markers Kroll p.13, Pingree p.12",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Natives' traits depend on the house ruler's condition (Valens says the houseruler produces its nature 'according to the operative or inoperative configuration'). Weather, constellations and regions omitted. This chapter does NOT name the domicile lord of this sign; do not fill it from other books without labelling.",
+  "data": {
+   "domicile_of": null,
+   "gender": "feminine",
+   "modality": "bicorporeal",
+   "element_words": [
+    "moist",
+    "quite wet",
+    "celestial"
+   ],
+   "wind": "north",
+   "other": [
+    "many offspring",
+    "two-formed",
+    "mute",
+    "motile",
+    "in conflict with itself",
+    "downward-trending",
+    "servile",
+    "changeable",
+    "sociable/lewd",
+    "cause of wandering",
+    "varied"
+   ],
+   "natives": [
+    "unsteady",
+    "unreliable",
+    "change from bad fortune to good",
+    "sexy",
+    "thievish",
+    "shameless",
+    "prolific",
+    "popular"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.triplicity.method_steps",
+  "topic": "sect/triplicity lords",
+  "school": "hellenistic",
+  "rule_en": "Judging general fortune from the triplicity lords. (1) Take the sect light: Sun by day, Moon by night. (2) Find its triangle (sign triplicity) and that triangle's predominant houseruler (first lord for the sect) and its helper (second lord). (3) Grade each lord by position. At an angle (ASC, MC or another operative sign) = fortunate and illustrious. Following an angle = moderate. Preceding an angle = base and unfortunate. Also note rising/setting, own signs, and benefic or malefic aspects. (4) Check the light itself and its aspects.",
+  "locator": "Valens II.2 'The Distinguishing Characteristics of the Triangles, the Houserulers, the Helpers, and the Sects of the Sun and the Moon'; Riley tr. printed p.25 (PDF p.27); nearest preceding markers Kroll p.56, Pingree p.55",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "The order of the lords per sect is in II.1 (valens.triplicity.*). PDF p.28 spells it out per triangle for a Sun in each element by day, e.g. Sun in an earth sign: look at Venus, then the Moon, then Mars. For night births use the Moon 'in the same manner'.",
+  "data": {
+   "sect_light": {
+    "day": "sun",
+    "night": "moon"
+   },
+   "grading": {
+    "angular_or_operative": "fortunate, illustrious",
+    "succedent": "moderate",
+    "cadent (preceding an angle)": "base, unfortunate"
+   }
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.triplicity.time_division",
+  "topic": "sect/triplicity lords",
+  "school": "hellenistic",
+  "rule_en": "Time split between the first two triplicity lords. First lord badly placed but the next well placed (angular): ups and downs in the early years, then vigour and effectiveness (though still unsteady and anxious). First lord well placed but the next badly placed: success first, then a fall. The switch comes 'at the rising time of the sign' or 'the cyclical return of the chronocrator'; for a fall, from the rising time of the sign where the succeeding lord is badly placed. Both well placed: lasting, remarkable fortune.",
+  "locator": "Valens II.2; Riley tr. printed p.25 (PDF p.27); nearest preceding markers Kroll p.57, Pingree p.56",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Valens gives early-life vs later-life roles only for the first ('predominant'/'preceding') and second ('successor'/'succeeding') lords. Unlike later authors, he does NOT give the third (co-working) lord its own period in this chapter, nor divide life into thirds. 'Rising time of the sign' refers to the ascensional-times system of later books; he promises to clarify the chronocrator 'at the appropriate time'. II.21K;22P worked examples (PDF p.38-39) show 'first years humble' when the first lord precedes an angle, with later rise when the partner is angular.",
+  "data": {
+   "lord1": "early life",
+   "lord2": "afterwards (later life)",
+   "lord3": "no separate period stated",
+   "switch_point": "rising time of the sign / cyclical return of the chronocrator (not a fixed age)"
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.triplicity.cadent_houseruler",
+  "topic": "sect/triplicity lords",
+  "school": "hellenistic",
+  "rule_en": "A houseruler just preceding an angle (cadent) diminishes fortune: subjection to others, loss of rank, injuries, diseases, criminal charges, poverty.",
+  "locator": "Valens II.2; Riley tr. printed p.25 (PDF p.27); nearest preceding markers Kroll p.57, Pingree p.56",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "",
+  "data": {},
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.triplicity.sect_mates",
+  "topic": "sect/triplicity lords",
+  "school": "hellenistic",
+  "rule_en": "Best if the stars of the chart's sect are at angles in their own triangles or in operative places. In other triangles or the contrary sect, prosperity is smaller and anxious. A malefic of the contrary sect square or opposite does harm. Saturn by night: reversals and ruin. Mars by day: rashness, violence.",
+  "locator": "Valens II.2; Riley tr. printed p.26 (PDF p.28); nearest preceding markers Kroll p.58, Pingree p.56",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "",
+  "data": {},
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.triplicity.fallback_lot",
+  "topic": "sect/triplicity lords",
+  "school": "hellenistic",
+  "rule_en": "If the triplicity lords and helpers are badly placed, examine the Lot of Fortune and its ruler. Angular or succedent with benefic aspects = some good fortune and rank despite reversals. Both badly placed = mediocre or harsh life, need, poverty. Benefic aspects even then = support from others' pity, adoption, gifts.",
+  "locator": "Valens II.2; Riley tr. printed p.26 (PDF p.28); nearest preceding markers Kroll p.58, Pingree p.57",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "",
+  "data": {},
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.triplicity.ruler_of_ruler",
+  "topic": "sect/triplicity lords",
+  "school": "hellenistic",
+  "rule_en": "Also examine the ruler of the ruler (the lord of the sign the overall houseruler occupies). If the overall houseruler is badly placed but its own ruler is well configured, the native has help and a basis of livelihood and rank in proportion.",
+  "locator": "Valens II.2; Riley tr. printed p.26 (PDF p.28); nearest preceding markers Kroll p.59, Pingree p.58",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "",
+  "data": {},
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.asc_ruler.lifespan",
+  "topic": "ruler of the Ascendant",
+  "school": "hellenistic",
+  "rule_en": "Ruler of the Ascendant in its proper place or own sect = gives long life. Configured with the lord of the Lot of Fortune = 'full of years and luck'. Setting (under the beams/west) = short-lived.",
+  "locator": "Valens II.4 'The Star Which Holds the Ascendant or the Lot'; Riley tr. printed p.27 (PDF p.29); nearest preceding markers Kroll p.62, Pingree p.60",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Same passage: 'If it is configured with the lord of the Lot <of Fortune>, the native becomes full of years and luck. If the ruler happens to be setting, the native becomes short-lived.'",
+  "data": {
+   "good": [
+    "in its proper place",
+    "in its own sect",
+    "configured with ruler of Fortune"
+   ],
+   "bad": [
+    "setting"
+   ]
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.asc_ruler.star_allotted_hour",
+  "topic": "ruler of the Ascendant",
+  "school": "hellenistic",
+  "rule_en": "II.4 delineates each planet 'allotted the hour or the Lot' (i.e. ruling the Ascendant/'hour' or the Lot of Fortune) and placed in the Ascendant. E.g. Jupiter makes men very fortunate from youth; Mars urges toward the military; Venus indicates great good and fame; Saturn makes fortunate in Saturnian activities if Mars is not opposed. Results are modified by aspects.",
+  "locator": "Valens II.4; Riley tr. printed p.27 (PDF p.29); nearest preceding markers Kroll p.60, Pingree p.59",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "'Allotted the hour' is Riley's rendering. I read it as 'ruler of the hour-marker (Ascendant)'. This is an interpretation; check Riley's terminology before relying on it.",
+  "data": {},
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.asc_ruler.chronocrator_vii",
+  "topic": "ruler of the Ascendant",
+  "school": "hellenistic",
+  "rule_en": "For length of life and mental activities, inspect the Ascendant and how its houseruler is configured. Together or appropriately configured = good. Setting, opposed or inappropriately configured = bad: it abdicates its chronocratorship early and makes the native short-lived. Then examine the MC, Descendant and IC rulers in turn.",
+  "locator": "Valens VII.1 (Preface to Book VII); Riley tr. printed p.124 (PDF p.126); nearest preceding markers Kroll p.263, Pingree p.252",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "",
+  "data": {},
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.asc_ruler.lot_in_viii_poverty",
+  "topic": "ruler of the Ascendant",
+  "school": "hellenistic",
+  "rule_en": "Malefics ruling the Lot, with the Lot in VIII = poverty. If they also rule the Ascendant = abject all one's life. Ruler of the Lot or Ascendant under the Sun's rays = begging.",
+  "locator": "Valens II.8K;9P 'The VIII Place of Death'; Riley tr. printed p.28 (PDF p.30); nearest preceding markers Kroll p.64, Pingree p.62",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Book II place chapters repeatedly judge planets as 'houseruler of the Lot or the Ascendant' in each place. The two rulers are treated as joint significators of fortune.",
+  "data": {},
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.lot.fortune_as_ascendant",
+  "topic": "ruler of the Lot of Fortune",
+  "school": "hellenistic",
+  "rule_en": "Lot of Fortune as a second Ascendant. Find whether the Lot is angular, succedent or cadent, and find its ruler. Ruler in the Ascendant by day, or another operative place, with the Sun, Moon or benefics in aspect = noble, distinguished, fortunate. At other angles or succedent = moderate. Preceding an angle = crises and ruin. Derived places: the Lot = Life; 10th from it = Rank (MC); 7th = Descendant; 4th = IC; the rest as the twelve places.",
+  "locator": "Valens II.17K;18P 'The Lot of Fortune as the Ascendant'; Riley tr. printed p.34 (PDF p.36); nearest preceding markers Kroll p.79, Pingree p.76",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Same chapter: 'Likewise look for the ruler of the Lot. If it is in the Ascendant during the day or is in some other operative place, with the sun, the moon, or benefics in aspect, it will make the native noble, distinguished, and fortunate.'",
+  "data": {
+   "derived_places_from_lot": {
+    "1": "Life",
+    "10": "Rank",
+    "7": "Descendant",
+    "4": "IC",
+    "others": "as the twelve places"
+   }
+  },
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.lot.fortune_ruler_livelihood",
+  "topic": "ruler of the Lot of Fortune",
+  "school": "hellenistic",
+  "rule_en": "The Lot of Fortune and its ruler judge livelihood and rank when the triplicity lords fail (II.2). The Lot concerns the body and the work of one's hands (II.19). Its 11th place (Accomplishment) gives property (II.20). In II.3 Fortune is 'the most influential and most potent place'; examine its ruler and the stars at or square/trine to it.",
+  "locator": "Valens II.3 'The Lot of Fortune and its Houseruler'; Riley tr. printed p.26 (PDF p.28); nearest preceding markers Kroll p.59, Pingree p.58",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Valens never uses a modern phrase like 'ruler of Fortune = livelihood'. The livelihood link rests on II.2 (Lot and ruler examined for prosperity), II.19K;20P (Fortune = body and work of hands, PDF p.37) and II.20K;21P (Accomplishment = property, PDF p.37). See also valens.lot.fortune.meaning and valens.lot.accomplishment.",
+  "data": {},
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.lot.fortune_ruler_daimon_abroad",
+  "topic": "ruler of the Lot of Fortune",
+  "school": "hellenistic",
+  "rule_en": "Best when the ruler of Daimon is at the Lot of Fortune or at its 10th place (i.e. at its MC) = illustrious. Ruler turned away, cadent, or with malefics = exile and distress abroad.",
+  "locator": "Valens II.19K;20P 'The Lot of Fortune and Daimon'; Riley tr. printed p.35 (PDF p.37); nearest preceding markers Kroll p.81, Pingree p.78",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "",
+  "data": {},
+  "quote_withheld": "Riley translation in copyright: see the locator"
+ },
+ {
+  "id": "valens.lot.fortune_ruler_injury",
+  "topic": "ruler of the Lot of Fortune",
+  "school": "hellenistic",
+  "rule_en": "For injury and disease, the sign of the Lot of Fortune and especially the sign its ruler occupies indicate the affected part. Daimon and its ruler clarify it. A Book IV worked example (PDF p.77) reads injury from the sign the Lot's ruler occupies (ruler in Cancer = breast and stomach).",
+  "locator": "Valens II.36K;37P 'Injuries and Diseases, with Examples'; Riley tr. printed p.49 (PDF p.51); nearest preceding markers Kroll p.111, Pingree p.106",
+  "url_or_file": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf (local: sources/valens/Vettius_Valens_Riley.pdf)",
+  "notes": "Chapter heading is on PDF p.49; the quoted rule is on PDF p.51.",
+  "data": {},
+  "quote_withheld": "Riley translation in copyright: see the locator"
  }
 ]

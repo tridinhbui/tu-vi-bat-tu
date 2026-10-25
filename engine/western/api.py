@@ -30,7 +30,7 @@ class OptionsIn(BaseModel):
     orbs: str = Field("thienban", pattern="^(thienban|lilly)$")
     minor_aspects: bool = True
     triplicity: str = Field("dorothean", pattern="^(dorothean|ptolemaic)$")
-    terms: str = Field("egyptian", pattern="^(egyptian|ptolemaic)$")
+    terms: str = Field("egyptian", pattern="^(egyptian|ptolemaic|lilly)$")
     rulers: str = Field("traditional", pattern="^(traditional|modern)$")
     lot_rule: str = Field("ptolemy", pattern="^(ptolemy|valens|sect)$")
     solar_phase: str = Field("traditional", pattern="^traditional$")

@@ -1,0 +1,117 @@
+{
+  "_doc": "Vietnamese paraphrases of what the cited source itself says. One field = one source and locator; nothing here is invented or merged across schools. The reading engine (engine/western/reading/) only voices these. Extreme epithets in Lilly's 'ill dignified' lists (crime, sexual vice) are left out on purpose, as the Tử Vi pages leave out harm aphorisms.",
+  "planets": {
+    "sun": {
+      "ptolemy_nature": {"vi": "làm nóng và làm khô", "src": "PTOL_TETRA:I.4 p.35"},
+      "ptolemy_kind": {"vi": "không thuộc hẳn cát hay hung (common), nghiêng theo hành tinh đi cùng", "src": "PTOL_TETRA:I.5 p.39"},
+      "lilly_nature": {"vi": "nóng và khô nhưng ôn hòa hơn Sao Hỏa; dương, thuộc phe ngày; nếu đắc thế thì ngang một cát tinh", "src": "LILLY_CA:p.70"},
+      "lilly_well": {"vi": ["giữ lời hứa rất nghiêm", "muốn đứng ra điều hành ở nơi mình có mặt", "thận trọng và phán đoán vững", "cần mẫn vì danh dự", "nói ít mà có trọng lượng", "kín đáo, đáng tin", "hòa nhã và hào phóng"], "src": "LILLY_CA:p.70"},
+      "lilly_ill": {"vi": ["dễ kiêu và coi nhẹ người khác", "hay viện đến gốc gác của mình", "phán đoán bị che mờ bởi cái tôi", "bồn chồn, hay gây phiền", "muốn áp đặt", "tiêu xài quá tay"], "src": "LILLY_CA:p.70"}
+    },
+    "moon": {
+      "ptolemy_nature": {"vi": "chủ yếu làm ẩm, có chút ấm do gần Trái Đất và nhận ánh sáng Mặt Trời", "src": "PTOL_TETRA:I.4 p.35"},
+      "ptolemy_kind": {"vi": "cát tinh (beneficent)", "src": "PTOL_TETRA:I.5 p.39"},
+      "lilly_nature": {"vi": "âm, thuộc phe đêm, lạnh và ẩm, khí chất đàm (phlegmatic)", "src": "LILLY_CA:p.81"},
+      "lilly_well": {"vi": ["cư xử điềm đạm, mềm mỏng", "yêu những môn học tử tế và khéo léo", "thích tìm cái mới", "hay đổi chỗ ở, khó đứng yên một nơi", "dễ e ngại, dễ giật mình", "tiêu xài rộng tay", "yêu sự yên ổn"], "src": "LILLY_CA:p.81"},
+      "lilly_ill": {"vi": ["sống trôi nổi, ngại lao động", "thiếu chí khí và thiếu tính trước", "sống tùy tiện", "khó thấy hài lòng với hoàn cảnh nào"], "src": "LILLY_CA:p.81"}
+    },
+    "mercury": {
+      "ptolemy_nature": {"vi": "lúc làm khô lúc làm ẩm, đổi nhanh, vì luôn ở gần Mặt Trời", "src": "PTOL_TETRA:I.4 p.37"},
+      "ptolemy_kind": {"vi": "trung tính (common): tốt với cát tinh, xấu với hung tinh", "src": "PTOL_TETRA:I.5 p.39"},
+      "lilly_nature": {"vi": "tự mình không nam không nữ, mang tính của hành tinh nó kết hợp; bản chất lạnh và khô; tốt khi đi với sao tốt, xấu khi đi với sao xấu", "src": "LILLY_CA:p.77"},
+      "lilly_well": {"vi": ["đầu óc tinh và có mưu tính", "giỏi lập luận, biện bác có học", "ăn nói lưu loát", "ham tìm hiểu điều ẩn khuất", "tự học được không cần thầy", "thích đi xa", "rất giỏi việc buôn bán"], "src": "LILLY_CA:p.77"},
+      "lilly_ill": {"vi": ["đầu óc hay gây chuyện", "dùng lời nói và ngòi bút chống lại người khác", "phí thời gian vào chuyện vụn vặt", "dễ nói sai sự thật và khoe khoang", "hay xen vào việc người khác", "cả tin và không bền lòng"], "src": "LILLY_CA:p.77"}
+    },
+    "venus": {
+      "ptolemy_nature": {"vi": "giống Sao Mộc nhưng thiên về làm ẩm, ấm vừa phải", "src": "PTOL_TETRA:I.4 p.37"},
+      "ptolemy_kind": {"vi": "cát tinh (beneficent)", "src": "PTOL_TETRA:I.5 p.39"},
+      "lilly_nature": {"vi": "âm, lạnh và ẩm vừa phải, thuộc phe đêm; cát tinh nhỏ, chủ niềm vui", "src": "LILLY_CA:p.73"},
+      "lilly_well": {"vi": ["ôn hòa, không thích kiện tụng hay cãi vã", "dễ chịu, gọn gàng, chăm chút vẻ ngoài", "ưa vui vẻ trong lời nói và việc làm", "yêu âm nhạc", "dễ rung động trong chuyện tình cảm", "vui tươi, dễ tin người", "có đức, dù hay bị nghi là ghen"], "src": "LILLY_CA:p.73"},
+      "lilly_ill": {"vi": ["ham vui quá độ, tiêu pha nhiều", "buông thả trong quan hệ", "không giữ tiếng", "thiếu chữ tín", "lười"], "src": "LILLY_CA:p.74"}
+    },
+    "mars": {
+      "ptolemy_nature": {"vi": "làm khô và đốt nóng", "src": "PTOL_TETRA:I.4 p.37"},
+      "ptolemy_kind": {"vi": "hung tinh (maleficent)", "src": "PTOL_TETRA:I.5 p.39"},
+      "lilly_nature": {"vi": "dương, thuộc phe đêm, nóng và khô, khí chất mật vàng (choleric); hung tinh nhỏ, chủ tranh chấp", "src": "LILLY_CA:p.66"},
+      "lilly_well": {"vi": ["can đảm, khó bị khuất phục khi phải đối đầu", "không chịu để ai vượt mặt", "dám làm, tự tin, khó lay chuyển", "thích tranh phần hơn", "không chịu dưới ai", "vẫn tính toán khôn ngoan cho việc của mình"], "src": "LILLY_CA:p.66"},
+      "lilly_ill": {"vi": ["nói nhiều mà thiếu chừng mực", "dễ gây gổ", "liều lĩnh, nóng vội", "khó tin cậy khi bị kích động"], "src": "LILLY_CA:p.66"}
+    },
+    "jupiter": {
+      "ptolemy_nature": {"vi": "làm ấm và làm ẩm một cách ôn hòa", "src": "PTOL_TETRA:I.4 p.35"},
+      "ptolemy_kind": {"vi": "cát tinh (beneficent)", "src": "PTOL_TETRA:I.5 p.39"},
+      "lilly_nature": {"vi": "dương, thuộc phe ngày, nóng và ẩm ôn hòa, khí chất huyết (sanguine); cát tinh lớn, chủ sự tiết độ, khiêm nhường, công bằng", "src": "LILLY_CA:p.62"},
+      "lilly_well": {"vi": ["rộng lượng và giữ chữ tín", "khiêm tốn", "vươn tới việc lớn bằng con đường đàng hoàng", "chuộng sự sòng phẳng", "muốn làm lợi cho mọi người", "có lòng tin tôn giáo", "hòa nhã, hay giúp, công bằng, khôn ngoan"], "src": "LILLY_CA:p.62"},
+      "lilly_ill": {"vi": ["dễ phung phí phần của mình", "để người khác lợi dụng", "giữ đạo bề ngoài", "cố chấp với điều sai", "hời hợt, thiếu cẩn trọng"], "src": "LILLY_CA:p.63"}
+    },
+    "saturn": {
+      "ptolemy_nature": {"vi": "làm lạnh và làm khô", "src": "PTOL_TETRA:I.4 p.35"},
+      "ptolemy_kind": {"vi": "hung tinh (maleficent)", "src": "PTOL_TETRA:I.5 p.39"},
+      "lilly_nature": {"vi": "thuộc phe ngày, lạnh và khô, khí chất u sầu (melancholic), dương; hung tinh lớn, chủ sự cô độc", "src": "LILLY_CA:p.58"},
+      "lilly_well": {"vi": ["suy tưởng sâu", "nghiêm cẩn trong việc làm", "kiệm lời", "nhẫn nại với công việc", "chín chắn khi tranh luận", "chăm lo của cải lâu dài", "sống khắc khổ"], "src": "LILLY_CA:p.58"},
+      "lilly_ill": {"vi": ["dễ đố kỵ và hà tiện", "ghen và đa nghi", "nhút nhát", "ngoài mặt che giấu", "chậm chạp, cố chấp", "khó thấy đủ"], "src": "LILLY_CA:p.58"}
+    },
+    "uranus": {"leo": {"vi": "chủ cái độc đáo, khác thường, không theo lề lối; mạnh nhất ở người độc lập, đi trước, ít tác động lên người sống theo tập quán; mang tới việc đột ngột, khó đặt quy tắc chính xác", "src": "LEO:How to Judge a Nativity"}},
+    "neptune": {"leo": {"vi": "tác động mờ nhạt với đa số; nghiêng về đời sống cảm xúc và tâm linh hơn hành động; không xấu tự thân, nhưng khi bị tổn thì thường không thuận; chính Leo nói còn thiếu dữ liệu", "src": "LEO:How to Judge a Nativity; The Art of Synthesis"}},
+    "pluto": {"none": {"vi": "", "src": "", "note": "No source in the library: Leo died before Pluto's discovery (1930). Shown as a position only."}},
+    "chiron": {"none": {"vi": "", "src": "", "note": "No source in the library (discovered 1977). Shown as a position only."}}
+  },
+  "houses": {
+    "1":  {"lilly": {"vi": "sự sống, vóc dáng, nước da và dáng vẻ của người sinh", "src": "LILLY_CA:p.50"}, "valens": {"vi": "sự sống, thân thể, hơi thở; 'mái chèo lái' của đời người", "src": "VALENS_ANTH:IV.12"}},
+    "2":  {"lilly": {"vi": "tài sản và vận tiền bạc, của cải có thể dịch chuyển, tiền cho vay, được và mất", "src": "LILLY_CA:p.51"}, "valens": {"vi": "sinh kế, việc cho và nhận, sự giao kết", "src": "VALENS_ANTH:IV.12"}},
+    "3":  {"lilly": {"vi": "anh chị em, họ hàng, hàng xóm, những chuyến đi ngắn, thư từ, tin tức", "src": "LILLY_CA:p.52"}, "valens": {"vi": "anh em, đi xa, bạn bè, họ hàng", "src": "VALENS_ANTH:IV.12"}},
+    "4":  {"lilly": {"vi": "cha, đất đai, nhà cửa, gia sản thừa kế, kết cục của mọi việc", "src": "LILLY_CA:p.52"}, "valens": {"vi": "nhà cửa, chỗ ở, tài sản, sự đổi chỗ, người lớn tuổi trong nhà", "src": "VALENS_ANTH:IV.12"}},
+    "5":  {"lilly": {"vi": "con cái, yến tiệc, vui chơi, sứ giả", "src": "LILLY_CA:p.53"}, "valens": {"vi": "con cái, tình bạn, sự giao hảo, việc thiện được hoàn thành", "src": "VALENS_ANTH:IV.12"}},
+    "6":  {"lilly": {"vi": "người giúp việc, người làm thuê, việc nuôi súc vật nhỏ; Lilly cũng xem bệnh tật ở đây (Thiên Bàn không luận bệnh)", "src": "LILLY_CA:p.53"}, "valens": {"vi": "người phục dịch, sự thù nghịch; Valens cũng đặt bệnh tật ở đây (Thiên Bàn không luận bệnh)", "src": "VALENS_ANTH:IV.12"}},
+    "7":  {"lilly": {"vi": "hôn nhân và người mình hỏi đến, chuyện tình cảm, kẻ đối địch công khai, kiện tụng, đối tác", "src": "LILLY_CA:p.54"}, "valens": {"vi": "hôn nhân, thành công, tình bạn, đi xa", "src": "VALENS_ANTH:IV.12"}},
+    "8":  {"lilly": {"vi": "di chúc, di sản, của hồi môn, nỗi lo âu trong lòng; Lilly còn xem chuyện sinh tử ở đây (Thiên Bàn không luận việc đó)", "src": "LILLY_CA:p.54"}, "valens": {"vi": "lợi ích từ người đã khuất, luật lệ; Valens gọi đây là 'nơi bất động' (Thiên Bàn không luận sinh tử)", "src": "VALENS_ANTH:IV.12"}},
+    "9":  {"lilly": {"vi": "những chuyến đi xa, tôn giáo, giấc mơ, sách vở, học vấn, xứ lạ", "src": "LILLY_CA:p.55"}, "valens": {"vi": "đi xa, lợi từ người nước ngoài, thần linh, chiêm tinh và các việc huyền bí, các hội đoàn", "src": "VALENS_ANTH:IV.12"}},
+    "10": {"lilly": {"vi": "quyền chức, danh dự, sự thăng tiến, địa vị, nghề nghiệp hay việc làm ăn của người sinh, người mẹ", "src": "LILLY_CA:p.55"}, "valens": {"vi": "nghề nghiệp, địa vị, thành công, sự đổi mới trong công việc", "src": "VALENS_ANTH:IV.12"}},
+    "11": {"lilly": {"vi": "bạn bè, hy vọng, niềm tin, lời khen chê, lòng trung tín của bạn", "src": "LILLY_CA:p.56"}, "valens": {"vi": "bạn bè, hy vọng, quà tặng", "src": "VALENS_ANTH:IV.12"}},
+    "12": {"lilly": {"vi": "kẻ thù ngầm, nỗi buồn, sự trói buộc, những gì tự làm hại mình", "src": "LILLY_CA:p.56"}, "valens": {"vi": "xứ lạ, sự thù nghịch, những nguy hiểm, chuyện tòa án (Thiên Bàn không luận bệnh)", "src": "VALENS_ANTH:IV.12"}}
+  },
+  "house_quality": {
+    "valens": {"good": [1, 10, 11, 5], "moderate": [9, 3, 4, 7], "weak": [2, 6, 8, 12], "src": "VALENS_ANTH:IV.11", "vi_note": "Valens xếp Nhà 1, 10, 11, 5 là nơi 'hữu hiệu'; Nhà 9, 3, 4, 7 hoạt động vừa phải; các nơi còn lại kém hơn, Nhà 6 khá hơn Nhà 12."},
+    "ptolemy": {"src": "PTOL_TETRA:I.24 p.117", "vi_note": "Ptolemy coi hành tinh mạnh nhất khi ở hoặc đang tiến tới Thiên Đỉnh, sau đó là trên đường chân trời hay ở nhà kế góc."}
+  },
+  "sign_soul": {
+    "src": "PTOL_TETRA:III.13 p.335",
+    "solstitial_equinoctial": "hợp việc giao tiếp với đám đông, việc chung, thích bày ra cái mới",
+    "bicorporeal": "phức tạp, hay đổi, khó đoán",
+    "solid": "ngay thẳng, không dễ bị nịnh, bền bỉ, kiên định"
+  },
+  "aspect_kind": {
+    "src": "PTOL_TETRA:I.13 p.75",
+    "harmonious": ["trine", "sextile"], "disharmonious": ["square", "opposition"],
+    "vi": {"harmonious": "hài hòa (hai cung cùng giống)", "disharmonious": "bất hòa (hai cung khác giống)"}
+  },
+  "leo_sun": {
+    "src": "LEO:How to Judge a Nativity pp.72-86",
+    "aries": "ý chí mạnh, năng nổ, tự tin, đôi khi hấp tấp; thích tự chủ và nắm quyền",
+    "taurus": "vững vàng, nhẫn nại, quyết tâm, có lúc cố chấp; gắn với tiền bạc và tài sản",
+    "gemini": "thiên về trí tuệ, chữ nghĩa, khoa học hay nghệ thuật; đa năng, hay đổi nhưng đầu óc tích cực",
+    "cancer": "gắn bó với nhà, gia đình và người mẹ; dễ tính, ưa thoải mái",
+    "leo": "có phong thái và uy, rộng lượng, giàu tình cảm",
+    "virgo": "hợp vai quản lý hay cộng sự hơn là người đứng đầu một mình; nghiêm túc, trầm",
+    "libra": "được lòng người, thích giao du, giàu tình cảm, có khiếu nghệ thuật; công bằng",
+    "scorpio": "cứng cỏi, quyết đoán, có lúc cố chấp; không dễ bị người ngoài chi phối",
+    "sagittarius": "hiền hậu, hào phóng, thành thật, có đời sống tín ngưỡng; hay bồn chồn, giàu hy vọng",
+    "capricorn": "có tham vọng, hợp việc dẫn dắt và điều hành; nghiêm, kín đáo, tinh tế",
+    "aquarius": "được lòng người, thích giao du, cởi mở và rộng lượng nhưng thận trọng",
+    "pisces": "hay bồn chồn, dễ đổi, quá rụt rè, chưa đủ tự tin vào mình"
+  },
+  "leo_moon": {
+    "src": "LEO:How to Judge a Nativity pp.72-86",
+    "aries": "nhiệt tình, bốc đồng, hiếu thắng, độc lập; muốn làm theo ý mình",
+    "taurus": "trầm lặng, bền bỉ, thủ cựu; chú ý tiền bạc, nhà đất",
+    "gemini": "thiên về trí óc, học hành, sách vở; năng động, hay đổi chỗ ở, đi lại gần",
+    "cancer": "yêu nhà, gắn bó với mẹ, giàu tưởng tượng, nhạy với môi trường quanh mình",
+    "leo": "nâng người ta lên: trách nhiệm, sự nổi bật, quyền hành; rộng rãi, ấm áp",
+    "virgo": "trí óc và trí nhớ tốt; trầm, ít tham vọng; hợp các việc phục vụ",
+    "libra": "được lòng người, giàu tình cảm, có khiếu nghệ thuật; thiên về hợp tác, lứa đôi",
+    "scorpio": "cứng cỏi, quyết tâm, tự lực, cố chấp; có lúc dễ cáu",
+    "sagittarius": "nhanh nhẹn, bồn chồn, năng động, thích đi xa; có đời sống tín ngưỡng, giàu trực giác",
+    "capricorn": "đưa người ta ra trước công chúng, được tiếng hay mang tiếng đều có cái giá; có năng lực hành chính",
+    "aquarius": "chú ý những đề tài khác thường, mới lạ; nhân ái, thích tham gia hội nhóm",
+    "pisces": "trầm, hay thu mình, bồn chồn, thiếu quyết đoán, dễ nản; giàu cảm xúc, nhạy cảm"
+  }
+}

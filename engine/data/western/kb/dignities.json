@@ -5,7 +5,7 @@
       "PTOL_TETRA:I.17 pp.79-83",
       "LILLY_CA:p.104"
     ],
-    "status": "verified_ptolemy",
+    "status": "verified",
     "table": {
       "aries": [
         "mars"
@@ -48,9 +48,9 @@
   "exaltation": {
     "source": [
       "PTOL_TETRA:I.19 pp.89-91 (signs)",
-      "LILLY_CA:p.104 (degrees)"
+      "LILLY_CA:p.104 (degrees; Lilly gives the 4 points anywhere in the sign, p.102)"
     ],
-    "status": "signs_verified_degrees_pending",
+    "status": "verified",
     "table": {
       "aries": [
         "sun",
@@ -122,7 +122,7 @@
         "PTOL_TETRA:I.18 pp.83-87",
         "LILLY_CA:p.104"
       ],
-      "status": "fire_earth_air_verified",
+      "status": "verified",
       "table": {
         "fire": [
           "sun",
@@ -424,8 +424,7 @@
       "vi": "Giới hạn theo Ptolemy (Lilly dùng)",
       "school": "traditional",
       "source": [
-        "PTOL_TETRA:I.21 p.107",
-        "LILLY_CA:p.104"
+        "PTOL_TETRA:I.21 p.107"
       ],
       "status": "verified_ptolemy",
       "table": {
@@ -694,7 +693,282 @@
           ]
         ]
       },
-      "note": "Libra 5th term = Mars 6 (printed Loeb table and Ashmand; the LacusCurtius HTML misprints Saturn). Lilly's p.104 row-by-row check pending."
+      "note": "Robbins' printed Loeb table (I.21 p.107); Libra 5th term = Mars 6 (the LacusCurtius HTML misprints Saturn). Not the same as Lilly's table: see terms.lilly."
+    },
+    "lilly": {
+      "vi": "Giới hạn theo bảng của Lilly",
+      "school": "traditional",
+      "source": [
+        "LILLY_CA:p.104"
+      ],
+      "status": "verified",
+      "note": "Page-image transcription by the Horary module (engine/data/horary/tables_lilly.json), cross-checked there against Lilly's planet chapters. Differs from Robbins' Ptolemaic table in several signs (Lilly follows another manuscript tradition).",
+      "table": {
+        "aries": [
+          [
+            "jupiter",
+            6
+          ],
+          [
+            "venus",
+            14
+          ],
+          [
+            "mercury",
+            21
+          ],
+          [
+            "mars",
+            26
+          ],
+          [
+            "saturn",
+            30
+          ]
+        ],
+        "taurus": [
+          [
+            "venus",
+            8
+          ],
+          [
+            "mercury",
+            15
+          ],
+          [
+            "jupiter",
+            22
+          ],
+          [
+            "saturn",
+            26
+          ],
+          [
+            "mars",
+            30
+          ]
+        ],
+        "gemini": [
+          [
+            "mercury",
+            7
+          ],
+          [
+            "jupiter",
+            14
+          ],
+          [
+            "venus",
+            21
+          ],
+          [
+            "saturn",
+            25
+          ],
+          [
+            "mars",
+            30
+          ]
+        ],
+        "cancer": [
+          [
+            "mars",
+            6
+          ],
+          [
+            "jupiter",
+            13
+          ],
+          [
+            "mercury",
+            20
+          ],
+          [
+            "venus",
+            27
+          ],
+          [
+            "saturn",
+            30
+          ]
+        ],
+        "leo": [
+          [
+            "saturn",
+            6
+          ],
+          [
+            "mercury",
+            13
+          ],
+          [
+            "venus",
+            19
+          ],
+          [
+            "jupiter",
+            25
+          ],
+          [
+            "mars",
+            30
+          ]
+        ],
+        "virgo": [
+          [
+            "mercury",
+            7
+          ],
+          [
+            "venus",
+            13
+          ],
+          [
+            "jupiter",
+            18
+          ],
+          [
+            "saturn",
+            24
+          ],
+          [
+            "mars",
+            30
+          ]
+        ],
+        "libra": [
+          [
+            "saturn",
+            6
+          ],
+          [
+            "venus",
+            11
+          ],
+          [
+            "jupiter",
+            19
+          ],
+          [
+            "mercury",
+            24
+          ],
+          [
+            "mars",
+            30
+          ]
+        ],
+        "scorpio": [
+          [
+            "mars",
+            6
+          ],
+          [
+            "jupiter",
+            14
+          ],
+          [
+            "venus",
+            21
+          ],
+          [
+            "mercury",
+            27
+          ],
+          [
+            "saturn",
+            30
+          ]
+        ],
+        "sagittarius": [
+          [
+            "jupiter",
+            8
+          ],
+          [
+            "venus",
+            14
+          ],
+          [
+            "mercury",
+            19
+          ],
+          [
+            "saturn",
+            25
+          ],
+          [
+            "mars",
+            30
+          ]
+        ],
+        "capricorn": [
+          [
+            "venus",
+            6
+          ],
+          [
+            "mercury",
+            12
+          ],
+          [
+            "jupiter",
+            19
+          ],
+          [
+            "mars",
+            25
+          ],
+          [
+            "saturn",
+            30
+          ]
+        ],
+        "aquarius": [
+          [
+            "saturn",
+            6
+          ],
+          [
+            "mercury",
+            12
+          ],
+          [
+            "venus",
+            20
+          ],
+          [
+            "jupiter",
+            25
+          ],
+          [
+            "mars",
+            30
+          ]
+        ],
+        "pisces": [
+          [
+            "venus",
+            8
+          ],
+          [
+            "jupiter",
+            14
+          ],
+          [
+            "mercury",
+            20
+          ],
+          [
+            "mars",
+            26
+          ],
+          [
+            "saturn",
+            30
+          ]
+        ]
+      }
     }
   },
   "faces": {
@@ -702,7 +976,7 @@
     "source": [
       "LILLY_CA:p.104"
     ],
-    "status": "pending_check",
+    "status": "verified",
     "rule": "Each 10-degree third of a sign, in the Chaldean order Saturn, Jupiter, Mars, Sun, Venus, Mercury, Moon, starting with Mars at 0 Aries.",
     "order": [
       "saturn",
@@ -718,9 +992,10 @@
   },
   "scores": {
     "source": [
-      "LILLY_CA"
+      "LILLY_CA:pp.101-103",
+      "LILLY_CA:p.115"
     ],
-    "status": "pending_source",
+    "status": "verified",
     "essential": {
       "domicile": 5,
       "exaltation": 4,
@@ -730,18 +1005,331 @@
       "detriment": -5,
       "fall": -4,
       "peregrine": -5
-    }
+    },
+    "note": "Lilly counts the triplicity only for the ruler of the chart's sect (day ruler by day, night ruler by night), Mars ruling water both ways (p.102)."
   },
   "solar_phase": {
     "traditional": {
-      "cazimi_deg": 0.2833,
+      "cazimi_deg": 0.2833333333333333,
       "combust_deg": 8.5,
-      "beams_deg": 17.0,
+      "combust_same_sign": true,
+      "beams_deg": 17,
       "source": [
-        "LILLY_CA"
+        "LILLY_CA:pp.113-114"
       ],
-      "status": "pending_source"
+      "status": "verified",
+      "note": "Combustion only by bodily conjunction in the same sign (p.114); under the beams within 17° either side; cazimi within 17′."
     },
     "_note": "Valens uses 'under the rays' without a number (Riley II.8), so no Hellenistic numeric limit is offered."
+  },
+  "accidental": {
+    "source": [
+      "LILLY_CA:p.115"
+    ],
+    "status": "verified",
+    "note": "Lilly's 'ready table' of fortitudes and debilities; transcription from the page image by the Horary module. Lilly does not say how essential and accidental totals combine (p.116).",
+    "rows": [
+      {
+        "key": "own_house_or_mutual_reception_by_house",
+        "label_en": "A Planet in his owne house, or in mutuall reception with another Planet by house, shall have Dignities",
+        "points": 5,
+        "kind": "essential",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "exaltation_or_reception_by_exaltation",
+        "label_en": "In his exaltation, or reception by exaltation",
+        "points": 4,
+        "kind": "essential",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "own_triplicity",
+        "label_en": "In his owne Triplicity",
+        "points": 3,
+        "kind": "essential",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "own_term",
+        "label_en": "In his owne Terme",
+        "points": 2,
+        "kind": "essential",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "own_face",
+        "label_en": "Decanate or Face",
+        "points": 1,
+        "kind": "essential",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "detriment",
+        "label_en": "In his Detriment",
+        "points": -5,
+        "kind": "essential",
+        "polarity": "debility"
+      },
+      {
+        "key": "fall",
+        "label_en": "In his Fall",
+        "points": -4,
+        "kind": "essential",
+        "polarity": "debility"
+      },
+      {
+        "key": "peregrine",
+        "label_en": "Peregrine",
+        "points": -5,
+        "kind": "essential",
+        "polarity": "debility"
+      },
+      {
+        "key": "angular_10_1",
+        "label_en": "In the Mid-heaven or Ascendant",
+        "points": 5,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "angular_7_4_succedent_11",
+        "label_en": "In the seventh, fourth and eleventh houses",
+        "points": 4,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "succedent_2_5",
+        "label_en": "In the second and fifth",
+        "points": 3,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "cadent_9",
+        "label_en": "In the ninth",
+        "points": 2,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "cadent_3",
+        "label_en": "In the third house",
+        "points": 1,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "direct",
+        "label_en": "Direct (the Sun and Moon are alwayes so, as to them this is voyd)",
+        "points": 4,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "swift",
+        "label_en": "Swift in motion",
+        "points": 2,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "superiors_oriental",
+        "label_en": "Saturn, Jupiter, Mars when Orientall",
+        "points": 2,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "inferiors_occidental",
+        "label_en": "Mercury and Venus when Occidentall",
+        "points": 2,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "moon_increasing_or_occidental",
+        "label_en": "The Moon encreasing, or when she is Occidentall",
+        "points": 2,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "free_from_combustion_and_beams",
+        "label_en": "Free from Combustion and Sun Beams",
+        "points": 5,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "cazimi",
+        "label_en": "In the heart of the Sun, or Cazimi",
+        "points": 5,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "partile_conj_jupiter_venus",
+        "label_en": "In partill conjunction with Jupiter and Venus",
+        "points": 5,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "partile_conj_north_node",
+        "label_en": "In partill conjunction with the Dragon's Head",
+        "points": 4,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "partile_trine_jupiter_venus",
+        "label_en": "In partill trine to Jupiter and Venus",
+        "points": 4,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "partile_sextile_jupiter_venus",
+        "label_en": "In partill sextile to Jupiter and Venus",
+        "points": 3,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "conj_cor_leonis",
+        "label_en": "In conjunction with Cor Leonis, in 24 degr. Leo",
+        "points": 6,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "conj_spica",
+        "label_en": "Or in conjunction with Spica Virginis, in 18 Libra",
+        "points": 5,
+        "kind": "accidental",
+        "polarity": "fortitude"
+      },
+      {
+        "key": "cadent_12",
+        "label_en": "In the twelfth House",
+        "points": -5,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "cadent_6_succedent_8",
+        "label_en": "In the eighth and sixth",
+        "points": -2,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "retrograde",
+        "label_en": "Retrograde",
+        "points": -5,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "slow",
+        "label_en": "Slow in motion",
+        "points": -2,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "superiors_occidental",
+        "label_en": "Saturn, Jupiter, Mars Occidentall",
+        "points": -2,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "inferiors_oriental",
+        "label_en": "Venus, Mercury Orientall",
+        "points": -2,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "moon_decreasing",
+        "label_en": "Moon decreasing in light",
+        "points": -2,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "combust",
+        "label_en": "Combust of the Sun",
+        "points": -5,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "under_beams",
+        "label_en": "Under the Sun Beames",
+        "points": -4,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "partile_conj_saturn_mars",
+        "label_en": "Partill conjunction with Saturn or Mars",
+        "points": -5,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "partile_conj_south_node",
+        "label_en": "Partill conjunction with the Dragon's Tail",
+        "points": -4,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "besieged",
+        "label_en": "Besieged of Saturn and Mars",
+        "points": -5,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "partile_opposition_saturn_mars",
+        "label_en": "Partill opposition of Saturn or Mars",
+        "points": -4,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "partile_square_saturn_mars",
+        "label_en": "Partill square of Saturn or Mars",
+        "points": -3,
+        "kind": "accidental",
+        "polarity": "debility"
+      },
+      {
+        "key": "conj_caput_algol",
+        "label_en": "In conjunction with Caput Algol in 20 Taurus, or within five degrees",
+        "points": -5,
+        "kind": "accidental",
+        "polarity": "debility"
+      }
+    ],
+    "house_points": {
+      "1": 5,
+      "10": 5,
+      "7": 4,
+      "4": 4,
+      "11": 4,
+      "2": 3,
+      "5": 3,
+      "9": 2,
+      "3": 1,
+      "12": -5,
+      "8": -2,
+      "6": -2
+    }
   }
 }
