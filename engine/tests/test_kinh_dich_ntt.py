@@ -26,8 +26,9 @@ def test_structure(n):
     doc = DOCS[n]
     assert doc["number"] == n and doc["name_han"] == kd.NAME_HAN[n - 1] and doc["name_vi"] == kd.TOC[n - 1][0]
     kinds = [kd.seg_key(s) for s in doc["segments"]]
-    assert sorted(h for k, h in kinds if k == "hao") == [1, 2, 3, 4, 5, 6]
-    assert sorted(h for k, h in kinds if k == "tieu_tuong" and h != "dung") == [1, 2, 3, 4, 5, 6]
+    assert sorted({h for k, h in kinds if k == "hao"}) == [1, 2, 3, 4, 5, 6]      # a text may be printed as several LỜI KINH blocks
+    assert sorted({h for k, h in kinds if k == "tieu_tuong" and h != "dung"}) == [1, 2, 3, 4, 5, 6]
+    assert kd.structure_problems(doc) == []
     assert any(k == "thoan" for k, _ in kinds) and any(k == "thoan_truyen" for k, _ in kinds)
     assert sum(k == "dai_tuong" for k, _ in kinds) >= 1
     assert not any(k == "unknown" for k, _ in kinds)

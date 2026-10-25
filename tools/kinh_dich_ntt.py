@@ -580,11 +580,121 @@ def han_diffs(doc: dict, ref: list[dict]) -> list[dict]:
         for op, i1, i2, j1, j2 in sm.get_opcodes():
             if op == "equal":
                 continue
-            s = owner[min(i1, len(owner) - 1)] if owner else None
+            s = owner[min(i1, len(owner) - 1)] if owner else (segs[0] if segs else None)
             out.append({"n": doc["number"], "kind": key[0], "hao": key[1], "page": s["page"] if s else None,
                         "page_end": s.get("page_end", s["page"]) if s else None, "han_printed_line": s.get("han", "") if s else "",
                         "ours": book[i1:i2], "ref": want[j1:j2], "ours_ctx": book[max(0, i1 - 6):i2 + 6], "ref_ctx": want[max(0, j1 - 6):j2 + 6]})
     return out
+
+
+def page_compare_text(txt: str) -> str:
+    """a page transcription for comparing two transcribers: notes dropped, tags kept (they carry the structure), text normalised"""
+    lines = [ln for ln in txt.split("\n")[1:] if ln.strip() and not ln.startswith("@note")]
+    return "\n".join(norm_vi(ln) for ln in lines)
+
+
+def pass2_diffs(work: Path) -> list[dict]:
+    """check (c): differences between the first and the independent second transcription of the sampled pages"""
+    out = []
+    for f in sorted((work / "pass2").glob("p*.txt"), key=lambda p: int(p.stem[1:])):
+        page = int(f.stem[1:])
+        a = page_compare_text((work / "pass1" / f.name).read_text("utf-8"))
+        b = page_compare_text(f.read_text("utf-8"))
+        sm = difflib.SequenceMatcher(None, b, a, autojunk=False)
+        for op, i1, i2, j1, j2 in sm.get_opcodes():
+            if op != "equal":
+                out.append({"page": page, "pages": [page, page], "layer": "page", "ref": b[i1:i2], "ours": a[j1:j2],
+                            "ref_ctx": b[max(0, i1 - 30):i2 + 30], "ours_ctx": a[max(0, j1 - 30):j2 + 30]})
+    return out
+
+
+def structure_problems(doc: dict) -> list[str]:
+    """check (b): 6 hào and 6 tiểu tượng, a lời quẻ, Thoán truyện and Đại tượng; dụng / Văn ngôn only in Kiền and Khôn"""
+    import collections
+    c = collections.Counter(seg_key(s) for s in doc["segments"])
+    # one hào text or tiểu tượng may be printed as several LỜI KINH blocks (e.g. Phong tiểu tượng 4, p.595)
+    out = [f"{k} {h}: none" for k in ("hao", "tieu_tuong") for h in range(1, 7) if not c[(k, h)]]
+    out += [f"{k}: none" for k in ("thoan", "thoan_truyen", "dai_tuong") if not c[(k, None)]]
+    special = c[("dung", None)] + c[("tieu_tuong", "dung")] + c[("van_ngon", None)]
+    if doc["number"] in (1, 2):
+        out += [f"{k}: none" for k in (("dung", None), ("tieu_tuong", "dung"), ("van_ngon", None)) if not c[k]]
+    elif special:
+        out.append("dụng / Văn ngôn outside Kiền and Khôn")
+    if c[("unknown", None)]:
+        out.append("unknown block")
+    if [s["page"] for s in doc["segments"]] != sorted(s["page"] for s in doc["segments"]):
+        out.append("pages not in order")
+    return out
+
+
+def finalize(work: Path, out: Path = OUT) -> None:
+    """write the checked quẻ: every quẻ whose pages are all transcribed; a segment is 'verified' when (a) its Hán matches 周易 or every
+    difference was seen on the print (ntt/misprints.json), (b) its quẻ has the full structure, it has no [?], and any of its pages in
+    the second-transcription sample agrees after the differences were settled on the image"""
+    pages = read_pages(work / "pass1")
+    blocks, _notes = parse_pages(pages)
+    ques = split_by_que(blocks)
+    seen = {}                                                     # (n, kind, hao, ours, ref) -> verdict on the print
+    for f in sorted(work.glob("handiffs_*.json")):
+        v = work / "adjud" / f"han_{f.stem.split('_', 1)[1]}.json"
+        if not v.exists():
+            continue
+        items = json.loads(f.read_text("utf-8"))
+        for x in json.loads(v.read_text("utf-8")):
+            it = items[x["i"]]
+            seen[(it["n"], it["kind"], str(it["hao"]), it["ours"], it["ref"])] = x
+    absent = json.loads((work / "absent.json").read_text("utf-8")) if (work / "absent.json").exists() else []
+    sample = [int(x) for x in (work / "sample_pass2.txt").read_text().split()]
+    pass2 = json.loads((work / "pass2_result.json").read_text("utf-8")) if (work / "pass2_result.json").exists() else {}
+    ref = han_reference()
+    misprints, written = [], []
+    out.mkdir(parents=True, exist_ok=True)
+    with open(out / "pages.txt", "w", encoding="utf-8") as f:
+        for p in sorted(pages):
+            f.write(pages[p].rstrip("\n") + "\n\n")
+    for n, q in sorted(ques.items()):
+        first = TOC[n - 1][1]
+        last = TOC[n][1] if n < 64 else LAST_PAGE
+        if any(p not in pages for p in range(first, last + 1) if p not in (365, 366)):
+            continue
+        doc = {"number": n, "name_vi": q["name_vi"], "name_han": q["name_han"], "source": "KD", "translator": "Ngô Tất Tố",
+               "heading": q["heading"], "pages": q["pages"], "segments": [finish_segment(s) for s in q["segments"]]}
+        struct = structure_problems(doc)
+        han_open = {}
+        for key, (ok, b, w) in han_check(doc, ref[n]).items():
+            if ok:
+                continue
+            diffs = [d for d in han_diffs(doc, ref[n]) if (d["kind"], d["hao"]) == key]
+            verdicts = [seen.get((n, d["kind"], str(d["hao"]), d["ours"], d["ref"])) for d in diffs]
+            if diffs and all(v and v["verdict"] == "ours" for v in verdicts):
+                misprints.append({"number": n, "kind": key[0], "hao": key[1], "book": b, "reference": w,
+                                  "differences": [{"page": d["page"], "book": d["ours"], "zhouyi": d["ref"], "print": v["print"]}
+                                                  for d, v in zip(diffs, verdicts)], "checked": "seen on the page image"})
+            else:
+                han_open[key] = [v["verdict"] if v else "not yet checked" for v in verdicts]
+        for s in doc["segments"]:
+            for a in absent:
+                if (a["number"], a["kind"], a.get("hao"), a["page"]) == (n, s["kind"], s.get("hao"), s["page"]) \
+                        and s.get("han", "").startswith(a.get("han_starts", "")):
+                    s["absent"] = a["layers"]
+            why = []
+            if struct:
+                why.append("structure: " + "; ".join(struct))
+            if seg_key(s) in han_open:
+                why.append("Hán differs from 周易 and the difference is not settled on the print")
+            if "[?]" in json.dumps(s, ensure_ascii=False):
+                why.append("has unreadable characters [?]")
+            for p in range(s["page"], s.get("page_end", s["page"]) + 1):
+                if p in sample and pass2.get(str(p)) != "agree":
+                    why.append(f"p.{p} is in the second-transcription sample and its differences are not settled")
+            s["status"] = "unverified" if why else "verified"
+            if why:
+                s["status_reason"] = why
+        (out / f"{n}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", "utf-8")
+        written.append(n)
+    (out / "misprints.json").write_text(json.dumps({"note": "Hán of LỜI KINH lines where this printing differs from zh.wikisource 周易, "
+        "each difference seen on the page image; the transcription keeps the print", "han": misprints}, ensure_ascii=False, indent=1) + "\n", "utf-8")
+    print("written:", written)
 
 
 def han(numbers=None) -> int:
@@ -628,5 +738,12 @@ if __name__ == "__main__":
             out += han_diffs(doc, ref[doc["number"]])
         Path(args[1]).write_text(json.dumps(out, ensure_ascii=False, indent=1), "utf-8")
         print(len(out), "Hán differences")
+    elif cmd == "pass2diffs":
+        d = pass2_diffs(Path(args[0]))
+        Path(args[1]).write_text(json.dumps(d, ensure_ascii=False, indent=1), "utf-8")
+        chars = sum(len(page_compare_text(f.read_text("utf-8"))) for f in (Path(args[0]) / "pass2").glob("p*.txt"))
+        print(len(d), "differences on", len(list((Path(args[0]) / "pass2").glob("p*.txt"))), "pages,", chars, "chars")
+    elif cmd == "finalize":
+        finalize(Path(args[0]))
     elif cmd == "han":
         han([int(x) for x in args] or None)
