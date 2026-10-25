@@ -39,12 +39,15 @@ def test_full_chart_structure():
     assert {"a": "sun", "b": "venus", "by": "mixed"} in c["receptions"]
 
 
-def test_night_chart_reverses_fortune_unless_disabled():
-    night = C.BirthData(1990, 5, 17, 22, 30, **HCM)
-    c = C.compute(night)
-    assert not c["sect"]["is_day"] and c["lots"]["fortune"]["formula"] == "ASC + Sun - Moon"
-    c2 = C.compute(night, C.ChartOptions(lot_reversal=False))
-    assert c2["lots"]["fortune"]["formula"] == "ASC + Moon - Sun"
+def test_lot_of_fortune_rules_by_school():
+    night = C.BirthData(1990, 5, 18, 2, 30, **HCM)         # night; the waning Moon (Aquarius) has risen
+    c = C.compute(night)                                    # Ptolemy III.10: same formula by day and night
+    assert not c["sect"]["is_day"] and c["lots"]["fortune"]["formula"] == "ASC + Moon - Sun"
+    assert C.compute(night, C.ChartOptions(lot_rule="sect"))["lots"]["fortune"]["formula"] == "ASC + Sun - Moon"
+    v = C.compute(night, C.ChartOptions(lot_rule="valens"))["lots"]
+    assert v["moon_altitude"] > 0 and v["fortune"]["formula"] == "ASC + Sun - Moon"     # Valens III.14: Moon still up
+    late = C.compute(C.BirthData(1990, 5, 17, 22, 30, **HCM), C.ChartOptions(lot_rule="valens"))  # night, Moon not yet risen
+    assert not late["sect"]["is_day"] and late["lots"]["moon_altitude"] < 0 and late["lots"]["fortune"]["formula"] == "ASC + Moon - Sun"
 
 
 def test_unknown_time_has_no_houses_and_flags_the_moon():

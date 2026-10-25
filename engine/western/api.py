@@ -32,8 +32,8 @@ class OptionsIn(BaseModel):
     triplicity: str = Field("dorothean", pattern="^(dorothean|ptolemaic)$")
     terms: str = Field("egyptian", pattern="^(egyptian|ptolemaic)$")
     rulers: str = Field("traditional", pattern="^(traditional|modern)$")
-    lot_reversal: bool = True
-    solar_phase: str = Field("traditional", pattern="^(traditional|hellenistic)$")
+    lot_rule: str = Field("ptolemy", pattern="^(ptolemy|valens|sect)$")
+    solar_phase: str = Field("traditional", pattern="^traditional$")
 
 
 class ChartReq(BaseModel):

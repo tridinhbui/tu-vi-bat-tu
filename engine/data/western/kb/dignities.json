@@ -85,12 +85,12 @@
   },
   "triplicity": {
     "dorothean": {
-      "vi": "Dorotheus / Valens (ba chủ: ngày, đêm, đồng chủ)",
+      "vi": "Valens (ba chủ: ngày, đêm, đồng chủ)",
       "school": "hellenistic",
       "source": [
-        "VALENS_ANTH"
+        "VALENS_ANTH:II.1 (Riley p.25)"
       ],
-      "status": "pending_check",
+      "status": "verified",
       "table": {
         "fire": [
           "sun",
@@ -112,7 +112,8 @@
           "mars",
           "moon"
         ]
-      }
+      },
+      "note": "Valens lists the day and night lords and a third 'co-working' lord for each triangle; the same set is often called Dorothean."
     },
     "ptolemaic": {
       "vi": "Ptolemy / Lilly (chủ ngày, chủ đêm)",
@@ -741,12 +742,6 @@
       ],
       "status": "pending_source"
     },
-    "hellenistic": {
-      "beams_deg": 15.0,
-      "source": [
-        "VALENS_ANTH"
-      ],
-      "status": "pending_source"
-    }
+    "_note": "Valens uses 'under the rays' without a number (Riley II.8), so no Hellenistic numeric limit is offered."
   }
 }

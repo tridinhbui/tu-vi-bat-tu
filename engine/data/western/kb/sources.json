@@ -18,7 +18,8 @@
     "edition": "London, 1647 (first edition)",
     "rights": "public domain",
     "locator": "printed page of 1647",
-    "note": "Lilly's dignity table (p.104) follows 'Ptolomy' for triplicities (day/night only) and terms."
+    "note": "Lilly's dignity table (p.104) follows 'Ptolomy' for triplicities (day/night only) and terms. Page images: Wellcome Collection copy b30338724 (PDF page = printed page + 34).",
+    "extract": "sources/lilly_1647.json"
   },
   "VALENS_ANTH": {
     "school": "hellenistic",
@@ -26,14 +27,17 @@
     "title": "Anthologies",
     "edition": "tr. Mark T. Riley (2010, distributed free by the translator)",
     "rights": "translation in copyright, used for short citations and paraphrase only",
-    "locator": "book.chapter, PDF page"
+    "locator": "book.chapter (Kroll/Pingree), Riley printed page",
+    "url": "https://www.skyscript.co.uk/pdf/pubs/texts/valens/riley/docs/Vettius_Valens_Riley.pdf",
+    "extract": "sources/valens_riley.json"
   },
   "LEO": {
     "school": "modern",
     "author": "Alan Leo",
-    "title": "works 1899-1912 (The Progressed Horoscope; How to Judge a Nativity; Astrology for All)",
+    "title": "The Progressed Horoscope (1906); How to Judge a Nativity (1928 printing); The Art of Synthesis (1926 printing); Astrology for All (1910)",
     "rights": "public domain",
-    "locator": "book, chapter, printed page"
+    "locator": "book, chapter, printed page",
+    "extract": "sources/leo.json"
   },
   "JPL_DE440": {
     "school": "astronomy",

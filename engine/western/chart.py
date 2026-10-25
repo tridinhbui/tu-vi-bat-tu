@@ -32,8 +32,9 @@ class ChartOptions:
     triplicity: str = "dorothean"
     terms: str = "egyptian"
     rulers: str = "traditional"            # "traditional" (7 planets) or "modern" (Uranus/Neptune/Pluto co-rule)
-    lot_reversal: bool = True              # Fortune reversed by night (Valens); False = day formula always (Ptolemy)
-    solar_phase: str = "traditional"       # combust / cazimi / beams limits
+    lot_rule: str = "ptolemy"              # Fortune: "ptolemy" same formula day and night (Tetrabiblos III.10); "valens" reversed
+                                           # by night only while the Moon is above the horizon (Valens III.14); "sect" reversed by night
+    solar_phase: str = "traditional"       # combust / cazimi / beams limits (Lilly)
 
     @classmethod
     def from_dict(cls, d: dict | None) -> "ChartOptions":
@@ -155,7 +156,7 @@ def compute(birth: BirthData, opts: ChartOptions | None = None) -> dict:
             out["angles"][k]["house_ws"] = H.house_of(out["angles"][k]["lon"], cusp_sets["whole_sign"])
         out["sect"] = _sect(bodies, birth, t)
         is_day = out["sect"]["is_day"]
-        out["lots"] = _lots(asc, bodies, is_day, opts.lot_reversal, cusp_sets[used], cusp_sets["whole_sign"])
+        out["lots"] = _lots(asc, bodies, is_day, opts.lot_rule, _altitude(bodies["moon"], birth, t), cusp_sets[used], cusp_sets["whole_sign"])
         out["house_rulers"] = _house_rulers(cusp_sets[used], cusp_sets["whole_sign"], allpts, opts)
 
     out["conditions"] = {n: _conditions(n, bodies, is_day, opts, jd_tt) for n in E.BODIES}
@@ -179,30 +180,38 @@ def compute(birth: BirthData, opts: ChartOptions | None = None) -> dict:
     return out
 
 
-def _sect(bodies: dict, birth: BirthData, t) -> dict:
-    """Day chart when the Sun's centre is above the true horizon (geometric altitude > 0; no refraction)."""
+def _altitude(b: dict, birth: BirthData, t) -> float:
+    """Geometric altitude of a body's centre (degrees, no refraction)."""
     gast = E.sidereal_and_obliquity(t)[0]
-    sun = bodies["sun"]
-    ha = math.radians((gast + birth.lon - sun["ra"]) % 360.0)
-    phi, dec = math.radians(birth.lat), math.radians(sun["dec"])
-    alt = math.degrees(math.asin(math.sin(phi) * math.sin(dec) + math.cos(phi) * math.cos(dec) * math.cos(ha)))
+    ha = math.radians((gast + birth.lon - b["ra"]) % 360.0)
+    phi, dec = math.radians(birth.lat), math.radians(b["dec"])
+    return math.degrees(math.asin(math.sin(phi) * math.sin(dec) + math.cos(phi) * math.cos(dec) * math.cos(ha)))
+
+
+def _sect(bodies: dict, birth: BirthData, t) -> dict:
+    """Day chart when the Sun's centre is above the true horizon. Mercury's sect two ways: Ptolemy I.7 (morning star = diurnal)
+    and Valens III.5 (the sect of the lord of the terms it occupies)."""
+    alt = _altitude(bodies["sun"], birth, t)
     is_day = alt > 0
     merc_oriental = angdiff(bodies["sun"]["lon"], bodies["mercury"]["lon"]) > 0     # Mercury behind the Sun = rises first
+    term_lord = dignity.term_lord(bodies["mercury"]["lon"], "egyptian")
+    sect_of = {"sun": "diurnal", "jupiter": "diurnal", "saturn": "diurnal", "moon": "nocturnal", "venus": "nocturnal", "mars": "nocturnal"}
     return {"is_day": is_day, "sun_altitude": round(alt, 4), "borderline": abs(alt) < 1.0, "light": "sun" if is_day else "moon",
             "benefic_of_sect": "jupiter" if is_day else "venus", "malefic_of_sect": "saturn" if is_day else "mars",
             "benefic_contrary": "venus" if is_day else "jupiter", "malefic_contrary": "mars" if is_day else "saturn",
-            "mercury_sect": "diurnal" if merc_oriental else "nocturnal"}
+            "mercury_sect": "diurnal" if merc_oriental else "nocturnal",
+            "mercury_sect_valens": sect_of.get(term_lord, "common"), }
 
 
-def _lots(asc: float, bodies: dict, is_day: bool, reverse: bool, cusps_used: list, cusps_ws: list) -> dict:
+def _lots(asc: float, bodies: dict, is_day: bool, rule: str, moon_alt: float, cusps_used: list, cusps_ws: list) -> dict:
     sun, moon = bodies["sun"]["lon"], bodies["moon"]["lon"]
-    day_formula = is_day or not reverse
+    day_formula = is_day or rule == "ptolemy" or (rule == "valens" and moon_alt <= 0)
     fortune = asc + (moon - sun if day_formula else sun - moon)
     spirit = asc + (sun - moon if day_formula else moon - sun)
     mk = lambda x, f: _point(x, None, formula=f, house=H.house_of(x % 360, cusps_used), house_ws=H.house_of(x % 360, cusps_ws))
     return {"fortune": mk(fortune, "ASC + Moon - Sun" if day_formula else "ASC + Sun - Moon"),
             "spirit": mk(spirit, "ASC + Sun - Moon" if day_formula else "ASC + Moon - Sun"),
-            "reversed_by_night": reverse}
+            "rule": rule, "moon_altitude": round(moon_alt, 4)}
 
 
 def ruler(sign: str, scheme: str = "traditional") -> str:
