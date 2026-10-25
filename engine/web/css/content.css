@@ -83,3 +83,7 @@
   .cal-day.clash::before{content:"";width:7px;height:7px;padding:0;background:var(--cinnabar);top:5px;right:5px}
   .cal-day.tkd::after{content:"";position:absolute;bottom:5px;right:5px;width:6px;height:6px;border-radius:50%;background:var(--jade)}
 }
+/* ---- cung hoàng đạo ---- */
+.cards .hd-glyph{width:20px;height:20px;vertical-align:-3px;margin-right:4px;color:var(--cinnabar)}
+.cmain h1 .hd-glyph{width:.85em;height:.85em;vertical-align:-.08em;color:var(--cinnabar)}
+.hd-page #hd-out{margin:var(--s4) 0}

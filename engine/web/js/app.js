@@ -23,6 +23,7 @@ import { initAiCards } from './ai_card.js';
 import { initLive } from './live.js';
 import { initGrowth } from './growth.js';
 import { renderOverview } from './overview.js';
+import { renderHoangDao, hoangdaoChip } from './hoangdao.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const metaReady = Promise.all([loadMeta(), loadGlossary()]);
@@ -76,6 +77,7 @@ document.addEventListener('click', e => {
   else if (act === 'print-full') { e.preventDefault(); printNow(true); }
   else if (act === 'again') { e.preventDefault(); again(); }
   else if (act === 'save') { e.preventDefault(); $('#save-host button')?.click(); $('.atl-mast').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
+  else if (act === 'hoangdao') { e.preventDefault(); setTab('tuvi', false); history.replaceState({ v: 'chart' }, '', '#la-so/tu-vi'); requestAnimationFrame(() => $('#hd-card')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })); }
   else if (act === 'scroll') { e.preventDefault(); $(a.dataset.target)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
 });
 if (/^#(hoc|kham-pha|tu-vi|bat-tu|gioi-thieu)/.test(location.hash)) history.replaceState(null, '', location.pathname);
@@ -290,7 +292,9 @@ function showResults() {
   const lu = state.lunarIn ? `<span>Nhập âm lịch ${state.lunarIn.day}/${state.lunarIn.month}/${state.lunarIn.year}${state.lunarIn.leap ? ' nhuận' : ''}</span>` : '';
   const has = req.day != null;   // false on a share link with the birth hidden: the page never received the day, month or hour
   $('#res-sub').innerHTML = (has && lu ? bd(lu) : '') + `<span><b>${bd(`${String(req.day).padStart(2, '0')}/${String(req.month).padStart(2, '0')}/`, has, DM)}${req.year}</b>${bd(` · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}`, has, ' · giờ sinh ẩn')}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${bd(`${t.lunar.day}/${t.lunar.month}/`, t.lunar.day != null, DM)}${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
-  $('#res-hl').innerHTML = `<button type="button" class="hl-chip gl" data-gl="c:nhat-chu">${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></button><button type="button" class="hl-chip gl" data-gl="c:cuc">${esc(t.cuc.name)}</button><button type="button" class="hl-chip gl" data-gl="c:nap-am">Mệnh ${esc(t.menh_nap_am)}</button>`;
+  $('#res-hl').innerHTML = `<button type="button" class="hl-chip gl" data-gl="c:nhat-chu">${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></button><button type="button" class="hl-chip gl" data-gl="c:cuc">${esc(t.cuc.name)}</button><button type="button" class="hl-chip gl" data-gl="c:nap-am">Mệnh ${esc(t.menh_nap_am)}</button>` + (has ? hoangdaoChip(chart.western) : '');
+  // cung hoàng đạo card at the top of the Tử Vi pane; a share link with the birth day hidden never shows it (the Worker also drops the block)
+  renderHoangDao($('#hoangdao-host'), has ? chart.western : null);
   saver.paint(); paintShareBtn();
   // the overview tab opens first when the server sent it; its chapter buttons open the matching Tử Vi chapter
   const ov = !!state.overview?.indices;
