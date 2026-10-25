@@ -233,9 +233,13 @@ export function deepParagraphs(chart: ChartInput, k: Knowledge, id: string, sh: 
           // relation with no chart side is told bare only when its chart condition (`when`) holds here, a definitional one not at all
           else if (!facts && r.when) xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
           else if (facts) {
-            const side = fill(W.pick(`${key}|rf`, D.relation_facts), { facts }), one = `${cap(r.text)}; ${side.charAt(0).toLocaleLowerCase('vi')}${side.slice(1)}`;
-            // one sentence when it stays readable (≤35 words, readable.test), else the book's line and the chart's side apart
-            if (one.split(/\s+/).length <= 35) xs.push(S(one, { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
+            const join1 = (f: string) => { const side = fill(W.pick(`${key}|rf`, D.relation_facts), { facts: f }); return `${cap(r.text)}; ${side.charAt(0).toLocaleLowerCase('vi')}${side.slice(1)}`; };
+            const side = fill(W.pick(`${key}|rf`, D.relation_facts), { facts });
+            // one sentence when it stays readable (≤35 words, readable.test) — without the domain verdict's echo if that makes it fit —, else
+            // the book's line and the chart's side apart
+            const words = (t: string) => t.split(/\s+/).length, full = join1(facts), bare = join1(facts.split('; ')[0]);
+            const one = words(full) <= 35 ? full : bare;
+            if (words(one) <= 35) xs.push(S(one, { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
             else {
               xs.push(S(cap(r.text), { move: 'VIA', step: `link:${r.id}`, basis: 'sach', cites: [`${r.book ?? "KL"} p.${r.page}`], concepts: [] }));
               xs.push(S(side, { move: 'VIA', step: `link:${r.id}:facts`, basis: 'tinh_toan', concepts: [] }));

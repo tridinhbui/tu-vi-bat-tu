@@ -39,7 +39,7 @@ export interface LuanLib {
   /** one lead-in for two short neighbouring topics told as one paragraph ("su_nghiep|duong_doi") */
   lead_pair: Record<string, string[]>;
   frame: Record<'open' | 'open_pair' | 'open_vcd' | 'open_empty' | 'tp_contrast' | 'tp_add' | 'opp_contrast' | 'opp_add' | 'with' | 'tt' | 'tt_alone' | 'group' | 'group_self', string[]>;
-  tail: Record<'synth' | 'advice' | 'edge', string[]> & { synth_other?: string[] };
+  tail: Record<'synth' | 'advice' | 'edge', string[]>;
   than: Record<'pos' | 'meaning' | 'same' | 'rule' | 'borrow', string[]>;
   pos: Record<'giap' | 'nhi_hop' | 'luc_hai', string[]>;
   late: Record<'list' | 'pos' | 'item' | 'calm' | 'course', string[]>;
@@ -685,9 +685,10 @@ function tail(W: Writer, L: LuanLib, xs: ProseSentence[], units: Array<{ seat?: 
     out.push(W.sentence(fill(W.pick(`tail|edge|${key}`, L.tail.edge), { a: W.np(edge.p!), b: W.np(edge.n!), seat: edge.u.seat!.star! }), { move: 'VALUE', step: `edge:${edge.p}|${edge.n}`, basis: 'he_thong', concepts: [edge.p!, edge.n!] }));
   // two strengths set side by side only when both were told plainly: a softened claim means the two do not simply 'go one way'
   else if (!neg.length && !answer && strong.length >= 2) {
-    const [a, b] = strong, th = W.theirs(a);
-    if (th === W.theirs(b) && (!th || L.tail.synth_other?.length))
-      out.push(W.sentence(fill(W.pick(`tail|synth|${key}`, th ? L.tail.synth_other! : L.tail.synth), { a: W.np(a), b: W.np(b), S: th ? W.S(a) : '' }), { move: 'VALUE', step: `synth:${a}|${b}`, basis: 'he_thong', concepts: [a, b] }));
+    // a palace of other people: two of their traits are not set side by side (DEEP-3: the pairing read the same on most charts)
+    const [a, b] = strong, th = W.theirs(a) || W.theirs(b);
+    if (!th)
+      out.push(W.sentence(fill(W.pick(`tail|synth|${key}`, L.tail.synth), { a: W.np(a), b: W.np(b) }), { move: 'VALUE', step: `synth:${a}|${b}`, basis: 'he_thong', concepts: [a, b] }));
   }
   return out;
 }

@@ -95,7 +95,10 @@ export function proseCachCuc(chart: ChartInput, k: Knowledge, seed: string, engi
         : st === 'hinh_thuc' ? (x.r.missing.length ? fill(m.pick(`fs|${id}`, F.hinh_thuc), { missing: joinVi(x.r.missing.slice(0, 2)) }) : m.pick(`fs|${id}`, F.hinh_thuc_bare))
         : m.pick(`fs|${id}`, F[st] ?? F.thanh);
       const stCites = st === 'thanh_thuong' ? pages('boosters', x.r.boosters) : st === 'bi_pha' ? pages('breakers', [...x.r.breakers, ...x.r.uncovered]) : ev?.core ?? [];
-      say(xs, text, `cach:${id}:state`, 'sach', [id], stCites.sort());
+      // a plain thành (or a core the books already call fine) with the page's meaning for that state: the meaning says it (DEEP-3: the bare
+      // "Cách thành" / "Riêng phần lõi đã là một quý cách" line read the same on half the charts)
+      const plain = (st === 'thanh' || st === 'thanh_core') && !!ev?.meaning?.thanh;
+      if (!plain) say(xs, text, `cach:${id}:state`, 'sach', [id], stCites.sort());
       if (x.r.refutations.length && L!.f_refute) say(xs, fill(m.pick(`fr|${id}`, L!.f_refute), { refute: lab(x.r.refutations) }), `cach:${id}:refute`, 'sach', [id], pages('refutations', x.r.refutations).sort());
       // what the cách brings in this state, as the page says (formations_verified meaning, DEEP-3); with it the system's degree line is not
       // needed, without it the degree line stands
