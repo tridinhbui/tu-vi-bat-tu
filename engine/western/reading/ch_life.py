@@ -2,9 +2,10 @@
 from __future__ import annotations
 
 from .. import dignity, houses as H, kb
+from .. import stars as STARS
 from ..zodiac import SIGNS, angdiff, sign_distance, sign_index
 from .ch_core import M, lilly_condition
-from .compose import Para, cap, ev_house, ev_planet, ev_point, listing, planet_list, srcs
+from .compose import Para, cap, ev_house, ev_planet, ev_point, ev_star, listing, planet_list, srcs
 from .facts import BENEFICS, CLASSICAL, FIVE, MALEFICS, OPERATIONAL, Facts
 from .vocab import ASPECT_NOUN, ASPECT_VI, P, S, num
 
@@ -100,11 +101,19 @@ def career(f: Facts) -> list[Para]:
         t2 += f" Chủ cung Mọc là {P(asc_lord)} lại đứng ở Nhà 10: Lilly nói đó là dấu hiệu có tiếng tốt."
     elif f.house_lilly(lord_mc) == 1:
         t2 += f" Chủ Thiên Đỉnh là {P(lord_mc)} đứng ở Nhà 1: Lilly nói đó là dấu hiệu có tiếng tốt."
+    royal = [(p, f.stars_near(p, STARS.ROYAL_616)[0]) for p in dict.fromkeys(["sun", "moon", lord_mc] + in10) if f.stars_near(p, STARS.ROYAL_616)]
+    if royal:
+        t2 += (f" {cap(listing([f'{P(p)} đứng cách {STARS.SHORT[k]} không quá 5°' for p, k in royal]))}: đây là định tinh "
+               f"'mang ý nghĩa vương giả' trong danh sách của Lilly; ông coi thế đứng ấy là dấu hiệu thăng tiến, và khi gom các chứng "
+               f"về danh vọng thì mỗi lần đồng độ như vậy được tính bằng ba chứng (tr.616)"
+               + (", nên nó kéo cán cân lên so với phần phẩm vị yếu ở trên." if "low" in (g_sun, g_l) else "."))
     t2 += " ⟦Lilly tự dặn không được kết luận từ một câu cách ngôn riêng lẻ, và cùng một lời hứa thì mỗi người nhận theo hoàn cảnh của mình (tr.617).⟧"
     out.append(Para("sn.lilly", "Danh vọng và chức vị theo Lilly", t2, "traditional", srcs("LILLY_CA:pp.615-617", "LILLY_CA:p.104"),
-                    [ev_planet(c, "sun", f.house_lilly("sun")), ev_planet(c, lord_mc, f.house_lilly(lord_mc)), ev_point(c, "mc")], "overview",
-                    polarity=+1 if "high" in (g_sun, g_l) and not mal10 else -1 if (g_sun, g_l) == ("low", "low") else 0, topic="su_nghiep",
-                    keys=[f"honour:{g_sun}:{g_l}"]))
+                    [ev_planet(c, "sun", f.house_lilly("sun")), ev_planet(c, lord_mc, f.house_lilly(lord_mc)), ev_point(c, "mc")]
+                    + [ev_planet(c, p, f.house_lilly(p)) for p, _ in royal] + [ev_star(c, k) for _, k in royal], "overview",
+                    steps=[OPERATIONAL["fixed_stars"]] if royal else [],
+                    polarity=+1 if ("high" in (g_sun, g_l) or royal) and not mal10 else -1 if (g_sun, g_l) == ("low", "low") and not royal else 0,
+                    topic="su_nghiep", keys=[f"honour:{g_sun}:{g_l}"] + [f"royal_star:{p}:{k}" for p, k in royal]))
     lp = f.lilly_profession()
     if lp and lp["significator"]:
         sg = lp["significator"]

@@ -37,7 +37,9 @@ Khác biệt giữa các trường phái được giữ, không trộn: bảng t
 
 **Chưa có nguồn đã kiểm, nên không luận:** ý nghĩa Sao Diêm Vương và Chiron (chỉ hiện vị trí), các cấu hình hiện đại (T-square, Yod… chỉ ghi hình học), ý nghĩa từng cặp góc hợp trong synastry, orb hiện đại (quy ước Thiên Bàn, ghi rõ). Brennan, Arroyo, Robert Hand còn bản quyền và không có bản đọc hợp pháp miễn phí, nên không được trích.
 
-**Định nghĩa của Thiên Bàn khi sách để ngỏ** (`reading/facts.py: OPERATIONAL`, hiện trong "Đọc sâu"): ngưỡng đắc/thất thế (±4 điểm bản chất theo Lilly), partile = cùng số độ, "mới mọc buổi sáng" của Ptolemy = cách Mặt Trời ≥ 15°, "đáng trọng" của Ptolemy = ở nhà/tôn vinh/tam hợp của mình và không bị Mặt Trời che, bị vây = Thổ và Hỏa hai bên trong cùng cung. Định tinh chưa vào bảng điểm.
+**Định nghĩa của Thiên Bàn khi sách để ngỏ** (`reading/facts.py: OPERATIONAL`, hiện trong "Đọc sâu"): ngưỡng đắc/thất thế (±4 điểm bản chất theo Lilly), partile = cùng số độ, "mới mọc buổi sáng" của Ptolemy = cách Mặt Trời ≥ 15°, "đáng trọng" của Ptolemy = ở nhà/tôn vinh/tam hợp của mình và không bị Mặt Trời che, bị vây = Thổ và Hỏa hai bên trong cùng cung, đồng độ với định tinh = cách không quá 5° theo kinh độ (Lilly tr.616; tr.115 với Algol).
+
+**Định tinh** (`western/stars.py`): ba sao của bảng điểm Lilly tr.115 (Cor Leonis +6, Spica +5, Caput Algol −5) và sáu sao vương giả của luật danh vọng tr.616 (Oculus Tauri = Aldebaran, Hercules = Pollux, Cor Leonis, Spica, Lucida Lancis = Zubenelgenubi, Cor Scorpii = Antares; tên của Lilly ứng với sao theo kinh độ năm 1647 ông in, cộng tuế sai, lệch < 0,5°). Vị trí tính cho ngày sinh từ dữ liệu Hipparcos; khớp Swiss Ephemeris dưới 0,1″ năm 1900–2050.
 
 ## 3. Luận giải
 
@@ -46,9 +48,23 @@ Khác biệt giữa các trường phái được giữ, không trộn: bảng t
 Mỗi đoạn: `heading, text, school, sources[{id, loc, label}], evidence[{kind, id, label}], level (overview/deep), tier, steps, polarity`.
 Kiểm toán chạy trên mọi bản luận: thiếu nguồn, trộn trường phái, câu lặp, câu chung chung kiểu Barnum, từ cấm (chắc chắn, chết, tên bệnh, tội phạm), đoạn trái chiều chưa đối chiếu. Đánh giá trên nhiều lá: `python tools/west/eval_reading.py N` (strip test, đổi giờ sinh 2 giờ, đổi kinh độ 0,001°).
 
+## 3b. Thu phí một phần (chủ site chốt 2026-10-25)
+
+Worker cắt `/api/west/reading` theo người đọc (`src/billing/west.ts`, bật cùng `TVBT_PAYWALL`); bản đồ, bảng, bánh xe, dữ liệu vận hạn (transit, progression, profection, solar return) và synastry không bị cắt.
+
+| Người đọc | Được đọc |
+|---|---|
+| Khách (chưa đăng nhập) | nửa đầu phần luận chính của mỗi chương |
+| Thành viên (miễn phí) | trọn phần luận chính của 11 chương lá số gốc; Đọc sâu của Tổng quan, Hành tinh, Góc hợp, Tính cách; nửa đầu Tổng hợp và Thời vận |
+| Gói "Chiêm tinh" (99 xu, giá tạm) | thêm Đọc sâu của Tư duy, Cảm xúc, Sự nghiệp, Tài chính, Quan hệ, Gia đình, Định hướng, và trọn Tổng hợp, Thời vận |
+
+Gói mua cho một ngày giờ + nơi sinh (dấu vân tay `w:năm:tháng:ngày:giờ:phút:vĩ độ:kinh độ:múi giờ`, khác lá số Tử Vi); gói Tử Vi không mở chương Chiêm tinh và ngược lại. Đăng nhập từ thẻ khóa quay về `/chiem-tinh/` (`?next=`, chỉ nhận đường dẫn nội bộ) và mở lại bản đồ đang xem.
+
 ## 4. API
 
 `GET /api/west/places?q=` · `POST /api/west/chart` · `/transits` · `/progressions` · `/profections` · `/solar-return` · `/reading` · `/synastry` (xem `engine/western/api.py`). Không lưu dữ liệu sinh.
+
+**Máy chủ:** đã thử đổi container production từ `lite` (1/16 vCPU, 256 MiB) sang `basic` (1/4 vCPU, 1 GiB) ngày 2026-10-25 (`instance_type` trong `wrangler.jsonc`), nhưng lần build Cloudflare đó thất bại và chưa đọc được log (cần đăng nhập dashboard), nên đã gỡ lại. Muốn đổi: xem log build, rồi đặt lại `"instance_type": "basic"`. Chi phí dự tính: CPU tính theo mức dùng thật; bộ nhớ và đĩa tính khi container thức (ngủ sau 10 phút không có request), nếu thức cả tháng thì thêm khoảng 6 USD so với `lite`.
 
 ## 5. Tái tạo dữ liệu
 
@@ -61,5 +77,5 @@ python tools/west/build_places.py <geonames dir>  # GeoNames → places.json.gz
 ## 6. Còn thiếu / chưa kiểm
 
 - Đối chiếu trực tiếp trên Astro.com cần bấm đồng ý điều khoản của Astrodienst; Astro-Seek chặn bằng kiểm tra chống bot. Thay vào đó đã đối chiếu với Swiss Ephemeris (thư viện Astro.com dùng) và JPL Horizons.
-- Valens: dựng lại lá năm theo Mặt Trăng (V.5), profection tháng/ngày chưa làm. Lilly: cung bị chặn (intercepted) ở Nhà 2/3 chưa xét; định tinh chưa tính điểm.
+- Valens: dựng lại lá năm theo Mặt Trăng (V.5) và profection tháng/ngày chưa làm, có chủ ý (2026-10-25): vận năm đã có profection và Solar Return; đoạn V.5 của bản Riley khó đọc, dễ diễn sai, nên chờ có thêm nguồn đối chiếu. Lilly: cung bị chặn (intercepted) ở Nhà 2/3 chưa xét.
 - Ngày trước 1899 hoặc sau 2100 bị từ chối (giới hạn của file lịch thiên văn đi kèm).

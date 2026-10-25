@@ -61,6 +61,33 @@
    "locator": "Part II pp. 40-82 (Trumps Major descriptions); Part III pp. 90-145 (Lesser Arcana, Divinatory Meanings), pp. 146-147 (Section 3, Greater Arcana divinatory meanings)",
    "verified": true,
    "note": "Public domain: published in the United States in 1916 (before 1930); Waite's text first published 1910/1911 and Waite died in 1942. The reissue adds '(Nature)' after 'God' in places; those spans are not quoted. Used only for the Tarot readings (engine/data/tarot/pack_tarot_pkt.json, tools/build_tarot_pack.py); every quote is checked on its printed page. Left out on purpose: death, illness, pregnancy or childbirth, accidents, prison or crime, sexual conduct, legal or financial instructions, lines framed as a certain future event, and the whole of Section 4 'Some additional meanings' (pp. 148-151)."
+  },
+  {
+   "id": "SRC_ALAN_LEO_AFA",
+   "title": "Astrology for All",
+   "author": "Alan Leo",
+   "edition": "4th ed., London 1910; scan archive.org dli.ernet.19807 (Digital Library of India), OCR text layer; printed page = PDF page - 15 for pp.5-48, - 13 for pp.51-62 (pp.49-50 are not in the scan)",
+   "locator": "pp.13-47 (chapters IV-XV, the character of each Sun sign), pp.55-60 (the signs considered separately)",
+   "verified": true,
+   "note": "Public domain (published 1910; author d. 1917). Cung hoàng đạo readings only, paraphrased in Vietnamese with the page; health, marriage, events and 1910-era claims about women or races are left out (tools/data/hoang_dao_rules.json)."
+  },
+  {
+   "id": "SRC_LILLY_CA",
+   "title": "Christian Astrology",
+   "author": "William Lilly",
+   "edition": "1st ed., London 1647; scan Wellcome Collection b30338724; printed page = PDF page - 34 for pp.61-103",
+   "locator": "pp.93-99 (Book I ch. XVI, the nature of the twelve signs)",
+   "verified": true,
+   "note": "Public domain (published 1647). Used only for each sign's classification as the page states it (triplicity, moveable / fixed / common, house of a planet)."
+  },
+  {
+   "id": "SRC_PTOLEMY_TETRABIBLOS",
+   "title": "Tetrabiblos",
+   "author": "Claudius Ptolemy (bản dịch J. M. Ashmand)",
+   "edition": "J. M. Ashmand's English translation, London 1822; scan Wellcome Collection b29293066; printed page = PDF page - 36 for pp.4-54",
+   "locator": "Book I ch. XIV (pp.34-35), ch. XX-XXI (pp.42-45)",
+   "verified": true,
+   "note": "Public domain (translation published 1822). Used only for the houses of the planets, the triplicities and the tropical / equinoctial signs as stated; the translator's footnotes are not used."
   }
  ]
 }

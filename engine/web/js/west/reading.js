@@ -5,6 +5,7 @@ import { esc } from '../util.js';
 import { EV, evMark } from '../atlas.js';
 import { SCHOOL } from './vocab.js';
 import { westPost } from './api.js';
+import { lockHtml } from '../paywall.js';
 
 /** Parse an evidence item into a wheel selection (null = nothing to light up, e.g. a rule). Aspect ids are matched loosely
  *  ("sun-moon-trine", "sun|moon|trine", "aspect:sun:moon:trine") against the chart's own aspect list. */
@@ -48,8 +49,10 @@ const para = (p, deep, chart) => {
 export function renderReading(host, data, { deep, chart }) {
   const chs = (data.chapters || []).map(c => {
     const ps = (c.paragraphs || []).filter(p => deep || p.level !== 'deep');
-    if (!ps.length && !c.lead) return '';
-    return `<section class="wt-chap" id="wt-c-${esc(c.id)}">${c.title ? `<h3>${esc(c.title)}</h3>` : ''}${c.lead ? `<p class="lead">${esc(c.lead)}</p>` : ''}${ps.map(p => para(p, deep, chart)).join('')}</section>`;
+    // the server held part of the chapter back (src/billing/west.ts): its lock card; a held-back Đọc sâu shows only in Đọc sâu mode
+    const lock = c.locked && (c.locked.total > c.locked.shown || (deep && c.locked.deep)) ? lockHtml({ chapter: c.locked.chapter, locked: c.locked }) : '';
+    if (!ps.length && !c.lead && !lock) return '';
+    return `<section class="wt-chap" id="wt-c-${esc(c.id)}">${c.title ? `<h3>${esc(c.title)}</h3>` : ''}${c.lead ? `<p class="lead">${esc(c.lead)}</p>` : ''}${ps.map(p => para(p, deep, chart)).join('')}${lock}</section>`;
   }).join('');
   const legend = `<ul class="ev-legend wt-evleg" aria-label="Chú giải ba lớp thông tin">${['calc', 'src', 'hyp'].map(k => `<li title="${esc(EV[k].hint)}">${evMark(k)}${EV[k].label}</li>`).join('')}</ul>`;
   host.innerHTML = legend + (chs || '<p class="note">Máy chủ chưa trả về đoạn luận giải nào cho bản đồ này.</p>') + (data.disclaimer ? `<p class="cnote">${esc(data.disclaimer)}</p>` : '');

@@ -8,6 +8,7 @@ import { positionsTable, outerTable, cuspsTable, aspectsList, aspectsGrid, digni
 import { initBirthForm, placeBox, latLonTxt } from './form.js';
 import { initForecast } from './timeline.js';
 import { loadReading } from './reading.js';
+import { initPaywall } from '../paywall.js';
 import { initSynastry } from './synastry.js';
 import * as store from './store.js';
 import { WARN, ASPECT, bodyName, bodyGlyph, aspName, aspGlyph, signLabel, num, fmtDate, zonedMs, zonedParts, isoDay, hhmm, HOUSE_SYS } from './vocab.js';
@@ -200,6 +201,17 @@ $$('#read-mode button').forEach(b => b.onclick = () => {
   loadReading($('#reading'), S.inp, S.natal, { deep: S.deep, gender: S.gender });
 });
 
+// ----- the paid part of the reading (src/billing/west.ts): lock cards open a package for this birth, then the reading is drawn again -----
+initPaywall(() => S.inp?.birth || null);
+addEventListener('tvbt:unlocked', () => { if (S.inp) loadReading($('#reading'), S.inp, S.natal, { deep: S.deep, gender: S.gender }); });
+// signing in from a lock card comes back to this page (?next=); the chart on screen is opened again once
+const RESUME = 'tvbt.west.resume';
+document.addEventListener('click', e => {
+  if (!e.target.closest('a[data-pw-next]') || !S.inp) return;
+  try { sessionStorage.setItem(RESUME, JSON.stringify({ ...S.inp, gender: S.gender })); } catch { /* storage unavailable */ }
+});
+const takeResume = () => { try { const v = sessionStorage.getItem(RESUME); sessionStorage.removeItem(RESUME); return v ? JSON.parse(v) : null; } catch { return null; } };
+
 // ----- vận hạn -----
 const forecast = initForecast($('#forecast'), { getCtx: () => S.inp && { inp: S.inp, natal: S.natal } });
 
@@ -278,6 +290,7 @@ addEventListener('afterprint', () => { $$('[data-print-opened]').forEach(d => { 
 renderLists();
 // a share link opens straight into its chart
 const shared = store.readShare();
-if (shared) { form.fill(shared); compute(shared).catch(e => { form.fail(e.message); }); }
+const resumed = shared ? null : takeResume();
+if (shared || resumed) { const c = shared || resumed; form.fill(c); compute(c).catch(e => { form.fail(e.message); }); }
 addEventListener('hashchange', () => { const s = store.readShare(); if (s) { form.fill(s); compute(s).catch(e => form.fail(e.message)); } });
 export { S, HOUSE_SYS };

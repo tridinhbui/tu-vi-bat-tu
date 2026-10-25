@@ -23,6 +23,7 @@ import { initAiCards } from './ai_card.js';
 import { initLive } from './live.js';
 import { initGrowth } from './growth.js';
 import { renderOverview } from './overview.js';
+import { renderHoangDao, hoangdaoChip } from './hoangdao.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const metaReady = Promise.all([loadMeta(), loadGlossary()]);
@@ -53,6 +54,9 @@ function setTab(tab, scroll = true) {
   requestAnimationFrame(() => dispatchEvent(new Event('resize')));
 }
 function go(id) {
+  // Trang chủ: the whole landing page, also for a signed-in member (app.css hides its welcome sections otherwise)
+  document.body.classList.toggle('landing', id === 'hero' || id === 'trang-chu');
+  if (id === 'trang-chu') id = 'hero';
   if (id === 'tai-khoan') { if (shareMode.id) { leaveShare('#tai-khoan'); return; } view('account'); acctPage.paint(); history.replaceState(null, '', '#tai-khoan'); return; }
   const tabs = { 'tong-quan': 'overview', 'bat-tu': 'bazi', 'tu-vi': 'tuvi', 'truong-thanh': 'growth' };
   if (tabs[id] && state?.chart) { if (document.body.dataset.view !== 'chart') view('chart'); setTab(tabs[id]); history.replaceState({ v: 'chart' }, '', '#la-so/' + id); return; }
@@ -76,6 +80,7 @@ document.addEventListener('click', e => {
   else if (act === 'print-full') { e.preventDefault(); printNow(true); }
   else if (act === 'again') { e.preventDefault(); again(); }
   else if (act === 'save') { e.preventDefault(); $('#save-host button')?.click(); $('.atl-mast').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
+  else if (act === 'hoangdao') { e.preventDefault(); setTab('tuvi', false); history.replaceState({ v: 'chart' }, '', '#la-so/tu-vi'); requestAnimationFrame(() => $('#hd-card')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })); }
   else if (act === 'scroll') { e.preventDefault(); $(a.dataset.target)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
 });
 if (/^#(hoc|kham-pha|tu-vi|bat-tu|gioi-thieu)/.test(location.hash)) history.replaceState(null, '', location.pathname);
@@ -290,7 +295,9 @@ function showResults() {
   const lu = state.lunarIn ? `<span>Nhập âm lịch ${state.lunarIn.day}/${state.lunarIn.month}/${state.lunarIn.year}${state.lunarIn.leap ? ' nhuận' : ''}</span>` : '';
   const has = req.day != null;   // false on a share link with the birth hidden: the page never received the day, month or hour
   $('#res-sub').innerHTML = (has && lu ? bd(lu) : '') + `<span><b>${bd(`${String(req.day).padStart(2, '0')}/${String(req.month).padStart(2, '0')}/`, has, DM)}${req.year}</b>${bd(` · ${String(req.hour).padStart(2, '0')}:${String(req.minute).padStart(2, '0')} · giờ ${esc(hourBranch(req.hour))}`, has, ' · giờ sinh ẩn')}</span><span>${req.gender === 'male' ? 'Nam' : 'Nữ'}</span><span>Âm lịch ${bd(`${t.lunar.day}/${t.lunar.month}/`, t.lunar.day != null, DM)}${t.lunar.year}${t.lunar.leap ? ' nhuận' : ''}</span><span>Năm ${esc(t.year_gz)}</span>`;
-  $('#res-hl').innerHTML = `<button type="button" class="hl-chip gl" data-gl="c:nhat-chu">${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></button><button type="button" class="hl-chip gl" data-gl="c:cuc">${esc(t.cuc.name)}</button><button type="button" class="hl-chip gl" data-gl="c:nap-am">Mệnh ${esc(t.menh_nap_am)}</button>`;
+  $('#res-hl').innerHTML = `<button type="button" class="hl-chip gl" data-gl="c:nhat-chu">${esc(STEMS[b.pillars.day.stem].n)} ${STEMS[b.pillars.day.stem].e} <small>Nhật Chủ</small></button><button type="button" class="hl-chip gl" data-gl="c:cuc">${esc(t.cuc.name)}</button><button type="button" class="hl-chip gl" data-gl="c:nap-am">Mệnh ${esc(t.menh_nap_am)}</button>` + (has ? hoangdaoChip(chart.western) : '');
+  // cung hoàng đạo card at the top of the Tử Vi pane; a share link with the birth day hidden never shows it (the Worker also drops the block)
+  renderHoangDao($('#hoangdao-host'), has ? chart.western : null);
   saver.paint(); paintShareBtn();
   // the overview tab opens first when the server sent it; its chapter buttons open the matching Tử Vi chapter
   const ov = !!state.overview?.indices;
@@ -335,7 +342,7 @@ async function openShare(id) {
   } finally { endLoad(); $('#loading').hidden = true; }
 }
 // a pasted share link or the account page, on load and when only the hash changes (same document)
-const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); else if (location.hash === '#la-so-mau') { history.replaceState(null, '', location.pathname); loadSample().then(() => setTab('tuvi')); } };
+const route = () => { const m = location.hash.match(SHARE_HASH); if (m) { if (shareMode.id && shareMode.id !== m[1]) location.reload(); else if (!shareMode.id) openShare(m[1]); } else if (location.hash === '#tai-khoan') go('tai-khoan'); else if (location.hash === '#trang-chu') go('trang-chu'); else if (location.hash === '#la-so-mau') { history.replaceState(null, '', location.pathname); loadSample().then(() => setTab('tuvi')); } };
 route(); addEventListener('hashchange', route);
 // back from "Đăng nhập để đọc tiếp" on a guest lock card (js/paywall.js): the chart that was on screen, now read at the member tier
 { const resume = takeResume(); if (resume && !SHARE_HASH.test(location.hash)) generate(null, resume); }

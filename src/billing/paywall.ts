@@ -7,6 +7,7 @@ import { cleanReq } from "../auth/charts.ts";
 import { currentUser } from "../auth/session.ts";
 import { BAZI_TAB_TITLES, CHAPTER_TITLES, DEEP_CHAPTERS, MEMBER_FREE, PLANS, guestShown, periodOf, planById, planChapters, plansFor, type Tier } from "./config.ts";
 import { grantPass } from "./wallet.ts";
+import { gateWest, westBody, westFp } from "./west.ts";
 
 export async function unlockedChapters(db: D1Database, userId: string, fp: string): Promise<Set<string>> {
   const { results } = await db.prepare("SELECT chapter FROM unlocks WHERE user_id = ? AND fp = ?").bind(userId, fp).all<{ chapter: string }>();
@@ -66,11 +67,11 @@ export const SHARED: Access = Object.freeze({ tier: "guest", open: new Set<strin
 
 /** The tier for one request. Signed out: guest. Signed in: member, with what was opened for the chart in the body (a body that is not a
  *  birth record, or a failing lookup, opens nothing: fail closed). */
-export async function accessFor(db: D1Database | undefined, user: { id: string } | null, body: unknown): Promise<Access> {
+export async function accessFor(db: D1Database | undefined, user: { id: string } | null, body: unknown, fpOf: (b: unknown) => string | null = b => cleanReq(b)?.fp ?? null): Promise<Access> {
   if (!user) return GUEST;
-  const birth = cleanReq(body);
-  if (!birth || !db) return { tier: "member", open: new Set<string>(), credit: 0 };
-  const [open, credit] = await Promise.all([unlockedChapters(db, user.id, birth.fp).catch(() => new Set<string>()), spentOn(db, user.id, birth.fp).catch(() => 0)]);
+  const fp = fpOf(body);
+  if (!fp || !db) return { tier: "member", open: new Set<string>(), credit: 0 };
+  const [open, credit] = await Promise.all([unlockedChapters(db, user.id, fp).catch(() => new Set<string>()), spentOn(db, user.id, fp).catch(() => 0)]);
   return { tier: "member", open, credit };
 }
 
@@ -222,7 +223,10 @@ export type Filter = (out: Json, a: Access) => Json;
 export const FILTERS: Record<string, Filter | "full"> = {
   "/api/interpret": gateOutput, "/api/overview": gateOverview, "/api/synthesis": gateSynthesis, "/api/interpretation": "full",
   "/api/kinh-dich/reading": gateCast, "/api/mai-hoa/reading": gateCast,
+  "/api/west/reading": gateWest,
 };
+/** The fingerprint that picks what was opened for the chart of a request: the Western one for /api/west/*, the Tử Vi one otherwise. */
+const fpFor = (path: string) => path.startsWith("/api/west/") ? (b: unknown) => westFp(westBody(b)) : undefined;
 
 const PRIVATE = "private, no-store";
 /** A finished engine response, cut for this reader. Errors pass through untouched; whatever is sent is never stored by a shared cache. */
@@ -252,7 +256,7 @@ export async function gated(request: Request, o: { db?: D1Database; paywall: boo
   const who = o.shared ? Promise.resolve(SHARED)
     : !db ? Promise.resolve(GUEST)
     : CAST_PATHS.has(o.path) ? currentUser(db, request).then(async u => u ? { tier: "member" as Tier, open: new Set<string>(), paid: await holdsPackage(db, u.id) } : GUEST).catch(() => GUEST)
-    : currentUser(db, request).then(u => accessFor(db, u, body)).catch(() => GUEST);
+    : currentUser(db, request).then(u => accessFor(db, u, body, fpFor(o.path))).catch(() => GUEST);
   const [res, access] = await Promise.all([run(request), who]);
   return gateResponse(res, access, filter);
 }

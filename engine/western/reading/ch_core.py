@@ -130,7 +130,7 @@ def _geniture_paragraph(f: Facts) -> Para | None:
     acc = f.lilly_total(p)["accidental"]
     steps = [f"Điểm (bản chất + ngẫu nhiên) theo Lilly tr.104, 115: " + ", ".join(f"{P(k)} {v:+d}" for k, v in ranked) + ".",
              f"Chi tiết điểm ngẫu nhiên của {P(p)}: " + ", ".join(f"{k} {v:+d}" for k, v in acc) + ".",
-             "Lilly không tính định tinh (Regulus, Spica, Algol) vào bảng này ở đây: Thiên Bàn chưa đưa phần định tinh vào điểm."]
+             OPERATIONAL["fixed_stars"]]
     return Para("tq.geniture", "Hành tinh chủ lá số theo Lilly", t, "traditional", srcs("LILLY_CA:p.531", "LILLY_CA:p.104", "LILLY_CA:p.115"),
                 [ev_planet(c, x, f.house_lilly(x)) for x in lords], "overview", steps=steps, topic="tong_quan", keys=[f"geniture:{p}"])
 

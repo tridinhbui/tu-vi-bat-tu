@@ -82,3 +82,28 @@ def test_patterns_from_synthetic_points():
 
 def test_sign_formatting_never_rounds_into_the_next_sign():
     assert fmt_in_sign(29.99999) == "29°59′" and sign_of(29.99999) == "aries"
+
+
+def test_fixed_stars_match_swiss_ephemeris():
+    """Lilly's stars (western/stars.py) against swetest 2.10.04 (Astrodienst, -xf<star>; Spica from pyswisseph's built-in star),
+    1 Jan 0h UT: within 0.1"."""
+    from western import ephemeris as E, stars
+    ref = {1900: {"regulus": 148.4477070, "spica": 202.4496, "algol": 54.7827961, "aldebaran": 68.4010860, "pollux": 111.8459366,
+                  "zubenelgenubi": 223.6899558, "antares": 248.3661421},
+           2050: {"regulus": 150.5324074, "spica": 204.54213, "algol": 56.8735639, "aldebaran": 70.4975959, "pollux": 113.9159133,
+                  "zubenelgenubi": 225.7809905, "antares": 250.4597659}}
+    for y, want in ref.items():
+        got = stars.longitudes(E.timescale().utc(y, 1, 1))
+        for k, v in want.items():
+            assert abs(got[k] - v) * 3600 < 0.1, (y, k, got[k], v)
+
+
+def test_lilly_scores_star_conjunctions_within_five_degrees():
+    from western.reading.facts import Facts
+    c = C.compute(C.BirthData.from_dict(dict(year=1990, month=5, day=17, hour=10, minute=30, lat=10.8231, lon=106.6297, tz="Asia/Ho_Chi_Minh")))
+    f = Facts(c)
+    for p in ("sun", "moon", "mercury", "venus", "mars", "jupiter", "saturn"):
+        lines = dict(f.lilly_accidental(p))
+        for star, key in (("regulus", "conj_cor_leonis"), ("spica", "conj_spica"), ("algol", "conj_caput_algol")):
+            d = abs((c["bodies"][p]["lon"] - c["fixed_stars"][star]["lon"] + 180) % 360 - 180)
+            assert (key in lines) == (d <= 5.0), (p, star, d)

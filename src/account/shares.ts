@@ -63,14 +63,15 @@ async function resolve(db: D1Database, id: string): Promise<Resolved | null> {
 
 export const maskReq = (req: Record<string, unknown>) => Object.fromEntries(Object.entries(req).filter(([k]) => !BIRTH.includes(k)));
 
-/** Removes what echoes the birth moment from an engine response: calculation traces (they print the input), and the lunar day and month. */
+/** Removes what echoes the birth moment from an engine response: calculation traces (they print the input), the lunar day and month, and
+ *  the cung hoàng đạo block (its ingress times and hours to the boundary date the birth to the day or closer). */
 export function scrub(x: unknown): unknown {
   if (Array.isArray(x)) return x.map(scrub);
   if (!x || typeof x !== "object") return x;
   const out: Record<string, unknown> = {};
   for (const [k, v] of Object.entries(x as Record<string, unknown>)) {
     if (k === "trace" || k === "normalization_trace") out[k] = { steps: [] };
-    else if (k === "input" || k === "birth" || k === "request") continue;
+    else if (k === "input" || k === "birth" || k === "request" || k === "western") continue;
     else if (k === "lunar" && v && typeof v === "object") out[k] = { year: (v as Record<string, unknown>).year, month: null, day: null, leap: false, hidden: true };
     else out[k] = scrub(v);
   }

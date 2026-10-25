@@ -1,0 +1,3279 @@
+{
+ "note": "cung hoàng đạo readings (tools/build_hoang_dao_pack.py from tools/data/hoang_dao_rules.json); not a rule pack, not in the loader",
+ "sources": [
+  {
+   "code": "AL",
+   "id": "SRC_ALAN_LEO_AFA",
+   "short": "Alan Leo",
+   "title": "Astrology for All",
+   "author": "Alan Leo",
+   "edition": "4th ed., London 1910; scan archive.org dli.ernet.19807 (Digital Library of India), OCR text layer; printed page = PDF page - 15 for pp.5-48, - 13 for pp.51-62 (pp.49-50 are not in the scan)"
+  },
+  {
+   "code": "CA",
+   "id": "SRC_LILLY_CA",
+   "short": "Lilly",
+   "title": "Christian Astrology",
+   "author": "William Lilly",
+   "edition": "1st ed., London 1647; scan Wellcome Collection b30338724; printed page = PDF page - 34 for pp.61-103"
+  },
+  {
+   "code": "TB",
+   "id": "SRC_PTOLEMY_TETRABIBLOS",
+   "short": "Ptolemy",
+   "title": "Tetrabiblos",
+   "author": "Claudius Ptolemy (bản dịch J. M. Ashmand)",
+   "edition": "J. M. Ashmand's English translation, London 1822; scan Wellcome Collection b29293066; printed page = PDF page - 36 for pp.4-54"
+  }
+ ],
+ "facts": {
+  "bach-duong": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "fire",
+    "label": "Lửa",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 13
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 93
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "cardinal",
+    "label": "tiên phong (cardinal)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 13
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Mars",
+    "label": "Sao Hỏa",
+    "cites": [
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 43
+     }
+    ]
+   }
+  },
+  "kim-nguu": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "earth",
+    "label": "Đất",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 16
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 94
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "fixed",
+    "label": "kiên định (fixed)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 16
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 94
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Venus",
+    "label": "Sao Kim",
+    "cites": [
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 94
+     },
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 43
+     }
+    ]
+   }
+  },
+  "song-tu": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "air",
+    "label": "Khí",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 19
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 94
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "mutable",
+    "label": "linh hoạt (mutable)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 19
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 94
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Mercury",
+    "label": "Sao Thủy",
+    "cites": [
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 43
+     }
+    ]
+   }
+  },
+  "cu-giai": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "water",
+    "label": "Nước",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 22
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 95
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "cardinal",
+    "label": "tiên phong (cardinal)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 22
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 95
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Moon",
+    "label": "Mặt Trăng",
+    "cites": [
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 95
+     },
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 42
+     }
+    ]
+   }
+  },
+  "su-tu": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "fire",
+    "label": "Lửa",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 25
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 95
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "fixed",
+    "label": "kiên định (fixed)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 25
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Sun",
+    "label": "Mặt Trời",
+    "cites": [
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 95
+     },
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 42
+     }
+    ]
+   }
+  },
+  "xu-nu": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "earth",
+    "label": "Đất",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 28
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 96
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "mutable",
+    "label": "linh hoạt (mutable)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 28
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Mercury",
+    "label": "Sao Thủy",
+    "cites": [
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 43
+     }
+    ]
+   }
+  },
+  "thien-binh": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "air",
+    "label": "Khí",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 31
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 96
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "cardinal",
+    "label": "tiên phong (cardinal)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 31
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 96
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Venus",
+    "label": "Sao Kim",
+    "cites": [
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 43
+     }
+    ]
+   }
+  },
+  "bo-cap": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "water",
+    "label": "Nước",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 33
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 97
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "fixed",
+    "label": "kiên định (fixed)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 33
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 97
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Mars",
+    "label": "Sao Hỏa",
+    "cites": [
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 97
+     },
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 43
+     }
+    ]
+   }
+  },
+  "nhan-ma": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "fire",
+    "label": "Lửa",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 36
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 97
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "mutable",
+    "label": "linh hoạt (mutable)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 36
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 97
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Jupiter",
+    "label": "Sao Mộc",
+    "cites": [
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 42
+     }
+    ]
+   }
+  },
+  "ma-ket": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "earth",
+    "label": "Đất",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 39
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 98
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "cardinal",
+    "label": "tiên phong (cardinal)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 39
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 98
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Saturn",
+    "label": "Sao Thổ",
+    "cites": [
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 98
+     },
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 42
+     }
+    ]
+   }
+  },
+  "bao-binh": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "air",
+    "label": "Khí",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 60
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 98
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "fixed",
+    "label": "kiên định (fixed)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 60
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 98
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Saturn",
+    "label": "Sao Thổ",
+    "cites": [
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 42
+     }
+    ]
+   }
+  },
+  "song-ngu": {
+   "element": {
+    "name": "Nguyên tố",
+    "value": "water",
+    "label": "Nước",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 45
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 99
+     }
+    ]
+   },
+   "modality": {
+    "name": "Tính chất",
+    "value": "mutable",
+    "label": "linh hoạt (mutable)",
+    "cites": [
+     {
+      "book": "AL",
+      "source_id": "SRC_ALAN_LEO_AFA",
+      "source_title": "Astrology for All",
+      "short": "Alan Leo",
+      "page": 45
+     },
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 99
+     }
+    ]
+   },
+   "ruler": {
+    "name": "Chủ tinh",
+    "value": "Jupiter",
+    "label": "Sao Mộc",
+    "cites": [
+     {
+      "book": "CA",
+      "source_id": "SRC_LILLY_CA",
+      "source_title": "Christian Astrology",
+      "short": "Lilly",
+      "page": 99
+     },
+     {
+      "book": "TB",
+      "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+      "source_title": "Tetrabiblos",
+      "short": "Ptolemy",
+      "page": 42
+     }
+    ]
+   }
+  }
+ },
+ "readings": [
+  {
+   "id": "HD_AL_bach-duong_al13a",
+   "sign": "bach-duong",
+   "topic": "classification",
+   "facts": {
+    "element": "fire",
+    "modality": "cardinal"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 13,
+   "reading": "Là cung hoàng đạo đầu tiên của nhóm Lửa và thuộc nhóm tiên phong (cardinal)."
+  },
+  {
+   "id": "HD_CA_bach-duong_ca93a",
+   "sign": "bach-duong",
+   "topic": "classification",
+   "facts": {
+    "element": "fire"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 93,
+   "reading": "Bản chất thuộc Lửa: nóng và khô."
+  },
+  {
+   "id": "HD_CA_bach-duong_ca93b",
+   "sign": "bach-duong",
+   "topic": "classification",
+   "facts": {
+    "element": "fire"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 93,
+   "reading": "Thuộc tam hợp Lửa (Fiery Triplicity), ứng với phương Đông."
+  },
+  {
+   "id": "HD_TB_bach-duong_tb34a",
+   "sign": "bach-duong",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 34,
+   "reading": "Là cung hoàng đạo phân điểm (equinoctial): Mặt Trời vào đây lúc xuân phân, ngày và đêm dài bằng nhau."
+  },
+  {
+   "id": "HD_TB_bach-duong_tb43a",
+   "sign": "bach-duong",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Mars"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 43,
+   "reading": "Là nhà (house) của Sao Hỏa."
+  },
+  {
+   "id": "HD_TB_bach-duong_tb44a",
+   "sign": "bach-duong",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 44,
+   "reading": "Cùng Sư Tử và Nhân Mã tạo thành tam hợp thứ nhất, gồm ba cung hoàng đạo dương."
+  },
+  {
+   "id": "HD_AL_bach-duong_al13b",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 13,
+   "reading": "Thường đi đầu về lý tưởng, là người mở đường cho những ý tưởng mới."
+  },
+  {
+   "id": "HD_AL_bach-duong_al13c",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 13,
+   "reading": "Có nghị lực trí óc lớn nhưng dễ rất bướng và bốc đồng."
+  },
+  {
+   "id": "HD_AL_bach-duong_al13d",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 13,
+   "reading": "Thiên về lý tưởng rất mạnh, nặng lý tưởng hơn thực tế."
+  },
+  {
+   "id": "HD_AL_bach-duong_al13e",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 13,
+   "reading": "Lúc nào cũng đầy dự định và kế hoạch mới, thích khám phá và khởi xướng."
+  },
+  {
+   "id": "HD_AL_bach-duong_al14a",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 14,
+   "reading": "Hay hành động theo hứng, không đợi kế hoạch chín muồi."
+  },
+  {
+   "id": "HD_AL_bach-duong_al14b",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 14,
+   "reading": "Thiếu thận trọng rõ rệt, quá liều lĩnh, nên dễ đi tới cực đoan."
+  },
+  {
+   "id": "HD_AL_bach-duong_al14c",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 14,
+   "reading": "Khi không sống đúng với mặt mạnh nhất của mình thì dễ ghen tị, và đòi hỏi người khác phải rất trung thành."
+  },
+  {
+   "id": "HD_AL_bach-duong_al14d",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 14,
+   "reading": "Đặc biệt hợp với việc mở đường; nhiệt huyết hiếm khi chùn bước trước trở ngại."
+  },
+  {
+   "id": "HD_AL_bach-duong_al14e",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 14,
+   "reading": "Thiên về trí tuệ, là bạn đồng hành tuyệt vời: dễ gần, vui vẻ và dí dỏm."
+  },
+  {
+   "id": "HD_AL_bach-duong_al15b",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 15,
+   "reading": "Rất độc lập, ý tưởng rõ ràng dứt khoát, tinh thần gan dạ, không sợ hãi và nhiều khát vọng."
+  },
+  {
+   "id": "HD_AL_bach-duong_al15c",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 15,
+   "reading": "Khi dùng sai năng khiếu của mình, lỗi lớn nhất là sự dối trá."
+  },
+  {
+   "id": "HD_AL_bach-duong_al15d",
+   "sign": "bach-duong",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 15,
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Chân lý (Truth)."
+  },
+  {
+   "id": "HD_AL_bach-duong_al14f",
+   "sign": "bach-duong",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 14,
+   "reading": "Giỏi những việc cần làm nhanh, gọn, không đòi hỏi bền sức lâu dài."
+  },
+  {
+   "id": "HD_AL_bach-duong_al15a",
+   "sign": "bach-duong",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 15,
+   "reading": "Hợp nhất với vai trò tổ chức, lãnh đạo, kiến trúc, thiết kế."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al16a",
+   "sign": "kim-nguu",
+   "topic": "classification",
+   "facts": {
+    "element": "earth",
+    "modality": "fixed"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 16,
+   "reading": "Là cung hoàng đạo đầu tiên của nhóm Đất và đầu tiên của nhóm kiên định (fixed)."
+  },
+  {
+   "id": "HD_CA_kim-nguu_ca94a",
+   "sign": "kim-nguu",
+   "topic": "classification",
+   "facts": {
+    "element": "earth",
+    "modality": "fixed",
+    "ruler": "Venus"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 94,
+   "reading": "Là cung hoàng đạo cố định (fixed), thuộc tam hợp Đất, phương Nam; là nhà ban đêm của Sao Kim."
+  },
+  {
+   "id": "HD_TB_kim-nguu_tb43b",
+   "sign": "kim-nguu",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Venus"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 43,
+   "reading": "Là nhà (house) của Sao Kim."
+  },
+  {
+   "id": "HD_TB_kim-nguu_tb44b",
+   "sign": "kim-nguu",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 44,
+   "reading": "Cùng Xử Nữ và Ma Kết tạo thành tam hợp thứ hai."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al16b",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 16,
+   "reading": "Rất vững vàng, thực tế và chắc chắn."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al16c",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 16,
+   "reading": "Chậm mà chắc, cần mẫn, kiên nhẫn, bền bỉ, giỏi thực thi và rất thực tế."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al16d",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 16,
+   "reading": "Khi chỉ sống cho riêng mình thì trở nên cực kỳ bướng bỉnh."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al16e",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 16,
+   "reading": "Rất khó bị khích động vì thường chậm rãi, thận trọng; nhưng khi bị chọc giận nặng thì có thể nổi giận dữ dội."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al16f",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 16,
+   "reading": "Kín đáo, rất dè dặt, nhưng là người bạn trung thành."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al17a",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 17,
+   "reading": "Gan dạ và rộng rãi; khi trưởng thành về nội tâm thì không coi trọng của cải, trừ khi dùng để làm điều tốt."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al17b",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 17,
+   "reading": "Khi ham muốn lấn át ý chí thì dễ thiên về hưởng thụ: thích ăn ngon và sự tiện nghi."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al17c",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 17,
+   "reading": "Sống bằng cảm nhận nhiều hơn bằng lý trí."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al17e",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 17,
+   "reading": "Lỗi lớn nhất thường gặp là sự lười biếng."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al18b",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 18,
+   "reading": "Nét nổi bật là thích tích lũy; tự nhiên thiên về bảo thủ, dè dặt và kín đáo."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al56a",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 56,
+   "reading": "Bổn phận và sự tuân phục là những nét cao đẹp chủ đạo của cung hoàng đạo này."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al56b",
+   "sign": "kim-nguu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 56,
+   "reading": "Khi chưa phát triển thì dễ bướng bỉnh, cau có, lười nhác và thờ ơ."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al17d",
+   "sign": "kim-nguu",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 17,
+   "reading": "Đáng tin cậy nên hợp với công việc công vụ, làm viên chức."
+  },
+  {
+   "id": "HD_AL_kim-nguu_al18a",
+   "sign": "kim-nguu",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 18,
+   "reading": "Hợp nhất với những nghề phải cầm nắm tiền bạc."
+  },
+  {
+   "id": "HD_AL_song-tu_al19a",
+   "sign": "song-tu",
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "mutable"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 19,
+   "reading": "Là cung hoàng đạo đầu tiên của nhóm Khí và đầu tiên của nhóm linh hoạt (mutable)."
+  },
+  {
+   "id": "HD_CA_song-tu_ca94b",
+   "sign": "song-tu",
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "mutable"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 94,
+   "reading": "Thuộc Khí (nóng, ẩm); là cung hoàng đạo 'chung' (common), hai thân (double-bodied)."
+  },
+  {
+   "id": "HD_TB_song-tu_tb43c",
+   "sign": "song-tu",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Mercury"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 43,
+   "reading": "Là nhà (house) của Sao Thủy."
+  },
+  {
+   "id": "HD_TB_song-tu_tb44c",
+   "sign": "song-tu",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 44,
+   "reading": "Cùng Thiên Bình và Bảo Bình tạo thành tam hợp thứ ba, gồm các cung hoàng đạo dương."
+  },
+  {
+   "id": "HD_AL_song-tu_al19b",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 19,
+   "reading": "Hiếm khi bằng lòng với một việc duy nhất; thích cùng lúc có hai việc trong tay."
+  },
+  {
+   "id": "HD_AL_song-tu_al19c",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 19,
+   "reading": "Thích nghi rất nhanh với hoàn cảnh, nổi bật về sự đa năng."
+  },
+  {
+   "id": "HD_AL_song-tu_al19d",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 19,
+   "reading": "Thích thay đổi và sự đa dạng; là người đáng nhờ cậy nhất khi có việc gấp."
+  },
+  {
+   "id": "HD_AL_song-tu_al19e",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 19,
+   "reading": "Hay bắt đầu việc này, làm dở dang rồi chuyển sang việc khác."
+  },
+  {
+   "id": "HD_AL_song-tu_al19f",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 19,
+   "reading": "Làm tốt nhất khi hợp tác với người khác."
+  },
+  {
+   "id": "HD_AL_song-tu_al19g",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 19,
+   "reading": "Có thể vừa hào phóng vừa keo kiệt; vừa tỏ ra mạnh dạn, quả quyết, vừa rất rụt rè, lo lắng."
+  },
+  {
+   "id": "HD_AL_song-tu_al20a",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 20,
+   "reading": "Khó chịu đựng lo âu; lo lắng dễ làm họ mất bình tĩnh."
+  },
+  {
+   "id": "HD_AL_song-tu_al20b",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 20,
+   "reading": "Bạn bè có thể thấy họ hay đổi ý, thiếu quyết đoán, nhưng đó là cách làm việc riêng của họ."
+  },
+  {
+   "id": "HD_AL_song-tu_al21a",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 21,
+   "reading": "Hai mặt và bồn chồn, thiên về trí óc và cảm giác, dễ căng thẳng và cáu kỉnh."
+  },
+  {
+   "id": "HD_AL_song-tu_al21b",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 21,
+   "reading": "Có khả năng trở nên rất thông minh: nhanh trí và bốc đồng trong suy nghĩ."
+  },
+  {
+   "id": "HD_AL_song-tu_al21c",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 21,
+   "reading": "Khi sống mất cân bằng, chỉ theo cái tôi, thì dễ tản mạn và thiếu tin cậy."
+  },
+  {
+   "id": "HD_AL_song-tu_al21d",
+   "sign": "song-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 21,
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Động cơ (Motive)."
+  },
+  {
+   "id": "HD_AL_song-tu_al20c",
+   "sign": "song-tu",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 20,
+   "reading": "Đất dụng võ tốt nhất là văn chương, báo chí: biên tập, phóng viên."
+  },
+  {
+   "id": "HD_AL_cu-giai_al22a",
+   "sign": "cu-giai",
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "modality": "cardinal"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 22,
+   "reading": "Là cung hoàng đạo đầu tiên của nhóm Nước và thứ hai của nhóm tiên phong (cardinal)."
+  },
+  {
+   "id": "HD_CA_cu-giai_ca95a",
+   "sign": "cu-giai",
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "ruler": "Moon"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 95,
+   "reading": "Là nhà duy nhất của Mặt Trăng; là cung hoàng đạo đầu tiên của tam hợp Nước."
+  },
+  {
+   "id": "HD_CA_cu-giai_ca95b",
+   "sign": "cu-giai",
+   "topic": "classification",
+   "facts": {
+    "modality": "cardinal"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 95,
+   "reading": "Là cung hoàng đạo chuyển động (moveable, tức tiên phong), ứng với điểm chí."
+  },
+  {
+   "id": "HD_TB_cu-giai_tb34b",
+   "sign": "cu-giai",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 34,
+   "reading": "Là cung hoàng đạo chí (tropical): ba mươi độ đầu tiên sau hạ chí."
+  },
+  {
+   "id": "HD_TB_cu-giai_tb42a",
+   "sign": "cu-giai",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Moon"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 42,
+   "reading": "Là nhà (house) của Mặt Trăng."
+  },
+  {
+   "id": "HD_TB_cu-giai_tb45a",
+   "sign": "cu-giai",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 45,
+   "reading": "Cùng Bọ Cạp và Song Ngư tạo thành tam hợp thứ tư."
+  },
+  {
+   "id": "HD_AL_cu-giai_al22b",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 22,
+   "reading": "Chậm mà chắc."
+  },
+  {
+   "id": "HD_AL_cu-giai_al22c",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 22,
+   "reading": "Trí nhớ đáng nể nhất trong mười hai cung hoàng đạo; nhớ lại dễ dàng cả chi tiết nhỏ của quá khứ."
+  },
+  {
+   "id": "HD_AL_cu-giai_al22d",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 22,
+   "reading": "Thích sống với chuyện cũ nên có phần hoài cổ."
+  },
+  {
+   "id": "HD_AL_cu-giai_al22e",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 22,
+   "reading": "Rất cần được công nhận, luôn khao khát sự cảm thông của người khác."
+  },
+  {
+   "id": "HD_AL_cu-giai_al22f",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 22,
+   "reading": "Rụt rè, kín đáo, nhút nhát; rất sợ bị chê cười hay bị phản đối."
+  },
+  {
+   "id": "HD_AL_cu-giai_al23a",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 23,
+   "reading": "Cực kỳ nhạy cảm; tình cảm rất dễ bị tổn thương."
+  },
+  {
+   "id": "HD_AL_cu-giai_al23b",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 23,
+   "reading": "Tiết kiệm, rất thích để dành, và nét này thấm vào hầu hết mọi chuyện nhỏ trong đời."
+  },
+  {
+   "id": "HD_AL_cu-giai_al23c",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 23,
+   "reading": "Rất tôn trọng tuổi tác và phong tục, dễ trở nên rất bảo thủ."
+  },
+  {
+   "id": "HD_AL_cu-giai_al23d",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 23,
+   "reading": "Không hẳn tham vọng, mà thích tiếng tăm và được công chúng ghi nhận."
+  },
+  {
+   "id": "HD_AL_cu-giai_al23e",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 23,
+   "reading": "Khi chỉ sống theo cái tôi thì dễ thụ động và có phần bám giữ, hám lợi."
+  },
+  {
+   "id": "HD_AL_cu-giai_al24a",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 24,
+   "reading": "Rất dè dặt và nhạy cảm, giàu cảm thông, bền bỉ nhưng thiếu kiên nhẫn, dễ xúc động."
+  },
+  {
+   "id": "HD_AL_cu-giai_al24b",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 24,
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Quyền năng (Power)."
+  },
+  {
+   "id": "HD_AL_cu-giai_al58a",
+   "sign": "cu-giai",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 58,
+   "reading": "Dễ tổn thương nhưng cũng bảo thủ và trung thành với các mối ràng buộc, bổn phận của mình."
+  },
+  {
+   "id": "HD_AL_cu-giai_al23f",
+   "sign": "cu-giai",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 23,
+   "reading": "Hợp nhất với nghề phục vụ số đông, việc có nhiều công chúng tham gia."
+  },
+  {
+   "id": "HD_AL_su-tu_al25a",
+   "sign": "su-tu",
+   "topic": "classification",
+   "facts": {
+    "element": "fire",
+    "modality": "fixed"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 25,
+   "reading": "Là cung hoàng đạo thứ hai của nhóm Lửa và thứ hai của nhóm kiên định (fixed)."
+  },
+  {
+   "id": "HD_CA_su-tu_ca95c",
+   "sign": "su-tu",
+   "topic": "classification",
+   "facts": {
+    "element": "fire",
+    "ruler": "Sun"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 95,
+   "reading": "Là nhà duy nhất của Mặt Trời; bản chất thuộc Lửa, nóng và khô."
+  },
+  {
+   "id": "HD_TB_su-tu_tb42b",
+   "sign": "su-tu",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Sun"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 42,
+   "reading": "Là nhà (house) của Mặt Trời."
+  },
+  {
+   "id": "HD_TB_su-tu_tb44d",
+   "sign": "su-tu",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 44,
+   "reading": "Cùng Bạch Dương và Nhân Mã tạo thành tam hợp thứ nhất, gồm ba cung hoàng đạo dương."
+  },
+  {
+   "id": "HD_AL_su-tu_al25b",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 25,
+   "reading": "Mạnh mẽ, có sức hút rất lớn và tràn đầy sinh lực."
+  },
+  {
+   "id": "HD_AL_su-tu_al25c",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 25,
+   "reading": "Thật lòng tử tế, ấm áp, giàu tình thương, và thường thể hiện tình cảm bằng hành động."
+  },
+  {
+   "id": "HD_AL_su-tu_al25d",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 25,
+   "reading": "Có thể bốc đồng, tản mạn, nhưng thường là cái bốc đồng của một tấm lòng rộng rãi."
+  },
+  {
+   "id": "HD_AL_su-tu_al25e",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 25,
+   "reading": "Rất thực tế với lý tưởng: thích sống theo lý tưởng hơn là nói về nó."
+  },
+  {
+   "id": "HD_AL_su-tu_al26a",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 26,
+   "reading": "Thích dẫn dắt, nhưng là dẫn dắt bằng trái tim hơn là bằng cái đầu."
+  },
+  {
+   "id": "HD_AL_su-tu_al26b",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 26,
+   "reading": "Giàu lòng nhân ái, luôn nghe theo tiếng gọi của trái tim khi cần cảm thông."
+  },
+  {
+   "id": "HD_AL_su-tu_al26c",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 26,
+   "reading": "Cung hoàng đạo này có cả những người yếu nhất lẫn mạnh nhất; người yếu là người quá dễ bị cảm xúc dẫn dắt."
+  },
+  {
+   "id": "HD_AL_su-tu_al27b",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 27,
+   "reading": "Vững vàng, tự chủ, luôn hướng tới điều cao đẹp."
+  },
+  {
+   "id": "HD_AL_su-tu_al27c",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 27,
+   "reading": "Rộng rãi đến mức thành lỗi; trung thành, chân thành, nghiêm túc và bền chí."
+  },
+  {
+   "id": "HD_AL_su-tu_al27d",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 27,
+   "reading": "Gắn kết người khác bằng sức mạnh của tình thương; phẩm chất bên trong, theo tác giả, là Hài hòa (Harmony)."
+  },
+  {
+   "id": "HD_AL_su-tu_al58b",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 58,
+   "reading": "Nét nổi trội là thích quyền lực và thích chỉ huy."
+  },
+  {
+   "id": "HD_AL_su-tu_al58c",
+   "sign": "su-tu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 58,
+   "reading": "Mạnh mẽ và nghiêm khắc với chính mình là nét rõ nhất."
+  },
+  {
+   "id": "HD_AL_su-tu_al27a",
+   "sign": "su-tu",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 27,
+   "reading": "Không thích việc lao lực; chỉ thật sự vui khi ở vị trí được tin cậy và được điều hành."
+  },
+  {
+   "id": "HD_AL_xu-nu_al28a",
+   "sign": "xu-nu",
+   "topic": "classification",
+   "facts": {
+    "element": "earth",
+    "modality": "mutable"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 28,
+   "reading": "Là cung hoàng đạo thứ hai của nhóm Đất và thứ hai của nhóm linh hoạt (mutable)."
+  },
+  {
+   "id": "HD_CA_xu-nu_ca96a",
+   "sign": "xu-nu",
+   "topic": "classification",
+   "facts": {
+    "element": "earth"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 96,
+   "reading": "Thuộc Đất (lạnh, khô), là cung hoàng đạo âm, phương Nam."
+  },
+  {
+   "id": "HD_TB_xu-nu_tb43d",
+   "sign": "xu-nu",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Mercury"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 43,
+   "reading": "Là nhà (house) của Sao Thủy."
+  },
+  {
+   "id": "HD_TB_xu-nu_tb44e",
+   "sign": "xu-nu",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 44,
+   "reading": "Cùng Kim Ngưu và Ma Kết tạo thành tam hợp thứ hai."
+  },
+  {
+   "id": "HD_AL_xu-nu_al28b",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 28,
+   "reading": "Có óc xây dựng, biết tận dụng tốt nhất hoàn cảnh của mình."
+  },
+  {
+   "id": "HD_AL_xu-nu_al28c",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 28,
+   "reading": "Rất biết phân định, lý luận giỏi, cách làm việc khéo léo."
+  },
+  {
+   "id": "HD_AL_xu-nu_al28d",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 28,
+   "reading": "Hay phê phán nhất, nhưng thường phê phán cả chính mình chứ không chỉ người khác."
+  },
+  {
+   "id": "HD_AL_xu-nu_al28e",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 28,
+   "reading": "Cẩn thận, thận trọng, thường làm việc có phương pháp và tính trước."
+  },
+  {
+   "id": "HD_AL_xu-nu_al28f",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 28,
+   "reading": "Chính xác trong chi tiết, dễ dàng sửa những lỗi và khuyết điểm của bản thân."
+  },
+  {
+   "id": "HD_AL_xu-nu_al28g",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 28,
+   "reading": "Rất hay tự xét mình, hiểu bản thân hơn người thuộc các cung hoàng đạo khác."
+  },
+  {
+   "id": "HD_AL_xu-nu_al29a",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 29,
+   "reading": "Khi sống theo cái tôi thì dễ thực dụng, đẩy óc thực tế quá xa thành hoài nghi."
+  },
+  {
+   "id": "HD_AL_xu-nu_al29b",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 29,
+   "reading": "Có thể trở nên rất độc đoán, dùng trí tuệ của mình gây thiệt cho người khác."
+  },
+  {
+   "id": "HD_AL_xu-nu_al29c",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 29,
+   "reading": "Kín đáo, khéo léo, biết phân định, năng động và lanh lợi."
+  },
+  {
+   "id": "HD_AL_xu-nu_al30a",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 30,
+   "reading": "Dễ thích ứng với mong muốn của người xung quanh nên là người tiếp đãi khéo, bạn giao tiếp tuyệt vời."
+  },
+  {
+   "id": "HD_AL_xu-nu_al30c",
+   "sign": "xu-nu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 30,
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Sự phân định (Discrimination)."
+  },
+  {
+   "id": "HD_AL_xu-nu_al30b",
+   "sign": "xu-nu",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 30,
+   "reading": "Thành công lớn nhất thường nằm ở kinh doanh hơn là ở nghề chuyên môn."
+  },
+  {
+   "id": "HD_AL_xu-nu_al59a",
+   "sign": "xu-nu",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 59,
+   "reading": "Cần cù và có thể theo đuổi nhiều nghề khác nhau."
+  },
+  {
+   "id": "HD_AL_thien-binh_al31a",
+   "sign": "thien-binh",
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "cardinal"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 31,
+   "reading": "Là cung hoàng đạo thứ hai của nhóm Khí và thứ ba của nhóm tiên phong (cardinal)."
+  },
+  {
+   "id": "HD_CA_thien-binh_ca96b",
+   "sign": "thien-binh",
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "cardinal"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 96,
+   "reading": "Thuộc Khí (nóng, ẩm); là cung hoàng đạo chuyển động, phân điểm, tiên phong (cardinal)."
+  },
+  {
+   "id": "HD_TB_thien-binh_tb35a",
+   "sign": "thien-binh",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 35,
+   "reading": "Là cung hoàng đạo phân điểm (equinoctial): Mặt Trời vào đây lúc thu phân."
+  },
+  {
+   "id": "HD_TB_thien-binh_tb43e",
+   "sign": "thien-binh",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Venus"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 43,
+   "reading": "Là nhà (house) của Sao Kim."
+  },
+  {
+   "id": "HD_TB_thien-binh_tb44f",
+   "sign": "thien-binh",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 44,
+   "reading": "Cùng Song Tử và Bảo Bình tạo thành tam hợp thứ ba, gồm các cung hoàng đạo dương."
+  },
+  {
+   "id": "HD_AL_thien-binh_al31b",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 31,
+   "reading": "Bản sắc thể hiện qua lẽ công bằng, sự cân bằng, trật tự và óc phán xét không thiên vị."
+  },
+  {
+   "id": "HD_AL_thien-binh_al31c",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 31,
+   "reading": "Nổi bật về khả năng so sánh, cân nhắc mọi điều."
+  },
+  {
+   "id": "HD_AL_thien-binh_al31d",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 31,
+   "reading": "Rất yêu sự hài hòa."
+  },
+  {
+   "id": "HD_AL_thien-binh_al31e",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 31,
+   "reading": "Tính tình tử tế, hòa nhã: lịch sự, dễ chịu, rất dễ mến."
+  },
+  {
+   "id": "HD_AL_thien-binh_al31f",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 31,
+   "reading": "Khả năng nhận biết, quan sát rất nhạy."
+  },
+  {
+   "id": "HD_AL_thien-binh_al32a",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 32,
+   "reading": "Chấp nhận số phận theo cách người khác khó làm được, và thấy được lẽ công bằng trong mọi việc."
+  },
+  {
+   "id": "HD_AL_thien-binh_al32b",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 32,
+   "reading": "Khi sống thiên về cái tôi thì rất cần được khen, rất nhạy cảm, khá thiếu kiên nhẫn và có phần cẩu thả."
+  },
+  {
+   "id": "HD_AL_thien-binh_al32c",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 32,
+   "reading": "Thường rất điềm tĩnh và dễ tiếp nhận những ảnh hưởng tốt xung quanh."
+  },
+  {
+   "id": "HD_AL_thien-binh_al32e",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 32,
+   "reading": "Dù chưa hoàn toàn tự chủ, họ luôn công bằng và rộng lượng."
+  },
+  {
+   "id": "HD_AL_thien-binh_al32f",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 32,
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Cân bằng (Balance)."
+  },
+  {
+   "id": "HD_AL_thien-binh_al59b",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 59,
+   "reading": "Có hoài bão và khát vọng; tinh tế, hài hòa và cởi mở."
+  },
+  {
+   "id": "HD_AL_thien-binh_al59c",
+   "sign": "thien-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 59,
+   "reading": "Khi phát triển thì giàu lòng trắc ẩn, yêu sự đoàn kết và bình đẳng."
+  },
+  {
+   "id": "HD_AL_thien-binh_al32d",
+   "sign": "thien-binh",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 32,
+   "reading": "Thành công trong nghề nào cần giữ hoặc tạo ra sự hài hòa cho người khác."
+  },
+  {
+   "id": "HD_AL_bo-cap_al33a",
+   "sign": "bo-cap",
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "modality": "fixed"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 33,
+   "reading": "Là cung hoàng đạo thứ ba của nhóm kiên định (fixed) và ở giữa nhóm Nước."
+  },
+  {
+   "id": "HD_CA_bo-cap_ca97a",
+   "sign": "bo-cap",
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "modality": "fixed",
+    "ruler": "Mars"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 97,
+   "reading": "Thuộc tam hợp Nước, là cung hoàng đạo cố định (fixed), phương Bắc; là nhà của Sao Hỏa."
+  },
+  {
+   "id": "HD_TB_bo-cap_tb43f",
+   "sign": "bo-cap",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Mars"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 43,
+   "reading": "Là nhà (house) của Sao Hỏa."
+  },
+  {
+   "id": "HD_TB_bo-cap_tb45b",
+   "sign": "bo-cap",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 45,
+   "reading": "Cùng Cự Giải và Song Ngư tạo thành tam hợp thứ tư."
+  },
+  {
+   "id": "HD_AL_bo-cap_al33b",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 33,
+   "reading": "Tính cách dễ đi về hai cực hơn bất kỳ cung hoàng đạo nào khác."
+  },
+  {
+   "id": "HD_AL_bo-cap_al33c",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 33,
+   "reading": "Tính cách dứt khoát, rõ ràng, hầu như không bao giờ do dự hay yếu ớt."
+  },
+  {
+   "id": "HD_AL_bo-cap_al33d",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 33,
+   "reading": "Khi chỉ sống cho bản thân thì rất cứng rắn, khắt khe; tính thù dai và hay bắt lỗi có thể lên tới mức quá đáng."
+  },
+  {
+   "id": "HD_AL_bo-cap_al34a",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 34,
+   "reading": "Nổi bật về óc phán đoán sắc bén."
+  },
+  {
+   "id": "HD_AL_bo-cap_al34b",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 34,
+   "reading": "Phê bình chuẩn xác, không thiên vị, nêu nhận định một cách dứt khoát và rõ ràng."
+  },
+  {
+   "id": "HD_AL_bo-cap_al34c",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 34,
+   "reading": "Khả năng gắn bó rất đáng nể."
+  },
+  {
+   "id": "HD_AL_bo-cap_al34d",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 34,
+   "reading": "Thường có phong thái rất đường hoàng, sẵn sàng giữ thể diện bất cứ lúc nào."
+  },
+  {
+   "id": "HD_AL_bo-cap_al34e",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 34,
+   "reading": "Có thể rất cộc lốc, thẳng thừng khi muốn, nhưng luôn dễ mềm lại trước lời ghi nhận."
+  },
+  {
+   "id": "HD_AL_bo-cap_al34f",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 34,
+   "reading": "Khả năng tự chủ rất lớn."
+  },
+  {
+   "id": "HD_AL_bo-cap_al35a",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 35,
+   "reading": "Rất quyết tâm, dè dặt, bền bỉ và kín đáo."
+  },
+  {
+   "id": "HD_AL_bo-cap_al35b",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 35,
+   "reading": "Cá tính rõ nét đến mức người khác hoặc rất quý, hoặc rất ghét."
+  },
+  {
+   "id": "HD_AL_bo-cap_al35c",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 35,
+   "reading": "Tính hơi đa nghi khiến họ khó tin người."
+  },
+  {
+   "id": "HD_AL_bo-cap_al35e",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 35,
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Tái sinh (Regeneration)."
+  },
+  {
+   "id": "HD_AL_bo-cap_al59d",
+   "sign": "bo-cap",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 59,
+   "reading": "Mang sức mạnh và năng lực được giữ kín bên trong."
+  },
+  {
+   "id": "HD_AL_bo-cap_al35d",
+   "sign": "bo-cap",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 35,
+   "reading": "Hợp với việc cần thần kinh vững và lòng gan dạ, như phẫu thuật, nha khoa, điều tra."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al36a",
+   "sign": "nhan-ma",
+   "topic": "classification",
+   "facts": {
+    "element": "fire",
+    "modality": "mutable"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 36,
+   "reading": "Là cung hoàng đạo cuối của nhóm Lửa và thứ ba của nhóm linh hoạt (mutable)."
+  },
+  {
+   "id": "HD_CA_nhan-ma_ca97b",
+   "sign": "nhan-ma",
+   "topic": "classification",
+   "facts": {
+    "element": "fire",
+    "modality": "mutable"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 97,
+   "reading": "Thuộc tam hợp Lửa, phương Đông; là cung hoàng đạo 'chung' (common), hai thân."
+  },
+  {
+   "id": "HD_TB_nhan-ma_tb42c",
+   "sign": "nhan-ma",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Jupiter"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 42,
+   "reading": "Là nhà (house) của Sao Mộc."
+  },
+  {
+   "id": "HD_TB_nhan-ma_tb44g",
+   "sign": "nhan-ma",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 44,
+   "reading": "Cùng Bạch Dương và Sư Tử tạo thành tam hợp thứ nhất, gồm ba cung hoàng đạo dương."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al36b",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 36,
+   "reading": "Luôn nhắm tới điều cao nhất."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al36c",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 36,
+   "reading": "Khi trưởng thành về nội tâm thì rất yêu luật lệ và trật tự."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al36d",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 36,
+   "reading": "Tự tin và tự lực nhất trong các cung hoàng đạo."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al36e",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 36,
+   "reading": "Luôn nhìn về phía trước với tính tình tươi sáng, vui vẻ, đầy hy vọng vào tương lai."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al36f",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 36,
+   "reading": "Mỗi lúc chỉ theo một ý nghĩ, và ý nghĩ ấy đưa họ thẳng tới đích."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al36g",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 36,
+   "reading": "Khi sống theo cái tôi thì bồn chồn, dễ hoạt động quá sức, căng thẳng thần kinh."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al37a",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 37,
+   "reading": "Khi sống theo cái tôi thì bộc trực, nói thẳng, khá khắt khe và rất dễ áp đặt."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al37b",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 37,
+   "reading": "Khi lệch lạc thì cực kỳ nổi loạn, không chịu bất kỳ ràng buộc nào."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al37c",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 37,
+   "reading": "Tinh thần triết lý luôn mạnh mẽ bên trong."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al38a",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 38,
+   "reading": "Dễ cảm, năng động, dám làm, hơi hướng nội, nhưng luôn thẳng thắn, trung thực, rộng rãi và chân thành."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al38b",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 38,
+   "reading": "Rất tuyệt khi được hoàn toàn tự do; khi bị trói buộc thì bực bội, cáu kỉnh và chống đối."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al38c",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 38,
+   "reading": "Không bao giờ cố ý làm tổn thương, nhưng khi bị dồn ép dễ nói quá lời."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al38e",
+   "sign": "nhan-ma",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 38,
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Luật (Law)."
+  },
+  {
+   "id": "HD_AL_nhan-ma_al38d",
+   "sign": "nhan-ma",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 38,
+   "reading": "Những nghề hợp gồm dạy học, tu hành, luật, thiên văn."
+  },
+  {
+   "id": "HD_AL_ma-ket_al39a",
+   "sign": "ma-ket",
+   "topic": "classification",
+   "facts": {
+    "element": "earth",
+    "modality": "cardinal"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 39,
+   "reading": "Là cung hoàng đạo cuối của nhóm tiên phong (cardinal) và cuối của nhóm Đất."
+  },
+  {
+   "id": "HD_CA_ma-ket_ca98a",
+   "sign": "ma-ket",
+   "topic": "classification",
+   "facts": {
+    "element": "earth",
+    "modality": "cardinal",
+    "ruler": "Saturn"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 98,
+   "reading": "Là nhà của Sao Thổ; thuộc Đất, là cung hoàng đạo điểm chí, tiên phong (cardinal), chuyển động."
+  },
+  {
+   "id": "HD_TB_ma-ket_tb34c",
+   "sign": "ma-ket",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 34,
+   "reading": "Là cung hoàng đạo chí (tropical): ba mươi độ đầu tiên sau đông chí."
+  },
+  {
+   "id": "HD_TB_ma-ket_tb42d",
+   "sign": "ma-ket",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Saturn"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 42,
+   "reading": "Là nhà (house) của Sao Thổ (Sao Thổ chiếm hai cung hoàng đạo đối diện Cự Giải và Sư Tử)."
+  },
+  {
+   "id": "HD_TB_ma-ket_tb44h",
+   "sign": "ma-ket",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 44,
+   "reading": "Cùng Kim Ngưu và Xử Nữ tạo thành tam hợp thứ hai."
+  },
+  {
+   "id": "HD_AL_ma-ket_al39b",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 39,
+   "reading": "Khi trưởng thành thì vô tư, công bằng, chính xác; muốn chu đáo, đúng mực và kiên định."
+  },
+  {
+   "id": "HD_AL_ma-ket_al39c",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 39,
+   "reading": "Làm nên mọi việc nhờ nỗ lực bền bỉ, cần cù và nhẫn nại."
+  },
+  {
+   "id": "HD_AL_ma-ket_al39d",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 39,
+   "reading": "Chịu đựng với sự kiên nhẫn điềm tĩnh, nghiêm túc và vẻ trầm ngâm."
+  },
+  {
+   "id": "HD_AL_ma-ket_al39e",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 39,
+   "reading": "Biết tằn tiện, tiết kiệm mà không keo kiệt."
+  },
+  {
+   "id": "HD_AL_ma-ket_al39f",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 39,
+   "reading": "Luôn độc lập, tự lực một cách lặng lẽ, quyết tâm bền vững."
+  },
+  {
+   "id": "HD_AL_ma-ket_al40a",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 40,
+   "reading": "Khi sống theo cái tôi thì u sầu, ngờ vực, hoài nghi, dễ rất thờ ơ và ngang ngạnh."
+  },
+  {
+   "id": "HD_AL_ma-ket_al40b",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 40,
+   "reading": "Chú ý chi tiết, cần kiệm và biết tích lũy, nên xây dựng được trong khi người khác còn đang mơ."
+  },
+  {
+   "id": "HD_AL_ma-ket_al40c",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 40,
+   "reading": "Tận dụng mọi cơ hội; tự lực nên đạt được mục đích."
+  },
+  {
+   "id": "HD_AL_ma-ket_al41a",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 41,
+   "reading": "Ít nhiều luôn có tham vọng, tìm cách này hay cách khác để thể hiện sự độc lập."
+  },
+  {
+   "id": "HD_AL_ma-ket_al41b",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 41,
+   "reading": "Có thể cực kỳ ích kỷ, nhưng đức tính nằm ở sự kiên nhẫn, chiêm nghiệm và suy xét."
+  },
+  {
+   "id": "HD_AL_ma-ket_al41c",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 41,
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Phụng sự (Service)."
+  },
+  {
+   "id": "HD_AL_ma-ket_al60a",
+   "sign": "ma-ket",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 60,
+   "reading": "Cho sự bền chí, cần cù, thận trọng, kiên nhẫn, chu đáo; người chưa phát triển thì thất thường, xảo quyệt, đa nghi và khắt khe."
+  },
+  {
+   "id": "HD_AL_ma-ket_al40d",
+   "sign": "ma-ket",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 40,
+   "reading": "Thành công trong mọi công việc cần sự chuyên tâm đều đặn và cần cù."
+  },
+  {
+   "id": "HD_AL_bao-binh_al60b",
+   "sign": "bao-binh",
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "fixed"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 60,
+   "reading": "Là cung hoàng đạo kiên định (fixed), thuộc nhóm Khí, dương; tác giả gọi là 'khí cố định'."
+  },
+  {
+   "id": "HD_CA_bao-binh_ca98b",
+   "sign": "bao-binh",
+   "topic": "classification",
+   "facts": {
+    "element": "air",
+    "modality": "fixed"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 98,
+   "reading": "Thuộc tam hợp Khí (nóng, ẩm); là cung hoàng đạo cố định (fixed)."
+  },
+  {
+   "id": "HD_TB_bao-binh_tb42e",
+   "sign": "bao-binh",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Saturn"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 42,
+   "reading": "Là nhà (house) của Sao Thổ (Sao Thổ chiếm hai cung hoàng đạo đối diện Cự Giải và Sư Tử)."
+  },
+  {
+   "id": "HD_TB_bao-binh_tb44i",
+   "sign": "bao-binh",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 44,
+   "reading": "Cùng Song Tử và Thiên Bình tạo thành tam hợp thứ ba, gồm các cung hoàng đạo dương."
+  },
+  {
+   "id": "HD_AL_bao-binh_al42a",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 42,
+   "reading": "Quyết tâm, kiên nhẫn, trầm lặng, khiêm tốn và chung thủy."
+  },
+  {
+   "id": "HD_AL_bao-binh_al42b",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 42,
+   "reading": "Nghiêng về sự không theo lối mòn nên là người cải cách giỏi."
+  },
+  {
+   "id": "HD_AL_bao-binh_al42c",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 42,
+   "reading": "Là người khiến người khác thấy có thể dựa vào; tính tình ôn hòa tạo lòng tin."
+  },
+  {
+   "id": "HD_AL_bao-binh_al42d",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 42,
+   "reading": "Luôn tử tế, nhân hậu và kín đáo."
+  },
+  {
+   "id": "HD_AL_bao-binh_al42e",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 42,
+   "reading": "Rất yêu những việc nhân đạo và những gì mang lại hòa hợp cho số đông."
+  },
+  {
+   "id": "HD_AL_bao-binh_al43a",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 43,
+   "reading": "Khi chỉ sống theo cái tôi thì lộn xộn, tản mạn, có thể dối trá, mánh khóe, khôn khéo vì lợi riêng."
+  },
+  {
+   "id": "HD_AL_bao-binh_al43b",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 43,
+   "reading": "Hoặc dễ dao động, thất thường, hay khoe những điều mình không làm được."
+  },
+  {
+   "id": "HD_AL_bao-binh_al43d",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 43,
+   "reading": "Trung thực, vững vàng, biết phân định, thông minh thật sự."
+  },
+  {
+   "id": "HD_AL_bao-binh_al43e",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 43,
+   "reading": "Biết tích lũy mà không hà tiện, thường muốn để lại tài sản cho lợi ích chung."
+  },
+  {
+   "id": "HD_AL_bao-binh_al43f",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 43,
+   "reading": "Dễ gần gũi với người lạ."
+  },
+  {
+   "id": "HD_AL_bao-binh_al44a",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 44,
+   "reading": "Đọc và đánh giá người rất giỏi, hiếm khi nhận định sai."
+  },
+  {
+   "id": "HD_AL_bao-binh_al44b",
+   "sign": "bao-binh",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 44,
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Nhân loại (Humanity)."
+  },
+  {
+   "id": "HD_AL_bao-binh_al43c",
+   "sign": "bao-binh",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 43,
+   "reading": "Có tài sáng chế; theo tác giả, đóng góp nhiều phát minh có ích cho nhân loại hơn mọi cung hoàng đạo khác."
+  },
+  {
+   "id": "HD_AL_song-ngu_al45a",
+   "sign": "song-ngu",
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "modality": "mutable"
+   },
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 45,
+   "reading": "Là cung hoàng đạo cuối của nhóm Nước và của nhóm linh hoạt (mutable)."
+  },
+  {
+   "id": "HD_CA_song-ngu_ca99a",
+   "sign": "song-ngu",
+   "topic": "classification",
+   "facts": {
+    "element": "water",
+    "ruler": "Jupiter"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 99,
+   "reading": "Thuộc tam hợp Nước, phương Bắc; là nhà của Sao Mộc."
+  },
+  {
+   "id": "HD_CA_song-ngu_ca99b",
+   "sign": "song-ngu",
+   "topic": "classification",
+   "facts": {
+    "modality": "mutable"
+   },
+   "book": "CA",
+   "source_id": "SRC_LILLY_CA",
+   "source_title": "Christian Astrology",
+   "short": "Lilly",
+   "page": 99,
+   "reading": "Là cung hoàng đạo 'chung' (common), hai thân (double-bodied)."
+  },
+  {
+   "id": "HD_TB_song-ngu_tb42f",
+   "sign": "song-ngu",
+   "topic": "classification",
+   "facts": {
+    "ruler": "Jupiter"
+   },
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 42,
+   "reading": "Là nhà (house) của Sao Mộc."
+  },
+  {
+   "id": "HD_TB_song-ngu_tb45c",
+   "sign": "song-ngu",
+   "topic": "classification",
+   "book": "TB",
+   "source_id": "SRC_PTOLEMY_TETRABIBLOS",
+   "source_title": "Tetrabiblos",
+   "short": "Ptolemy",
+   "page": 45,
+   "reading": "Cùng Cự Giải và Bọ Cạp tạo thành tam hợp thứ tư."
+  },
+  {
+   "id": "HD_AL_song-ngu_al45b",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 45,
+   "reading": "Khi sống hoàn toàn theo cái tôi thì quá bồn chồn, quá lo âu, thiếu sinh khí, lưỡng lự và cứ chờ thời cơ."
+  },
+  {
+   "id": "HD_AL_song-ngu_al45c",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 45,
+   "reading": "Hầu như luôn tỏ ra khác với con người thật của mình."
+  },
+  {
+   "id": "HD_AL_song-ngu_al45d",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 45,
+   "reading": "Phần lớn tính cách bắt nguồn từ sự thiếu quyết đoán."
+  },
+  {
+   "id": "HD_AL_song-ngu_al46a",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 46,
+   "reading": "Cảm xúc rất mạnh, rất gắn bó với bạn bè và hay nghe theo lời khuyên của họ."
+  },
+  {
+   "id": "HD_AL_song-ngu_al46b",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 46,
+   "reading": "Rất hay thay đổi và giàu tưởng tượng, đúng hơn là hay mơ mộng."
+  },
+  {
+   "id": "HD_AL_song-ngu_al46c",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 46,
+   "reading": "Thích sống trong thế giới lãng mạn, mê truyện ly kỳ."
+  },
+  {
+   "id": "HD_AL_song-ngu_al46d",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 46,
+   "reading": "Khi tự chủ hơn thì rất kiên nhẫn, hiền hòa, nhường nhịn, hiểu biết lặng lẽ mà sâu sắc."
+  },
+  {
+   "id": "HD_AL_song-ngu_al46e",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 46,
+   "reading": "Có thể rất trung thực, dễ mến, giàu tình thương và tử tế, đặc biệt thương loài vật."
+  },
+  {
+   "id": "HD_AL_song-ngu_al46f",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 46,
+   "reading": "Thường quá nhút nhát hơn là quá bạo dạn."
+  },
+  {
+   "id": "HD_AL_song-ngu_al46g",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 46,
+   "reading": "Rất hiếu khách, làm hết sức để người nương tựa mình được thoải mái, vui vẻ."
+  },
+  {
+   "id": "HD_AL_song-ngu_al47a",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 47,
+   "reading": "Đa cảm, kín đáo, kiên nhẫn, trầm tư, tử tế, rộng rãi, dễ bắt chước, dễ tiếp nhận và ôn hòa."
+  },
+  {
+   "id": "HD_AL_song-ngu_al47b",
+   "sign": "song-ngu",
+   "topic": "trait",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 47,
+   "reading": "Phẩm chất bên trong của cung hoàng đạo này, theo tác giả, là Tâm linh (Spirituality)."
+  },
+  {
+   "id": "HD_AL_song-ngu_al46h",
+   "sign": "song-ngu",
+   "topic": "work",
+   "book": "AL",
+   "source_id": "SRC_ALAN_LEO_AFA",
+   "source_title": "Astrology for All",
+   "short": "Alan Leo",
+   "page": 46,
+   "reading": "Sở trường là những việc chăm lo cho người khác: phục vụ ăn uống, khách sạn, điều dưỡng."
+  }
+ ]
+}

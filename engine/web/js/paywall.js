@@ -34,10 +34,11 @@ function guestCard(L) {
     : `<p>Bạn đang đọc phần đầu của <b>${esc(L.title)}</b>; ${what}.</p>`;
   const cta = L.shared
     ? `<a class="btn btn-sm" href="/api/auth/google">Đăng nhập để lập và đọc trọn lá số của bạn</a>`
+    : L.next ? `<a class="btn btn-sm" href="/api/auth/google?next=${encodeURIComponent(L.next)}" data-pw-next>Đăng nhập để đọc tiếp</a>`
     : `<a class="btn btn-sm" href="/api/auth/google" data-pw-signin>Đăng nhập để đọc tiếp</a>`;
   return `<div class="pw-lock pw-guest" data-tier="guest" data-locked="${esc(L.chapter)}">${blur(left || 1)}
     <div class="pw-over"><p class="eyebrow">Đọc tiếp</p>${head}<p>${cta}</p>
-    <p class="small muted">Đăng nhập bằng Google, miễn phí: đọc trọn Tổng quan, cung Mệnh và Cách cục. <a href="/#quyen-loi">Quyền lợi thành viên</a></p></div></div>`;
+    <p class="small muted">${L.perks ? esc(L.perks) : 'Đăng nhập bằng Google, miễn phí: đọc trọn Tổng quan, cung Mệnh và Cách cục.'} <a href="/#quyen-loi">Quyền lợi thành viên</a></p></div></div>`;
 }
 
 /** The package buttons of a lock: the first (cheapest) filled, the price this reader pays (an upgrade pays the difference). */
@@ -66,7 +67,7 @@ function memberCard(L) {
   const tag = placeholderTag(), buttons = planButtons(L);
   // collapsed: the offer opens only when the reader clicks the "Đọc sâu" line (owner 2026-10-23: no xu cards spread open across the page)
   return `<details class="pw-deep-fold"><summary><span class="cb-t">Đọc sâu (theo sách)</span><span class="cb-s">${Number(L.deep) || ''} đoạn</span></summary><div class="pw-lock pw-deep" data-tier="member" data-locked="${esc(L.chapter)}">
-    <p><b>${esc(L.title)}</b> còn ${Number(L.deep) || ''} đoạn Đọc sâu: vì sao có kết luận, tổ hợp sao hỗ trợ, yếu tố làm mạnh hay yếu, kèm trang sách. Phần này viết theo luật từ sách.</p>
+    <p><b>${esc(L.title)}</b> còn ${Number(L.deep) || ''} đoạn Đọc sâu: vì sao có kết luận, ${L.chapter?.startsWith('west:') ? 'các trường phái đọc ra sao' : 'tổ hợp sao hỗ trợ'}, yếu tố làm mạnh hay yếu, kèm trang sách. Phần này viết theo luật từ sách.</p>
     ${buttons ? `<div class="pw-plans">${buttons}</div>` : ''}<p class="small muted">Mở một lần cho lá số này, đọc lại không tốn thêm.${tag} <a href="/bang-gia">Xem bảng giá và nạp xu</a></p><p class="pw-msg small" role="status" aria-live="polite"></p></div></details>`;
 }
 

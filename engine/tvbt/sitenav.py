@@ -69,7 +69,9 @@ def _brand_mark(size: int = 30) -> str:
 # signed-in only, nv-guest = signed-out only. The top bar (signed out, wide screens) shows the discipline's name where the sidebar shows
 # the page's own (Chiêm tinh / Bản đồ sao). data-go / data-act are handled by js/app.js on the home page (same-page moves); elsewhere the
 # href is followed.
-HOME = ("home", "/", "Trang chủ", "home", "nv-side", 'data-go="hero"')
+# Trang chủ opens the whole landing page (hero, Bạn nhận được gì, sample chart) even for a signed-in member, whose plain "/" visit opens
+# on Lá số của tôi: '#trang-chu' on another page, data-go="hero" on the home page itself (js/app.js sets body.landing)
+HOME = ("home", "/#trang-chu", "Trang chủ", "home", "nv-side", 'data-go="hero"')
 GROUPS = [
     ("la-so", "Tử Vi · Bát Tự", "grid", "", [
         ("mine", "/#tai-khoan", "Lá số của tôi", "bookmark", "nv-side nv-member", 'data-go="tai-khoan"'),
@@ -79,12 +81,13 @@ GROUPS = [
     ("chiem-tinh", "Chiêm tinh", "star", "", [
         ("chiem-tinh", "/chiem-tinh/", "Bản đồ sao", "star", "", "", "Chiêm tinh"),
         ("van-su", "/chiem-tinh-van-su/", "Vấn sự", "help", "nv-side", ""),
+        ("cung-hoang-dao", "/cung-hoang-dao/", "Cung hoàng đạo", "compass", "", ""),
     ]),
     ("tarot", "Tarot", "cards", "", [
         ("tarot", "/tarot/la-bai/", "78 lá bài", "cards", "", "", "Tarot"),
     ]),
     ("kinh-dich", "Kinh Dịch", "hexagram", "", [
-        ("kinh-dich", "/kinh-dich/", "Kinh Dịch", "hexagram", "", "", "Kinh Dịch"),
+        ("kinh-dich", "/kinh-dich/", "Gieo quẻ, Mai Hoa", "hexagram", "", "", "Kinh Dịch"),
     ]),
     ("lich", "Lịch", "calendar", "", [
         ("xem-ngay", "/xem-ngay/", "Xem ngày", "calendar", "", ""),
