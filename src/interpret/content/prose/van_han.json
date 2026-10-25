@@ -345,7 +345,7 @@
  },
  "year": {
   "frame": [
-   "Năm {year} ({pillar}), {S} {age} tuổi âm, đang ở đại hạn {dh_from}–{dh_to} tuổi tại cung {dh_pal}; tiểu hạn năm nay đóng ở cung {th_pal} ({th_br}), nên chuyện {th_dom} là trọng tâm của năm."
+   "Năm {year} ({pillar}), {S} {age} tuổi mụ, đang ở đại hạn {dh_from}–{dh_to} tuổi tại cung {dh_pal}; tiểu hạn năm nay đóng ở cung {th_pal} ({th_br}), nên chuyện {th_dom} là trọng tâm của năm."
   ],
   "luu_thai_tue": [
    "Lưu Thái Tuế năm nay ở cung {pal}, nên chuyện {dom} là nơi dễ có việc phải lo liệu.",
@@ -358,6 +358,25 @@
   "luu_hoa_kl": [
    "{hoa} lưu năm {pillar} rơi vào {star} ở cung {pal}{note}{advice}",
    "Theo can năm, {hoa} đến {star} (cung {pal}){note}{advice}"
+  ],
+  "luu_dai_han": [
+   "Lưu đại hạn của năm ở cung {pal}, nên chuyện {dom} cũng được động đến",
+   "Năm nay lưu đại hạn đi tới cung {pal}: chuyện {dom} có phần nổi lên"
+  ],
+  "level": [
+   "Gộp lại, năm {year} ở mức “{level}”, {why}",
+   "Tính chung năm {year} ở mức “{level}”, {why}"
+  ],
+  "level_why": {
+   "dai_van": "phần lớn theo đà của đại hạn {dh_from}–{dh_to} tuổi (mức “{dh_level}”)",
+   "tieu_han": "phần lớn do cung tiểu hạn {th_pal}",
+   "luu_dai_han": "phần lớn do cung lưu đại hạn",
+   "dau_tinh": "phần lớn do sao Nam, Bắc đẩu của cung đại hạn",
+   "other": "các lớp gần như cân nhau"
+  },
+  "level_against": [
+   "dù câu về tiểu hạn ở trên nghiêng về khó",
+   "dù câu về tiểu hạn ở trên nghiêng về thuận"
   ]
  },
  "hoa_loc": [
@@ -430,12 +449,12 @@
  ],
  "level_against": {
   "low": [
-   "Dù có những điểm thuận ấy, cộng cả các yếu tố khác của hạn thì đây vẫn là chặng {w}",
-   "Những điểm thuận trên chưa đủ kéo cả chặng lên: tính chung đây vẫn là chặng {w}"
+   "Những điều nói về chặng ở trên phần nhiều thuận, nhưng so với các chặng thường gặp đây vẫn là chặng {w}, vì {why}",
+   "Phần nhiều điều đã nói là thuận; mức {w} là so với các chặng thường gặp, do {why}"
   ],
   "high": [
-   "Dù có những điểm vướng ấy, cộng cả các yếu tố khác của hạn thì đây vẫn là chặng {w}",
-   "Những điểm vướng trên không lật được cả chặng: tính chung đây vẫn là chặng {w}"
+   "Những điều nói về chặng ở trên có nhiều chỗ vướng, nhưng so với các chặng thường gặp đây vẫn là chặng {w}, nhờ {why}",
+   "Dù có các điểm vướng ấy, so với các chặng thường gặp đây vẫn là chặng {w}, nhờ {why}"
   ]
  },
  "level_word": {
@@ -498,6 +517,20 @@
   "kl233_chinh_tinh_ham_giai": [
    "{majors} hãm, nhưng {tt} ở cung giải được, nên lại thành tốt",
    "Chính tinh hãm ({majors}) song có {tt} giải, nên hạn vẫn được phần tốt"
+  ]
+ },
+ "level_why_rel": {
+  "low": "phần thuận ấy vẫn ít hơn ở phần lớn các lá số",
+  "high": "phần vướng ấy vẫn nhẹ hơn ở phần lớn các lá số"
+ },
+ "level_against_mixed": {
+  "low": [
+   "Bên cạnh các điểm thuận ấy còn có {why}, nên cả chặng ở mức {w}",
+   "Các điểm thuận trên đi cùng {why}, nên cả chặng ở mức {w}"
+  ],
+  "high": [
+   "Bên cạnh các điểm vướng ấy còn có {why}, nên cả chặng ở mức {w}",
+   "Các điểm vướng trên đi cùng {why}, nên cả chặng ở mức {w}"
   ]
  }
 }

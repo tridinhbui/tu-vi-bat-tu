@@ -59,5 +59,16 @@
   "Nếu phải xếp việc theo thứ tự, nên lấy {best} làm chỗ dựa và dành sức trước cho {worst}",
   "Một thứ tự hợp lý là dựa vào {best}, còn {worst} là việc cần lo sớm",
   "Gợi ý xếp việc: {best} là vốn để dựa, {worst} là chỗ cần chuẩn bị trước"
+ ],
+ "dec_worst_rel": [
+  ", dù những điều nói về chặng ấy phần nhiều thuận: thấp là so với các chặng thường gặp"
+ ],
+ "radar_best": [
+  "Riêng cung {pal} trên biểu đồ mười hai cung thì dưới mức thường gặp; {domain} đứng đầu là vì kết luận ấy tính cả {others}",
+  "Biểu đồ mười hai cung cho cung {pal} thấp hơn mức thường gặp, nên chỗ mạnh của {domain} nằm nhiều ở {others} hơn là ở riêng cung {pal}"
+ ],
+ "radar_worst": [
+  "Riêng cung {pal} trên biểu đồ mười hai cung lại trên mức thường gặp; {domain} xếp cuối là vì kết luận ấy tính cả {others}",
+  "Biểu đồ mười hai cung cho cung {pal} cao hơn mức thường gặp, nên chỗ khó của {domain} đến nhiều từ {others} hơn là từ riêng cung {pal}"
  ]
 }
