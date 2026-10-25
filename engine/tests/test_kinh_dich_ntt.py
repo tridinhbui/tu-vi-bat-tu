@@ -66,13 +66,19 @@ def test_layers_not_empty(n):
 
 @pytest.mark.parametrize("n", range(1, 65))
 def test_han_matches_zhouyi(n):
+    """check (a): where the Hán of a block differs from 周易, either the difference was seen on the print (misprints.json) or every
+    segment of that block is 'unverified'"""
     ref = kd.han_reference()[n]
     known = {(m["number"], m["kind"], m.get("hao")): m for m in MISPRINTS}
     for key, (ok, book, want) in kd.han_check(DOCS[n], ref).items():
         if ok:
             continue
         m = known.get((n, key[0], key[1]))
-        assert m and kd.norm_han(m["book"]) == book and kd.norm_han(m["reference"]) == want, (n, key, book, want)
+        if m:
+            assert m["book"] == book and m["reference"] == want, (n, key)
+        else:
+            segs = [s for s in DOCS[n]["segments"] if kd.seg_key(s) == key]
+            assert all(s["status"] == "unverified" for s in segs), (n, key, book, want)
 
 
 @pytest.mark.parametrize("n", range(1, 65))
