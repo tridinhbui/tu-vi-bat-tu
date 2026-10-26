@@ -93,3 +93,11 @@ def test_reading_names_venus_in_the_second_for_lilly_and_never_leaks_a_placehold
             for e in p["evidence"]:
                 if e.get("house"):
                     assert e["system"], (p["id"], e)
+
+
+def test_a_strength_verdict_counts_as_house_dependent(natal):
+    # Lilly's total includes his house points, so the Tư duy summary must not claim independence from the birth time
+    r = build(natal, "deep", None, dt.datetime(2026, 10, 25, tzinfo=UTC))
+    mind = next(p for ch in r["chapters"] for p in ch["paragraphs"] if p["id"] == "tu_duy.tom_tat")
+    assert "không đổi dù giờ sinh" not in mind["text"] and "Sao Thủy" in mind["text"]
+    assert "tổng +21 điểm, trong đó có" in mind["text"]

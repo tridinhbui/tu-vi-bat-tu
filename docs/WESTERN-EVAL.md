@@ -11,13 +11,13 @@ Audit: {'duplicate': 138, 'generic': 6}
 | tong_quan | 5.6 | 17.8 | 365 | 59% | 29% |
 | hanh_tinh | 11.7 | 31.3 | 42 | 88% | 35% |
 | goc_hop | 6.7 | 17.3 | 133 | 79% | 23% |
-| tinh_cach | 3.8 | 16.6 | 228 | 82% | 16% |
-| tu_duy | 3.7 | 10.7 | 139 | 80% | 24% |
-| cam_xuc | 4.0 | 10.8 | 149 | 91% | 12% |
-| su_nghiep | 5.4 | 18.1 | 162 | 80% | 23% |
-| tai_chinh | 4.6 | 13.8 | 163 | 78% | 34% |
-| quan_he | 3.4 | 13.5 | 167 | 79% | 15% |
-| gia_dinh | 2.8 | 8.7 | 115 | 78% | 21% |
+| tinh_cach | 3.8 | 16.7 | 229 | 82% | 16% |
+| tu_duy | 3.7 | 10.7 | 130 | 80% | 24% |
+| cam_xuc | 4.0 | 11.6 | 159 | 91% | 17% |
+| su_nghiep | 5.4 | 18.0 | 159 | 80% | 23% |
+| tai_chinh | 4.6 | 13.6 | 160 | 78% | 34% |
+| quan_he | 3.4 | 13.3 | 165 | 79% | 15% |
+| gia_dinh | 2.8 | 8.6 | 114 | 78% | 19% |
 | dinh_huong | 2.8 | 8.9 | 158 | 62% | 18% |
 | tong_hop | 1.9 | 4.5 | 154 | 40% | 27% |
 | thoi_van | 5.1 | 15.5 | 213 | 82% | 33% |
@@ -37,15 +37,14 @@ Audit: {'duplicate': 138, 'generic': 6}
 
 Mâu thuẫn đắc thế / thất thế trong các đoạn của Lilly: 0 lá
 
-Thuật ngữ trong Đọc nhanh: đắc thế 3685, thất thế 3336, cung Mọc 2888, lạc chỗ 2644, cát tinh 2585, chủ lá số 2493, phẩm vị 2171, hung tinh 1975, nhà góc 1619, Lot of Fortune 1450, chủ năm 1278, Thiên Đỉnh 1269, tiến trình 1211, profection 1178, trọn cung 1172, nhóm nguyên tố 1126, khí chất 891, Daimon 891, nhà suy 870, cách chia của Lilly 827, nghịch hành 821, góc hài hòa 750, transit 668, Solar Return 668, Part of Fortune 563, định tinh 364, góc căng 139
+Thuật ngữ trong Đọc nhanh: đắc thế 3685, thất thế 3336, cung Mọc 2888, lạc chỗ 2644, cát tinh 2585, chủ lá số 2493, phẩm vị 2171, hung tinh 1975, nhà góc 1619, Lot of Fortune 1409, chủ năm 1278, Thiên Đỉnh 1269, tiến trình 1211, profection 1178, trọn cung 1172, nhóm nguyên tố 1126, khí chất 891, Daimon 891, nhà suy 870, cách chia của Lilly 827, nghịch hành 821, góc hài hòa 750, transit 668, Solar Return 668, Part of Fortune 563, định tinh 364, góc căng 139
 
 Đổi giờ sinh 2 tiếng: 85% đoạn của lá gốc đổi chữ (nên cao).
-Dời kinh độ 0,001°: 0.7% đoạn đổi (nên gần 0).
+Dời kinh độ 0,001°: 0.6% đoạn đổi (nên gần 0).
 
 ## Câu lặp nhiều nhất (sau khi thay tên sao, cung, số bằng X/N)
 
-- 176% · Độ nhạy với giờ sinh: X, khoảng N phút.
-- 130% · Độ nhạy với giờ sinh: đỉnh Nhà N, khoảng N phút.
+- 310% · Độ nhạy với giờ sinh: X, khoảng N phút.
 - 100% · Đếm mười hành tinh theo bốn nguyên tố: Lửa N, Đất N, Khí N, Nước N; theo ba tính chất: khởi đầu N, kiên định N, biến đổi N.
 - 100% · Alan Leo coi sao này chủ cái độc đáo, khác thường, không theo lề lối; mạnh nhất ở người độc lập, đi trước, ít tác động lên người sống theo tập quán; mang tới vi
 - 100% · Alan Leo coi sao này tác động mờ nhạt với đa số; nghiêng về đời sống cảm xúc và tâm linh hơn hành động; không xấu tự thân, nhưng khi bị tổn thì thường không thu
@@ -59,6 +58,7 @@ Dời kinh độ 0,001°: 0.7% đoạn đổi (nên gần 0).
 - 89% · Lot of Fortune theo Ptolemy rơi vào X; hành tinh nắm nhiều quyền nhất trên điểm ấy là X.
 - 89% · Với Lilly, đỉnh Nhà N (Regiomontanus) ở X.
 - 89% · Valens gọi chỗ thứ N tính từ Lot of Fortune là 'nơi thành tựu', nơi ban của cải và tài sản (II.N).
+- 89% · Về buôn bán và kinh doanh, cả Ptolemy (IV.N, IV.N) lẫn Lilly (tr.N) đều gắn chúng với X.
 
 ## Đọc báo cáo này thế nào
 

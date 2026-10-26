@@ -85,6 +85,9 @@ def _nature(p: str) -> str:
     return SIG_SHORT.get(p, "")
 
 
+STRENGTH_MARK = "điểm, trong đó có"       # Facts.strength_why's wording: a claim carrying it rests on the planet's house as well
+
+
 def _state_words(f: Facts, p: str) -> str:
     """'đang mạnh (đắc thế; tổng +14 điểm: ở cung tôn vinh +4, ở Nhà 10 +5, đi thuận +4)': the verdict and the lines behind it."""
     st = f.lilly_state(p)
@@ -115,7 +118,7 @@ def _time_note(f: Facts, cid: str, used: list[Claim]) -> str:
     if not f.time_known:
         return ""
     # a strength verdict counts Lilly's house points, so it rests on the planet's house too
-    pts = [(s, p) for c in used for s, p in c.timed] + [("traditional", e["id"]) for c in used if "điểm:" in c.why
+    pts = [(s, p) for c in used for s, p in c.timed] + [("traditional", e["id"]) for c in used if STRENGTH_MARK in c.why
                                                        for e in c.ev[:1] if e["kind"] == "planet"]
     if not pts:
         names = [P(n) for n in dict.fromkeys(e["id"] for c in used for e in c.ev if e["kind"] == "planet")][:3]
