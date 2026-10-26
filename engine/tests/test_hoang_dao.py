@@ -271,13 +271,12 @@ def test_new_pages_words():
     assert any(it[1] == "/cung-hoang-dao/" and it[2] == "Cung hoàng đạo" for it in sitenav.ITEMS)
 
 
-def test_card_wiring_hides_on_hidden_share_and_prints():
+def test_chart_page_keeps_tu_vi_and_western_apart():
+    """Owner 2026-10-25 ('bị lẫn lộn'): the Western sun sign is not drawn on the Tử Vi / Bát Tự chart page (no card in the Tử Vi pane,
+    no chip among Nhật Chủ / Cục / Nạp âm); it lives on /cung-hoang-dao/ and the sign pages, under Chiêm tinh in the menu."""
     app_js = (WEB / "js" / "app.js").read_text("utf-8")
-    assert "renderHoangDao($('#hoangdao-host'), has ? chart.western : null)" in app_js and "(has ? hoangdaoChip(chart.western) : '')" in app_js
+    assert "hoangdao" not in app_js.lower()
     html = (WEB / "index.html").read_text("utf-8")
-    tv = html.split('id="pane-tuvi"', 1)[1]
-    assert tv.index('id="hoangdao-host"') < tv.index('id="tuvi-host"')          # at the top of the Tử Vi pane, outside the dark board band
-    css = (WEB / "css" / "app.css").read_text("utf-8")
-    assert "body.hide-birth #hoangdao-host" in css and re.search(r"@media print\{[^\n]*\.hd-card", css)
+    assert "hoangdao-host" not in html and "hd-card" not in html
     shares = (ROOT / "src" / "account" / "shares.ts").read_text("utf-8")
     assert 'k === "western"' in shares                                            # the Worker drops the block from hidden shares

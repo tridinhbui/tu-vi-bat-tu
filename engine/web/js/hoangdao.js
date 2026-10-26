@@ -1,4 +1,4 @@
-// Cung hoàng đạo (Western sun sign): a short card at the top of the Tử Vi pane, a chip in the result highlights, and the card on the
+// Cung hoàng đạo (Western sun sign): the card on the
 // /cung-hoang-dao/ lookup page. Everything shown is computed by the engine (tvbt/hoang_dao.py: the Sun's ingress = the trung khí
 // instants); this file only draws it. Readings come from the engine with book and printed page (engine/data/hoang_dao/pack.json:
 // Alan Leo for character, Lilly and Ptolemy for element / modality / ruler); a sign without any gets the engine's neutral line.
