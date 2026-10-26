@@ -41,7 +41,7 @@ main.lib-page{max-width:1000px;margin:0 auto;padding:40px clamp(16px,4vw,40px) 9
 </div>
 </div>
 </div></header>
-<script type="module" src="/js/nav.js?v=3dfebd24"></script><main class="lib-page">
+<script type="module" src="/js/nav.js"></script><main class="lib-page">
 <p class="eyebrow">Thư viện</p><h1>Thư viện quy tắc và nguồn</h1>
 <p class="note">Chỉ đọc. Quy tắc <b class="v">verified</b> đã đối chiếu với trang sách có trích dẫn; <b class="d">draft</b> chưa xác minh hoặc có giả định của hệ thống. Trình soạn bên dưới chỉ kiểm tra và chạy thử, không lưu gì. Muốn xuất bản, thêm quy tắc vào file pack trong kho mã.</p>
 <div id="sum" class="card">Đang tải…</div>
@@ -80,4 +80,4 @@ $('#run').onclick=async()=>{let rule;try{rule=JSON.parse($('#ta').value)}catch(e
  const birth={year:+$('#y').value,month:+$('#m').value,day:+$('#d').value,hour:+$('#h').value,minute:0,gender:$('#g').value};
  const r=await fetchR('/api/rules/test',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rule,birth})});const j=await r.json();
  $('#out').textContent=r.ok?JSON.stringify(j,null,1):'Lỗi: '+JSON.stringify(j.detail)};
-</script><script type="module" src="/js/feedback.js?v=26bc6156"></script><script type="module" src="/js/ask.js?v=bab30647"></script></body></html>
+</script><script type="module" src="/js/feedback.js?v=26bc6156"></script><script type="module" src="/js/ask.js"></script></body></html>

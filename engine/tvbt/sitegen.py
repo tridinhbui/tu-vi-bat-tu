@@ -1155,15 +1155,33 @@ def render(m: dict | None = None) -> dict[str, str]:
 _ASSET = re.compile(r'((?:href|src)="(/(?:css|js)/[^"?]+\.(?:css|js)))(?:\?v=[0-9a-f]+)?"')
 
 
+_IMPORT = re.compile(r"""(?:\bfrom|\bimport)\s*\(?\s*['"](\.{1,2}/[^'"]+\.js)['"]""")
+
+
+def _imported_modules(web: Path) -> set[str]:
+    """URL paths (/js/…) of the scripts that some other script under web/js imports by a relative path."""
+    out = set()
+    for f in (web / "js").rglob("*.js"):
+        for spec in _IMPORT.findall(f.read_text("utf-8")):
+            out.add("/" + (f.parent / spec).resolve().relative_to(web.resolve()).as_posix())
+    return out
+
+
 def stamp_assets(doc: str, web: Path = WEB) -> str:
     """Every /css and /js file a page links carries ?v=<hash of its content>, so a page always loads the stylesheet and scripts it was
     built with. Without it a phone served new HTML with a cached old app.css (the service worker's offline copy, or a browser cache):
-    the sidebar's newer parts showed unstyled in the top bar. A file that does not exist is left as it is."""
+    the sidebar's newer parts showed unstyled in the top bar. A file that does not exist is left as it is.
+
+    A script another script imports (nav.js, ask.js, ref.js) keeps its plain URL: '/js/nav.js?v=…' and './nav.js' are two different
+    modules to the browser, so it would run twice; for nav.js that opened and at once closed the phone menu."""
     import hashlib
+    imported = _imported_modules(web)
 
     def one(m: re.Match) -> str:
         f = web / m.group(2).lstrip("/")
-        return f'{m.group(1)}?v={hashlib.md5(f.read_bytes()).hexdigest()[:8]}"' if f.is_file() else m.group(0)
+        if not f.is_file() or m.group(2) in imported:
+            return f'{m.group(1)}"'
+        return f'{m.group(1)}?v={hashlib.md5(f.read_bytes()).hexdigest()[:8]}"'
     return _ASSET.sub(one, doc)
 
 
