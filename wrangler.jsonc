@@ -3,6 +3,9 @@
   "name": "tu-vi-bat-tu",
   "main": "src/index.ts",
   "compatibility_date": "2026-10-13",
+  // Workers Logs: console output (model errors from src/chat/llm.ts llmErrorLine, never keys or chart data) is kept and searchable in the
+  // dashboard, so a failure is visible after the fact, not only while someone runs wrangler tail
+  "observability": { "enabled": true, "head_sampling_rate": 1 },
   "assets": { "directory": "./engine/web", "run_worker_first": ["/api/*"] },
   // /api/interpret on, and mode "prose" may use the draft prose cards (none is expert-reviewed yet); the report marks the text as draft
   // TVBT_PAYWALL: "1" cuts each reading to the reader's tier (src/billing/paywall.ts). Owner decision 2026-10-26: "0", every book-checked
