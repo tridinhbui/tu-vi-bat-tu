@@ -863,42 +863,61 @@ body.hide-birth #hoangdao-host,body.hide-birth .hl-hd{display:none!important}
 @media print{.pw-paid{border-left:0;padding-left:0;margin-left:0}.pw-paid::before{display:none!important}}
 
 /* One-screen pages (owner 2026-10-26): Lá số của tôi, Lập lá số (signed in), Bản đồ sao, Vấn sự, Cung hoàng đạo fit the viewport exactly;
-   the page never scrolls, a panel whose content is longer scrolls inside itself. Left panel (.fit-l) = title and form, right (.fit-r) =
-   results and notes. Screens too small for two panels (phones, short windows) keep the normal flowing page. */
+   the page never scrolls, a panel whose content is longer scrolls inside itself. Left panel (.fit-l) = title, notes, saved items; right
+   (.fit-r) = form and results. One spacing scale for every page: --fit-top above the first line of both panels (so they start level),
+   --fit-bot under the last, --fit-x of side room for card rings (cancelled by a negative margin, so text stays on the page's edge).
+   Screens too small for two panels (phones, short windows) keep the normal flowing page. */
 @media screen and (min-width:900px) and (min-height:560px){
-  :root{--fit-h:calc(100dvh - var(--hdr-h))}
+  :root{--fit-h:calc(100dvh - var(--hdr-h));--fit-top:clamp(16px,2.6vh,28px);--fit-bot:clamp(24px,4vh,40px);--fit-x:10px;--fit-gap:clamp(24px,3vw,48px)}
   html:has(.fit-l),html:has(body[data-view=account]),html.signed-in:has(body[data-view=home]:not(.landing)){height:100dvh;overflow:hidden}
   body:has(.fit-l),body[data-view=account],html.signed-in body[data-view=home]:not(.landing){height:100dvh;overflow:hidden}
   body:has(.fit-l) .site-footer,body[data-view=account] .site-footer,html.signed-in body[data-view=home]:not(.landing) .site-footer{display:none}
-  .fit-scroll,.fit-l,.fit-r{min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:transparent transparent}
-  /* a panel's scrollbar shows only while the pointer is over that panel, so no bar runs down the middle of the page */
-  :is(.fit-scroll,.fit-l,.fit-r):hover{scrollbar-color:color-mix(in srgb,var(--muted) 45%,transparent) transparent}
-  /* Bản đồ sao, Vấn sự (main holds the two panels), Cung hoàng đạo (its article does) */
+  /* a panel: scrolls inside itself; its scrollbar shows only while the pointer is over it */
+  .fit-l,.fit-r,body[data-view=account] .acc-in>section:not([hidden]),html.signed-in body[data-view=home]:not(.landing) #home>section:not([hidden]){
+    min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:transparent transparent;
+    padding:var(--fit-top) var(--fit-x) var(--fit-bot);margin:0 calc(-1 * var(--fit-x));max-width:none}
+  :is(.fit-l,.fit-r,.acc-in>section,#home>section):hover{scrollbar-color:color-mix(in srgb,var(--muted) 45%,transparent) transparent}
+  :is(.fit-l,.fit-r)>:first-child,.fit-r>:first-child>:first-child{margin-top:0}
+
+  /* Bản đồ sao, Vấn sự, Cung hoàng đạo: breadcrumb across the top, then the two panels side by side */
   main:has(.fit-l){height:var(--fit-h);max-width:1280px;margin:0 auto;padding-top:0;padding-bottom:0;display:flex;flex-direction:column}
-  main:has(.fit-l)>.crumbs{flex:none;margin:clamp(10px,1.6vh,18px) 0 0}
-  :is(main,article):has(> .fit-l){display:grid;grid-template-columns:minmax(240px,min(400px,34%)) minmax(0,1fr);gap:0 clamp(18px,2.6vw,44px);flex:1;min-height:0}
+  main:has(.fit-l)>.crumbs{flex:none;margin:var(--fit-top) 0 0}
+  :is(main,article):has(> .fit-l){display:grid;grid-template-columns:minmax(240px,min(400px,34%)) minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:0 var(--fit-gap);flex:1;min-height:0}
+  main:has(> .fit-l){grid-template-rows:auto minmax(0,1fr)}
+  main:has(> .fit-l)>.crumbs{grid-column:1/-1}
   article:has(> .fit-l){max-width:none;margin:0;padding:0}
-  .fit-l,.fit-r{padding:clamp(14px,2.2vh,26px) 6px clamp(18px,3vh,32px)}
-  .fit-l .crumbs{margin-bottom:10px}
   .fit-l h1{font-size:clamp(1.35rem,1.9vw,2rem)}
   .fit-r .wt-start{grid-template-columns:1fr}
-  .fit-r>:first-child{margin-top:0}
-  /* sticky offsets were measured from the window; inside a scrolling panel they pin over the text */
-  .fit-l .wt-side{position:static}
-  .fit-r :is(.wt-detail,.hz-detail){top:0}
-  /* Lá số của tôi / Quyền riêng tư: the masthead, then the two parts side by side, each scrolling */
+  /* Cung hoàng đạo: the form in a card like the other two tools, its fields on a grid (date and time, then place and the button) */
+  .fit-r{container-type:inline-size}
+  .fit-r .hd-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px;align-items:end;
+    background:var(--raise);border:1px solid var(--line);border-radius:var(--r,14px);padding:clamp(16px,2vw,24px);margin:0}
+  .fit-r .hd-form .fld{min-width:0;margin:0}
+  .fit-r .hd-form .fld :is(input,select){width:100%}
+  .fit-r .hd-form .fld:nth-of-type(5),.fit-r .hd-form .btn{grid-column:1/-1}
+  /* a wide right panel: date and time on one row, then place and the button */
+  @container (min-width:600px){
+    .fit-r .hd-form{grid-template-columns:5.5rem 8.5rem minmax(0,1fr) minmax(0,1fr)}
+    .fit-r .hd-form .fld:nth-of-type(5){grid-column:1/span 3}
+    .fit-r .hd-form .btn{grid-column:4}
+  }
+  .fit-r #hd-out:not(:empty){margin-top:var(--s5,24px)}
+
+  /* Lá số của tôi / Quyền riêng tư: the masthead, then the two parts side by side */
   body[data-view=account] #account-view{height:var(--fit-h);display:flex;flex-direction:column}
-  body[data-view=account] .acc-mast{flex:none;padding-top:clamp(14px,2.4vh,28px);padding-bottom:clamp(10px,1.6vh,18px)}
+  body[data-view=account] .acc-mast{flex:none;padding-top:clamp(14px,2.4vh,28px);padding-bottom:clamp(12px,2vh,20px)}
   body[data-view=account] .acc-out{flex:1;min-height:0;overflow-y:auto}
-  body[data-view=account] .acc-in:not([hidden]){flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:0 clamp(20px,3vw,44px);
+  body[data-view=account] .acc-in:not([hidden]){flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:0 var(--fit-gap);
     width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
-  body[data-view=account] .acc-in>section:not([hidden]){min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:transparent transparent;max-width:none;margin:0;padding:4px 6px clamp(18px,3vh,32px)}
-  body[data-view=account] .acc-in>section:not([hidden]):hover{scrollbar-color:color-mix(in srgb,var(--muted) 45%,transparent) transparent}
+  body[data-view=account] .acc-in>section:not([hidden])>h2{margin-top:0}
   body[data-view=account] #acc-privacy{grid-column:1/-1}
-  /* Lập lá số, signed in: saved charts beside the form, each scrolling; the form alone when nothing is saved */
-  html.signed-in body[data-view=home]:not(.landing) #home{height:var(--fit-h);display:grid;grid-template-columns:minmax(0,1fr);max-width:1240px;margin:0 auto;gap:0 clamp(20px,3vw,44px)}
+  /* Lập lá số, signed in: saved charts beside the form; the form alone when nothing is saved */
+  html.signed-in body[data-view=home]:not(.landing) #home{height:var(--fit-h);display:grid;grid-template-columns:minmax(0,1fr);max-width:1240px;margin:0 auto;
+    padding:0 clamp(16px,4vw,40px);gap:0 var(--fit-gap)}
   html.signed-in body[data-view=home]:not(.landing) #home:has(#saved-sec:not([hidden])){grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
-  html.signed-in body[data-view=home]:not(.landing) #home>section:not([hidden]){min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:transparent transparent;max-width:none;margin:0;padding-top:clamp(14px,2.4vh,28px);padding-bottom:clamp(18px,3vh,32px)}
-  html.signed-in body[data-view=home]:not(.landing) #home>section:not([hidden]):hover{scrollbar-color:color-mix(in srgb,var(--muted) 45%,transparent) transparent}
+  html.signed-in body[data-view=home]:not(.landing) #home>section>.wrap{max-width:none;padding-left:0;padding-right:0}
   html.signed-in body[data-view=home]:not(.landing) #home:has(#saved-sec:not([hidden])) .create-in{grid-template-columns:1fr;gap:var(--s4)}
+  html.signed-in body[data-view=home]:not(.landing) #lap-la-so .create-in{align-items:start}
+  html.signed-in body[data-view=home]:not(.landing) #lap-la-so .create-copy{margin-top:0;padding-top:0;position:static}
+  html.signed-in body[data-view=home]:not(.landing) :is(#lap-la-so .create-copy,#saved-sec)>:first-child{margin-top:0}
 }
