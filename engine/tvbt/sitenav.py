@@ -80,7 +80,7 @@ GROUPS = [
         ("van-su", "/chiem-tinh-van-su/", "Vấn sự", "help", "nv-side", ""),
         ("cung-hoang-dao", "/cung-hoang-dao/", "Cung hoàng đạo", "compass", "", ""),
     ]),
-    ("boi-toan", "Bói toán", "cards", "nv-dd", [
+    ("gieo-que", "Gieo quẻ", "cards", "nv-dd", [
         ("tarot", "/tarot/la-bai/", "Tarot", "cards", "", ""),
         ("kinh-dich", "/kinh-dich/", "Kinh Dịch", "hexagram", "", ""),
         ("xem-ngay", "/xem-ngay/", "Xem ngày", "calendar", "", ""),
