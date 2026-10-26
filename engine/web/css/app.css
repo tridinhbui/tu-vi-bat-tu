@@ -778,6 +778,18 @@ html.signed-in .hdr-in,html.signed-in .side-in,html:not(.signed-in) .ucard{displ
   html:not(.signed-in) .hdr-in{display:inline-flex}
   html:not(.signed-in) .nv-sl{display:none}
   html:not(.signed-in) .nv-bl{display:inline}
+  /* nv-dd groups: the heading is a pill that opens the group's items below it (hover, focus or click via js/nav.js) */
+  html:not(.signed-in) .nav .nv-g.nv-dd{display:block!important;position:relative;margin:0}
+  html:not(.signed-in) .nav .nv-dd>.nv-gh{display:flex;width:auto;gap:4px;padding:10px 10px 10px 12px;border-radius:99px;font:500 .9rem/1.2 var(--sans);letter-spacing:0;text-transform:none;color:var(--text2);white-space:nowrap}
+  html:not(.signed-in) .nav .nv-dd>.nv-gh .chev{transform:none}
+  html:not(.signed-in) .nav .nv-dd>.nv-gh:hover,html:not(.signed-in) .nav .nv-dd:is(:hover,.dd-open)>.nv-gh,html:not(.signed-in) .nav .nv-dd:has([aria-current=page])>.nv-gh{background:var(--parchment);color:var(--ink)}
+  html:not(.signed-in) .nav .nv-dd>.nv-gb{display:none!important;position:absolute;top:calc(100% + 6px);left:0;z-index:60;min-width:190px;flex-direction:column;gap:1px;margin:0;padding:6px;background:var(--raise);border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh)}
+  html:not(.signed-in) .nav .nv-dd>.nv-gb::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px}
+  html:not(.signed-in) .nav .nv-dd:is(:hover,.dd-open,:has(.nv-gb :focus-visible))>.nv-gb{display:flex!important}
+  html:not(.signed-in) .nav .nv-dd .nv{padding:9px 12px;border-radius:9px}
+  html:not(.signed-in) .nav .nv-dd .nv-side{display:flex}
+  html:not(.signed-in) .nav .nv-dd .nv-sl{display:inline}
+  html:not(.signed-in) .nav .nv-dd .nv-bl{display:none}
 }
 /* wide screens, signed in: the header becomes the left sidebar */
 @media (min-width:1024px){
