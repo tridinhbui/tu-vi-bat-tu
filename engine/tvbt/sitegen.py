@@ -1149,7 +1149,22 @@ def render(m: dict | None = None) -> dict[str, str]:
         if f.exists():
             out[rel] = sitenav.sync(f.read_text("utf-8"), page_path)
     out["robots.txt"] = f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin\n\nSitemap: {ORIGIN}/sitemap.xml\n"
-    return out
+    return {rel: stamp_assets(doc) if rel.endswith(".html") else doc for rel, doc in out.items()}
+
+
+_ASSET = re.compile(r'((?:href|src)="(/(?:css|js)/[^"?]+\.(?:css|js)))(?:\?v=[0-9a-f]+)?"')
+
+
+def stamp_assets(doc: str, web: Path = WEB) -> str:
+    """Every /css and /js file a page links carries ?v=<hash of its content>, so a page always loads the stylesheet and scripts it was
+    built with. Without it a phone served new HTML with a cached old app.css (the service worker's offline copy, or a browser cache):
+    the sidebar's newer parts showed unstyled in the top bar. A file that does not exist is left as it is."""
+    import hashlib
+
+    def one(m: re.Match) -> str:
+        f = web / m.group(2).lstrip("/")
+        return f'{m.group(1)}?v={hashlib.md5(f.read_bytes()).hexdigest()[:8]}"' if f.is_file() else m.group(0)
+    return _ASSET.sub(one, doc)
 
 
 GENERATED_DIRS = ["bai-viet", "gioi-thieu", "hoi-dap", "xem-ngay", "kinh-dich", "tarot/la-bai", "cung-hoang-dao"]   # tarot/index.html is written too; tarot/img is not generated

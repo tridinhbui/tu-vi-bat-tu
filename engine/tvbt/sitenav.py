@@ -170,7 +170,7 @@ HAND_PAGES = {
     "library.html": "/library",
     "admin.html": "/admin",
 }
-_BLOCK = re.compile(r'(?:<script>/\*nav-boot\*/.*?</script>\s*)?<header class="site-header[^"]*"[^>]*>.*?</header>(?:\s*<script type="module" src="/js/nav\.js"></script>)?', re.S)
+_BLOCK = re.compile(r'(?:<script>/\*nav-boot\*/.*?</script>\s*)?<header class="site-header[^"]*"[^>]*>.*?</header>(?:\s*<script type="module" src="/js/nav\.js(?:\?v=[0-9a-f]+)?"></script>)?', re.S)
 
 
 def sync(doc: str, path: str) -> str:

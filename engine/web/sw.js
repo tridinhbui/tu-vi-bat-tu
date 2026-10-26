@@ -1,7 +1,7 @@
 // Thiên Bàn service worker: an offline shell, nothing more. Pages and static files are served from the network when it is there
 // (so a deploy shows at once) and from the cache when it is not; the API and sign-in are never cached (charts, accounts and coins
 // are always live). Bump VERSION to drop every old cache.
-const VERSION = 'tvbt-v3';
+const VERSION = 'tvbt-v4';
 const SHELL = ['/', '/css/app.css', '/css/atlas.css', '/css/dash.css', '/css/content.css', '/css/feedback.css', '/js/app.js', '/js/util.js',
   '/js/pwa.js', '/js/nav.js', '/js/uavatar.js', '/js/ref.js', '/js/feedback.js', '/js/ask.js', '/js/guides.js', '/css/ask.css', '/manifest.webmanifest', '/icons/icon-192.png', '/bai-viet/', '/kinh-dich/', '/css/iching.css', '/js/kinh_dich.js', '/js/hexagram.js', '/xem-ngay/', '/hoi-dap/', '/gioi-thieu/'];
 
@@ -29,7 +29,8 @@ self.addEventListener('fetch', e => {
       if (res.ok || res.type === 'opaque') cache.put(req, res.clone()).catch(() => {});
       return res;
     } catch (err) {
-      const hit = await cache.match(req, { ignoreSearch: req.mode === 'navigate' });
+      // offline only: pages link /css and /js with ?v=<hash> (tvbt/sitegen.py stamp_assets); the shell holds them without it
+      const hit = await cache.match(req, { ignoreSearch: true });
       if (hit) return hit;
       if (req.mode === 'navigate') { const home = await cache.match('/'); if (home) return home; }
       throw err;
