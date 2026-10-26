@@ -104,6 +104,9 @@ def cycles(f: Facts, when: dt.datetime) -> list[Para]:
 
 def _cycles(f: Facts, when: dt.datetime) -> list[Para]:
     c, out = f.c, []
+    if when.timestamp() < dt.datetime.fromisoformat(c["time"]["utc"]).timestamp():
+        return [Para("tv.before_birth", "Thời vận", f"Ngày xem ({_d(when.isoformat())}) còn trước ngày sinh, nên chưa có vận hạn để tính.", "calc", [], [],
+                     "overview", tier="calc", topic="thoi_van", layer="summary")]
     w0, w1 = when - dt.timedelta(days=30), when + dt.timedelta(days=365)
     age = R.age_at(c, when) if f.time_known else None
     pr = R.profection(c, age) if f.time_known else None

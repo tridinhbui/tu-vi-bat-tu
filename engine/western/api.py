@@ -134,13 +134,23 @@ def _transits(req):
 def _score(natal: dict, when: _dt.datetime, ev: list[dict]) -> None:
     """Each event gets the score of its retrograde loop (western/reading/milestones.py), so the timeline can show only the notable ones."""
     from .reading import milestones as MS
-    lord = None
-    if "angles" in natal:
+    lords: dict[int, str | None] = {}
+
+    def lord_at(e):                    # the lord of the profected year the contact falls in (its first exact hit, else its start)
+        if "angles" not in natal:
+            return None
+        t = e["exact"][0] if e["exact"] else (e["start"] or e["end"])
         try:
-            lord = _R.profection(natal, _R.age_at(natal, when))["lord"]
+            age = _R.age_at(natal, _dt.datetime.fromisoformat(t)) if t else _R.age_at(natal, when)
+            if age not in lords:
+                lords[age] = _R.profection(natal, age)["lord"]
+            return lords[age]
         except (E.OutOfRange, ValueError):
-            lord = None
-    by = {r.get("cycle"): r for r in MS.rank(ev, natal, lord)}
+            return None
+    groups: dict[str | None, list] = {}
+    for e in ev:
+        groups.setdefault(lord_at(e), []).append(e)
+    by = {r.get("cycle"): r for lord, es in groups.items() for r in MS.rank(es, natal, lord)}
     for e in ev:
         r = by.get(e.get("cycle"))
         e["score"], e["score_parts"] = (r["score"], r["score_parts"]) if r else (0, [])

@@ -83,6 +83,9 @@ def timeline(natal: dict, from_age: float, to_age: float, orb: float = 1.0,
     """Exact progressed aspects to natal points, sign and natal-house ingresses of progressed bodies, between two ages.
     Times are real-life dates (the progressed instant mapped back through the day-for-a-year key)."""
     jd_b = natal["time"]["jd_ut"]
+    if to_age <= from_age:            # e.g. a birth after the reading date: nothing to report
+        return {"orb": orb, "from_age": from_age, "to_age": to_age, "events": [],
+                "key": "1 ngày sau khi sinh = 1 năm cuộc đời (năm chí tuyến 365,24219 ngày)"}
     j0, j1 = jd_b + from_age, jd_b + to_age
     defs = {d["id"]: d["angle"] for d in kb.aspects()["aspects"]}
     targets = {**{k: v["lon"] for k, v in natal["bodies"].items()}, "north_node": natal["points"]["north_node"]["lon"]}
@@ -138,7 +141,7 @@ def timeline(natal: dict, from_age: float, to_age: float, orb: float = 1.0,
                 fa = tracks[body].speed(grid[k])
                 x = _root(tracks[body].speed, grid[k], grid[k + 2], fa)
                 events.append({"type": "station", "progressed": body, "turns": "retrograde" if fa > 0 else "direct",
-                               "lon": round(float(tracks[body].at(x)) % 360.0, 4), "date": _real_date(natal, x),
+                               "lon": round(float(tracks[body].at(x)) % 360.0, 4) % 360.0, "date": _real_date(natal, x),
                                "age": round(float(x - jd_b), 3)})
     events.sort(key=lambda e: e["age"])
     return {"orb": orb, "from_age": from_age, "to_age": to_age, "events": events,

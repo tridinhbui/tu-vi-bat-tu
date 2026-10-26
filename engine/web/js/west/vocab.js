@@ -77,6 +77,7 @@ export const SCHOOL = { calc: 'Dữ kiện', hellenistic: 'Hy Lạp cổ đại'
 export const WARN = {
   no_time: 'Không có giờ sinh: không tính được cung Mọc, Thiên Đỉnh, các nhà và các Điểm (lot). Mặt Trăng có thể ở bất kỳ đâu trong khoảng nó đi qua trong ngày.',
   placidus_polar_fallback_porphyry: 'Ở vĩ độ trong vòng cực, hệ Placidus không xác định được mọi đỉnh nhà, nên các nhà được chia theo Porphyry (chia đều từng góc phần tư giữa các trục).',
+  regiomontanus_polar_fallback_porphyry: 'Ở vĩ độ trong vòng cực, hệ Regiomontanus cho các đỉnh nhà sai thứ tự, nên các nhà được chia theo Porphyry (chia đều từng góc phần tư giữa các trục); phần luận theo Lilly cũng dùng cách chia này.',
 };
 
 // ----- numbers (formatting only) -----

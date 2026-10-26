@@ -101,9 +101,13 @@ export function renderReading(host, data, { deep, chart }) {
 }
 
 /** Fetch (always the whole reading: Đọc nhanh and Đọc sâu are two views of it) and render. 404/405 → the placeholder note. */
-let seq = 0, last = null;
-export async function loadReading(host, inp, chart, { deep, gender = null }) {
+let seq = 0, last = null, want = false, pending = null;
+export function loadReading(host, inp, chart, { deep, gender = null }) {
+  return (pending = loadReading_(host, inp, chart, { deep, gender }));
+}
+async function loadReading_(host, inp, chart, { deep, gender }) {
   const my = ++seq;
+  last = null; want = deep;          // a toggle while this loads must not redraw the previous chart's reading
   host.innerHTML = '<p class="note">Đang soạn luận giải (vài giây)…</p>';
   try {
     const body = { birth: inp.birth, options: inp.options, mode: 'deep' };
@@ -111,7 +115,7 @@ export async function loadReading(host, inp, chart, { deep, gender = null }) {
     const data = await westPost('reading', body, { retries: 1 });
     if (my !== seq) return null;
     last = { host, data, chart };
-    renderReading(host, data, { deep, chart });
+    renderReading(host, data, { deep: want, chart });
     return data;
   } catch (e) {
     if (my !== seq) return null;
@@ -122,9 +126,13 @@ export async function loadReading(host, inp, chart, { deep, gender = null }) {
   }
 }
 
-/** Switch Đọc nhanh / Đọc sâu on the reading already loaded (no new request); false when there is none yet. */
+/** The reading request in flight (or done), so the PDF button can wait for it. */
+export const readingDone = () => pending || Promise.resolve(null);
+
+/** Switch Đọc nhanh / Đọc sâu on the reading already loaded (no new request); false when there is none and none is loading. */
 export function redrawReading(deep) {
-  if (!last) return false;
+  want = deep;
+  if (!last) return !!pending;      // still loading: the response is drawn in the mode chosen last
   renderReading(last.host, last.data, { deep, chart: last.chart });
   return true;
 }

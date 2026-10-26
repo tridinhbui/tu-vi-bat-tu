@@ -31,7 +31,7 @@ def chart_ruler(natal: dict) -> str | None:
 
 def score(ev: dict, natal: dict, lord: str | None, ruler: str | None) -> tuple[int, list[tuple[str, int]]]:
     parts: list[tuple[str, int]] = []
-    mv = MOVER.get(ev["transiting"], 1 if ev["transiting"] == ruler else 0)
+    mv = MOVER.get(ev["transiting"], 1 if ev["transiting"] == ruler and ruler in ("sun", "mercury", "venus") else 0)
     if not mv:
         return 0, []
     parts.append(("mover", mv))

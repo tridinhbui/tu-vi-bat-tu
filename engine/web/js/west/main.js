@@ -7,7 +7,7 @@ import { detailHtml, detailEmpty } from './detail.js';
 import { positionsTable, outerTable, cuspsTable, aspectsList, aspectsGrid, dignityTable, structureHtml, srRelation } from './tables.js';
 import { initBirthForm, placeBox, latLonTxt } from './form.js';
 import { initForecast } from './timeline.js';
-import { loadReading, redrawReading } from './reading.js';
+import { loadReading, redrawReading, readingDone } from './reading.js';
 import { initGlossary, loadGlossary, autoLink } from '../glossary.js';
 import { initPaywall } from '../paywall.js';
 import { initSynastry } from './synastry.js';
@@ -266,8 +266,8 @@ async function compute(inp0, { keepMode = false, scroll = true } = {}) {
   forecastIO = null;
   forecast.reset();
   reading.finally(() => {
-    if (near()) { forecast.load(); return; }
-    forecastIO = () => { if (near()) { removeEventListener('scroll', forecastIO); forecastIO = null; forecast.load(); } };
+    if (near()) { forecast.load({ keepRef: true }); return; }
+    forecastIO = () => { if (near()) { removeEventListener('scroll', forecastIO); forecastIO = null; forecast.load({ keepRef: true }); } };
     addEventListener('scroll', forecastIO, { passive: true });
   });
   if (scroll) res.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
@@ -315,6 +315,7 @@ $('#act-pdf').onclick = async () => {
   btn.disabled = true; btn.textContent = 'Đang chuẩn bị…';
   try {
     if (forecastIO) { removeEventListener('scroll', forecastIO); forecastIO = null; }
+    await readingDone();
     await forecast.load({ keepRef: true });
     if (!deep0) setDeep(true);
   } finally { btn.disabled = false; btn.textContent = 'Tải PDF'; }
