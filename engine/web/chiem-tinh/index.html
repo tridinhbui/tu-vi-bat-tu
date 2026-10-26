@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/app.css?v=669e2e94">
+<link rel="stylesheet" href="/css/app.css?v=e18f2968">
 <link rel="stylesheet" href="/css/content.css?v=d3db480c">
 <link rel="stylesheet" href="/css/commerce.css?v=88a5e1b9">
 <link rel="stylesheet" href="/css/west.css?v=e02d0326">
@@ -56,6 +56,7 @@
 </div></header>
 <script type="module" src="/js/nav.js"></script>
 <main id="main" class="wrap cmain wt-main">
+<div class="fit-l">
 <nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="/">Thiên Bàn</a></li><li aria-current="page">Chiêm tinh phương Tây</li></ol></nav>
 
 <div class="wt-intro">
@@ -63,7 +64,24 @@
 <p class="lead">Vị trí Mặt Trời, Mặt Trăng và các hành tinh vào lúc bạn sinh, mười hai nhà, các góc hợp, phẩm vị cổ điển và vận hạn theo transit, tiến trình thứ cấp, profection và Solar Return. Mọi con số do máy chủ tính từ lịch thiên văn JPL.</p>
 <aside class="cnote wt-honest"><b>Nói rõ trước.</b> Chiêm tinh là một truyền thống diễn giải biểu tượng, không phải phương pháp dự báo đã được khoa học chứng minh. Thiên Bàn tính chính xác vị trí thiên văn và trình bày cách các trường phái đọc chúng; phần đọc là diễn giải, không phải lời tiên đoán.</aside>
 </div>
+<aside class="wt-side" id="profiles" aria-label="Hồ sơ đã lưu và lịch sử">
+  <section><h3 class="wt-th">Hồ sơ đã lưu</h3><ul class="wt-li" id="prof-list"></ul></section>
+  <section><h3 class="wt-th">Mở gần đây</h3><ul class="wt-li" id="recent-list"></ul><button type="button" class="link" id="recent-clear" hidden>Xóa lịch sử</button></section>
+  <p class="hint">Lưu trong bộ nhớ của trình duyệt này (localStorage), không đồng bộ sang thiết bị khác.</p>
+</aside>
+<section class="wt-sec wt-how" aria-labelledby="how-h">
+  <h2 id="how-h">Các con số được tính thế nào</h2>
+  <ul class="plain">
+    <li><b>Vị trí thiên thể</b> theo lịch thiên văn JPL DE440 (qua Skyfield), hoàng đạo nhiệt đới, đã hiệu chỉnh tuế sai và chương động; Chiron theo lời giải quỹ đạo của JPL Horizons.</li>
+    <li><b>Giờ sinh</b> được đổi sang giờ quốc tế theo lịch sử múi giờ IANA của nơi sinh, kể cả giờ mùa hè. Giờ rơi vào lúc đồng hồ vặn lùi (xảy ra hai lần) sẽ được hỏi lại; giờ rơi vào lúc đồng hồ vặn tới (không tồn tại) sẽ bị báo lỗi.</li>
+    <li><b>Nhà</b> theo hệ bạn chọn; ở vĩ độ trong vòng cực, nơi Placidus không xác định, bản đồ dùng Porphyry và ghi rõ điều đó.</li>
+    <li><b>Góc hợp, phẩm vị, phe, Điểm, chuỗi chủ quản</b> là phép tra bảng cổ điển của Ptolemy, Valens và Lilly trên các vị trí đã tính; orb là quy ước có thể đổi trong phần nâng cao.</li>
+    <li><b>Luận giải</b>: mỗi đoạn dùng bảng và cách chia nhà của chính trường phái mà nó ghi nhãn, không phụ thuộc hệ nhà bạn chọn cho bánh xe: Lilly chia nhà theo Regiomontanus, Valens theo trọn cung (Whole Sign), Ptolemy theo các “nơi” 30° tính từ 5° phía trên cung Mọc.</li>
+  </ul>
+</section>
+</div>
 
+<div class="fit-r">
 <section class="wt-start" id="lap-ban-do" aria-labelledby="lap-h">
 <h2 id="lap-h" class="sr-only">Nhập thông tin sinh</h2>
 <form id="birth-form" class="bform wt-form" novalidate method="post" action="#">
@@ -119,11 +137,7 @@
   <p class="hint wt-attr" id="f-attr">Dữ liệu địa danh: <a class="link" href="https://www.geonames.org/" target="_blank" rel="noopener">GeoNames</a> (CC BY 4.0). Múi giờ và giờ mùa hè theo cơ sở dữ liệu IANA, kể cả các thay đổi trong lịch sử.</p>
   <p class="privacy">Ngày giờ sinh chỉ được xử lý tức thời để tính bản đồ, máy chủ không lưu lại. Hồ sơ bạn lưu chỉ nằm trong trình duyệt này.</p>
 </form>
-<aside class="wt-side" id="profiles" aria-label="Hồ sơ đã lưu và lịch sử">
-  <section><h3 class="wt-th">Hồ sơ đã lưu</h3><ul class="wt-li" id="prof-list"></ul></section>
-  <section><h3 class="wt-th">Mở gần đây</h3><ul class="wt-li" id="recent-list"></ul><button type="button" class="link" id="recent-clear" hidden>Xóa lịch sử</button></section>
-  <p class="hint">Lưu trong bộ nhớ của trình duyệt này (localStorage), không đồng bộ sang thiết bị khác.</p>
-</aside>
+
 </section>
 
 <section id="ket-qua" class="wt-res" hidden aria-labelledby="res-title">
@@ -238,16 +252,8 @@
   <div id="syn-out" hidden></div>
 </section>
 
-<section class="wt-sec wt-how" aria-labelledby="how-h">
-  <h2 id="how-h">Các con số được tính thế nào</h2>
-  <ul class="plain">
-    <li><b>Vị trí thiên thể</b> theo lịch thiên văn JPL DE440 (qua Skyfield), hoàng đạo nhiệt đới, đã hiệu chỉnh tuế sai và chương động; Chiron theo lời giải quỹ đạo của JPL Horizons.</li>
-    <li><b>Giờ sinh</b> được đổi sang giờ quốc tế theo lịch sử múi giờ IANA của nơi sinh, kể cả giờ mùa hè. Giờ rơi vào lúc đồng hồ vặn lùi (xảy ra hai lần) sẽ được hỏi lại; giờ rơi vào lúc đồng hồ vặn tới (không tồn tại) sẽ bị báo lỗi.</li>
-    <li><b>Nhà</b> theo hệ bạn chọn; ở vĩ độ trong vòng cực, nơi Placidus không xác định, bản đồ dùng Porphyry và ghi rõ điều đó.</li>
-    <li><b>Góc hợp, phẩm vị, phe, Điểm, chuỗi chủ quản</b> là phép tra bảng cổ điển của Ptolemy, Valens và Lilly trên các vị trí đã tính; orb là quy ước có thể đổi trong phần nâng cao.</li>
-    <li><b>Luận giải</b>: mỗi đoạn dùng bảng và cách chia nhà của chính trường phái mà nó ghi nhãn, không phụ thuộc hệ nhà bạn chọn cho bánh xe: Lilly chia nhà theo Regiomontanus, Valens theo trọn cung (Whole Sign), Ptolemy theo các “nơi” 30° tính từ 5° phía trên cung Mọc.</li>
-  </ul>
-</section>
+
+</div>
 </main>
 <footer class="site-footer"><div class="wrap foot cfoot">
 <div><b>Thiên Bàn</b><p>Tử Vi · Bát Tự có thể truy vết.</p></div>

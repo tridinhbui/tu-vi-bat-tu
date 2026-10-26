@@ -1113,8 +1113,12 @@ def hoang_dao_lookup_page() -> tuple[str, str]:
     desc = ("Nhập ngày, giờ và nơi sinh để biết cung hoàng đạo của bạn, giờ phút Mặt Trời vào và rời cung hoàng đạo đó, "
             "và bạn có sinh sát ranh giới hay không.")
     body = f"""<article class="carticle hd-page">
+<div class="fit-l">
 <p class="eyebrow">Cung hoàng đạo</p><h1>Tra cung hoàng đạo</h1>
 <p class="lead">Cung hoàng đạo tính theo giờ phút sinh, không theo bảng ngày cố định. Nhập giờ sinh nếu bạn biết; người sinh gần ngày chuyển cung hoàng đạo cần giờ để biết chắc.</p>
+{HD_NOTE}{HD_HOW}
+</div>
+<div class="fit-r">
 <form class="hd-form" id="hd-form">
 <label class="fld"><span>Ngày</span><select name="d" required></select></label>
 <label class="fld"><span>Tháng</span><select name="m" required></select></label>
@@ -1124,8 +1128,8 @@ def hoang_dao_lookup_page() -> tuple[str, str]:
 <button class="btn" type="submit">Tra cung hoàng đạo</button>
 </form>
 <div id="hd-out" aria-live="polite"></div>
-{HD_NOTE}{HD_HOW}
 <p class="ccta"><a class="btn btn-ghost" href="/bai-viet/hoang-dao/">Mười hai cung hoàng đạo</a> <a class="btn btn-ghost" href="/#lap-la-so">Lập lá số Tử Vi, Bát Tự</a></p>
+</div>
 </article>"""
     ld = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Tra cung hoàng đạo " + SITE, "applicationCategory": "LifestyleApplication",
           "operatingSystem": "Web", "url": ORIGIN + path, "inLanguage": "vi", "description": desc, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "VND"}}

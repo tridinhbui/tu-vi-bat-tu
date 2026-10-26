@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/app.css?v=669e2e94">
+<link rel="stylesheet" href="/css/app.css?v=e18f2968">
 <link rel="stylesheet" href="/css/content.css?v=d3db480c">
 <link rel="stylesheet" href="/css/horary.css?v=81ad653c">
 </head>
@@ -53,6 +53,7 @@
 </div></header>
 <script type="module" src="/js/nav.js"></script>
 <main id="main" class="wrap cmain hz-main">
+<div class="fit-l">
 <nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="/">Thiên Bàn</a></li><li aria-current="page">Chiêm tinh vấn sự</li></ol></nav>
 
 <section class="hz-intro">
@@ -62,6 +63,14 @@
   <p class="hz-truth"><b>Hai thứ khác nhau:</b> vị trí các hành tinh được tính bằng lịch thiên văn JPL DE440s, chính xác và kiểm tra được. Còn lời luận là quy tắc của một truyền thống diễn giải; chưa có bằng chứng khoa học đáng tin cậy rằng nó dự báo được sự việc.</p>
 </section>
 
+<aside class="cnote"><b>Phạm vi.</b> Thiên Bàn không luận các câu hỏi về bệnh tật, sống chết, thai sản hay kết quả pháp lý, và không thay lời khuyên của bác sĩ, luật sư hay chuyên gia tài chính. Nguồn quy tắc: William Lilly, <i>Christian Astrology</i> (1647) và 146 Considerations của Guido Bonatti (bản dịch Henry Coley, 1676), đều là bản quét công khai (Public Domain Mark) của Wellcome Library. <a class="link" href="/library#horary">Xem quy tắc và nguồn</a>.</aside>
+<section class="hz-history" id="hz-history" aria-labelledby="hz-history-h" hidden>
+  <h2 id="hz-history-h">Câu hỏi đã lưu</h2>
+  <p class="note">Lưu trên thiết bị này; nếu bạn đăng nhập, lưu cả vào tài khoản. Mở lại sẽ tính lại đúng lá số cũ từ thời điểm và nơi đã lưu.</p>
+  <ul id="hz-history-list" class="hz-hist"></ul>
+</section>
+</div>
+<div class="fit-r">
 <section class="hz-step" id="hz-ask" aria-labelledby="hz-ask-h">
   <h2 id="hz-ask-h"><span class="hz-n">1</span> Đặt câu hỏi</h2>
   <form id="hz-form" class="hz-form" novalidate>
@@ -142,13 +151,10 @@
   <p class="note" id="hz-action-msg" aria-live="polite"></p>
 </section>
 
-<section class="hz-history" id="hz-history" aria-labelledby="hz-history-h" hidden>
-  <h2 id="hz-history-h">Câu hỏi đã lưu</h2>
-  <p class="note">Lưu trên thiết bị này; nếu bạn đăng nhập, lưu cả vào tài khoản. Mở lại sẽ tính lại đúng lá số cũ từ thời điểm và nơi đã lưu.</p>
-  <ul id="hz-history-list" class="hz-hist"></ul>
-</section>
 
-<aside class="cnote"><b>Phạm vi.</b> Thiên Bàn không luận các câu hỏi về bệnh tật, sống chết, thai sản hay kết quả pháp lý, và không thay lời khuyên của bác sĩ, luật sư hay chuyên gia tài chính. Nguồn quy tắc: William Lilly, <i>Christian Astrology</i> (1647) và 146 Considerations của Guido Bonatti (bản dịch Henry Coley, 1676), đều là bản quét công khai (Public Domain Mark) của Wellcome Library. <a class="link" href="/library#horary">Xem quy tắc và nguồn</a>.</aside>
+
+
+</div>
 </main>
 <footer class="site-footer"><div class="wrap foot cfoot">
 <div><b>Thiên Bàn</b><p>Tử Vi · Bát Tự có thể truy vết.</p></div>
