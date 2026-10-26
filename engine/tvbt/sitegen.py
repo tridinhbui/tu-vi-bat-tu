@@ -1113,8 +1113,12 @@ def hoang_dao_lookup_page() -> tuple[str, str]:
     desc = ("Nhập ngày, giờ và nơi sinh để biết cung hoàng đạo của bạn, giờ phút Mặt Trời vào và rời cung hoàng đạo đó, "
             "và bạn có sinh sát ranh giới hay không.")
     body = f"""<article class="carticle hd-page">
+<div class="fit-l">
 <p class="eyebrow">Cung hoàng đạo</p><h1>Tra cung hoàng đạo</h1>
 <p class="lead">Cung hoàng đạo tính theo giờ phút sinh, không theo bảng ngày cố định. Nhập giờ sinh nếu bạn biết; người sinh gần ngày chuyển cung hoàng đạo cần giờ để biết chắc.</p>
+{HD_NOTE}{HD_HOW}
+</div>
+<div class="fit-r">
 <form class="hd-form" id="hd-form">
 <label class="fld"><span>Ngày</span><select name="d" required></select></label>
 <label class="fld"><span>Tháng</span><select name="m" required></select></label>
@@ -1124,8 +1128,8 @@ def hoang_dao_lookup_page() -> tuple[str, str]:
 <button class="btn" type="submit">Tra cung hoàng đạo</button>
 </form>
 <div id="hd-out" aria-live="polite"></div>
-{HD_NOTE}{HD_HOW}
 <p class="ccta"><a class="btn btn-ghost" href="/bai-viet/hoang-dao/">Mười hai cung hoàng đạo</a> <a class="btn btn-ghost" href="/#lap-la-so">Lập lá số Tử Vi, Bát Tự</a></p>
+</div>
 </article>"""
     ld = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Tra cung hoàng đạo " + SITE, "applicationCategory": "LifestyleApplication",
           "operatingSystem": "Web", "url": ORIGIN + path, "inLanguage": "vi", "description": desc, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "VND"}}
@@ -1149,7 +1153,40 @@ def render(m: dict | None = None) -> dict[str, str]:
         if f.exists():
             out[rel] = sitenav.sync(f.read_text("utf-8"), page_path)
     out["robots.txt"] = f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin\n\nSitemap: {ORIGIN}/sitemap.xml\n"
+    return {rel: stamp_assets(doc) if rel.endswith(".html") else doc for rel, doc in out.items()}
+
+
+_ASSET = re.compile(r'((?:href|src)="(/(?:css|js)/[^"?]+\.(?:css|js)))(?:\?v=[0-9a-f]+)?"')
+
+
+_IMPORT = re.compile(r"""(?:\bfrom|\bimport)\s*\(?\s*['"](\.{1,2}/[^'"]+\.js)['"]""")
+
+
+def _imported_modules(web: Path) -> set[str]:
+    """URL paths (/js/…) of the scripts that some other script under web/js imports by a relative path."""
+    out = set()
+    for f in (web / "js").rglob("*.js"):
+        for spec in _IMPORT.findall(f.read_text("utf-8")):
+            out.add("/" + (f.parent / spec).resolve().relative_to(web.resolve()).as_posix())
     return out
+
+
+def stamp_assets(doc: str, web: Path = WEB) -> str:
+    """Every /css and /js file a page links carries ?v=<hash of its content>, so a page always loads the stylesheet and scripts it was
+    built with. Without it a phone served new HTML with a cached old app.css (the service worker's offline copy, or a browser cache):
+    the sidebar's newer parts showed unstyled in the top bar. A file that does not exist is left as it is.
+
+    A script another script imports (nav.js, ask.js, ref.js) keeps its plain URL: '/js/nav.js?v=…' and './nav.js' are two different
+    modules to the browser, so it would run twice; for nav.js that opened and at once closed the phone menu."""
+    import hashlib
+    imported = _imported_modules(web)
+
+    def one(m: re.Match) -> str:
+        f = web / m.group(2).lstrip("/")
+        if not f.is_file() or m.group(2) in imported:
+            return f'{m.group(1)}"'
+        return f'{m.group(1)}?v={hashlib.md5(f.read_bytes()).hexdigest()[:8]}"'
+    return _ASSET.sub(one, doc)
 
 
 GENERATED_DIRS = ["bai-viet", "gioi-thieu", "hoi-dap", "xem-ngay", "kinh-dich", "tarot/la-bai", "cung-hoang-dao"]   # tarot/index.html is written too; tarot/img is not generated

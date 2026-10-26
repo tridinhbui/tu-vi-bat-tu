@@ -80,7 +80,7 @@ GROUPS = [
         ("van-su", "/chiem-tinh-van-su/", "Vấn sự", "help", "nv-side", ""),
         ("cung-hoang-dao", "/cung-hoang-dao/", "Cung hoàng đạo", "compass", "", ""),
     ]),
-    ("boi-toan", "Bói toán", "cards", "nv-dd", [
+    ("gieo-que", "Gieo quẻ", "cards", "nv-dd", [
         ("tarot", "/tarot/la-bai/", "Tarot", "cards", "", ""),
         ("kinh-dich", "/kinh-dich/", "Kinh Dịch", "hexagram", "", ""),
         ("xem-ngay", "/xem-ngay/", "Xem ngày", "calendar", "", ""),
@@ -170,7 +170,7 @@ HAND_PAGES = {
     "library.html": "/library",
     "admin.html": "/admin",
 }
-_BLOCK = re.compile(r'(?:<script>/\*nav-boot\*/.*?</script>\s*)?<header class="site-header[^"]*"[^>]*>.*?</header>(?:\s*<script type="module" src="/js/nav\.js"></script>)?', re.S)
+_BLOCK = re.compile(r'(?:<script>/\*nav-boot\*/.*?</script>\s*)?<header class="site-header[^"]*"[^>]*>.*?</header>(?:\s*<script type="module" src="/js/nav\.js(?:\?v=[0-9a-f]+)?"></script>)?', re.S)
 
 
 def sync(doc: str, path: str) -> str:

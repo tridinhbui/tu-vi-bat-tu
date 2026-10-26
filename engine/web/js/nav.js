@@ -193,6 +193,7 @@ function initAccount() {
     menu.innerHTML = `<div class="umenu-who"><span class="uav" aria-hidden="true"></span><span class="ucard-t"><b></b><small></small></span></div><hr>
       <div class="uwallet" hidden></div><hr>
       <a href="/#tai-khoan" data-go="tai-khoan">Tài khoản và lá số đã lưu</a>
+      <a href="/#quyen-rieng-tu" data-go="quyen-rieng-tu">Quyền riêng tư</a>
       <a href="/bang-gia">Nạp xu và bảng giá</a>
       ${me.admin ? '<a href="/admin">Quản trị</a>' : ''}
       <button type="button" class="acct-out">Đăng xuất</button>`;

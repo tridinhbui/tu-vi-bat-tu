@@ -153,7 +153,7 @@ def test_every_page_has_the_same_header(out):
     assert set(sitenav.HAND_PAGES) <= set(pages) and len(pages) > 100
     want = [(h, t) for _k, h, t, *_ in sitenav.ITEMS]
     current = re.compile(r' aria-current="page"')
-    block = re.compile(r'<script>/\*nav-boot\*/.*?<script type="module" src="/js/nav\.js"></script>', re.S)
+    block = re.compile(r'<script>/\*nav-boot\*/.*?<script type="module" src="/js/nav\.js(?:\?v=[0-9a-f]+)?"></script>', re.S)
     canonical = current.sub("", block.search(out["bai-viet/index.html"]).group(0))
     for rel, doc in pages.items():
         assert sitenav.nav_list(doc) == want, rel
