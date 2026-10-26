@@ -626,10 +626,10 @@ FAQ = [
      "Được. Chỉ cần ngày, giờ, giới tính và nơi sinh. Bài luận giải viết bằng lời thường; thuật ngữ nào cũng có giải thích khi bạn chạm vào. "
      "Nếu muốn tìm hiểu thêm, mục Bài viết giải thích từng sao, từng cung theo sách."),
     ("Phần nào miễn phí?",
-     "Lập lá số Tử Vi và Bát Tự, bảng lá số, 3/5 đầu mỗi chương luận giải, lưu lá số trên máy và tải PDF đều miễn phí, không cần tài khoản. "
-     "Phần luận giải miễn phí là đối chiếu sách: mỗi câu lấy từ sách, có ghi trang. Đăng nhập (miễn phí) để đọc trọn Tổng quan, cung Mệnh và Cách cục. "
+     "Lập lá số Tử Vi và Bát Tự, bảng lá số, mọi chương luận giải (kể cả phần Đọc sâu theo sách), lưu lá số và tải PDF đều miễn phí. "
+     "Phần luận giải miễn phí là đối chiếu sách: mỗi câu lấy từ sách, có ghi trang. "
      "Khi đăng nhập, bạn hỏi Bát Bát (trò chuyện) miễn phí 2 câu mỗi ngày; mỗi lần nạp xu có thêm 30 ngày chat, tới 30 câu mỗi ngày. "
-     "Phần còn lại của các chương, Luận riêng (suy luận sâu: đọc cả lá số cùng lúc và đi sâu hơn) và các câu hỏi thêm dùng xu."),
+     "Chỉ Luận riêng (suy luận sâu: đọc cả lá số cùng lúc và viết sâu hơn) và các câu hỏi thêm dùng xu."),
     ("Luận giải có đáng tin không?",
      "Phần tính toán (lịch âm, vị trí sao, độ sáng) được kiểm bằng bảng lịch độc lập và trang sách, nhưng đối chiếu với lá số thật mới có ít mẫu. "
      "Phần ý nghĩa là cách đọc của sách Tử Vi, mỗi câu ghi trang để bạn tự kiểm. Tử Vi chưa được khoa học kiểm chứng là phương pháp dự báo; "

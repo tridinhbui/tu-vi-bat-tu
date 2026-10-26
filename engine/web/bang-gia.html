@@ -44,8 +44,8 @@
 <script type="module" src="/js/nav.js"></script>
 <main id="main" class="cm-page">
   <p class="eyebrow">Bảng giá</p>
-  <h1>Khách, thành viên và các gói</h1>
-  <p class="lead">Không cần tài khoản để lập lá số và đọc 3/5 đầu mỗi chương luận giải. Phần luận giải miễn phí là đối chiếu sách: mỗi câu lấy từ sách, có ghi trang. Luận riêng dùng suy luận sâu: đọc cả lá số cùng lúc và đi sâu hơn. Đăng nhập bằng Google (miễn phí) để đọc trọn <b>Tổng quan</b>, <b>cung Mệnh</b> và <b>Cách cục</b>. Các chương còn lại, phần <b>Đọc sâu (theo sách)</b> và <b>Luận riêng</b> mở bằng gói, cho từng lá số.</p>
+  <h1>Miễn phí và Luận riêng</h1>
+  <p class="lead">Mọi luận giải đối chiếu sách đều miễn phí và đọc trọn, kể cả phần Đọc sâu (theo sách), không cần tài khoản: mỗi câu lấy từ sách, có ghi trang. Chỉ <b>Luận riêng</b> (suy luận sâu: đọc cả lá số cùng lúc và viết sâu hơn) và các câu hỏi Bát Bát vượt mức miễn phí mới tính xu.</p>
   <p class="muted">Mỗi câu luận đều ghi sách và trang để bạn tự kiểm chứng, từ sáu bộ sách: Tử Vi Khảo Luận, Tử Vi Thực Hành, Tử Vi Đẩu Số Toàn Thư; Trích Thiên Tủy, Dự Đoán Theo Tứ Trụ (Thiệu Vĩ Hoa), Bát Tự Chân Tông. <a href="/gioi-thieu/">Cách Thiên Bàn luận giải</a></p>
   <div class="cm-banner" id="cm-placeholder" hidden></div>
 
@@ -56,19 +56,16 @@
       <tr><th scope="row">Lá số Tử Vi mười hai cung và Bát Tự bốn trụ<small>bảng lá số, sao, Tứ Hóa, Tuần Triệt, sao lưu năm, đại vận</small></th><td class="y">Có</td><td class="y">Có</td><td class="n">—</td></tr>
       <tr><th scope="row">Trang tổng quan lá số và các biểu đồ vận<small>chỉ số tổng hợp từ quy tắc, không phải xác suất</small></th><td class="y">Có</td><td class="y">Có</td><td class="n">—</td></tr>
       <tr><th scope="row">Danh sách nhận định đã đối chiếu sách<small>mỗi nhận định ghi sách và trang</small></th><td class="y">Có</td><td class="y">Có</td><td class="n">—</td></tr>
-      <tr><th scope="row">Tổng quan, cung Mệnh, Cách cục<small>luận chính, kèm căn cứ từng câu</small></th><td class="p">3/5 đầu chương</td><td class="y">Trọn phần luận chính</td><td class="n">—</td></tr>
-      <tr><th scope="row">Mười một cung còn lại, Tổng luận, mọi mục Bát Tự<small>Quan Lộc, Tài Bạch, Phu Thê, Điền Trạch, Tật Ách…; Nhật Chủ, Ngũ Hành, Sự nghiệp, Hôn nhân, Cách cục, Dụng thần</small></th><td class="p">3/5 đầu chương</td><td class="p">3/5 đầu chương</td><td class="y">Trọn chương: gói Trọn bộ</td></tr>
-      <tr><th scope="row">Vận hạn<small>đại hạn, tiểu hạn, lưu niên Tử Vi; Đại vận, Lưu niên Bát Tự</small></th><td class="p">3/5 đầu chương</td><td class="p">3/5 đầu chương</td><td class="y">Trọn chương: gói Vận năm</td></tr>
-      <tr><th scope="row">Gợi ý hướng hành động theo từng cung<small>gợi ý của hệ thống rút từ các nét đã nêu, không phải lời sách</small></th><td class="n">Không</td><td class="p">Ở chương đọc trọn</td><td class="y">Mọi chương đã mở</td></tr>
-      <tr><th scope="row">Đọc sâu (theo sách)<small>vì sao có kết luận, tổ hợp sao hỗ trợ, yếu tố làm mạnh hay yếu, trang sách; viết theo luật</small></th><td class="n">Không</td><td class="n">Không</td><td class="y">Theo gói</td></tr>
-      <tr><th scope="row">Luận riêng<small>suy luận sâu: đọc cả lá số cùng lúc và đi sâu hơn phần đối chiếu sách; khoảng 500–800 từ mỗi chương, chỉ dùng dữ kiện và luận giải đã có</small></th><td class="n">Không</td><td class="p" id="cmp-ai">20 xu một chương</td><td class="y">Mọi chương: gói Cao cấp</td></tr>
+      <tr><th scope="row">Mọi chương luận giải<small>Tổng quan, mười hai cung, Cách cục, vận hạn, Bát Tự, Tổng luận; kèm căn cứ từng câu</small></th><td class="y">Trọn chương</td><td class="y">Trọn chương</td><td class="n">—</td></tr>
+      <tr><th scope="row">Đọc sâu (theo sách)<small>vì sao có kết luận, tổ hợp sao hỗ trợ, yếu tố làm mạnh hay yếu, trang sách; viết theo luật</small></th><td class="y">Có</td><td class="y">Có</td><td class="n">—</td></tr>
+      <tr><th scope="row">Luận riêng<small>suy luận sâu: đọc cả lá số cùng lúc và đi sâu hơn phần đối chiếu sách; khoảng 500–800 từ mỗi chương, chỉ dùng dữ kiện và luận giải đã có</small></th><td class="n">Không</td><td class="n">—</td><td class="y" id="cmp-ai">20 xu một chương; mọi chương: gói Cao cấp</td></tr>
       <tr><th scope="row">Hỏi Bát Bát (trò chuyện)<small>trả lời dựa trên dữ kiện lá số của bạn, hoặc câu hỏi chung</small></th><td class="n">Không</td><td class="p" id="cmp-chat-free">2 câu mỗi ngày</td><td class="p" id="cmp-chat-pro">sau mỗi lần nạp hoặc gói Cao cấp: 30 ngày chat (tới 30 câu/ngày); thêm câu: 1 xu</td></tr>
     </tbody>
   </table></div>
   <p class="muted small">Tử Vi và Bát Tự là hệ biểu tượng truyền thống. Thiên Bàn trình bày cách đọc theo sách, có ghi nguồn; không cam kết điều gì sẽ xảy ra và không thay cho lời khuyên chuyên môn về sức khỏe, pháp lý hay tài chính.</p>
 
   <h2>Các gói</h2>
-  <p class="muted">Trả bằng xu, cho một lá số; mở rồi đọc lại bao nhiêu lần cũng không tốn thêm. Đã mua gói nhỏ, nâng lên gói lớn hơn chỉ trả phần chênh. Mở ngay trong trang luận giải, ở thẻ dưới mỗi chương.</p>
+  <p class="muted">Trả bằng xu, cho một lá số; bài đã viết đọc lại bao nhiêu lần cũng không tốn thêm. Mở ngay trong trang luận giải, ở thẻ Luận riêng dưới mỗi chương.</p>
   <div class="cm-grid" id="cm-plans"><p class="muted">Đang tải…</p></div>
 
   <h2 id="nap-xu">Nạp xu</h2>
@@ -89,7 +86,7 @@
   <h2 id="lich-su">Ví và lịch sử</h2>
   <div class="cm-card" id="cm-history"><p class="muted">Đăng nhập để xem ví và lịch sử nạp, dùng xu.</p></div>
 </main>
-<script type="module" src="/js/pricing.js?v=663bb91c"></script>
+<script type="module" src="/js/pricing.js?v=41e933ff"></script>
 <script type="module" src="/js/feedback.js?v=26bc6156"></script>
 <script type="module" src="/js/ask.js"></script>
 </body>

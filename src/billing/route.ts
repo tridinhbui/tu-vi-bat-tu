@@ -34,7 +34,8 @@ export const paywallOn = (env: BillingEnv) => env.TVBT_PAYWALL === "1";
 export function plansView(env: BillingEnv) {
   return {
     placeholder: PRICES_ARE_PLACEHOLDERS, placeholderLabel: PLACEHOLDER_LABEL, paywall: paywallOn(env),
-    plans: PLANS.map(p => ({ id: p.id, name: p.name, coins: p.coins, blurb: p.blurb, chapters: [...p.chapters], ai: p.ai, pass: p.pass })),
+    // with the paywall off every book chapter is free, so only a package with Luận riêng (ai) is offered
+    plans: PLANS.filter(p => paywallOn(env) || p.ai).map(p => ({ id: p.id, name: p.name, coins: p.coins, blurb: p.blurb, chapters: [...p.chapters], ai: p.ai, pass: p.pass })),
     retiredPlans: RETIRED_PLAN_NAMES, packs: PACKS, costs: COSTS, freeMessagesPerDay: FREE_MESSAGES_PER_DAY, topupChat: TOPUP_CHAT,
     // guests read the first 3/5 of each chapter's main reading, members MEMBER_FREE whole and the first 3/5 of the rest; packages open
     // the chapters whole, Đọc sâu included
@@ -103,6 +104,7 @@ export async function handleBilling(request: Request, env: BillingEnv, user: Use
     const tv = cleanReq(body?.birth)?.fp ?? null, fp = tv ?? westFp(body?.birth), plan = planById(body?.plan);
     if (!fp) return json({ detail: "body must be {birth, plan}" }, 400);
     if (plan && isWestPlan(plan) === !!tv) return json({ detail: "unknown plan" }, 400);
+    if (plan && !plan.ai && !paywallOn(env)) return json({ detail: "every book chapter is free; nothing to unlock" }, 400);
     const r = await buyPlan(db, user.id, fp, body?.plan, body?.chapter, now);
     const wallet = await getWallet(db, user.id, now);
     if (!r.ok) return r.reason === "insufficient" ? json({ detail: "not enough coins", need: r.need, wallet }, 402) : json({ detail: "unknown plan" }, 400);

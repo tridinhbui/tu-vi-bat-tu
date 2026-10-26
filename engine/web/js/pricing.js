@@ -18,7 +18,7 @@ async function boot() {
   // who is signed in, and the sign-in button, are in the site header (js/nav.js)
   // the page never describes a lock the server does not apply: with the paywall off (TVBT_PAYWALL), every chapter is open and it says so
   const notes = [plans.placeholder && `<b>${esc(plans.placeholderLabel)}.</b> Các mức giá trên trang này đang là giá tạm để thử hệ thống, chưa phải giá bán chính thức.`,
-    !plans.paywall && 'Trong thời gian thử nghiệm, mọi chương luận giải, kể cả phần Đọc sâu, đang mở cho mọi người; chưa phần nào bị khóa.'].filter(Boolean);
+    !plans.paywall && 'Mọi chương luận giải đối chiếu sách, kể cả phần Đọc sâu, đều miễn phí cho mọi người; xu chỉ dùng cho Luận riêng và các câu hỏi Bát Bát thêm.'].filter(Boolean);
   if (notes.length) { const b = $('#cm-placeholder'); b.innerHTML = notes.join(' '); b.hidden = false; }
   $('#cmp-chat-free').textContent = `${plans.freeMessagesPerDay ?? 2} câu mỗi ngày`;
   $('#cmp-chat-pro').textContent = `sau mỗi lần nạp hoặc gói Cao cấp: ${plans.topupChat?.days ?? 30} ngày chat (tới ${plans.topupChat?.perDay ?? 30} câu/ngày); thêm câu: ${plans.costs.chat} xu`;
@@ -32,7 +32,7 @@ async function boot() {
 const PLAN_POINTS = {
   van_nam: ['Đại hạn, tiểu hạn, lưu niên Tử Vi', 'Đại vận, Lưu niên Bát Tự', 'Trọn luận chính và Đọc sâu (theo sách)'],
   tron_bo: ['Mười hai cung, Tổng luận, mọi mục Bát Tự', 'Gồm cả gói Vận năm', 'Trọn luận chính và Đọc sâu, kèm trang sách'],
-  cao_cap: ['Gồm cả gói Trọn bộ', 'Luận riêng mọi chương: suy luận sâu trên cả lá số', '30 ngày chat với Bát Bát (tới 30 câu/ngày)'],
+  cao_cap: ['Luận riêng mọi chương của lá số', 'Suy luận sâu trên cả lá số, khoảng 500–800 từ mỗi chương', '30 ngày chat với Bát Bát (tới 30 câu/ngày)'],
   chiem_tinh: ['Bản đồ sao phương Tây (trang Chiêm tinh), riêng cho một ngày giờ và nơi sinh', 'Đọc sâu bảy chương đời sống', 'Trọn Tổng hợp và Thời vận'],
 };
 function paintPlans() {

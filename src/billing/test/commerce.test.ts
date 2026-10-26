@@ -31,8 +31,8 @@ beforeEach(async () => {
 const T = Date.UTC(2026, 9, 21, 5, 0);
 const coins = async (u = uid) => (await getWallet(db, u, T)).coins;
 const BIRTH = { year: 1990, month: 5, day: 17, hour: 10, minute: 30, gender: "male" }, FP = "1990-5-17-10-30-male";
-const me = (path: string, body?: unknown, u: any = user, method = body === undefined ? "GET" : "POST") =>
-  handleBilling(new Request(`https://tu-vi.test${path}`, { method, headers: { "x-tvbt": "1" }, body: body === undefined ? undefined : JSON.stringify(body) }), { DB: db, STRIPE_SECRET_KEY: "sk_test" } as any, u,
+const me = (path: string, body?: unknown, u: any = user, method = body === undefined ? "GET" : "POST", paywall = "1") =>
+  handleBilling(new Request(`https://tu-vi.test${path}`, { method, headers: { "x-tvbt": "1" }, body: body === undefined ? undefined : JSON.stringify(body) }), { DB: db, STRIPE_SECRET_KEY: "sk_test", TVBT_PAYWALL: paywall } as any, u,
     (async () => new Response(JSON.stringify({ url: "https://checkout.stripe.com/c/pay/cs_x", id: `cs_${Math.random().toString(36).slice(2)}` }))) as any, T);
 
 test("config: one source of prices, all marked as placeholders; plans open only sold chapters, each bigger than the last; discount rounding has a floor", () => {
@@ -41,6 +41,9 @@ test("config: one source of prices, all marked as placeholders; plans open only 
   assert.equal(v.placeholder, true); assert.match(v.placeholderLabel, /GIÁ TẠM/);
   assert.deepEqual(v.providers, { stripe: false, vnpay: false }); assert.equal(v.paywall, false);
   assert.equal(plansView({ TVBT_PAYWALL: "1" } as any).paywall, true);
+  // paywall off (owner decision 2026-10-26): every book chapter is free, so only the package with Luận riêng is offered
+  assert.deepEqual(v.plans.map(p => p.id), ["cao_cap"]);
+  assert.deepEqual(plansView({ TVBT_PAYWALL: "1" } as any).plans.map(p => p.id), ["van_nam", "tron_bo", "cao_cap", "chiem_tinh"]);
   assert.deepEqual(v.tiers.memberFree, ["tong_quan", "menh", "cach_cuc"]);
   assert.deepEqual(PLANS.map(p => p.id), ["van_nam", "tron_bo", "cao_cap", "chiem_tinh"]);
   for (const p of PLANS) for (const c of p.chapters) assert.ok((DEEP_CHAPTERS as readonly string[]).includes(c.split(":")[0]) || (c.startsWith("west:") && WEST_PAID.includes(c.slice(5))), `${p.id}: ${c}`);
@@ -96,6 +99,7 @@ test("unlock route: the server decides, per signed-in account and chart", async 
   assert.equal((await me("/api/me/unlock", { birth: BIRTH, ...VN }, null)).status, 401);
   assert.equal((await me("/api/me/unlock", { birth: { year: "x" }, ...VN })).status, 400);
   assert.equal((await me("/api/me/unlock", { birth: BIRTH, plan: "van_han" })).status, 400);                  // retired plan
+  assert.equal((await me("/api/me/unlock", { birth: BIRTH, ...VN }, user, "POST", "0")).status, 400);         // paywall off: nothing to buy
   const poor = await me("/api/me/unlock", { birth: BIRTH, ...VN });
   assert.equal(poor.status, 402); assert.equal(((await poor.json()) as any).need, cost);
   await grant(db, uid, 100, "t2", T);
