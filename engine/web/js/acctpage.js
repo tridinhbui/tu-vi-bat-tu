@@ -1,4 +1,5 @@
-// The account page (#tai-khoan): Lá số của tôi, Thông tin cá nhân, Quyền riêng tư. Signed out it only offers the Google sign-in.
+// The account page: #tai-khoan shows Lá số của tôi and Thông tin cá nhân; #quyen-rieng-tu shows Quyền riêng tư (data and account deletion)
+// on its own, so the destructive forms never sit under the saved charts. Signed out it only offers the Google sign-in.
 import { $, $$ } from './util.js';
 import { api, session } from './account.js';
 import { initProfile } from './profile.js';
@@ -17,7 +18,7 @@ function clearDevice() {
 /** deps: { placeOptions, onPrefill(profile), onRun(profile), onOpen(req), compare, onChange() } */
 export function initAccountPage(root, deps) {
   root.innerHTML = `<section class="acc-mast"><div class="wrap"><p class="eyebrow">Tài khoản</p><h1>Tài khoản của bạn</h1><p class="acc-who muted"></p>
-      <nav class="acc-nav" aria-label="Các phần của trang tài khoản"><a href="#acc-charts">Lá số của tôi</a><a href="#acc-profile">Thông tin cá nhân</a><a href="#acc-privacy">Quyền riêng tư</a></nav></div></section>
+      <nav class="acc-nav" aria-label="Các phần của trang tài khoản"><a href="#acc-charts">Lá số của tôi</a><a href="#acc-profile">Thông tin cá nhân</a><a href="#quyen-rieng-tu" data-go="quyen-rieng-tu" data-page>Quyền riêng tư</a></nav></div></section>
     <div class="acc-out wrap" hidden><p>Đăng nhập để lưu lá số, hỏi Bát Bát về lá số (2 câu miễn phí mỗi ngày), lưu thông tin cá nhân và tạo liên kết chia sẻ. <a href="#quyen-loi" data-go="quyen-loi">Xem đầy đủ quyền lợi</a></p><a class="btn" href="/api/auth/google">Đăng nhập với Google</a></div>
     <div class="acc-in" hidden>
       <section class="wrap acc-sec" id="acc-charts" aria-labelledby="acc-charts-h"><h2 id="acc-charts-h">Lá số của tôi</h2><p class="sec-sub">Mọi lá số bạn đã lập được giữ ở đây, không cần nhập lại. Mở lại, đặt tên và cho biết là của ai, chia sẻ, xóa, hoặc chọn hai lá số để so sánh.</p><div data-charts></div></section>
@@ -33,7 +34,8 @@ export function initAccountPage(root, deps) {
     </div>`;
   const profile = initProfile($('[data-profile]', root), deps);
   const charts = initMyCharts($('[data-charts]', root), deps);
-  $$('.acc-nav a', root).forEach(a => a.onclick = e => { e.preventDefault(); $(a.getAttribute('href'), root)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  $$('.acc-nav a:not([data-page])', root).forEach(a => a.onclick = e => { e.preventDefault(); if (part === 'privacy') { location.hash = '#tai-khoan'; requestAnimationFrame(() => $(a.getAttribute('href'), root)?.scrollIntoView({ block: 'start' })); return; } $(a.getAttribute('href'), root)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  let part = 'main';
   $$('[data-wipe]', root).forEach(f => {
     const btn = $('button', f), st = $('[role=status]', f);
     f.confirm.oninput = () => { btn.disabled = f.confirm.value.trim().toUpperCase() !== CONFIRM; };
@@ -61,5 +63,13 @@ export function initAccountPage(root, deps) {
     if (session.ready && !session.enabled) $('.acc-out', root).hidden = true;
   };
   paint(); addEventListener('tvbt:account', paint);
-  return { paint: () => { paint(); charts.paint(); } };
+  /** which part is shown: 'main' (charts, profile) or 'privacy' (the two deletion forms) */
+  const show = p => {
+    part = p;
+    $('#acc-charts', root).hidden = $('#acc-profile', root).hidden = p === 'privacy';
+    $('#acc-privacy', root).hidden = p !== 'privacy';
+    $$('.acc-nav a', root).forEach(a => a.classList.toggle('on', p === 'privacy' ? a.hasAttribute('data-page') : false));
+  };
+  show('main');
+  return { paint: (p = 'main') => { show(p); paint(); charts.paint(); } };
 }
