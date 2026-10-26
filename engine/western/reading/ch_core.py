@@ -21,7 +21,7 @@ def lilly_condition(f: Facts, p: str, with_house: bool = True) -> str:
     if p in seen:
         st = f.lilly_state(p)
         word = {"well": "đắc thế", "ill": "thất thế", "mixed": "có sức ở mức vừa"}[st]
-        return f"{word} ({f.strength_why(p, 2)})"
+        return f"{word} (tổng {f.lilly_total(p)['total']:+d} điểm)".replace("(tổng -", "(tổng −")      # the lines were listed at first mention
     seen.add(p)
     told = f.__dict__.setdefault("_concepts", set())
     bits = []

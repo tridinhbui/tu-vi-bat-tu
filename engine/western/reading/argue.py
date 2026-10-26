@@ -172,7 +172,7 @@ def _lord_years(f: Facts, p: str, n: int = 2) -> list[int]:
     if not f.time_known or "age_now" not in f.__dict__:
         return []
     a0 = f.__dict__["age_now"]
-    if a0 > 90:
+    if a0 > 90 or a0 < 0:
         return []
     asc_i = sign_index(f.lon["asc"])
     return [a for a in range(a0, a0 + 13) if dignity.domicile_lord(SIGNS[(asc_i + a) % 12]) == p][:n]
