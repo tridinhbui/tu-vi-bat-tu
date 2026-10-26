@@ -5,7 +5,7 @@ import { scopePanelBazi } from './scope.js';
 import { easyReadings, emptyReading, classify, parsePhrase } from './beginner.js';
 import { autoLink, terms } from './glossary.js';
 import { lockHtml } from './paywall.js';
-import { aiSlot } from './ai_card.js';
+import { aiSlot, wholeSlot } from './ai_card.js';
 import { elementBalanceHtml, godDistributionHtml, menhTamPhuongHtml, currentPhase, currentPhaseHtml } from './insights.js';
 import { HANH, MAJOR_SIGN, hk } from './stars_hanh.js';
 import { orderChapters, focusIds, focusNote } from './focus.js';
@@ -618,6 +618,7 @@ export function renderTuviReport(host, chart, ctx) {
   for (const [k, id] of Object.entries(PR_CH)) { const p = ctx.prose?.[k]; if (p?.paragraphs?.length) prByCh[id] = (prByCh[id] || '') + proseHtml(p, k === 'menh' && pd ? { skip: para => para.topic === 'chan_dung' } : {}); }
   for (const [id, html] of Object.entries(prByCh)) { const c = chapters.find(x => x.id === id); if (c) c.synth = html + (c.synth || ''); }
   mount(host, chapters, 'tv', ctx);
+  host.insertAdjacentHTML('afterbegin', wholeSlot());          // mức 3, the whole chart, above the chapters
   if (ctx.prose) bindProse(host, ctx.prose);
   yearExplorer($('#tv-year', host), ctx.req, b, 'tuvi');
 }

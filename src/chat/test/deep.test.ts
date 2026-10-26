@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import { getPlatformProxy } from "wrangler";
 import knowledge from "../../interpret/generated/knowledge.json" with { type: "json" };
-import { handleDeep, handleDeepStatus, DEEP_INSTRUCTIONS, type DeepDeps } from "../deep.ts";
+import { handleDeep, handleDeepStatus, DEEP_INSTRUCTIONS, DEEP2_INSTRUCTIONS, DEEP3_INSTRUCTIONS, STALE_MS, WHOLE_SECTIONS, strike, type DeepDeps } from "../deep.ts";
 import { buyPlan } from "../../billing/paywall.ts";
 import { getWallet, grant } from "../../billing/wallet.ts";
 import { COSTS, FREE_MESSAGES_PER_DAY } from "../../billing/config.ts";
@@ -126,12 +126,13 @@ test("Cao cấp: every Luận AI chapter of that chart is written without xu; an
   const left = await coins(), s = make(llmOf(good));
   const ev = await events(await handleDeep(post(ask("tai_bach")), s.deps));
   await Promise.all(s.jobs);
-  assert.deepEqual(ev[0], { type: "meta", source: "plan", cost: 0 });
+  assert.deepEqual(ev[0], { type: "meta", source: "plan", cost: 0, level: 1 });
   assert.equal(await coins(), left, "no xu taken");
   assert.equal((await saved("tai_bach"))?.text, TEXT);
   const st = (b: unknown) => handleDeepStatus(post(b), { db, user: s.deps.user });
-  assert.deepEqual(await (await st({ birth })).json(), { written: ["tai_bach"], plan: true, cost: COSTS.deep });
-  assert.deepEqual(await (await st({ birth: { ...birth, day: 18 } })).json(), { written: [], plan: false, cost: COSTS.deep });
+  const costs = { 1: COSTS.deep, 2: COSTS.deep2, 3: COSTS.deep3 };
+  assert.deepEqual(await (await st({ birth })).json(), { written: ["tai_bach"], writing: [], plan: true, cost: COSTS.deep, costs });
+  assert.deepEqual(await (await st({ birth: { ...birth, day: 18 } })).json(), { written: [], writing: [], plan: false, cost: COSTS.deep, costs });
   assert.equal((await st({ nope: 1 })).status, 400);
   // a failure on the package refunds nothing because nothing was charged, and says so
   const f = make(llmOf([{ text: "ngắn" }, { stop: "max_tokens" }]));
@@ -141,4 +142,74 @@ test("Cao cấp: every Luận AI chapter of that chart is written without xu; an
   const o = make(llmOf(good));
   await events(await handleDeep(post({ birth: { ...birth, day: 18 }, chapter: "menh" }), o.deps)); await Promise.all(o.jobs);
   assert.equal(await coins(), left - COSTS.deep);
+  // Cao cấp covers mức 1 only: mức 2 on the same chart costs its price
+  const two = make(llmOf(good));
+  await events(await handleDeep(post({ ...ask("tai_bach"), level: 2 }), two.deps)); await Promise.all(two.jobs);
+  assert.equal(await coins(), left - COSTS.deep - COSTS.deep2);
+});
+
+test("mức 2: its own price, prompt and saved copy, beside mức 1 of the same chapter", async () => {
+  await grant(db, uid, COSTS.deep2, "l2");
+  assert.equal((await handleDeep(post({ ...ask(), level: 4 }), make(llmOf(good)).deps)).status, 400);
+  const s = make(llmOf(good));
+  const ev = await events(await handleDeep(post({ ...ask(), level: 2 }), s.deps)); await Promise.all(s.jobs);
+  assert.equal(ev[0].level, 2); assert.equal(ev[0].cost, COSTS.deep2);
+  assert.equal(s.sent.instructions, DEEP2_INSTRUCTIONS);
+  assert.equal(await coins(), 0);
+  assert.equal((await saved("cong_danh#2"))?.text, TEXT); assert.equal(await saved("cong_danh"), null);
+  assert.equal((await handleDeep(post(ask()), make(llmOf(good)).deps)).status, 402);   // mức 1 is a separate purchase
+});
+
+test("mức 3: plan, one checked section per chapter, opening and close; one price; the check strikes what the chart does not hold", async () => {
+  await grant(db, uid, COSTS.deep3, "l3");
+  const BAD = "Cung Mệnh có sao Thiên Lương Hóa Kỵ rất nặng.";
+  const asks: string[] = [];
+  const llm: Llm = async function* (req) {
+    const a = req.messages[0].content; asks.push(a);
+    if (a.startsWith("Bước kiểm tra")) yield { text: a.includes(BAD) ? `- ${BAD}` : "KHÔNG CÓ" };
+    else if (a.startsWith("Bước 2")) { const t = a.match(/Hãy viết phần "([^"]+)"/)![1]; yield { text: `## ${t}\n\n${TEXT}${t === "Tài Bạch" ? " " + BAD : ""}` }; }
+    else yield { text: a.startsWith("Bước 1") ? "- trục: Vũ Khúc" : `## Phần\n\n${TEXT}` };
+    yield { stop: "end_turn" };
+  };
+  const s = make(llm);
+  const ev = await events(await handleDeep(post({ birth, level: 3 }), s.deps)); await Promise.all(s.jobs);
+  assert.equal(s.sent.instructions, DEEP3_INSTRUCTIONS);
+  assert.equal(asks.filter(a => a.startsWith("Bước 2")).length, WHOLE_SECTIONS.length);
+  assert.equal(asks.filter(a => a.startsWith("Bước kiểm tra")).length, WHOLE_SECTIONS.length);
+  assert.ok(ev.some(e => e.type === "step" && e.step === "plan")); assert.equal(ev.at(-2).type, "done");
+  const text = (await saved("toan_bo#3"))!.text;
+  assert.ok(text.includes("## Tài Bạch") && text.includes("## Công danh") && !text.includes(BAD));
+  assert.equal(ev.filter(e => e.type === "delta").map(e => e.text).join("").replace(/\s+/g, " ").trim(), text.replace(/\s+/g, " ").trim());
+  assert.equal(await coins(), 0);
+  // a step that does not finish fails the whole reading, refunded
+  await grant(db, uid, COSTS.deep3, "again");
+  const cut: Llm = async function* (req) { yield { text: "x" }; yield { stop: req.messages[0].content.startsWith("Bước 1") ? "max_tokens" : "end_turn" }; };
+  const f = make(cut), fe = await events(await handleDeep(post({ birth: { ...birth, day: 18 }, level: 3 }), f.deps)); await Promise.all(f.jobs);
+  assert.equal(fe.find(e => e.type === "error")?.refunded, true); assert.equal(await coins(), COSTS.deep3);
+});
+
+test("a job the runtime stopped: not started twice while fresh, refunded and cleared once stale", async () => {
+  await grant(db, uid, COSTS.deep, "buy");
+  let T = Date.UTC(2026, 9, 26, 3);
+  const s = make(async function* () { await new Promise(() => {}); });     // never finishes: the Worker was stopped
+  s.deps.now = () => T;
+  await handleDeep(post(ask()), s.deps);
+  assert.equal(await coins(), 0);
+  const busy = make(llmOf(good)); busy.deps.now = () => T + 60e3;
+  assert.equal((await handleDeep(post(ask()), busy.deps)).status, 409);
+  const st = await (await handleDeepStatus(post({ birth }), { db, user: s.deps.user, now: () => T + 60e3 })).json() as any;
+  assert.deepEqual(st.writing, ["cong_danh"]); assert.deepEqual(st.written, []);
+  T += STALE_MS + 1;
+  const st2 = await (await handleDeepStatus(post({ birth }), { db, user: s.deps.user, now: () => T })).json() as any;
+  assert.deepEqual(st2.writing, []); assert.equal(await coins(), COSTS.deep, "refunded once stale");
+  const again = make(llmOf(good)); again.deps.now = () => T;
+  await events(await handleDeep(post(ask()), again.deps)); await Promise.all(again.jobs);
+  assert.equal((await saved())?.text, TEXT); assert.equal(await coins(), 0);
+});
+
+test("strike: only exact quotes of the section are dropped", () => {
+  const sec = "Câu một có căn cứ rõ ràng. Câu hai nói sai về sao Thiên Lương. Câu ba vẫn đúng như lá số.";
+  assert.deepEqual(strike(sec, "KHÔNG CÓ"), { text: sec, struck: 0 });
+  const r = strike(sec, "- Câu hai nói sai về sao Thiên Lương.\n- Một câu không có trong phần này.\nghi chú");
+  assert.equal(r.struck, 1); assert.equal(r.text, "Câu một có căn cứ rõ ràng. Câu ba vẫn đúng như lá số.");
 });

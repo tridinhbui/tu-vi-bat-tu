@@ -591,7 +591,7 @@ def about_page(m: dict) -> tuple[str, str]:
 <h2>3. Đối chiếu sách và suy luận sâu</h2>
 <ul class="plain">
 <li><b>Bài luận giải chuẩn</b> (các chương Tử Vi, Bát Tự) là phần đối chiếu sách: mọi câu đến từ quy tắc nói trên, không do mô hình ngôn ngữ viết.</li>
-<li><b>Luận riêng</b> (tính bằng xu) dùng suy luận sâu: đọc cả lá số cùng lúc và đi sâu hơn phần đối chiếu sách. Luận riêng và <b>trợ lý hỏi đáp</b> do một mô hình ngôn ngữ viết, dựa trên dữ kiện lá số và bài luận giải chuẩn. Mô hình được dặn không thêm sao, cung hay nhận định ngoài những gì có sẵn, nhưng vẫn có thể diễn đạt sai; khi phần trả lời khác bài luận giải chuẩn, hãy tin bài luận giải chuẩn.</li>
+<li><b>Luận riêng</b> (tính bằng xu) dùng suy luận sâu, có ba mức: mức 1 một chương; mức 2 Luận sâu, một chương đối chiếu cả lá số, Bát Tự và từng đại hạn; mức 3 Luận chuyên sâu, toàn lá số viết qua nhiều bước và tự kiểm từng câu với dữ kiện. Luận riêng và <b>trợ lý hỏi đáp</b> do một mô hình ngôn ngữ viết, dựa trên dữ kiện lá số và bài luận giải chuẩn. Mô hình được dặn không thêm sao, cung hay nhận định ngoài những gì có sẵn, nhưng vẫn có thể diễn đạt sai; khi phần trả lời khác bài luận giải chuẩn, hãy tin bài luận giải chuẩn.</li>
 <li>Các bài viết ở mục <a class="link" href="/bai-viet/">Bài viết</a> được sinh tự động từ chính các quy tắc đã đối chiếu, không có đoạn nào do mô hình ngôn ngữ viết.</li>
 </ul>
 
@@ -629,7 +629,7 @@ FAQ = [
      "Lập lá số Tử Vi và Bát Tự, bảng lá số, mọi chương luận giải (kể cả phần Đọc sâu theo sách), lưu lá số và tải PDF đều miễn phí. "
      "Phần luận giải miễn phí là đối chiếu sách: mỗi câu lấy từ sách, có ghi trang. "
      "Khi đăng nhập, bạn hỏi Bát Bát (trò chuyện) miễn phí 2 câu mỗi ngày; mỗi lần nạp xu có thêm 30 ngày chat, tới 30 câu mỗi ngày. "
-     "Chỉ Luận riêng (suy luận sâu: đọc cả lá số cùng lúc và viết sâu hơn) và các câu hỏi thêm dùng xu."),
+     "Chỉ Luận riêng (suy luận sâu, ba mức: một chương, một chương đối chiếu cả lá số, hoặc toàn lá số) và các câu hỏi thêm dùng xu."),
     ("Luận giải có đáng tin không?",
      "Phần tính toán (lịch âm, vị trí sao, độ sáng) được kiểm bằng bảng lịch độc lập và trang sách, nhưng đối chiếu với lá số thật mới có ít mẫu. "
      "Phần ý nghĩa là cách đọc của sách Tử Vi, mỗi câu ghi trang để bạn tự kiểm. Tử Vi chưa được khoa học kiểm chứng là phương pháp dự báo; "

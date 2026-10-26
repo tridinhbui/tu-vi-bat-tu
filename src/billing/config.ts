@@ -13,7 +13,9 @@ export const FREE_MESSAGES_PER_DAY = 2;
 export const TOPUP_CHAT = { days: 30, perDay: 30 } as const;
 
 /** Coins one use costs. A use listed in FREE_USES draws from the daily free allowance first. */
-export const COSTS = { chat: 1, deep: 20 } as const;
+/** deep = Luận riêng mức 1 (one chapter), deep2 = mức 2 Luận sâu (one chapter against the whole chart), deep3 = mức 3 Luận chuyên sâu (the
+ *  whole chart). Owner decision 2026-10-26; GIÁ TẠM. */
+export const COSTS = { chat: 1, deep: 20, deep2: 60, deep3: 249 } as const;
 export const FREE_USES: readonly Usage[] = ["chat"];
 
 export type Usage = keyof typeof COSTS;
@@ -101,7 +103,7 @@ export const PLANS = [
   { id: "tron_bo", name: "Trọn bộ", coins: 149, chapters: DEEP_CHAPTERS, ai: false, pass: false,
     blurb: "Mọi chương của lá số: mười hai cung, đại hạn và lưu niên, Bát Tự, Tổng luận; trọn phần luận chính và Đọc sâu (theo sách) kèm trang sách." },
   { id: "cao_cap", name: "Cao cấp", coins: 299, chapters: DEEP_CHAPTERS, ai: true, pass: true,
-    blurb: "Trọn bộ, cộng Luận riêng cho mọi chương (suy luận sâu trên cả lá số, khoảng 500–800 từ mỗi chương) và 30 ngày chat với Bát Bát." },
+    blurb: "Trọn bộ, cộng Luận riêng mức 1 cho mọi chương (suy luận sâu trên cả lá số, khoảng 500–800 từ mỗi chương) và 30 ngày chat với Bát Bát. Mức 2 và mức 3 tính riêng." },
   { id: "chiem_tinh", name: "Chiêm tinh", coins: 99, chapters: WEST_PAID.map(c => `west:${c}`), ai: false, pass: false,
     blurb: "Bản đồ sao phương Tây của một ngày giờ và nơi sinh: Đọc sâu (theo sách) các chương tư duy, cảm xúc, sự nghiệp, tài chính, quan hệ, gia đình, định hướng, cùng trọn Tổng hợp và Thời vận." },
 ] as const;

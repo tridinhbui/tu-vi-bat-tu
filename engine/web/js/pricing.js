@@ -22,7 +22,7 @@ async function boot() {
   if (notes.length) { const b = $('#cm-placeholder'); b.innerHTML = notes.join(' '); b.hidden = false; }
   $('#cmp-chat-free').textContent = `${plans.freeMessagesPerDay ?? 2} câu mỗi ngày`;
   $('#cmp-chat-pro').textContent = `sau mỗi lần nạp hoặc gói Cao cấp: ${plans.topupChat?.days ?? 30} ngày chat (tới ${plans.topupChat?.perDay ?? 30} câu/ngày); thêm câu: ${plans.costs.chat} xu`;
-  $('#cmp-ai').textContent = `${plans.costs.deep} xu một chương`;
+  $('#cmp-ai').textContent = `mức 1: ${plans.costs.deep} xu, mức 2: ${plans.costs.deep2} xu một chương; mức 3 toàn lá số: ${plans.costs.deep3} xu`;
   paintPlans(); paintPacks(); paintHistory();
   if (new URLSearchParams(location.search).get('paid') === '0') say($('#cm-pay-msg'), 'Bạn đã dừng thanh toán; chưa có khoản nào bị trừ.');
 }
@@ -32,14 +32,20 @@ async function boot() {
 const PLAN_POINTS = {
   van_nam: ['Đại hạn, tiểu hạn, lưu niên Tử Vi', 'Đại vận, Lưu niên Bát Tự', 'Trọn luận chính và Đọc sâu (theo sách)'],
   tron_bo: ['Mười hai cung, Tổng luận, mọi mục Bát Tự', 'Gồm cả gói Vận năm', 'Trọn luận chính và Đọc sâu, kèm trang sách'],
-  cao_cap: ['Luận riêng mọi chương của lá số', 'Suy luận sâu trên cả lá số, khoảng 500–800 từ mỗi chương', '30 ngày chat với Bát Bát (tới 30 câu/ngày)'],
+  cao_cap: ['Luận riêng mức 1 mọi chương của lá số', 'Suy luận sâu trên cả lá số, khoảng 500–800 từ mỗi chương', '30 ngày chat với Bát Bát (tới 30 câu/ngày)'],
   chiem_tinh: ['Bản đồ sao phương Tây (trang Chiêm tinh), riêng cho một ngày giờ và nơi sinh', 'Đọc sâu bảy chương đời sống', 'Trọn Tổng hợp và Thời vận'],
 };
+// Luận riêng at three levels (src/chat/deep.ts): bought one at a time with xu, under each chapter (mức 1, 2) or atop the report (mức 3)
+const LEVELS = [
+  [1, 'Luận riêng', 'khoảng 500–800 từ', 'Một chương viết bằng suy luận sâu: đọc cả lá số cùng lúc và đi sâu hơn phần đối chiếu sách;'],
+  [2, 'Luận sâu', 'khoảng 1.500–2.000 từ', 'Một chương, mô hình mạnh nhất: lần theo mọi cung, Tứ Hóa và Bát Tự liên quan, đối chiếu hai hệ và đi qua từng đại hạn;'],
+  [3, 'Luận chuyên sâu', 'khoảng 8.000–12.000 từ', 'Toàn lá số qua nhiều bước: dàn ý trục và các chỗ giằng co, từng phần một, tự kiểm từng câu với dữ kiện, phần mở đầu và mười năm tới;'],
+];
 function paintPlans() {
   const tag = plans.placeholder ? `<small class="muted"> · ${esc(plans.placeholderLabel)}</small>` : '';
   $('#cm-plans').innerHTML = plans.plans.map(p => `<article class="cm-card cm-plan${p.id === 'tron_bo' ? ' cm-pick' : ''}">${p.id === 'tron_bo' ? '<p class="cm-badge">Gợi ý</p>' : ''}<h3>${esc(p.name)}</h3><p class="cm-price">${xu(p.coins)}${tag}</p>`
     + (PLAN_POINTS[p.id] ? `<ul class="cm-points" title="${esc(p.blurb)}">${PLAN_POINTS[p.id].map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : `<p>${esc(p.blurb)}</p>`) + '</article>').join('')
-    + `<article class="cm-card cm-plan"><h3>Luận riêng lẻ</h3><p class="cm-price">${xu(plans.costs.deep)}${tag}</p><p>Một chương viết bằng suy luận sâu: đọc cả lá số cùng lúc và đi sâu hơn phần đối chiếu sách, khoảng 500–800 từ, chỉ từ dữ kiện và luận giải đã có; bấm ở thẻ “Luận riêng” dưới chương. Khác với phần Đọc sâu (theo sách). Viết hỏng thì xu được hoàn lại.</p></article>`;
+    + LEVELS.map(([lv, name, words, text]) => `<article class="cm-card cm-plan"><h3>Mức ${lv} · ${name}</h3><p class="cm-price">${xu(plans.costs[lv === 1 ? 'deep' : 'deep' + lv])}${tag}</p><p>${text} ${words}. Viết hỏng thì xu được hoàn lại; đã viết thì đọc lại miễn phí.</p></article>`).join('');
 }
 
 function paintPacks() {
@@ -105,7 +111,9 @@ function label(h) {
   if (h.kind === 'gift') return `Mã quà tặng <code>${esc(ref.slice(5))}</code>`;
   if (h.kind === 'refund_coin') return 'Hoàn xu';
   if (h.usage === 'chat') return 'Hỏi đáp về lá số';
-  if (h.usage === 'deep') return 'Luận riêng';
+  if (h.usage === 'deep') return 'Luận riêng (mức 1)';
+  if (h.usage === 'deep2') return 'Luận sâu (mức 2)';
+  if (h.usage === 'deep3') return 'Luận chuyên sâu (mức 3)';
   if (h.usage.startsWith('unlock:')) return `Mở gói: ${esc(PLAN_NAME()[h.usage.slice(7)] || h.usage.slice(7))}`;
   return esc(h.kind);
 }

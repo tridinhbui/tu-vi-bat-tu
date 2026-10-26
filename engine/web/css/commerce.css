@@ -80,6 +80,8 @@
 .ai-card .eyebrow{margin-bottom:var(--s2)}.ai-card p{margin:0 0 var(--s2)}.ai-card p:last-child{margin-bottom:0}
 .ai-card .btn{gap:6px}.ai-card .coin{width:1.05em;height:1.05em;vertical-align:-.15em}
 .ai-text p,.ai-text ul{margin:0 0 var(--s3);line-height:1.75}.ai-text h5{margin:var(--s3) 0 var(--s2);font-size:1rem}
+.ai-go{display:flex;flex-wrap:wrap;gap:8px}.ai-whole{border-style:solid;border-color:var(--cinnabar)}
+.ai-text{margin-top:var(--s3)}.ai-text > .eyebrow{color:var(--muted)}
 .ai-msg.err{color:var(--neg)}.ai-card a:not(.btn){color:var(--accent)}
 @media print{.ai-card:not(:has(.ai-text p)){display:none}.ai-card .btn,.ai-msg{display:none}}
 .pw-plans s{color:inherit;opacity:.65;font-weight:400}

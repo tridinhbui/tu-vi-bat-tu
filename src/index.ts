@@ -13,7 +13,7 @@ import { handleTarot, isTarotPath } from "./tarot/route.ts";
 import { handleDeep, handleDeepStatus } from "./chat/deep.ts";
 import { handleBilling, isBillingPath, paywallOn, type BillingEnv } from "./billing/route.ts";
 import { gated as gatedRoute } from "./billing/paywall.ts";
-import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS } from "./chat/llm.ts";
+import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS, type LlmOptions } from "./chat/llm.ts";
 import { handleInterpret } from "./interpret/route.ts";
 import { handleOverview } from "./interpret/overview.ts";
 import { BundledStore, D1Store, LayeredCache, type D1Like, type R2Like } from "./interpret/store.ts";
@@ -76,7 +76,8 @@ async function chatRoute(request: Request, env: Env, ctx: ExecutionContext, deep
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(birth) })),
   };
   // a guest reaches handleChat, which answers 401 itself (the panel opens for anyone; sending needs sign-in)
-  return deep && user ? handleDeep(request, { ...deps, user, defer: p => ctx.waitUntil(p) }) : handleChat(request, { ...deps, user });
+  const key = env.ANTHROPIC_API_KEY, llmFor = key ? (o: LlmOptions) => anthropicLlm(key, o) : undefined;   // one client per Luận riêng level and step
+  return deep && user ? handleDeep(request, { ...deps, user, llmFor, defer: p => ctx.waitUntil(p) }) : handleChat(request, { ...deps, user });
 }
 
 // A shared chart is computed from the birth stored with it: the engine call is built here, never from the viewer's body alone. Its readings
