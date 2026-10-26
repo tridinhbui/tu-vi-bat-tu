@@ -878,6 +878,9 @@ body.hide-birth #hoangdao-host,body.hide-birth .hl-hd{display:none!important}
   .fit-l h1{font-size:clamp(1.35rem,1.9vw,2rem)}
   .fit-r .wt-start{grid-template-columns:1fr}
   .fit-r>:first-child{margin-top:0}
+  /* sticky offsets were measured from the window; inside a scrolling panel they pin over the text */
+  .fit-l .wt-side{position:static}
+  .fit-r :is(.wt-detail,.hz-detail){top:0}
   /* Lá số của tôi / Quyền riêng tư: the masthead, then the two parts side by side, each scrolling */
   body[data-view=account] #account-view{height:var(--fit-h);display:flex;flex-direction:column}
   body[data-view=account] .acc-mast{flex:none;padding-top:clamp(14px,2.4vh,28px);padding-bottom:clamp(10px,1.6vh,18px)}
