@@ -195,7 +195,7 @@ def summarize(f: Facts, cid: str, heading: str, claims: list[Claim], thesis, til
     ranked = sorted(claims, key=lambda c: (-c.w, claims.index(c)))
     support = [c for c in top if c.pol == side] + [c for c in ranked if c not in top and c.pol == side]
     if not support:            # a descriptive claim is given as a reason only when nothing argues either way
-        support += [c for c in top if c.pol == 0 and c.show][:2]
+        support += ([c for c in top if c.pol == 0 and c.show] or [c for c in top if c.pol == 0])[:2]
     contra = [c for c in ranked if c.pol == -side]
     text += _reasons(f, cid, [c.why for c in support[:3]])
     by_planet: dict[str, set] = {}
