@@ -178,8 +178,8 @@ export async function handleDeep(request: Request, d: DeepDeps): Promise<Respons
   // The job runs to the end even when the reader has gone away (open = false), so the reading is saved either way.
   const job = (async () => {
     emit({ type: "meta", source: plan ? "plan" : "coin", cost, level });
-    let text = "", stop = "";
-    try { ({ text, stop } = await write(emit)); } catch (e) { stop = "error"; console.error(llmErrorLine(`deep${level}`, e)); }
+    let text = "", stop = "", line = "";
+    try { ({ text, stop } = await write(emit)); } catch (e) { stop = "error"; line = llmErrorLine(`deep${level}`, e); console.error(line); }
     // Complete = the model finished on its own and wrote something real. Anything else is given back so the user can try again.
     if (stop === "end_turn" && text.trim().length > 200) {
       await d.db.prepare("UPDATE deep_readings SET text = ?, model = ?, created_at = ? WHERE user_id = ? AND fp = ? AND chapter = ?")
@@ -190,7 +190,8 @@ export async function handleDeep(request: Request, d: DeepDeps): Promise<Respons
       let refunded = !paid;                                                      // on a package nothing was charged
       if (paid?.ok) try { refunded = await refund(d.db, d.user.id, paid.ref, d.now?.()); } catch { /* reported below as not refunded */ }
       await d.db.prepare("DELETE FROM deep_readings WHERE user_id = ? AND fp = ? AND chapter = ? AND text = ''").bind(d.user.id, birth.fp, key).run().catch(() => {});
-      emit({ type: "error", message: stop === "refusal" ? "Trợ lý không viết được phần này. Số xu đã được hoàn lại." : "Bản luận giải chưa viết xong nên chưa được tính. Bạn thử lại nhé.", refunded });
+      const why = line || `stop=${stop || "none"} chars=${text.length}`;     // an admin sees why, so a failure can be diagnosed without logs
+      emit({ type: "error", message: (stop === "refusal" ? "Trợ lý không viết được phần này. Số xu đã được hoàn lại." : "Bản luận giải chưa viết xong nên chưa được tính. Bạn thử lại nhé.") + (d.unlimited ? ` [admin: ${why}]` : ""), refunded });
     }
     try { emit({ type: "wallet", wallet: await getWallet(d.db, d.user.id, d.now?.()) }); ctl.close(); } catch { /* already closed */ }
   })();

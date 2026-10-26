@@ -100,9 +100,11 @@ export async function handleChat(request: Request, d: ChatDeps): Promise<Respons
           ctl.enqueue(sse({ type: "error", message: stop === "refusal" ? "Trợ lý không trả lời được câu này. Bạn thử hỏi theo cách khác nhé." : "Chưa nhận được câu trả lời. Bạn thử lại nhé.", refunded }));
         } else ctl.enqueue(sse({ type: "done", truncated: stop === "max_tokens" }));
       } catch (e) {
-        console.error(llmErrorLine("chat", e));
+        const line = llmErrorLine("chat", e);
+        console.error(line);
         const refunded = delivered ? false : await giveBack();
-        try { ctl.enqueue(sse({ type: "error", message: "Trợ lý đang gặp sự cố. Bạn thử lại sau nhé.", refunded })); } catch { /* the client is gone */ }
+        // an admin also sees the API's own error line, so a failure can be diagnosed without the Worker logs (never shown to others)
+        try { ctl.enqueue(sse({ type: "error", message: "Trợ lý đang gặp sự cố. Bạn thử lại sau nhé." + (d.unlimited ? ` [admin: ${line}]` : ""), refunded })); } catch { /* the client is gone */ }
       }
       try { ctl.enqueue(sse({ type: "wallet", wallet: await getWallet(d.db, user.id, d.now?.()) })); ctl.close(); } catch { /* closed */ }
     },
