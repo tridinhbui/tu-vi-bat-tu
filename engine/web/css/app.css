@@ -779,7 +779,7 @@ html.signed-in .hdr-in,html.signed-in .side-in,html:not(.signed-in) .ucard{displ
   html:not(.signed-in) .nv-sl{display:none}
   html:not(.signed-in) .nv-bl{display:inline}
   /* nv-dd groups: the heading is a pill that opens the group's items below it (hover, focus or click via js/nav.js) */
-  html:not(.signed-in) .nav .nv-g.nv-dd{display:block!important;position:relative}
+  html:not(.signed-in) .nav .nv-g.nv-dd{display:block!important;position:relative;margin:0}
   html:not(.signed-in) .nav .nv-dd>.nv-gh{display:flex;width:auto;gap:4px;padding:10px 10px 10px 12px;border-radius:99px;font:500 .9rem/1.2 var(--sans);letter-spacing:0;text-transform:none;color:var(--text2);white-space:nowrap}
   html:not(.signed-in) .nav .nv-dd>.nv-gh .chev{transform:none}
   html:not(.signed-in) .nav .nv-dd>.nv-gh:hover,html:not(.signed-in) .nav .nv-dd:is(:hover,.dd-open)>.nv-gh,html:not(.signed-in) .nav .nv-dd:has([aria-current=page])>.nv-gh{background:var(--parchment);color:var(--ink)}
