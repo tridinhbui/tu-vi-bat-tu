@@ -50,8 +50,8 @@ class Claim:
 
 # --------------------------------------------------------------------------------------------- plain-language glosses
 GLOSS = {
-    "đắc thế": "đắc thế, tức được cung đang đứng nâng sức",
-    "thất thế": "thất thế, tức cung đang đứng làm nó yếu đi",
+    "đắc thế": "đắc thế, tức tổng điểm Lilly cho vị trí và chuyển động của nó cao",
+    "thất thế": "thất thế, tức tổng điểm Lilly cho vị trí và chuyển động của nó thấp",
     "lạc chỗ": "lạc chỗ, tức không có phẩm vị nào ở độ đang đứng; bảng điểm của Lilly trừ cho trường hợp này ngang với một cung tổn hại",
     "nhà góc": "nhà góc (Nhà 1, 4, 7, 10, nơi một hành tinh tác động mạnh nhất)",
     "nhà suy": "nhà suy (Nhà 3, 6, 9, 12, nơi hành tinh khó phát huy)",
@@ -86,11 +86,10 @@ def _nature(p: str) -> str:
 
 
 def _state_words(f: Facts, p: str) -> str:
+    """'đang mạnh (đắc thế; tổng +14 điểm: ở cung tôn vinh +4, ở Nhà 10 +5, đi thuận +4)': the verdict and the lines behind it."""
     st = f.lilly_state(p)
-    if st == "ill" and not f.lilly_essential(p)["debilities"]:
-        # Lilly's table gives a planet with no dignity at its degree -5, as much as a detriment: weak, but for another reason
-        return f"đang {gloss(f, 'lạc chỗ')}"
-    return f"đang {gloss(f, 'đắc thế')}" if st == "well" else f"đang {gloss(f, 'thất thế')}" if st == "ill" else "có sức ở mức vừa"
+    word = {"well": f"đang mạnh ({gloss(f, 'đắc thế')}", "ill": f"đang yếu ({gloss(f, 'thất thế')}", "mixed": "có sức ở mức vừa ("}[st]
+    return f"{word}; {f.strength_why(p)})"
 
 
 def _once(f: Facts, key: str) -> bool:
@@ -115,7 +114,9 @@ def _margin(f: Facts, s: str, p: str) -> float | None:
 def _time_note(f: Facts, cid: str, used: list[Claim]) -> str:
     if not f.time_known:
         return ""
-    pts = [(s, p) for c in used for s, p in c.timed]
+    # a strength verdict counts Lilly's house points, so it rests on the planet's house too
+    pts = [(s, p) for c in used for s, p in c.timed] + [("traditional", e["id"]) for c in used if "điểm:" in c.why
+                                                       for e in c.ev[:1] if e["kind"] == "planet"]
     if not pts:
         names = [P(n) for n in dict.fromkeys(e["id"] for c in used for e in c.ev if e["kind"] == "planet")][:3]
         return f" Kết luận này chỉ dựa vào cung và góc chiếu của {listing(names)}, nên không đổi dù giờ sinh lệch vài chục phút." if names and _once(f, "time:sign") else ""

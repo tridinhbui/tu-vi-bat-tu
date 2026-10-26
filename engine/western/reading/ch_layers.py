@@ -41,7 +41,7 @@ def planets(f: Facts) -> list[Para]:
     ang = [p for p in CLASSICAL if f.house_lilly(p) in (1, 4, 7, 10)]
     summ = []
     if good:
-        summ.append(f"{planet_list(good)} đắc thế theo bảng phẩm vị của Lilly")
+        summ.append(f"{planet_list(good)} đắc thế theo tổng điểm của Lilly (phẩm vị cộng vị trí và chuyển động)")
     if bad:
         summ.append(f"{planet_list(bad)} thất thế")
     if ang:

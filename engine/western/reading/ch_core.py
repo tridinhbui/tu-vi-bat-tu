@@ -20,9 +20,8 @@ def lilly_condition(f: Facts, p: str, with_house: bool = True) -> str:
     seen = f.__dict__.setdefault("_described", set())
     if p in seen:
         st = f.lilly_state(p)
-        word = {"well": "đắc thế", "ill": "thất thế", "mixed": "có phẩm vị lưng chừng"}[st]
-        key = (e["has"][:1] or e["debilities"][:1] or (["peregrine"] if e["peregrine"] else []))
-        return f"{word} ({DIGNITY_VI[key[0]].split(' (')[0]})" if key else word
+        word = {"well": "đắc thế", "ill": "thất thế", "mixed": "có sức ở mức vừa"}[st]
+        return f"{word} ({f.strength_why(p, 2)})"
     seen.add(p)
     told = f.__dict__.setdefault("_concepts", set())
     bits = []
@@ -260,11 +259,11 @@ def _lilly_manners(f: Facts) -> list[Para]:
         cond = lilly_condition(f, portrait_planet)
         tot = f.lilly_total(portrait_planet)
         if state == "well":
-            core = (f"{P(portrait_planet)} " + (f"{cond}, như đã thấy ở trên" if repeat else f"đang {cond}, tức đắc thế theo phẩm vị của Lilly") + ". Khi sao này mạnh, ông mô tả người mang nó là "
+            core = (f"{P(portrait_planet)} " + (f"{cond}, như đã thấy ở trên" if repeat else f"đang {cond}, tức đắc thế theo tổng điểm của Lilly ({f.strength_why(portrait_planet)})") + ". Khi sao này mạnh, ông mô tả người mang nó là "
                     f"{listing(mm['well'], 5)} ({mm['loc'].replace('p.', 'tr.')}).")
             pol = +1
         elif state == "ill":
-            core = (f"{P(portrait_planet)} " + (f"{cond}, như đã thấy ở trên" if repeat else f"đang {cond}, tức thất thế theo phẩm vị của Lilly") + f". Với một {P(portrait_planet)} yếu, ông ghi những nét cần để ý là "
+            core = (f"{P(portrait_planet)} " + (f"{cond}, như đã thấy ở trên" if repeat else f"đang {cond}, tức thất thế theo tổng điểm của Lilly ({f.strength_why(portrait_planet)})") + f". Với một {P(portrait_planet)} yếu, ông ghi những nét cần để ý là "
                     f"{listing(mm['ill'], 4)} ({mm['loc'].replace('p.', 'tr.')}); bản chất gốc của sao vẫn còn, chỉ là khó phát huy trọn.")
             pol = -1
             if tot["accidental_score"] >= 8:

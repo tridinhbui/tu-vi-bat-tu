@@ -27,11 +27,34 @@ PLANET_QUALITY = {"saturn": (("cold", "moist"), ("dry",)), "jupiter": (("hot", "
 LILLY_MEAN = {"saturn": 2 / 60 + 1 / 3600, "jupiter": 4 / 60 + 59 / 3600, "mars": 31 / 60 + 27 / 3600, "sun": 59 / 60 + 8 / 3600,
               "venus": 59 / 60 + 8 / 3600, "mercury": 59 / 60 + 8 / 3600, "moon": 13 + 10 / 60 + 36 / 3600}       # pp.57-80
 PTOLEMAIC_ASPECTS = {0: "conjunction", 2: "sextile", 3: "square", 4: "trine", 6: "opposition"}
+STRONG, WEAK = 10, 0          # see OPERATIONAL['well_dignified']
+ESS_VI = {"domicile": "ở nhà của mình", "exaltation": "ở cung tôn vinh", "triplicity": "làm chủ nhóm nguyên tố", "term": "ở giới hạn của mình",
+          "face": "ở diện của mình", "detriment": "ở cung tổn hại", "fall": "ở cung suy hãm", "peregrine": "lạc chỗ"}
+_ACC = {"retrograde": "nghịch hành", "direct": "đi thuận", "swift": "đi nhanh", "slow": "đi chậm", "superiors_oriental": "mọc trước Mặt Trời",
+        "superiors_occidental": "lặn sau Mặt Trời", "inferiors_occidental": "đi sau Mặt Trời", "inferiors_oriental": "đi trước Mặt Trời",
+        "moon_increasing_or_occidental": "trăng đang tròn dần", "moon_decreasing": "trăng đang khuyết", "cazimi": "nằm ngay tim Mặt Trời",
+        "combust": "bị Mặt Trời đốt", "under_beams": "dưới tia Mặt Trời", "free_from_combustion_and_beams": "không bị Mặt Trời che",
+        "besieged": "bị Sao Thổ và Sao Hỏa vây", "partile_conj_north_node": "trùng La Hầu", "partile_conj_south_node": "trùng Kế Đô",
+        "conj_cor_leonis": "sát Cor Leonis", "conj_spica": "sát Spica", "conj_caput_algol": "sát Caput Algol"}
+
+
+def ACC_VI(k: str) -> str:
+    if k.startswith("house_"):
+        return f"ở Nhà {k[6:]}"
+    base = k.split(":")[0]
+    if base.startswith("partile_"):
+        return "chiếu đúng độ với " + ("cát tinh" if "jupiter_venus" in base else "hung tinh")
+    return _ACC.get(base, base)
+
+
 SYSTEM_VI = {"lilly": "theo cách chia của Lilly", "ws": "tính trọn cung", "ptolemy": "theo chỗ 30° của Ptolemy",
              "modern": "theo hệ nhà đang chọn"}
 OPERATIONAL = {
-    "well_dignified": "Thiên Bàn coi một hành tinh là 'đắc thế' khi tổng điểm bản chất theo bảng Lilly (tr.104, điểm tr.101-103) từ +4 trở lên, "
-                      "'thất thế' khi từ -4 trở xuống; Lilly không đặt ngưỡng số.",
+    "well_dignified": "Thiên Bàn gọi một hành tinh là 'đắc thế' (mạnh) khi tổng điểm theo bảng Lilly, gồm điểm bản chất (tr.104, tr.101-103) "
+                      "và điểm ngẫu nhiên (nhà, chiều đi, tốc độ, khoảng cách với Mặt Trời, góc chiếu đúng độ, định tinh; tr.115), từ +10 trở lên; "
+                      "'thất thế' (yếu) khi từ 0 trở xuống; ở giữa là mức vừa. Lilly không đặt ngưỡng số và không nói hai phần cộng thế nào (tr.116); "
+                      "Thiên Bàn cộng thẳng như Lilly làm khi chọn sao chủ lá số (tr.531). Mốc giữa đặt quanh +5 vì một sao không có gì đặc biệt "
+                      "(không phẩm vị, đi thuận, không bị Mặt Trời che) đã được khoảng chừng ấy điểm theo bảng tr.115.",
     "partile": "partile = cùng số độ trong cung (ví dụ 9° Bạch Dương và 9° Sư Tử), theo ví dụ của Lilly tr.107.",
     "besieged": "'bị vây' = Sao Thổ và Sao Hỏa ở hai bên trong cùng một cung; Lilly không định nghĩa thêm ở tr.115.",
     "morning_appearance": "'mới mọc buổi sáng' (Ptolemy IV.4) được hiểu là hành tinh đi trước Mặt Trời và đã cách xa ít nhất 15°; "
@@ -181,12 +204,12 @@ class Facts:
         return None
 
     def lilly_accidental(self, p: str) -> list[tuple[str, int]]:
-        """Lines of Lilly's p.115 table that apply to planet p (fixed stars within OPERATIONAL['fixed_stars'])."""
-        if not self.time_known:
-            return []
+        """Lines of Lilly's p.115 table that apply to planet p (fixed stars within OPERATIONAL['fixed_stars']). Without a birth time
+        the house lines are left out; motion and the distance from the Sun hardly change within the day (the Moon's partile
+        aspects can, so they are left out too)."""
         rows = {r["key"]: r["points"] for r in kb.dignities()["accidental"]["rows"]}
         out: list[tuple[str, int]] = []
-        h = self.house_lilly(p)
+        h = self.house_lilly(p) if self.time_known else None
         if h:
             out.append((f"house_{h}", kb.dignities()["accidental"]["house_points"][str(h)]))
         cond = self.c["conditions"][p]
@@ -248,9 +271,20 @@ class Facts:
         return {"essential": ess, "accidental": acc, "accidental_score": sum(v for _, v in acc), "total": ess["score"] + sum(v for _, v in acc)}
 
     def lilly_state(self, p: str) -> str:
-        """'well' / 'ill' / 'mixed' by essential points (see OPERATIONAL['well_dignified'])."""
-        s = self.lilly_essential(p)["score"]
-        return "well" if s >= 4 else "ill" if s <= -4 else "mixed"
+        """'well' / 'ill' / 'mixed' by Lilly's essential and accidental points together (see OPERATIONAL['well_dignified'])."""
+        s = self.lilly_total(p)["total"]
+        return "well" if s >= STRONG else "ill" if s <= WEAK else "mixed"
+
+    def strength_why(self, p: str, n: int = 3) -> str:
+        """'+14: ở cung tôn vinh, ở Nhà 10, đi thuận': the total and the lines that weigh most, for the reader to check."""
+        t = self.lilly_total(p)
+        e = t["essential"]
+        sc = kb.dignities()["scores"]["essential"]
+        items = [(sc[k], ESS_VI[k]) for k in e["has"] + e["debilities"]] + ([(sc["peregrine"], ESS_VI["peregrine"])] if e["peregrine"] else [])
+        items += [(v, ACC_VI(k)) for k, v in t["accidental"] if v]
+        common = {"đi thuận", "không bị Mặt Trời che"}          # what most planets get: named only when nothing else weighs
+        items.sort(key=lambda x: (x[1] in common, -abs(x[0])))
+        return f"tổng {t['total']:+d} điểm, trong đó có ".replace("-", "−") + ", ".join(f"{x} {v:+d}".replace("-", "−") for v, x in items[:n])
 
     @cached_property
     def lord_of_geniture(self) -> dict | None:
