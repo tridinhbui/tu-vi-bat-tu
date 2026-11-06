@@ -13,7 +13,7 @@ import { handleTarot, isTarotPath } from "./tarot/route.ts";
 import { handleDeep, handleDeepStatus } from "./chat/deep.ts";
 import { handleBilling, isBillingPath, paywallOn, type BillingEnv } from "./billing/route.ts";
 import { gated as gatedRoute } from "./billing/paywall.ts";
-import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS, type LlmOptions } from "./chat/llm.ts";
+import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS, llmCheck, type LlmOptions } from "./chat/llm.ts";
 import { handleInterpret } from "./interpret/route.ts";
 import { handleOverview } from "./interpret/overview.ts";
 import { BundledStore, D1Store, LayeredCache, type D1Like, type R2Like } from "./interpret/store.ts";
@@ -105,6 +105,14 @@ export default {
     }
     if (isFeedbackPath(path)) return handleFeedback(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
     if (isReferralPath(path)) return handleReferral(request, env.DB, env.DB ? await currentUser(env.DB, request) : null);
+    if (path === "/api/admin/llm-check") {
+      const user = env.DB ? await currentUser(env.DB, request) : null, key = env.ANTHROPIC_API_KEY;
+      const out = !user || !isAdmin(env, user) ? { status: 403, body: { detail: "admin only" } }
+        : !key ? { status: 503, body: { detail: "ANTHROPIC_API_KEY is not set on this Worker" } }
+        : { status: 200, body: await llmCheck(o => anthropicLlm(key, o)) };
+      if (out.status === 200) console.log(`[llm-check] ${JSON.stringify(out.body)}`);
+      return new Response(JSON.stringify(out.body, null, 2), { status: out.status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
+    }
     if (isAdminPath(path)) return handleAdmin(request, env, env.DB ? await currentUser(env.DB, request) : null);
     if (isHoraryPath(path)) return handleHorary(request, env.DB);
     if (isAccountPath(path)) return handleAccount(request, env.DB, shareForward(request, env, ctx));

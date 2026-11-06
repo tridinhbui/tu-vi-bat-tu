@@ -26,6 +26,20 @@ export const DEEP3_OPTIONS: LlmOptions = { model: DEEP_MAX_MODEL, maxTokens: 320
 /** Mức 3's check: finds sentences of a section that the chart text does not support (they are struck before the reader sees them). */
 export const CHECK_OPTIONS: LlmOptions = { model: DEEP_MODEL, maxTokens: 12000, effort: "medium", thinking: true, fallback: true };
 
+/** GET /api/admin/llm-check (admin only): one tiny real call per model setup the site uses, so a failing key, model id or parameter is
+ *  named on screen without the Worker logs. Each call asks for one word; the answer itself is not shown, only whether it came back. */
+export async function llmCheck(llmFor: (o: LlmOptions) => Llm): Promise<Record<string, { ok: boolean; ms: number; stop?: string; error?: string }>> {
+  const setups: Record<string, LlmOptions> = { chat: CHAT_OPTIONS, deep1: DEEP_OPTIONS, deep2: DEEP2_OPTIONS, check: CHECK_OPTIONS };
+  const runs = Object.entries(setups).map(async ([name, o]) => {
+    const t0 = Date.now();
+    try {
+      const r = await collect(llmFor({ ...o, maxTokens: 4000, effort: "low" }), { instructions: "Trả lời đúng một từ.", context: "Kiểm tra kết nối.", messages: [{ role: "user", content: "Nói: OK" }] });
+      return [name, { ok: r.stop === "end_turn" && r.text.trim().length > 0, ms: Date.now() - t0, stop: r.stop }] as const;
+    } catch (e) { return [name, { ok: false, ms: Date.now() - t0, error: llmErrorLine(name, e) }] as const; }
+  });
+  return Object.fromEntries(await Promise.all(runs));
+}
+
 /** The whole answer of one call (no streaming to the reader): its text and why it stopped. */
 export async function collect(llm: Llm, req: LlmRequest): Promise<{ text: string; stop: string }> {
   let text = "", stop = "";

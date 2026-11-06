@@ -40,7 +40,7 @@ function mount() {
       <div class="ask-deep" hidden><select aria-label="Chương muốn viết Luận riêng">${CHAPTERS.map(([id, t]) => `<option value="${id}">${t}</option>`).join('')}</select><button type="button" class="btn btn-sm btn-ghost">Luận riêng · 20 xu</button></div>
       <div class="ask-log" aria-live="polite"></div>
       <div class="ask-note" hidden></div>
-      <form class="ask-form"><label class="ask-sr" for="ask-ta">Câu hỏi</label><textarea id="ask-ta" rows="1" maxlength="1500" placeholder="Hỏi Bát Bát…"></textarea><button class="btn btn-sm" type="submit">Gửi</button></form>
+      <form class="ask-form"><label class="ask-sr" for="ask-ta">Câu hỏi</label><textarea id="ask-ta" rows="1" maxlength="1500" placeholder="Hỏi Bát Bát…" disabled></textarea><button class="btn btn-sm" type="submit" disabled>Gửi</button></form>
       <p class="ask-fine"></p>
     </section>`;
   document.body.append(root);
@@ -172,7 +172,9 @@ function mount() {
   form.onsubmit = async e => {
     e.preventDefault();
     const text = ta.value.trim(), t = current();
-    if (!text || busy || !me?.user) return;
+    // the box stays disabled until the account has loaded (paint), so a question is never dropped without a word
+    if (!text || busy) return;
+    if (!me?.user) { errSay(loaded ? 'Bạn cần đăng nhập để hỏi Bát Bát.' : 'Đang tải tài khoản, bạn gửi lại sau giây lát nhé.'); return; }
     busy = true; paint(); ta.value = ''; ta.style.height = '';
     meSay(text); const out = botSay('…');
     const messages = [...history, { role: 'user', content: text }].slice(-19);
