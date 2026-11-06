@@ -374,7 +374,7 @@ def shell(path: str, title: str, desc: str, body: str, *, crumbs: list[tuple[str
 <footer class="site-footer"><div class="wrap foot cfoot">
 <div><b>{SITE}</b><p>Tử Vi · Bát Tự có thể truy vết.</p></div>
 <p class="foot-note">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Tử Vi và Bát Tự chưa được khoa học kiểm chứng là phương pháp dự báo.
-<a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/kinh-dich/">Kinh Dịch</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/tarot/">Tarot</a> · <a class="link" href="/cung-hoang-dao/">Cung hoàng đạo</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/library">Quy tắc và nguồn</a></p>
+<a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/kinh-dich/">Kinh Dịch</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/tarot/">Tarot</a> · <a class="link" href="/cung-hoang-dao/">Cung hoàng đạo</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/library">Quy tắc và nguồn</a> · <a class="link" href="#gop-y" data-feedback>Góp ý</a></p>
 </div></footer>
 {script_tags}
 </body>

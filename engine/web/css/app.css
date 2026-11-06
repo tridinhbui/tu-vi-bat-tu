@@ -47,6 +47,9 @@ a{color:inherit}
 .hero h1 em{font-style:italic;color:var(--cinnabar)}
 .hero-lead{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--text2);max-width:34em;margin:var(--s5) 0 var(--s6)}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+/* While the hero's own button is on screen the header one hides (js/app.js sets html.hero-in), so the first view has one "Lập lá số" */
+.hdr-cta{transition:opacity .2s,visibility .2s}
+html.hero-in .hdr-cta{opacity:0;visibility:hidden}
 .hero-facts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5);margin-top:var(--s7);padding-top:var(--s5);border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);line-height:1.45}
 .hero-facts b{display:block;color:var(--ink);font:600 .9rem var(--sans);margin-bottom:4px}
 .hero-art{position:relative}.compass-wrap{width:100%;aspect-ratio:1;max-width:620px;margin:0 auto;color:var(--ink)}
@@ -215,7 +218,7 @@ input[type=range]{height:28px;padding:0;border:0;background:transparent;accent-c
 }
 @media(max-width:600px){
   
-  .hero-facts{grid-template-columns:minmax(0,1fr);gap:12px}.hero-cta .btn{width:100%}.fe{grid-template-columns:minmax(0,1fr)}.f-3{grid-template-columns:1fr 1fr}.f-3 .fld:last-child{grid-column:1/-1}.f-2{grid-template-columns:minmax(0,1fr)}
+  .hero-facts{grid-template-columns:minmax(0,1fr);gap:12px}.hero-cta .btn{width:100%}.hero-cta .btn.hero-sample{width:auto;min-height:0;height:auto;margin:0 auto;padding:6px 8px;border:0;background:none;box-shadow:none;color:var(--cinnabar);font-weight:600;text-decoration:underline;text-underline-offset:3px}.fe{grid-template-columns:minmax(0,1fr)}.f-3{grid-template-columns:1fr 1fr}.f-3 .fld:last-child{grid-column:1/-1}.f-2{grid-template-columns:minmax(0,1fr)}
   .acc>summary{flex-wrap:wrap;padding:14px 16px}.acc-s{margin-left:0;text-align:left;order:3;width:100%}.acc-c{margin-left:auto}.yx-bar{grid-template-columns:auto 1fr}.yx-bar input{grid-column:1/-1}
 }
 @media print{.site-header,.res-nav{display:none}}
@@ -596,23 +599,18 @@ body.hour-mode #print-btn,body.hour-mode #print-full-btn{display:none}
 
 
 /* Live counters on the landing page (js/live.js): a bordered box, a "Trực tiếp" header row, one cell per total */
-.live{margin:var(--s5) 0 0;max-width:30rem;border:1px solid var(--bd);border-radius:var(--r-sm);background:color-mix(in srgb,var(--raise) 82%,transparent);overflow:hidden}
-.live[hidden]{display:none}
-.live-tag{display:flex;align-items:center;gap:8px;margin:0;padding:10px var(--s4);border-bottom:1px solid var(--bd);font:600 .7rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--jade)}
-.live-cells{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
-.live-item{display:flex;flex-direction:column;gap:10px;padding:var(--s4);min-width:0}
-.live-item+.live-item{border-left:1px solid var(--bd)}
-.live-lbl{font:500 .68rem/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.live-item b{display:inline-flex;align-items:center;gap:10px;font:600 clamp(1.35rem,3.2vw,1.7rem)/1 ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em;white-space:nowrap}
+/* Live counters (js/live.js): one quiet line under the three promises, height reserved so nothing jumps when the numbers arrive */
+.live{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;min-height:24px;margin:var(--s4) 0 0;font:500 .8rem/1.4 var(--sans);color:var(--muted)}
+.live[hidden]{display:flex;visibility:hidden}
+.live-item b{font:600 .85rem ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;color:var(--ink);font-variant-numeric:tabular-nums}
 .live-item [data-stat]:after{content:"+"}
-.live-dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--jade);position:relative}
-.live-item .live-dot{width:10px;height:10px;box-shadow:0 0 0 4px color-mix(in srgb,var(--jade) 18%,transparent)}
-.live-tag .live-dot:after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1.5px solid var(--jade);opacity:0;animation:livePing 2.4s ease-out infinite}
+.live-sep{opacity:.6}
+.live-dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--jade);position:relative;box-shadow:0 0 0 3px color-mix(in srgb,var(--jade) 18%,transparent)}
+.live-dot:after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1.5px solid var(--jade);opacity:0;animation:livePing 2.4s ease-out infinite}
 @keyframes livePing{0%{transform:scale(.4);opacity:.7}80%,100%{transform:scale(1.5);opacity:0}}
-.live-item.bump b span{display:inline-block;animation:liveBump .9s ease-out}
-@keyframes liveBump{0%{color:var(--jade);transform:translateY(-3px) scale(1.1)}100%{color:var(--ink);transform:none}}
-@media(max-width:420px){.live-item{padding:var(--s3)}.live-item b{gap:8px}.live-item .live-dot{width:8px;height:8px;box-shadow:0 0 0 3px color-mix(in srgb,var(--jade) 18%,transparent)}}
-@media(prefers-reduced-motion:reduce){.live-tag .live-dot:after{animation:none;opacity:.35;transform:scale(1.2)}.live-item.bump b span{animation:none}}
+.live-item.bump b{display:inline-block;animation:liveBump .9s ease-out}
+@keyframes liveBump{0%{color:var(--jade);transform:translateY(-2px) scale(1.08)}100%{color:var(--ink);transform:none}}
+@media(prefers-reduced-motion:reduce){.live-dot:after{animation:none;opacity:.35;transform:scale(1.2)}.live-item.bump b{animation:none}}
 @media print{.live{display:none}}
 /* reader prose (Luận giải cung Mệnh): clean text, evidence under the clicked sentence */
 .prose .pr-s{cursor:pointer;border-radius:4px;transition:background .15s}.prose .pr-s:hover,.prose .pr-s.on{background:color-mix(in srgb,var(--gold) 14%,transparent)}
@@ -664,7 +662,28 @@ body.hour-mode #print-btn,body.hour-mode #print-full-btn{display:none}
 .perks-t td.y{color:var(--jade);font-weight:600}
 .perks-t td.n{color:var(--text2)}
 .perks-btn{margin-top:18px;align-self:flex-start}
+.perks-sum,.perks-more{display:none}
 @media (max-width:640px){.perks{padding:18px 14px}.perks-t{font-size:.86rem}.perks-t td{width:28%}.perks-t th,.perks-t td{padding:8px 4px}}
+/* Phones: four cards say the main differences; the full table opens on demand, each row stacked as "Khách: …" / "Thành viên: …" */
+@media (max-width:600px){
+  .perks{max-height:none}
+  .perks-sum{display:grid;gap:10px;margin:0 0 14px;padding:0;list-style:none}
+  .perks-sum li{padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--raise);font-size:.88rem;color:var(--text2);line-height:1.45}
+  .perks-sum b{display:block;margin-bottom:2px;color:var(--ink);font:600 .95rem var(--sans)}
+  .perks-more{display:flex;align-items:center;justify-content:space-between;width:100%;padding:12px 2px;border:0;border-top:1px solid var(--line);background:none;color:var(--cinnabar);font:600 .92rem var(--sans);cursor:pointer}
+  .perks-more:after{content:"";width:8px;height:8px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .2s}
+  .perks-more[aria-expanded=true]:after{transform:rotate(-135deg)}
+  .perks-more[aria-expanded=false]+.perks-scroll{display:none}
+  .perks-scroll{overflow:visible;border-bottom:0}
+  .perks-t,.perks-t tbody,.perks-t tr,.perks-t th,.perks-t td{display:block;width:auto}
+  .perks-t thead{display:none}
+  .perks-t tr{padding:10px 0;border-bottom:1px solid var(--line)}
+  .perks-t th,.perks-t td{padding:0;border:0}
+  .perks-t tbody th{margin-bottom:4px;color:var(--ink)}
+  .perks-t td{font-size:.84rem;font-weight:500}
+  .perks-t td:nth-of-type(1):before{content:"Khách: ";color:var(--muted);font-weight:400}
+  .perks-t td:nth-of-type(2):before{content:"Thành viên: ";color:var(--muted);font-weight:400}
+}
 /* Tử Vi luận cung: the deep reading ("Đọc sâu", prose/luan_deep.ts), folded under the short reading; minh họa lines (owner policy 2026-10-22) */
 .pr-deep{margin:14px 0 0;border:1px solid var(--hair,var(--line,#ddd));background:transparent}
 .pr-deep>summary{display:flex;flex-direction:column;gap:2px;padding:12px 14px;cursor:pointer;list-style:none}

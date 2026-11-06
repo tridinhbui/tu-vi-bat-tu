@@ -240,6 +240,20 @@ initAsk(() => shareMode.id ? null : state?.req);                // "Hỏi Bát B
 initPaywall(() => shareMode.id ? null : state?.req);
 initAiCards(() => shareMode.id ? null : state?.req);   // "Luận AI" under each chapter, never on a shared chart
 initLive($('#live-stats'));
+// html.hero-in: the hero's "Lập lá số" is on screen (the header copy hides); html.cta-in: it or the form's submit button is (the Bát Bát
+// button steps aside on phones). Without IntersectionObserver neither class is set and both buttons simply stay.
+if ('IntersectionObserver' in window) {
+  const seen = new Map(), root = document.documentElement;
+  const io = new IntersectionObserver(es => {
+    for (const e of es) seen.set(e.target, e.isIntersecting);
+    root.classList.toggle('hero-in', !!seen.get($('.hero-cta')));
+    root.classList.toggle('cta-in', [...seen.values()].some(Boolean));
+  });
+  for (const t of [$('.hero-cta'), $('#submit-btn')]) if (t) io.observe(t);
+}
+// phones: the members table opens on demand under four summary cards
+const perksMore = $('.perks-more');
+if (perksMore) perksMore.onclick = () => perksMore.setAttribute('aria-expanded', String(perksMore.getAttribute('aria-expanded') !== 'true'));
 async function loadSample() {
   sampling = true;
   setCal(false); $('#no-hour').checked = false; $('#no-hour').onchange({ target: { checked: false } });

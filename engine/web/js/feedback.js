@@ -1,4 +1,5 @@
-// Feedback bubble on every page (bottom left; the chart chat owns bottom right) and the visit ping for the admin statistics.
+// Feedback thread on every page and the visit ping for the admin statistics. Its own bubble (bottom left) shows only where the Bát Bát
+// chat is absent (html.has-ask); elsewhere the thread opens from the chat header, a [data-feedback] link or the 'tb:feedback' event.
 // Anyone can write, signed in or not. The thread key the server hands back stays in this browser; replies are polled.
 // Self-contained: loads its own stylesheet, so a page only needs <script type="module" src="/js/feedback.js">.
 const KEY = 'tvbt.fb.key', SEEN = 'tvbt.fb.seen', VID = 'tvbt.vid', HIT = 'tvbt.hit';
@@ -55,6 +56,7 @@ function mount() {
     const unseen = lastAdminId() > Number(store.get(SEEN) || 0);
     if (!panel.hidden && unseen) store.set(SEEN, String(lastAdminId()));
     dot.hidden = panel.hidden ? !unseen : true;
+    document.documentElement.classList.toggle('fb-unseen', !dot.hidden);
   }
   function merge(list) { const have = new Set(msgs.map(m => m.id)); for (const m of list) if (!have.has(m.id)) msgs.push(m); msgs.sort((a, b) => a.id - b.id); }
 
@@ -69,7 +71,9 @@ function mount() {
   const close = () => { panel.hidden = true; fab.setAttribute('aria-expanded', 'false'); paint(); poll(); };
   fab.onclick = () => panel.hidden ? open() : close();
   $('.fb-x').onclick = close;
-  addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) { close(); fab.focus(); } });
+  document.addEventListener('tb:feedback', open);
+  document.addEventListener('click', e => { if (e.target.closest('[data-feedback]')) { e.preventDefault(); open(); } });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) { close(); if (fab.offsetParent) fab.focus(); } });
   document.addEventListener('visibilitychange', () => { if (!document.hidden) poll(); });
   ta.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); form.requestSubmit(); } });
 

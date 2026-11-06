@@ -1,4 +1,4 @@
-// "Hỏi Bát Bát": the AI chat on every page, a floating button bottom right (the feedback bubble owns bottom left).
+// "Hỏi Bát Bát": the AI chat, the one floating button (bottom right) on pages that load it; its header also opens the feedback thread.
 // Self-contained like feedback.js: a page only needs <script type="module" src="/js/ask.js">; the stylesheet is loaded here.
 // What it talks about: the chart on screen (home page; app.js registers it through initAsk), else one of the member's saved charts (a
 // compact picker, "Tôi" first, then the most recent), else general questions. Anyone can open it; sending needs sign-in, and the server
@@ -35,7 +35,7 @@ function mount() {
   }
   root.innerHTML = `<button type="button" class="ask-fab" aria-expanded="false" aria-controls="ask-panel" aria-label="Hỏi Bát Bát">${avatar('bat', 34, true)}<span class="ask-fab-t">Hỏi Bát Bát</span></button>
     <section class="ask-panel" id="ask-panel" role="dialog" aria-labelledby="ask-title" hidden>
-      <header class="ask-h">${avatar('bat', 38, true)}<div class="ask-ht"><b id="ask-title">Hỏi Bát Bát</b><span class="ask-left"></span></div><a class="ask-buy" href="/bang-gia#nap-xu" hidden>Nạp xu</a><button type="button" class="ask-x" aria-label="Đóng">×</button></header>
+      <header class="ask-h">${avatar('bat', 38, true)}<div class="ask-ht"><b id="ask-title">Hỏi Bát Bát</b><span class="ask-left"></span></div><a class="ask-buy" href="/bang-gia#nap-xu" hidden>Nạp xu</a><button type="button" class="ask-fb" title="Góp ý cho Thiên Bàn">Góp ý</button><button type="button" class="ask-x" aria-label="Đóng">×</button></header>
       <div class="ask-ctx" hidden><label for="ask-pick">Hỏi về</label><select id="ask-pick"></select></div>
       <div class="ask-deep" hidden><select aria-label="Chương muốn viết Luận riêng">${CHAPTERS.map(([id, t]) => `<option value="${id}">${t}</option>`).join('')}</select><button type="button" class="btn btn-sm btn-ghost">Luận riêng · 20 xu</button></div>
       <div class="ask-log" aria-live="polite"></div>
@@ -44,6 +44,7 @@ function mount() {
       <p class="ask-fine"></p>
     </section>`;
   document.body.append(root);
+  document.documentElement.classList.add('has-ask');                 // feedback.js then hides its own bubble: one floating button per page
   const $ = s => root.querySelector(s);
   const fab = $('.ask-fab'), panel = $('.ask-panel'), log = $('.ask-log'), note = $('.ask-note'), form = $('.ask-form'), ta = $('textarea'), send = $('.ask-form .btn'),
     leftEl = $('.ask-left'), buy = $('.ask-buy'), ctx = $('.ask-ctx'), picker = $('#ask-pick'), deepRow = $('.ask-deep'), deepBtn = $('.ask-deep .btn'), deepSel = $('.ask-deep select'), fine = $('.ask-fine');
@@ -140,7 +141,10 @@ function mount() {
     (ta.disabled ? $('.ask-x') : ta).focus();
   };
   const close = () => { panel.hidden = true; fab.setAttribute('aria-expanded', 'false'); document.documentElement.classList.remove('ask-open'); };
-  fab.onclick = () => panel.hidden ? open() : close();
+  // an unread feedback reply shows as a dot on this button; the tap then opens the feedback thread
+  const feedback = () => { close(); document.dispatchEvent(new Event('tb:feedback')); };
+  fab.onclick = () => !panel.hidden ? close() : document.documentElement.classList.contains('fb-unseen') ? feedback() : open();
+  $('.ask-fb').onclick = feedback;
   $('.ask-x').onclick = () => { close(); fab.focus(); };
   addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) { close(); fab.focus(); } });
   ta.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); } });

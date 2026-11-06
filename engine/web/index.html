@@ -20,7 +20,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='280' fill='none' stroke='%23282923' stroke-width='28'/%3E%3Cpath d='M300 130L340 300L300 470L260 300Z' fill='%23A7432C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/app.css?v=f74febf7">
+<link rel="stylesheet" href="/css/app.css?v=b03782c1">
 <link rel="stylesheet" href="/css/commerce.css?v=bb76b10a">
 <link rel="stylesheet" href="/css/atlas.css?v=4183933c">
 <link rel="stylesheet" href="/css/dash.css?v=1c413c4a">
@@ -77,9 +77,9 @@
         <p class="eyebrow">Tử Vi Đẩu Số · Bát Tự</p>
         <h1 id="hero-h">Lá số của bạn,<br><em>luận giải có căn cứ.</em></h1>
         <p class="hero-lead">Nhập ngày giờ sinh để lập cùng lúc lá số <b>Tử Vi</b> mười hai cung và <b>Bát Tự</b> bốn trụ, kèm luận giải đã đối chiếu sách. Đọc xong có thể lưu lại hoặc tải PDF.</p>
-        <div class="hero-cta"><a class="btn" href="#lap-la-so" data-go="lap-la-so">Lập lá số</a><button class="btn btn-ghost" type="button" data-sample>Xem lá số mẫu</button></div>
-        <section class="live" id="live-stats" hidden aria-label="Số liệu trực tiếp"><p class="live-tag"><i class="live-dot" aria-hidden="true"></i>Trực tiếp</p><div class="live-cells" role="status"><div class="live-item"><span class="live-lbl">Lượt quét</span><b><i class="live-dot" aria-hidden="true"></i><span data-stat="scans">0</span></b></div><div class="live-item"><span class="live-lbl">Lượt đăng nhập</span><b><i class="live-dot" aria-hidden="true"></i><span data-stat="signins">0</span></b></div></div></section>
+        <div class="hero-cta"><a class="btn" href="#lap-la-so" data-go="lap-la-so">Lập lá số</a><button class="btn btn-ghost hero-sample" type="button" data-sample>Xem lá số mẫu</button></div>
         <ul class="hero-facts"><li><b>Có nguồn sách</b>mỗi nhận định đều kèm trang sách</li><li><b>Riêng tư</b>chỉ lưu lá số khi bạn chọn lưu</li><li><b>Tải PDF</b>cả Tử Vi và Bát Tự trong một bản</li></ul>
+        <p class="live" id="live-stats" hidden role="status" aria-label="Số liệu trực tiếp"><i class="live-dot" aria-hidden="true"></i><span class="live-item"><b data-stat="scans">0</b> lượt lập lá số</span><span class="live-sep" aria-hidden="true">·</span><span class="live-item"><b data-stat="signins">0</b> lượt đăng nhập</span></p>
       </div>
       <div class="hero-art"><div id="hero-compass" class="compass-wrap"></div></div>
     </div>
@@ -153,7 +153,14 @@
       <div class="perks reveal" id="quyen-loi" aria-labelledby="perks-h">
         <h3 id="perks-h">Khách và thành viên</h3>
         <p class="perks-sub">Mọi luận giải đối chiếu sách đều miễn phí và đọc trọn, kể cả phần Đọc sâu (theo sách): mỗi câu lấy từ sách, có ghi trang. Chỉ <b>Luận riêng</b> (suy luận sâu: đọc cả lá số cùng lúc và viết sâu hơn) và các câu hỏi Bát Bát vượt mức miễn phí mới tính xu. Đăng nhập bằng Google (miễn phí) để lưu lá số, hỏi Bát Bát và mở các quyền dưới đây: <a href="/bang-gia">xem bảng giá</a>.</p>
-        <div class="perks-scroll" tabindex="0" role="region" aria-label="Bảng quyền lợi khách và thành viên">
+        <ul class="perks-sum">
+          <li><b>Mọi luận giải đối chiếu sách</b>Miễn phí và đọc trọn, kể cả khi chưa đăng nhập.</li>
+          <li><b>Tải PDF và ảnh lá số</b>Ai cũng tải được, cả Tử Vi và Bát Tự.</li>
+          <li><b>Thành viên</b>Lưu lá số trên mọi thiết bị, hỏi Bát Bát 2 câu mỗi ngày.</li>
+          <li><b>Luận riêng ba mức</b>Suy luận sâu do mô hình viết, trả bằng xu.</li>
+        </ul>
+        <button type="button" class="perks-more" aria-expanded="false" aria-controls="perks-scroll">Xem bảng so sánh chi tiết</button>
+        <div class="perks-scroll" id="perks-scroll" tabindex="0" role="region" aria-label="Bảng quyền lợi khách và thành viên">
         <table class="perks-t">
           <thead><tr><th scope="col">Quyền lợi</th><th scope="col">Khách</th><th scope="col">Thành viên</th></tr></thead>
           <tbody>
@@ -233,14 +240,14 @@
 <footer class="site-footer">
   <div class="wrap foot">
     <div class="foot-brand"><span data-brand="lg"></span><div><b>Thiên Bàn</b><p>Tử Vi · Bát Tự có thể truy vết.</p></div></div>
-    <p class="foot-note">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Chỉ hiển thị nhận định đã đối chiếu sách; dữ liệu ngày giờ sinh chỉ được lưu khi bạn chọn lưu lá số. <a class="link" href="/library">Quy tắc và nguồn</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/kinh-dich/">Kinh Dịch</a> · <a class="link" href="/privacy">Chính sách dữ liệu</a></p>
+    <p class="foot-note">Diễn giải theo hệ biểu tượng truyền thống, không phải dự báo hay chẩn đoán. Chỉ hiển thị nhận định đã đối chiếu sách; dữ liệu ngày giờ sinh chỉ được lưu khi bạn chọn lưu lá số. <a class="link" href="/library">Quy tắc và nguồn</a> · <a class="link" href="/gioi-thieu/">Cách Thiên Bàn luận giải</a> · <a class="link" href="/hoi-dap/">Hỏi đáp</a> · <a class="link" href="/bai-viet/">Bài viết</a> · <a class="link" href="/xem-ngay/">Xem ngày</a> · <a class="link" href="/kinh-dich/">Kinh Dịch</a> · <a class="link" href="/privacy">Chính sách dữ liệu</a> · <a class="link" href="#gop-y" data-feedback>Góp ý</a></p>
   </div>
 </footer>
 
 <div id="loading" class="loading" hidden role="status" aria-live="polite"><div class="loading-in"><div class="compass-wrap spin-slow" id="load-compass"></div><p>Đang lập lá số…</p><button type="button" class="btn btn-ghost btn-sm loading-cancel" id="load-cancel">Hủy</button></div></div>
 
-<script type="module" src="/js/app.js?v=21307ca6"></script>
-<script type="module" src="/js/feedback.js?v=26bc6156"></script>
+<script type="module" src="/js/app.js?v=5ce82efe"></script>
+<script type="module" src="/js/feedback.js?v=aaa97d9a"></script>
 <script type="module" src="/js/ref.js"></script>
 <script type="module" src="/js/pwa.js?v=1addd44f"></script>
 <dialog id="cpx-dlg" class="dlg cpx-dlg"><form method="dialog"><div id="cpx-dlg-b" class="cpx-dlg-b"></div><button class="btn btn-ghost">Đóng</button></form></dialog>
