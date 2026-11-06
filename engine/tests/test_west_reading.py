@@ -77,3 +77,18 @@ def test_each_life_chapter_opens_with_a_plain_summary_that_rests_on_evidence(rea
             assert any(k.startswith("verdict:") for k in first["keys"]) and first["steps"][0].startswith("Cách gom")
             # the summary speaks to the reader first: it does not open with a book or an author
             assert not first["text"].startswith(("Theo ", "Với Lilly", "Lilly", "Ptolemy", "Valens", "Alan Leo")), first["text"][:60]
+
+
+def test_intercepted_signs_follow_the_cusps_and_lillys_three_rules():
+    """houses.intercepted: a sign with no cusp, in the house of its first degree; Lilly reads it for manners (p.535), wealth (p.552)
+    and brethren (p.565)."""
+    from western import houses as H
+    from western.reading.facts import OPERATIONAL, Facts
+    assert H.intercepted([30.0 * i for i in range(12)]) == {}                       # equal houses from 0° Aries: none
+    cusps = [5, 65, 70, 90, 120, 150, 185, 245, 250, 270, 300, 330]                  # house 1 runs 5°-65°: Taurus (30°-60°) whole in it
+    assert H.intercepted(cusps) == {1: [1], 7: [7]}
+    c = compute(BirthData.from_dict(dict(year=1981, month=2, day=9, hour=3, minute=0, lat=10.82, lon=106.63, tz="Asia/Ho_Chi_Minh")))
+    assert Facts(c).intercepted_lilly.get(2) == ["aquarius"]
+    tc = next(p for ch in build(c, "deep")["chapters"] for p in ch["paragraphs"] if p["id"] == "tc.lilly")
+    assert "Bảo Bình bị chặn trọn trong Nhà 2" in tc["text"] and "tr.552" in tc["text"]
+    assert any(s.startswith(OPERATIONAL["intercepted"]) for s in tc["steps"])

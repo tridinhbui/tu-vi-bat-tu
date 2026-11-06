@@ -39,6 +39,8 @@ Khác biệt giữa các trường phái được giữ, không trộn: bảng t
 
 **Định nghĩa của Thiên Bàn khi sách để ngỏ** (`reading/facts.py: OPERATIONAL`, hiện trong "Đọc sâu"): ngưỡng đắc/thất thế (tổng điểm bản chất và ngẫu nhiên theo Lilly: từ +10 / từ 0 trở xuống), partile = cùng số độ, "mới mọc buổi sáng" của Ptolemy = cách Mặt Trời ≥ 15°, "đáng trọng" của Ptolemy = ở nhà/tôn vinh/tam hợp của mình và không bị Mặt Trời che, bị vây = Thổ và Hỏa hai bên trong cùng cung, đồng độ với định tinh = cách không quá 5° theo kinh độ (Lilly tr.616; tr.115 với Algol).
 
+**Cung bị chặn** (`houses.intercepted`, 2026-11-06): cung không chứa đỉnh nhà Regiomontanus nào, nằm trọn trong một nhà. Lilly dùng ở ba chỗ, đã đối chiếu ảnh trang: sao trong cung bị chặn ở Nhà 1 là sao chủ tính cách (tr.535), chủ cung bị chặn trong Nhà 2 là một sao chỉ tiền bạc (tr.552), sao trong cung bị chặn ở Nhà 3 tính vào phần anh chị em (tr.565). Đếm trên 150 lá số ngẫu nhiên mỗi nơi: TP.HCM 21, Hà Nội 44, London 127 lá có cung bị chặn.
+
 **Định tinh** (`western/stars.py`): ba sao của bảng điểm Lilly tr.115 (Cor Leonis +6, Spica +5, Caput Algol −5) và sáu sao vương giả của luật danh vọng tr.616 (Oculus Tauri = Aldebaran, Hercules = Pollux, Cor Leonis, Spica, Lucida Lancis = Zubenelgenubi, Cor Scorpii = Antares; tên của Lilly ứng với sao theo kinh độ năm 1647 ông in, cộng tuế sai, lệch < 0,5°). Vị trí tính cho ngày sinh từ dữ liệu Hipparcos; khớp Swiss Ephemeris dưới 0,1″ năm 1900–2050.
 
 ## 3. Luận giải
@@ -93,7 +95,7 @@ python tools/west/build_places.py <geonames dir>  # GeoNames → places.json.gz
 ## 6. Còn thiếu / chưa kiểm
 
 - Đối chiếu trực tiếp trên Astro.com cần bấm đồng ý điều khoản của Astrodienst; Astro-Seek chặn bằng kiểm tra chống bot. Thay vào đó đã đối chiếu với Swiss Ephemeris (thư viện Astro.com dùng) và JPL Horizons.
-- Valens: dựng lại lá năm theo Mặt Trăng (V.5) và profection tháng/ngày chưa làm, có chủ ý (2026-10-25): vận năm đã có profection và Solar Return; đoạn V.5 của bản Riley khó đọc, dễ diễn sai, nên chờ có thêm nguồn đối chiếu. Lilly: cung bị chặn (intercepted) ở Nhà 2/3 chưa xét.
+- Valens: dựng lại lá năm theo Mặt Trăng (V.5) và profection tháng/ngày chưa làm, có chủ ý (2026-10-25): vận năm đã có profection và Solar Return; đoạn V.5 của bản Riley khó đọc, dễ diễn sai, nên chờ có thêm nguồn đối chiếu.
 - Ngày trước 1899 hoặc sau 2100 bị từ chối (giới hạn của file lịch thiên văn đi kèm).
 - (Đã quyết 2026-10-25, chủ site chọn) "Đắc thế / thất thế" tính trên tổng điểm của Lilly: phẩm vị (tr.104) cộng điểm ngẫu nhiên (tr.115), như Lilly cộng khi chọn sao chủ lá số (tr.531). Mạnh từ +10, yếu từ 0 trở xuống: một sao không có gì đặc biệt (không phẩm vị, đi thuận, không bị Mặt Trời che) đã được khoảng +5 theo bảng tr.115, nên khoảng giữa đặt quanh mức ấy. Mỗi kết luận ghi tổng điểm và các dòng nặng nhất (`Facts.strength_why`). Trước đó chỉ xét điểm bản chất: 55% vị trí ra "yếu", phần lớn chỉ vì lạc chỗ.
 - Thử với người mới mới chỉ là một bản đọc mô phỏng (một agent đóng vai người chưa học chiêm tinh); chưa có người đọc thật.

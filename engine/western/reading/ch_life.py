@@ -5,7 +5,7 @@ from .. import dignity, houses as H, kb
 from .. import stars as STARS
 from ..zodiac import SIGNS, angdiff, sign_distance, sign_index
 from .ch_core import M, lilly_condition
-from .compose import Para, ev_in, cap, ev_house, ev_planet, ev_point, ev_star, listing, planet_list, srcs
+from .compose import Para, ev_in, cap, ev_house, ev_planet, ev_point, ev_star, listing, planet_list, sign_list, srcs
 from .facts import BENEFICS, CLASSICAL, FIVE, MALEFICS, OPERATIONAL, Facts
 from .vocab import ASPECT_NOUN, ASPECT_VI, P, S, num
 
@@ -195,15 +195,23 @@ def money(f: Facts) -> list[Para]:
     fort = c["lots"]["fortune"]
     lf = dignity.domicile_lord(fort["sign"])
     stf = f.lilly_state(lf)
-    good = [x for x, s in ((f"chủ Nhà 2 là {P(l2)}", st2), (f"chủ của Part of Fortune là {P(lf)}", stf), ("Sao Mộc", stj)) if s == "well"]
-    weak = [x for x, s in ((f"chủ Nhà 2 là {P(l2)}", st2), (f"chủ của Part of Fortune là {P(lf)}", stf), ("Sao Mộc", stj)) if s == "ill"]
+    # p.552 'Secondly, the Lord of the Signe intercepted (if any be so) in the second'
+    icp2 = f.intercepted_lilly.get(2, [])
+    li2 = [dignity.domicile_lord(x) for x in icp2]
+    new2 = [(x, l) for x, l in zip(icp2, li2) if l != l2]            # a lord already counted as lord of the 2nd is not counted twice
+    sigs2 = [(f"chủ Nhà 2 là {P(l2)}", st2)] + [(f"chủ của {S(x)} (cung bị chặn trong Nhà 2) là {P(l)}", f.lilly_state(l)) for x, l in new2] \
+        + [(f"chủ của Part of Fortune là {P(lf)}", stf), ("Sao Mộc", stj)]
+    good = [x for x, s in sigs2 if s == "well"]
+    weak = [x for x, s in sigs2 if s == "ill"]
     t2 = (f"⟦Lilly xét tiền bạc qua đỉnh Nhà 2 và chủ của nó, Part of Fortune và chủ của nó, Sao Mộc như sao chủ của cải nói chung, cùng các sao ở Nhà 2 (tr.552).⟧ "
-          f"Với Lilly, đỉnh Nhà 2 (Regiomontanus) ở {S(sign2)}. ")
+          f"Với Lilly, đỉnh Nhà 2 (Regiomontanus) ở {S(sign2)}"
+          + ((f"; {sign_list(icp2)} bị chặn trọn trong Nhà 2, nên Lilly xét thêm chủ của {'nó' if len(icp2) == 1 else 'chúng'} là {planet_list(list(dict.fromkeys(l for _, l in new2)))} (tr.552)"
+              if new2 else f"; {sign_list(icp2)} bị chặn trọn trong Nhà 2, nhưng chủ của nó cũng là {P(l2)}, nên không thêm sao chỉ mới (tr.552)") if icp2 else "") + ". ")
     if good:
         t2 += f"{cap(listing(good))} đắc thế: đó là những chứng thuận cho việc kiếm và giữ tiền. "
     if weak:
         t2 += f"{cap(listing(weak))} thất thế: chứng nghịch, nghĩa là tiền bạc cần kỷ luật và kế hoạch hơn là trông vào vận. "
-    mid = [x for x, s_ in ((f"chủ Nhà 2 là {P(l2)}", st2), (f"chủ của Part of Fortune là {P(lf)}", stf), ("Sao Mộc", stj)) if s_ == "mixed"]
+    mid = [x for x, s_ in sigs2 if s_ == "mixed"]
     if not good and not weak:
         t2 += "Các sao này đều ở mức lưng chừng, nên Lilly không đưa ra lời hứa mạnh theo chiều nào. "
     elif mid:
@@ -214,9 +222,11 @@ def money(f: Facts) -> list[Para]:
         t2 += (f"Ở Nhà 2 có {planet_list(in2)}" + (f"; {planet_list(bn)} là cát tinh, thêm một chứng thuận" if bn else "") +
                (f"; {planet_list(ml)} là hung tinh, thêm một chứng cần dè chừng" if ml else "") + ".")
     out.append(Para("tc.lilly", "Tiền bạc theo Lilly", t2.strip(), "traditional", srcs("LILLY_CA:p.552", "LILLY_CA:pp.143-144", "LILLY_CA:p.104"),
-                    [ev_house(2, f"Nhà 2 (Lilly): {S(sign2)}", "lilly"), ev_in(f, l2, "traditional"), ev_in(f, lf, "traditional"), ev_in(f, "jupiter", "traditional")],
+                    [ev_house(2, f"Nhà 2 (Lilly): {S(sign2)}", "lilly"), ev_in(f, l2, "traditional")] + [ev_in(f, l, "traditional") for _, l in new2]
+                    + [ev_in(f, lf, "traditional"), ev_in(f, "jupiter", "traditional")],
                     "overview", polarity=(len(good) - len(weak) > 0) - (len(weak) - len(good) > 0), topic="tai_chinh",
-                    steps=[OPERATIONAL["well_dignified"], "Lilly tính đỉnh Nhà 2 từ 5° trước đỉnh; Thiên Bàn dùng đúng đỉnh Regiomontanus và chưa xét cung bị chặn (intercepted)."],
+                    steps=[OPERATIONAL["well_dignified"], "Lilly tính Nhà 2 từ 5° trước đỉnh của nó tới 5° trước đỉnh Nhà 3 (tr.552); sao trong khoảng ấy được tính ở Nhà 2.",
+                           OPERATIONAL["intercepted"] + (f" Lá số này: {sign_list(icp2)} bị chặn trong Nhà 2." if icp2 else " Lá số này không có cung bị chặn trong Nhà 2.")],
                     keys=[f"money_lilly:{len(good)}:{len(weak)}"]))
     acc_sign = SIGNS[(sign_index(fort["lon"]) + 10) % 12]
     ar = dignity.domicile_lord(acc_sign)
@@ -332,8 +342,13 @@ def family(f: Facts) -> list[Para]:
         s3 = SIGNS[sign_index(f.regio[2])]
         l3 = dignity.domicile_lord(s3)
         t2 += f" Về anh chị em, Lilly xét {LF['brethren']['vi']} (tr.564-565): Nhà 3 ở {S(s3)}, chủ là {P(l3)} {'đắc thế' if f.lilly_state(l3) == 'well' else 'thất thế' if f.lilly_state(l3) == 'ill' else 'ở mức lưng chừng'}."
+        icp3, p3 = f.intercepted_lilly.get(3, []), f.in_intercepted(3)
+        if icp3:       # p.565 'the Lord of the third house, and Planet or Planets intercepted therein, if any be'
+            t2 += (f" {sign_list(icp3)} bị chặn trong Nhà 3" + (f" và có {planet_list(p3)} đứng ở đó, nên Lilly tính thêm {'sao này' if len(p3) == 1 else 'các sao này'} vào phần anh chị em."
+                                                               if p3 else ", nhưng không có sao nào đứng trong đó, nên không thêm sao chỉ nào."))
         out.append(Para("gd.lilly", "Gia đình theo Lilly", t2, "traditional", srcs("LILLY_CA:pp.564-573", "LILLY_CA:p.104"),
-                        [ev_house(4, "Nhà 4 (Lilly)", "lilly"), ev_house(10, "Nhà 10 (Lilly)", "lilly"), ev_house(3, "Nhà 3 (Lilly)", "lilly")], "overview", topic="gia_dinh"))
+                        [ev_house(4, "Nhà 4 (Lilly)", "lilly"), ev_house(10, "Nhà 10 (Lilly)", "lilly"), ev_house(3, "Nhà 3 (Lilly)", "lilly")]
+                        + [ev_in(f, x, "traditional") for x in p3], "overview", topic="gia_dinh", steps=[OPERATIONAL["intercepted"]] if icp3 else []))
     return out
 
 

@@ -268,7 +268,7 @@ def personality(f: Facts) -> Para | None:
         p, how = mp
         st = f.lilly_state(p)
         mm = M["lilly_manners"][p]
-        via = {"in_ascending_sign": "đứng ngay trong cung Mọc", "joined_moon_or_mercury": "đi sát Mặt Trăng hoặc Sao Thủy",
+        via = {"in_ascending_sign": "đứng ngay trong cung Mọc", "in_ascending_or_intercepted_sign": "đứng trong cung Mọc hoặc cung bị chặn ở Nhà 1", "joined_moon_or_mercury": "đi sát Mặt Trăng hoặc Sao Thủy",
                "lord_of_ascendant": "làm chủ cung Mọc"}[how]
         traits = mm["well"][:3] if st != "ill" else mm["well"][:2]
         cl.append(Claim(f"planet:{p}", f"nét của {P(p)}", {"well": 1, "ill": -1}.get(st, 0), 2,

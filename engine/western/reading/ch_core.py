@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from .. import dignity, kb
 from ..zodiac import ELEMENT, MODALITY, SIGNS, sign_index
-from .compose import Para, ev_in, cap, ev_aspect, ev_house, ev_planet, ev_point, listing, pick, planet_list, srcs
+from .compose import Para, ev_in, cap, ev_aspect, ev_house, ev_planet, ev_point, listing, pick, planet_list, sign_list, srcs
 from .facts import CLASSICAL, FIVE, OPERATIONAL, Facts
 from .vocab import ASPECT_NOUN, ASPECT_VI, DIGNITY_VI, ELEMENT_VI, MODALITY_VI, P, S, SOLAR_VI, TEMPERAMENT_VI, at, num
 
@@ -240,6 +240,7 @@ def _lilly_manners(f: Facts) -> list[Para]:
     c = f.c
     sig = ms["planets"]
     why = {"in_ascending_sign": f"{planet_list(sig)} đứng trong cung Mọc {S(c['angles']['asc']['sign'])}, nên theo Lilly (tr.535) {'nó' if len(sig) == 1 else 'chúng'} là sao chủ tính cách",
+           "in_ascending_or_intercepted_sign": f"{planet_list(sig)} đứng trong cung Mọc {S(c['angles']['asc']['sign'])} hoặc trong {sign_list(ms.get('intercepted', []))}, cung bị chặn ở Nhà 1, nên theo Lilly (tr.535) {'nó' if len(sig) == 1 else 'chúng'} là sao chủ tính cách",
            "joined_moon_or_mercury": f"không sao nào đứng trong cung Mọc, nhưng {planet_list(sig)} đi sát Mặt Trăng hoặc Sao Thủy, nên theo thứ tự Lilly đặt ra (tr.536) {'nó' if len(sig) == 1 else 'chúng'} giữ vai sao chủ tính cách",
            "lord_of_ascendant": f"không sao nào đứng trong cung Mọc {S(c['angles']['asc']['sign'])} hay đi sát Mặt Trăng, Sao Thủy, nên theo thứ tự Lilly đặt ra (tr.536) vai sao chủ tính cách thuộc về chủ của cung Mọc là {P(sig[0])}"}[ms["why"]]
     out = []
@@ -290,7 +291,8 @@ def _lilly_manners(f: Facts) -> list[Para]:
                         srcs("LILLY_CA:pp.535-536", f"LILLY_CA:{mm['loc']}", "LILLY_CA:p.104"),
                         [ev_in(f, p, "traditional")] + ([ev_in(f, portrait_planet, "traditional")] if portrait_planet != p else []),
                         "overview" if not out else "deep", steps=[OPERATIONAL["well_dignified"],
-                        f"Điểm bản chất của {P(portrait_planet)}: {tot['essential']['score']:+d} ({', '.join(tot['essential']['has'] + tot['essential']['debilities']) or 'lạc chỗ'}); điểm ngẫu nhiên {tot['accidental_score']:+d}."],
+                        f"Điểm bản chất của {P(portrait_planet)}: {tot['essential']['score']:+d} ({', '.join(tot['essential']['has'] + tot['essential']['debilities']) or 'lạc chỗ'}); điểm ngẫu nhiên {tot['accidental_score']:+d}."]
+                        + ([OPERATIONAL["intercepted"]] if ms.get("intercepted") else []),
                         polarity=pol, topic="tinh_cach", keys=[f"manners:{portrait_planet}:{state}"]))
     return out
 

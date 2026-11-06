@@ -130,6 +130,17 @@ def house_of_lilly(lon: float, cusp_list: list[float], margin: float = 5.0) -> i
     return nxt + 1 if before <= margin and before < after else h
 
 
+def intercepted(cusp_list: list[float]) -> dict[int, list[int]]:
+    """Signs (index 0-11) that hold no cusp: each lies whole inside one house, which the house of its first degree names.
+    {house: [sign, ...]}; houses with none are left out. With unequal houses an intercepted sign comes with its opposite."""
+    out: dict[int, list[int]] = {}
+    for s in range(12):
+        a = 30.0 * s
+        if not any((c - a) % 360.0 < 30.0 for c in cusp_list):
+            out.setdefault(house_of(a + 1e-9, cusp_list), []).append(s)
+    return out
+
+
 def house_of(lon: float, cusp_list: list[float]) -> int:
     """House number 1-12 holding ecliptic longitude `lon` (a cusp belongs to the house it opens)."""
     for i in range(12):

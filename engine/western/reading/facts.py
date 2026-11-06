@@ -64,6 +64,9 @@ OPERATIONAL = {
     "lilly_houses": "Nhà theo Lilly = cách chia Regiomontanus, và theo lời Lilly (tr.33) một hành tinh cách đỉnh nhà không quá 5° "
                     "được tính vào nhà của đỉnh gần nó nhất; vì thế số nhà theo Lilly có thể khác số nhà trên bánh xe (Placidus).",
     "ptolemy_place": "'chỗ' theo Ptolemy III.10: mỗi chỗ 30°, chỗ thứ nhất bắt đầu 5° phía trên điểm Mọc.",
+    "intercepted": "'cung bị chặn' (intercepted) = cung hoàng đạo không chứa đỉnh nhà nào, nằm trọn trong một nhà, theo đỉnh nhà "
+                   "Regiomontanus Lilly dùng; Lilly dùng nó cho tính cách (tr.535), tiền bạc (tr.552) và anh chị em (tr.565). Càng xa xích đạo "
+                   "càng hay gặp: Thiên Bàn đếm trên 150 lá số ngẫu nhiên mỗi nơi thì TP.HCM khoảng 1/7 lá số có, Hà Nội 3/10, London 85%.",
     "fixed_stars": "'đồng độ với định tinh' = cách định tinh không quá 5° theo kinh độ hoàng đạo, con số Lilly cho ở tr.616 (và tr.115 với Caput Algol); "
                    "tr.115 không ghi khoảng cách cho Cor Leonis và Spica, Thiên Bàn dùng cùng 5°. Lilly in vị trí định tinh của năm 1647; "
                    "do tuế sai, định tinh nay đã dịch thêm khoảng 5°, nên Thiên Bàn tính vị trí của chính ngày sinh (dữ liệu Hipparcos).",
@@ -101,6 +104,16 @@ class Facts:
     def house_lilly(self, name: str) -> int | None:
         """Regiomontanus with Lilly's five-degree rule (p.33): the house Lilly himself would read the planet in."""
         return H.house_of_lilly(self.lon[name], self.regio) if self.regio else None
+
+    @cached_property
+    def intercepted_lilly(self) -> dict[int, list[str]]:
+        """Signs intercepted in each Regiomontanus house (OPERATIONAL['intercepted']): {house: [sign, ...]}."""
+        return {h: [SIGNS[i] for i in ss] for h, ss in H.intercepted(self.regio).items()} if self.regio else {}
+
+    def in_intercepted(self, house: int) -> list[str]:
+        """Classical planets standing in a sign intercepted in `house` (Lilly pp.535, 565)."""
+        signs = self.intercepted_lilly.get(house, [])
+        return [p for p in CLASSICAL if self.b[p]["sign"] in signs]
 
     def house_modern(self, name: str) -> int | None:
         """The house system chosen for the chart (Placidus by default, the tables Alan Leo worked with)."""
@@ -377,8 +390,10 @@ class Facts:
             return None
         asc_sign = SIGNS[sign_index(self.lon["asc"])]
         rising = [p for p in CLASSICAL if self.b[p]["sign"] == asc_sign]
-        if rising:
-            return {"step": 1, "planets": rising, "why": "in_ascending_sign"}
+        caught = [p for p in self.in_intercepted(1) if p not in rising]      # p.535 'the Sign ascending, or which is intercepted'
+        if rising or caught:
+            return {"step": 1, "planets": rising + caught, "why": "in_ascending_sign" if not caught else "in_ascending_or_intercepted_sign",
+                    "intercepted": self.intercepted_lilly.get(1, [])}
         joined = sorted(((min(abs(angdiff(self.lon[p], self.lon[x])) for x in ("moon", "mercury")
                                if self.b[p]["sign"] == self.b[x]["sign"] and self.platick(p, x) == "conjunction"), p)
                           for p in CLASSICAL if p not in ("moon", "mercury")
