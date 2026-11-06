@@ -29,6 +29,10 @@
   "d1_databases": [
     { "binding": "DB", "database_name": "tvbt-app", "database_id": "f8af4737-8f71-4abc-8f7c-84daa6bc0f3a", "migrations_dir": "migrations/app" }
   ],
+  // Luận chuyên sâu (mức 3): the whole-chart reading runs as durable steps, so it finishes after the reader closes the tab
+  "workflows": [
+    { "name": "tvbt-deep-whole", "binding": "DEEP3", "class_name": "DeepWholeWorkflow", "default_retention": { "success_retention": "3 days", "error_retention": "7 days" } }
+  ],
   "exports": {
     "TvbtContainer": { "type": "durable-object", "storage": "sqlite" }
   }

@@ -86,8 +86,10 @@ export function initAiCards(getReq) {
     const st = await statusFor(req);
     if (!st) { card.hidden = true; return; }                                       // not available on this server
     const allWritten = levels.every(l => st.written.includes(keyOf(l, id)));
-    body.innerHTML = `${allWritten ? '' : `<p class="small">${about} Chỉ dùng dữ kiện và luận giải đã có, không thêm sao hay nhận định mới. Viết một lần, đọc lại không tốn thêm; viết hỏng thì không bị tính.${whole ? ' Mất khoảng 5–8 phút: hãy giữ trang này mở. Nếu bị ngắt giữa chừng, xu được hoàn tự động sau khoảng 20 phút.' : ''}${!whole && !st.plan ? ' <a href="/bang-gia">Gói Cao cấp</a> gồm mức 1 mọi chương.' : ''}</p>`}
+    body.innerHTML = `${allWritten ? '' : `<p class="small">${about} Chỉ dùng dữ kiện và luận giải đã có, không thêm sao hay nhận định mới. Viết một lần, đọc lại không tốn thêm; viết hỏng thì không bị tính.${whole ? ' Mất khoảng 5–10 phút và được viết trên máy chủ: bạn có thể rời trang, quay lại là đọc được. Nếu không viết xong, xu được hoàn lại.' : ''}${!whole && !st.plan ? ' <a href="/bang-gia">Gói Cao cấp</a> gồm mức 1 mọi chương.' : ''}</p>`}
       <p class="ai-go">${levels.map(l => button(st, id, l)).join(' ')}</p><div class="ai-out"></div><p class="ai-msg small" role="status" aria-live="polite"></p>`;
+    // a mức 3 started earlier (this tab or another, before a reload) is still being written: follow it instead of offering to start it
+    if (whole && (st.writing || []).includes(keyOf(3, WHOLE))) { card.querySelector('[data-ai-go]')?.remove(); follow(card); }
   }
 
   async function write(card, level) {
@@ -98,7 +100,7 @@ export function initAiCards(getReq) {
     if (!out) { outs.insertAdjacentHTML('beforeend', `<div class="ai-text" data-level="${level}"><p class="eyebrow">Mức ${level} · ${LEVEL[level].name}</p><div class="ai-t"></div></div>`); out = outs.querySelector(`.ai-text[data-level="${level}"]`); }
     const t = out.querySelector('.ai-t');
     busy.add(k); btn.disabled = true; msg.className = 'ai-msg small';
-    msg.textContent = level === 3 ? 'Đang bắt đầu, giữ trang này mở…' : 'Đang suy luận trên cả lá số rồi viết, có thể mất một đến ba phút…';
+    msg.textContent = level === 3 ? 'Đang bắt đầu…' : 'Đang suy luận trên cả lá số rồi viết, có thể mất một đến ba phút…';
     let got = '', failed = false;
     try {
       const res = await post('/api/me/deep', { birth: pick(req), ...(level === 3 ? {} : { chapter: id }), level });
@@ -106,6 +108,8 @@ export function initAiCards(getReq) {
       if (res.status === 401) { msg.innerHTML = 'Phiên đăng nhập đã hết. <a href="/api/auth/google" data-pw-signin>Đăng nhập lại</a>'; msg.classList.add('err'); return; }
       if (res.status === 409) { msg.textContent = 'Bài này đang được viết (có thể ở một thẻ khác). Bấm lại sau ít phút để đọc, không bị tính thêm.'; return; }
       if (res.status === 503) { msg.textContent = 'Luận riêng đang tạm dừng. Bạn thử lại sau nhé.'; msg.classList.add('err'); return; }
+      // mức 3 runs on the server as a background job: follow its progress, then read it (replayed free once written)
+      if (res.status === 202) { const j = await res.json(); if (j.wallet) dispatchEvent(new CustomEvent('tvbt:wallet', { detail: j.wallet })); btn.remove(); follow(card); return; }
       if (!res.ok || !res.body) throw new Error(String(res.status));
       const rd = res.body.getReader(), dec = new TextDecoder(); let buf = '';
       for (;;) {
@@ -124,6 +128,30 @@ export function initAiCards(getReq) {
       if (got && !failed) { btn.remove(); if (!card.querySelector('[data-ai-go]')) card.querySelector('.ai-body > p.small:not(.ai-msg)')?.remove(); status = null; }
     } catch { msg.textContent = 'Mất kết nối khi đang viết. Bài vẫn được viết tiếp và lưu khi xong: bấm lại sau ít phút để đọc, không bị tính thêm.'; msg.classList.add('err'); }
     finally { busy.delete(k); if (btn.isConnected) btn.disabled = false; }
+  }
+
+  /** Mức 3 being written in the background: poll /api/me/deep/status every 15 s and show its step; when it is written, open it (free);
+   *  when it is gone without a text, it failed and was refunded. Leaving the page is fine: the card picks it up again on the next visit. */
+  async function follow(card) {
+    const k = keyOf(3, WHOLE), msg = card.querySelector('.ai-msg'), req = getReq();
+    if (!req || card.dataset.following) return;
+    card.dataset.following = '1'; msg.className = 'ai-msg small';
+    const say = label => { msg.textContent = `${label || 'Đang viết'}… Bài đang được viết trên máy chủ, mất khoảng 5–10 phút. Bạn có thể rời trang; quay lại là đọc được.`; };
+    say(null);
+    for (;;) {
+      await new Promise(r => setTimeout(r, 15000));
+      if (getReq() !== req && JSON.stringify(pick(getReq() || {})) !== JSON.stringify(pick(req))) break;   // another chart is on screen now
+      status = null; const st = await statusFor(req);
+      if (!st) continue;
+      if (st.written.includes(k)) {
+        delete card.dataset.following; msg.textContent = '';
+        card.querySelector('.ai-go')?.insertAdjacentHTML('beforeend', `<button type="button" class="btn btn-sm" data-ai-go data-level="3" hidden></button>`);
+        write(card, 3); return;
+      }
+      if (!(st.writing || []).includes(k)) { msg.textContent = 'Bản luận chưa viết xong nên chưa được tính; xu đã được hoàn lại. Bạn thử lại nhé.'; msg.classList.add('err'); break; }
+      say(st.progress?.[k]);
+    }
+    delete card.dataset.following;
   }
 
   document.addEventListener('click', e => { const b = e.target.closest('.ai-card [data-ai-go]'); if (b) write(b.closest('.ai-card'), Number(b.dataset.level) || 1); });
