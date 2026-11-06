@@ -48,7 +48,7 @@ Ví dụ câu lặp ở Cách cục:
 - "Thêm nữa, chính tinh của cách không nhập miếu…" xuất hiện trên 58/300 lá số.
 - "Mệnh thành cách Sát Phá Liêm Tham." xuất hiện trên 53/300 lá số.
 
-Vận hạn còn lặp cùng một khung câu qua mười đại hạn: theo đo trước, 3,57 câu lặp nguyên văn mỗi bản luận.
+Vận hạn còn lặp cùng một khung câu qua mười đại hạn. `eval_repeat` trên 200 lá số đo được 3,27 câu lặp nguyên văn mỗi bản luận và 133 cụm sáu chữ lặp mỗi 100 câu. Ba cụm lặp nhiều nhất đều thuộc vận hạn: "đưa Hóa Lộc của hạn đến", "Hóa Kỵ của mười năm này", "tuổi đại hạn đi qua cung".
 
 ### Lỗi hiển thị
 
@@ -72,7 +72,7 @@ Số liệu trên 1.000 lá số, lấy từ các tài liệu audit:
 ### Suy luận
 
 - Biểu đồ vận hạn và bảng kết luận ngược chiều nhau ở 13,2 % số cặp (đo trên 1.124 cặp).
-- Câu "chưa phân xử" tăng từ 4,50 lên 4,99 mỗi bản luận sau khi nạp Hàm Số.
+- Câu "chưa phân xử": 4,36 mỗi bản luận hôm nay, đo bằng `eval_repeat` trên 200 lá số. Sau khi nạp Hàm Số, tài liệu audit ghi con số này tăng từ 4,50 lên 4,99.
 - 16 chỗ Hàm Số nói ngược Toàn Thư. Trong đó 6 chỗ chưa có quan hệ vì điều kiện "trừ" chưa được đọc.
 
 ### Vận hạn còn thiếu
@@ -98,7 +98,7 @@ Mỗi giai đoạn có cổng kiểm tra riêng. Sau giai đoạn 6, toàn bộ 
 | Trung vị câu sách mỗi chương: Huynh Đệ, Tử Tức, Phụ Mẫu, Nô Bộc, Thiên Di | 4–7 | ≥ 8 |
 | Chương không có gì để luận (1.000 lá số) | tới 39 | < 10 mỗi cung |
 | Câu quá 35 chữ | 10,1 % | ≤ 5 % |
-| Câu lặp nguyên văn mỗi bản luận | 3,57 | ≤ 1,5 |
+| Câu lặp nguyên văn mỗi bản luận | 3,27 | ≤ 1,5 |
 | Câu khung và câu hệ thống: Tài Bạch, Cách cục | 40–43 % | ≤ 30 % |
 | Vận hạn | 2.500–3.100 chữ | 1.600–2.000 chữ, mỗi đại hạn có điểm chính riêng |
 | Biểu đồ và kết luận ngược chiều | 13,2 % | ≤ 5 %, chỗ còn lại có câu giải thích |
