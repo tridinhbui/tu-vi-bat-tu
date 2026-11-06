@@ -207,6 +207,28 @@ test("a job the runtime stopped: not started twice while fresh, refunded and cle
   assert.equal((await saved())?.text, TEXT); assert.equal(await coins(), 0);
 });
 
+test("mức 3 on the Worker: handed to the Workflow with the spend's ref, answered at once, progress shown; a job that cannot start is refunded", async () => {
+  await grant(db, uid, COSTS.deep3, "l3");
+  const started: any[] = [];
+  const s = make(llmOf(good)); s.deps.startWhole = async p => { started.push(p); };
+  const res = await handleDeep(post({ birth, level: 3 }), s.deps);
+  assert.equal(res.status, 202); assert.equal((await res.json() as any).started, true);
+  assert.equal(s.llmCalls, 0, "nothing is written in the request");
+  assert.equal(started.length, 1); assert.equal(started[0].key, "toan_bo#3"); assert.ok(started[0].ref > 0); assert.equal(started[0].req.year, 1990);
+  assert.equal(await coins(), 0);
+  // the Workflow reports its step in the pending row; status shows it, and a second start is refused while it runs
+  await db.prepare("UPDATE deep_readings SET model = model || '|Đang viết và tự kiểm từng phần (3/9)' WHERE user_id = ? AND chapter = 'toan_bo#3'").bind(uid).run();
+  const st = await (await handleDeepStatus(post({ birth }), { db, user: s.deps.user })).json() as any;
+  assert.deepEqual(st.writing, ["toan_bo#3"]); assert.equal(st.progress["toan_bo#3"], "Đang viết và tự kiểm từng phần (3/9)");
+  assert.equal((await handleDeep(post({ birth, level: 3 }), s.deps)).status, 409);
+  // another chart, and the Workflow cannot be started: refunded, nothing left pending
+  await grant(db, uid, COSTS.deep3, "again");
+  const f = make(llmOf(good)); f.deps.startWhole = async () => { throw new Error("no workflow"); };
+  assert.equal((await handleDeep(post({ birth: { ...birth, day: 18 }, level: 3 }), f.deps)).status, 503);
+  assert.equal(await coins(), COSTS.deep3);
+  assert.equal((await db.prepare("SELECT COUNT(*) AS n FROM deep_readings WHERE user_id = ? AND fp LIKE '1990-5-18%'").bind(uid).first<{ n: number }>())!.n, 0);
+});
+
 test("strike: only exact quotes of the section are dropped", () => {
   const sec = "Câu một có căn cứ rõ ràng. Câu hai nói sai về sao Thiên Lương. Câu ba vẫn đúng như lá số.";
   assert.deepEqual(strike(sec, "KHÔNG CÓ"), { text: sec, struck: 0 });

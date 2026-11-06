@@ -18,8 +18,13 @@ import { DEEP2_OPTIONS, DEEP3_OPTIONS, DEEP_OPTIONS, CHECK_OPTIONS } from "./llm
 import type { ChatDeps } from "./route.ts";
 import type { User } from "../auth/session.ts";
 
-/** `llmFor`: a model client for given options (the Worker builds one per level); without it every level uses `llm` (tests). */
-export interface DeepDeps extends Omit<ChatDeps, "user"> { user: User; defer: (p: Promise<unknown>) => void; llmFor?: (o: LlmOptions) => Llm }
+/** `llmFor`: a model client for given options (the Worker builds one per level); without it every level uses `llm` (tests).
+ *  `startWhole`: starts mức 3 as a Cloudflare Workflow (src/chat/deep3_workflow.ts) that finishes without the reader; without it (tests,
+ *  local runs) mức 3 is written inside the request as before. */
+export interface DeepDeps extends Omit<ChatDeps, "user"> {
+  user: User; defer: (p: Promise<unknown>) => void; llmFor?: (o: LlmOptions) => Llm;
+  startWhole?: (p: { userId: string; fp: string; key: string; req: Record<string, unknown>; ref: number | null; toYear: number }) => Promise<unknown>;
+}
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
 const sse = (o: unknown) => new TextEncoder().encode(`data: ${JSON.stringify(o)}\n\n`);
@@ -32,9 +37,11 @@ export const LEVELS = { 1: { usage: "deep" }, 2: { usage: "deep2" }, 3: { usage:
 export const WHOLE = "toan_bo";
 export const keyOf = (level: Level, chapter: string) => level === 1 ? chapter : `${level === 3 ? WHOLE : chapter}#${level}`;
 export const costOf = (level: Level) => COSTS[LEVELS[level].usage];
-/** A pending row older than this was stopped by the runtime: refunded and cleared. Mức 3 takes several minutes. */
-export const STALE_MS = 20 * 60e3;
-const PENDING = "pending:";
+/** A pending row older than this was stopped by the runtime: refunded and cleared. Mức 3 runs as a Workflow that retries its steps,
+ *  so it gets longer before it counts as stopped. */
+export const STALE_MS = 20 * 60e3, STALE_WHOLE_MS = 90 * 60e3;
+const staleAfter = (key: string) => key.endsWith("#3") ? STALE_WHOLE_MS : STALE_MS;
+export const PENDING = "pending:";
 
 const RULES = `- Chỉ dùng những gì có trong dữ kiện và bài luận giải. Có thể nối các chương với nhau để thấy bức tranh chung (ví dụ cung Mệnh soi vào Công danh), nhưng không thêm sao, cung hay nhận định không có trong đó.
 - Mỗi ý nói rõ nó đến từ cung, sao, đại hạn hoặc trụ Bát Tự nào. Chỉ ra chỗ thuận, chỗ cần cân nhắc, và chỗ các phần trong lá số giằng co nhau; khi giằng co, nói bên nào nặng hơn theo dữ kiện và vì sao.
@@ -65,33 +72,33 @@ export const DEEP3_INSTRUCTIONS = `Bạn là người viết bản LUẬN CHUYÊ
 Quy tắc chung:
 ${RULES}`;
 
-const PLAN_ASK = `Bước 1, lập dàn ý (không phải bài cho người đọc; viết gọn bằng gạch đầu dòng):
+export const PLAN_ASK = `Bước 1, lập dàn ý (không phải bài cho người đọc; viết gọn bằng gạch đầu dòng):
 1. Trục của lá số: điều cốt lõi nhất xuyên suốt các cung và Bát Tự, nói rõ dựa vào cung, sao, trụ nào.
 2. Ba đến năm chỗ giằng co lớn nhất trong lá số: hai bên là gì, bên nào nặng hơn theo dữ kiện, vì sao.
 3. Với từng chương (${CHAPTER_IDS.filter(c => c !== "van_han").map(c => SPECS[c].title).join("; ")}): hai đến bốn ý chính nhất, kèm nguồn trong lá số, và chương đó nối với chương nào khác.
 4. Các chặng đại hạn và năm đang xem: chặng nào là bước ngoặt, vì sao.`;
 
-const sectionAsk = (c: ChapterId, plan: string) => `Bước 2, viết một phần của bản luận. Dàn ý chung của cả bản (do bước 1 lập):
+export const sectionAsk = (c: ChapterId, plan: string) => `Bước 2, viết một phần của bản luận. Dàn ý chung của cả bản (do bước 1 lập):
 <dan_y>
 ${plan}
 </dan_y>
 
 Hãy viết phần "${SPECS[c].title}" (${SPECS[c].scope}). Bám dàn ý nhưng đi sâu hơn: nối với các chương liên quan, đối chiếu Bát Tự khi dữ kiện có, nêu chỗ thuận, chỗ cần cân nhắc và chỗ giằng co. Không viết lời mở đầu chung hay lời kết cho cả bản; không lặp lại trục của lá số trừ khi cần để giải thích. Bắt đầu bằng dòng "## ${SPECS[c].title}", rồi khoảng 800 đến 1.100 từ.`;
 
-const CHECK_ASK = (section: string) => `Bước kiểm tra. Dưới đây là một phần bản luận vừa viết. So từng câu với dữ kiện và bài luận giải ở trên. Liệt kê những câu nói về lá số mà dữ kiện và bài luận giải KHÔNG hề có căn cứ (một sao, cung, đại hạn, trụ hay nhận định không có trong đó). Câu suy luận nối hai điều có trong dữ kiện thì vẫn có căn cứ; câu giải thích thuật ngữ hay câu hỏi gợi suy ngẫm thì bỏ qua.
+export const CHECK_ASK = (section: string) => `Bước kiểm tra. Dưới đây là một phần bản luận vừa viết. So từng câu với dữ kiện và bài luận giải ở trên. Liệt kê những câu nói về lá số mà dữ kiện và bài luận giải KHÔNG hề có căn cứ (một sao, cung, đại hạn, trụ hay nhận định không có trong đó). Câu suy luận nối hai điều có trong dữ kiện thì vẫn có căn cứ; câu giải thích thuật ngữ hay câu hỏi gợi suy ngẫm thì bỏ qua.
 Trả về mỗi câu sai trên một dòng, bắt đầu bằng "- " và chép NGUYÊN VĂN câu đó. Nếu không có câu nào, trả về đúng một dòng: KHÔNG CÓ.
 
 <phan>
 ${section}
 </phan>`;
 
-const OPEN_ASK = (plan: string) => `Bước 3, viết phần MỞ ĐẦU của bản luận cho người đọc. Dàn ý:
+export const OPEN_ASK = (plan: string) => `Bước 3, viết phần MỞ ĐẦU của bản luận cho người đọc. Dàn ý:
 <dan_y>
 ${plan}
 </dan_y>
 Bắt đầu bằng dòng "## Trục của lá số". Nêu trục của lá số và các chỗ giằng co lớn, bên nào nặng hơn và vì sao, rồi nói ngắn gọn các phần sau sẽ đi qua những gì. Khoảng 500 đến 700 từ.`;
 
-const CLOSE_ASK = (plan: string, headings: string) => `Bước 4, viết phần KẾT của bản luận. Dàn ý:
+export const CLOSE_ASK = (plan: string, headings: string) => `Bước 4, viết phần KẾT của bản luận. Dàn ý:
 <dan_y>
 ${plan}
 </dan_y>
@@ -145,7 +152,7 @@ export async function handleDeep(request: Request, d: DeepDeps): Promise<Respons
     const replay = [{ type: "meta", source: "saved", level }, { type: "delta", text: row.text }, { type: "done" }, { type: "wallet", wallet }].map(e => new TextDecoder().decode(sse(e))).join("");
     return new Response(replay, { headers: HEAD });
   }
-  if (row && now() - row.created_at < STALE_MS) return json({ detail: "writing", since: row.created_at }, 409);
+  if (row && now() - row.created_at < staleAfter(key)) return json({ detail: "writing", since: row.created_at }, 409);
   if (row) await settle(d.db, d.user.id, birth.fp, key, row.model, d.now?.());
 
   if (!d.llm) return json({ detail: "deep reading is not configured" }, 503);
@@ -164,6 +171,18 @@ export async function handleDeep(request: Request, d: DeepDeps): Promise<Respons
   // the pending row holds the spend's ledger id, so a job stopped half-way is refunded by whichever request finds it stale
   await d.db.prepare("INSERT OR REPLACE INTO deep_readings (user_id, fp, chapter, text, model, created_at) VALUES (?, ?, ?, '', ?, ?)")
     .bind(d.user.id, birth.fp, key, `${PENDING}${paid?.ok ? paid.ref : ""}`, now()).run();
+
+  // mức 3 on the Worker: hand it to the Workflow and answer at once; the card follows its progress through /api/me/deep/status
+  if (level === 3 && d.startWhole) {
+    try { await d.startWhole({ userId: d.user.id, fp: birth.fp, key, req: birth.req, ref: paid?.ok ? paid.ref : null, toYear: nowYear }); }
+    catch (e) {
+      console.error(`[deep3] workflow not started: ${e instanceof Error ? e.message : String(e)}`);
+      if (paid?.ok) await refund(d.db, d.user.id, paid.ref, d.now?.()).catch(() => false);
+      await d.db.prepare("DELETE FROM deep_readings WHERE user_id = ? AND fp = ? AND chapter = ? AND text = ''").bind(d.user.id, birth.fp, key).run();
+      return json({ detail: "could not start" }, 503);
+    }
+    return json({ started: true, level, cost, wallet: await getWallet(d.db, d.user.id, d.now?.()) }, 202);
+  }
 
   const llmOf = (o: LlmOptions) => d.llmFor?.(o) ?? d.llm!;
   const options = level === 1 ? DEEP_OPTIONS : level === 2 ? DEEP2_OPTIONS : DEEP3_OPTIONS;
@@ -246,7 +265,7 @@ async function writeWhole(llmOf: (o: LlmOptions) => Llm, context: string, emit: 
 
 /** A pending row left by a job the runtime stopped: its spend is refunded (once: refund is idempotent) and the row cleared. */
 async function settle(db: D1Database, userId: string, fp: string, key: string, model: string, now?: number) {
-  const ref = Number(model.startsWith(PENDING) ? model.slice(PENDING.length) : NaN);
+  const ref = Number(model.startsWith(PENDING) ? model.slice(PENDING.length).split("|")[0] : NaN);
   if (Number.isInteger(ref) && ref > 0) await refund(db, userId, ref, now).catch(() => false);
   await db.prepare("DELETE FROM deep_readings WHERE user_id = ? AND fp = ? AND chapter = ? AND text = ''").bind(userId, fp, key).run();
 }
@@ -266,10 +285,12 @@ export async function handleDeepStatus(request: Request, d: { db: D1Database; us
   const now = d.now?.() ?? Date.now();
   const { results } = await d.db.prepare("SELECT chapter, text != '' AS done, model, created_at FROM deep_readings WHERE user_id = ? AND fp = ?")
     .bind(d.user.id, birth.fp).all<{ chapter: string; done: number; model: string; created_at: number }>();
-  const writing: string[] = [];
+  const writing: string[] = [], progress: Record<string, string> = {};
   for (const r of results) if (!r.done) {
-    if (now - r.created_at >= STALE_MS) await settle(d.db, d.user.id, birth.fp, r.chapter, r.model, now); else writing.push(r.chapter);
+    if (now - r.created_at >= staleAfter(r.chapter)) { await settle(d.db, d.user.id, birth.fp, r.chapter, r.model, now); continue; }
+    writing.push(r.chapter);
+    const label = r.model.split("|")[1]; if (label) progress[r.chapter] = label;      // the Workflow's current step (mức 3)
   }
   const costs = { 1: costOf(1), 2: costOf(2), 3: costOf(3) };
-  return json({ written: results.filter(r => r.done).map(r => r.chapter), writing, plan: !!d.admin || await hasAiPlan(d.db, d.user.id, birth.fp), cost: costs[1], costs, ...(d.admin ? { admin: true } : {}) });
+  return json({ written: results.filter(r => r.done).map(r => r.chapter), writing, ...(Object.keys(progress).length ? { progress } : {}), plan: !!d.admin || await hasAiPlan(d.db, d.user.id, birth.fp), cost: costs[1], costs, ...(d.admin ? { admin: true } : {}) });
 }

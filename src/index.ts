@@ -11,6 +11,8 @@ import { handleAdmin, isAdmin, isAdminPath, type AdminEnv } from "./admin/route.
 import { handleReferral, isReferralPath } from "./referral/route.ts";
 import { handleTarot, isTarotPath } from "./tarot/route.ts";
 import { handleDeep, handleDeepStatus } from "./chat/deep.ts";
+import { DeepWholeWorkflow, type WholeParams } from "./chat/deep3_workflow.ts";
+export { DeepWholeWorkflow };
 import { handleBilling, isBillingPath, paywallOn, type BillingEnv } from "./billing/route.ts";
 import { gated as gatedRoute } from "./billing/paywall.ts";
 import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS, llmCheck, type LlmOptions } from "./chat/llm.ts";
@@ -36,6 +38,7 @@ interface Env extends AuthEnv, BillingEnv, AdminEnv {
   TVBT_LUAN?: string;               // "0" turns off the luận cung chapters (prose/luan.ts) in the whole-report prose; on unless set to "0"
   INTERPRET_DB?: D1Like;            // optional D1 knowledge base + output cache (migrations/interpret)
   INTERPRET_CACHE?: R2Like;         // optional R2 bucket for cached outputs
+  DEEP3?: Workflow<WholeParams>;    // Luận chuyên sâu (mức 3) as a Workflow (src/chat/deep3_workflow.ts); without it mức 3 runs in the request
 }
 
 /** TVBT_PAYWALL=1: every reading leaves the Worker cut to the reader's tier (src/billing/paywall.ts): guest, member, Đọc sâu opened. The cut
@@ -77,7 +80,8 @@ async function chatRoute(request: Request, env: Env, ctx: ExecutionContext, deep
   };
   // a guest reaches handleChat, which answers 401 itself (the panel opens for anyone; sending needs sign-in)
   const key = env.ANTHROPIC_API_KEY, llmFor = key ? (o: LlmOptions) => anthropicLlm(key, o) : undefined;   // one client per Luận riêng level and step
-  return deep && user ? handleDeep(request, { ...deps, user, llmFor, defer: p => ctx.waitUntil(p) }) : handleChat(request, { ...deps, user });
+  const wf = env.DEEP3, startWhole = wf ? (params: WholeParams) => wf.create({ params }) : undefined;
+  return deep && user ? handleDeep(request, { ...deps, user, llmFor, startWhole, defer: p => ctx.waitUntil(p) }) : handleChat(request, { ...deps, user });
 }
 
 // A shared chart is computed from the birth stored with it: the engine call is built here, never from the viewer's body alone. Its readings
