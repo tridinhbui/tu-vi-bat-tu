@@ -907,6 +907,8 @@ body.hide-birth #hoangdao-host,body.hide-birth .hl-hd{display:none!important}
   article:has(> .fit-l){max-width:none;margin:0;padding:0}
   .fit-l h1{font-size:clamp(1.35rem,1.9vw,2rem)}
   .fit-r .wt-start{grid-template-columns:1fr}
+  /* the left panel scrolls inside itself: a sticky card there stays put while the text below slides over it */
+  .fit-l .wt-side{position:static}
   /* Cung hoàng đạo: the form in a card like the other two tools, its fields on a grid (date and time, then place and the button) */
   .fit-r{container-type:inline-size}
   .fit-r .hd-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px;align-items:end;
