@@ -60,8 +60,32 @@ const prCite = c => String(c).replace(/^(TH|KL|TT|TL|NL|HS|ZZ)\s*(?:PDF\s*)?pp?\
 const PR_STARS = Object.keys(HANH).filter(n => n !== 'Phúc Đức').sort((a, b) => b.length - a.length);
 const PR_STAR_RE = new RegExp(`(?<![\\p{L}])(${PR_STARS.join('|')})(?![\\p{L}])`, 'gu');
 const starsHtml = t => esc(t).replace(PR_STAR_RE, n => `<span class="pr-star h-${hk(HANH[n])}${MAJOR_SIGN[n] ? ' pr-maj' : ''}">${n}</span>`);
+/** the outcome of a reading sentence ("…, nên gian truân.", "…: vàng ngọc đầy nhà."), marked so the eye can skim the conclusions (owner
+ *  review 2026-11-06); only on reading moves, and only a short tail */
+const PR_KEY_STEP = /^(claim|against|corroborated|countered|timing|than:rule|reducer)/;
+function keyHtml(s, html) {
+  if (!PR_KEY_STEP.test(s.trace?.step || '')) return html;
+  const m = /^(.*(?:, nên |: ))([^:]+?)([.!?…]*)$/su.exec(s.text);
+  if (!m || m[2].split(/\s+/).length > 14 || m[2].split(/\s+/).length < 2) return html;
+  return `${starsHtml(m[1])}<span class="pr-key">${starsHtml(m[2])}</span>${esc(m[3])}`;
+}
 /** a sentence: its bold lead-in when the paragraph has one (luận cung, prose/luan.ts), the rest with coloured star names */
-const prSentence = (s, lead) => lead && s.text.startsWith(lead) ? `<strong class="pr-lead">${starsHtml(lead)}</strong>${starsHtml(s.text.slice(lead.length))}` : starsHtml(s.text);
+const prSentence = (s, lead) => lead && s.text.startsWith(lead) ? `<strong class="pr-lead">${starsHtml(lead)}</strong>${starsHtml(s.text.slice(lead.length))}` : keyHtml(s, starsHtml(s.text));
+/** A long paragraph is shown as several short ones (owner review 2026-11-06: a phone showed paragraphs of 9 to 27 lines). A break goes
+ *  before a sentence that starts a new move (a turn, another palace's word, a new claim, the advice) once the run has ~35 words, or before
+ *  any sentence once it has ~60; a behaviour or illustration line stays with the sentence it explains. Returns runs of sentence indexes. */
+const prWords = t => t.split(/\s+/).length;
+function prRuns(sentences) {
+  const runs = [[]];
+  let n = 0;
+  sentences.forEach((s, j) => {
+    const st = s.trace?.step || '', w = prWords(s.text), cur = runs[runs.length - 1];
+    const glued = /^(behave|minh_hoa)/.test(st) || s.trace?.basis === 'minh_hoa';
+    const fresh = /^(claim|against|corroborated|countered|advice|timing|contested|kyc|single|caveat)/.test(st) || s.trace?.move === 'TURN';
+    if (cur.length && !glued && ((n >= 35 && fresh) || n + w > 70)) { runs.push([j]); n = w; } else { cur.push(j); n += w; }
+  });
+  return runs;
+}
 /** the dignity table the chart was computed with (renderTuviReport sets it): the prose footer names it */
 let prSchool = 'khao_luan';
 const DG_NAME = { khao_luan: 'Khảo Luận', thuc_hanh: 'Thực Hành', toan_thu: 'Toàn Thư' };
@@ -79,7 +103,7 @@ const prFeedback = i => `<div class="pr-fb" data-p="${i}" role="group" aria-labe
 function proseHtml(p, { skip = null, only = null, title: title0 = null } = {}) {
   if (!p?.paragraphs?.length) return '';
   const title = title0 ? esc(title0) : p.title ? esc(p.title) : p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
-  const block = (para, i) => `<div class="pr-block${para.paid ? ' pw-paid' : ''}"${para.part ? ` data-part="${para.part}"` : ''}>${para.deep && para.title ? `<h5 class="pr-deep-t">${esc(para.title)}</h5>` : ''}<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead ? ' pr-p-lead' : ''}">${para.sentences.map((s, j) => `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}${s.trace.basis === 'minh_hoa' ? ' pr-mh' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`).join(' ')}</p>${prFeedback(i)}</div>`;
+  const block = (para, i) => `<div class="pr-block${para.paid ? ' pw-paid' : ''}"${para.part ? ` data-part="${para.part}"` : ''}>${para.deep && para.title ? `<h5 class="pr-deep-t">${esc(para.title)}</h5>` : ''}${prRuns(para.sentences).map((run, r) => `<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead && !r ? ' pr-p-lead' : ''}${r ? ' pr-p-cont' : ''}">${run.map(j => { const s = para.sentences[j]; return `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}${s.trace.basis === 'minh_hoa' ? ' pr-mh' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`; }).join(' ')}</p>`).join('')}${prFeedback(i)}</div>`;
   // Tử Vi luận cung: the short reading first; the deep reading (prose/luan_deep.ts, paragraphs marked deep) folds under "Đọc sâu", closed
   const items = p.paragraphs.map((para, i) => ({ para, i })).filter(x => !(skip && skip(x.para)) && (!only || only(x.para)));
   if (!items.length) return '';
@@ -87,8 +111,15 @@ function proseHtml(p, { skip = null, only = null, title: title0 = null } = {}) {
   const short = items.filter(x => !(p.luan && x.para.deep && !only)), deep = p.luan && !only ? items.filter(x => x.para.deep) : [];
   const deepHtml = deep.length ? `<details class="pr-deep"><summary><span class="cb-t">Đọc sâu</span><span class="cb-s">${deep.map(x => esc(x.para.title || '')).filter(Boolean).join(' · ')}</span></summary>${deep.map(x => block(x.para, x.i)).join('')}</details>` : '';
   return `<section class="synth prose${p.luan ? ' pr-luan' : ''}${p.locked ? ' pw-cut' : ''}" data-chapter="${esc(p.chapter)}"${only ? ' data-lifted="1"' : ''} data-engine="${esc(p.engine || '')}" aria-label="${title}"><p class="eyebrow">${title}</p>
-    ${short.map(x => block(x.para, x.i)).join('')}${deepHtml}
+    ${only ? '' : prSummary(p)}${short.map(x => block(x.para, x.i)).join('')}${deepHtml}
     <div class="pr-why small" hidden></div>${only ? '' : `${lockHtml(p)}${adviceHtml(p.advice)}${aiSlot(p.chapter)}${prDiverge(p)}${luanBasis(p)}`}</section>`;
+}
+/** "Tóm lại" over a luận cung chapter: the domain verdicts it concludes on (the report-wide ledger, reason/ledger.ts), one line each, so the
+ *  reader sees where the chapter lands before the argument (owner review 2026-11-06). The argument and its pages stay below. */
+function prSummary(p) {
+  const L = (p?.luan && p.evidence?.ledger || []).filter(v => LV_VI[v.verdict] && v.verdict !== 'chua_du');
+  if (!L.length) return '';
+  return `<div class="pr-sum"><span class="pr-sum-t">Tóm lại</span><ul>${L.map(v => `<li class="pr-v-${esc(v.verdict)}"><b>${esc(v.label.charAt(0).toUpperCase() + v.label.slice(1))}</b> ${esc(LV_VI[v.verdict])}</li>`).join('')}</ul></div>`;
 }
 // Tử Vi luận cung: the chapter's sources and the domain verdicts it concluded on (frame part 6), folded under the reading, closed. Each verdict
 // is the report-wide ledger's (src/interpret/reason/ledger.ts): every chapter says the same about the same domain.
@@ -324,6 +355,8 @@ function appendixHtml(prefix, prose) {
   if (!rows.length) return '';
   return `<section class="print-appx small" aria-hidden="true"><h4>Phụ lục: quy tắc và trang sách theo chương</h4>${rows.join('')}<p>${NOT_TESTED}</p></section>`;
 }
+/** what the star colours in the reading mean (the board's own legend is under the board; owner review 2026-11-06) */
+const RP_HANH = `<p class="rp-hanh">Màu tên sao theo ngũ hành: ${[['kim', 'Kim'], ['moc', 'Mộc'], ['thuy', 'Thủy'], ['hoa', 'Hỏa'], ['tho', 'Thổ']].map(([k, n]) => `<b class="h-${k}">${n}</b>`).join(' · ')}. Màu phụ tinh theo quy ước bảng thường dùng.</p>`;
 function mount(host, chapters, prefix, ctx) {
   const prose = Object.entries(ctx.prose || {}).filter(([k]) => (prefix === 'bt') === k.startsWith('bat_tu')).map(([, p]) => p);
   // the user's own chart, with career / relationship status in the profile: those chapters come right after the overview (focus.js)
@@ -333,10 +366,10 @@ function mount(host, chapters, prefix, ctx) {
     if (tq && titles.length) tq.synth = focusNote(ctx.focus, titles) + (tq.synth || '');
   }
   host.innerHTML = `<div class="rp-layout">
-    <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li${c.pro ? ' class="pro-only"' : ''}><a href="#${prefix}-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol></nav>
-    <div class="rp-body">${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${c.synth || ''}${chapterBasis(c)}</article>`).join('')}
+    <nav class="rp-toc" aria-label="Mục lục luận giải"><ol>${chapters.map((c, i) => `<li${c.pro ? ' class="pro-only"' : ''}><a href="#${prefix}-${c.id}" data-ch="${c.id}"><span>${pad(i + 1)}</span>${c.title}</a></li>`).join('')}</ol>${prefix === 'tv' ? RP_HANH : ''}</nav>
+    <div class="rp-body">${prefix === 'tv' ? RP_HANH.replace('rp-hanh', 'rp-hanh rp-hanh-m') : ''}${chapters.map((c, i) => `<article class="chapter${c.pro ? ' pro-only' : ''}" id="${prefix}-${c.id}"><header><span class="ch-no">${pad(i + 1)}</span><h3>${c.title}</h3></header><p class="lead">${c.lead}</p>${WHAT[prefix]?.[c.id] ? `<p class="ch-what easy-only"><b>Nói đơn giản:</b> ${WHAT[prefix][c.id]}</p>` : ''}${c.synth || ''}${chapterBasis(c)}</article>`).join('')}
       ${reportFoot(prefix, prose)}${appendixHtml(prefix, prose)}<div class="sys-switch"><div><b>${prefix === 'bt' ? 'Đã đọc hết phần Bát Tự' : 'Đã đọc hết phần Tử Vi'}</b><span>${prefix === 'bt' ? 'Xem cùng thời điểm sinh theo Tử Vi, hoặc lưu bản luận giải đầy đủ.' : 'Xem cùng thời điểm sinh theo Bát Tự, hoặc lưu bản luận giải đầy đủ.'}</span></div>
-        <div class="sys-act"><button type="button" class="btn btn-sm" data-go="${prefix === 'bt' ? 'tu-vi' : 'bat-tu'}">${prefix === 'bt' ? 'Xem Tử Vi →' : 'Xem Bát Tự →'}</button><button type="button" class="btn btn-ghost btn-sm" data-act="print">Tải PDF</button><button type="button" class="btn btn-ghost btn-sm" data-act="print-full">In bản đầy đủ (kiểm toán)</button><button type="button" class="btn btn-ghost btn-sm" data-act="again">Lập lá số khác</button></div></div></div></div>`;
+        <div class="sys-act"><button type="button" class="btn btn-sm" data-go="${prefix === 'bt' ? 'tu-vi' : 'bat-tu'}">${prefix === 'bt' ? 'Xem Tử Vi →' : 'Xem Bát Tự →'}</button><button type="button" class="btn btn-ghost btn-sm" data-act="print">Tải PDF</button><button type="button" class="btn btn-ghost btn-sm" data-act="png">Tải ảnh lá số</button><button type="button" class="btn btn-ghost btn-sm" data-act="share">Chia sẻ</button><button type="button" class="btn btn-ghost btn-sm" data-act="print-full">In bản đầy đủ (kiểm toán)</button><button type="button" class="btn btn-ghost btn-sm" data-act="again">Lập lá số khác</button></div></div></div></div>`;
   autoLink(host, prefix === 'bt' ? 'bt' : 'tv');
   $$('[data-jump]', host).forEach(r => r.onclick = () => $('#' + prefix + '-' + r.dataset.jump, host).scrollIntoView({ behavior: 'smooth', block: 'start' }));
   $$('.ref', host).forEach(r => r.onclick = () => ctx.openPalace(r.dataset.palace));
@@ -347,6 +380,44 @@ function mount(host, chapters, prefix, ctx) {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(l => { const on = l.dataset.ch === e.target.id.slice(prefix.length + 1); l.classList.toggle('on', on); const ol = l.closest('ol'); if (on && ol.scrollWidth > ol.clientWidth && matchMedia('(max-width:980px)').matches) ol.scrollTo({ left: l.offsetLeft - ol.clientWidth / 2 + l.offsetWidth / 2, behavior: 'smooth' }); }); }), { rootMargin: '-30% 0px -60% 0px' });
   $$('.chapter', host).forEach(c => io.observe(c));
   links.forEach(l => l.onclick = e => { e.preventDefault(); $(l.getAttribute('href'), host).scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  markRead(host, prefix, ctx.req);
+}
+
+/** Read marks (owner review 2026-11-06: nothing showed which chapters were read). A chapter on screen for 4 s counts as read; the marks are
+ *  kept per chart and system in this browser only (a hash of the birth data names them), and the table of contents shows them with a
+ *  count; the chapters every reader should not skip carry a dot while unread. */
+const RD_MUST = { tv: ['ban-menh', 'cong-danh', 'tai-bach', 'dai-han'], bt: ['nhat-chu', 'su-nghiep', 'dai-van'] };
+function rdKey(prefix, req) {
+  if (!req) return '';
+  let h = 5381;
+  for (const c of [prefix, req.year, req.month, req.day, req.hour, req.minute, req.gender, req.calendar || ''].join('|')) h = (h * 33 + c.codePointAt(0)) >>> 0;
+  return 'tvbt.read.' + h.toString(36);
+}
+function markRead(host, prefix, req) {
+  const key = rdKey(prefix, req), toc = $('.rp-toc', host);
+  if (!key || !toc || typeof IntersectionObserver === 'undefined') return;
+  let seen;
+  try { seen = new Set(JSON.parse(localStorage.getItem(key) || '[]')); } catch { seen = new Set(); }
+  const links = $$('.rp-toc a', host).filter(l => !l.closest('.pro-only')), must = RD_MUST[prefix] || [];
+  toc.insertAdjacentHTML('afterbegin', '<p class="rp-read" aria-live="polite"></p>');
+  const paint = () => {
+    links.forEach(l => { const r = seen.has(l.dataset.ch); l.classList.toggle('read', r); l.classList.toggle('must', !r && must.includes(l.dataset.ch)); });
+    const n = links.filter(l => seen.has(l.dataset.ch)).length;
+    $('.rp-read', toc).textContent = `Đã đọc ${n}/${links.length} chương`;
+  };
+  paint();
+  const timers = new Map();
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const id = e.target.id.slice(prefix.length + 1);
+    // a chapter taller than the screen never shows 30 % of itself: half the screen filled by it counts too
+    const on = e.isIntersecting && (e.intersectionRatio >= 0.3 || e.intersectionRect.height >= innerHeight * 0.5);
+    if (on && !seen.has(id) && !timers.has(id)) timers.set(id, setTimeout(() => {
+      timers.delete(id); seen.add(id); paint();
+      try { localStorage.setItem(key, JSON.stringify([...seen])); } catch { /* storage unavailable: the marks last this visit */ }
+    }, 4000));
+    if (!on && timers.has(id)) { clearTimeout(timers.get(id)); timers.delete(id); }
+  }), { threshold: [0, 0.3, 0.6] });
+  $$('.chapter', host).forEach(c => io.observe(c));
 }
 
 const shell = ctx => {

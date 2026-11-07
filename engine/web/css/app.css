@@ -190,6 +190,10 @@ input[type=range]{height:28px;padding:0;border:0;background:transparent;accent-c
 /* report */
 .rp-layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--s8);align-items:start}
 .rp-toc{position:sticky;top:calc(var(--hdr-h) + 64px)}.rp-toc ol{list-style:none;display:grid;gap:2px;border-left:1px solid var(--line)}.rp-toc a{display:flex;gap:10px;padding:7px 14px;margin-left:-1px;border-left:2px solid transparent;font-size:.88rem;color:var(--muted);text-decoration:none}.rp-toc a span{font:500 .85rem var(--serif);color:var(--gold)}.rp-toc a:hover{color:var(--ink)}.rp-toc a.on{color:var(--ink);border-left-color:var(--cinnabar);font-weight:600}
+/* read marks (report.js markRead) */
+.rp-read{margin:0 0 6px 14px;font:500 .78rem var(--sans);color:var(--muted)}
+.rp-toc a.read{color:var(--text2)}.rp-toc a.read:after{content:"✓";margin-left:auto;color:var(--pos);font-weight:700}
+.rp-toc a.must:after{content:"";margin-left:auto;align-self:center;width:7px;height:7px;border-radius:50%;background:var(--cinnabar)}
 .rp-body{max-width:760px}.chapter{padding:var(--s7) 0;border-top:1px solid var(--line);scroll-margin-top:130px}.chapter:first-child{border-top:0;padding-top:0}
 .chapter header{display:flex;align-items:baseline;gap:16px;margin-bottom:var(--s3)}.ch-no{font:500 1.1rem var(--serif);color:var(--gold)}.chapter h3{font-size:clamp(1.8rem,3.2vw,2.5rem)}
 .lead{font:400 1.25rem/1.55 var(--serif);color:var(--text);margin:0 0 var(--s5)}
@@ -628,6 +632,15 @@ body.hour-mode #print-btn,body.hour-mode #print-full-btn{display:none}
 .prose{--k-kim:#6c7077;--k-moc:#137a35;--k-thuy:#1d2730;--k-hoa:#c0261d;--k-tho:#a8650a}
 .prose .pr-star{font-weight:500}.prose .pr-maj{font-weight:700}
 .prose .pr-lead{font-weight:700}
+/* owner review 2026-11-06: long paragraphs shown as short runs (report.js prRuns), the outcome of a reading underlined lightly, a "Tóm lại"
+   line of the chapter's verdicts on top */
+.prose .pr-p-cont{margin-top:-4px}
+.prose .pr-key{font-weight:600;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--gold) 45%,transparent);text-decoration-thickness:2px;text-underline-offset:3px}
+.pr-sum{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin:0 0 14px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--gold) 6%,transparent);font:500 .9rem var(--sans)}
+.pr-sum-t{font-weight:700;color:var(--cinnabar);text-transform:uppercase;letter-spacing:.04em;font-size:.75rem}
+.pr-sum ul{display:contents;list-style:none}.pr-sum li{display:inline-flex;gap:5px;align-items:baseline}
+.pr-sum li:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted);align-self:center}
+.pr-sum .pr-v-thuan:before{background:var(--pos)}.pr-sum .pr-v-tro_ngai:before{background:var(--neg)}.pr-sum .pr-v-hai_chieu:before,.pr-sum .pr-v-co_dieu_kien:before{background:var(--gold)}
 .pr-block{margin:0}
 .pr-fb{display:flex;justify-content:flex-end;gap:2px;margin:-8px 0 12px}
 .pr-fb-b{width:40px;height:36px;display:inline-grid;place-items:center;padding:0;border:0;border-radius:8px;background:transparent;color:var(--text2);cursor:pointer;transition:background .15s,color .15s}
@@ -942,3 +955,6 @@ body.hide-birth #hoangdao-host,body.hide-birth .hl-hd{display:none!important}
   html.signed-in body[data-view=home]:not(.landing) #lap-la-so .create-copy{margin-top:0;padding-top:0;position:static}
   html.signed-in body[data-view=home]:not(.landing) :is(#lap-la-so .create-copy,#saved-sec)>:first-child{margin-top:0}
 }
+.rp-hanh{--k-kim:#6c7077;--k-moc:#137a35;--k-thuy:#1d2730;--k-hoa:#c0261d;--k-tho:#a8650a;margin:14px 0 0 14px;font:400 .75rem/1.5 var(--sans);color:var(--muted)}.rp-hanh b{font-weight:600}
+.rp-hanh-m{display:none}
+@media(max-width:980px){.rp-read,.rp-toc .rp-hanh{display:none}.rp-hanh-m{display:block;margin:0 0 12px}}

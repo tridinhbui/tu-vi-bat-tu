@@ -78,6 +78,8 @@ document.addEventListener('click', e => {
   if (act === 'sample') { e.preventDefault(); loadSample().then(() => setTab(a.dataset.tab || 'tuvi')); }
   else if (act === 'print') { e.preventDefault(); printNow(); }
   else if (act === 'print-full') { e.preventDefault(); printNow(true); }
+  else if (act === 'png') { e.preventDefault(); $('#png-btn').click(); }
+  else if (act === 'share') { e.preventDefault(); $('#share-btn').hidden ? $('#save-host button')?.click() : $('#share-btn').click(); $('.atl-mast').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
   else if (act === 'again') { e.preventDefault(); again(); }
   else if (act === 'save') { e.preventDefault(); $('#save-host button')?.click(); $('.atl-mast').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
   else if (act === 'scroll') { e.preventDefault(); $(a.dataset.target)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }

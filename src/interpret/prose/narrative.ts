@@ -28,6 +28,8 @@ export interface ReasoningFrames {
   behave: string[]; course: string[]; degree: Record<'up' | 'down', string[]>; closing: string[]; ground: Record<string, string[]>;
   /** counter-evidence that is better news than the claim it qualifies (a limit answered by a strength in the tam phương) */
   countered_up?: string[];
+  /** countered_up when the ground already names the palace ("Lộc Tồn ở Tài Bạch"): no "ở Tài Bạch, Lộc Tồn ở Tài Bạch" */
+  countered_up_named?: string[];
   /** a second claim on a ground the thesis already named: the ground is not repeated */
   claim_same?: string[]; claim_same_card?: string[]; claim_also?: string[]; claim_also_card?: string[];
   /** special structures at Mệnh (plan.ts StructureNote): `lines` turns a verbatim structure line into reader words (regex + named groups) */
@@ -450,13 +452,34 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     const rr = W.read(cr.ruleId);
     if (!rr.claim) continue;
     const g = rr.cond ? lowerSafe(rr.cond) : `cung ${cr.palace}`;
-    const up = type === 'countered' && W.pol(cr.concept) === '+' && !!F.countered_up?.length;
-    const tpl = up ? F.countered_up! : F[type];
-    const conn = type === 'corroborated' ? W.conn('contrast', `${type}|${cr.ruleId}`) : up ? W.upConn(`${type}|${cr.ruleId}`) : W.limitConn(`${type}|${cr.ruleId}`);
-    xs.push(W.sentence(fill(W.pick(`${type}|${cr.ruleId}`, tpl), { conn, palace: cr.palace, ground: g, claim: rr.claim }),
+    // a corroboration says "the same as that": it follows the sentence of its own concept, never a turn told after it (owner review
+    // 2026-11-06: "gian truân" … "Tuy thế … gặp thời vận tốt. Mệnh xác nhận thêm điều đó, vì … cùng khổ")
+    const [pos, own] = type === 'corroborated' ? afterOwn(xs, cr.concept) : [xs.length, undefined];
+    // and a reading said with its own limit ("kiếm được tiền, song không dư dả") is not confirmed by an unlimited one ("vàng ngọc đầy
+    // nhà"): that reading lifts the limit, so it is told as the better side
+    const lifts = type === 'corroborated' && W.pol(cr.concept) === '+' && !!own && LIMITED.test(own.text) && !LIMITED.test(rr.claim) && !!F.countered_up?.length;
+    const up = (type === 'countered' && W.pol(cr.concept) === '+' && !!F.countered_up?.length) || lifts;
+    const named = g.includes(cr.palace) && !!F.countered_up_named?.length;
+    const tpl = up ? (named ? F.countered_up_named! : F.countered_up!) : F[type];
+    const conn = type === 'corroborated' && !lifts ? W.conn('contrast', `${type}|${cr.ruleId}`) : up ? W.upConn(`${type}|${cr.ruleId}`) : W.limitConn(`${type}|${cr.ruleId}`);
+    xs.splice(pos, 0, W.sentence(fill(W.pick(`${type}|${cr.ruleId}`, tpl), { conn, palace: cr.palace, ground: g, claim: rr.claim }),
       // a counter-reading is another reading than the corroboration of the same concept and palace (one says it, the other limits it)
       { move: 'VIA', step: `${type}:${cr.palace}:${cr.ruleId}`, concepts: [cr.concept], rules: [cr.ruleId], cites: cr.cite ? [cr.cite] : [], keys: [`${cr.concept}@${cr.palace}${type === 'countered' ? '|countered' : ''}`] }));
+    for (const s of structAt) if (s.xs === xs && s.at >= pos) s.at++;
   }
+}
+
+/** A reading that carries its own limit: "…, song không dư dả", "…, nhưng …", "chỉ …". */
+const LIMITED = /,\s*(?:song|nhưng|tuy)\s|\bkhông\s[^.;:]*\bnhư mong\b|(?:^|[,:]\s*)chỉ\s/iu;
+/** Where a corroboration of `concept` goes, and the sentence it confirms: after the last sentence that tells that concept and the sentences
+ *  that go on with that sentence's concepts (its behaviour line), so "cùng chiều ấy" points at the right claim; at the end when none tells it. */
+function afterOwn(xs: ProseSentence[], concept: string): [number, ProseSentence | undefined] {
+  let i = xs.length - 1;
+  while (i >= 0 && !(xs[i].trace.concepts.includes(concept) && xs[i].trace.move !== 'TURN' && xs[i].trace.move !== 'VIA')) i--;
+  if (i < 0) return [xs.length, undefined];
+  const own = xs[i];
+  while (i + 1 < xs.length && xs[i + 1].trace.concepts.some(c => own.trace.concepts.includes(c)) && xs[i + 1].trace.move !== 'TURN') i++;
+  return [i + 1, own];
 }
 
 /** A sentence saying a hãm star became good ("hết hãm", "hãm … biến thành tốt"). */

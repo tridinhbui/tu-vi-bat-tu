@@ -612,6 +612,23 @@
   "health_note": [
     "Những dòng về cung Tật Ách ở đây không thay cho lời khuyên của thầy thuốc"
   ],
+  "minor": {
+    "pos": [
+      "Phần sao nhỏ trong cung góp thêm {pos}",
+      "Ngoài các sao chính, phần sao nhỏ còn đem thêm {pos}"
+    ],
+    "neg": [
+      "Phần sao nhỏ trong cung kèm thêm {neg}",
+      "Ngoài các sao chính, phần sao nhỏ còn kèm {neg}"
+    ],
+    "both": [
+      "Phần sao nhỏ trong cung góp thêm {pos}, song cũng kèm {neg}",
+      "Ngoài các sao chính, phần sao nhỏ đem thêm {pos}; mặt phải giữ là {neg}"
+    ],
+    "title": [
+      "Sao nhỏ trong cung"
+    ]
+  },
   "ledger": {
     "verdict": {
       "thuan": [
@@ -874,6 +891,22 @@
       "Bên nào trội còn tùy các năm có hạn chạm cung {palace}",
       "Muốn phân định, cần xem những năm hạn đi qua cung {palace}",
       "Điều còn thiếu để phân định là các năm hạn chạm cung {palace}"
+    ],
+    "bridge_both_pos": [
+      "Theo thế tam hợp, {mground} cùng chiều với {cground}, nên tố chất của người đẩy thêm cho {domain}",
+      "Mệnh và cung chính của {domain} đứng thế tam hợp: {mground} cùng chiều với {cground}, nên con người hợp với con đường ấy"
+    ],
+    "bridge_lifts": [
+      "Theo thế tam hợp, {mground} là chỗ dựa cho {domain}, đỡ được một phần sức kéo của {cground}",
+      "Mệnh đứng thế tam hợp với cung chính của {domain}: {mground} gỡ được một phần cái khó do {cground} đem lại"
+    ],
+    "bridge_drags": [
+      "Theo thế tam hợp, {cground} mở đường cho {domain}, nhưng {mground} kéo lùi, nên có đường mà người chưa dùng hết sức",
+      "Cung chính của {domain} có {cground} mở lối, song {mground} ở thế tam hợp lại níu lại, nên phần thuận khó đi trọn"
+    ],
+    "bridge_both_neg": [
+      "Theo thế tam hợp, cả {mground} lẫn {cground} đều nghiêng về khó, nên {domain} cần dựa vào các chặng đại hạn thuận",
+      "Mệnh và cung chính của {domain} cùng chịu sức kéo từ {mground} và {cground}, nên {domain} phải chờ những chặng đại hạn thuận"
     ]
   },
   "confront": {
