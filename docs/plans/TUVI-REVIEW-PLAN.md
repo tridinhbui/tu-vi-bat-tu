@@ -203,3 +203,19 @@ Kiểm tra:
 2. Sao nhỏ chỉ còn một dòng ở phần chính, câu đầy đủ chuyển vào Đọc sâu (mục 3.1). Đồng ý không?
 3. Câu khuyên không có chi tiết riêng thì bỏ hẳn (mục 3.4), hay giữ mà ghi rõ là lời khuyên chung?
 4. Mục 2 nên làm ngay như một lỗi, trước cả EP giai đoạn 1 (đề xuất)?
+
+## 7. Trạng thái (2026-11-07, main 792dcbed, đã lên tuvithienban.com)
+
+Đã làm, đo trên lá mẫu 17/05/1990 ở 375px:
+- **Mục 2**: câu xác nhận đứng ngay sau nhận định nó xác nhận, trước câu chuyển chiều. Nhận định có giới hạn riêng ("song không dư dả") không còn bị "xác nhận" bằng một nhận định mạnh hơn; nhận định ấy được nói như mặt tốt hơn. Câu "chưa có sao thứ hai" không đứng trước một câu xác nhận. Test: `corroboration.test.ts`, kèm lá mẫu của site (`fixtures/site_sample_1990.json`).
+- **Mục 3.1**: đoạn hoặc chuỗi câu chỉ nói sao nhỏ (tầng T6 của `tiers.ts`) rời phần chính, sang mục "Sao nhỏ trong cung" ở Đọc sâu. Chỗ cũ còn một dòng gom lại. Câu sao nhỏ trong phần chính giảm từ 13,4 % xuống 4,5 % (15 lá corpus). Chương không có sao mạnh hơn thì giữ nguyên.
+- **Mục 3.2**: câu tam hợp ở Công danh và chương Tài Bạch (phần kiếm tiền). Câu này chỉ nêu những sao đứng đúng ở Mệnh và ở cung chính.
+- **Mục 3.4 (một phần)**: câu khuyên nêu sao gây ra giới hạn. Ưu tiên sát tinh có tên trong chính câu sách đã nói giới hạn đó. Chưa gắn chặng tuổi.
+- **Mục 4.1**: đoạn dài được chia thành nhiều đoạn ngắn. Trung vị 70 → 47 chữ, không còn đoạn nào quá 80 chữ, dài nhất 226 → 74 chữ. Có dòng "Tóm lại" cho các chương có kết luận. Phần kết quả của câu sách được gạch chân nhẹ.
+- **Mục 4.2**: có dấu đã đọc, số chương đã đọc và chấm nhắc ở mục lục (máy tính).
+- **Mục 4.4 (một phần)**: thẻ cuối bản luận có thêm Tải ảnh lá số và Chia sẻ. Hàng nút đầu trang trên điện thoại chưa thu gọn.
+- **Mục 4.6**: có chú giải màu ngũ hành, trong mục lục và ở đầu phần luận trên điện thoại.
+
+Chưa làm: mục 3.3 (tư thế đại hạn, chờ chủ dự án quyết), mục 4.3 (số câu hỏi hiện trên ô nhập), hàng nút đầu trang trên điện thoại.
+
+Hai test `sweep.test.ts` (27 cảnh báo, ngưỡng 20) và `pipeline.test.ts` ("Triệt tại Mệnh / tai_bach") đã đỏ trên main từ trước. Lỗi giống hệt khi chạy trên 6dd5a9ca, chưa có thay đổi này.
