@@ -478,7 +478,11 @@ function afterOwn(xs: ProseSentence[], concept: string): [number, ProseSentence 
   while (i >= 0 && !(xs[i].trace.concepts.includes(concept) && xs[i].trace.move !== 'TURN' && xs[i].trace.move !== 'VIA')) i--;
   if (i < 0) return [xs.length, undefined];
   const own = xs[i];
-  while (i + 1 < xs.length && xs[i + 1].trace.concepts.some(c => own.trace.concepts.includes(c)) && xs[i + 1].trace.move !== 'TURN') i++;
+  // the claims of the same thesis that go on from it ("Cũng vì vậy, vui ít buồn nhiều") stay with it too
+  const tid = /^(?:claim|behave):(T:[^:]+:[^:]+):/.exec(own.trace.step ?? '')?.[1];
+  const goesOn = (x: ProseSentence) => x.trace.move !== 'TURN' && (x.trace.concepts.some(c => own.trace.concepts.includes(c))
+    || (!!tid && ((x.trace.step ?? '').startsWith(`claim:${tid}:`) || (x.trace.step ?? '').startsWith(`behave:${tid}:`))));
+  while (i + 1 < xs.length && goesOn(xs[i + 1])) i++;
   return [i + 1, own];
 }
 

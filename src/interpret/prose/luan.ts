@@ -830,8 +830,16 @@ function foldMinor(W: Writer, L: LuanLib, paras: ProseParagraph[], P: string): P
   const OWN = /^(corroborated|countered|deep|trigger|minh_hoa|modifier)/;
   const folded: ProseSentence[][] = [];
   // a run some other sentence of the chapter goes on from (a synthesis, an advice, a two-edged line naming its concepts) stays
+  // and so does a run whose reading is the other side of one the chapter keeps (opposed readings are told together)
   const usedElsewhere = (run: ProseSentence[]) => { const cs = new Set(run.flatMap(x => x.trace.concepts));
-    return main.some(p => p.sentences.some(x => !run.includes(x) && x.trace.basis !== 'sach' && x.trace.concepts.some(c => cs.has(c)))); };
+    const opp = new Set([...cs].map(c => W.concept(c)?.opp).filter((x): x is string => !!x));
+    const ties = (x: ProseSentence) => (x.trace.basis !== 'sach' && x.trace.concepts.some(c => cs.has(c)))
+      || x.trace.concepts.some(c => opp.has(c) || cs.has(W.concept(c)?.opp ?? ''));
+    return main.some(p => p.sentences.some(x => !run.includes(x) && ties(x))); };
+  // a paragraph keeps a reading of its own, and never ends on a bare position once the run is gone
+  const BARE = /^(frame|position|centre|domain|majors|group|hoa)(:|$)|^structure:[^:]+:(head|position|caveat)$|^than:[^:]+$/;
+  const leaves = (p: ProseParagraph, run: ProseSentence[]) => { const rest = p.sentences.filter(x => !run.includes(x));
+    return rest.some(x => x.trace.basis === 'sach') && !BARE.test(rest.at(-1)?.trace.step ?? ''); };
   for (const p of main) {
     const all = p.sentences.some(isClaim) && p.sentences.every(s => { const seat = seatOf(s); return seat ? minorSeat(seat) : OWN.test(s.trace.step ?? '') || s.trace.basis === 'minh_hoa'; });
     if (all && !usedElsewhere(p.sentences)) { folded.push(p.sentences); p.sentences = []; continue; }
@@ -842,7 +850,7 @@ function foldMinor(W: Writer, L: LuanLib, paras: ProseParagraph[], P: string): P
       let b = a + 1;
       while (b < p.sentences.length && seatOf(p.sentences[b]) === seat) b++;
       const run = p.sentences.slice(a, b), next = p.sentences[b], cs = new Set(run.flatMap(x => x.trace.concepts));
-      if ((next && ANAPHOR.test(next.text)) || usedElsewhere(run)) { a = b - 1; continue; }
+      if ((next && ANAPHOR.test(next.text)) || usedElsewhere(run) || !leaves(p, run)) { a = b - 1; continue; }
       folded.push(run); p.sentences.splice(a, run.length); a--;
     }
   }
@@ -949,7 +957,8 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
     if (!BRIDGE.has(v.id) || chapter !== v.home || sh.domainsTold.get(`${v.id}|bridge`)) return [];
     const pals = (W.k.kg?.domains as { domains?: Record<string, { palaces?: Record<string, string>; parts?: Record<string, { palaces: Record<string, string> }> }> } | undefined)?.domains?.[v.id.split('.')[0]];
     const corePal = Object.entries((v.part ? pals?.parts?.[v.part]?.palaces : pals?.palaces) ?? {}).find(([, r]) => r === 'core')?.[0];
-    const strong = (xs: LedgerItem[], pal?: string) => xs.filter(x => x.palace === pal && x.seat.tier <= 4 && !!x.seat.star);
+    // a reading counts for a palace only when the star it stands on stands there (a Hóa read at Mệnh may ride a star of another palace)
+    const strong = (xs: LedgerItem[], pal?: string) => xs.filter(x => x.palace === pal && x.seat.tier <= 4 && !!x.seat.star && x.at.some(a => a.name === x.seat.star && a.palace === pal));
     const lean = (p: LedgerItem[], n: LedgerItem[]) => p.length && n.length < p.length / 2 ? '+' : n.length && p.length < n.length / 2 ? '-' : p.length && n.length ? '~' : null;
     const mp = strong(v.pos, 'Mệnh'), mn = strong(v.neg, 'Mệnh'), cp = strong(v.pos, corePal), cn = strong(v.neg, corePal);
     const m = lean(mp, mn), c = lean(cp, cn);
@@ -958,7 +967,7 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
     const lead = (xs: LedgerItem[]) => { const n = new Map<string, number>(); for (const x of xs) n.set(x.seat.star!, (n.get(x.seat.star!) ?? 0) + 1);
       const top = Math.max(0, ...n.values()); return best(xs.filter(x => n.get(x.seat.star!) === top)); };
     const mx = lead(m === '+' ? mp : mn), cx = lead(bk === 'bridge_both_pos' || bk === 'bridge_drags' ? cp : cn);
-    if (!bk || !B[bk]?.length || !mx || !cx) return [];
+    if (!bk || !B[bk]?.length || !mx || !cx || mx.seat.star === cx.seat.star) return [];
     sh.domainsTold.set(`${v.id}|bridge`, chapter);
     return [W.sentence(fill(W.pick(`lbridge|${v.id}`, B[bk]), { domain: v.label, mground: ground(mx), cground: ground(cx) }),
         { ...tr(5, `ledger:${v.id}:${bk}`), rules: [...new Set([mx.ruleId, cx.ruleId])], cites: [...new Set([...mx.cites, ...cx.cites])],

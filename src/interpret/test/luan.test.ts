@@ -37,7 +37,9 @@ test('luan.json: no frame uses meta-language or an absolute, every slot is one t
     // a Tuần / Triệt hedge names the good reading it bends (DEEP-3)
     'good',
     // Phụ Mẫu: the father's and the mother's side (DEEP-3)
-    'cha', 'me', 'who', 'desc']);
+    'cha', 'me', 'who', 'desc',
+    // the tam hợp line of công danh and earning money: what stands at Mệnh, what stands in the domain's core palace (owner review 2026-11-06)
+    'mground', 'cground']);
   const walk = (x: unknown, at: string): void => {
     if (typeof x === 'string') {
       const low = ' ' + x.toLowerCase();
