@@ -44,7 +44,9 @@ export interface Claim { axis: Axis; concept: string; soft: boolean; score: numb
 /** A limiting element standing in the palace (Hóa Kỵ, a sát tinh not checked đắc, a hãm chính tinh, Tuần / Triệt, a star carrying Kỵ) and
  *  the verified readings that stand on it: the chapter must face it — by one of these readings, or by a structural conditional sentence. */
 export interface Confront { element: Element; readings: Reading[] }
-export interface Cross { type: 'corroborated' | 'countered'; palace: string; ruleId: string; concept: string; cite?: string }
+export interface Cross { type: 'corroborated' | 'countered'; palace: string; ruleId: string; concept: string; cite?: string;
+  /** the reading's trigger atoms, so its ground is said where its stars stand (narrative.ts condGround) */
+  atoms?: Resolved['atoms'] }
 export interface Thesis {
   id: string; seat: SeatRef; formations: Formation[]; states: CachState[]; claims: Claim[]; steps: Step[]; cross: Cross[]; score: number;
   /** the seat that rescues this thesis' limit, when that seat's own reading is reduced elsewhere on the chart (told together) */
@@ -233,8 +235,8 @@ export function reasonPalace(chart: ChartInput, k: Knowledge, P: string, pre?: {
         // never the same subject as another palace's, so it neither corroborates nor counters it (audit 2026-10-22: "cha mẹ khá giả" is not
         // the children's wealth). Only two palaces of the person's own life may confirm each other.
         if (PEOPLE.has(P) || PEOPLE.has(r.palace ?? '')) continue;
-        if (r.concept === c.concept && r.stance === 'affirms') cross.push({ type: 'corroborated', palace: r.palace!, ruleId: r.ruleId, concept: r.concept, cite: r.cites[0] });
-        else if ((r.concept === opp && r.stance === 'affirms') || (r.concept === c.concept && r.stance === 'weakens')) cross.push({ type: 'countered', palace: r.palace!, ruleId: r.ruleId, concept: r.concept, cite: r.cites[0] });
+        if (r.concept === c.concept && r.stance === 'affirms') cross.push({ type: 'corroborated', palace: r.palace!, ruleId: r.ruleId, concept: r.concept, cite: r.cites[0], atoms: r.atoms });
+        else if ((r.concept === opp && r.stance === 'affirms') || (r.concept === c.concept && r.stance === 'weakens')) cross.push({ type: 'countered', palace: r.palace!, ruleId: r.ruleId, concept: r.concept, cite: r.cites[0], atoms: r.atoms });
       }
     }
     const top = Math.max(...claims.map(c => c.score));

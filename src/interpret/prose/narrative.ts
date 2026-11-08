@@ -149,7 +149,7 @@ export class Writer {
       return fill(this.pick(`g|tp|${s.palace}`, T(G.tam_phuong)), { stars: joinVi(stars.length ? stars : ['các sao']), palace: s.palace });
     }
     const cond = x ? this.read(x.r.ruleId).cond : null;
-    if (cond) return lowerSafe(cond);
+    if (cond) return this.condGround(cond, x!.r.palace ?? this.P, x!.r.atoms);
     // a chart-level reading with no clean condition: name the chart fact it stood on
     const facts = new Set((x?.r.atoms ?? []).filter(a => a.kind === 'chart').map(a => a.name));
     const [stem, branch] = this.chart.year_gz.split(' ');
@@ -196,6 +196,28 @@ export class Writer {
     return base + fill(this.pick(`g|link|${x.r.ruleId}`, contrast ? this.f.ground.link_but : this.f.ground.link_and), { link: lowerSafe(lg) });
   }
   /** Stars a reading of another palace stands on, in words ("Hóa Kỵ ở Tài Bạch"). */
+  /** A book condition as a ground, only when it holds as written on this chart: every star it names stands in the palace it names (the
+   *  palace read when it names none), every Hóa it names is carried there. A list of alternatives ("Đại Hao, Tiểu Hao ở Phúc Đức" with only
+   *  one of them present) or a star met by chiếu ("gặp Hóa Quyền ở Quan Lộc" with Hóa Quyền in Phu Thê) is said from the rule's atoms,
+   *  each where it stands (INV-1, review 2026-11-07). */
+  condGround(cond: string, palace: string, atoms: Reading['r']['atoms']): string {
+    const PAL = ['Mệnh', 'Phụ Mẫu', 'Phúc Đức', 'Điền Trạch', 'Quan Lộc', 'Nô Bộc', 'Thiên Di', 'Tật Ách', 'Tài Bạch', 'Tử Tức', 'Phu Thê', 'Huynh Đệ'];
+    const pal = PAL.find(x => cond.includes(x)) ?? palace, home = this.chart.palaces.find(x => x.name === pal);
+    // one-syllable names (Mộ, Tử, Suy, Thai …) are also common words ("Tứ Mộ"): only names of two syllables or more are checked
+    const names = [...new Set(this.chart.palaces.flatMap(x => [...x.stars, ...x.major_stars]))].filter(n => n.includes(' ')).sort((a, b) => b.length - a.length);
+    let rest = cond, ok = !!home;
+    for (const n of names) if (rest.includes(n)) { rest = rest.split(n).join(' | '); if (!home?.stars.includes(n) && !home?.major_stars.includes(n)) ok = false; }
+    for (const h of ['Hóa Lộc', 'Hóa Quyền', 'Hóa Khoa', 'Hóa Kỵ']) if (cond.includes(h)) { const t = this.chart.tu_hoa[h]; if (!t || t.branch !== home?.branch_index) ok = false; }
+    if (ok) return lowerSafe(cond);
+    const by = new Map<string, string[]>();
+    for (const a of atoms) {
+      if (!a.palace || (a.kind !== 'star' && a.kind !== 'hoa')) continue;
+      const nm = a.kind === 'hoa' && this.chart.tu_hoa[a.name] ? `${this.chart.tu_hoa[a.name].star} ${a.name.replace(/^Hóa /, 'hóa ')}` : a.name;
+      const xs = by.get(a.palace) ?? by.set(a.palace, []).get(a.palace)!; if (!xs.includes(nm)) xs.push(nm);
+    }
+    if (!by.size) return `cung ${palace}`;
+    return joinVi([...by].sort(([a], [b]) => Number(b === pal) - Number(a === pal)).map(([q, xs]) => `${joinVi(xs)} ở ${q}`));
+  }
   palaceGround(ruleId: string, palace: string, atoms: Reading['r']['atoms']): string {
     const stars = [...new Set(atoms.filter(a => a.palace === palace && (a.kind === 'star' || a.kind === 'hoa')).map(a => a.name))];
     return stars.length ? fill(this.pick(`g|pal|${ruleId}`, this.f.ground.palace), { stars: joinVi(stars), palace }) : `cung ${palace}`;
@@ -425,7 +447,7 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
       voiced.add(red.r.ruleId);
       const r = W.read(red.r.ruleId);
       if (r.claim && r.cond) grounds.clear();
-      if (r.claim && r.cond) xs.push(W.sentence(fill(W.pick(`red|${red.r.ruleId}`, F.reducer), { conn: W.limitConn(`red|${red.r.ruleId}`), cond: lowerSafe(r.cond), claim: r.claim }),
+      if (r.claim && r.cond) xs.push(W.sentence(fill(W.pick(`red|${red.r.ruleId}`, F.reducer), { conn: W.limitConn(`red|${red.r.ruleId}`), cond: W.condGround(r.cond, red.r.palace ?? P, red.r.atoms), claim: r.claim }),
         { move: 'TURN', step: `reducer:${red.r.ruleId}`, concepts: [c.concept], rules: [...new Set(ax.reducers.map(y => y.r.ruleId))], cites: [...new Set(ax.reducers.flatMap(y => y.r.cites))], keys: [`${c.concept}@${P}|reduced`] }));
     }
     // a limit from the other side of the axis (a less fundamental seat)
@@ -451,7 +473,7 @@ export function argueThesis(W: Writer, F: ReasoningFrames, t: Thesis, prev: Thes
     voiced.add(cr.ruleId);
     const rr = W.read(cr.ruleId);
     if (!rr.claim) continue;
-    const g = rr.cond ? lowerSafe(rr.cond) : `cung ${cr.palace}`;
+    const g = rr.cond ? (cr.atoms ? W.condGround(rr.cond, cr.palace, cr.atoms) : lowerSafe(rr.cond)) : `cung ${cr.palace}`;
     // a corroboration says "the same as that": it follows the sentence of its own concept, never a turn told after it (owner review
     // 2026-11-06: "gian truân" … "Tuy thế … gặp thời vận tốt. Mệnh xác nhận thêm điều đó, vì … cùng khổ")
     const [pos, own] = type === 'corroborated' ? afterOwn(xs, cr.concept) : [xs.length, undefined];

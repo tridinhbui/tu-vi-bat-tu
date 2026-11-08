@@ -4,6 +4,8 @@
 // restated what was removed; a lead-in whose sentence went moves to the next sentence.
 import type { ProseParagraph } from './realize.ts';
 import { withLead } from './luan.ts';
+import { severityParagraphs } from './severity.ts';
+import type { ChartInput } from '../types.ts';
 
 const UNCHECKED = new Set(['pho_thong']);
 
@@ -20,8 +22,9 @@ function tiedOk(s: ProseParagraph['sentences'][number], kept: ProseParagraph['se
   return !!s.trace.attach && kept.some(k => k !== s && k.trace.step === s.trace.attach && (k.trace.basis === 'sach' || k.trace.basis === 'tinh_toan'));
 }
 
-export function checkedParagraphs(ps: ProseParagraph[]): ProseParagraph[] {
-  return ps.flatMap(p => {
+export function checkedParagraphs(ps: ProseParagraph[], chart?: ChartInput): ProseParagraph[] {
+  // grave book sentences (claim_severity.json, owner decision Q2 2026-11-07) leave the main text for a neutral Đọc sâu line first
+  return severityParagraphs(ps, chart).flatMap(p => {
     const kept0 = p.sentences.filter(s => !UNCHECKED.has(s.trace.basis));
     const kept = kept0.filter(s => tiedOk(s, kept0));
     if (!kept.length || (kept.length < p.sentences.length && kept.every(s => (s.trace.basis === 'he_thong' || s.trace.basis === 'tong_hop' || s.trace.basis === 'minh_hoa' || s.trace.basis === 'loi_khuyen') && !OWN(s)))) return [];
@@ -33,12 +36,12 @@ export function checkedParagraphs(ps: ProseParagraph[]): ProseParagraph[] {
 }
 
 /** A prose chapter (or the Bát Tự reading with its per-section `chapters`, or the overview with its `card`) with the unchecked parts removed. */
-export function checkedOnly<T extends { paragraphs: ProseParagraph[]; text: string; chapters?: unknown; card?: unknown; advice?: unknown }>(ch: T): T {
-  const paragraphs = checkedParagraphs(ch.paragraphs);
+export function checkedOnly<T extends { paragraphs: ProseParagraph[]; text: string; chapters?: unknown; card?: unknown; advice?: unknown }>(ch: T, chart?: ChartInput): T {
+  const paragraphs = checkedParagraphs(ch.paragraphs, chart);
   const out: T = { ...ch, paragraphs, text: paragraphs.map(p => p.text).join('\n\n') };
   if (ch.chapters && typeof ch.chapters === 'object' && !Array.isArray(ch.chapters))
     (out as { chapters: Record<string, ProseParagraph[]> }).chapters = Object.fromEntries(Object.entries(ch.chapters as Record<string, ProseParagraph[]>)
-      .map(([id, ps]) => [id, checkedParagraphs(ps)] as const).filter(([, ps]) => ps.length));
+      .map(([id, ps]) => [id, checkedParagraphs(ps, chart)] as const).filter(([, ps]) => ps.length));
   if (Array.isArray(ch.card)) (out as { card: Array<{ basis: string }> }).card = (ch.card as Array<{ basis: string }>).filter(f => !UNCHECKED.has(f.basis));
   return out;
 }

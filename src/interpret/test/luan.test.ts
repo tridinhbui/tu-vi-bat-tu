@@ -24,7 +24,7 @@ const rmap = new Map(K.rules.map(r => [r.id, r]));
 const isLuan = (c: { luan?: boolean }): c is LuanChapter => !!c.luan;
 
 test('luan.json: no frame uses meta-language or an absolute, every slot is one the writer fills', () => {
-  const SLOTS = new Set(['pal', 'branch', 'majors', 'star', 'from', 'stars', 'tt', 'a', 'b', 'group', 'note', 'S', 'mature', 'seat', 'config', 'domain', 'claim', 'text',
+  const SLOTS = new Set(['pal', 'trig', 'branch', 'majors', 'star', 'from', 'stars', 'tt', 'a', 'b', 'group', 'note', 'S', 'mature', 'seat', 'config', 'domain', 'claim', 'text',
     'pair', 'left', 'right', 'other', 'opal', 'neg', 'pos', 'list', 'age', 'young', 'np', 'late',
     // the ledger conclusion, the confronted limits, the one-star caveat (S1)
     'domain', 'verdict', 'link', 'ground', 'limits', 'palace', 'supports', 'mitig', 'el',

@@ -17,6 +17,7 @@ import norms from '../../../engine/data/kg/index_norms.json' with { type: 'json'
 
 export interface TongLuanLib {
   status: string; lead: string[]; best: string[]; worst: string[]; middle: string[]; same: string[]; open: string[]; health: string[];
+  best_multi?: string[]; worst_multi?: string[]; pair?: string[]; best_off?: string[];
   dec_best: string[]; dec_worst: string[]; turn_up: string[]; turn_down: string[]; current: string[]; advice: string[];
   /** the lowest decade whose book side leans good; a ranked domain whose core palace the twelve-palace chart reads the other way */
   dec_worst_rel?: string[]; radar_best?: string[]; radar_worst?: string[];
@@ -33,19 +34,33 @@ const rankOf = (v: DomainVerdict) => RANK[verdictKey(v)] ?? RANK[v.verdict] ?? n
 const fill = (t: string, v: Record<string, string>) => t.replace(/\{([A-Za-z_]+)\}/g, (m, k) => v[k] ?? m);
 const joinVi = (xs: string[]) => xs.length <= 1 ? xs.join('') : `${xs.slice(0, -1).join(', ')} và ${xs.at(-1)}`;
 const NORMS = norms as IndexNorms;
+/** the life-wide ranking of đại hạn reads the decades that start before this age (owner decision Q4 2026-11-07) */
+export const RANK_AGE_LIMIT = 80;
 
-/** what a domain's conclusion stands on: the heavier side's reading (weighed), else the side's most fundamental reading, by its stars */
-function groundOf(v: DomainVerdict): string {
+/** what a domain's conclusion stands on: the heavier side's reading (weighed), else the side's most fundamental reading, by its stars; with the
+ *  cause it names (INV-2: every "do / nền ở X" traces to the rule and the stars where they stand) */
+function groundOf(chart: ChartInput, v: DomainVerdict): { text: string; cause?: { domain: string; ruleId: string; stars: Array<{ name: string; palace: string }> } } {
   const core = v.limits[0]?.palace ?? v.supports[0]?.palace;
   const side = v.weigh ? v.weigh.heavy : (v.base === '-' ? v.neg : v.pos).concat(v.base === '-' ? [] : v.mixed)
-    .sort((a, b) => Number(b.palace === core) - Number(a.palace === core) || a.seat.tier - b.seat.tier || b.rarity - a.rarity || (a.ruleId < b.ruleId ? -1 : 1))[0] as LedgerItem | undefined;
+    .sort((a, b) => Number(!!a.grave) - Number(!!b.grave) || Number(b.palace === core) - Number(a.palace === core) || a.seat.tier - b.seat.tier || b.rarity - a.rarity || (a.ruleId < b.ruleId ? -1 : 1))[0] as LedgerItem | undefined;
   if (side?.at?.length) {
-    const by = new Map<string, string[]>();
-    for (const a of side.at) (by.get(a.palace) ?? by.set(a.palace, []).get(a.palace)!).push(a.name);
-    return joinVi([...by].slice(0, 2).map(([p, ns]) => `${joinVi(ns)} ở cung ${p}`));
+    // a star is named where it stands: a borrowed chính tinh of a vô chính diệu palace, or a Hóa, is said with its own palace (INV-1)
+    const where = (a: { name: string; palace: string }) => {
+      const t = chart.tu_hoa[a.name], own = t ? chart.palaces.find(p => p.branch_index === t.branch)?.name : chart.palaces.find(p => p.stars.includes(a.name) || p.major_stars.includes(a.name))?.name;
+      return own ?? a.palace;
+    };
+    const by = new Map<string, { names: string[]; to?: string }>();
+    for (const a of side.at) { const q = where(a), e = by.get(q) ?? by.set(q, { names: [], ...(q !== a.palace ? { to: a.palace } : {}) }).get(q)!; if (!e.names.includes(a.name)) e.names.push(a.name); }
+    const shown = [...by].slice(0, 2);
+    return { text: joinVi(shown.map(([p, e]) => `${joinVi(e.names)} ở cung ${p}${e.to ? ` chiếu sang cung ${e.to}` : ''}`)),
+      cause: { domain: v.id, ruleId: side.ruleId, stars: shown.flatMap(([p, e]) => e.names.map(name => ({ name, palace: p }))) } };
   }
   const el = (v.base === '-' ? v.limits : v.supports)[0];
-  return el ? `${el.star ?? el.hoa ?? (el.kind === 'tuan' ? 'Tuần' : el.kind === 'triet' ? 'Triệt' : el.kind === 'hoa_ky' ? 'Hóa Kỵ' : '')} ở cung ${el.palace}`.trim() : '';
+  const name = el ? el.star ?? el.hoa ?? (el.kind === 'tuan' ? 'Tuần' : el.kind === 'triet' ? 'Triệt' : el.kind === 'hoa_ky' ? 'Hóa Kỵ' : '') : '';
+  // a borrowed chính tinh (vô chính diệu) is named where it stands, reaching the palace it is read for
+  const own = el?.star ? chart.palaces.find(p => p.stars.includes(el.star!) || p.major_stars.includes(el.star!))?.name : undefined;
+  const pal = own ?? el?.palace ?? '';
+  return el ? { text: `${name} ở cung ${pal}${own && own !== el.palace ? ` chiếu sang cung ${el.palace}` : ''}`.trim(), cause: { domain: v.id, ruleId: '', stars: [{ name, palace: pal }] } } : { text: '' };
 }
 
 export function proseTongLuan(chart: ChartInput, k: Knowledge, seed: string, engine: string, allowDraft: boolean, ledger?: Ledger): ProseTongLuan {
@@ -73,14 +88,15 @@ export function proseTongLuan(chart: ChartInput, k: Knowledge, seed: string, eng
       const best = top[0], worst = bottom[0];
       const named = (xs: typeof ranked) => joinVi(xs.map(x => x.v.label));
       say(p1, m.pick('lead', L!.lead), 'tong_luan:lead');
-      if (best) say(p1, fill(m.pick('best', L!.best), { domain: named(top), verdict: words(best.v).replace(/^là /, ''), ground: groundOf(best.v) || 'các chương trước' }), `tong_luan:best:${best.v.id}`, tr(best.v));
-      const mid = ranked.filter(x => !top.includes(x) && !bottom.includes(x));
-      if (mid.length) say(p1, fill(m.pick('middle', L!.middle), { list: joinVi(mid.map(x => `${x.v.label} ${words(x.v)}`)) }), 'tong_luan:middle', { rules: mid.flatMap(x => tr(x.v).rules!) });
       // the twelve-palace chart reads the domain's own palace alone; a ranked domain whose palace it reads the other way is explained, not left
       // to look like a contradiction (review of the live charts 2026-10-25)
       const radar = new Map(computeIndices(chart, k, NORMS).palaces.map(p => [p.palace, p]));
       const DEF = (k.kg?.domains as { domains?: Record<string, { palaces?: Record<string, string>; parts?: Record<string, { palaces: Record<string, string> }> }> } | undefined)?.domains ?? {};
       const palsOf = (v: DomainVerdict) => { const [id, part] = v.id.split('.'); const d0 = DEF[id]; return (part ? d0?.parts?.[part]?.palaces : d0?.palaces) ?? {}; };
+      const radarOff = (v: DomainVerdict, kind: 'best' | 'worst') => {
+        const ps = palsOf(v), core = Object.keys(ps).find(p => ps[p] === 'core'), r = core ? radar.get(core) : undefined;
+        return !!core && !!r && Object.keys(ps).some(p => p !== core) && (kind === 'best' ? r.support < 1 && r.limit > 1 : r.support > 1 && r.limit < 1);
+      };
       const radarLine = (v: DomainVerdict, kind: 'best' | 'worst') => {
         const ps = palsOf(v), core = Object.keys(ps).find(p => ps[p] === 'core'), r = core ? radar.get(core) : undefined;
         const others = Object.keys(ps).filter(p => p !== core);
@@ -90,8 +106,26 @@ export function proseTongLuan(chart: ChartInput, k: Knowledge, seed: string, eng
         if (off && F?.length) say(p1, fill(m.pick(`radar|${kind}`, F), { pal: core, domain: v.label, others: joinVi(others.map(p => `cung ${p}`)) }), `tong_luan:radar:${v.id}`,
           { note: 'Biểu đồ mười hai cung đo riêng từng cung với tam phương; kết luận lĩnh vực gộp mọi cung của lĩnh vực ấy (quy ước domains.json).' });
       };
+      // each domain of a shared place is named with its own ground (review 2026-11-07: two domains under one cause read as a wrong attribution)
+      const place = (xs: typeof ranked, kind: 'best' | 'worst', step: string) => {
+        const head = xs[0], g0 = groundOf(chart, head.v);
+        const trc = (gs: Array<ReturnType<typeof groundOf>>) => ({ ...tr(head.v), rules: [...new Set(xs.flatMap(x => tr(x.v).rules!))].sort(), cause: gs.flatMap(g => g.cause ? [g.cause] : []) });
+        const LL = L as unknown as Record<string, string[] | undefined>;
+        if (xs.length > 1 && LL[`${kind}_multi`]?.length && L!.pair?.length) {
+          const gs = xs.map(x => groundOf(chart, x.v));
+          const pairs = joinVi(xs.map((x, i) => fill(m.pick(`pair|${x.v.id}`, L!.pair!), { domain: x.v.label, verdict: words(x.v).replace(/^là /, ''), ground: gs[i].text || 'các chương trước' })));
+          say(p1, fill(m.pick(`${kind}_multi`, LL[`${kind}_multi`]!), { pairs }), step, trc(gs));
+          return;
+        }
+        // a strength whose own palace reads below the usual on the twelve-palace chart is not called the chart's support (review 2026-11-07)
+        const F = kind === 'best' && radarOff(head.v, 'best') && L!.best_off?.length ? L!.best_off : L![kind];
+        say(p1, fill(m.pick(kind, F), { domain: named(xs), verdict: words(head.v).replace(/^là /, ''), ground: g0.text || 'các chương trước' }), step, trc([g0]));
+      };
+      if (best) place(top, 'best', `tong_luan:best:${best.v.id}`);
+      const mid = ranked.filter(x => !top.includes(x) && !bottom.includes(x));
+      if (mid.length) say(p1, fill(m.pick('middle', L!.middle), { list: joinVi(mid.map(x => `${x.v.label} ${words(x.v)}`)) }), 'tong_luan:middle', { rules: mid.flatMap(x => tr(x.v).rules!) });
       if (best) radarLine(best.v, 'best');
-      if (worst) say(p1, fill(m.pick('worst', L!.worst), { domain: named(bottom), verdict: words(worst.v).replace(/^là /, ''), ground: groundOf(worst.v) || 'các chương trước' }), `tong_luan:worst:${worst.v.id}`, tr(worst.v));
+      if (worst) place(bottom, 'worst', `tong_luan:worst:${worst.v.id}`);
       if (worst) radarLine(worst.v, 'worst');
       for (const v of open.slice(0, 2)) say(p1, fill(m.pick(`open|${v.id}`, L!.open), { domain: v.label }), `tong_luan:open:${v.id}`, tr(v));
       if (led.domains.some(v => v.verdict === 'khong_ket_luan')) say(p1, m.pick('health', L!.health), 'tong_luan:health');
@@ -103,7 +137,8 @@ export function proseTongLuan(chart: ChartInput, k: Knowledge, seed: string, eng
     }
     // the đại hạn on the system indices (the period chart's levels): highest, lowest, the largest change, the current one
     // a decade with no book evidence ("chưa đủ căn cứ", indices-3.0.0) is never named best, worst or a turning point
-    const ds = computeIndices(chart, k, NORMS).decades.filter(d => !d.insufficient);
+    // only decades starting before 80 are ranked (owner decision Q4 2026-11-07); the later ones keep their own reading in the đại hạn chapter
+    const ds = computeIndices(chart, k, NORMS).decades.filter(d => !d.insufficient && d.age_from < RANK_AGE_LIMIT);
     if (ds.length >= 3) {
       const ix = { note: 'Mức của đại hạn theo chỉ số tổng hợp của hệ thống (cùng thang với biểu đồ giai đoạn), không phải lời sách.' };
       const hi = [...ds].sort((a, b) => b.score - a.score)[0], lo = [...ds].sort((a, b) => a.score - b.score)[0];

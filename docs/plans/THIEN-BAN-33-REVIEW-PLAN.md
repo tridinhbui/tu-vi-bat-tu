@@ -23,7 +23,7 @@ Bản đánh giá đúng ở phần lớn các điểm. Có hai điểm chỉ đ
 | 5 | Câu sách đơn lẻ thành kết luận nặng | **Đúng, đủ cả sáu ví dụ.** Văn Khúc ở Tài Bạch thích cờ bạc (HS tr.233). Không Kiếp hãm ở Điền Trạch bị chiếm đoạt, phá sản (HS tr.162). Thiên Tướng ở Phụ Mẫu cha mẹ thọ (HS tr.132). Thiên Hình ở Tử Tức hiếm con (TH tr.104, TT tr.92). Tật Ách dễ bạo bệnh (Thiên Lương). Thân cư Quan Lộc ngoài 40 tuổi (TH cách). Câu cuối nằm ngay ở đoạn chính Quan Lộc: "Dù có cát tinh hội, cũng phải ngoài 40 tuổi mới nhẹ bước thanh vân." | Luật không có **hạng mức nặng**. Câu nặng và câu nhẹ đi chung một đường vào văn bản. Câu sức khỏe, thọ yểu, con cái chỉ được che bằng thông báo `sensitive` của chương. |
 | 6 | Đại vận: 93–102 "thuận nhất"; hai hệ không đối chiếu; "1.000 lá mẫu" không nói rõ cách làm | **Đúng.** Tổng luận có câu "Chặng thuận nhất của đời là đại hạn 93–102 tuổi". Quan Lộc có câu "công danh nổi lên ở các chặng 83–92 tuổi (…mức nhiều thử thách)". Chặng hiện tại Tử Vi chấm Thuận (23–32, Phu Thê), còn Bát Tự chấm Mậu Tuất "nặng hơn nhẹ", và không có câu nào nối hai bên. | `tong_luan.ts` xếp hạng trên mọi chặng, không có khung tuổi. `course.ts` gọi "nổi lên" cho chặng hạn vào cung, bất kể mức. Không có bảng đối chiếu hai hệ. Cách lấy mẫu và độ ổn định của `index_norms` không hiện ra cho người đọc. |
 | 7 | Cách cục kết luận tuyệt đối | **Đúng, và có lỗi sự thật.** "Đứng ở cung Mệnh, cách xấu này ảnh hưởng mạnh lên cả đời người… ở cung Mệnh không có chỗ đỡ." Thực tế Đào Hoa và Thiên Không **ở Tài Bạch (Ngọ)**, chiếu về Mệnh qua tam hợp. Cùng cung đó có Thái Dương miếu hóa Quyền và Văn Khúc hóa Khoa. | `cach_cuc.ts` không phân biệt đồng cung với chiếu. Phần mềm chỉ tìm chỗ đỡ ở cung Mệnh, nên không thấy cứu giải ngay trong cung đang mang cách. Câu xếp hạng "có sức nặng nhất" không nêu lý do. Mẫu câu có chữ "cả đời". |
-| 8 | Câu máy móc, gán sai nguyên nhân, lỗi tiêu đề | **Đúng.** (a) Tổng luận: "phần tích lũy, nhà cửa: chỗ phải gắng sức, do Văn Khúc ở cung Tài Bạch". (b) Đọc sâu Quan Lộc: "thành tựu đến muộn… yếu tố làm nên nó nằm ngoài cung Quan Lộc: Văn Xương hóa Kỵ". Câu sách gốc là Thân cư Quan Lộc. (c) Tổng luận "chỗ dựa đứng đầu là khả năng kiếm tiền" rồi ngay câu sau "Biểu đồ… cho cung Tài Bạch thấp hơn mức thường gặp". (d) Tiêu đề chương Công danh: "Cung Quan Lộc và cung đối Thiên Di", ở `engine/web/js/report.js:665`. | `groundOf` / `ground()` lấy sao đầu danh sách, không lấy **sao làm nền cho phán quyết**. Lớp sâu tự ghép nguyên nhân mà không có quan hệ sách. Dòng dẫn chương Công danh viết tay sai. |
+| 8 | Câu máy móc, gán sai nguyên nhân, lỗi tiêu đề | **Đúng.** (a) Tổng luận: "phần tích lũy, nhà cửa: chỗ phải gắng sức, do Văn Khúc ở cung Tài Bạch". (b) Quan Lộc: đoạn chính chỉ viết "với Thân cư Quan Lộc, công danh đến muộn", trong khi luật TH tr.75 là "Thân cư Quan Lộc **gặp** Tuần Triệt, Kiếp Hỏa hoặc Hóa Kỵ hội". Câu Đọc sâu "yếu tố làm nên nó… Văn Xương hóa Kỵ" là **đúng** (đính chính 2026-11-08); lỗi nằm ở đoạn chính bỏ mất điều kiện. (c) Tổng luận "chỗ dựa đứng đầu là khả năng kiếm tiền" rồi ngay câu sau "Biểu đồ… cho cung Tài Bạch thấp hơn mức thường gặp". (d) Tiêu đề chương Công danh: "Cung Quan Lộc và cung đối Thiên Di", ở `engine/web/js/report.js:665`. | `groundOf` / `ground()` lấy sao đầu danh sách, không lấy **sao làm nền cho phán quyết**. Lớp sâu tự ghép nguyên nhân mà không có quan hệ sách. Dòng dẫn chương Công danh viết tay sai. |
 
 ---
 
@@ -488,6 +488,39 @@ Mỗi phép đổi có kỳ vọng viết sẵn theo luật của mẫu cấu h�
 
 Đoạn Quan Lộc mẫu trong bản bổ sung chỉ là **đích về chất lượng giải thích**. Không câu nào của nó được chép vào khung câu. Mọi tính chất trong đoạn phải ra từ dữ liệu có nguồn.
 
+**G10.7 Chuẩn giọng văn** (đề xuất của chủ dự án, 2026-11-08). Prompt gốc được lưu nguyên văn ở `docs/plans/NARRATIVE-STYLE-PROMPT.md`. Prompt ấy viết cho một mô hình ngôn ngữ. Ở đây nó được dùng theo hai cách, cách thứ hai cần chủ dự án quyết (Q5).
+
+*Cách 1 (mặc định, không dùng LLM).* Chuyển prompt thành luật cho bộ ghép câu và bước phản biện G10.5:
+
+| Ý trong prompt | Thành luật gì |
+|---|---|
+| Ba giọng theo từng phần: Mệnh/Thân khái quát và liên kết; 12 cung, cách cục, dụng thần nặng lập luận và cơ chế; vận hạn điềm tĩnh, có trình tự | Mỗi chương mang trường `register`, có ba bộ khung câu và ba bảng từ nối riêng. Thứ tự năm lớp G10.1 được đổi theo giọng (vận hạn: bối cảnh, rồi kích hoạt, rồi điều kiện) |
+| Cấm lặp "Vì có sao A nên", "Bên cạnh đó", "Ngoài ra", "Điều này cho thấy", "Về mặt tốt / xấu", "tốt xấu đan xen", "không phải… mà là…" | Thêm vào luật `quick_check`: hạn mức theo mật độ cho từng cụm, riêng "không phải… mà là…" thì cấm hẳn trong câu của hệ thống |
+| Không lạm dụng tính từ (huy hoàng, phi thường, định mệnh, xuất chúng, đại phú đại quý) | Danh sách cấm trong câu của hệ thống. Câu sách trích thì giữ nguyên lời sách |
+| Thuật ngữ được giải thích ngắn ở lần đầu xuất hiện | Bảng chú giải `content/prose/glossary.json`, mỗi mục có trang sách hoặc nhãn `he_thong`. Bộ ghép câu chèn lời chú giải ở lần gặp đầu trong báo cáo |
+| Câu ngắn để nhấn, câu dài để phát triển lập luận; không câu cụt rời rạc | Số đo nhịp: độ lệch chuẩn độ dài câu trong đoạn có ngưỡng dưới, số câu dưới 8 chữ đứng liền nhau có ngưỡng trên |
+| Không để mọi cung có cùng số đoạn, cùng nhịp mở, cùng kiểu kết | Số đo `skel5` mở rộng cho câu mở và câu kết của chương. Tỉ lệ chương trùng khung mở và khung kết có ngưỡng trên |
+| 9 câu tự biên tập | Ánh xạ vào bước phản biện G10.5. Câu 1–5 và 8 đã có phép kiểm. Câu 6 ("kết luận mạnh hơn chứng cứ") kiểm bằng cách so từ mức độ của câu với `confidence`. Câu 7 ("đọc thành tiếng có tự nhiên không") thuộc phiếu chấm tay |
+| Trung thực: không thêm sao, trạng thái, thời điểm, không nâng mức chắc, không đoán biến cố nặng | Đã có ở luật 4–7, INV-1, INV-6, INV-12, INV-13 |
+
+*Cách 2 (cần quyết định, Q5).* Thêm một **lớp biên tập văn bằng LLM** chạy sau lõi tất định, dùng đúng prompt này. Lớp này được bao bởi các rào chắn:
+- **Đầu vào:** bản phân tích G9.5 cộng bản nháp tất định. Mô hình không nhận gì khác.
+- **Bộ kiểm đầu ra,** chạy tất định trên mỗi đoạn:
+  - mọi tên sao, cung, Hóa, can chi, số tuổi, năm và trang trong văn bản mới phải có trong đầu vào;
+  - mỗi câu mới phải ánh xạ được vào ít nhất một `evidence_id` của bản nháp;
+  - không câu nào mang từ mức độ mạnh hơn `confidence`;
+  - INV-1, 6, 11, 12, 13 phải xanh.
+- **Trượt thì giữ bản tất định.** Một đoạn trượt bộ kiểm thì người đọc nhận bản tất định của đoạn đó, và lần trượt được ghi lại.
+- **Bật bằng cờ riêng,** cache theo lá số, có nhãn "văn bản đã được biên tập lại".
+
+Đổi lại: văn mượt hơn hẳn. Cái giá: rủi ro "sai sâu hơn" mà chính chủ dự án đã nêu, chi phí cho mỗi lần luận, văn bản không còn tất định, và đi ngược quyết định giữ hệ không dùng LLM từ trước đến nay.
+
+**Xong khi (cách 1):**
+- Luật giọng văn có trong `quick_check`.
+- Ba giọng có mặt trên lá kiểm.
+- Mật độ các cụm cấm giảm ít nhất một nửa so với mức hiện tại trên benchmark20.
+- Phiếu chấm tay mục "tự nhiên" trung bình ≥ 4/5.
+
 ### G-INV. Bộ test bất biến xuyên báo cáo (đề xuất của chủ dự án, 2026-11-07)
 
 Đây là lớp kiểm thử chạy trên **toàn bộ báo cáo đã ghép**, không chạy trên từng module riêng lẻ. Đầu vào là đúng `proseAllChapters` cộng `checkedOnly`, tức báo cáo người đọc thấy, cùng với facts và ledger.
@@ -542,6 +575,7 @@ Tệp:
 | Q3 | Bộ tình huống chấm tay | 30 tình huống (A, B, C, mỗi nhóm 10), mỗi tình huống có chứng cứ, kết luận mong đợi, kết luận bị cấm và lý do. Có thêm một tập kiểm định độc lập để chống khớp quá mức. Bộ này không chứng minh khả năng dự đoán | G4.4 |
 | Q4 | Khung xếp hạng vận | 80 tuổi, toàn bộ vận vẫn giữ trong dữ liệu. Tách ba dạng: hiện tại, 20–30 năm tới, toàn đời. Không gọi "nhất" khi chênh nhỏ hoặc khi đổi hạng theo cách chấm | G6.1, INV-9 |
 | Thêm | Bộ test bất biến xuyên báo cáo, cùng tiêu chí nghiệm thu bốn câu hỏi | Nhận | G-INV, mục 2 |
+| Q5 (mở) | Có thêm lớp biên tập văn bằng LLM (G10.7 cách 2) sau lõi tất định không? | Chưa quyết. Cách 1 (luật giọng văn tất định) làm trong mọi trường hợp | G10.7 |
 | Thêm | G9 luận tổ hợp (đơn vị luận là cấu hình, có đồ thị và thang 6 cấp), G10 lõi diễn đạt theo mạch lập luận (đoạn 5 lớp, phản biện, kiểm thử phản chứng). Hai lõi tách nhau, không dùng LLM. Chuẩn đoạn luận có ba câu hỏi | Nhận. Thứ tự: G0–G1, rồi G9, rồi G2–G5, rồi G6, rồi G10, rồi G7–G8 | G9, G10, mục 2, mục 5 |
 
 ---
@@ -573,3 +607,46 @@ Thứ tự theo đề xuất bổ sung 2026-11-07: G9 và G10 không xếp sau G
 | G7–G8 | nhỏ đến vừa |
 
 Đây là một đợt nhiều phiên làm việc, không phải một lần sửa.
+
+---
+
+## 6. Trạng thái
+
+### Nhánh 1: G-INV (một phần), G0, G1 — 2026-11-08, nhánh `feat/thien-ban-33-g0`
+
+**Đã làm**
+
+- **G-INV.** `src/interpret/invariants.ts`, `test/invariants.test.ts` và `tools/interpret/eval_invariants.ts` kiểm năm bất biến: INV-1 (vị trí, kể cả cách cục "chiếu về"), INV-2 (nguyên nhân trong Tổng luận), INV-4, INV-6 và INV-11. Phạm vi chạy: lá chủ dự án, lá mẫu của trang và benchmark20, kết quả 0 vi phạm. Trên 40 lá corpus cũng 0 vi phạm. Lượt đo 300 lá chạy trên code giữa chừng, nên các vi phạm nó báo đã được sửa sau đó. Fixture mới: `fixtures/owner_2002_kl_2026-11.json`.
+- **G0:**
+  - Dòng dẫn chương Công danh (`report.js`).
+  - Cách cục:
+    - nói đúng chỗ sao của cách đứng, tức "chiếu về từ cung X";
+    - tìm chỗ đỡ ở cả cung mang sao;
+    - gọi sao theo đúng Hóa nó mang;
+    - chiếu về thì hạ một bậc;
+    - xếp hạng có lý do, ngang bậc thì nói là ngang;
+    - bỏ chữ "cả đời".
+  - Tổng luận:
+    - mỗi miền đứng chung một hạng có nền riêng;
+    - sao mượn được nêu ở cung nó thật sự đứng;
+    - miền mạnh nhất mà biểu đồ cung của nó thấp thì không gọi là "chỗ dựa đứng đầu";
+    - trace mang `cause`.
+  - Câu "Thân cư Quan Lộc" nói đủ điều kiện gặp Hóa Kỵ.
+  - Câu chứng và câu giảm nhẹ không còn chép điều kiện sách khi điều kiện đó không đúng như chữ trên lá (`narrative.ts condGround`).
+- **G1:**
+  - `engine/data/kg/claim_severity.json` gồm 108 luật đã duyệt tay, do `tools/interpret/build_claim_severity.py` sinh ra.
+  - `prose/severity.ts`:
+    - câu nặng rời đoạn chính;
+    - Đọc sâu nhận một dòng trung tính, chỉ nêu những sao có thật trên lá, kèm trang và lời "chưa được kiểm chứng bằng thực nghiệm";
+    - câu mốc tuổi được nói là "mốc chung của lời cổ".
+  - Sổ phán quyết không để câu nặng đứng một mình làm nền cho kết luận.
+  - `tools/interpret/audit_conditions.py` kiểm 108 luật nặng: 3 cảnh báo, cả 3 đều là báo nhầm.
+- **G6.1 (một phần).** Xếp hạng "chặng thuận nhất / thấp nhất" chỉ xét các đại hạn bắt đầu trước 80 tuổi, ở Tổng luận và ở dòng đại hạn của từng cung. Câu "nổi lên ở các chặng" đã bỏ.
+
+**Đính chính.** Mục 1, dòng 8b: xem lại ở bảng trên.
+
+**Chưa làm**
+- INV-3, 5, 7–10, 12, 13.
+- Kiểm nguyên nhân ở `luan.ts` / `luan_deep.ts`. INV-2 hiện chỉ kiểm Tổng luận.
+- Phép thử đổi hạng và ngưỡng chênh cho "chặng nhất" (G6.1).
+- G2–G10.

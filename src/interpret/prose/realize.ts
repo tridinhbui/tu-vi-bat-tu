@@ -14,6 +14,10 @@ export interface SentenceTrace {
    *  table (deep.ts); pho_thong: a draft card of common meanings (deep.ts), labelled as such to the reader */
   /** tong_hop (owner decision 2026-10-23): a labelled synthesis the system composes only from claims already told for this chart */
   basis: 'sach' | 'he_thong' | 'tinh_toan' | 'pho_thong' | 'minh_hoa' | 'loi_khuyen' | 'tong_hop';
+  /** the severity class of the book sentence this neutral line replaces (prose/severity.ts, claim_severity.json) */
+  severity?: string;
+  /** the causes a synthesis sentence names ("do X", "nền ở X"): per domain, the rule and the stars standing where they are (INV-2) */
+  cause?: Array<{ domain?: string; ruleId: string; stars: Array<{ name: string; palace: string }> }>;
   /** narrative.ts: the claim was told in its card's soft form (a weakened reading): it is never set side by side with another as a plain strength */
   soft?: boolean;
   /** minh_hoa (owner policy 2026-10-22): the step of the ONE sourced sentence this illustration makes concrete — `tied` (Tử Vi,
@@ -62,6 +66,8 @@ export interface ProseParagraph { role: 'core' | 'support' | 'course' | 'structu
   part?: number | string;
   /** the deep reading (prose/luan_deep.ts): folded under "Đọc sâu" on the page, with its subsection title */
   deep?: boolean; title?: string;
+  /** the Đọc sâu paragraph of neutral lines that replace grave book sentences (prose/severity.ts) */
+  severity?: boolean;
   /** a deep section told as the main reading because the main reading had no book reading of its own (prose/luan.ts) */
   promoted?: boolean;
   /** Bát Tự (bazi_deep.ts): 'sau' = the paragraph belongs to the "Đọc sâu" fold under the short reading; `depthTitle` names what it deepens */

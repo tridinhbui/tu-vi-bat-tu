@@ -503,6 +503,11 @@
       "Với Thân cư {pal}, {claim}",
       "Vì Thân ở {pal}, {claim}",
       "Thân nằm ở {pal}, nên {claim}"
+    ],
+    "rule_trig": [
+      "Thân cư {pal} lại gặp {trig}, nên {claim}",
+      "Với Thân ở {pal} mà gặp {trig}, {claim}",
+      "Thân đóng ở {pal} và gặp {trig}, vì thế {claim}"
     ]
   },
   "pos": {
@@ -1032,7 +1037,7 @@
     "open": [
       "{label} được động đến ở các chặng {list}",
       "những chặng chạm vào {label} là {list}",
-      "{label} nổi lên ở các chặng {list}"
+      "{label} được chạm tới ở các chặng {list}"
     ],
     "item": {
       "in": "hạn vào chính cung {pal}",
@@ -1045,7 +1050,7 @@
     ],
     "hard": [
       "còn {a}–{b} tuổi là quãng {label} cần giữ gìn nhất",
-      "quãng {a}–{b} tuổi thì {label} nên đi chậm và chắc"
+      "quãng {a}–{b} tuổi thì đứng thấp nhất trong số đó cho {label}"
     ],
     "none": [
       "không hạn nào vào thẳng cung này hay đưa Hóa Lộc, Hóa Kỵ tới đây, nên {label} ít có chặng nổi bật riêng",

@@ -190,7 +190,8 @@ test('the contradiction check fails on a report that concludes one domain both w
 
 const sample = [...bench.map(b => b.facts), REF, ...corpus.slice(0, 60).map(c => c.facts)];
 test('report-wide: no domain concluded two ways, no unexplained opposite readings (benchmark20, the 2002 chart, 60 corpus charts)', () => {
-  const bad = sample.flatMap((f, i) => contradictions(report(f)).map(x => `chart ${i} (${f.year_gz}): ${x}`));
+  // on the report as the reader gets it: grave book sentences have left the main text (prose/severity.ts) as the ledger left them out
+  const bad = sample.flatMap((f, i) => contradictions(report(f).map(c => checkedOnly(c as Parameters<typeof checkedOnly>[0], f) as typeof c)).map(x => `chart ${i} (${f.year_gz}): ${x}`));
   assert.deepEqual(bad, []);
 });
 

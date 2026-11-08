@@ -44,7 +44,7 @@
   "1": "ảnh hưởng nhẹ"
  },
  "reach": [
-  "Cách ở cung Mệnh và không bị yếu tố nào hạ bậc, nên {degree} lên cả đời người",
+  "Cách ở cung Mệnh và không bị yếu tố nào hạ bậc, nên {degree} lên thế chung của lá số",
   "Đứng ở Mệnh mà giữ được sức, cách này {degree} lên toàn cục"
  ],
  "reach_palace": [
@@ -101,7 +101,7 @@
   "bi_pha": "ảnh hưởng nhẹ, nghiêng về mặt hạn chế"
  },
  "reach_lowered": [
-  "Cách ở Mệnh vốn chạm cả đời người, nhưng vì {why} nên chỉ {degree}",
+  "Cách ở Mệnh vốn có tầm rộng trên lá số, nhưng vì {why} nên chỉ {degree}",
   "Vị trí Mệnh cho cách tầm rộng, song {why} kéo sức của nó xuống còn {degree}"
  ],
  "reach_palace_lowered": [
@@ -130,7 +130,37 @@
   "Ở cung an Thân ({pal}) hiện cách {name}"
  ],
  "reach_than": [
-  "Cách đóng ở cung an Thân, được tính như ở Mệnh, nên {degree} lên cả đời người",
+  "Cách đóng ở cung an Thân, được tính như ở Mệnh, nên {degree} lên thế chung của lá số",
   "Thân cũng là chỗ cách này được tính như Mệnh, nên cách {degree} lên toàn cục"
+ ],
+ "where_from": [
+  "{stars} không đứng ở cung {pal} mà ở {from}, chiếu về {pal} qua tam phương",
+  "Các sao của cách là {stars}, đóng ở {from} rồi chiếu về {pal}"
+ ],
+ "whole_from": [
+  "ở {where} không có yếu tố nào phá, nên cách giữ được trọn sức"
+ ],
+ "bad_eased_from": [
+  "có điều {helps} cùng có mặt, nên phần xấu của cách được đỡ một phần",
+  "song {helps} kìm được bớt phần xấu"
+ ],
+ "bad_full_from": [
+  "và ở {where} không có sao nào đỡ cho phần xấu ấy"
+ ],
+ "reach_bad_from": [
+  "Vì {why}, phần xấu của cách chỉ {degree} lên {dom}",
+  "Do {why}, cách xấu này chỉ {degree} lên {dom}"
+ ],
+ "rank_tie": [
+  "{list} ngang bậc ảnh hưởng, không cách nào át hẳn cách nào",
+  "Xét bậc ảnh hưởng, {list} ngang nhau"
+ ],
+ "rank_why": [
+  "Xếp theo bậc ảnh hưởng, {first} nặng hơn cả, vì cách ấy {why}",
+  "Trong các cách ấy, {first} có sức nặng hơn, do cách {why}"
+ ],
+ "broken_placed": [
+  "có điều {limits} làm cách thành mà không trọn",
+  "nhưng {limits} làm cách giảm sức"
  ]
 }

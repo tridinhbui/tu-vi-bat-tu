@@ -40,7 +40,7 @@ export interface LuanLib {
   lead_pair: Record<string, string[]>;
   frame: Record<'open' | 'open_pair' | 'open_vcd' | 'open_empty' | 'tp_contrast' | 'tp_add' | 'opp_contrast' | 'opp_add' | 'with' | 'tt' | 'tt_alone' | 'group' | 'group_self', string[]>;
   tail: Record<'synth' | 'advice' | 'edge', string[]>;
-  than: Record<'pos' | 'meaning' | 'same' | 'rule' | 'borrow', string[]>;
+  than: Record<'pos' | 'meaning' | 'same' | 'rule' | 'borrow', string[]> & { rule_trig?: string[] };
   pos: Record<'giap' | 'nhi_hop' | 'luc_hai', string[]>;
   late: Record<'list' | 'pos' | 'item' | 'calm' | 'course', string[]>;
   summary: Record<'arc' | 'mature' | 'mature_same' | 'late' | 'late_calm' | 'turn' | 'close' | 'close_pos' | 'close_neg', string[]>;
@@ -307,7 +307,8 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
       sh.voiced.add(x.r.ruleId); ctx.allConcepts.add(x.r.concept);
       const late = isMenh && x.r.concept === 'life.late_bloom';
       const thanRule = !isMenh && JSON.stringify(W.rule(x.r.ruleId)?.conditions ?? {}).includes('"palace.is_than"');
-      const s = S(thanRule ? fill(W.pick(`than|rule|${x.r.ruleId}`, L.than.rule), { pal: P, claim: r.claim })
+      const trig = thanRule ? thanTrigger(chart, x.r.atoms, P) : '';
+      const s = S(thanRule ? fill(W.pick(`than|rule|${x.r.ruleId}`, trig && L.than.rule_trig?.length ? L.than.rule_trig : L.than.rule), { pal: P, claim: r.claim, trig })
         : fill(W.pick(late ? 'late|course' : 'course', late ? L.late.course : F.course), { ground: W.ground(x), claim: r.claim }),
         { move: 'EXTRA', step: `course:${plan.course.axis.key}`, concepts: [x.r.concept], rules: [x.r.ruleId], cites: x.r.cites, keys: [`${x.r.concept}@${P}`] });
       // the next sentence of the same book entry, on the same reading (TH p.75: "… muộn công danh. Nếu có Cát tinh hội cũng phải ngoài 40
@@ -332,7 +333,8 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
     if (!r.claim) continue;
     sh.voiced.add(x.r.ruleId); ctx.allConcepts.add(x.r.concept);
     const isThan = JSON.stringify(W.rule(x.r.ruleId)?.conditions ?? {}).includes('"palace.is_than"');
-    const text = isThan ? fill(W.pick(`than|rule|${x.r.ruleId}`, L.than.rule), { pal: P, claim: r.claim }) : fill(W.pick(`timing|${x.r.ruleId}`, L.timing), { ground: plainGround(W, x, P), claim: r.claim });
+    const trig = isThan ? thanTrigger(chart, x.r.atoms, P) : '';
+    const text = isThan ? fill(W.pick(`than|rule|${x.r.ruleId}`, trig && L.than.rule_trig?.length ? L.than.rule_trig : L.than.rule), { pal: P, claim: r.claim, trig }) : fill(W.pick(`timing|${x.r.ruleId}`, L.timing), { ground: plainGround(W, x, P), claim: r.claim });
     units.push({ topic: topicOf(W.concept(x.r.concept), P), own: new Set([x.r.concept]), xs: [S(text,
       { move: 'TIMING', step: `timing:${x.r.ruleId}`, concepts: [x.r.concept], rules: [x.r.ruleId], cites: x.r.cites, keys: [`${x.r.concept}@${P}|${x.r.ruleId}`], part: 2 })] });
   }
@@ -906,6 +908,15 @@ function caveats(W: Writer, L: LuanLib, t: Thesis, xs: ProseSentence[], P: strin
 }
 
 /** the palace a borrowed chính tinh stands in (the opposite palace) */
+/** the limiting elements a Thân-cư reading also fired on, where they stand (TH p.75: "Thân cư Quan Lộc gặp Tuần Triệt, Kiếp Hỏa hoặc Hóa Kỵ
+ *  hội"): the main sentence names them so its condition is told whole (review 2026-11-07) */
+function thanTrigger(chart: ChartInput, atoms: Array<{ kind: string; name: string; palace: string | null }>, P: string): string {
+  const carrier = (h: string) => chart.tu_hoa[h]?.star;
+  const xs = atoms.filter(a => a.palace && (a.kind === 'hoa' && a.name === 'Hóa Kỵ' || a.kind === 'tuan_triet' || (a.kind === 'star' && ['Địa Kiếp', 'Địa Không', 'Hỏa Tinh', 'Linh Tinh', 'Kình Dương', 'Đà La'].includes(a.name))))
+    .map(a => a.kind === 'hoa' ? `${carrier(a.name) ? `${carrier(a.name)} hóa Kỵ` : 'Hóa Kỵ'}${a.palace === P ? '' : ` ở cung ${a.palace}`}` : `${a.name}${a.palace === P ? '' : ` ở cung ${a.palace}`}`);
+  const u = [...new Set(xs)];
+  return u.length <= 1 ? u.join('') : `${u.slice(0, -1).join(', ')} và ${u.at(-1)}`;
+}
 const oppName = (chart: ChartInput, P: string) => { const p = chart.palaces.find(x => x.name === P)!; return chart.palaces.find(x => x.branch_index === (p.branch_index + 6) % 12)!.name; };
 /** The facing sentence of a limiting element (DEEP-3: a hedge says what it hedges). Tuần / Triệt on a vô chính diệu palace: its position
  *  only, no "điều tốt kèm điều kiện" (Khảo Luận p.146 has them shield such a palace: star_nature tuan_triet.bao_ve_vcd, told in Đọc sâu);

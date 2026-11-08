@@ -8,6 +8,7 @@ import type { ChartInput, Knowledge } from '../types.ts';
 import type { ProseSentence } from './realize.ts';
 import type { Writer } from './narrative.ts';
 import { computeIndices, type IndexNorms, type DecadeIndex } from '../indices.ts';
+import { RANK_AGE_LIMIT } from './tong_luan.ts';
 import norms from '../../../engine/data/kg/index_norms.json' with { type: 'json' };
 import { shownDecades } from './vanhan.ts';
 
@@ -34,7 +35,8 @@ export function courseSentences(W: Writer, chart: ChartInput, k: Knowledge, P: s
   const item = (x: typeof hits[number]) => `${x.d.age_from}–${x.d.age_to} tuổi (${x.how.map(h => fill(C.item[h], { pal: h === 'loc' ? x.d.hoa['Hóa Lộc'].palace! : h === 'ky' ? x.d.hoa['Hóa Kỵ'].palace! : x.d.palace, star: h === 'loc' ? x.d.hoa['Hóa Lộc'].star : h === 'ky' ? x.d.hoa['Hóa Kỵ'].star : '' })).join(', ')}; ${x.lv!.insufficient ? 'chưa đủ căn cứ để xếp mức' : `mức ${x.lv!.level_vi.toLowerCase()}`})`;
   const out = [W.sentence(fill(W.pick(`crs|open|${P}`, C.open), { label, list: hits.map(item).join('; ') }), tr('course:list', 'tinh_toan'))];
   // best and hardest among the decades with book evidence only (a decade "chưa đủ căn cứ" has no level to compare)
-  const placed = hits.filter(x => !x.lv!.insufficient);
+  // only decades starting before 80 are compared (owner decision Q4 2026-11-07)
+  const placed = hits.filter(x => !x.lv!.insufficient && x.d.age_from < RANK_AGE_LIMIT);
   if (placed.length >= 2) {
     const best = [...placed].sort((a, b) => b.lv!.score - a.lv!.score)[0], hard = [...placed].sort((a, b) => a.lv!.score - b.lv!.score)[0];
     if (best.lv!.level !== hard.lv!.level) {

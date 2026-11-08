@@ -70,5 +70,20 @@
  "radar_worst": [
   "Riêng cung {pal} trên biểu đồ mười hai cung lại trên mức thường gặp; {domain} xếp cuối là vì kết luận ấy tính cả {others}",
   "Biểu đồ mười hai cung cho cung {pal} cao hơn mức thường gặp, nên chỗ khó của {domain} đến nhiều từ {others} hơn là từ riêng cung {pal}"
+ ],
+ "best_multi": [
+  "Các điểm tựa vững nhất là {pairs}",
+  "Đứng đầu thứ bậc có {pairs}"
+ ],
+ "worst_multi": [
+  "Các phần cần lo nhiều nhất là {pairs}",
+  "Đứng cuối thứ bậc có {pairs}"
+ ],
+ "pair": [
+  "{domain} ({verdict}, gốc là {ground})"
+ ],
+ "best_off": [
+  "Mặt khá nhất là {domain} ({verdict}), dựa trên {ground}, song chưa vững bằng một chỗ dựa thật",
+  "Xếp trên cả là {domain} ({verdict}), dựa trên {ground}, nhưng đó chưa phải một chỗ dựa chắc"
  ]
 }

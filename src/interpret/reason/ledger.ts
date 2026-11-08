@@ -16,6 +16,7 @@ import { nesting } from '../kg/atoms.ts';
 import { Geo, rarity, seatOf, type SeatRef } from './tiers.ts';
 import { guardHolds } from './positions.ts';
 import { palaceEvidence, TIMING_FACET, type Element, type PalaceEvidence } from './evidence.ts';
+import { isGrave } from '../prose/severity.ts';
 
 export const LEDGER_VERSION = 'ledger-1.1.0';
 /** thuan / tro_ngai: one side, nothing in the way; co_dieu_kien: one side with a concrete, sourced or structural condition, or a book relation
@@ -32,7 +33,9 @@ export interface LedgerItem { ruleId: string; palace: string; concept: string; s
   /** the same, each with the palace it stands in (a sentence naming them says where each one is) */
   at: Array<{ name: string; palace: string }>;
   /** the star carrying Hóa Kỵ this strength rests on (the item is then 'mixed', never a plain positive) */
-  kyCarrier?: string }
+  kyCarrier?: string;
+  /** a grave reading (claim_severity.json) kept only beside a non-grave one on its side: never the named ground */
+  grave?: boolean }
 export interface LedgerStep { type: 'fact' | 'reading' | 'link' | 'precedence' | 'verdict'; palace?: string; element?: string; ruleId?: string; cite?: string;
   basis: 'sach' | 'he_thong' | 'tinh_toan'; note: string }
 export interface Link { kind: 'timing' | 'book' | 'specific' | 'tier' | 'structure' | 'single' | 'mitigation' | 'unresolved' | 'weigh'; ruleId?: string; elements?: string[];
@@ -127,6 +130,15 @@ function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, liv
         ...(ky ? { kyCarrier: ky.name } : {}) });
     }
   }
+  // a grave reading (claim_severity.json, owner decision Q2 2026-11-07) never carries a domain verdict alone: it counts only beside a non-grave
+  // reading on the same side, and is never the ground a verdict names (`grave` sorts it last)
+  for (let i = items.length - 1; i >= 0; i--) {
+    const x = items[i];
+    if (!isGrave(x.ruleId)) continue;
+    if (items.some(y => !isGrave(y.ruleId) && y.side === x.side)) { x.grave = true; continue; }
+    chain.push({ type: 'reading', palace: x.palace, ruleId: x.ruleId, cite: x.cites[0], basis: 'he_thong', note: `${x.concept}: câu nặng đứng một mình, không vào phán quyết (claim_severity)` });
+    items.splice(i, 1);
+  }
   // one reading step per rule: a rule read at several palaces or for several concepts is listed once, with all of them
   for (const id of [...new Set(items.map(x => x.ruleId))]) {
     const xs = items.filter(x => x.ruleId === id);
@@ -156,7 +168,7 @@ function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, liv
   const reducerOf = (x: LedgerItem) => neg.find(n => live.some(r => r.ruleId === n.ruleId && r.by.some(b => b.basis === 'sach' && b.byRule === x.ruleId)));
   const mitig = items.filter(x => x.side === '+' && !!reducerOf(x));
   const pos = items.filter(x => x.side === '+' && !mitig.includes(x));
-  const best = (xs: LedgerItem[]) => [...xs].sort((a, b) => a.seat.tier - b.seat.tier || b.rarity - a.rarity || (a.ruleId < b.ruleId ? -1 : 1))[0];
+  const best = (xs: LedgerItem[]) => [...xs].sort((a, b) => Number(!!a.grave) - Number(!!b.grave) || a.seat.tier - b.seat.tier || b.rarity - a.rarity || (a.ruleId < b.ruleId ? -1 : 1))[0];
   const indep = (xs: LedgerItem[]) => new Set(xs.map(x => `${x.palace}|${x.seat.id}`)).size;
   const strong = (xs: LedgerItem[]) => xs.some(x => x.seat.tier <= 3) || indep(xs) >= 2;
   let verdict: Verdict, base: '+' | '-' | null = null, link: Link | undefined, weigh: Weighing | undefined;
@@ -224,7 +236,7 @@ function weighSides(chart: ChartInput, W: WeighDef, palaces: Record<string, stri
     return w;
   };
   const side = (xs: LedgerItem[], s: '+' | '-') => {
-    const ws = xs.map(x => ({ x, w: one(x, s) })).sort((a, b) => b.w - a.w || (a.x.ruleId < b.x.ruleId ? -1 : 1));
+    const ws = xs.map(x => ({ x, w: one(x, s) })).sort((a, b) => Number(!!a.x.grave) - Number(!!b.x.grave) || b.w - a.w || (a.x.ruleId < b.x.ruleId ? -1 : 1));
     const n = new Set(xs.map(x => `${x.palace}|${x.seat.id}`)).size;
     return { top: ws[0], n, w: ws[0].w + Math.min(W.max_extra, W.per_extra * (n - 1)) };
   };

@@ -1,0 +1,915 @@
+{
+ "version": "claim-severity-1",
+ "date": "2026-11-08",
+ "basis": "he_thong",
+ "note": "Severity of a verified rule's stated outcome (plan THIEN-BAN-33 G1, owner Q2 2026-11-07). Independent of confidence. Built by tools/interpret/build_claim_severity.py from the claim part of each rule's description; MANUAL in the builder holds the hand review.",
+ "grave": [
+  "suc_khoe",
+  "tho_yeu",
+  "sinh_san",
+  "hon_nhan_vo",
+  "vat_chat_nang",
+  "tat_xau",
+  "phap_ly"
+ ],
+ "classes": {
+  "suc_khoe": {
+   "topic": "bệnh tật, tai ách",
+   "re": "bệnh|đau ốm|ốm đau|tai nạn|tai ách|thương tật|tàn tật|mổ xẻ|\\bmù\\b|\\bđiếc\\b|\\bcâm\\b|\\bquè\\b|huyết quang|ung nhọt|tật nguyền|có tật|mang tật|thương tích"
+  },
+  "tho_yeu": {
+   "topic": "thọ yểu",
+   "re": "\\bthọ\\b|yểu|\\bchết\\b|tử vong|mất sớm|đoản mệnh|mạng vong|chết non|sống lâu|qua đời|tuổi thọ|nguy đến tính mạng"
+  },
+  "sinh_san": {
+   "topic": "đường con cái",
+   "re": "đông con|nhiều con|hiếm con|muộn con|chậm con|không con|vô tự|tuyệt tự|sát con|khó nuôi con|con khó nuôi|ít con|sẩy thai|hư thai|khó có con|hiếm muộn|không có con"
+  },
+  "hon_nhan_vo": {
+   "topic": "đổ vỡ hôn nhân",
+   "re": "ly hôn|ly dị|góa|goá|tái giá|bỏ nhau|đổ vỡ|dang dở|sinh ly tử biệt|khắc vợ|khắc chồng|sát phu|sát thê|lập gia đình hai lần|hai lần lập gia đình|nhiều đời chồng"
+  },
+  "vat_chat_nang": {
+   "topic": "hao tổn tài sản lớn",
+   "re": "phá sản|chiếm đoạt|tán gia|khuynh gia|bại sản|mất hết|trắng tay|tan cửa nát nhà"
+  },
+  "tat_xau": {
+   "topic": "thói ham vui, sa đà",
+   "re": "cờ bạc|phóng đãng|trộm|\\bdâm\\b|nghiện|rượu chè|gian xảo|gian manh|gian dối|lừa đảo|bất lương|trác táng|đàng điếm"
+  },
+  "phap_ly": {
+   "topic": "chuyện tù tội",
+   "re": "\\btù\\b|\\bngục\\b|tù tội|hình ngục|tội vạ"
+  },
+  "moc_tuoi": {
+   "topic": "mốc tuổi",
+   "re": "\\b\\d{2}\\s*tuổi"
+  }
+ },
+ "rules": {
+  "TV_D3_TT91_TAT_TUAN_TRIET": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Tuần hoặc Triệt ở Tật Ách",
+   "cite": "TT p.91",
+   "claim": "có Tuần Triệt giải được tai nạn"
+  },
+  "TV_D3_TT92_TU_HINH_HAO": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Thiên Hình gặp Hao ở Tử Tức",
+   "cite": "TT p.92",
+   "claim": "hiếm con"
+  },
+  "TV_D3_TT92_TU_TRUONG_SINH_DE_VUONG": {
+   "class": "sinh_san",
+   "pol": "+",
+   "palace": "Tử Tức",
+   "cond": "Trường Sinh hoặc Đế Vượng ở Tử Tức",
+   "cite": "TT p.92",
+   "claim": "đông con"
+  },
+  "TV_D3_TT93_TU_DA_KY": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Đà La, Hóa Kỵ ở Tử Tức",
+   "cite": "TT p.93",
+   "claim": "hiếm con"
+  },
+  "TV_D3_TT93_TU_SAT_HAM_HINH": {
+   "class": "tat_xau",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Thất Sát hãm gặp Thiên Hình ở Tử Tức",
+   "cite": "TT p.93",
+   "claim": "con cái dễ ngang tàng, phóng đãng"
+  },
+  "TV_HS_AN_QUANG_PHUC_DUC_PHUC_THO_HO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Quang Quý ở Phúc Đức",
+   "cite": "HS p.148",
+   "claim": "sống thọ, dòng họ đoàn kết, đùm bọc nhau"
+  },
+  "TV_HS_AN_QUANG_TAT_ACH_TAT_GAP_THUOC": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Quang Quý ở Tật Ách",
+   "cite": "HS p.148",
+   "claim": "có bệnh thì qua khỏi, gặp thầy giỏi thuốc hay"
+  },
+  "TV_HS_AN_QUANG_TAT_ACH_TAT_IT_BENH": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Quang Quý ở Tật Ách",
+   "cite": "HS p.148",
+   "claim": "ít bệnh tật, tai họa"
+  },
+  "TV_HS_BACH_HO_TAT_ACH_TAT_BENH_NHIEU": {
+   "class": "suc_khoe",
+   "pol": "-",
+   "palace": "Tật Ách",
+   "cond": "Tang Hổ ở Tật Ách",
+   "cite": "HS p.152",
+   "claim": "hay đau ốm"
+  },
+  "TV_HS_BENH_TAT_ACH_TAT_HAY_BENH": {
+   "class": "suc_khoe",
+   "pol": "-",
+   "palace": "Tật Ách",
+   "cond": "sao Bệnh hoặc Bệnh Phù ở Tật Ách",
+   "cite": "HS p.154",
+   "claim": "hay đau ốm"
+  },
+  "TV_HS_CU_MON_PHUC_DUC_PHUC_CU_CO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Cự Môn, Thiên Cơ ở Phúc Đức",
+   "cite": "HS p.87",
+   "claim": "được hưởng phúc thọ, phú quý, họ hàng giàu có, quý hiển"
+  },
+  "TV_HS_CU_MON_PHU_MAU_PHU_DAN": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phụ Mẫu",
+   "cond": "Cự Môn ở Phụ Mẫu tại Dần",
+   "cite": "HS p.88",
+   "claim": "cha mẹ giàu có, quý hiển, sống lâu"
+  },
+  "TV_HS_DE_VUONG_PHUC_DUC_PHUC_THO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Đế Vượng ở Phúc Đức",
+   "cite": "HS p.156",
+   "claim": "sống thọ"
+  },
+  "TV_HS_DIA_KHONG_DIEN_TRACH_DIEN_HAM": {
+   "class": "vat_chat_nang",
+   "pol": "-",
+   "palace": "Điền Trạch",
+   "cond": "Không Kiếp hãm địa ở Điền Trạch",
+   "cite": "HS p.162",
+   "claim": "không giữ được nhà đất, bị chiếm đoạt, phá sản"
+  },
+  "TV_HS_DIA_KHONG_TAI_BACH_TAI_DAC": {
+   "class": "vat_chat_nang",
+   "pol": "-",
+   "palace": "Tài Bạch",
+   "cond": "Không Kiếp đắc địa ở Tài Bạch",
+   "cite": "HS p.162",
+   "claim": "phát nhanh một thời nhưng về sau phá sản cũng rất nhanh"
+  },
+  "TV_HS_DIA_KHONG_TU_TUC_TU_PHA_SAN": {
+   "class": "vat_chat_nang",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Không Kiếp ở Tử Tức",
+   "cite": "HS p.162",
+   "claim": "con cái làm hao phá sản nghiệp của cha mẹ"
+  },
+  "TV_HS_DIEU_KHACH_QUAN_LOC_QUAN_PHA_TOAI_TUE_PHA": {
+   "class": "tat_xau",
+   "pol": "-",
+   "palace": "Quan Lộc",
+   "cond": "Điếu Khách gặp Phá Toái, Tuế Phá ở Quan Lộc",
+   "cite": "HS p.164",
+   "claim": "ham chơi, cờ bạc, phóng đãng"
+  },
+  "TV_HS_DIEU_KHACH_QUAN_LOC_QUAN_QUAN_PHU": {
+   "class": "tat_xau",
+   "pol": "-",
+   "palace": "Quan Lộc",
+   "cond": "Điếu Khách gặp Quan Phù ở Quan Lộc",
+   "cite": "HS p.164",
+   "claim": "mê cờ bạc"
+  },
+  "TV_HS_HOA_KHOA_TAT_ACH_TAT_BENH_NHE": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Hóa Khoa ở Tật Ách",
+   "cite": "HS p.167",
+   "claim": "bệnh tật nhẹ đi, có thể chữa được"
+  },
+  "TV_HS_HOA_LOC_TAT_ACH_TAT_MAU_KHOI": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Hóa Lộc ở Tật Ách",
+   "cite": "HS p.173",
+   "claim": "có bệnh thì mau khỏi, gặp thầy gặp thuốc"
+  },
+  "TV_HS_PHA_QUAN_PHUC_DUC_PHUC_TY_NGO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Phá Quân ở Phúc Đức tại Tý, Ngọ",
+   "cite": "HS p.96",
+   "claim": "được phúc, sống lâu"
+  },
+  "TV_HS_PHA_TOAI_TAT_ACH_TAT_IT_BENH": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Phá Toái ở Tật Ách",
+   "cite": "HS p.192",
+   "claim": "lại ít bệnh"
+  },
+  "TV_HS_TA_PHU_TAT_ACH_TAT_MAU_MANH": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Tả Phụ hoặc Hữu Bật ở Tật Ách",
+   "cite": "HS p.179",
+   "claim": "đau ốm thì mau khỏi"
+  },
+  "TV_HS_THAI_AM_PHUC_DUC_PHUC_SANG": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Thái Âm sáng ở Phúc Đức",
+   "cite": "HS p.106",
+   "claim": "thọ, hưởng phúc đức bên mẹ"
+  },
+  "TV_HS_THAM_LANG_PHUC_DUC_PHUC_THIN_TUAT_VU": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Tham Lang ở Phúc Đức tại Thìn, Tuất, nhất là đi với Vũ Khúc",
+   "cite": "HS p.101",
+   "claim": "tốt đẹp, hưởng phúc thọ nhất là về già, họ hàng hiển vinh"
+  },
+  "TV_HS_THAT_SAT_PHU_MAU_PHU_DAN_THAN": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phụ Mẫu",
+   "cond": "Thất Sát ở Dần Thân tại Phụ Mẫu",
+   "cite": "HS p.117",
+   "claim": "cha mẹ sang quý, thọ"
+  },
+  "TV_HS_THIEN_CO_PHUC_DUC_PHUC_LUONG_NGUYET": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Thiên Cơ với Thiên Lương, hoặc với Thái Âm ở Thân tại Phúc Đức",
+   "cite": "HS p.120",
+   "claim": "thọ, họ hàng khá giả"
+  },
+  "TV_HS_THIEN_CO_PHU_MAU_PHU_LUONG": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phụ Mẫu",
+   "cond": "Thiên Cơ, Thiên Lương ở Phụ Mẫu",
+   "cite": "HS p.121",
+   "claim": "cha mẹ giàu và thọ"
+  },
+  "TV_HS_THIEN_KHOI_PHUC_DUC_PHUC_THAN_LINH": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Thiên Khôi tọa thủ Phúc Đức, không bị Tuần, Triệt, Hóa Kỵ, Thiên Hình",
+   "cite": "HS p.209",
+   "claim": "luôn được che chở, tai nạn được giải trừ"
+  },
+  "TV_HS_THIEN_KHOI_TAT_ACH_TAT_CUU_GIAI": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Thiên Khôi ở Tật Ách",
+   "cite": "HS p.210",
+   "claim": "ốm đau gặp thầy giỏi thuốc hay, có tai nạn được cứu giải"
+  },
+  "TV_HS_THIEN_KHONG_TAT_ACH_TAT_IT_BENH": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Thiên Không ở Tật Ách",
+   "cite": "HS p.211",
+   "claim": "ít bệnh, có bệnh cũng chóng qua; giải được bệnh tật khá mạnh"
+  },
+  "TV_HS_THIEN_LUONG_DIEN_TRACH_DIEN_NHAT_MAO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Điền Trạch",
+   "cond": "Thiên Lương, Thái Dương ở Điền Trạch tại Mão",
+   "cite": "HS p.128",
+   "claim": "được hưởng phúc thọ, tránh được tai họa, họ hàng danh giá"
+  },
+  "TV_HS_THIEN_LUONG_DIEN_TRACH_DIEN_TOT": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Điền Trạch",
+   "cond": "Thiên Lương ở Điền Trạch cùng Thiên Đồng / Thiên Cơ, hoặc tại Tý Ngọ",
+   "cite": "HS p.128",
+   "claim": "được hưởng phúc thọ, tránh được tai họa, họ hàng danh giá"
+  },
+  "TV_HS_THIEN_LUONG_PHU_MAU_PHU_NHAT_MAO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phụ Mẫu",
+   "cond": "Thiên Lương, Thái Dương ở Phụ Mẫu tại Mão",
+   "cite": "HS p.128",
+   "claim": "cha mẹ nhân đức, hiền và thọ"
+  },
+  "TV_HS_THIEN_LUONG_PHU_MAU_PHU_TOT": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phụ Mẫu",
+   "cond": "Thiên Lương ở Phụ Mẫu cùng Thiên Đồng / Thiên Cơ, hoặc tại Tý Ngọ",
+   "cite": "HS p.128",
+   "claim": "cha mẹ nhân đức, hiền và thọ"
+  },
+  "TV_HS_THIEN_LUONG_TAT_ACH_TAT_GIAI": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Thiên Lương ở Tật Ách",
+   "cite": "HS p.125",
+   "claim": "là sao giải bệnh rất hiệu lực, có bệnh thì chóng khỏi hoặc không nặng, dù hãm địa cũng không đáng ngại"
+  },
+  "TV_HS_THIEN_PHU_TAT_ACH_TAT_GIAI": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Thiên Phủ ở Tật Ách",
+   "cite": "HS p.130",
+   "claim": "là sao giải rất mạnh, giúp tránh hoặc giảm nhiều tai họa, bệnh tật"
+  },
+  "TV_HS_THIEN_THO_PHUC_DUC_PHUC_THO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Thiên Thọ ở Phúc Đức",
+   "cite": "HS p.219",
+   "claim": "tăng phúc thọ, tốt nhất khi ở Phúc Đức"
+  },
+  "TV_HS_THIEN_TUONG_PHU_MAU_PHU_THO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phụ Mẫu",
+   "cond": "Thiên Tướng ở Phụ Mẫu",
+   "cite": "HS p.132",
+   "claim": "cha mẹ thọ, ở bất cứ vị trí nào"
+  },
+  "TV_HS_THIEN_VIET_PHUC_DUC_PHUC_THAN_LINH": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Thiên Việt tọa thủ Phúc Đức, không bị Tuần, Triệt, Hóa Kỵ, Thiên Hình",
+   "cite": "HS p.209",
+   "claim": "luôn được che chở, tai nạn được giải trừ"
+  },
+  "TV_HS_THIEN_VIET_TAT_ACH_TAT_CUU_GIAI": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Thiên Việt ở Tật Ách",
+   "cite": "HS p.210",
+   "claim": "ốm đau gặp thầy giỏi thuốc hay, có tai nạn được cứu giải"
+  },
+  "TV_HS_TRIET_TAT_ACH_TAT_GIAI": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Triệt ở Tật Ách",
+   "cite": "HS p.227",
+   "claim": "bệnh tật, tai họa tiêu tán hoặc giảm đi nhiều, sức khỏe và may mắn được bảo đảm hơn"
+  },
+  "TV_HS_TRUONG_SINH_PHUC_DUC_PHUC_THO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phúc Đức",
+   "cond": "Trường Sinh ở Phúc Đức",
+   "cite": "HS p.221",
+   "claim": "được thọ"
+  },
+  "TV_HS_TUAN_TAT_ACH_TAT_GIAI": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Tuần ở Tật Ách",
+   "cite": "HS p.227",
+   "claim": "bệnh tật, tai họa tiêu tán hoặc giảm đi nhiều, sức khỏe và may mắn được bảo đảm hơn"
+  },
+  "TV_HS_TU_VI_PHU_MAU_PHU_TOT": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phụ Mẫu",
+   "cond": "Tử Vi ở Phụ Mẫu tại Tý Ngọ, hoặc cùng Thiên Phủ / Thiên Tướng / Thất Sát",
+   "cite": "HS p.137",
+   "claim": "cha mẹ giàu sang, thọ, giúp đỡ được con cháu, để lại di sản"
+  },
+  "TV_HS_TU_VI_TAI_BACH_TAI_PHA": {
+   "class": "vat_chat_nang",
+   "pol": "-",
+   "palace": "Tài Bạch",
+   "cond": "Tử Vi, Phá Quân ở Tài Bạch",
+   "cite": "HS p.138",
+   "claim": "trước nghèo sau sung túc, nhưng có lần phá sản"
+  },
+  "TV_HS_VAN_KHUC_TAI_BACH_TAI_CO_BAC": {
+   "class": "tat_xau",
+   "pol": "-",
+   "palace": "Tài Bạch",
+   "cond": "Văn Khúc ở Tài Bạch",
+   "cite": "HS p.233",
+   "claim": "thích cờ bạc"
+  },
+  "TV_HS_VAN_XUONG_TAI_BACH_TAI_CO_BAC": {
+   "class": "tat_xau",
+   "pol": "-",
+   "palace": "Tài Bạch",
+   "cond": "Văn Xương ở Tài Bạch",
+   "cite": "HS p.233",
+   "claim": "thích cờ bạc"
+  },
+  "TV_HS_VU_KHUC_TAT_ACH_TAT_KIM_THUY": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Vũ Khúc ở Tật Ách, người mệnh Kim hoặc Thủy",
+   "cite": "HS p.143",
+   "claim": "ít bệnh"
+  },
+  "TV_HS_VU_KHUC_TAT_ACH_TAT_MOC_HOA": {
+   "class": "suc_khoe",
+   "pol": "-",
+   "palace": "Tật Ách",
+   "cond": "Vũ Khúc ở Tật Ách, người mệnh Mộc hoặc Hỏa",
+   "cite": "HS p.143",
+   "claim": "bệnh nhiều hơn"
+  },
+  "TV_KL7_TU_TUC_CO_QUA": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Cô Thần, Quả Tú ở Tử Tức",
+   "cite": "KL p.153",
+   "claim": "hiếm muộn con"
+  },
+  "TV_KL7_TU_TUC_DAU_QUAN": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Đẩu Quân ở Tử Tức",
+   "cite": "KL p.193",
+   "claim": "hiếm con"
+  },
+  "TV_KL7_TU_TUC_DONG_MAO": {
+   "class": "sinh_san",
+   "pol": "+",
+   "palace": "Tử Tức",
+   "cond": "Thiên Đồng ở Tử Tức tại Mão",
+   "cite": "KL p.90",
+   "claim": "đông con"
+  },
+  "TV_KL7_TU_TUC_DONG_THIN_TUAT": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Thiên Đồng ở Tử Tức tại Thìn, Tuất",
+   "cite": "KL p.90",
+   "claim": "hiếm con"
+  },
+  "TV_KL7_TU_TUC_DONG_TY_HOI": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Thiên Đồng ở Tử Tức tại Tỵ, Hợi",
+   "cite": "KL p.90",
+   "claim": "ít con"
+  },
+  "TV_KL7_TU_TUC_LIEM": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Liêm Trinh ở Tử Tức, không đồng cung Thiên Phủ",
+   "cite": "KL p.93",
+   "claim": "chậm con, ít con"
+  },
+  "TV_KL7_TU_TUC_LOC_TON": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Lộc Tồn ở Tử Tức",
+   "cite": "KL p.133",
+   "claim": "chậm con và hiếm con"
+  },
+  "TV_KL7_TU_TUC_LUONG_DONG_TY_NGO": {
+   "class": "sinh_san",
+   "pol": "+",
+   "palace": "Tử Tức",
+   "cond": "Thiên Lương cùng Thiên Đồng ở Dần, Thân, hoặc Thiên Lương ở Tý, Ngọ, tại Tử Tức",
+   "cite": "KL p.110",
+   "claim": "đông con"
+  },
+  "TV_KL7_TU_TUC_LUONG_NHAT_CO": {
+   "class": "sinh_san",
+   "pol": "+",
+   "palace": "Tử Tức",
+   "cond": "Thiên Lương cùng Thái Dương ở Mão, hoặc cùng Thiên Cơ, tại Tử Tức",
+   "cite": "KL p.110",
+   "claim": "đông con, con cái khá giả"
+  },
+  "TV_KL7_TU_TUC_LUONG_TY_HOI": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Thiên Lương ở Tử Tức tại Tỵ, Hợi",
+   "cite": "KL p.110",
+   "claim": "ít con"
+  },
+  "TV_KL7_TU_TUC_MOC_DUC": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Mộc Dục ở Tử Tức",
+   "cite": "KL p.161",
+   "claim": "hiếm muộn con"
+  },
+  "TV_KL7_TU_TUC_PHA": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Phá Quân ở Tử Tức",
+   "cite": "KL p.116",
+   "claim": "hiếm con"
+  },
+  "TV_KL7_TU_TUC_SAT_PHA_THAM_VU_LOC": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Thất Sát, Phá Quân, Tham Lang, Vũ Khúc hoặc Lộc Tồn ở Tử Tức",
+   "cite": "KL p.218",
+   "claim": "có thể hiếm con"
+  },
+  "TV_KL7_TU_TUC_SUY": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Suy ở Tử Tức",
+   "cite": "KL p.162",
+   "claim": "hiếm con"
+  },
+  "TV_KL7_TU_TUC_TA_HUU": {
+   "class": "sinh_san",
+   "pol": "+",
+   "palace": "Tử Tức",
+   "cond": "Tả Phụ, Hữu Bật ở Tử Tức",
+   "cite": "KL p.121",
+   "claim": "nhiều con"
+  },
+  "TV_KL7_TU_TUC_THAM": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Tham Lang ở Tử Tức",
+   "cite": "KL p.102",
+   "claim": "muộn con, hoặc con cái hay phá của"
+  },
+  "TV_KL7_TU_TUC_TUONG_LIEM_VU": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Thiên Tướng đi với Liêm Trinh hoặc Vũ Khúc ở Tử Tức",
+   "cite": "KL p.108",
+   "claim": "ít con, muộn con"
+  },
+  "TV_KL_CT_DAO_NGO": {
+   "class": "hon_nhan_vo",
+   "pol": "+",
+   "palace": "",
+   "cond": "Đào Hoa ở Ngọ",
+   "cite": "KL p.224",
+   "claim": "có danh cũng kèm điều tiếng, tình cảm dễ dang dở"
+  },
+  "TV_KL_CUNG_PHU_THE_KINH_DA_KHONG_KIEP": {
+   "class": "hon_nhan_vo",
+   "pol": "+",
+   "palace": "Phu Thê",
+   "cond": "Phu Thê gặp Kình, Đà, Không, Kiếp",
+   "cite": "KL p.217",
+   "claim": "tình cảm khó bền, dễ đổ vỡ"
+  },
+  "TV_KL_STAR_DIEN_TRACH_CO_CU_DAU": {
+   "class": "vat_chat_nang",
+   "pol": "-",
+   "palace": "Điền Trạch",
+   "cond": "Cơ Cự ở Dậu tại Điền Trạch",
+   "cite": "KL p.80",
+   "claim": "nhà đất ít, dễ phá sản"
+  },
+  "TV_KL_STAR_DIEN_TRACH_TV_SPT": {
+   "class": "vat_chat_nang",
+   "pol": "-",
+   "palace": "Điền Trạch",
+   "cond": "Tử Vi đi với Sát, Phá, Tham ở Điền Trạch",
+   "cite": "KL p.76",
+   "claim": "khó có nhà cửa, dễ phá sản"
+  },
+  "TV_KL_STAR_MENH_TV_THAM_MAO_DAU": {
+   "class": "tat_xau",
+   "pol": "+",
+   "palace": "Mệnh",
+   "cond": "Tử Tham ở Mão/Dậu",
+   "cite": "KL p.77",
+   "claim": "có sự nghiệp lớn nhờ mánh khóe, giàu nhưng hay gian dối, ham hưởng thụ"
+  },
+  "TV_KL_STAR_TU_TUC_TV_PHU_TUONG": {
+   "class": "sinh_san",
+   "pol": "+",
+   "palace": "Tử Tức",
+   "cond": "Tử Vi đồng cung Phủ, Tướng ở Tử Tức",
+   "cite": "KL p.76",
+   "claim": "đông con"
+  },
+  "TV_PB_KL_TAT_ACH_KL_TAT_ACH_THIEN_Y": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Thiên Y ở Tật Ách",
+   "cite": "KL p.122",
+   "claim": "có Thiên Y là sao cứu giải bệnh tật"
+  },
+  "TV_PB_TH_TAT_ACH_TH_TAT_ACH_THIEN_THO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "",
+   "cite": "TH p.57",
+   "claim": "Thiên Thọ ở Tật Ách là sao tốt, giúp thêm tuổi thọ"
+  },
+  "TV_PB_TH_TU_TUC_TH_TU_TUC_DA_KY": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Đà La, Hóa Kỵ ở Tử Tức",
+   "cite": "TH p.104",
+   "claim": "hiếm muộn con"
+  },
+  "TV_PB_TH_TU_TUC_TH_TU_TUC_HIEM_HAO_CO_QUA_KY": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Đại hoặc Tiểu Hao, Cô hoặc Quả, Hóa Kỵ chiếu Tử Tức",
+   "cite": "TH p.105",
+   "claim": "hiếm con dù chính tinh tốt"
+  },
+  "TV_PB_TH_TU_TUC_TH_TU_TUC_HIEM_HINH_RIEU_HU_KHOC": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Hình hoặc Riêu, Hư hoặc Khốc gặp Tuyệt hay Tuần Triệt chiếu Tử Tức",
+   "cite": "TH p.105",
+   "claim": "hiếm con dù chính tinh tốt"
+  },
+  "TV_PB_TH_TU_TUC_TH_TU_TUC_HIEM_KIEP_SAT_PHA_TOAI": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Kiếp Sát, Phá Toái, Tang hoặc Hổ chiếu Tử Tức",
+   "cite": "TH p.105",
+   "claim": "hiếm con dù chính tinh tốt"
+  },
+  "TV_PB_TH_TU_TUC_TH_TU_TUC_HIEM_KINH_DA_KHONG_DAU": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Kình hoặc Đà, Thiên Không, Đẩu Quân hội chiếu Tử Tức",
+   "cite": "TH p.105",
+   "claim": "hiếm con dù chính tinh tốt"
+  },
+  "TV_PB_TH_TU_TUC_TH_TU_TUC_HIEM_PHUC_THAI_TUE_HINH": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Phục Binh, Thai, Thái Tuế gặp Thiên Hình chiếu Tử Tức",
+   "cite": "TH p.105",
+   "claim": "hiếm con dù chính tinh tốt"
+  },
+  "TV_PB_TH_TU_TUC_TH_TU_TUC_HINH_HIEM": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Thiên Hình ở Tử Tức",
+   "cite": "TH p.104",
+   "claim": "hiếm con"
+  },
+  "TV_PB_TH_TU_TUC_TH_TU_TUC_KHOC_HINH_KINH_HO": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Khốc, Hình, Kình, Hổ hội ở Tử Tức",
+   "cite": "TH p.104",
+   "claim": "rất hiếm muộn con"
+  },
+  "TV_PB_TH_TU_TUC_TH_TU_TUC_LOC_SAT": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Lộc Tồn gặp Thất Sát ở Tử Tức",
+   "cite": "TH p.105",
+   "claim": "rất hiếm con"
+  },
+  "TV_PB_TT_DIEN_TRACH_TT_DIEN_TRACH_SAT_HINH": {
+   "class": "vat_chat_nang",
+   "pol": "-",
+   "palace": "Điền Trạch",
+   "cond": "Thất Sát gặp Thiên Hình ở Điền Trạch",
+   "cite": "TT p.38",
+   "claim": "gia nghiệp đổ vỡ"
+  },
+  "TV_PB_TT_PHU_MAU_TT_PHU_MAU_THIEN_LUONG_THO": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "Phụ Mẫu",
+   "cond": "Thiên Lương ở Phụ Mẫu",
+   "cite": "TT p.87",
+   "claim": "cha mẹ cùng hưởng thọ, an vui"
+  },
+  "TV_PB_TT_TAT_ACH_TT_TAT_ACH_KHUC_CAT": {
+   "class": "suc_khoe",
+   "pol": "+",
+   "palace": "Tật Ách",
+   "cond": "Văn Khúc ở Tật Ách thêm cát tinh",
+   "cite": "TT p.90",
+   "claim": "có cát tinh trợ thì suốt đời ít tai nạn"
+  },
+  "TV_PB_TT_TAT_ACH_TT_TAT_ACH_KHUC_HAM_SAT": {
+   "class": "suc_khoe",
+   "pol": "-",
+   "palace": "Tật Ách",
+   "cond": "Văn Khúc hãm ở Tật Ách gặp Tứ Sát, Không Kiếp",
+   "cite": "TT p.90",
+   "claim": "gặp thế kỵ, ngược lại dễ có tai nạn"
+  },
+  "TV_PB_TT_TAT_ACH_TT_TAT_ACH_TA_HUU_SAT": {
+   "class": "suc_khoe",
+   "pol": "-",
+   "palace": "Tật Ách",
+   "cond": "Tả Phụ hoặc Hữu Bật ở Tật Ách gặp Tứ Sát",
+   "cite": "TT p.90",
+   "claim": "gặp thế kỵ, dễ gặp tai nạn"
+  },
+  "TV_TH_AUX2_MENH_KK_DAO_HONG": {
+   "class": "hon_nhan_vo",
+   "pol": "+",
+   "palace": "Mệnh",
+   "cond": "Kiếp/Không hội Đào, Hồng",
+   "cite": "TH p.67",
+   "claim": "duyên nợ dang dở, phải trải qua vài lần cưới xin"
+  },
+  "TV_TH_CACH_QUAN_LOC_THAN_TT_CAT": {
+   "class": "moc_tuoi",
+   "pol": "-",
+   "palace": "Quan Lộc",
+   "cond": "Thân cư Quan Lộc gặp Tuần Triệt, Kiếp Hỏa hoặc Hóa Kỵ hội, lại có cát tinh hội; sách nói cho đàn ông",
+   "cite": "TH p.75",
+   "claim": "dù có cát tinh hội, cũng phải ngoài 40 tuổi mới nhẹ bước thanh vân"
+  },
+  "TV_TH_P2_PHU_THE_KHONG_KIEP": {
+   "class": "hon_nhan_vo",
+   "pol": "-",
+   "palace": "Phu Thê",
+   "cond": "Không hoặc Kiếp ở Phu Thê",
+   "cite": "TH p.102",
+   "claim": "hai ba lần dang dở mới toàn"
+  },
+  "TV_TH_P2_PHU_THE_TT_KHONG_KIEP": {
+   "class": "hon_nhan_vo",
+   "pol": "-",
+   "palace": "Phu Thê",
+   "cond": "Tuần/Triệt gặp Không, Kiếp",
+   "cite": "TH p.102",
+   "claim": "mối mai dang dở nhiều lần mới nên"
+  },
+  "TV_TH_P2_TAI_BACH_PHA_HAO_KK": {
+   "class": "vat_chat_nang",
+   "pol": "-",
+   "palace": "Tài Bạch",
+   "cond": "Phá Quân, Hao, Không/Kiếp đồng cung",
+   "cite": "TH p.106",
+   "claim": "dễ trắng tay"
+  },
+  "TV_TH_P2_TU_TUC_HIEM_CON": {
+   "class": "sinh_san",
+   "pol": "-",
+   "palace": "Tử Tức",
+   "cond": "Tử Tức gặp Không/Kiếp, Linh/Hỏa và Tuần/Triệt",
+   "cite": "TH p.105",
+   "claim": "số hiếm con dù chính tinh đắc cách"
+  },
+  "TV_TH_STAR_THIEN_DONG_NAM_MV_CAT": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "",
+   "cond": "Thiên Đồng miếu vượng hội cát tinh",
+   "cite": "TH p.94",
+   "claim": "phúc thọ song toàn"
+  },
+  "TV_TH_VERSE_TAI_VU_THAM": {
+   "class": "moc_tuoi",
+   "pol": "+",
+   "palace": "",
+   "cond": "Vũ Khúc đồng cung Tham Lang tại Tài Bạch",
+   "cite": "TH p.105",
+   "claim": "tài lộc bền, thường vững vàng sau khoảng 30 tuổi"
+  },
+  "TV_TL_TAT_ACH_NANG": {
+   "class": "suc_khoe",
+   "pol": "-",
+   "palace": "Tật Ách",
+   "cond": "Sát Phá Tham hoặc Cự Nhật đóng ở Tật Ách mà cha mẹ hiền như Tử Phủ, Tử Tướng, Đồng Lương không đủ sức chống",
+   "cite": "TL p.127",
+   "claim": "dễ gặp tai ách hay bạo bệnh"
+  },
+  "TV_TT_MENH_THAM_VU_MUON": {
+   "class": "moc_tuoi",
+   "pol": "+",
+   "palace": "",
+   "cond": "Tham Lang đi với Vũ Khúc",
+   "cite": "TT p.33",
+   "claim": "công danh có thể rực rỡ nhưng đến muộn, thường ngoài 40 tuổi"
+  },
+  "TV_TT_PAL_PHUC_DUC_LIEM_TRINH_WITH_THIEN_DONG_P": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "",
+   "cond": "Liêm Trinh ở Phúc Đức, đồng cung Thiên Đồng",
+   "cite": "TT pp.83-84",
+   "claim": "vừa phúc vừa thọ"
+  },
+  "TV_TT_PAL_PHUC_DUC_THIEN_TUONG_WITH_THAI_DUONG_P": {
+   "class": "tho_yeu",
+   "pol": "+",
+   "palace": "",
+   "cond": "Thiên Tướng ở Phúc Đức, đồng cung Thái Dương",
+   "cite": "TT pp.83-84",
+   "claim": "phúc thọ song toàn"
+  },
+  "TV_TT_PAL_PHU_THE_LIEM_TRINH_BASE_M": {
+   "class": "hon_nhan_vo",
+   "pol": "-",
+   "palace": "",
+   "cond": "Liêm Trinh ở Phu Thê",
+   "cite": "TT pp.82-83",
+   "claim": "hôn nhân nhiều lần dang dở"
+  },
+  "TV_TT_PAL_PHU_THE_PHA_QUAN_BASE_M": {
+   "class": "hon_nhan_vo",
+   "pol": "-",
+   "palace": "",
+   "cond": "Phá Quân ở Phu Thê",
+   "cite": "TT pp.82-83",
+   "claim": "hôn nhân dễ đổ vỡ"
+  },
+  "TV_TT_PAL_PHU_THE_THAM_LANG_BASE_M": {
+   "class": "hon_nhan_vo",
+   "pol": "-",
+   "palace": "",
+   "cond": "Tham Lang ở Phu Thê",
+   "cite": "TT pp.82-83",
+   "claim": "vợ chồng không đẹp, nhiều lần dang dở; nhập miếu nên lấy muộn"
+  },
+  "TV_TT_PAL_PHU_THE_THAT_SAT_BASE_M": {
+   "class": "hon_nhan_vo",
+   "pol": "-",
+   "palace": "",
+   "cond": "Thất Sát ở Phu Thê",
+   "cite": "TT pp.82-83",
+   "claim": "hôn nhân sớm dang dở"
+  },
+  "TV_TT_PAL_PHU_THE_VU_KHUC_WITH_THAT_SAT_M": {
+   "class": "hon_nhan_vo",
+   "pol": "-",
+   "palace": "",
+   "cond": "Vũ Khúc ở Phu Thê, đồng cung Thất Sát",
+   "cite": "TT pp.82-83",
+   "claim": "hôn nhân nhiều lần dang dở"
+  },
+  "TV_TT_PAL_TAI_BACH_THIEN_CO_SAT_M": {
+   "class": "vat_chat_nang",
+   "pol": "-",
+   "palace": "",
+   "cond": "Thiên Cơ ở Tài Bạch, gặp sát tinh",
+   "cite": "TT pp.80-81",
+   "claim": "vốn dễ phá sản"
+  },
+  "TV_TT_PHU_TU_TUC_TU_VU": {
+   "class": "sinh_san",
+   "pol": "+",
+   "palace": "Tử Tức",
+   "cond": "Tử Vi hội Vũ Khúc ở Tử Tức",
+   "cite": "TT p.157",
+   "claim": "con cái quý hiển, nhiều con trai"
+  }
+ }
+}

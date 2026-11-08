@@ -75,7 +75,7 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   // only checked readings reach the reader: the phổ thông sentences are removed from every prose output (prose/checked.ts)
   type Checkable = Parameters<typeof checkedOnly>[0];
   const out = (mode !== 'prose' ? out0 : 'chapters' in out0 && Array.isArray(out0.chapters)
-    ? { ...out0, chapters: out0.chapters.map(c => checkedOnly(c as Checkable)) } : checkedOnly(out0 as Checkable)) as typeof out0;
+    ? { ...out0, chapters: out0.chapters.map(c => checkedOnly(c as Checkable, facts)) } : checkedOnly(out0 as Checkable, facts)) as typeof out0;
   const text = JSON.stringify(out);
   const pass = 'quality' in out ? out.quality.pass : out.pass;
   d.defer(d.cache.put(key, chapter, text, { engine: mode === 'prose' ? PROSE_VERSION : mode === 'reasoned' ? NARRATIVE_VERSION : ENGINE_VERSION, kb: k.version, pass }));
