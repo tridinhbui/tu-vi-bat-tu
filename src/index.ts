@@ -17,6 +17,8 @@ import { handleBilling, isBillingPath, paywallOn, type BillingEnv } from "./bill
 import { gated as gatedRoute } from "./billing/paywall.ts";
 import { anthropicLlm, CHAT_OPTIONS, DEEP_OPTIONS, llmCheck, type LlmOptions } from "./chat/llm.ts";
 import { handleInterpret } from "./interpret/route.ts";
+import { handleRefinePreview } from "./interpret/refine/preview.ts";
+import { claudeRefineCall } from "./interpret/refine/refine.ts";
 import { handleOverview } from "./interpret/overview.ts";
 import { BundledStore, D1Store, LayeredCache, type D1Like, type R2Like } from "./interpret/store.ts";
 import type { Knowledge } from "./interpret/types.ts";
@@ -116,6 +118,16 @@ export default {
         : { status: 200, body: await llmCheck(o => anthropicLlm(key, o)) };
       if (out.status === 200) console.log(`[llm-check] ${JSON.stringify(out.body)}`);
       return new Response(JSON.stringify(out.body, null, 2), { status: out.status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
+    }
+    // the trial of the model refinement layer (owner decision Q5 2026-11-08): admin only, a few paragraphs per run, nothing reaches readers
+    if (path === "/api/admin/refine-preview") {
+      const user = env.DB ? await currentUser(env.DB, request) : null, key = env.ANTHROPIC_API_KEY;
+      if (!user || !isAdmin(env, user)) return new Response(JSON.stringify({ detail: "admin only" }), { status: 403, headers: { "content-type": "application/json" } });
+      if (!key) return new Response(JSON.stringify({ detail: "ANTHROPIC_API_KEY is not set on this Worker" }), { status: 503, headers: { "content-type": "application/json" } });
+      return handleRefinePreview(request, {
+        facts: birth => getContainer(env.TVBT, "main").fetch(new Request(new URL("/api/facts", request.url), { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(birth) })),
+        knowledge: knowledge as unknown as Knowledge, call: claudeRefineCall(key), allowDraft: env.TVBT_PROSE_DRAFT === "1", luan: env.TVBT_LUAN !== "0",
+      });
     }
     if (isAdminPath(path)) return handleAdmin(request, env, env.DB ? await currentUser(env.DB, request) : null);
     if (isHoraryPath(path)) return handleHorary(request, env.DB);

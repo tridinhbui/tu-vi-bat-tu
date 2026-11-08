@@ -575,7 +575,7 @@ Tệp:
 | Q3 | Bộ tình huống chấm tay | 30 tình huống (A, B, C, mỗi nhóm 10), mỗi tình huống có chứng cứ, kết luận mong đợi, kết luận bị cấm và lý do. Có thêm một tập kiểm định độc lập để chống khớp quá mức. Bộ này không chứng minh khả năng dự đoán | G4.4 |
 | Q4 | Khung xếp hạng vận | 80 tuổi, toàn bộ vận vẫn giữ trong dữ liệu. Tách ba dạng: hiện tại, 20–30 năm tới, toàn đời. Không gọi "nhất" khi chênh nhỏ hoặc khi đổi hạng theo cách chấm | G6.1, INV-9 |
 | Thêm | Bộ test bất biến xuyên báo cáo, cùng tiêu chí nghiệm thu bốn câu hỏi | Nhận | G-INV, mục 2 |
-| Q5 (mở) | Có thêm lớp biên tập văn bằng LLM (G10.7 cách 2) sau lõi tất định không? | Chưa quyết. Cách 1 (luật giọng văn tất định) làm trong mọi trường hợp | G10.7 |
+| Q5 | Có thêm lớp biên tập văn bằng LLM (G10.7 cách 2) không? | 2026-11-08: thử, có kiểm. Chỉ vài chỗ nhỏ, không toàn bộ. Tiết kiệm token hết mức. Cách 1 vẫn làm | G10.7, mục 6 |
 | Thêm | G9 luận tổ hợp (đơn vị luận là cấu hình, có đồ thị và thang 6 cấp), G10 lõi diễn đạt theo mạch lập luận (đoạn 5 lớp, phản biện, kiểm thử phản chứng). Hai lõi tách nhau, không dùng LLM. Chuẩn đoạn luận có ba câu hỏi | Nhận. Thứ tự: G0–G1, rồi G9, rồi G2–G5, rồi G6, rồi G10, rồi G7–G8 | G9, G10, mục 2, mục 5 |
 
 ---
@@ -650,3 +650,19 @@ Thứ tự theo đề xuất bổ sung 2026-11-07: G9 và G10 không xếp sau G
 - Kiểm nguyên nhân ở `luan.ts` / `luan_deep.ts`. INV-2 hiện chỉ kiểm Tổng luận.
 - Phép thử đổi hạng và ngưỡng chênh cho "chặng nhất" (G6.1).
 - G2–G10.
+
+### Lớp biên tập LLM, bản thử — 2026-11-08
+
+Theo quyết định Q5: thử, chỉ vài chỗ nhỏ, tiết kiệm token.
+
+**Mã nguồn** nằm ở `src/interpret/refine/`:
+- `refine.ts`:
+  - `polishScore` / `selectParagraphs` chọn tất định tối đa 6 đoạn đọc máy móc nhất, chỉ ở phần đọc chính, mỗi đoạn có từ 3 đến 8 câu;
+  - một lời gọi cho cả báo cáo, dùng `claude-opus-5-5` ở effort `low`;
+  - lời dặn khoảng 150 từ, đầu vào và đầu ra dạng dòng (`#c.p`, rồi các dòng `0,1| câu`), giới hạn đầu ra 6.000 token.
+- `verify.ts`: bộ kiểm tất định. Đoạn nào trượt thì giữ bản cũ.
+- `preview.ts`: `/api/admin/refine-preview`, chỉ dành cho admin, không cache, không tới người đọc.
+
+**Số đo trên lá của chủ dự án:** máy chọn 2 đoạn, đầu vào khoảng 1.900 ký tự.
+
+**Chưa làm:** chưa chạy với mô hình thật (máy làm việc không có khóa API); chưa đưa lớp này vào báo cáo của người đọc.
