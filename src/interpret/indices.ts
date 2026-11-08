@@ -595,6 +595,8 @@ export interface Indices {
   /** the tiểu hạn school the years and months follow, in words */
   tieu_han_rule: { rule: 'KL' | 'TH'; label: string };
   palaces: PalaceIndex[]; decades: DecadeIndex[]; years: YearIndex[];
+  /** Mệnh (and Thân) bright or dark against the corpus (TH p.118 "Các cách dùng cho đại tiểu hạn"; ±MENH_Z is a system convention) */
+  menh_state: 'sang' | 'toi' | null;
   months: { year: number; basis: string; months: MonthIndex[]; note?: string } | null;
   bazi: BaziStrip | null;
   /** the level cut points the charts draw as bands (norms.cuts) */
@@ -875,7 +877,7 @@ export function computeIndices(chart: ChartInput, k: Knowledge, norms: IndexNorm
 
   return {
     version: INDICES_VERSION, disclaimer: DISCLAIMER, year: Y0, levels: LEVELS, tieu_han_rule: { rule: inp.rule, label: RULE_VI[inp.rule] },
-    palaces: inp.palaces, decades, years, months, bazi: baziStrip(chart, Y0), cuts: norms?.cuts ?? null,
+    palaces: inp.palaces, decades, years, months, menh_state: ms.state, bazi: baziStrip(chart, Y0), cuts: norms?.cuts ?? null,
     norms: norms && { version: norms.version, kbVersion: norms.kbVersion, charts: norms.charts, corpus: norms.corpus },
     radar_note: TAT_ACH_NOTE,
     method: {

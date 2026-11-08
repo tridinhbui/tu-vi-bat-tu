@@ -337,6 +337,8 @@ $('#share-btn').onclick = () => {
 };
 const resMsg = t => { const m = $('#res-msg'); m.textContent = t; m.hidden = !t; };
 $('#hide-birth').onchange = e => document.body.classList.toggle('hide-birth', e.target.checked);
+// on a phone the masthead shows Lưu and Tải PDF; "Thêm" opens the other actions and the hide-birth box (owner review 2026-11-06)
+$('#res-more').onclick = e => { const on = $('.atl-mast').classList.toggle('res-open'); e.currentTarget.setAttribute('aria-expanded', on); e.currentTarget.textContent = on ? 'Thu gọn' : 'Thêm'; };
 $('#png-btn').onclick = async e => {
   const b = e.currentTarget; b.disabled = true; resMsg('Đang dựng ảnh…');
   try { await exportBoardPng(); resMsg(''); } catch (x) { resMsg(x.message); } finally { b.disabled = false; }

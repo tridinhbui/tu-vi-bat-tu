@@ -33,6 +33,9 @@ export interface VanHanLibrary {
   kl_rel: Record<string, string[]>; kl_rel_tone: Record<string, '' | 'pos' | 'neg'>; kl_xung: string[]; kl_nhi_hop: string[]; kl_event: string[];
   tt_lead: string[]; hoa_qk: string[]; kl_stage?: string[]; sum: Record<'good' | 'mixed' | 'hard', string[]>;
   year: { frame: string[]; luu_thai_tue: string[]; luu_hoa: string[]; luu_dai_han?: string[]; level?: string[]; level_why?: Record<string, string>; level_against?: string[] };
+  /** what the period asks for, by its level and the Mệnh state (owner decision 2026-11-07, labelled a system convention): the frames by
+   *  posture, the words for the root ({root}) and for a year rather than a hạn */
+  posture?: Record<'mo_rong' | 'thu_nho' | 'giu_nhip' | 'giu_cho' | 'phong_thu', string[]> & { root: Record<'sang' | 'toi' | 'vua', string> };
   /** the hạn's Hóa Lộc / Hóa Kỵ with KL's meaning of a Hóa in a palace, and the natal link where they land */
   hoa_loc: string[]; hoa_ky: string[]; natal_link: Record<'same' | 'domain', string[]> & Partial<Record<'again' | 'same_decade', string[]>>;
   /** the hạn against the one before it on the system indices (review 2026-10-23: the decades told as one course), and what it touches most */
@@ -131,7 +134,7 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
   const L0 = usable ? (ledger ?? buildLedger(chart, k, infer(chart, k).resolved)) : null;
   const domainAt = (pal: string) => (L0?.domains ?? []).filter(v => v.verdict !== 'chua_du' && v.verdict !== 'khong_ket_luan' && (v.limits[0]?.palace ?? v.supports[0]?.palace ?? null) === pal
     && (!v.part || v.part !== 'kiem' || pal === 'Tài Bạch'));
-  const levels = usable && decades.length ? computeIndices(chart, k, NORMS).decades : [];
+  const idx = usable && decades.length ? computeIndices(chart, k, NORMS) : null, levels = idx?.decades ?? [];
   const curYear = chart.year?.year, luu = usable && curYear ? luuStars(chart, curYear) : {};
   // a domain's natal verdict is told in full once in the chapter; a later hạn touching it names the domain only (review 2026-10-23: no
   // "nơi xem hôn nhân, vốn …" in every decade)
@@ -304,6 +307,9 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       st.trace.step = `level:${lv}`;
       st.trace.note = 'Mức của chặng theo chỉ số hệ thống (thông lệ, xếp theo phân vị của 1.000 lá số mẫu), cùng mức với biểu đồ ở phần Tổng quan.';
       xs.push(st);
+      // childhood (a hạn starting before 13) asks nothing of the person: no posture there
+      const ps = d.age_from >= 13 ? postureLine(L!, m, `${key}|posture`, lv, idx!.menh_state, lvx!.level_vi) : null;
+      if (ps) { const pt = sentence(ps, [], [], 'he_thong', 'answer'); pt.trace.step = `posture:${postureOf(lv, idx!.menh_state)}`; pt.trace.note = POSTURE_NOTE; xs.push(pt); }
     }
     xs.push(...pr.balance.filter(x => (lv ?? 2) < 3 || x.trace.step === 'advice'));
     // one paragraph for where the hạn sits and how it meets the year, one for what happens in it
@@ -331,6 +337,29 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
 
 /** The requested year (chart.year): where the year sits in the đại hạn, its tiểu hạn palace read like a hạn (Khảo Luận pp.230-233, Toàn
  *  Thư nhập hạn ca), the lưu Thái Tuế palace, and the year stem's lưu Tứ Hóa with Khảo Luận's per-star advice (pp.195-197). */
+/** The posture a period asks for (owner decision 2026-11-07: "nên bung sức mở rộng hay co cụm phòng thủ"). Its two inputs are the ones
+ *  Thực Hành p.118 sets side by side for a hạn — the level of the hạn and whether Mệnh (with Thân) is bright or dark — but the five
+ *  postures and their cut points are the system's, labelled as such (POSTURE_NOTE and the reader's "Quy ước" mark): a level of 4 opens
+ *  even a dark Mệnh (TH p.118: a dark root does not lessen a splendid hạn), a 3 on a dark root is tried small, a middle level holds the
+ *  pace, a low level holds and waits, or on a dark root draws in. */
+export type Posture = 'mo_rong' | 'thu_nho' | 'giu_nhip' | 'giu_cho' | 'phong_thu';
+export function postureOf(level: number, menh: 'sang' | 'toi' | null): Posture {
+  if (level >= 4 || (level === 3 && menh !== 'toi')) return 'mo_rong';
+  if (level === 3) return 'thu_nho';
+  if (level === 2) return 'giu_nhip';
+  return menh === 'toi' ? 'phong_thu' : 'giu_cho';
+}
+const POSTURE_NOTE = 'Quy ước của hệ thống: ghép mức của giai đoạn (chỉ số tổng hợp) với độ sáng của Mệnh, Thân so với lá số mẫu — hai yếu tố Thực Hành tr.118 đặt cạnh nhau khi xét hạn — để gợi ý nên mở rộng, giữ nhịp hay phòng thủ. Không phải lời sách, không phải dự báo.';
+function postureLine(L: VanHanLibrary, m: Micro, key: string, level: number, menh: 'sang' | 'toi' | null, levelVi: string, year = false): string | null {
+  const P = L.posture;
+  if (!P) return null;
+  const tpl = P[postureOf(level, menh)];
+  if (!tpl?.length) return null;
+  // a Mệnh of middling brightness does not move the posture: the root is named only when it is bright or dark
+  const t0 = m.pick(key, tpl), text = fill(menh ? t0 : t0.replace(/,\s*(?:nhưng|song|dù|lại thêm)?\s*\{root\}/u, ''), { level: levelVi.toLowerCase(), root: P.root[menh ?? 'vua'] });
+  return year ? text.replace(/chặng này/g, 'năm này').replace(/Chặng này/g, 'Năm này').replace(/mười năm này/g, 'năm này') : text;
+}
+
 function yearParagraphs(chart: ChartInput, k: Knowledge, L: VanHanLibrary, m: Micro, S: () => string,
   sentence: (text: string, ids: string[], cites: string[], basis?: ProseSentence['trace']['basis'], tone?: 'pos' | 'neg' | 'answer') => ProseSentence,
   dom: (pal: string) => string): ProseParagraph[] {
@@ -361,6 +390,8 @@ function yearParagraphs(chart: ChartInput, k: Knowledge, L: VanHanLibrary, m: Mi
     st.trace.step = `year:level:${yi.level}`;
     st.trace.note = 'Mức của năm theo chỉ số tổng hợp của hệ thống, cùng mức với biểu đồ tiểu vận ở phần Tổng quan; lớp nặng nhất được nêu.';
     xs.push(st);
+    const ms = computeIndices(chart, k, NORMS).menh_state, ps = postureLine(L, m, `${key}|posture`, yi.level, ms, yi.level_vi, true);
+    if (ps) { const pt = sentence(ps, [], [], 'he_thong', 'answer'); pt.trace.step = `posture:${postureOf(yi.level, ms)}`; pt.trace.note = POSTURE_NOTE; xs.push(pt); }
   }
   if (y.luu_thai_tue_palace) xs.push(sentence(fill(m.pick(`${key}|ltt`, L.year.luu_thai_tue), { pal: y.luu_thai_tue_palace, dom: dom(y.luu_thai_tue_palace) }), [], [], 'pho_thong'));
   for (const r of y.luu_tu_hoa_reading ?? []) {

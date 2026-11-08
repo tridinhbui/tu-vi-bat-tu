@@ -635,6 +635,7 @@ body.hour-mode #print-btn,body.hour-mode #print-full-btn{display:none}
 /* owner review 2026-11-06: long paragraphs shown as short runs (report.js prRuns), the outcome of a reading underlined lightly, a "Tóm lại"
    line of the chapter's verdicts on top */
 .prose .pr-p-cont{margin-top:-4px}
+.prose .pr-conv{font:600 .68rem var(--sans);padding:1px 6px;margin-right:2px;vertical-align:1px;border-radius:99px;border:1px solid;letter-spacing:.02em}
 .prose .pr-key{font-weight:600;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--gold) 45%,transparent);text-decoration-thickness:2px;text-underline-offset:3px}
 .pr-sum{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin:0 0 14px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--gold) 6%,transparent);font:500 .9rem var(--sans)}
 .pr-sum-t{font-weight:700;color:var(--cinnabar);text-transform:uppercase;letter-spacing:.04em;font-size:.75rem}

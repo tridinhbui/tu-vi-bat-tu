@@ -75,6 +75,8 @@ const prSentence = (s, lead) => lead && s.text.startsWith(lead) ? `<strong class
  *  before a sentence that starts a new move (a turn, another palace's word, a new claim, the advice) once the run has ~35 words, or before
  *  any sentence once it has ~60; a behaviour or illustration line stays with the sentence it explains. Returns runs of sentence indexes. */
 const prWords = t => t.split(/\s+/).length;
+/** sentences told by a system convention rather than a book (the posture of a hạn, owner decision 2026-11-07) carry a visible mark */
+const PR_CONV = /^posture:/;
 function prRuns(sentences) {
   const runs = [[]];
   let n = 0;
@@ -103,7 +105,7 @@ const prFeedback = i => `<div class="pr-fb" data-p="${i}" role="group" aria-labe
 function proseHtml(p, { skip = null, only = null, title: title0 = null } = {}) {
   if (!p?.paragraphs?.length) return '';
   const title = title0 ? esc(title0) : p.title ? esc(p.title) : p.chapter === 'van_han' ? 'Luận giải các đại hạn' : String(p.chapter).startsWith('bat_tu') ? 'Luận giải Bát Tự' : `Luận giải cung ${esc(p.palace || 'Mệnh')}`;
-  const block = (para, i) => `<div class="pr-block${para.paid ? ' pw-paid' : ''}"${para.part ? ` data-part="${para.part}"` : ''}>${para.deep && para.title ? `<h5 class="pr-deep-t">${esc(para.title)}</h5>` : ''}${prRuns(para.sentences).map((run, r) => `<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead && !r ? ' pr-p-lead' : ''}${r ? ' pr-p-cont' : ''}">${run.map(j => { const s = para.sentences[j]; return `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}${s.trace.basis === 'minh_hoa' ? ' pr-mh' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${prSentence(s, j === 0 ? para.lead : null)}</span>`; }).join(' ')}</p>`).join('')}${prFeedback(i)}</div>`;
+  const block = (para, i) => `<div class="pr-block${para.paid ? ' pw-paid' : ''}"${para.part ? ` data-part="${para.part}"` : ''}>${para.deep && para.title ? `<h5 class="pr-deep-t">${esc(para.title)}</h5>` : ''}${prRuns(para.sentences).map((run, r) => `<p class="sy-p pr-p${para.role === 'colour' ? ' pr-p-pt' : ''}${para.lead && !r ? ' pr-p-lead' : ''}${r ? ' pr-p-cont' : ''}">${run.map(j => { const s = para.sentences[j]; return `<span class="sy-s pr-s${s.trace.basis === 'pho_thong' ? ' pr-pt' : ''}${s.trace.basis === 'minh_hoa' ? ' pr-mh' : ''}" data-pr="${i}.${j}" tabindex="0" role="button" aria-expanded="false">${PR_CONV.test(s.trace.step || '') ? '<span class="an-b an-he_thong pr-conv" title="Gợi ý theo quy ước của hệ thống, không phải lời sách">Quy ước</span> ' : ''}${prSentence(s, j === 0 ? para.lead : null)}</span>`; }).join(' ')}</p>`).join('')}${prFeedback(i)}</div>`;
   // Tử Vi luận cung: the short reading first; the deep reading (prose/luan_deep.ts, paragraphs marked deep) folds under "Đọc sâu", closed
   const items = p.paragraphs.map((para, i) => ({ para, i })).filter(x => !(skip && skip(x.para)) && (!only || only(x.para)));
   if (!items.length) return '';

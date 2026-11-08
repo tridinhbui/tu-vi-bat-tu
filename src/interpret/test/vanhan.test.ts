@@ -35,7 +35,7 @@ test('worked example: golden text, ages straight from chart.decades, every sente
     if (s.trace.basis === 'sach') assert.ok(s.trace.rules.length && s.trace.cites.length, s.text);
     // the system's own sentences (S1): a hạn's Hóa under the convention of the hạn stem, its natal link, its level on the indices, its trend
     // against the previous hạn and what it touches most (review 2026-10-23); each says why
-    else if (s.trace.basis === 'he_thong') assert.ok(/^(hoa|natal|level|trend|year):|^focus$/.test(s.trace.step ?? ''), s.text);
+    else if (s.trace.basis === 'he_thong') assert.ok(/^(hoa|natal|level|trend|year|posture):|^focus$/.test(s.trace.step ?? ''), s.text);
     else assert.ok(['tinh_toan', 'pho_thong'].includes(s.trace.basis), s.text);
     for (const id of s.trace.rules) assert.ok(o.evidence.rules[id]?.cites.length, id);
   }

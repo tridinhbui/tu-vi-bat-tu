@@ -16,6 +16,13 @@ const CHAPTERS = [['menh', 'Mệnh, Thân và tính cách'], ['cong_danh', 'Côn
 const OFF = 'Bát Bát chưa được bật trên máy chủ. Lượt này không bị tính.';
 const LOST = 'Không kết nối được. Bạn thử lại nhé.';
 const chip = w => `${w.free.remaining} câu miễn phí hôm nay · ${Number(w.coins).toLocaleString('vi-VN')} xu`;
+/** above the box: the free questions left today, and what a question costs once they are used (free ones go first, then coins: chat/route.ts) */
+const quotaLine = w => {
+  const n = w.free.remaining, c = w.costs?.chat, xu = Number(w.coins).toLocaleString('vi-VN');
+  if (n > 1) return `Còn ${n} câu miễn phí hôm nay.`;
+  if (n === 1) return c ? `Còn 1 câu miễn phí hôm nay; sau đó mỗi câu ${c} xu (bạn có ${xu} xu).` : 'Còn 1 câu miễn phí hôm nay.';
+  return c ? `Đã hết câu miễn phí hôm nay: câu tiếp theo trừ ${c} xu (bạn có ${xu} xu).` : '';
+};
 const G_ICON = '<svg viewBox="0 0 18 18" width="16" height="16" aria-hidden="true"><path fill="#4285F4" d="M17.6 9.2c0-.6-.1-1.2-.2-1.7H9v3.3h4.8a4.1 4.1 0 0 1-1.8 2.7v2.2h2.9c1.7-1.6 2.7-3.9 2.7-6.5z"/><path fill="#34A853" d="M9 18c2.4 0 4.5-.8 6-2.2l-2.9-2.2c-.8.5-1.8.9-3.1.9-2.4 0-4.4-1.6-5.1-3.8H.9v2.3A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.9 10.7a5.4 5.4 0 0 1 0-3.4V5H.9a9 9 0 0 0 0 8z"/><path fill="#EA4335" d="M9 3.6c1.3 0 2.5.5 3.4 1.3l2.6-2.6A9 9 0 0 0 .9 5l3 2.3C4.6 5.2 6.6 3.6 9 3.6z"/></svg>';
 
 let getChart = () => null, ui = null;
@@ -40,6 +47,7 @@ function mount() {
       <div class="ask-deep" hidden><select aria-label="Chương muốn viết Luận riêng">${CHAPTERS.map(([id, t]) => `<option value="${id}">${t}</option>`).join('')}</select><button type="button" class="btn btn-sm btn-ghost">Luận riêng · 20 xu</button></div>
       <div class="ask-log" aria-live="polite"></div>
       <div class="ask-note" hidden></div>
+      <p class="ask-quota" hidden></p>
       <form class="ask-form"><label class="ask-sr" for="ask-ta">Câu hỏi</label><textarea id="ask-ta" rows="1" maxlength="1500" placeholder="Hỏi Bát Bát…" disabled></textarea><button class="btn btn-sm" type="submit" disabled>Gửi</button></form>
       <p class="ask-fine"></p>
     </section>`;
@@ -47,7 +55,7 @@ function mount() {
   document.documentElement.classList.add('has-ask');                 // feedback.js then hides its own bubble: one floating button per page
   const $ = s => root.querySelector(s);
   const fab = $('.ask-fab'), panel = $('.ask-panel'), log = $('.ask-log'), note = $('.ask-note'), form = $('.ask-form'), ta = $('textarea'), send = $('.ask-form .btn'),
-    leftEl = $('.ask-left'), buy = $('.ask-buy'), ctx = $('.ask-ctx'), picker = $('#ask-pick'), deepRow = $('.ask-deep'), deepBtn = $('.ask-deep .btn'), deepSel = $('.ask-deep select'), fine = $('.ask-fine');
+    leftEl = $('.ask-left'), quota = $('.ask-quota'), buy = $('.ask-buy'), ctx = $('.ask-ctx'), picker = $('#ask-pick'), deepRow = $('.ask-deep'), deepBtn = $('.ask-deep .btn'), deepSel = $('.ask-deep select'), fine = $('.ask-fine');
 
   let me = null, wallet = null, saved = null, busy = false, loaded = false, history = [], sel = 'general', chosen = false, convKey = '', screenKey = null;
 
@@ -108,6 +116,9 @@ function mount() {
     ta.disabled = send.disabled = busy || !me?.user;
     deepBtn.disabled = deepSel.disabled = busy || !me?.user;
     leftEl.textContent = me?.user && wallet ? chip(wallet) : '';
+    // what the next question costs, said above the box before it is typed (owner review 2026-11-06: no surprise top-up prompt)
+    const q = me?.user && wallet && !me?.admin && !locked() ? quotaLine(wallet) : '';
+    quota.textContent = q; quota.hidden = !q;
     if (wallet) deepBtn.textContent = me?.admin ? `Luận riêng · admin, ${wallet.costs.deep} xu khi bán` : `Luận riêng · ${wallet.costs.deep} xu`;
     buy.hidden = !me?.user;
     if (guest) {

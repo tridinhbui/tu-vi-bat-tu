@@ -528,6 +528,33 @@
   "Điều đã nói ở chặng {span} về các sao ấy cũng áp vào chặng này",
   "Như ở chặng {span}, thế sao này lại cho cùng một lời đoán"
  ],
+ "posture": {
+  "mo_rong": [
+   "Chặng này hợp để mở rộng, nhận việc lớn hơn: mức chung {level}, {root}",
+   "Đây là lúc nên dồn sức mở rộng, vì mức chung {level}, {root}"
+  ],
+  "thu_nho": [
+   "Chặng này hợp để thử từng bước nhỏ, có giới hạn, rồi mới mở rộng: mức chung {level}, nhưng {root}",
+   "Nên đi từng bước nhỏ trong chặng này, thấy chắc mới mở rộng: mức chung {level}, song {root}"
+  ],
+  "giu_nhip": [
+   "Chặng này hợp để giữ nhịp, làm chắc việc đang có hơn là mở mới: mức chung {level}, {root}",
+   "Nên giữ nhịp trong chặng này, củng cố cái đã có trước khi mở thêm: mức chung {level}, {root}"
+  ],
+  "giu_cho": [
+   "Chặng này nên giữ những gì đã có và chờ thời, chưa phải lúc mở rộng: mức chung {level}, dù {root}",
+   "Nên giữ vững và chờ thời trong chặng này: mức chung {level}, dù {root}"
+  ],
+  "phong_thu": [
+   "Chặng này nên co lại phòng thủ: tránh việc lớn, giữ nguồn lực và sức khỏe: mức chung {level}, lại thêm {root}",
+   "Nên phòng thủ trong chặng này, hạn chế cam kết lớn: mức chung {level}, lại thêm {root}"
+  ],
+  "root": {
+   "sang": "Mệnh vốn sáng",
+   "toi": "Mệnh vốn kém sáng",
+   "vua": "Mệnh ở mức vừa"
+  }
+ },
  "level_again": [
   "Mức chung của chặng này ngang với chặng {span}",
   "Xét chung, mười năm này cùng mức với chặng {span}"

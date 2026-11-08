@@ -22,6 +22,10 @@
 .atl-mast .res-hl{margin:0;gap:8px}
 .hl-chip{font-size:.98rem;padding:4px 14px}
 .atl-mast .res-act{align-items:center;justify-content:flex-end}.atl-side{min-width:0}   /* the title keeps its width; a long button row wraps instead of squeezing it */
+/* phones: Lưu and Tải PDF stay; "Thêm" opens the rest (owner review 2026-11-06: the row ran to two lines and a checkbox) */
+.res-more{display:none}
+@media(max-width:600px){.atl-mast .res-more{display:inline-flex}
+  .atl-mast:not(.res-open) :is(#again,#png-btn,#share-btn,#print-full-btn,#hide-birth-wrap){display:none}}
 .res-nav{background:color-mix(in srgb,var(--ivory) 94%,transparent);border-bottom:1px solid var(--hair)}
 .res-tabs>button[role=tab]{display:inline-flex;align-items:baseline;gap:8px;font:500 1.02rem var(--serif);padding:13px 20px 12px}
 .res-tabs>button[role=tab] i{font:400 .95rem var(--han);font-style:normal;color:var(--brass-d);opacity:.9}
