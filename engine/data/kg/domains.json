@@ -33,7 +33,10 @@
   "tuan_triet": 0.15,
   "per_extra": 0.08,
   "max_extra": 0.24,
-  "margin": 0.2
+  "margin": 0.2,
+  "config_pos": 2.5,
+  "config_neg": 1.5,
+  "config_note": "G4 (plan THIEN-BAN-33, 2026-11-08): khi hai mặt vẫn ngang sau thang cân trên, cấu hình của cung chính (reason/configuration.ts: sao chủ, biến tính, trợ lực, trừ, Tuần/Triệt theo thứ tự cố định) quyết định chiều nghiêng nếu sức của nó từ config_pos trở lên (thuận) hay từ config_neg trở xuống (khó); cách điểm giữa 2 dưới 0,75 bậc thì gọi là nghiêng nhẹ; ở giữa thì giữ 'chưa phân xử' và nêu đại hạn có thể làm cán cân nghiêng. Lý do 'nhiều chỗ đứng hơn' không bao giờ đứng một mình. Quy ước có nhãn, không phải lời sách."
  },
  "domains": {
   "cong_danh": {

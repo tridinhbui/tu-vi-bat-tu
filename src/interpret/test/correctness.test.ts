@@ -67,7 +67,10 @@ test('4: no corroboration or counter-evidence from or to a palace of other peopl
 test('5: two sides with no book relation are named and left unresolved; a timing reading never ties them', () => {
   const { resolved } = infer(REF, K);
   const L = buildLedger(REF, K, resolved);
-  assert.equal(L.domains.find(v => v.id === 'cong_danh')!.verdict, 'chua_phan_xu');
+  // công danh: no book sentence adjudicates the two sides and the scale finds no clear difference; since G4 (owner review 2026-11-07) the core
+  // configuration decides it when it leans clearly, the reason naming its leading member and its main reducer (both sides still named)
+  const cd = L.domains.find(v => v.id === 'cong_danh')!;
+  assert.ok(cd.verdict === 'chua_phan_xu' || (cd.verdict === 'nghieng_ve' && cd.weigh!.why[0].kind === 'config' && !!cd.weigh!.why[0].star && !!cd.weigh!.why[0].other), cd.verdict);
   // hôn nhân: Thái Âm vượng (chính tinh) against Đà La — the system's scale weighs the sides (owner decision 2026-10-23), naming why
   const hn = L.domains.find(v => v.id === 'hon_nhan')!;
   assert.ok(['chua_phan_xu', 'hai_mat', 'nghieng_ve'].includes(hn.verdict));
@@ -78,9 +81,10 @@ test('5: two sides with no book relation are named and left unresolved; a timing
     for (const c of text(f)) for (const p of c.paragraphs) for (const s of p.sentences)
       assert.ok(!/điều nối hai mặt|nối với nhau ở chỗ|hai mặt ấy gặp nhau ở chỗ/.test(s.text), s.text);
   }
-  const menh = text(REF).find(c => c.chapter === 'menh')!.paragraphs.flatMap(p => p.sentences).find(s => s.trace.ledger?.domain === 'cong_danh' && s.trace.step?.endsWith(':chua_phan_xu'))!;
-  // the positive side is named by its leading reading: since Hàm Số (Thiên Việt ở Quan Lộc, HS p.210) that may be danh tiếng
-  assert.ok(/thuận lợi trong công việc|danh tiếng/.test(menh.text) && /trở ngại trong công việc/.test(menh.text) && /chưa (có lời sách nào )?phân xử|chưa có phân xử|chưa phân xử được/.test(menh.text), menh.text);
+  const menh = text(REF).find(c => c.chapter === 'menh')!.paragraphs.flatMap(p => p.sentences).find(s => s.trace.ledger?.domain === 'cong_danh' && /:(chua_phan_xu|weighed)$/.test(s.trace.step ?? ''))!;
+  // both sides are named, the positive by its leading reading (since Hàm Số, Thiên Việt ở Quan Lộc, HS p.210, that may be danh tiếng or the
+  // support of others)
+  assert.ok(/thuận lợi trong công việc|danh tiếng|người hỗ trợ/.test(menh.text) && /trở ngại trong công việc/.test(menh.text), menh.text);
 });
 
 test('9: advice is "lời khuyên chung"; every behaviour / illustration line is minh họa tied to one claim of its paragraph', () => {

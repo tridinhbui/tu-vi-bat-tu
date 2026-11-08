@@ -692,3 +692,18 @@ Theo quyết định Q5: thử, chỉ vài chỗ nhỏ, tiết kiệm token.
 - `configurations.json`: mẫu cấu hình theo cách cục và bố cục KL. Bản 1 dựng cấu hình theo cung, chưa theo mẫu có tên.
 - Cấu hình cấp 5 nối Mệnh, Tài, Quan thành một đơn vị riêng.
 - Lời luận chưa đọc bản phân tích. Việc đó thuộc G4 (giải xung đột chạy trên cấu hình) và G10 (diễn đạt).
+
+### G4 bản 1 — 2026-11-08
+
+**Đã làm**
+
+- **Cân theo cấu hình** (`ledger.ts configWeigh`). Khi hai mặt đối đầu, không có câu sách phân xử và thang cân cũ không thấy bên nào nặng hơn rõ, cấu hình của cung chính quyết định chiều nghiêng. Ngưỡng ở `domains.json`: sức ≥ 2,5 nghiêng thuận, ≤ 1,5 nghiêng khó. Cách điểm giữa dưới 0,75 bậc thì nói là "chỉ nghiêng nhẹ". Lý do nêu tên yếu tố dẫn và yếu tố làm giảm chính.
+- **G4.2.** Lời cân mà lý do duy nhất là "nhiều chỗ đứng hơn" không còn được tính.
+- **G4.3.** Miền vẫn ngang thì câu kết nêu đại hạn gần nhất (từ chặng hiện tại, trước 80 tuổi) chạm vào sao của tổ hợp. Miền nghiêng nhờ cấu hình thì có thêm câu "đó mới là chiều nghiêng chung của tổ hợp…" kèm chặng sẽ thử nó.
+- **Nền của mỗi mặt.** Mặt khó không còn được gán nguyên nhân cho Hóa tốt hay cát tinh, mặt thuận không còn được gán cho sát tinh hay Hóa Kỵ. Ví dụ: "trở ngại trong công việc đến từ Kình Dương ở cung Mệnh", thay cho "…Hóa Lộc, Hóa Khoa và Hóa Quyền".
+- **Số đo trên 300 lá** (`tools/interpret/eval_verdicts.ts`): "chưa phân xử" giảm từ 21,5% xuống 10,3% (đích ≤ 10%). Trường hợp cân chỉ nhờ đếm chỗ đứng giảm từ 101 xuống 0.
+- **G4.4.** Đã có khung: `tools/interpret/make_gold_cases.ts` sinh 30 tình huống A/B/C và 15 tình huống kiểm định độc lập (các lá khác) ở `fixtures/gold/`, cùng phiếu chấm `docs/gold/PHIEU-CHAM.md`.
+
+**Chưa làm**
+- Chủ dự án chấm phiếu, rồi mới chỉnh trọng số và ngưỡng theo phiếu. Tập kiểm định chấm trước, không mở trong lúc chỉnh.
+- Câu kết đủ bốn phần cho mọi miền (G4.5). Mới có yếu tố dẫn, yếu tố làm giảm và chặng thử; "điều chưa biết" chỉ có trong bản phân tích, chưa vào lời luận.

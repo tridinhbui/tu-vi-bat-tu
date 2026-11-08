@@ -17,6 +17,7 @@ import { Geo, rarity, seatOf, type SeatRef } from './tiers.ts';
 import { guardHolds } from './positions.ts';
 import { palaceEvidence, TIMING_FACET, type Element, type PalaceEvidence } from './evidence.ts';
 import { isGrave } from '../prose/severity.ts';
+import { configurationOf, strengthWord } from './configuration.ts';
 
 export const LEDGER_VERSION = 'ledger-1.1.0';
 /** thuan / tro_ngai: one side, nothing in the way; co_dieu_kien: one side with a concrete, sourced or structural condition, or a book relation
@@ -57,15 +58,21 @@ export interface DomainVerdict {
   facets: string[];
   /** nghieng_ve: the weighing of the two sides (domains.json `weigh`, a labelled system convention) and why the heavier side weighs more */
   weigh?: Weighing;
+  /** chưa phân xử: the đại hạn that touch the core configuration's members, the first before 80 tuổi from the current one (G4.3) */
+  tips?: Array<{ age_from: number; age_to: number; what: string }>;
 }
 /** why one side of a two-sided domain weighs more: its reading rests on a chính tinh against a minor star, on a bright star against a hãm
  *  one, on more independent stars, or stands in the domain's own palace against a palace of its tam phương */
-export interface WeighReason { kind: 'tier' | 'dignity' | 'count' | 'core' | 'tuan_triet'; star?: string; other?: string; dignity?: string; palace?: string; n?: number }
+export interface WeighReason { kind: 'tier' | 'dignity' | 'count' | 'core' | 'tuan_triet' | 'config'; star?: string; other?: string; dignity?: string; palace?: string; n?: number;
+  /** config: the configuration's strength word and the ordered steps that made it (reason/configuration.ts) */
+  strength?: string; steps?: string[] }
 export interface Weighing { pos: number; neg: number; heavy: LedgerItem; light: LedgerItem; why: WeighReason[] }
 export interface Ledger { version: string; domains: DomainVerdict[]; byChapter: Record<string, DomainVerdict[]> }
 
 /** domains.json `weigh`: the system's scale for two sides no book sentence adjudicates (owner decision 2026-10-23, labelled tổng hợp) */
-interface WeighDef { tier: Record<string, number>; role: Record<string, number>; bright: number; ham: number; tuan_triet: number; per_extra: number; max_extra: number; margin: number }
+interface WeighDef { tier: Record<string, number>; role: Record<string, number>; bright: number; ham: number; tuan_triet: number; per_extra: number; max_extra: number; margin: number;
+  /** G4: the core palace's configuration strength that decides a still-even domain (configuration.ts), above / below */
+  config_pos?: number; config_neg?: number }
 interface DomainDef { label: string; home?: string;
   /** false: the domain gets no good / bad verdict at all (health, audit 2026-10-22); only its book readings are told */
   verdict?: boolean; palaces?: Record<string, string>; facets?: string[]; elements?: string[]; than?: boolean; cite?: string; chapters: string[];
@@ -171,7 +178,7 @@ function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, liv
   const best = (xs: LedgerItem[]) => [...xs].sort((a, b) => Number(!!a.grave) - Number(!!b.grave) || a.seat.tier - b.seat.tier || b.rarity - a.rarity || (a.ruleId < b.ruleId ? -1 : 1))[0];
   const indep = (xs: LedgerItem[]) => new Set(xs.map(x => `${x.palace}|${x.seat.id}`)).size;
   const strong = (xs: LedgerItem[]) => xs.some(x => x.seat.tier <= 3) || indep(xs) >= 2;
-  let verdict: Verdict, base: '+' | '-' | null = null, link: Link | undefined, weigh: Weighing | undefined;
+  let verdict: Verdict, base: '+' | '-' | null = null, link: Link | undefined, weigh: Weighing | undefined, tips: DomainVerdict['tips'];
   const slink = (): Link => ({ kind: 'structure', elements: limits.map(elementName) });
   // timing is its own dimension: it is told as such, never the condition of a quality verdict nor the link between two qualities
   if (noVerdict) {
@@ -205,14 +212,20 @@ function decide(chart: ChartInput, k: Knowledge, cmap: Map<string, Concept>, liv
       link = { kind: 'unresolved', ruleId: bp.ruleId, target: bn.ruleId };
       // two sides head-on: the system's scale (domains.json weigh) may find one clearly heavier; the verdict then says which and why, both
       // sides still named (owner decision 2026-10-23: a labelled tổng hợp, never a book adjudication). A close call stays chua_phan_xu.
-      const w = oppose && W ? weighSides(chart, W, palaces, evOf, pos, neg) : undefined;
+      let w = oppose && W ? weighSides(chart, W, palaces, evOf, pos, neg) : undefined;
+      // more seats alone never decides (G4.2): a weighing whose only reason is the count is not one
+      if (w && w.why.every(x => x.kind === 'count')) w = undefined;
+      // still even: the core palace's configuration decides when it leans clearly (G4.1, domains.json config_pos / config_neg)
+      if (!w && oppose && W?.config_pos !== undefined && core[0]) w = configWeigh(chart, k, live, core[0], W, pos, neg);
       if (w) { verdict = 'nghieng_ve'; base = w.pos > w.neg ? '+' : '-'; weigh = w; link = { kind: 'weigh', ruleId: w.heavy.ruleId, target: w.light.ruleId }; }
+      // the chặng that may tip an even domain, or test a lean the configuration decided (G4.3)
+      if (oppose && core[0] && (!w || w.why[0]?.kind === 'config')) tips = tipsOf(chart, k, live, core[0]);
     }
   }
   if (link) chain.push({ type: link.kind === 'book' || link.kind === 'mitigation' ? 'link' : 'precedence', ruleId: link.ruleId, basis: link.kind === 'book' || link.kind === 'mitigation' ? 'sach' : 'he_thong',
     note: link.kind === 'structure' ? `yếu tố hạn chế: ${link.elements!.join(', ')}` : link.kind === 'weigh' ? `cân hai mặt: thuận ${weigh!.pos.toFixed(2)}, khó ${weigh!.neg.toFixed(2)} (${weigh!.why.map(x => x.kind).join(', ')})` : link.kind });
   chain.push({ type: 'verdict', basis: 'he_thong', note: `${verdict}${base ? ` (${base})` : ''}` });
-  return { id: part ? `${id}.${part}` : id, ...(part ? { part } : {}), label, verdict, base, pos, neg, timing, mixed, mitig, limits, supports, ...(link ? { link } : {}), ...(weigh ? { weigh } : {}), chain, chapters, facets };
+  return { id: part ? `${id}.${part}` : id, ...(part ? { part } : {}), label, verdict, base, pos, neg, timing, mixed, mitig, limits, supports, ...(link ? { link } : {}), ...(weigh ? { weigh } : {}), ...(tips?.length ? { tips } : {}), chain, chapters, facets };
 }
 
 const BRIGHT = new Set(['miếu', 'vượng', 'đắc']);
@@ -254,6 +267,31 @@ function weighSides(chart: ChartInput, W: WeighDef, palaces: Record<string, stri
   // a difference with no reason the reader can be told is not told as one
   if (!why.length) return undefined;
   return { pos: +P.w.toFixed(3), neg: +N.w.toFixed(3), heavy: h, light: l, why };
+}
+
+/** G4.1: the core palace's configuration decides a domain the scale left even, when its ordered strength leans clearly. The heavier
+ *  side's reading is the one standing on the configuration's dominant member; the reason names that member and the main reducer. */
+function configWeigh(chart: ChartInput, k: Knowledge, live: Resolved[], P: string, W: WeighDef, pos: LedgerItem[], neg: LedgerItem[]): Weighing | undefined {
+  const c = configurationOf(chart, k, P, live);
+  if (c.state === 'chua_du') return undefined;
+  const up = c.strength >= W.config_pos!, down = c.strength <= (W.config_neg ?? 0);
+  if (!up && !down) return undefined;
+  const lead = up ? [...c.members.filter(m => m.role === 'bien_tinh' && m.dignity !== 'hãm'), ...c.core, ...c.members.filter(m => m.role === 'tro_luc')]
+    : [...c.members.filter(m => m.role === 'pha'), ...c.members.filter(m => m.role === 'tru' && m.where === 'self'), ...c.members.filter(m => m.role === 'tru')];
+  const other = up ? c.members.filter(m => m.role === 'tru' || m.role === 'pha') : [...c.members.filter(m => m.role === 'bien_tinh'), ...c.core];
+  const heavySide = up ? pos : neg, lightSide = up ? neg : pos;
+  const on = (xs: LedgerItem[], names: string[]) => xs.find(x => x.stars.some(s => names.some(n => n.startsWith(s)))) ?? [...xs].sort((a, b) => a.seat.tier - b.seat.tier)[0];
+  const heavy = on(heavySide, lead.map(m => m.name)), light = on(lightSide, other.map(m => m.name));
+  if (!heavy || !light) return undefined;
+  return { pos: up ? c.strength : 0, neg: up ? 0 : 4 - c.strength, heavy, light,
+    why: [{ kind: 'config', star: lead[0]?.name, other: other[0]?.name, palace: P, strength: strengthWord(c.strength), steps: c.steps.map(s => s.note) }] };
+}
+
+/** G4.3: what may tip a domain that stays even — the đại hạn from the current one on (before 80) that touch the core configuration's members. */
+function tipsOf(chart: ChartInput, k: Knowledge, live: Resolved[], P: string): DomainVerdict['tips'] {
+  const c = configurationOf(chart, k, P, live);
+  const age = (chart.year as { age_tuoi_mu?: number } | undefined)?.age_tuoi_mu ?? 0;
+  return c.activation.filter(a => a.age_to >= age && a.age_from < 80 && a.members.length).slice(0, 2).map(a => ({ age_from: a.age_from, age_to: a.age_to, what: a.what }));
 }
 
 /** The ledger as plain JSON for the API and the evidence panel. */

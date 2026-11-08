@@ -24,7 +24,7 @@ const rmap = new Map(K.rules.map(r => [r.id, r]));
 const isLuan = (c: { luan?: boolean }): c is LuanChapter => !!c.luan;
 
 test('luan.json: no frame uses meta-language or an absolute, every slot is one the writer fills', () => {
-  const SLOTS = new Set(['pal', 'trig', 'branch', 'majors', 'star', 'from', 'stars', 'tt', 'a', 'b', 'group', 'note', 'S', 'mature', 'seat', 'config', 'domain', 'claim', 'text',
+  const SLOTS = new Set(['pal', 'trig', 'lean', 'strength', 'what', 'branch', 'majors', 'star', 'from', 'stars', 'tt', 'a', 'b', 'group', 'note', 'S', 'mature', 'seat', 'config', 'domain', 'claim', 'text',
     'pair', 'left', 'right', 'other', 'opal', 'neg', 'pos', 'list', 'age', 'young', 'np', 'late',
     // the ledger conclusion, the confronted limits, the one-star caveat (S1)
     'domain', 'verdict', 'link', 'ground', 'limits', 'palace', 'supports', 'mitig', 'el',
@@ -213,7 +213,8 @@ test('a domain is worded by its own verdict in every chapter: "hai mặt" never 
     const xs = luanReport(f, K, { allowDraft: true, deep: true }).flatMap(c => c.paragraphs.flatMap(p => p.sentences));
     for (const s of xs) if (s.trace.ledger?.verdict === 'hai_mat' && /:chua_phan_xu$/.test(s.trace.step ?? '')) bad.push(`#${i}: ${s.text}`);
     const unresolved = new Set(xs.filter(s => /:chua_phan_xu$/.test(s.trace.step ?? '')).map(s => s.trace.ledger!.domain));
-    for (const d of unresolved) if (!xs.some(s => s.trace.step === `ledger:${d}:missing`)) bad.push(`#${i}: ${d} chưa phân xử without what is missing`);
+    // what is missing: the đại hạn through the core palace, or (G4.3) the nearest ones touching the core configuration's members
+    for (const d of unresolved) if (!xs.some(s => s.trace.step === `ledger:${d}:missing` || s.trace.step === `ledger:${d}:tips`)) bad.push(`#${i}: ${d} chưa phân xử without what is missing`);
   });
   assert.deepEqual(bad, []);
 });

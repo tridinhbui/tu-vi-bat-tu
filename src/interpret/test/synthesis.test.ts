@@ -94,7 +94,11 @@ test('2002 Phu Thê: Cơ–Âm vượng, Văn Xương hóa Kỵ, Đà La and Tu�
   assert.ok(end.length && end.every(s => ['nghieng_ve', 'chua_phan_xu'].includes(s.trace.ledger!.verdict)), end.map(s => s.text).join(' | '));
   assert.ok(end.some(s => /sự hòa hợp/.test(s.text) && /sự trắc trở/.test(s.text)), 'both sides named');
   if (end.some(s => s.trace.ledger!.verdict === 'nghieng_ve')) assert.ok(end.some(s => s.trace.step === 'ledger:hon_nhan:weigh'), 'the reason the heavier side weighs more');
-  assert.ok(end.some(s => /Đà La/.test(s.text) && /Tuần/.test(s.text)), 'the limits of the palace are named with the conclusion');
+  // the limits of the palace are named with the conclusion; when the configuration leans to the hard side (G4, 2026-11-08) they are that
+  // side's own ground, and Tuần stays faced in the reading paragraphs above
+  const leansHard = end.some(s => s.trace.ledger!.verdict === 'nghieng_ve' && s.trace.ledger!.base === '-');
+  if (leansHard) assert.ok(end.some(s => /Đà La/.test(s.text)), 'the hard side is named by its limit');
+  else assert.ok(end.some(s => /Đà La/.test(s.text) && /Tuần/.test(s.text)), 'the limits of the palace are named with the conclusion');
   assert.ok(end.some(s => s.trace.part === 5));
   // Văn Xương carries Kỵ: every strength resting on it is followed by its caveat
   const ss = sentences(c);

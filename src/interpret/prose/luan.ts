@@ -1006,10 +1006,16 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
     return claimOf(v.link?.ruleId) ?? '';
   };
   // what a reading of an unresolved pair stands on: all its stars and Hóa (the rule's own condition), with the palace when they share one
-  const starsGround = (x?: LedgerItem) => {
+  // a side's ground names the elements that make it that side (review 2026-11-08: "trở ngại … đến từ Hóa Lộc, Hóa Khoa và Hóa Quyền" for a
+  // broken Tam kỳ gia hội): a limit is not grounded on the good Hóa and cát tinh its rule also needed, nor a strength on a sát tinh or Kỵ
+  const GOODN = new Set(['Hóa Lộc', 'Hóa Quyền', 'Hóa Khoa', 'Tả Phụ', 'Hữu Bật', 'Văn Xương', 'Văn Khúc', 'Thiên Khôi', 'Thiên Việt', 'Lộc Tồn']);
+  const BADN = new Set(['Hóa Kỵ', 'Kình Dương', 'Đà La', 'Hỏa Tinh', 'Linh Tinh', 'Địa Không', 'Địa Kiếp', 'Đại Hao', 'Tiểu Hao']);
+  const starsGround = (x?: LedgerItem, side?: '+' | '-') => {
     if (!x?.at?.length) return ground(x);
+    const drop = side === '-' ? GOODN : side === '+' ? BADN : new Set<string>();
+    const at = x.at.filter(a => !drop.has(a.name)).length ? x.at.filter(a => !drop.has(a.name)) : x.at;
     const by = new Map<string, string[]>();
-    for (const a of x.at) (by.get(a.palace) ?? by.set(a.palace, []).get(a.palace)!).push(a.name);
+    for (const a of at) (by.get(a.palace) ?? by.set(a.palace, []).get(a.palace)!).push(a.name);
     return joinVi([...by].sort((a, b) => Number(b[0] === x.palace) - Number(a[0] === x.palace)).map(([p, ns]) => `${joinVi(ns)} ở cung ${p}`));
   };
   const limits = joinVi([...new Set(v.limits.filter(l => !(l.kind === 'hoa_ky' && v.limits.some(m => m.kind === 'ky_carrier' && m.star === l.star))).map(elName))].slice(0, 3));
@@ -1022,11 +1028,11 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   // health is never judged good or bad: with both sides, the two book readings are named and nothing is concluded (audit 2026-10-22)
   if (v.verdict === 'khong_ket_luan') { const bm = bp ?? best(v.mitig ?? []); if (!(bm && bn) || !G.health_both?.length) return []; key = 'health_both'; vals.pos = np(bm); }
   // both sides and no book sentence between them: named, with what each stands on, and left unresolved
-  else if (v.verdict === 'chua_phan_xu') { key = 'chua_phan_xu'; vals.gpos = starsGround(bp); vals.gneg = starsGround(bn); }
+  else if (v.verdict === 'chua_phan_xu') { key = 'chua_phan_xu'; vals.gpos = starsGround(bp, '+'); vals.gneg = starsGround(bn, '-'); }
   // both sides and the system's scale found one heavier (owner decision 2026-10-23): both named, then the heavier side and why
   else if (v.verdict === 'nghieng_ve' && v.weigh) { key = 'weighed'; vals.pos = np(v.base === '+' ? v.weigh.heavy : v.weigh.light);
-    vals.neg = np(v.base === '+' ? v.weigh.light : v.weigh.heavy); vals.gpos = starsGround(v.base === '+' ? v.weigh.heavy : v.weigh.light);
-    vals.gneg = starsGround(v.base === '+' ? v.weigh.light : v.weigh.heavy); }
+    vals.neg = np(v.base === '+' ? v.weigh.light : v.weigh.heavy); vals.gpos = starsGround(v.base === '+' ? v.weigh.heavy : v.weigh.light, '+');
+    vals.gneg = starsGround(v.base === '+' ? v.weigh.light : v.weigh.heavy, '-'); }
   // two sides on different facets: both hold, each named with what it is about
   // the pair is the ledger's own (link.ruleId / target): the one it found on different facets — the prose's "best" pair may share a facet,
   // and telling it would read as "chưa phân xử" for a verdict that says both hold (review 2026-10-22, D)
@@ -1074,7 +1080,17 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   }
   // two sides left unresolved: what is missing to decide them is said, not left as a bare "chưa phân xử" (review 2026-10-22, B.4) — the
   // đại hạn through the domain's core palace, when the chart has one (computed), is where the chart itself shows which side weighs more
-  if (key === 'chua_phan_xu') {
+  // a lean the configuration decided is the whole structure's direction, not a settled verdict: the chặng that will test it are named
+  const WT = (G as Record<string, string[]>).weighed_tips;
+  if (key === 'weighed' && v.weigh?.why[0]?.kind === 'config' && v.tips?.length && WT?.length)
+    out.push(W.sentence(fill(W.pick(`lwt|${v.id}`, WT), { age: `${v.tips[0].age_from}–${v.tips[0].age_to}`, what: v.tips[0].what.split(', ').slice(0, 2).join(' và ') }),
+      { ...tr(5, `ledger:${v.id}:tips`), basis: 'tinh_toan' as const, note: 'Các đại hạn chạm vào sao của tổ hợp cung chính (configuration.ts activation).' }));
+  // G4.3: the nearest đại hạn (from the current one, before 80) that touch the core configuration's members say what may tip the domain
+  const TIPS = (G as Record<string, string[]>).tips;
+  if (key === 'chua_phan_xu' && v.tips?.length && TIPS?.length) {
+    out.push(W.sentence(fill(W.pick(`ltip|${v.id}`, TIPS), { age: `${v.tips[0].age_from}–${v.tips[0].age_to}`, what: v.tips[0].what.split(', ').slice(0, 2).join(' và ') }),
+      { ...tr(4, `ledger:${v.id}:tips`), basis: 'tinh_toan' as const, note: 'Các đại hạn chạm vào sao của tổ hợp cung chính (configuration.ts activation): cung hạn hay Tứ Hóa của hạn rơi vào sao ấy.' }));
+  } else if (key === 'chua_phan_xu') {
     const corePal = Object.entries(((W.k.kg?.domains as { domains?: Record<string, { palaces?: Record<string, string>; parts?: Record<string, { palaces: Record<string, string> }> }> } | undefined)?.domains?.[v.id.split('.')[0]]?.palaces) ?? {}).find(([, r]) => r === 'core')?.[0] ?? palace;
     const d = (W.chart.decades ?? []).find(x => x.palace === corePal);
     const tpl = (G as Record<string, string[]>)[d ? 'missing' : 'missing_none'];
@@ -1130,8 +1146,11 @@ function portrait(W: Writer, L: LuanLib, sh: LuanShared, said: ProseSentence[]):
 function weighWhy(W: Writer, G: LuanLib['ledger'], v: DomainVerdict): string {
   const F = (G as unknown as { weigh_why?: Record<string, string[]> }).weigh_why ?? {};
   const xs = v.weigh!.why.slice(0, 2).map((r, i) => {
-    const k = r.kind === 'dignity' ? (r.dignity === 'hãm' ? 'dignity_ham' : 'dignity_bright') : r.kind === 'tier' && !r.other ? 'tier_bare' : r.kind;
-    return F[k]?.length ? fill(W.pick(`lww|${v.id}|${i}`, F[k]), { star: r.star ?? '', other: r.other ?? '', dignity: r.dignity ?? '', palace: r.palace ?? '', n: String(r.n ?? '') }) : '';
+    const k = r.kind === 'dignity' ? (r.dignity === 'hãm' ? 'dignity_ham' : 'dignity_bright') : r.kind === 'tier' && !r.other ? 'tier_bare'
+      : r.kind === 'config' ? (v.base === '+' ? 'config_pos' : 'config_neg') : r.kind;
+    // a configuration lean within three quarters of a step of the middle is told as a slight one (domains.json config_note)
+    const lean = r.kind === 'config' ? (Math.abs((v.base === '+' ? v.weigh!.pos : 4 - v.weigh!.neg) - 2) < 0.75 ? 'chỉ nghiêng nhẹ' : 'nghiêng rõ') : '';
+    return F[k]?.length ? fill(W.pick(`lww|${v.id}|${i}`, F[k]), { star: r.star ?? '', other: r.other ?? '', dignity: r.dignity ?? '', palace: r.palace ?? '', n: String(r.n ?? ''), lean, strength: r.strength ?? '' }) : '';
   }).filter(Boolean);
   return xs.length > 1 ? `${xs[0]}, thêm nữa ${xs[1]}` : xs[0] ?? '';
 }

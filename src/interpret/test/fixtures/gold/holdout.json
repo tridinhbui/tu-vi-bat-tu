@@ -1,0 +1,983 @@
+[
+ {
+  "id": "holdout-997-tai_loc.giu",
+  "group": "holdout",
+  "chart": 997,
+  "birth": {
+   "year": 1959,
+   "month": 11,
+   "day": 20,
+   "hour": 21,
+   "minute": 0,
+   "gender": "male",
+   "to_year": 2026
+  },
+  "domain": "tai_loc.giu",
+  "label": "cách giữ và quản lý tiền",
+  "draft": {
+   "type": "chua_phan_xu",
+   "base": null,
+   "scope": "tam_phuong",
+   "confidence": "tam",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_TT_PAL_TAI_BACH_CU_MON_WITH_THAI_DUONG_P | sự bền vững của tài sản (Cự Môn, Thái Dương, cung Tài Bạch)",
+    "member:star:Thái Dương@Tài Bạch | Thái Dương (Tài Bạch): Thái Dương là sao chủ của cung",
+    "member:star:Cự Môn@Tài Bạch | Cự Môn (Tài Bạch): Cự Môn là sao chủ của cung",
+    "member:star:Thiên Khôi@Mệnh | Thiên Khôi (Mệnh): Thiên Khôi từ cung Mệnh thêm trợ lực",
+    "member:star:Thiên Việt@Tài Bạch | Thiên Việt (Tài Bạch): Thiên Việt trong cung thêm trợ lực"
+   ],
+   "limiting": [
+    "rule:TV_TT_PAL_TAI_BACH_THAI_DUONG_WITH_CU_MON_M | dòng tiền khó giữ, dễ hao tán (Thái Dương, Cự Môn, cung Tài Bạch)",
+    "member:star:Địa Không@Mệnh | Địa Không (Mệnh): Địa Không từ cung Mệnh làm giảm sức",
+    "member:tt:Triệt@Tài Bạch | Triệt (Tài Bạch): Triệt án ngữ: giảm cả cái tốt lẫn cái xấu"
+   ],
+   "interactions": [
+    "Tuần, Triệt là sao cản phá: giảm cả cái tốt lẫn cái xấu của các sao (KL p.203)",
+    "chính tinh đắc địa gặp Tuần, Triệt thì như hãm địa, bị phá hư (KL p.203)",
+    "Khôi Việt sợ Tuần Triệt, Hình Kỵ, Kình Đà, Không Kiếp, Hỏa Linh: công danh trắc trở (KL p.145)",
+    "cát tinh sợ Triệt vì không có dịp phát triển (KL p.146)"
+   ],
+   "rescues": [
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)",
+    "Quan Phúc là sao cứu giải thuần túy; nặng thì cần đủ cả hai, có khi thêm Khôi Việt (KL p.194)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-966-tai_loc.kiem",
+  "group": "holdout",
+  "chart": 966,
+  "birth": {
+   "year": 1961,
+   "month": 11,
+   "day": 16,
+   "hour": 4,
+   "minute": 30,
+   "gender": "male",
+   "to_year": 2026
+  },
+  "domain": "tai_loc.kiem",
+  "label": "khả năng kiếm tiền",
+  "draft": {
+   "type": "chua_phan_xu",
+   "base": null,
+   "scope": "menh_tai_quan",
+   "confidence": "tam",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_HS_BAT_TOA_TAI_BACH_TAI_CO_TIEN | khuynh hướng tài lộc thuận lợi (Bát Tọa, cung Tài Bạch)",
+    "rule:TV_KL_CT_LUONG_DUONG | khuynh hướng tài lộc thuận lợi (Thiên Lương, Thái Dương, cung Mệnh)",
+    "rule:TV_TT_MENH_TA_HUU_TAI_QUAN | khuynh hướng tài lộc thuận lợi (Tả Phụ, Hữu Bật, cung Mệnh)",
+    "member:star:Thái Âm@Tài Bạch | Thái Âm (Tài Bạch): Thái Âm là sao chủ của cung",
+    "member:hoa:Thái Dương Hóa Quyền@Mệnh | Thái Dương hóa Quyền (Mệnh): Quyền là địa vị, quyền",
+    "member:star:Tả Phụ@Quan Lộc | Tả Phụ (Quan Lộc): Tả Phụ từ cung Quan Lộc thêm trợ lực",
+    "member:star:Hữu Bật@Quan Lộc | Hữu Bật (Quan Lộc): Hữu Bật từ cung Quan Lộc thêm trợ lực",
+    "member:star:Lộc Tồn@Mệnh | Lộc Tồn (Mệnh): Lộc Tồn từ cung Mệnh thêm trợ lực"
+   ],
+   "limiting": [
+    "rule:TV_HS_THIEN_KHOC_TAI_BACH_TAI_KHO | những giới hạn về tài chính (Thiên Khốc, cung Tài Bạch)",
+    "rule:TV_TH_P2_TAI_BACH_TT | những giới hạn về tài chính (Tài Bạch, cung Tài Bạch)",
+    "rule:TV_KL_PHU2_BA_KHONG | những giới hạn về tài chính (Địa Không, cung Mệnh)",
+    "member:star:Địa Kiếp@Quan Lộc | Địa Kiếp (Quan Lộc): Địa Kiếp từ cung Quan Lộc làm giảm sức",
+    "member:star:Địa Không@Mệnh | Địa Không (Mệnh): Địa Không từ cung Mệnh làm giảm sức",
+    "member:star:Thiên Lương@Mệnh | Thiên Lương (Mệnh): Thiên Lương hãm ở cung Mệnh hội về",
+    "member:tt:Tuần và Triệt@Tài Bạch | Tuần và Triệt (Tài Bạch): Tuần và Triệt án ngữ: giảm cả cái tốt lẫn cái xấu"
+   ],
+   "interactions": [
+    "Hóa Quyền đóng trên Thái Dương (KL pp.195-197)",
+    "Tuần, Triệt là sao cản phá: giảm cả cái tốt lẫn cái xấu của các sao (KL p.203)",
+    "Tuần và Triệt cùng một cung thì sức cản, sức giúp đều mạnh hơn (KL p.204)"
+   ],
+   "rescues": [
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)",
+    "Quan Phúc là sao cứu giải thuần túy; nặng thì cần đủ cả hai, có khi thêm Khôi Việt (KL p.194)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-935-cong_danh",
+  "group": "holdout",
+  "chart": 935,
+  "birth": {
+   "year": 1943,
+   "month": 11,
+   "day": 21,
+   "hour": 5,
+   "minute": 30,
+   "gender": "female",
+   "to_year": 2026
+  },
+  "domain": "cong_danh",
+  "label": "đường công danh",
+  "draft": {
+   "type": "hai_mat",
+   "base": null,
+   "scope": "menh_tai_quan",
+   "confidence": "tam",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_HS_THIEN_LUONG_QUAN_LOC_QUAN_TOT | triển vọng về địa vị, công danh (Thiên Lương, cung Quan Lộc)",
+    "rule:TV_HS_THIEN_LUONG_QUAN_LOC_QUAN_TOT | năng lực nổi trội (Thiên Lương, cung Quan Lộc)",
+    "rule:TV_HS_THIEN_LUONG_QUAN_LOC_QUAN_VAN | năng lực học thuật, văn chương (Thiên Lương, cung Quan Lộc)",
+    "rule:TV_KL_SAO_CUNG_QUAN_LOC_LUONG_QUY | triển vọng về địa vị, công danh (Thiên Lương, cung Quan Lộc)",
+    "rule:TV_KL_SAO_CUNG_QUAN_LOC_LUONG_QUY | năng lực nổi trội (Thiên Lương, cung Quan Lộc)",
+    "rule:TV_TT_PAL_QUAN_LOC_LOC_TON_BASE_P | khả năng kiêm cả văn lẫn võ (Lộc Tồn, cung Quan Lộc)",
+    "rule:TV_KL_PHU2_CO_DAC_DIA | năng lực nổi trội (Thiên Cơ, cung Mệnh)",
+    "rule:TV_TH_COMBO_THIEN_CO_CAT | uy thế và khả năng điều khiển người khác (Thiên Cơ, Hóa Khoa, cung Mệnh)",
+    "rule:TV_KL_CT_CNDL | năng lực học thuật, văn chương (Mệnh, cung Mệnh)",
+    "rule:TV_KL_CT_HONG_TU_SINH | sự thuận lợi trên đường công danh (Hồng Loan, cung Mệnh)",
+    "rule:TV_KL_STAR_MENH_CO_NGUYET_THAN | năng lực học thuật, văn chương (Thiên Cơ, Thái Âm, cung Mệnh)",
+    "rule:TV_KL_STAR_MENH_CO_NGUYET_THAN | chủ đề danh tiếng (Thiên Cơ, Thái Âm, cung Mệnh)",
+    "rule:TV_KL_STAR_MENH_GIAP_TU_PHU | triển vọng về địa vị, công danh (Thiên Phủ, Tử Vi, cung Mệnh)",
+    "rule:TV_TT_MENH_CNDL_DAN_THAN | sự thuận lợi trên đường công danh (Thiên Cơ, Thái Âm, Thiên Đồng, Thiên Lương, cung Mệnh)",
+    "rule:TV_TT_MENH_TU_PHU_GIAP | triển vọng về địa vị, công danh (Thiên Phủ, Tử Vi, cung Mệnh)",
+    "member:star:Thiên Lương@Quan Lộc | Thiên Lương (Quan Lộc): Thiên Lương là sao chủ của cung",
+    "member:hoa:Thái Âm Hóa Khoa@Mệnh | Thái Âm hóa Khoa (Mệnh): Khoa là danh vọng, tiếng tăm",
+    "member:star:Lộc Tồn@Quan Lộc | Lộc Tồn (Quan Lộc): Lộc Tồn trong cung thêm trợ lực",
+    "member:star:Thái Dương@Phu Thê | Thái Dương (Phu Thê): Thái Dương sáng ở cung Phu Thê hội về",
+    "member:star:Thiên Cơ@Mệnh | Thiên Cơ (Mệnh): Thiên Cơ sáng ở cung Mệnh hội về"
+   ],
+   "limiting": [
+    "rule:TV_HS_TRIET_QUAN_LOC_QUAN_LAN_DAN | những trở ngại trên đường công danh (Quan Lộc, cung Quan Lộc)",
+    "member:star:Hỏa Tinh@Quan Lộc | Hỏa Tinh (Quan Lộc): Hỏa Tinh trong cung làm giảm sức",
+    "member:tt:Triệt@Quan Lộc | Triệt (Quan Lộc): Triệt án ngữ: giảm cả cái tốt lẫn cái xấu"
+   ],
+   "interactions": [
+    "Hóa Khoa đóng trên Thái Âm (KL pp.195-197)",
+    "Tuần, Triệt là sao cản phá: giảm cả cái tốt lẫn cái xấu của các sao (KL p.203)",
+    "chính tinh đắc địa gặp Tuần, Triệt thì như hãm địa, bị phá hư (KL p.203)",
+    "Thiên Đồng không sợ Tuần, Triệt (có ý kiến cho là cần, để bớt thay đổi) (KL p.91)",
+    "Thiên Lương sợ Tuần, Triệt, Hỏa, Linh (KL p.111)",
+    "Lộc Tồn chế ngự tính lả lơi của Đào Hồng (KL p.133)",
+    "Thiên Đồng không sợ sát tinh (KL p.91 lại nói không nên gặp: schools.json) (KL p.188)",
+    "Hỏa Linh không đánh được Tử Vi, Thiên Phủ, Thái Dương (KL p.200)",
+    "gặp sao giải mạnh thì hung sát tinh bị hóa giải, thành ra ngộ chế (KL p.200)"
+   ],
+   "rescues": [
+    "Hóa Khoa là sao cứu giải mạnh nhất (KL p.120)",
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)",
+    "Quan Phúc là sao cứu giải thuần túy; nặng thì cần đủ cả hai, có khi thêm Khôi Việt (KL p.194)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-904-hon_nhan",
+  "group": "holdout",
+  "chart": 904,
+  "birth": {
+   "year": 1931,
+   "month": 5,
+   "day": 9,
+   "hour": 0,
+   "minute": 15,
+   "gender": "male",
+   "to_year": 2026
+  },
+  "domain": "hon_nhan",
+  "label": "hôn nhân",
+  "draft": {
+   "type": "nghieng_ve",
+   "base": "-",
+   "scope": "tam_phuong",
+   "confidence": "vua",
+   "severity": "grave"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_TT_PAL_PHU_THE_THIEN_VIET_BASE_P | sự hòa hợp và gắn bó trong hôn nhân (Thiên Việt, cung Phu Thê)",
+    "member:star:Phá Quân@Phu Thê | Phá Quân (Phu Thê): Phá Quân là sao chủ của cung",
+    "member:star:Thiên Việt@Phu Thê | Thiên Việt (Phu Thê): Thiên Việt trong cung thêm trợ lực",
+    "member:star:Tả Phụ@Phúc Đức | Tả Phụ (Phúc Đức): Tả Phụ từ cung Phúc Đức thêm trợ lực",
+    "member:star:Thiên Khôi@Phúc Đức | Thiên Khôi (Phúc Đức): Thiên Khôi từ cung Phúc Đức thêm trợ lực",
+    "member:star:Hữu Bật@Quan Lộc | Hữu Bật (Quan Lộc): Hữu Bật từ cung Quan Lộc thêm trợ lực",
+    "member:star:Thiên Tướng@Quan Lộc | Thiên Tướng (Quan Lộc): Thiên Tướng sáng ở cung Quan Lộc hội về"
+   ],
+   "limiting": [
+    "rule:TV_HS_PHA_QUAN_PHU_THE_PHU_THE_GENERAL | những trắc trở trong chuyện gắn bó (Phá Quân, cung Phu Thê)",
+    "rule:TV_HS_PHA_QUAN_PHU_THE_PHU_THE_GENERAL | tính hay ghen trong tình cảm (Phá Quân, cung Phu Thê)",
+    "rule:TV_KL_CUNG_PHU_THE_SAT_PHA_LIEM_THAM | những trắc trở trong chuyện gắn bó (Phu Thê, cung Phu Thê)",
+    "rule:TV_KL_SAO_CUNG_PHU_THE_PHA | những trắc trở trong chuyện gắn bó (Phá Quân, cung Phu Thê)",
+    "rule:TV_TL_PHU_THE_SPT_CHANG_LANH | những trắc trở trong chuyện gắn bó (Phá Quân, cung Phu Thê)",
+    "rule:TV_TT_PAL_PHU_THE_PHA_QUAN_BASE_M | những trắc trở trong chuyện gắn bó (Phá Quân, cung Phu Thê)",
+    "member:hoa:Văn Xương Hóa Kỵ@Thiên Di | Văn Xương hóa Kỵ (Thiên Di): Hóa Kỵ từ cung Thiên Di làm vướng phần nó chạm tới",
+    "member:star:Tiểu Hao@Phúc Đức | Tiểu Hao (Phúc Đức): Tiểu Hao từ cung Phúc Đức làm giảm sức",
+    "member:star:Đà La@Quan Lộc | Đà La (Quan Lộc): Đà La từ cung Quan Lộc làm giảm sức",
+    "member:star:Thất Sát@Thiên Di | Thất Sát (Thiên Di): Thất Sát hãm ở cung Thiên Di hội về",
+    "member:star:Kình Dương@Thiên Di | Kình Dương (Thiên Di): Kình Dương ở cung Thiên Di chế Thiên Việt: Khôi Việt sợ Tuần Triệt, Hình Kỵ, Kình Đà, Không Kiếp, Hỏa Linh: công danh trắc trở",
+    "member:star:Linh Tinh@Thiên Di | Linh Tinh (Thiên Di): Linh Tinh ở cung Thiên Di chế Thiên Việt: Khôi Việt sợ Tuần Triệt, Hình Kỵ, Kình Đà, Không Kiếp, Hỏa Linh: công danh trắc trở"
+   ],
+   "interactions": [
+    "Hóa Kỵ đóng trên Văn Xương (KL pp.195-197)",
+    "Khôi Việt sợ Tuần Triệt, Hình Kỵ, Kình Đà, Không Kiếp, Hỏa Linh: công danh trắc trở (KL p.145)"
+   ],
+   "rescues": [
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-873-tai_loc.tich_luy",
+  "group": "holdout",
+  "chart": 873,
+  "birth": {
+   "year": 2018,
+   "month": 6,
+   "day": 20,
+   "hour": 4,
+   "minute": 30,
+   "gender": "female",
+   "to_year": 2026
+  },
+  "domain": "tai_loc.tich_luy",
+  "label": "phần tích lũy, nhà cửa",
+  "draft": {
+   "type": "nghieng_ve",
+   "base": "-",
+   "scope": "tam_phuong",
+   "confidence": "vua",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_KL_SAO_CUNG_DIEN_TRACH_CU | chủ đề nhà cửa, cơ nghiệp (Cự Môn, cung Điền Trạch)",
+    "rule:TV_HS_MO_TAI_BACH_TAI_LONG_PHUONG | cơ nghiệp thừa hưởng từ ông cha (Mộ, Phượng Các, cung Tài Bạch)",
+    "member:star:Thiên Đồng@Điền Trạch | Thiên Đồng (Điền Trạch): Thiên Đồng là sao chủ của cung",
+    "member:star:Cự Môn@Điền Trạch | Cự Môn (Điền Trạch): Cự Môn là sao chủ của cung",
+    "member:star:Thiên Khôi@Tử Tức | Thiên Khôi (Tử Tức): Thiên Khôi từ cung Tử Tức thêm trợ lực",
+    "member:star:Thiên Việt@Điền Trạch | Thiên Việt (Điền Trạch): Thiên Việt trong cung thêm trợ lực"
+   ],
+   "limiting": [
+    "rule:TV_PB_TT_DIEN_TRACH_TT_DIEN_TRACH_CU_PHA_TO | cơ nghiệp thừa hưởng từ ông cha (Cự Môn, cung Điền Trạch)",
+    "rule:TV_TT_PAL_DIEN_TRACH_CU_MON_HAM_M | chủ đề nhà cửa, cơ nghiệp (Cự Môn, cung Điền Trạch)",
+    "rule:TV_TT_PAL_DIEN_TRACH_THIEN_DONG_WITH_CU_MON_M | chủ đề nhà cửa, cơ nghiệp (Thiên Đồng, Cự Môn, cung Điền Trạch)",
+    "member:hoa:Thiên Cơ Hóa Kỵ@Tật Ách | Thiên Cơ hóa Kỵ (Tật Ách): Hóa Kỵ từ cung Tật Ách làm vướng phần nó chạm tới",
+    "member:star:Địa Kiếp@Tử Tức | Địa Kiếp (Tử Tức): Địa Kiếp từ cung Tử Tức làm giảm sức",
+    "member:star:Hỏa Tinh@Tật Ách | Hỏa Tinh (Tật Ách): Hỏa Tinh từ cung Tật Ách làm giảm sức"
+   ],
+   "interactions": [
+    "Hóa Kỵ đóng trên Thiên Cơ (KL pp.195-197)",
+    "Khôi Việt sợ Tuần Triệt, Hình Kỵ, Kình Đà, Không Kiếp, Hỏa Linh: công danh trắc trở (KL p.145)"
+   ],
+   "rescues": [
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)",
+    "Quan Phúc là sao cứu giải thuần túy; nặng thì cần đủ cả hai, có khi thêm Khôi Việt (KL p.194)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-842-tai_loc.giu",
+  "group": "holdout",
+  "chart": 842,
+  "birth": {
+   "year": 2000,
+   "month": 6,
+   "day": 22,
+   "hour": 20,
+   "minute": 30,
+   "gender": "female",
+   "to_year": 2026
+  },
+  "domain": "tai_loc.giu",
+  "label": "cách giữ và quản lý tiền",
+  "draft": {
+   "type": "tro_ngai",
+   "base": "-",
+   "scope": "tam_phuong",
+   "confidence": "ro",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "member:star:Thiên Cơ@Phúc Đức | Thiên Cơ (Phúc Đức): cung Tài Bạch vô chính diệu nên mượn Thiên Cơ từ cung Phúc Đức làm sao chủ",
+    "member:star:Thiên Lương@Phúc Đức | Thiên Lương (Phúc Đức): cung Tài Bạch vô chính diệu nên mượn Thiên Lương từ cung Phúc Đức làm sao chủ",
+    "member:hoa:Thái Dương Hóa Lộc@Mệnh | Thái Dương hóa Lộc (Mệnh): Lộc là tiền bạc, sự dễ chịu về vật chất",
+    "member:star:Văn Xương@Quan Lộc | Văn Xương (Quan Lộc): Văn Xương từ cung Quan Lộc thêm trợ lực",
+    "member:star:Tả Phụ@Mệnh | Tả Phụ (Mệnh): Tả Phụ từ cung Mệnh thêm trợ lực",
+    "member:star:Lộc Tồn@Mệnh | Lộc Tồn (Mệnh): Lộc Tồn từ cung Mệnh thêm trợ lực",
+    "member:star:Cự Môn@Mệnh | Cự Môn (Mệnh): Cự Môn sáng ở cung Mệnh hội về"
+   ],
+   "limiting": [
+    "rule:TV_TH_AUX2_TAI_BACH_HOA_TAI | dòng tiền khó giữ, dễ hao tán (Hỏa Tinh, cung Tài Bạch)",
+    "member:star:Hỏa Tinh@Tài Bạch | Hỏa Tinh (Tài Bạch): Hỏa Tinh trong cung làm giảm sức",
+    "member:star:Linh Tinh@Mệnh | Linh Tinh (Mệnh): Linh Tinh từ cung Mệnh làm giảm sức"
+   ],
+   "interactions": [
+    "Tài Bạch mượn Thiên Cơ của Phúc Đức (KL pp.218, 222)",
+    "Tài Bạch mượn Thiên Lương của Phúc Đức (KL pp.218, 222)",
+    "Hóa Lộc đóng trên Thái Dương (KL pp.195-197)",
+    "Xương Khúc không sợ sát tinh (KL p.128)",
+    "Hỏa Linh không đánh được Tử Vi, Thiên Phủ, Thái Dương (KL p.200)"
+   ],
+   "rescues": [
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-811-tai_loc.kiem",
+  "group": "holdout",
+  "chart": 811,
+  "birth": {
+   "year": 2007,
+   "month": 3,
+   "day": 11,
+   "hour": 13,
+   "minute": 30,
+   "gender": "female",
+   "to_year": 2026
+  },
+  "domain": "tai_loc.kiem",
+  "label": "khả năng kiếm tiền",
+  "draft": {
+   "type": "nghieng_ve",
+   "base": "-",
+   "scope": "menh_tai_quan",
+   "confidence": "vua",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_TH_P2_TAI_BACH_LINH | khuynh hướng tài lộc thuận lợi (Linh Tinh, cung Tài Bạch)",
+    "rule:TV_KL_CT_DONG_THU_MENH | khả năng tự tạo dựng từ hai bàn tay (Thiên Đồng, cung Mệnh)",
+    "rule:TV_TT_MENH_KINH_MIEU | khuynh hướng tài lộc thuận lợi (Kình Dương, cung Mệnh)",
+    "rule:TV_TT_NU_DONG_XK | khuynh hướng tài lộc thuận lợi (Thiên Đồng, Văn Xương, Văn Khúc, cung Mệnh)",
+    "member:star:Thái Dương@Phúc Đức | Thái Dương (Phúc Đức): cung Tài Bạch vô chính diệu nên mượn Thái Dương từ cung Phúc Đức làm sao chủ",
+    "member:star:Thiên Lương@Phúc Đức | Thiên Lương (Phúc Đức): cung Tài Bạch vô chính diệu nên mượn Thiên Lương từ cung Phúc Đức làm sao chủ",
+    "member:hoa:Thiên Đồng Hóa Quyền@Mệnh | Thiên Đồng hóa Quyền (Mệnh): Quyền là địa vị, quyền",
+    "member:hoa:Thiên Cơ Hóa Khoa@Quan Lộc | Thiên Cơ hóa Khoa (Quan Lộc): Khoa là danh vọng, tiếng tăm",
+    "member:star:Văn Xương@Tài Bạch | Văn Xương (Tài Bạch): Văn Xương trong cung thêm trợ lực",
+    "member:star:Thiên Việt@Phúc Đức | Thiên Việt (Phúc Đức): Thiên Việt từ cung Phúc Đức thêm trợ lực",
+    "member:star:Văn Khúc@Quan Lộc | Văn Khúc (Quan Lộc): Văn Khúc từ cung Quan Lộc thêm trợ lực",
+    "member:star:Thiên Khôi@Quan Lộc | Thiên Khôi (Quan Lộc): Thiên Khôi từ cung Quan Lộc thêm trợ lực"
+   ],
+   "limiting": [
+    "rule:TV_TH_P2_TAI_BACH_TT | những giới hạn về tài chính (Tài Bạch, cung Tài Bạch)",
+    "rule:TV_KL_PHU2_BA_KHONG | những giới hạn về tài chính (Mệnh, cung Mệnh)",
+    "rule:TV_TH_DONG_HAM_NONG_CAN_KHAM_KHO | những giới hạn về tài chính (Thiên Đồng, cung Mệnh)",
+    "member:hoa:Cự Môn Hóa Kỵ@Mệnh | Cự Môn hóa Kỵ (Mệnh): Hóa Kỵ từ cung Mệnh làm vướng phần nó chạm tới",
+    "member:star:Đại Hao@Tài Bạch | Đại Hao (Tài Bạch): Đại Hao trong cung làm giảm sức",
+    "member:star:Linh Tinh@Tài Bạch | Linh Tinh (Tài Bạch): Linh Tinh trong cung làm giảm sức",
+    "member:star:Tiểu Hao@Phúc Đức | Tiểu Hao (Phúc Đức): Tiểu Hao từ cung Phúc Đức làm giảm sức",
+    "member:star:Cự Môn@Mệnh | Cự Môn (Mệnh): Cự Môn hãm ở cung Mệnh hội về",
+    "member:tt:Triệt@Tài Bạch | Triệt (Tài Bạch): Triệt án ngữ: giảm cả cái tốt lẫn cái xấu"
+   ],
+   "interactions": [
+    "Tài Bạch mượn Thái Dương của Phúc Đức (KL pp.218, 222)",
+    "Tài Bạch mượn Thiên Lương của Phúc Đức (KL pp.218, 222)",
+    "Hóa Quyền đóng trên Thiên Đồng (KL pp.195-197)",
+    "Hóa Khoa đóng trên Thiên Cơ (KL pp.195-197)",
+    "Hóa Kỵ đóng trên Cự Môn (KL pp.195-197)",
+    "Tuần, Triệt là sao cản phá: giảm cả cái tốt lẫn cái xấu của các sao (KL p.203)",
+    "Thiên Đồng không sợ Tuần, Triệt (có ý kiến cho là cần, để bớt thay đổi) (KL p.91)",
+    "Xương Khúc không sợ sát tinh (KL p.128)",
+    "Xương Khúc chỉ sợ Hóa Kỵ (KL p.128)",
+    "cát tinh sợ Triệt vì không có dịp phát triển (KL p.146)",
+    "Thiên Đồng không sợ sát tinh (KL p.91 lại nói không nên gặp: schools.json) (KL p.188)",
+    "Hỏa Linh không đánh được Tử Vi, Thiên Phủ, Thái Dương (KL p.200)",
+    "gặp sao giải mạnh thì hung sát tinh bị hóa giải, thành ra ngộ chế (KL p.200)"
+   ],
+   "rescues": [
+    "Hóa Khoa là sao cứu giải mạnh nhất (KL p.120)",
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)",
+    "Quan Phúc là sao cứu giải thuần túy; nặng thì cần đủ cả hai, có khi thêm Khôi Việt (KL p.194)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-780-cong_danh",
+  "group": "holdout",
+  "chart": 780,
+  "birth": {
+   "year": 1980,
+   "month": 6,
+   "day": 19,
+   "hour": 15,
+   "minute": 0,
+   "gender": "male",
+   "to_year": 2026
+  },
+  "domain": "cong_danh",
+  "label": "đường công danh",
+  "draft": {
+   "type": "hai_mat",
+   "base": null,
+   "scope": "menh_tai_quan",
+   "confidence": "tam",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_HS_THIEN_MA_QUAN_LOC_QUAN_DAC | sự thuận lợi trên đường công danh (Thiên Mã, cung Quan Lộc)",
+    "rule:TV_HS_THIEN_VIET_QUAN_LOC_QUAN_LUNG_LAY | chủ đề danh tiếng (Thiên Việt, cung Quan Lộc)",
+    "rule:TV_HS_THIEN_VIET_QUAN_LOC_QUAN_LUNG_LAY | sự thuận lợi trên đường công danh (Thiên Việt, cung Quan Lộc)",
+    "rule:TV_KL_SAO_CUNG_QUAN_LOC_PHA_DAN_THAN | năng khiếu chuyên môn, kỹ thuật (Phá Quân, cung Quan Lộc)",
+    "rule:TV_TH_P2_QUAN_LOC_HOA_LINH_MA | năng khiếu chuyên môn, kỹ thuật (Linh Tinh, Thiên Mã, cung Quan Lộc)",
+    "rule:TV_TH_P2_QUAN_LOC_KHOI_VIET | sự thuận lợi trên đường công danh (Thiên Khôi, Thiên Việt, cung Quan Lộc)",
+    "rule:TV_TH_P2_QUAN_LOC_TA_HUU | khả năng kiêm cả văn lẫn võ (Tả Phụ, Hữu Bật, cung Quan Lộc)",
+    "rule:TV_KL_CT_SAT_THU_MENH | sự thuận lợi trên đường công danh (Thất Sát, cung Mệnh)",
+    "rule:TV_KL_STAR_MENH_TA_HUU_XUONG | triển vọng về địa vị, công danh (Hữu Bật, Văn Xương, cung Mệnh)",
+    "rule:TV_TT_PAL_THIEN_DI_THIEN_PHU_BASE_P | sự hỗ trợ từ người khác (Thiên Phủ, cung Thiên Di)",
+    "member:star:Phá Quân@Quan Lộc | Phá Quân (Quan Lộc): Phá Quân là sao chủ của cung",
+    "member:hoa:Vũ Khúc Hóa Quyền@Phu Thê | Vũ Khúc hóa Quyền (Phu Thê): Quyền là địa vị, quyền",
+    "member:star:Văn Xương@Quan Lộc | Văn Xương (Quan Lộc): Văn Xương trong cung thêm trợ lực",
+    "member:star:Thiên Việt@Quan Lộc | Thiên Việt (Quan Lộc): Thiên Việt trong cung thêm trợ lực",
+    "member:star:Hữu Bật@Tài Bạch | Hữu Bật (Tài Bạch): Hữu Bật từ cung Tài Bạch thêm trợ lực",
+    "member:star:Thiên Khôi@Tài Bạch | Thiên Khôi (Tài Bạch): Thiên Khôi từ cung Tài Bạch thêm trợ lực",
+    "member:star:Tả Phụ@Phu Thê | Tả Phụ (Phu Thê): Tả Phụ từ cung Phu Thê thêm trợ lực",
+    "member:star:Lộc Tồn@Phu Thê | Lộc Tồn (Phu Thê): Lộc Tồn từ cung Phu Thê thêm trợ lực",
+    "member:star:Thiên Tướng@Phu Thê | Thiên Tướng (Phu Thê): Thiên Tướng sáng ở cung Phu Thê hội về"
+   ],
+   "limiting": [
+    "rule:TV_HS_PHA_QUAN_QUAN_LOC_QUAN_DAN_THAN_VU_LIEM | những trở ngại trên đường công danh (Phá Quân, cung Quan Lộc)",
+    "member:star:Thất Sát@Mệnh | Thất Sát (Mệnh): Thất Sát hãm ở cung Mệnh hội về",
+    "member:star:Linh Tinh@Quan Lộc | Linh Tinh (Quan Lộc): Linh Tinh ở cung Quan Lộc chế Thiên Việt: Khôi Việt sợ Tuần Triệt, Hình Kỵ, Kình Đà, Không Kiếp, Hỏa Linh: công danh trắc trở"
+   ],
+   "interactions": [
+    "Hóa Quyền đóng trên Vũ Khúc (KL pp.195-197)",
+    "Thiên Tướng không sợ sát tinh mà còn chế ngự được chúng (KL p.108)",
+    "Xương Khúc không sợ sát tinh (KL p.128)",
+    "Khôi Việt sợ Tuần Triệt, Hình Kỵ, Kình Đà, Không Kiếp, Hỏa Linh: công danh trắc trở (KL p.145)",
+    "Tham Lang giải trừ ác tính của Hỏa Linh (KL p.190)",
+    "gặp sao giải mạnh thì hung sát tinh bị hóa giải, thành ra ngộ chế (KL p.200)"
+   ],
+   "rescues": [
+    "Quan Phúc là sao cứu giải thuần túy; nặng thì cần đủ cả hai, có khi thêm Khôi Việt (KL p.194)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-749-hon_nhan",
+  "group": "holdout",
+  "chart": 749,
+  "birth": {
+   "year": 2000,
+   "month": 12,
+   "day": 9,
+   "hour": 18,
+   "minute": 30,
+   "gender": "male",
+   "to_year": 2026
+  },
+  "domain": "hon_nhan",
+  "label": "hôn nhân",
+  "draft": {
+   "type": "chua_phan_xu",
+   "base": null,
+   "scope": "tam_phuong",
+   "confidence": "tam",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_HS_AN_QUANG_PHU_THE_PHU_THE_HOA_THUAN | sự hòa hợp và gắn bó trong hôn nhân (Ân Quang, Thiên Quý, cung Phu Thê)",
+    "rule:TV_HS_THIEN_DUC_PHU_THE_THE_DAO | sự hòa hợp và gắn bó trong hôn nhân (Thiên Đức, Đào Hoa, cung Phu Thê)",
+    "rule:TV_KL_CUNG_PHU_THE_DEP_DOI | sự hòa hợp và gắn bó trong hôn nhân (Thiên Phủ, cung Phu Thê)",
+    "rule:TV_PB_KL_PHU_THE_KL_PHU_THE_QUANG_QUY | sự hòa hợp và gắn bó trong hôn nhân (Ân Quang, Thiên Quý, cung Phu Thê)",
+    "rule:TV_TT_PAL_PHU_THE_THIEN_PHU_BASE_P | sự hòa hợp và gắn bó trong hôn nhân (Thiên Phủ, cung Phu Thê)",
+    "member:star:Thiên Phủ@Phu Thê | Thiên Phủ (Phu Thê): Thiên Phủ là sao chủ của cung",
+    "member:star:Văn Xương@Phu Thê | Văn Xương (Phu Thê): Văn Xương trong cung thêm trợ lực",
+    "member:star:Văn Khúc@Phu Thê | Văn Khúc (Phu Thê): Văn Khúc trong cung thêm trợ lực",
+    "member:star:Thiên Tướng@Phúc Đức | Thiên Tướng (Phúc Đức): Thiên Tướng sáng ở cung Phúc Đức hội về",
+    "member:star:Liêm Trinh@Quan Lộc | Liêm Trinh (Quan Lộc): Liêm Trinh sáng ở cung Quan Lộc hội về",
+    "member:star:Thất Sát@Quan Lộc | Thất Sát (Quan Lộc): Thất Sát sáng ở cung Quan Lộc hội về"
+   ],
+   "limiting": [
+    "rule:TV_HS_HOA_TINH_PHU_THE_PHU_XUNG_KHAC | những trắc trở trong chuyện gắn bó (Linh Tinh, cung Phu Thê)",
+    "rule:TV_HS_THIEN_PHU_PHU_THE_PT_SMMD | những trắc trở trong chuyện gắn bó (Thiên Phủ, cung Phu Thê)",
+    "rule:TV_KL_SAO_CUNG_PHU_THE_PHU_BAT_HOA | những trắc trở trong chuyện gắn bó (Thiên Phủ, cung Phu Thê)",
+    "rule:TV_PB_KL_PHU_THE_KL_PHU_THE_CO_QUA | những trắc trở trong chuyện gắn bó (Quả Tú, cung Phu Thê)",
+    "member:star:Linh Tinh@Phu Thê | Linh Tinh (Phu Thê): Linh Tinh trong cung làm giảm sức",
+    "member:star:Đại Hao@Phúc Đức | Đại Hao (Phúc Đức): Đại Hao từ cung Phúc Đức làm giảm sức",
+    "member:star:Kình Dương@Thiên Di | Kình Dương (Thiên Di): Kình Dương từ cung Thiên Di làm giảm sức"
+   ],
+   "interactions": [
+    "Thiên Phủ sợ Tuần không, Thiên không: kho trở nên rỗng (KL p.188)",
+    "Thiên Tướng không sợ sát tinh mà còn chế ngự được chúng (KL p.108)",
+    "Xương Khúc không sợ sát tinh (KL p.128)",
+    "Hỏa Linh không đánh được Tử Vi, Thiên Phủ, Thái Dương (KL p.200)",
+    "Phá Toái làm hao tán các sao hiền (KL p.202)"
+   ],
+   "rescues": [
+    "Thiên Phủ giảm bớt tính hung hăng của sát tinh (KL p.97)",
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-718-tai_loc.tich_luy",
+  "group": "holdout",
+  "chart": 718,
+  "birth": {
+   "year": 1948,
+   "month": 5,
+   "day": 21,
+   "hour": 11,
+   "minute": 15,
+   "gender": "male",
+   "to_year": 2026
+  },
+  "domain": "tai_loc.tich_luy",
+  "label": "phần tích lũy, nhà cửa",
+  "draft": {
+   "type": "nghieng_ve",
+   "base": "+",
+   "scope": "tam_phuong",
+   "confidence": "vua",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_PB_KL_DIEN_TRACH_KL_DIEN_TRACH_LUONG_TOT | chủ đề nhà cửa, cơ nghiệp (Thiên Lương, Thiên Đồng, cung Điền Trạch)",
+    "rule:TV_PB_TT_DIEN_TRACH_TT_DIEN_TRACH_LUONG_TOT | chủ đề nhà cửa, cơ nghiệp (Thiên Lương, cung Điền Trạch)",
+    "rule:TV_PB_TT_DIEN_TRACH_TT_DIEN_TRACH_THIEN_MA | chủ đề nhà cửa, cơ nghiệp (Thiên Mã, cung Điền Trạch)",
+    "rule:TV_TH_P2_DIEN_TRACH_LUONG_CO | chủ đề nhà cửa, cơ nghiệp (Thiên Lương, cung Điền Trạch)",
+    "rule:TV_TT_PAL_DIEN_TRACH_THIEN_LUONG_MIEU_P | chủ đề nhà cửa, cơ nghiệp (Thiên Lương, cung Điền Trạch)",
+    "member:star:Thiên Đồng@Điền Trạch | Thiên Đồng (Điền Trạch): Thiên Đồng là sao chủ của cung",
+    "member:star:Thiên Lương@Điền Trạch | Thiên Lương (Điền Trạch): Thiên Lương là sao chủ của cung",
+    "member:hoa:Thái Âm Hóa Quyền@Huynh Đệ | Thái Âm hóa Quyền (Huynh Đệ): Quyền là địa vị, quyền",
+    "member:star:Văn Khúc@Huynh Đệ | Văn Khúc (Huynh Đệ): Văn Khúc từ cung Huynh Đệ thêm trợ lực"
+   ],
+   "limiting": [
+    "rule:TV_KL_SAO_CUNG_DIEN_TRACH_SONG_HAO | những giới hạn về nhà cửa, cơ nghiệp (Đại Hao, cung Điền Trạch)",
+    "rule:TV_PB_KL_DIEN_TRACH_KL_DIEN_TRACH_HO_TANG | những giới hạn về nhà cửa, cơ nghiệp (Tang Môn, cung Điền Trạch)",
+    "rule:TV_TH_P2_DIEN_TRACH_TANG_HO | những giới hạn về nhà cửa, cơ nghiệp (Tang Môn, Bạch Hổ, cung Điền Trạch)",
+    "member:hoa:Thiên Cơ Hóa Kỵ@Tật Ách | Thiên Cơ hóa Kỵ (Tật Ách): Hóa Kỵ từ cung Tật Ách làm vướng phần nó chạm tới",
+    "member:star:Đại Hao@Điền Trạch | Đại Hao (Điền Trạch): Đại Hao trong cung làm giảm sức",
+    "member:star:Kình Dương@Tật Ách | Kình Dương (Tật Ách): Kình Dương từ cung Tật Ách làm giảm sức",
+    "member:star:Tiểu Hao@Tử Tức | Tiểu Hao (Tử Tức): Tiểu Hao từ cung Tử Tức làm giảm sức",
+    "member:star:Hỏa Tinh@Tử Tức | Hỏa Tinh (Tử Tức): Hỏa Tinh từ cung Tử Tức làm giảm sức"
+   ],
+   "interactions": [
+    "Hóa Quyền đóng trên Thái Âm (KL pp.195-197)",
+    "Hóa Kỵ đóng trên Thiên Cơ (KL pp.195-197)",
+    "Thiên Lương sợ Tuần, Triệt, Hỏa, Linh (KL p.111)"
+   ],
+   "rescues": [
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-687-tai_loc.giu",
+  "group": "holdout",
+  "chart": 687,
+  "birth": {
+   "year": 1966,
+   "month": 4,
+   "day": 24,
+   "hour": 12,
+   "minute": 30,
+   "gender": "female",
+   "to_year": 2026
+  },
+  "domain": "tai_loc.giu",
+  "label": "cách giữ và quản lý tiền",
+  "draft": {
+   "type": "tro_ngai",
+   "base": "-",
+   "scope": "tam_phuong",
+   "confidence": "ro",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "member:star:Thiên Đồng@Phúc Đức | Thiên Đồng (Phúc Đức): cung Tài Bạch vô chính diệu nên mượn Thiên Đồng từ cung Phúc Đức làm sao chủ",
+    "member:star:Thái Âm@Phúc Đức | Thái Âm (Phúc Đức): cung Tài Bạch vô chính diệu nên mượn Thái Âm từ cung Phúc Đức làm sao chủ",
+    "member:hoa:Thiên Đồng Hóa Lộc@Phúc Đức | Thiên Đồng hóa Lộc (Phúc Đức): Lộc là tiền bạc, sự dễ chịu về vật chất",
+    "member:star:Tả Phụ@Tài Bạch | Tả Phụ (Tài Bạch): Tả Phụ trong cung thêm trợ lực",
+    "member:star:Văn Khúc@Mệnh | Văn Khúc (Mệnh): Văn Khúc từ cung Mệnh thêm trợ lực",
+    "member:star:Thái Dương@Quan Lộc | Thái Dương (Quan Lộc): Thái Dương sáng ở cung Quan Lộc hội về",
+    "member:star:Cự Môn@Quan Lộc | Cự Môn (Quan Lộc): Cự Môn sáng ở cung Quan Lộc hội về"
+   ],
+   "limiting": [
+    "rule:TV_HS_KINH_DUONG_TAI_BACH_TAI_HAM | dòng tiền khó giữ, dễ hao tán (Kình Dương, cung Tài Bạch)",
+    "member:star:Tiểu Hao@Quan Lộc | Tiểu Hao (Quan Lộc): Tiểu Hao từ cung Quan Lộc làm giảm sức",
+    "member:star:Kình Dương@Tài Bạch | Kình Dương (Tài Bạch): Kình Dương trong cung làm giảm sức"
+   ],
+   "interactions": [
+    "Tài Bạch mượn Thiên Đồng của Phúc Đức (KL pp.218, 222)",
+    "Tài Bạch mượn Thái Âm của Phúc Đức (KL pp.218, 222)",
+    "Hóa Lộc đóng trên Thiên Đồng (KL pp.195-197)",
+    "Xương Khúc không sợ sát tinh (KL p.128)",
+    "Thiên Đồng không sợ sát tinh (KL p.91 lại nói không nên gặp: schools.json) (KL p.188)",
+    "gặp sao giải mạnh thì hung sát tinh bị hóa giải, thành ra ngộ chế (KL p.200)"
+   ],
+   "rescues": [
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)",
+    "Quan Phúc là sao cứu giải thuần túy; nặng thì cần đủ cả hai, có khi thêm Khôi Việt (KL p.194)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-656-tai_loc.kiem",
+  "group": "holdout",
+  "chart": 656,
+  "birth": {
+   "year": 2007,
+   "month": 7,
+   "day": 18,
+   "hour": 15,
+   "minute": 30,
+   "gender": "female",
+   "to_year": 2026
+  },
+  "domain": "tai_loc.kiem",
+  "label": "khả năng kiếm tiền",
+  "draft": {
+   "type": "nghieng_ve",
+   "base": "-",
+   "scope": "menh_tai_quan",
+   "confidence": "vua",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_TH_VERSE_TAI_CU_MON | khả năng tự tạo dựng từ hai bàn tay (Cự Môn, cung Tài Bạch)",
+    "rule:TV_TT_PAL_TAI_BACH_CU_MON_BASE_P | khả năng tự tạo dựng từ hai bàn tay (Cự Môn, cung Tài Bạch)",
+    "rule:TV_TT_PAL_TAI_BACH_CU_MON_BASE_P | khuynh hướng tài lộc thuận lợi (Cự Môn, cung Tài Bạch)",
+    "rule:TV_TT_PAL_TAI_BACH_THIEN_DONG_BASE_P | khả năng tự tạo dựng từ hai bàn tay (Thiên Đồng, cung Tài Bạch)",
+    "rule:TV_KL_STAR_MENH_CO_CAT_TINH | khuynh hướng tài lộc thuận lợi (Thiên Cơ, Hữu Bật, Thiên Khôi, cung Mệnh)",
+    "rule:TV_TT_MENH_KQL_HOP | khuynh hướng tài lộc thuận lợi (Hóa Khoa, Hóa Quyền, Hóa Lộc, cung Mệnh)",
+    "rule:TV_TT_MENH_QUYEN_LOC | khuynh hướng tài lộc thuận lợi (Hóa Quyền, Hóa Lộc, cung Mệnh)",
+    "member:star:Thiên Đồng@Tài Bạch | Thiên Đồng (Tài Bạch): Thiên Đồng là sao chủ của cung",
+    "member:star:Cự Môn@Tài Bạch | Cự Môn (Tài Bạch): Cự Môn là sao chủ của cung",
+    "member:hoa:Thiên Đồng Hóa Quyền@Tài Bạch | Thiên Đồng hóa Quyền (Tài Bạch): Quyền là địa vị, quyền",
+    "member:hoa:Thiên Cơ Hóa Khoa@Mệnh | Thiên Cơ hóa Khoa (Mệnh): Khoa là danh vọng, tiếng tăm",
+    "member:star:Thiên Khôi@Mệnh | Thiên Khôi (Mệnh): Thiên Khôi từ cung Mệnh thêm trợ lực"
+   ],
+   "limiting": [
+    "rule:TV_HS_DIA_KHONG_TAI_BACH_TAI_HAM | những giới hạn về tài chính (Địa Kiếp, cung Tài Bạch)",
+    "rule:TV_HS_THIEN_KHOC_TAI_BACH_TAI_KHO | những giới hạn về tài chính (Thiên Khốc, cung Tài Bạch)",
+    "rule:TV_KL_SAO_CUNG_TAI_BACH_DONG_CU | những giới hạn về tài chính (Thiên Đồng, Cự Môn, cung Tài Bạch)",
+    "rule:TV_KL_STAR_TAI_BACH_KHONG_KIEP | những giới hạn về tài chính (Địa Kiếp, cung Tài Bạch)",
+    "rule:TV_TH_P2_TAI_BACH_KHONG_KIEP | những giới hạn về tài chính (Địa Kiếp, cung Tài Bạch)",
+    "rule:TV_TH_P2_TAI_BACH_KY | những giới hạn về tài chính (Hóa Kỵ, cung Tài Bạch)",
+    "rule:TV_TH_P2_TAI_BACH_TT | những giới hạn về tài chính (Tài Bạch, cung Tài Bạch)",
+    "member:hoa:Cự Môn Hóa Kỵ@Tài Bạch | Cự Môn hóa Kỵ (Tài Bạch): Hóa Kỵ ngay trong cung làm vướng phần nó chạm tới",
+    "member:star:Đại Hao@Quan Lộc | Đại Hao (Quan Lộc): Đại Hao từ cung Quan Lộc làm giảm sức",
+    "member:star:Địa Không@Quan Lộc | Địa Không (Quan Lộc): Địa Không từ cung Quan Lộc làm giảm sức",
+    "member:star:Địa Kiếp@Tài Bạch | Địa Kiếp (Tài Bạch): Địa Kiếp trong cung làm giảm sức",
+    "member:tt:Tuần@Tài Bạch | Tuần (Tài Bạch): Tuần án ngữ: giảm cả cái tốt lẫn cái xấu"
+   ],
+   "interactions": [
+    "Hóa Quyền đóng trên Thiên Đồng (KL pp.195-197)",
+    "Hóa Khoa đóng trên Thiên Cơ (KL pp.195-197)",
+    "Hóa Kỵ đóng trên Cự Môn (KL pp.195-197)",
+    "Tuần, Triệt là sao cản phá: giảm cả cái tốt lẫn cái xấu của các sao (KL p.203)",
+    "Thiên Đồng không sợ Tuần, Triệt (có ý kiến cho là cần, để bớt thay đổi) (KL p.91)",
+    "Cự Đồng hãm có Hóa Khoa hoặc Khốc Hư chiếu mới khá được (KL p.180)",
+    "Thiên Đồng không sợ sát tinh (KL p.91 lại nói không nên gặp: schools.json) (KL p.188)",
+    "gặp sao giải mạnh thì hung sát tinh bị hóa giải, thành ra ngộ chế (KL p.200)",
+    "Hóa Kỵ có cát tinh trợ cứu thì giàu sang được, nhưng kèm nhiều lo lắng (TT p.76)"
+   ],
+   "rescues": [
+    "Cự Môn hãm cần Hóa Khoa cứu giải (KL p.106)",
+    "Hóa Khoa là sao cứu giải mạnh nhất (KL p.120)",
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)",
+    "Quan Phúc là sao cứu giải thuần túy; nặng thì cần đủ cả hai, có khi thêm Khôi Việt (KL p.194)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-625-cong_danh",
+  "group": "holdout",
+  "chart": 625,
+  "birth": {
+   "year": 2022,
+   "month": 1,
+   "day": 7,
+   "hour": 9,
+   "minute": 45,
+   "gender": "male",
+   "to_year": 2026
+  },
+  "domain": "cong_danh",
+  "label": "đường công danh",
+  "draft": {
+   "type": "nghieng_ve",
+   "base": "+",
+   "scope": "menh_tai_quan",
+   "confidence": "vua",
+   "severity": "none"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_HS_THIEN_CO_QUAN_LOC_QUAN_CO_LOI | sự thuận lợi trên đường công danh (Thiên Cơ, cung Quan Lộc)",
+    "rule:TV_KL_PHU_DONG_LUONG_DAN_THAN | triển vọng về địa vị, công danh (Thiên Đồng, Thiên Lương, cung Mệnh)",
+    "rule:TV_TH_COMBO_THIEN_LUONG_CAT | uy thế và khả năng điều khiển người khác (Thiên Lương, Thiên Việt, cung Mệnh)",
+    "rule:TV_D3_TT67_DONG_MIEU_VUONG | chủ đề danh tiếng (Thiên Đồng, cung Mệnh)",
+    "rule:TV_KL_CT_CNDL | năng lực học thuật, văn chương (Mệnh, cung Mệnh)",
+    "rule:TV_TT_MENH_CNDL_DAN_THAN | sự thuận lợi trên đường công danh (Thiên Cơ, Thái Âm, Thiên Đồng, Thiên Lương, cung Mệnh)",
+    "rule:TV_TH_P2_THIEN_DI_VIET | sự hỗ trợ từ người khác (Thiên Việt, cung Thiên Di)",
+    "member:star:Thiên Cơ@Quan Lộc | Thiên Cơ (Quan Lộc): Thiên Cơ là sao chủ của cung",
+    "member:hoa:Cự Môn Hóa Lộc@Phu Thê | Cự Môn hóa Lộc (Phu Thê): Lộc là tiền bạc, sự dễ chịu về vật chất",
+    "member:star:Thiên Khôi@Phu Thê | Thiên Khôi (Phu Thê): Thiên Khôi từ cung Phu Thê thêm trợ lực",
+    "member:star:Thiên Đồng@Mệnh | Thiên Đồng (Mệnh): Thiên Đồng sáng ở cung Mệnh hội về",
+    "member:star:Thiên Lương@Mệnh | Thiên Lương (Mệnh): Thiên Lương sáng ở cung Mệnh hội về"
+   ],
+   "limiting": [
+    "rule:TV_KL_CT_CAP_DOI_BAC_TRUNG | triển vọng về địa vị, công danh (Thiên Đồng, Thiên Lương, cung Mệnh)",
+    "rule:TV_KL7_THIEN_DI_CO_QUA | thế đơn độc, ít người đỡ (Cô Thần, cung Thiên Di)",
+    "member:star:Đại Hao@Quan Lộc | Đại Hao (Quan Lộc): Đại Hao trong cung làm giảm sức",
+    "member:star:Địa Kiếp@Tài Bạch | Địa Kiếp (Tài Bạch): Địa Kiếp từ cung Tài Bạch làm giảm sức",
+    "member:star:Tiểu Hao@Phu Thê | Tiểu Hao (Phu Thê): Tiểu Hao từ cung Phu Thê làm giảm sức",
+    "member:star:Địa Không@Phu Thê | Địa Không (Phu Thê): Địa Không từ cung Phu Thê làm giảm sức",
+    "member:star:Đà La@Mệnh | Đà La (Mệnh): Đà La từ cung Mệnh làm giảm sức",
+    "member:star:Thái Âm@Tài Bạch | Thái Âm (Tài Bạch): Thái Âm hãm ở cung Tài Bạch hội về"
+   ],
+   "interactions": [
+    "Hóa Lộc đóng trên Cự Môn (KL pp.195-197)",
+    "Thiên Cơ rất thích Song Hao; Cự Cơ Mão Dậu gặp Song Hao thì phú quý (KL p.81)"
+   ],
+   "rescues": [
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-594-hon_nhan",
+  "group": "holdout",
+  "chart": 594,
+  "birth": {
+   "year": 1936,
+   "month": 8,
+   "day": 13,
+   "hour": 18,
+   "minute": 15,
+   "gender": "male",
+   "to_year": 2026
+  },
+  "domain": "hon_nhan",
+  "label": "hôn nhân",
+  "draft": {
+   "type": "tro_ngai",
+   "base": "-",
+   "scope": "tam_phuong",
+   "confidence": "ro",
+   "severity": "grave"
+  },
+  "evidence": {
+   "supporting": [
+    "member:star:Tham Lang@Phu Thê | Tham Lang (Phu Thê): Tham Lang là sao chủ của cung",
+    "member:star:Thất Sát@Phúc Đức | Thất Sát (Phúc Đức): Thất Sát sáng ở cung Phúc Đức hội về",
+    "member:star:Phá Quân@Thiên Di | Phá Quân (Thiên Di): Phá Quân sáng ở cung Thiên Di hội về"
+   ],
+   "limiting": [
+    "rule:TV_HS_THAM_LANG_PHU_THE_PHU_THE_DAN_THAN | tính hay ghen trong tình cảm (Tham Lang, cung Phu Thê)",
+    "rule:TV_HS_THAM_LANG_PHU_THE_PHU_THE_DAN_THAN | những trắc trở trong chuyện gắn bó (Tham Lang, cung Phu Thê)",
+    "rule:TV_HS_THAM_LANG_PHU_THE_PHU_THE_JEALOUS_WIFE | tính hay ghen trong tình cảm (Tham Lang, cung Phu Thê)",
+    "rule:TV_HS_TUAN_PHU_THE_PHU_TRAC_TRO | những trắc trở trong chuyện gắn bó (Phu Thê, cung Phu Thê)",
+    "rule:TV_KL_CUNG_PHU_THE_KINH_DA_KHONG_KIEP | những trắc trở trong chuyện gắn bó (Địa Kiếp, cung Phu Thê)",
+    "rule:TV_KL_CUNG_PHU_THE_SAT_PHA_LIEM_THAM | những trắc trở trong chuyện gắn bó (Phu Thê, cung Phu Thê)",
+    "rule:TV_PB_TH_PHU_THE_TH_PHU_THE_TANG_HO_HAO | những trắc trở trong chuyện gắn bó (Bạch Hổ, Tiểu Hao, cung Phu Thê)",
+    "rule:TV_TH_P2_PHU_THE_KHONG_KIEP | những trắc trở trong chuyện gắn bó (Địa Kiếp, cung Phu Thê)",
+    "rule:TV_TH_P2_PHU_THE_TT_KHONG_KIEP | những trắc trở trong chuyện gắn bó (Địa Kiếp, cung Phu Thê)",
+    "rule:TV_TL_PHU_THE_SPT_CHANG_LANH | những trắc trở trong chuyện gắn bó (Tham Lang, cung Phu Thê)",
+    "rule:TV_TT_PAL_PHU_THE_THAM_LANG_BASE_M | những trắc trở trong chuyện gắn bó (Tham Lang, cung Phu Thê)",
+    "member:hoa:Liêm Trinh Hóa Kỵ@Quan Lộc | Liêm Trinh hóa Kỵ (Quan Lộc): Hóa Kỵ từ cung Quan Lộc làm vướng phần nó chạm tới",
+    "member:star:Đại Hao@Quan Lộc | Đại Hao (Quan Lộc): Đại Hao từ cung Quan Lộc làm giảm sức",
+    "member:star:Tiểu Hao@Phu Thê | Tiểu Hao (Phu Thê): Tiểu Hao trong cung làm giảm sức",
+    "member:tt:Tuần@Phu Thê | Tuần (Phu Thê): Tuần án ngữ: giảm cả cái tốt lẫn cái xấu"
+   ],
+   "interactions": [
+    "Hóa Kỵ đóng trên Liêm Trinh (KL pp.195-197)",
+    "Tuần, Triệt là sao cản phá: giảm cả cái tốt lẫn cái xấu của các sao (KL p.203)",
+    "chính tinh đắc địa gặp Tuần, Triệt thì như hãm địa, bị phá hư (KL p.203)",
+    "Thất Sát không sợ Tuần Triệt, không ngán Kình Đà, còn sai khiến được chúng (KL p.114)",
+    "Phá Quân không sợ Tuần Triệt (KL p.117)",
+    "gặp sao giải mạnh thì hung sát tinh bị hóa giải, thành ra ngộ chế (KL p.200)",
+    "Sát Phá Tham gặp Tuần Triệt mất tính hung hãn, nhưng mất hết (Triệt) hay giảm hẳn tốc lực (Tuần) (TVNL p.15)"
+   ],
+   "rescues": [
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)",
+    "Quan Phúc là sao cứu giải thuần túy; nặng thì cần đủ cả hai, có khi thêm Khôi Việt (KL p.194)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ },
+ {
+  "id": "holdout-563-tai_loc.tich_luy",
+  "group": "holdout",
+  "chart": 563,
+  "birth": {
+   "year": 1971,
+   "month": 6,
+   "day": 5,
+   "hour": 3,
+   "minute": 15,
+   "gender": "male",
+   "to_year": 2026
+  },
+  "domain": "tai_loc.tich_luy",
+  "label": "phần tích lũy, nhà cửa",
+  "draft": {
+   "type": "nghieng_ve",
+   "base": "-",
+   "scope": "tam_phuong",
+   "confidence": "vua",
+   "severity": "grave"
+  },
+  "evidence": {
+   "supporting": [
+    "rule:TV_HS_AN_QUANG_DIEN_TRACH_DIEN_DI_SAN | cơ nghiệp thừa hưởng từ ông cha (Ân Quang, Thiên Quý, cung Điền Trạch)",
+    "rule:TV_HS_AN_QUANG_DIEN_TRACH_DIEN_DUOC_HIEN | chủ đề nhà cửa, cơ nghiệp (Ân Quang, Thiên Quý, cung Điền Trạch)",
+    "rule:TV_TT_PAL_DIEN_TRACH_PHA_QUAN_BASE_P | cơ nghiệp thừa hưởng từ ông cha (Phá Quân, cung Điền Trạch)",
+    "rule:TV_TT_PAL_DIEN_TRACH_TU_VI_BASE_P | chủ đề nhà cửa, cơ nghiệp (Tử Vi, cung Điền Trạch)",
+    "member:star:Tử Vi@Điền Trạch | Tử Vi (Điền Trạch): Tử Vi là sao chủ của cung",
+    "member:star:Phá Quân@Điền Trạch | Phá Quân (Điền Trạch): Phá Quân là sao chủ của cung",
+    "member:star:Thiên Tướng@Tử Tức | Thiên Tướng (Tử Tức): Thiên Tướng sáng ở cung Tử Tức hội về"
+   ],
+   "limiting": [
+    "rule:TV_HS_TU_VI_DIEN_TRACH_DIEN_SAT_PHA_THAM | những giới hạn về nhà cửa, cơ nghiệp (Tử Vi, Phá Quân, cung Điền Trạch)",
+    "rule:TV_KL_STAR_DIEN_TRACH_TV_SPT | chủ đề nhà cửa, cơ nghiệp (Tử Vi, Phá Quân, cung Điền Trạch)",
+    "rule:TV_PB_KL_DIEN_TRACH_KL_DIEN_TRACH_HO_TANG | những giới hạn về nhà cửa, cơ nghiệp (Bạch Hổ, cung Điền Trạch)",
+    "rule:TV_TH_P2_DIEN_TRACH_PHA | những giới hạn về nhà cửa, cơ nghiệp (Phá Quân, cung Điền Trạch)",
+    "rule:TV_TH_P2_DIEN_TRACH_TANG_HO | những giới hạn về nhà cửa, cơ nghiệp (Tang Môn, Bạch Hổ, cung Điền Trạch)",
+    "rule:TV_TT_PAL_DIEN_TRACH_TU_VI_SAT_M | chủ đề nhà cửa, cơ nghiệp (Tử Vi, Hỏa Tinh, Địa Kiếp, cung Điền Trạch)",
+    "rule:TV_TT_PAL_DIEN_TRACH_TU_VI_WITH_PHA_QUAN_M | những giới hạn về nhà cửa, cơ nghiệp (Tử Vi, Phá Quân, cung Điền Trạch)",
+    "member:star:Địa Kiếp@Tử Tức | Địa Kiếp (Tử Tức): Địa Kiếp từ cung Tử Tức làm giảm sức",
+    "member:star:Hỏa Tinh@Điền Trạch | Hỏa Tinh (Điền Trạch): Hỏa Tinh trong cung làm giảm sức",
+    "member:star:Thất Sát@Huynh Đệ | Thất Sát (Huynh Đệ): Thất Sát hãm ở cung Huynh Đệ hội về",
+    "member:star:Liêm Trinh@Tật Ách | Liêm Trinh (Tật Ách): Liêm Trinh hãm ở cung Tật Ách hội về",
+    "member:star:Tham Lang@Tật Ách | Tham Lang (Tật Ách): Tham Lang hãm ở cung Tật Ách hội về"
+   ],
+   "interactions": [
+    "Tử Vi không sợ Hỏa, Linh (KL p.75)",
+    "Thiên Tướng không sợ sát tinh mà còn chế ngự được chúng (KL p.108)",
+    "một trong hai sao Không, Kiếp cũng đủ hóa giải hết hiệu lực của Tử Vi (KL p.125)",
+    "Tham Lang giải trừ ác tính của Hỏa Linh (KL p.190)",
+    "Hỏa Linh không đánh được Tử Vi, Thiên Phủ, Thái Dương (KL p.200)"
+   ],
+   "rescues": [
+    "Kình, Đà, Không, Kiếp, Tuần, Triệt biến Tử Vi thành kẻ côi cút, mất sức cứu giải (KL p.75)",
+    "Thiên Giải, Địa Giải là sao cứu giải nhỏ (KL p.120)"
+   ]
+  },
+  "expected": {
+   "lean": "",
+   "strength": "",
+   "dominant": "",
+   "reducers": ""
+  },
+  "forbidden": [],
+  "why": ""
+ }
+]

@@ -871,6 +871,14 @@
       "tuan_triet": [
         "cung {palace} của mặt thuận gặp Tuần hoặc Triệt"
       ],
+      "config_pos": [
+        "cả tổ hợp của cung {palace} {lean} về phía thuận: {star} giữ vai dẫn, còn {other} chỉ làm giảm phần nào",
+        "xét cả tổ hợp ở cung {palace}, {star} đổi được tính chất của nó nên phía thuận {lean}, {other} chỉ kéo bớt"
+      ],
+      "config_neg": [
+        "cả tổ hợp của cung {palace} {lean} về phía khó: {star} kéo xuống mà {other} chưa bù được",
+        "xét cả tổ hợp ở cung {palace}, {star} đè lên nên phía khó {lean}, {other} chỉ đỡ được một phần"
+      ],
       "count": [
         "có tới {n} chỗ đứng cùng chiều",
         "{n} chỗ đứng khác nhau cùng nói một chiều"
@@ -891,6 +899,15 @@
       "Điều còn thiếu để phân định nằm ở chặng {age} tuổi, khi đại hạn chạm cung {palace}",
       "Đại hạn {age} tuổi đi qua cung {palace} sẽ cho thấy rõ hơn chiều nào lấn",
       "Phải đến chặng {age} tuổi, đại hạn đóng ở cung {palace}, mới rõ bên nào trội"
+    ],
+    "weighed_tips": [
+      "Chiều nghiêng ấy là của cả tổ hợp, chưa phải lời kết chắc: nó được thử ở đại hạn {age} tuổi, khi {what}",
+      "Đó mới là chiều nghiêng chung của tổ hợp; đại hạn {age} tuổi, lúc {what}, mới cho thấy nó đứng vững đến đâu"
+    ],
+    "tips": [
+      "Điều có thể làm cán cân nghiêng nằm ở đại hạn {age} tuổi, khi {what}",
+      "Các chặng {age} tuổi, lúc {what}, là nơi thấy rõ bên nào lấn",
+      "Muốn biết chiều nào lấn, cần xem đại hạn {age} tuổi: {what}"
     ],
     "missing_none": [
       "Bên nào trội còn tùy các năm có hạn chạm cung {palace}",
