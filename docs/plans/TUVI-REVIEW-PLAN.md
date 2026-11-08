@@ -216,6 +216,15 @@ Kiểm tra:
 - **Mục 4.4 (một phần)**: thẻ cuối bản luận có thêm Tải ảnh lá số và Chia sẻ. Hàng nút đầu trang trên điện thoại chưa thu gọn.
 - **Mục 4.6**: có chú giải màu ngũ hành, trong mục lục và ở đầu phần luận trên điện thoại.
 
-Chưa làm: mục 3.3 (tư thế đại hạn, chờ chủ dự án quyết), mục 4.3 (số câu hỏi hiện trên ô nhập), hàng nút đầu trang trên điện thoại.
+Đợt hai (2026-11-07, sau khi chủ dự án chọn "Dùng, có gắn nhãn"):
+- **Mục 3.3**: mỗi đại hạn từ 13 tuổi trở đi, và năm hiện tại, có một câu tư thế: mở rộng, thử nhỏ, giữ nhịp, giữ chờ, hoặc phòng thủ.
+  - Câu này ghép mức của giai đoạn với độ sáng của Mệnh, Thân. Đây là hai yếu tố Thực Hành tr.118 đặt cạnh nhau khi xét hạn.
+  - Cách chia thành năm tư thế là quy ước hệ thống. Trên trang, câu có nhãn "Quy ước", và ghi chú của câu nói rõ điều này.
+  - Mệnh ở mức vừa thì câu không nhắc tới Mệnh, vì khi đó Mệnh không làm đổi tư thế.
+  - Mã: `postureOf` và `postureLine` trong `vanhan.ts`; `menh_state` trong `indices.ts`.
+- **Mục 4.3**: dòng "Còn n câu miễn phí hôm nay" hiện ngay trên ô nhập. Hết câu miễn phí thì dòng này báo câu tiếp theo trừ bao nhiêu xu.
+- **Mục 4.4**: trên điện thoại (≤600px), đầu trang chỉ giữ "Lưu lá số này", "Tải PDF" và nút "Thêm". Các nút khác cùng ô "Ẩn ngày giờ sinh" nằm sau nút "Thêm".
+
+Chưa làm: gắn chặng tuổi vào câu khuyên (mục 3.4).
 
 Hai test `sweep.test.ts` (27 cảnh báo, ngưỡng 20) và `pipeline.test.ts` ("Triệt tại Mệnh / tai_bach") đã đỏ trên main từ trước. Lỗi giống hệt khi chạy trên 6dd5a9ca, chưa có thay đổi này.
