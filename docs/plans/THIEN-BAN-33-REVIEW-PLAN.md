@@ -666,3 +666,29 @@ Theo quyết định Q5: thử, chỉ vài chỗ nhỏ, tiết kiệm token.
 **Số đo trên lá của chủ dự án:** máy chọn 2 đoạn, đầu vào khoảng 1.900 ký tự.
 
 **Chưa làm:** chưa chạy với mô hình thật (máy làm việc không có khóa API); chưa đưa lớp này vào báo cáo của người đọc.
+
+### G9 bản 1 (Tử Vi) — 2026-11-08
+
+**Đã làm**
+
+- `src/interpret/reason/configuration.ts`: đơn vị luận là **cấu hình** của một cung. Gồm:
+  - sao chủ (`nen`), kể cả sao mượn khi cung vô chính diệu;
+  - các thành viên có vai: `bien_tinh` (Tứ Hóa trên thành viên), `tro_luc` (cát tinh, chính tinh sáng ở tam phương), `tru` (sát tinh, chính tinh hãm, Hóa Kỵ, và sát tinh mà sách nói chế một thành viên), `pha` (cách đã đối trang bị phá);
+  - quan hệ: mượn, Hóa, chế hóa (`che_hoa.json`).
+
+  Các vai tác động theo thứ tự cố định (sao chủ, biến tính, trợ lực, trừ, Tuần/Triệt, phá). Mỗi bước có một dòng vết. Không có phép đếm sao.
+
+  Mỗi cấu hình trả lời 6 câu: sao chủ mang tính chất gì (`star_nature`, có trang), mượn sức từ đâu, yếu tố nào đổi tính chất, trợ lực ở mức nào, yếu tố nào làm giảm và có phá cả tổ hợp không, chặng nào kích hoạt.
+- `src/interpret/reason/analysis.ts`: bản phân tích có cấu trúc cho từng miền. Nó nối phán quyết của sổ phán quyết với cấu hình của cung chính, gồm chứng cứ thuận và nghịch, tương tác, cứu giải, điều chưa giải (với miền "chưa phân xử" thì nêu đại hạn có thể làm nghiêng), độ chắc, mức nặng, cấp độ và `evidence_ids`.
+  - **Trần cấp độ:** một miền chỉ đạt cấp 5 khi có câu sách ở ít nhất hai cung trong bộ Mệnh, Tài, Quan, Di.
+  - **API:** `/api/interpret` với `chapter: 'all'` và `analysis: true` trả bản phân tích. Không hỏi thì không trả, để báo cáo thường không nặng thêm.
+- **INV-12** trong `invariants.ts`: miền được Tổng luận xếp đầu hay cuối phải có chứng cứ từ cấp 3 trở lên.
+- **Số đo:**
+  - Trên lá chủ dự án cộng benchmark20: 126/126 kết luận miền có cấu hình chi phối, 0 vi phạm INV-12.
+  - Quan Lộc của lá chủ dự án gồm: Cơ Âm vượng mượn từ Phu Thê; Thái Dương hóa Quyền và Văn Khúc hóa Khoa biến tính; Cự Môn hóa Lộc biến tính một phần tư bậc vì Cự Môn hãm; Tả Phụ, Thiên Việt, Thiên Khôi trợ lực; Văn Xương hóa Kỵ, Đà La, Tiểu Hao, Kình Dương ("Khôi Việt sợ Kình Đà", KL tr.145) trừ. Kết quả: có điều kiện, sức "rõ".
+
+**Chưa làm**
+- Đồ thị Bát Tự (G9.1 phía Bát Tự).
+- `configurations.json`: mẫu cấu hình theo cách cục và bố cục KL. Bản 1 dựng cấu hình theo cung, chưa theo mẫu có tên.
+- Cấu hình cấp 5 nối Mệnh, Tài, Quan thành một đơn vị riêng.
+- Lời luận chưa đọc bản phân tích. Việc đó thuộc G4 (giải xung đột chạy trên cấu hình) và G10 (diễn đạt).

@@ -8,10 +8,13 @@
 //   INV-4  Tổng luận against the twelve-palace chart: a strength explained as "lower than usual on the chart" is not called the chart's support
 //   INV-6  severity: no grave book sentence (claim_severity.json) in a main paragraph; every neutral line has its page and the caution line
 //   INV-11 no absolute words in the system's own sentences (book quotes are the book's words)
+//   INV-12 level ceiling: a domain the Tổng luận ranks first or last rests on evidence of level 3 or more (tam phương / Tứ Hóa,
+//          reason/analysis.ts), never on one palace's own star alone
 import type { ChartInput } from './types.ts';
 import type { ProseParagraph, ProseSentence } from './prose/realize.ts';
 import { graveRuleOf } from './prose/severity.ts';
 import { ABSOLUTE } from './prose/lint.ts';
+import type { Analysis } from './reason/analysis.ts';
 
 export interface Violation { inv: string; chapter: string; text: string; why: string }
 type Ch = { chapter: string; paragraphs: ProseParagraph[] };
@@ -23,7 +26,7 @@ const ABS = [...ABSOLUTE, 'cả đời'];
 /** the parts of a sentence the system itself asserts: quoted book words and conditional clauses ("khi / nếu / với điều kiện …") are left out */
 const asserted = (t: string) => t.replace(/[“"][^”"]*[”"]/g, ' ').split(/[;:]/).filter(c => !/\b(khi|nếu|với điều kiện|hễ|mượn|phải mượn|giả như)\b/u.test(c)).join(' ; ');
 
-export function checkInvariants(chart: ChartInput, chapters: Ch[]): Violation[] {
+export function checkInvariants(chart: ChartInput, chapters: Ch[], analysis?: Analysis[]): Violation[] {
   const out: Violation[] = [];
   const stars = [...new Set(chart.palaces.flatMap(p => [...p.stars, ...p.major_stars]))].sort((a, b) => b.length - a.length);
   const at = (name: string) => chart.palaces.filter(p => p.stars.includes(name) || p.major_stars.includes(name) || (name === 'Tuần' && p.tuan) || (name === 'Triệt' && p.triet)).map(p => p.name);
@@ -64,6 +67,14 @@ export function checkInvariants(chart: ChartInput, chapters: Ch[]): Violation[] 
       const anchor = w.text.match(/không đứng ở cung (\S+(?: \S+)?) mà/u)?.[1];
       for (const s of p.sentences) if (s !== w && anchor && new RegExp(`(Đứng ở|Cách ở|Vì ở|Đặt ở) cung ${esc(anchor)}`, 'u').test(s.text))
         out.push({ inv: 'INV-1', chapter: ch.chapter, text: s.text, why: `cách chiếu về ${anchor}, không đứng ở đó` });
+    }
+    // INV-12: the ranked domains of the Tổng luận rest on tam phương level evidence
+    if (ch.chapter === 'tong_luan' && analysis) for (const p of ch.paragraphs) for (const s of p.sentences) {
+      if (!/^tong_luan:(best|worst):/.test(s.trace.step ?? '')) continue;
+      for (const c of s.trace.cause ?? []) {
+        const a = analysis.find(x => x.domain === c.domain);
+        if (a && a.level < 3) out.push({ inv: 'INV-12', chapter: ch.chapter, text: s.text, why: `${c.domain} xếp hạng trên chứng cứ cấp ${a.level}` });
+      }
     }
     // INV-4: a best domain explained by the radar line is not told with the strong openers
     if (ch.chapter === 'tong_luan') for (const p of ch.paragraphs) {
