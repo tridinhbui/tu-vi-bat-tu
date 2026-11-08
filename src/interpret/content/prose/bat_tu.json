@@ -968,6 +968,13 @@
     "Sức của tám chữ được cân theo độ: mỗi can, mỗi can tàng trong chi có độ riêng, lệnh tháng cộng hay trừ một phần năm, chứ không đếm mỗi chữ như nhau.",
     "Sức không tính bằng cách đếm chữ: mỗi can và mỗi can tàng trong chi được cân theo độ, rồi lệnh tháng cộng hay trừ một phần năm."
    ],
+   "str_stable": [
+    "Cân lại với các can tàng trong chi nặng hay nhẹ hơn một phần năm, nhật chủ vẫn ở phía {side}, nên kết luận này vững.",
+    "Đổi độ của can tàng thêm bớt một phần năm, nhật chủ vẫn {side}: kết luận không phụ thuộc vào cách chia độ."
+   ],
+   "str_unstable": [
+    "Chỉ cần độ của các can tàng nặng hay nhẹ hơn một phần năm, kết luận đã có thể đổi phía, nên thế {side} ở đây chỉ nên đọc là tạm xác định."
+   ],
    "str_roots": [
     "Nhật chủ có gốc ở {roots}, nên đây là thế nhược có căn, chưa tới mức phải xét cách tòng.",
     "Có gốc ở {roots}, nhật chủ nhược mà không trơ trọi; lá số không vào cách tòng."

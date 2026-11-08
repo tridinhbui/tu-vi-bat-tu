@@ -105,7 +105,7 @@ export interface DepthFrames {
   cach_status?: string[]; cach_status_near?: string[]; dh_school?: string[]; dh_school_sub?: string[]; ttt_yong_same?: string[]; ttt_yong_diff?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
   tai_layers?: Record<'pos' | 'dm' | 'method' | 'method_no_tb' | 'decide', string[]> & { decide_agree?: string[] };
   // REVIEW-19 W6: the strength in words (numbers in the Số liệu fold), the closing by priority
-  str_plain?: string[]; str_plain_near?: string[]; str_method?: string[]; str_roots?: string[]; str_no_roots?: string[];
+  str_plain?: string[]; str_plain_near?: string[]; str_method?: string[]; str_roots?: string[]; str_no_roots?: string[]; str_stable?: string[]; str_unstable?: string[];
   dh_agree?: string[]; dh_venh?: string[]; dh_venh_lean?: Record<string, string[]>; luck_che?: string[]; tk_now?: string[]; tk_word?: Record<string, string>; tk_money?: Record<'pos' | 'neg' | 'even', string[]>; tk_work?: string[];
 }
 export interface BaziDeepFrames {
@@ -246,6 +246,17 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
         const roots = K.flatMap(p => p === 'day' ? (pil.day.hidden ?? []).filter(h => stemEl(h.stem) === dmEl).map(h => `chi ngày ${pil.day.branch} (${h.stem})`)
           : (pil[p].hidden ?? []).filter(h => stemEl(h.stem) === dmEl).map(h => `chi ${PIL_VI[p]} ${pil[p].branch} (${h.stem})`));
         const tong = [...fired.keys()].some(id => /^BT_TVH_(TONG|CV|HOA)_|^BT_TTT_TONG/.test(id));
+        // perturbation (plan G2.2): the same weighing with the hidden stems a fifth heavier or lighter, and the stems a fifth lighter; the side
+        // that holds under all is "vững", one that flips is "tạm xác định" (a labelled convention, not the book's)
+        const els = (S as { elements?: Array<{ el: string; heaven: number; earth: number; total: number }> }).elements ?? [];
+        const sideAt = (fh: number, fe: number) => {
+          const t = (e: { heaven: number; earth: number; total: number }) => e.heaven + e.earth > 0 ? e.total * (e.heaven * fh + e.earth * fe) / (e.heaven + e.earth) : 0;
+          const own = els.filter(e => S.own_elements.includes(e.el)).reduce((a, e) => a + t(e), 0), tot = els.reduce((a, e) => a + t(e), 0) || 1;
+          return own / tot >= 0.4;
+        };
+        const flips = els.length ? [[1, 0.8], [1, 1.2], [0.8, 1]].filter(([fh, fe]) => sideAt(fh, fe) !== !!strong).length : -1;
+        if (flips >= 0 && !near && Dd.str_stable?.length) say(st, fill(m.pick('bd|strs', flips ? Dd.str_unstable! : Dd.str_stable), { side: strong ? 'vượng' : 'nhược' }), 'tinh_toan', ['TVH pp.331-355'], [],
+          { step: 'strength:stability', note: 'Phép thử nhiễu (quy ước có nhãn): cân lại với độ của các can tàng trong chi nặng hay nhẹ hơn một phần năm, và độ của can lộ nhẹ hơn một phần năm; kết luận giữ nguyên phía thì gọi là vững.' });
         if (!strong && !tong && Dd.str_roots?.length) say(st, fill(m.pick('bd|strr', roots.length ? Dd.str_roots : Dd.str_no_roots ?? Dd.str_roots), { roots: join(roots) }), 'tinh_toan', ['TVH pp.331-355', 'TVH pp.369-376'], [],
           { step: 'strength:roots', note: 'Gốc: can cùng hành với nhật chủ tàng trong chi. Không cách tòng hay hóa nào của Thiệu Vĩ Hoa (tr.369-376) đứng trên lá số này.' });
         say(strNums, fill(m.pick('bd|strdeg', near ? Dd.str_deg_near : Dd.str_deg), vars), 'tinh_toan', ['TVH pp.331-355'], [], { step: 'strength:deg', mech: true, note: nt });

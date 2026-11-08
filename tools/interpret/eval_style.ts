@@ -9,6 +9,8 @@ import type { ProseParagraph } from '../../src/interpret/prose/realize.ts';
 import { proseAllChapters } from '../../src/interpret/route.ts';
 import { checkedOnly } from '../../src/interpret/prose/checked.ts';
 import { polishScore } from '../../src/interpret/refine/refine.ts';
+import { configurationOf } from '../../src/interpret/reason/configuration.ts';
+import { infer } from '../../src/interpret/prose/chapter.ts';
 const arg = (k: string, d: string) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const K: Knowledge = JSON.parse(readFileSync('src/interpret/generated/knowledge.json', 'utf8'));
 const corpus = (JSON.parse(gunzipSync(readFileSync('src/interpret/test/fixtures/corpus1000.json.gz')).toString()) as Array<{ facts: ChartInput }>).slice(0, Number(arg('--n', '40')));
@@ -23,6 +25,19 @@ const measure = (chs: Ch[]) => {
 };
 const sum = (a: ReturnType<typeof measure>, b: ReturnType<typeof measure>) => Object.fromEntries(Object.keys(a).map(k => [k, (a as never)[k] + (b as never)[k]])) as ReturnType<typeof measure>;
 let before = measure([]), after = measure([]);
+// the critic's question "is an element that changes the whole left out?" (G10.5): each bien_tinh of a domain palace's configuration must be
+// named in its chapter
+const WH: Record<string, string> = { cong_danh: 'Quan Lộc', tai_bach: 'Tài Bạch', phu_the: 'Phu Thê', dien_trach: 'Điền Trạch' };
+let btAll = 0, btNamed = 0;
+for (const c of corpus) {
+  const res = infer(c.facts, K).resolved;
+  const chs = proseAllChapters(c.facts, K, { allowDraft: true, deep: true, luan: true }) as unknown as Array<Ch & { text: string }>;
+  for (const [id, P] of Object.entries(WH)) {
+    const t = chs.find(x => x.chapter === id)?.paragraphs.map(p => p.text).join(' ') ?? '';
+    for (const m of configurationOf(c.facts, K, P, res).members.filter(x => x.role === 'bien_tinh')) { btAll++; if (t.includes(m.name.split(' hóa ')[0])) btNamed++; }
+  }
+}
+console.log(`critic: ${btNamed}/${btAll} bien_tinh members named in their chapter`);
 for (const c of corpus) {
   const raw = proseAllChapters(c.facts, K, { allowDraft: true, deep: true, luan: true }) as unknown as Ch[];
   before = sum(before, measure(raw));

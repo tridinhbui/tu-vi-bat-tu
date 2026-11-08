@@ -28,6 +28,7 @@ import { configClause, dignityOf, hoaOn, joinVi, named, palaceConfig } from './n
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
 import { validateProse } from './validate.ts';
 import { deepParagraphs } from './luan_deep.ts';
+import { wholeParagraph, type WholeLib } from './whole.ts';
 import { borrowedReadings, type Borrowed } from '../reason/borrow.ts';
 import { PROSE_ORDER, PROSE_SPECS, PROSE_VERSION, infer, proseReport, seedOf, type Inference, type ProseChapter, type ProseChapterId } from './chapter.ts';
 
@@ -166,7 +167,21 @@ export function luanReport(chart: ChartInput, k: Knowledge, opts: { allowDraft?:
   const old = proseReport(chart, k, { ...opts, pre });
   const sh = luanShared(chart, k, allowDraft, pre);
   const chs = PROSE_ORDER.map((id, i) => luanChapter(chart, k, id, sh) ?? withConfront(chart, k, id, withoutTold(old[i], sh.keys), sh));
-  return echoLedger(k, chs, sh);
+  return withWhole(chart, k, echoLedger(k, chs, sh), pre.resolved, sh);
+}
+
+/** The domain palaces get a "Cả tổ hợp" paragraph right after their structure paragraph (plan THIEN-BAN-33 G10.1, prose/whole.ts). */
+const WHOLE: Partial<Record<string, string>> = { cong_danh: 'Quan Lộc', tai_bach: 'Tài Bạch', phu_the: 'Phu Thê', dien_trach: 'Điền Trạch' };
+function withWhole(chart: ChartInput, k: Knowledge, chs: ProseChapter[], resolved: Inference['resolved'], sh: LuanShared): ProseChapter[] {
+  const L = (k.prose?.luan as LuanLib & { whole?: WholeLib } | undefined)?.whole;
+  if (!L) return chs;
+  return chs.map(ch => {
+    const P = WHOLE[ch.chapter];
+    const w = P ? wholeParagraph(chart, k, P, resolved, sh.micro, L) : null;
+    if (!w) return ch;
+    const paragraphs = [...ch.paragraphs.slice(0, 1), w, ...ch.paragraphs.slice(1)];
+    return { ...ch, paragraphs, text: paragraphs.map(p => p.text).join('\n\n') };
+  });
 }
 
 /** A domain's verdict, once told in full, is recalled at most twice in the report (review 2026-10-23: the same "còn hai mặt chưa phân xử

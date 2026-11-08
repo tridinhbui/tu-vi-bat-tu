@@ -759,3 +759,22 @@ Theo quyết định Q5: thử, chỉ vài chỗ nhỏ, tiết kiệm token.
 - **Số đo trên 40 lá** (`tools/interpret/eval_style.ts`): từ nối thói quen giảm từ 3,21 xuống 1,70 trên 100 câu. Đoạn lặp từ nối giảm từ 123 xuống 0. Đoạn lặp "; vì vậy" giảm từ 32 xuống 0. Câu dài hơn 35 chữ giảm từ 10,79% xuống 10,46%.
 
 **Chưa làm:** ba bộ khung câu riêng cho ba giọng; đoạn năm lớp (G10.1); bước phản biện đầy đủ (G10.5); kiểm thử phản chứng ở mức cấu hình (G10.6).
+
+### G10.1, G2.2, G10.5, G10.6 bản 1 — 2026-11-08
+
+- **G10.1, đoạn năm lớp** (`prose/whole.ts`). Các chương Quan Lộc, Tài Bạch, Phu Thê, Điền Trạch có đoạn "Cả tổ hợp" ngay sau đoạn cấu trúc. Đoạn đi theo năm lớp:
+  1. bản chất: sao chủ, tính chất có trang KL;
+  2. cơ chế: sao đổi tính chất, xếp sao sáng trước sao hãm, rồi trợ lực;
+  3. mâu thuẫn: phần cản, kèm một quan hệ chế mà sao cản đè lên sao tốt (không lấy quan hệ cứu giải);
+  4. điều kiện: đại hạn kích hoạt gần nhất;
+  5. giới hạn: trạng thái và sức, nói rõ "chưa phải lời kết chắc về thành bại".
+
+  Câu nào quá 35 chữ thì tách làm hai. Mọi câu đều lấy từ cấu hình G9. Trên lá chủ dự án, đoạn Quan Lộc theo đúng hướng đoạn mẫu trong bản đánh giá: mượn Cơ Âm vượng và tính chất của chúng, Quyền và Khoa đổi sắc thái, Việt Phụ Khôi trợ lực, phần cản kèm "Kình Dương chế Thiên Việt", chặng 23–32, và lời giới hạn.
+- **G2.2, phép thử nhiễu.** Đoạn vượng nhược cân lại với độ của can tàng nặng hay nhẹ hơn một phần năm, và độ của can lộ nhẹ hơn một phần năm. Không đổi phía thì nói "kết luận không phụ thuộc vào cách chia độ"; đổi phía thì nói "tạm xác định".
+- **G10.6.** `test/configuration_cf.test.ts` gồm năm phép đổi trên lá chủ dự án:
+  - bỏ một sao biến tính thì tổ hợp hẹp lại, sức giảm;
+  - bỏ một sao trừ thì sức không giảm;
+  - bỏ một sao trợ lực thì trạng thái giữ nguyên;
+  - thêm chính tinh vào cung thì hết mượn sao;
+  - đổi một sao không liên quan thì cấu hình không đổi.
+- **G10.5 (một phần).** `eval_style.ts` đếm số sao biến tính của cấu hình được nêu tên trong chương của nó (phép phản biện "có bỏ sót yếu tố quan trọng không"). Trên 40 lá: 171/178 sao biến tính có tên trong chương. Trên cùng 40 lá, sau lớp câu chữ: câu dài hơn 35 chữ 10,04%, từ nối thói quen 1,63 trên 100 câu.

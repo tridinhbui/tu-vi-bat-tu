@@ -634,6 +634,54 @@
       "Sao nhỏ trong cung"
     ]
   },
+  "whole": {
+    "title": "Cả tổ hợp",
+    "l1": [
+      "Cung {pal} {core}; theo lời cổ, {natures}",
+      "Đứng giữa tổ hợp {pal} là cung {core}; lời cổ cho rằng {natures}"
+    ],
+    "l1_core": [
+      "Cung {pal} {core}",
+      "Đứng giữa tổ hợp là cung {pal}, {core}"
+    ],
+    "l1_nature": [
+      "Theo lời cổ, {nature}",
+      "Lời cổ cho rằng {nature}"
+    ],
+    "l2_bien": [
+      "Điều đổi tính chất của tổ hợp là {bien}",
+      "Sắc thái của cả tổ hợp do {bien} quyết định"
+    ],
+    "l2_tro": [
+      "{tro} thêm trợ lực, nhưng trợ lực không tự bảo đảm thành quả",
+      "Còn {tro} góp thêm sức, chưa đủ để tự quyết thành bại"
+    ],
+    "l2": [
+      "Điều đổi tính chất của tổ hợp là {bien}; {tro} thêm trợ lực, nhưng trợ lực không tự bảo đảm thành quả",
+      "Tổ hợp được {bien} đổi sắc thái, còn {tro} góp thêm sức, chưa đủ để tự quyết thành bại"
+    ],
+    "l2_none": [
+      "Không có Hóa Lộc, Quyền, Khoa nào đổi tính chất của tổ hợp; {tro} chỉ thêm trợ lực"
+    ],
+    "l3": [
+      "Phía cản là {tru}{che}",
+      "Những gì kéo tổ hợp xuống là {tru}{che}"
+    ],
+    "l4": [
+      "Tổ hợp được thử ở đại hạn {age} tuổi, khi {what}",
+      "Chặng {age} tuổi, lúc {what}, là lúc cả tổ hợp được kích hoạt"
+    ],
+    "l5": [
+      "Gộp lại, cả tổ hợp {state}, sức ở mức {strength}; đó là chiều của cả cấu trúc, chưa phải lời kết chắc về thành bại",
+      "Tính chung, tổ hợp {state} với sức {strength}; đây là hướng của cấu trúc, chưa đủ để nói chắc thành hay bại"
+    ],
+    "state": {
+      "thanh": "đứng trọn",
+      "co_dieu_kien": "đứng được nhưng kèm điều kiện",
+      "bi_pha": "bị phá",
+      "duoc_cuu": "bị phá nhưng được cứu"
+    }
+  },
   "ledger": {
     "verdict": {
       "thuan": [
