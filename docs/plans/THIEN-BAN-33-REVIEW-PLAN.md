@@ -707,3 +707,25 @@ Theo quyết định Q5: thử, chỉ vài chỗ nhỏ, tiết kiệm token.
 **Chưa làm**
 - Chủ dự án chấm phiếu, rồi mới chỉnh trọng số và ngưỡng theo phiếu. Tập kiểm định chấm trước, không mở trong lúc chỉnh.
 - Câu kết đủ bốn phần cho mọi miền (G4.5). Mới có yếu tố dẫn, yếu tố làm giảm và chặng thử; "điều chưa biết" chỉ có trong bản phân tích, chưa vào lời luận.
+
+### Bát Tự: G9.1, G2.1–G2.4, G3.1 bản 1 — 2026-11-08
+
+**Đã làm**
+
+- **G9.1.** `reason/bazi_graph.ts` dựng đồ thị lá số:
+  - nút: can và tàng can, mỗi nút có vai trong bản đồ hỷ kỵ;
+  - cạnh: sinh, khắc giữa các chữ đứng sát, cùng trụ, thông căn, hợp, xung, hình, hại;
+  - mạch Quan → Ấn → thân và Tài → Quan có cấp;
+  - bản đồ năm hành.
+
+  API trả đồ thị trong `analysis.bazi` khi có `analysis: true`.
+- **G2.3, bản đồ hỷ kỵ.** Can điều hậu thuộc nhóm dụng hay hỷ của phép cân bằng thì tính là cùng chiều. Trên lá chủ dự án, Giáp (Ấn, hỷ thần) cùng chiều, nên câu "khác với dụng thần Tỉ Kiếp" đã bỏ. Chỗ vênh (Canh) được phân xử bằng các điều kiện có tên theo Q1: can phụ, vượng nhược đã rõ, Tài là nhóm đang nhiều nhất. Kết quả: ở Canh theo phép cân bằng, khí hậu là điều kiện phụ. Khi không đủ điều kiện, câu nêu cả hai kết quả có điều kiện.
+- **G2.1, G2.2.** Đoạn chính nói rõ sức được cân theo độ, có lệnh tháng và tàng can, không đếm chữ. Câu "có gốc ở chi năm Tỵ (Bính) và chi giờ Dần (Bính)… không vào cách tòng". Chữ "sức của tám chữ" đổi thành "tổng số độ".
+- **G3.1.** Câu "chưa nối được" đổi thành "chưa tính là chảy vào nhật chủ" (đúng điều kiện ZZ tr.50). Thêm câu "chi giờ Dần có tàng Giáp (Chính Ấn) ngay dưới Nhâm (Chính Quan): đường Quan sinh Ấn, Ấn sinh thân có thật, chỉ ở mức vừa".
+- **G2.4.** Vận nặng mà can vận khắc chính chữ đang khắc dụng thần (Mậu khắc Nhâm) thì đoạn chính nói ra, và phán quyết giảm một bậc độ chắc. Phán quyết vẫn là nặng.
+
+**Chưa làm**
+- G3.2: phép kiểm cặp lời trái nhau. Ví dụ "Tài vượng… nên hung" đứng cạnh "có Ấn hoặc Tỉ Kiếp hộ thân được đánh giá là mệnh tốt".
+- G3.3: một phán quyết nguyên cục duy nhất.
+- Phép thử nhiễu cho độ chắc vượng nhược (G2.2).
+- Câu chữ Bát Tự còn lặp "Bên cạnh đó… Ngoài ra…" (G10).

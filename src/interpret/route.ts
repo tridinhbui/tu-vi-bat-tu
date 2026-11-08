@@ -12,6 +12,7 @@ import { checkedOnly } from './prose/checked.ts';
 import { reasonedChapter, NARRATIVE_VERSION } from './prose/narrative.ts';
 import { planView } from './reason/plan.ts';
 import { analyses } from './reason/analysis.ts';
+import { baziGraph } from './reason/bazi_graph.ts';
 import { cacheKey, type KnowledgeStore, type OutputCache } from './store.ts';
 import type { ChartInput, Knowledge } from './types.ts';
 
@@ -69,7 +70,7 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
     : mode !== 'prose' ? interpret(facts, chapter, k)
     : chapter === ('all' as Chapter) ? (cs => ({ engine: PROSE_VERSION, kbVersion: k.version, chapters: cs, pass: cs.every(c => c.pass),
         // the structured analysis per domain (plan THIEN-BAN-33 G9.5), only when asked for: it is the input of a narrative layer, not reader text
-        ...(body.analysis === true ? { analysis: analyses(facts, k, infer(facts, k).resolved) } : {}) }))(
+        ...(body.analysis === true ? { analysis: { ...analyses(facts, k, infer(facts, k).resolved), bazi: baziGraph(facts) } } : {}) }))(
         proseAllChapters(facts, k, { allowDraft: d.proseDraft, deep: d.deep !== false, luan }))
     : chapter === ('van_han' as Chapter) ? proseVanHan(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)
     : chapter === ('bat_tu' as Chapter) ? proseBazi(facts, k, seedOf(facts), PROSE_VERSION, d.proseDraft)

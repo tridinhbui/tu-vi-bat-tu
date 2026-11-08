@@ -105,7 +105,8 @@ export interface DepthFrames {
   cach_status?: string[]; cach_status_near?: string[]; dh_school?: string[]; dh_school_sub?: string[]; ttt_yong_same?: string[]; ttt_yong_diff?: string[]; cach_cond?: string[]; cach_cond_year: string; tk_cond?: string[]; vs_luck?: string[]; vs_luck_none?: string[]; vs_luck_kind?: Record<string, string>;
   tai_layers?: Record<'pos' | 'dm' | 'method' | 'method_no_tb' | 'decide', string[]> & { decide_agree?: string[] };
   // REVIEW-19 W6: the strength in words (numbers in the Số liệu fold), the closing by priority
-  str_plain?: string[]; str_plain_near?: string[]; tk_now?: string[]; tk_word?: Record<string, string>; tk_money?: Record<'pos' | 'neg' | 'even', string[]>; tk_work?: string[];
+  str_plain?: string[]; str_plain_near?: string[]; str_method?: string[]; str_roots?: string[]; str_no_roots?: string[];
+  dh_agree?: string[]; dh_venh?: string[]; dh_venh_lean?: Record<string, string[]>; luck_che?: string[]; tk_now?: string[]; tk_word?: Record<string, string>; tk_money?: Record<'pos' | 'neg' | 'even', string[]>; tk_work?: string[];
 }
 export interface BaziDeepFrames {
   season: string[]; season_state: Record<string, string>; strength_near: string[]; strength_side: string[]; climate: string[]; climate_presence: string[];
@@ -237,7 +238,16 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
       // REVIEW-19 W6: the short reading says the verdict in words; the degrees open the Số liệu fold
       const plain = near ? Dd.str_plain_near ?? Dd.str_plain : Dd.str_plain;
       if (plain?.length) {
+        if (Dd.str_method?.length) say(st, m.pick('bd|strm', Dd.str_method), 'tinh_toan', ['TVH pp.331-355'], [], { step: 'strength:method', note: nt });
         say(st, fill(m.pick('bd|strp', plain), vars), src.basis, ['TVH pp.331-355'], src.ids, { step: 'strength', mech: true, note: nt });
+        // where the day master has roots (its own element among the branches' hidden stems): a weak one with roots is "nhược có căn", and
+        // no tòng cách stands when none of the special-cách rules fired (TVH pp.369-376); plan G2.2
+        const dmEl = stemEl(pil.day.stem);
+        const roots = K.flatMap(p => p === 'day' ? (pil.day.hidden ?? []).filter(h => stemEl(h.stem) === dmEl).map(h => `chi ngày ${pil.day.branch} (${h.stem})`)
+          : (pil[p].hidden ?? []).filter(h => stemEl(h.stem) === dmEl).map(h => `chi ${PIL_VI[p]} ${pil[p].branch} (${h.stem})`));
+        const tong = [...fired.keys()].some(id => /^BT_TVH_(TONG|CV|HOA)_|^BT_TTT_TONG/.test(id));
+        if (!strong && !tong && Dd.str_roots?.length) say(st, fill(m.pick('bd|strr', roots.length ? Dd.str_roots : Dd.str_no_roots ?? Dd.str_roots), { roots: join(roots) }), 'tinh_toan', ['TVH pp.331-355', 'TVH pp.369-376'], [],
+          { step: 'strength:roots', note: 'Gốc: can cùng hành với nhật chủ tàng trong chi. Không cách tòng hay hóa nào của Thiệu Vĩ Hoa (tr.369-376) đứng trên lá số này.' });
         say(strNums, fill(m.pick('bd|strdeg', near ? Dd.str_deg_near : Dd.str_deg), vars), 'tinh_toan', ['TVH pp.331-355'], [], { step: 'strength:deg', mech: true, note: nt });
       } else say(st, fill(m.pick('bd|strdeg', near ? Dd.str_deg_near : Dd.str_deg), vars), src.basis, ['TVH pp.331-355'], src.ids, { step: 'strength', mech: true, note: nt });
     } else if (near) say(st, fill(m.pick('bd|near', F.strength_near), { pct, th: thp, cmp: strong ? 'trên' : 'dưới', side: strong ? 'vượng' : 'nhược' }), 'tinh_toan', ['TVH pp.331-355'], [],
@@ -453,14 +463,35 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     if (tv?.hy_in_xau && Dd.hy_in_xau) say(c2, fill(m.pick('bd|hyx', Dd.hy_in_xau), { hy: Y.hy.group }), 'tinh_toan', ['TVH p.382', tvhPage], [], { ...ex, step: 'yong:conflict' });
   }
   // the two tables of the same book name different useful gods: said in part 4, with where they differ and how far each goes
-  const mainGroups = dh.stems.filter(s => s.rank.startsWith('chính')).map(s => s.ten_god);
-  const differs = !!(dh.verified && dh.stems.length && tableOk && CT!.yong.length && mainGroups.length && !mainGroups.some(g => CT!.yong.some(y => GROUP_OF[g] === y)));
+  // the element map (plan THIEN-BAN-33 G2.3, owner decision Q1 2026-11-07): a điều hậu stem agrees with the balance reading when its group
+  // is the useful god (dụng) or the joyful one (hỷ) there; it parts ways only when the balance reading counts its group among the bad lucks.
+  // (Before: compared with the dụng group alone, so Giáp = Chính Ấn = hỷ thần read as "khác với dụng thần".)
+  const hyG = Y?.hy?.group;
+  const roleOf = (g: string) => CT?.yong.includes(g) || g === Y1 ? 'dung' : g === hyG ? 'hy' : xauG.includes(g) ? 'xau' : 'nhan';
+  const dhRows = dh.verified && tableOk ? dh.stems.map(x => { const g = GROUP_OF[x.ten_god] ?? x.ten_god, r = roleOf(g); return { ...x, group: g, role: r, main: x.rank.startsWith('chính'), agree: r === 'dung' || r === 'hy' ? 'cung' : r === 'xau' ? 'venh' : 'mot_phia' }; }) : [];
+  const differs = dhRows.some(x => x.main && x.agree === 'venh');
   if (dh.verified && dh.stems.length) {
     const main = dh.stems.filter(s => s.rank.startsWith('chính')).map(s => `${s.stem} (${s.ten_god})`), others = dh.stems.filter(s => !s.rank.startsWith('chính')).map(s => `${s.stem} (${s.ten_god})`);
     const mainTxt = join(main.length ? main : others.slice(0, 1));
     if (differs && F.dh_turn) say(c4, fill(m.pick('bd|dhturn', F.dh_turn), { mb, dm, climate: D.climate.label ?? '', main: mainTxt, yong: Y1 }), 'tinh_toan', ['TVH pp.389-396'], [], { note: NOTE.dh });
     else say(c3, fill(m.pick('bd|cl', F.climate), { mb, dm, climate: D.climate.label ?? '', main: mainTxt, others: join(main.length ? others : others.slice(1)) || 'không có can nào khác' }),
       'tinh_toan', ['TVH pp.389-396'], [], { note: NOTE.dh });
+    // where the two readings agree, said as agreement; where they part ways, the named conditions decide (Q1), else both results stand
+    const agreeRows = dhRows.filter(x => x.agree === 'cung'), venhRows = dhRows.filter(x => x.agree === 'venh');
+    const MAP_NOTE = 'Bản đồ hỷ kỵ từng hành (quy ước có nhãn, quyết định Q1 của chủ dự án 2026-11-07): can điều hậu thuộc nhóm dụng hay hỷ của phép cân bằng thì hai phép cùng chiều; thuộc nhóm vận xấu thì vênh, và chỗ vênh được phân xử bằng các điều kiện có tên (can chính hay phụ, phép cân bằng đã rõ chưa, khí hậu nặng tới đâu, can ấy có làm nặng nhóm đang nhiều nhất không), không bằng trọng số.';
+    if (agreeRows.length && Dd?.dh_agree?.length)
+      say(c3, fill(m.pick('bd|dhag', Dd.dh_agree), { stems: join(agreeRows.map(x => `${x.stem} (${x.ten_god})`)), roles: join([...new Set(agreeRows.map(x => x.role === 'dung' ? `nhóm dụng thần ${x.group}` : `nhóm hỷ thần ${x.group}`))]) }),
+        'tinh_toan', ['TVH pp.389-396', tvhPage], [], { step: 'yong:map:agree', note: MAP_NOTE });
+    if (venhRows.length && Dd?.dh_venh?.length) {
+      const v0 = venhRows[0], clear = strong != null && !near, severe = (D.climate.han_noan === 'han_qua' || D.climate.han_noan === 'noan_qua') && !dh.satisfied;
+      const heavier = !!CT?.dominant && v0.group === CT.dominant;
+      const lean = !v0.main && clear ? 'can_bang' : v0.main && severe ? 'dieu_hau' : 'hai';
+      const why = lean === 'can_bang' ? join([`${v0.stem} chỉ là can phụ của bảng điều hậu`, `nhật chủ ${levelVi} đã rõ`, ...(heavier ? [`${v0.group} lại là nhóm đang nhiều nhất`] : [])])
+        : lean === 'dieu_hau' ? join([`${v0.stem} là can chính của bảng điều hậu`, `khí ${D.climate.label ?? ''} của lá số nặng mà chưa được điều hòa`]) : '';
+      say(c4, fill(m.pick('bd|dhv', Dd.dh_venh), { stem: join(venhRows.map(x => x.stem)), g: v0.group, rank: v0.main ? 'chính' : 'phụ' }), 'tinh_toan', ['TVH pp.389-396', tvhPage], [], { step: 'yong:map:venh', note: MAP_NOTE });
+      const L = (Dd.dh_venh_lean as Record<string, string[]> | undefined)?.[lean];
+      if (L?.length) say(c4, fill(m.pick('bd|dhvl', L), { stem: v0.stem, why, g: v0.group }), 'he_thong', [], [], { step: `yong:map:${lean}`, note: MAP_NOTE });
+    }
     const present = dh.stems.filter(s => s.visible || s.hidden).map(s => s.stem), absent = dh.stems.filter(s => !s.visible && !s.hidden).map(s => s.stem);
     // which sense of "missing" (2026-10-25 review): a named stem not seen on any stem or among the branches' hidden stems; the day master is
     // never called missing ("ngoài nhật chủ"), and the same element carried by another stem is said with it
@@ -823,7 +854,16 @@ export function deepBazi(chart: ChartInput, k: Knowledge, m: Micro, F: BaziDeepF
     const ev = events(l, `l${l.index}`, { stem, branch, who: 'cả trụ vận' });
     if (ev) say(P ? ds : xs, ev.text, 'tinh_toan', ev.cites, [], { step });
     for (const f of l.findings) if (F.verified_text[f.rule_id]) say(xs, fill(F.verified_text[f.rule_id], { stem, branch }), 'sach', ['TTT'], [cite(f.rule_id, f.text, ['TTT'])], { tone: 'neg', step, note: 'Trích Thiên Tủy, Tuế Vận (tr.229-233).' });
-    verdictOf(xs, l, rc, `l${l.index}`, who, { year: false, years: l.good_years ?? goodYearsTs(meta.start_year, dm, table, totG, xauG, needEl, l.pillar), ds,
+    // chế hóa in the verdict (plan THIEN-BAN-33 G2.4): a heavy pillar whose stem restrains the natal stem that restrains the useful god
+    // (touch khac_ky) is said so in the main reading, and its verdict is held one degree less sure (a labelled convention)
+    const che = rc.verdict === 'nang' ? (l.touch ?? []).find(x => x.kind === 'khac_ky') : undefined;
+    let rcV = rc;
+    if (che && Dd?.luck_che?.length) {
+      say(xs, fill(m.pick(`bd|lche|${l.index}`, Dd.luck_che), { who: che.who, ts: join((che.targets ?? []).map((p, i) => `can ${PIL_VI[p]} ${che.target_stems?.[i] ?? ''}`)) }), 'tinh_toan', ['TVH p.382'], [],
+        { step, tone: 'pos', note: 'Chế hóa trong phán quyết vận (quy ước có nhãn): can vận khắc chính chữ đang khắc dụng thần của nguyên cục thì cái nặng của vận được bớt một bậc chắc chắn; phán quyết vẫn là nặng.' });
+      rcV = { ...rc, certainty: rc.certainty === 'ro' ? 'vua' : rc.certainty === 'vua' ? 'yeu' : rc.certainty };
+    }
+    verdictOf(xs, l, rcV, `l${l.index}`, who, { year: false, years: l.good_years ?? goodYearsTs(meta.start_year, dm, table, totG, xauG, needEl, l.pillar), ds,
       dom: F.rc_dom ? domsOf([l.stem_group, l.branch_group]) : undefined });
     for (const s of [...xs, ...ds]) s.trace.step ??= step;
     if (meta.start_year <= yr + 60) {

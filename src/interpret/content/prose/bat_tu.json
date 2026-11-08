@@ -960,9 +960,45 @@
      "Hai cách xét gặp nhau ở cùng một chỗ: Tài nhiều mà chưa thành lợi cho bản thân, một bên vì Tài chưa chảy vào nhật chủ, một bên vì nhật chủ {level} phải gánh Tài; chỗ đỡ là Tỉ Kiếp, Ấn."
     ]
    },
+   "luck_che": [
+    "Can {who} của vận lại khắc {ts}, chính chữ đang khắc dụng thần, nên phần nặng của vận được bớt đi một phần.",
+    "Có một chỗ đỡ: can {who} khắc {ts}, chữ vốn đè lên dụng thần, nên cái nặng của mười năm này không trọn."
+   ],
+   "str_method": [
+    "Sức của tám chữ được cân theo độ: mỗi can, mỗi can tàng trong chi có độ riêng, lệnh tháng cộng hay trừ một phần năm, chứ không đếm mỗi chữ như nhau.",
+    "Sức không tính bằng cách đếm chữ: mỗi can và mỗi can tàng trong chi được cân theo độ, rồi lệnh tháng cộng hay trừ một phần năm."
+   ],
+   "str_roots": [
+    "Nhật chủ có gốc ở {roots}, nên đây là thế nhược có căn, chưa tới mức phải xét cách tòng.",
+    "Có gốc ở {roots}, nhật chủ nhược mà không trơ trọi; lá số không vào cách tòng."
+   ],
+   "str_no_roots": [
+    "Không chi nào tàng can cùng hành với nhật chủ, nên nhật chủ nhược mà không có gốc; dù vậy lá số chưa vào cách tòng."
+   ],
+   "dh_agree": [
+    "Ở điểm này hai phép cùng chiều: {stems} mà khí hậu cần cũng thuộc {roles} của phép cân bằng.",
+    "Khí hậu và thế cân bằng gặp nhau ở {stems}: đó cũng là {roles} xét theo cân bằng."
+   ],
+   "dh_venh": [
+    "Hai phép chỉ vênh nhau ở {stem}: xét cân bằng, {g} thuộc nhóm vận xấu; xét khí hậu, {stem} lại là can {rank} lá số cần.",
+    "Chỗ vênh duy nhất là {stem}: phép cân bằng xếp nhóm {g} vào vận xấu, còn bảng điều hậu xếp {stem} là can {rank}."
+   ],
+   "dh_venh_lean": {
+    "can_bang": [
+     "Vì {why}, chỗ vênh này nghiêng về phép cân bằng; phần khí hậu của {stem} chỉ là điều kiện đi kèm.",
+     "Do {why}, ở {stem} nên theo phép cân bằng, còn nhu cầu khí hậu chỉ làm điều kiện phụ."
+    ],
+    "dieu_hau": [
+     "Vì {why}, chỗ vênh này nghiêng về khí hậu; còn việc {g} nặng thêm chỉ là điều kiện đi kèm.",
+     "Do {why}, ở {stem} nên theo khí hậu, còn phép cân bằng chỉ làm điều kiện phụ."
+    ],
+    "hai": [
+     "Chưa phân xử được ở {stem}: theo cân bằng thì đó là vận xấu, theo khí hậu thì đó là can lá số cần; cả hai kết quả đều chỉ đúng có điều kiện."
+    ]
+   },
    "str_plain": [
-    "Phe nhật chủ, gồm hành {el} của chính nó và hành {mel} sinh cho nó, giữ khoảng {frac} sức của tám chữ, {cmp2} mức bốn phần mười cần để tự đứng vững, nên nhật chủ {side}.",
-    "Gộp hành {el} với hành {mel} sinh ra nó, phe nhật chủ có khoảng {frac} sức của cả lá số, {cmp2} mức bốn phần mười để tự đứng vững: nhật chủ {side}."
+    "Phe nhật chủ, gồm hành {el} của chính nó và hành {mel} sinh cho nó, giữ khoảng {frac} tổng số độ của tám chữ, {cmp2} mức bốn phần mười cần để tự đứng vững, nên nhật chủ {side}.",
+    "Gộp hành {el} với hành {mel} sinh ra nó, phe nhật chủ có khoảng {frac} tổng số độ của lá số, {cmp2} mức bốn phần mười để tự đứng vững: nhật chủ {side}."
    ],
    "str_plain_near": [
     "Phe nhật chủ, gồm hành {el} và hành {mel} sinh cho nó, giữ gần đúng bốn phần mười sức của tám chữ, sát mức cần để tự đứng vững, và ở phía {side}: nhật chủ hơi {side}."
@@ -1277,8 +1313,15 @@
    "Tài vượng và chảy được vào nhật chủ qua {chain}, nhưng {tmm} bị chữ trong tứ trụ hình, xung hoặc hại, nên tiền bạc chỉ ở mức người thường."
   ],
   "why_noflow": [
-   "Ba chỗ đứng sát nhật chủ là {near}; không chỗ nào là Ấn, nên Tài và Quan chưa có lối đi vào nhật chủ.",
-   "Đứng sát nhật chủ chỉ có {near}, không có Ấn, nên mạch Tài sinh Quan, Quan sinh Ấn chưa nối được tới nhật chủ."
+   "Ba chỗ đứng sát nhật chủ là {near}; không chỗ nào là Ấn, nên Tài và Quan chưa tính là chảy vào nhật chủ.",
+   "Đứng sát nhật chủ chỉ có {near}, không có Ấn lộ, nên mạch Tài sinh Quan, Quan sinh Ấn chưa tính là chảy vào nhật chủ."
+  ],
+  "chain_hidden": [
+   "Dù vậy, {branch} có tàng {an} ngay dưới {quan}: đường Quan sinh Ấn, Ấn sinh thân có thật, chỉ ở mức vừa vì Ấn chưa lộ lên can.",
+   "Đường ngầm vẫn có: {an} tàng trong {branch}, ngay dưới {quan}, nên Quan sinh được Ấn và Ấn sinh được thân, ở mức vừa vì Ấn chưa lộ."
+  ],
+  "chain_far": [
+   "Ấn chỉ có ở {an}, xa nhật chủ, nên đường Quan sinh Ấn, Ấn sinh thân còn yếu."
   ],
   "why_noflow_an": [
    "Ba chỗ đứng sát nhật chủ là {near}; Ấn ở {an} nhưng không nối được với Quan Sát, nên mạch Tài sinh Quan, Quan sinh Ấn chưa tới được nhật chủ."

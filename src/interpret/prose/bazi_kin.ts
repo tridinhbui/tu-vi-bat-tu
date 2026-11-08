@@ -37,7 +37,7 @@ export interface BaziKin { detail: KinDetail; findings: KinFinding[] }
 export interface KinYear { gods: string[]; fill_void: boolean; natal_void_gods: string[]; findings: KinFinding[] }
 export interface KinFrames {
   rule: string[]; rule_next: string[]; lead: Record<string, string[]>;
-  two_books: string[]; rule_many: string[]; two_ways: string[]; rank_two: string[]; tai_flat: string[]; tai_flow: string[]; tai_flow_tmm: string[]; dm_wait: string[]; why_noflow: string[]; why_noflow_an: string[]; why_flow: string[]; capped: string[]; capped_dm: string[]; two_sides: string[];
+  two_books: string[]; rule_many: string[]; two_ways: string[]; rank_two: string[]; tai_flat: string[]; tai_flow: string[]; tai_flow_tmm: string[]; dm_wait: string[]; why_noflow: string[]; why_noflow_an: string[]; chain_hidden?: string[]; chain_far?: string[]; why_flow: string[]; capped: string[]; capped_dm: string[]; two_sides: string[];
   layout: string[]; work_field: string[]; work_field_day: string[]; work_place: string[]; work_none: string[];
   spouse: string[]; spouse_none: string[]; day_combine: string[]; parents: string[]; siblings: string[]; siblings_an: string[]; children: string[]; children_hour: string[];
   tmm: string[];
@@ -148,8 +148,24 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
     const near = D.near_dm.map(x => `${x.at} (${x.god})`);
     const an = D.near_dm.filter(x => GROUP[x.god] === 'Ấn');
     if (D.tai_flow.length || D.quan_flow.length) say(tdeep, fill(m.pick('kin|whyf', F.why_flow), { chain: join(D.tai_flow.length ? D.tai_flow : D.quan_flow) }), 'tinh_toan', ['ZZ p.50'], [], { step: 'kin:flow', mech: true, note: FLOW_NOTE });
-    else say(tdeep, fill(m.pick(an.length ? 'kin|whyna' : 'kin|whyn', an.length ? F.why_noflow_an : F.why_noflow), { near: join(near), an: join(an.map(x => x.at)) }), 'tinh_toan', ['ZZ p.50'], [],
-      { step: 'kin:flow', mech: true, note: FLOW_NOTE });
+    else {
+      say(tdeep, fill(m.pick(an.length ? 'kin|whyna' : 'kin|whyn', an.length ? F.why_noflow_an : F.why_noflow), { near: join(near), an: join(an.map(x => x.at)) }), 'tinh_toan', ['ZZ p.50'], [],
+        { step: 'kin:flow', mech: true, note: FLOW_NOTE });
+      // the chain graded (plan THIEN-BAN-33 G3.1, review 2026-11-07): an Ấn hidden in the branch right under a Quan stem that stands next to
+      // the day master (can tháng / can giờ) is a real Quan → Ấn → thân route, of middle grade because the Ấn is not on a stem; an Ấn hidden
+      // farther is a weak one. The manual's own flow (ZZ p.50) still needs the Ấn on one of the three places, so the verdict above stands.
+      const pil = (chart.bazi as { pillars?: Record<string, { stem: string; branch: string; stem_ten_god: string | null; hidden: Array<{ stem: string; ten_god: string }> }> } | undefined)?.pillars;
+      if (pil && !an.length && F.chain_hidden?.length) {
+        const quanAt = (['month', 'hour'] as const).filter(p2 => GROUP[pil[p2]?.stem_ten_god ?? ''] === 'Quan Sát');
+        const hid = (['year', 'month', 'day', 'hour'] as const).flatMap(p2 => (pil[p2]?.hidden ?? []).filter(h => GROUP[h.ten_god] === 'Ấn').map(h => ({ p: p2, ...h })));
+        const under = hid.find(h => quanAt.includes(h.p as 'month' | 'hour'));
+        const GN = 'Cấp của mạch (quy ước có nhãn): Ấn lộ ở can sát nhật chủ là mạnh; Ấn tàng ngay dưới can Quan đứng sát nhật chủ là vừa; Ấn chỉ tàng ở trụ xa là yếu; không có Ấn là đứt.';
+        if (under) say(tdeep, fill(m.pick('kin|chh', F.chain_hidden), { branch: `chi ${PIL_VI[under.p]} ${pil[under.p].branch}`, an: `${under.stem} (${under.ten_god})`, quan: `${pil[under.p].stem} (${pil[under.p].stem_ten_god})` }),
+          'tinh_toan', ['ZZ p.50'], [], { step: 'kin:flow:grade', mech: true, note: GN });
+        else if (hid.length && F.chain_far?.length) say(tdeep, fill(m.pick('kin|chf', F.chain_far), { an: join(hid.map(h => `${h.stem} tàng trong chi ${PIL_VI[h.p]} ${pil[h.p].branch}`)) }),
+          'tinh_toan', ['ZZ p.50'], [], { step: 'kin:flow:grade', mech: true, note: GN });
+      }
+    }
   }
   // each Tài judgement by position. The good ones are said together: under the manual's own cap when Tài is strong and does not flow (p.50
   // 断语条件 2), under the day master's strength when the Tài layers say Tài is a burden, or as one side when the chart also has bad ones
