@@ -9,6 +9,7 @@ import { luanReport, LUAN_VERSION } from './prose/luan.ts';
 import { proseTongLuan } from './prose/tong_luan.ts';
 import { proseCachCuc } from './prose/cach_cuc.ts';
 import { checkedOnly } from './prose/checked.ts';
+import { glossReport } from './prose/glossary.ts';
 import { reasonedChapter, NARRATIVE_VERSION } from './prose/narrative.ts';
 import { planView } from './reason/plan.ts';
 import { analyses } from './reason/analysis.ts';
@@ -78,8 +79,9 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
     : proseChapter(facts, k, chapter as ProseChapterId, { allowDraft: d.proseDraft, deep: d.deep !== false });
   // only checked readings reach the reader: the phổ thông sentences are removed from every prose output (prose/checked.ts)
   type Checkable = Parameters<typeof checkedOnly>[0];
+  // the whole report: unchecked parts out (checked.ts), then each term explained at its first use (glossary.ts, plan G10.7)
   const out = (mode !== 'prose' ? out0 : 'chapters' in out0 && Array.isArray(out0.chapters)
-    ? { ...out0, chapters: out0.chapters.map(c => checkedOnly(c as Checkable, facts)) } : checkedOnly(out0 as Checkable, facts)) as typeof out0;
+    ? { ...out0, chapters: glossReport(out0.chapters.map(c => checkedOnly(c as Checkable, facts, k)) as never) } : checkedOnly(out0 as Checkable, facts, k)) as typeof out0;
   const text = JSON.stringify(out);
   const pass = 'quality' in out ? out.quality.pass : out.pass;
   d.defer(d.cache.put(key, chapter, text, { engine: mode === 'prose' ? PROSE_VERSION : mode === 'reasoned' ? NARRATIVE_VERSION : ENGINE_VERSION, kb: k.version, pass }));

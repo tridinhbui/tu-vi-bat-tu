@@ -8,7 +8,9 @@
 // The classes come from engine/data/kg/claim_severity.json (tools/interpret/build_claim_severity.py, hand-reviewed).
 import SEV from '../../../engine/data/kg/claim_severity.json' with { type: 'json' };
 import type { ProseParagraph, ProseSentence } from './realize.ts';
-import type { ChartInput } from '../types.ts';
+import type { ChartInput, Knowledge } from '../types.ts';
+import norms from '../../../engine/data/kg/index_norms.json' with { type: 'json' };
+import { computeIndices, type IndexNorms } from '../indices.ts';
 
 export interface SeverityEntry { class: string; pol: '+' | '-' | '~'; palace: string; cond: string; cite: string; claim: string }
 const RULES = (SEV as { rules: Record<string, SeverityEntry> }).rules;
@@ -60,7 +62,7 @@ function standing(chart: ChartInput | undefined, es: SeverityEntry[]): string {
 
 /** The grave book sentences of a chapter's paragraphs, moved out: each main or deep paragraph loses them (and a sentence that only leans on
  *  one of them); the chapter gains one Đọc sâu paragraph with the neutral lines. Returns the paragraphs unchanged when nothing is grave. */
-export function severityParagraphs(ps: ProseParagraph[], chart?: ChartInput): ProseParagraph[] {
+export function severityParagraphs(ps: ProseParagraph[], chart?: ChartInput, k?: Knowledge): ProseParagraph[] {
   const moved: Array<{ ruleId: string; e: SeverityEntry; s: ProseSentence }> = [];
   const out = ps.flatMap(p => {
     if ((p as ProseParagraph & { severity?: boolean }).severity) return [p];
@@ -76,6 +78,13 @@ export function severityParagraphs(ps: ProseParagraph[], chart?: ChartInput): Pr
       if (age && !s.trace.severity) {
         const body = s.text.replace(/[.!]\s*$/, ''), low = body.charAt(0).toLocaleLowerCase('vi') + body.slice(1);
         kept.push({ ...s, text: `Lời cổ còn đặt một mốc tuổi: ${low}; đó là mốc chung, chưa xét theo các đại hạn của riêng lá số này.`, trace: { ...s.trace, severity: 'moc_tuoi' } });
+        // set beside this chart's đại hạn after the mark (plan G6.4): their levels, so the mark is read against the chart's own periods
+        const mark = Number(s.text.match(/(\d{2})\s*tuổi/)?.[1]);
+        if (chart && k && mark) {
+          const after = computeIndices(chart, k, norms as IndexNorms).decades.filter(d => d.age_from >= mark - 2 && d.age_from < 80 && !d.insufficient).slice(0, 3);
+          if (after.length) kept.push({ text: `Đặt cạnh lá số này, các đại hạn từ mốc ấy là ${joinVi(after.map(d => `${d.age_from}–${d.age_to} tuổi mức ${d.level_vi.toLowerCase()}`))}.`,
+            trace: { move: 'TIMING', concepts: [], rules: [], cites: [], basis: 'tinh_toan', step: 'moc_tuoi:decades', note: 'Mức đại hạn theo chỉ số hệ thống (cùng thang với biểu đồ giai đoạn).' } } as ProseSentence);
+        }
         dropped = false; changed = true;
         continue;
       }
@@ -99,7 +108,12 @@ export function severityParagraphs(ps: ProseParagraph[], chart?: ChartInput): Pr
     return { text: cap(text), trace: { move: 'VALUE', concepts: [], rules: ms.map(m => m.ruleId), cites: [...new Set(ms.map(m => m.e.cite))].sort(), basis: 'sach', step: `severity:${e.class}`,
       severity: e.class, note: `Câu gốc: ${ms.map(m => `"${m.e.claim}" (${m.e.cite})`).join('; ')}. Lớp mức nặng ${e.class} (claim_severity.json): không đưa vào kết luận.` } } as ProseSentence;
   });
-  sentences.push({ text: 'Đây là quan niệm cổ, chưa được kiểm chứng bằng thực nghiệm, nên phần luận này không dùng chúng để đoán về người có lá số.',
+  // the caution line varies by chapter (it is said in several chapters of one report; plan G10.7: no repeated sentence)
+  const CAUTION = ['Đây là quan niệm cổ, chưa được kiểm chứng bằng thực nghiệm, nên phần luận này không dùng chúng để đoán về người có lá số.',
+    'Những điều trên chỉ là cách đọc cổ, chưa được thực nghiệm kiểm chứng; ở đây chúng không được dùng làm lời đoán.',
+    'Đó là quan niệm truyền thống chưa qua kiểm chứng thực nghiệm, nên chỉ được ghi lại để tham khảo, không thành lời đoán.'];
+  const seed = moved.map(m => m.ruleId).join('').split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+  sentences.push({ text: CAUTION[seed % CAUTION.length],
     trace: { move: 'VALUE', concepts: [], rules: [], cites: [], basis: 'he_thong', step: 'severity:caution' } } as ProseSentence);
   out.push({ role: 'support', sentences, text: sentences.map(s => s.text).join(' '), deep: true, title: 'Quan niệm cổ cần đọc thận trọng', severity: true } as ProseParagraph);
   return out;

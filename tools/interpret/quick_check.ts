@@ -30,6 +30,9 @@ for (const f of readdirSync(P).filter(x => x.endsWith('.json') && !x.startsWith(
       for (const w of META) if (low.includes(' ' + w)) bad.push(`frame ${f}:${at}: meta "${w.trim()}"`);
       // "cả đời" is an absolute in the system's own frames (plan THIEN-BAN-33 INV-11), though a book claim may still say it
       for (const w of [...ABSOLUTE, 'cả đời']) if (low.includes(w)) bad.push(`frame ${f}:${at}: absolute "${w}"`);
+      // the owner's style brief (G10.7): no mechanical "không phải … mà là …", no inflated adjectives in the system's own frames
+      if (/không phải[^.]{0,60}mà là/u.test(low)) bad.push(`frame ${f}:${at}: "không phải … mà là …"`);
+      for (const w of ['huy hoàng', 'phi thường', 'xuất chúng', 'đại phú đại quý']) if (low.includes(w)) bad.push(`frame ${f}:${at}: inflated "${w}"`);
     } else if (Array.isArray(x)) x.forEach((y, i) => walk(y, `${at}[${i}]`));
     else if (x && typeof x === 'object') for (const [k, v] of Object.entries(x)) if (k !== 'note' && k !== 'weigh_note') walk(v, at ? `${at}.${k}` : k);
   };
@@ -44,7 +47,7 @@ let n = 0, long = 0;
 const t0 = Date.now();
 for (const [label, f] of charts) {
   for (const ch of proseAllChapters(f, K, { allowDraft: true, deep: true, luan: true })) {
-    const c = checkedOnly(ch as never, f) as unknown as { chapter: string; issues?: Array<{ level: string; code: string; msg: string }>; paragraphs: Array<{ sentences: Array<{ text: string }> }> };
+    const c = checkedOnly(ch as never, f, K) as unknown as { chapter: string; issues?: Array<{ level: string; code: string; msg: string }>; paragraphs: Array<{ sentences: Array<{ text: string }> }> };
     for (const i of (ch as { issues?: Array<{ level: string; code: string; msg: string }> }).issues ?? []) if (i.level === 'error') bad.push(`${label}/${c.chapter}: ${i.code}: ${i.msg.slice(0, 140)}`);
     for (const s of c.paragraphs.flatMap(p => p.sentences)) {
       n++;

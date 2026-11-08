@@ -5,7 +5,7 @@
 import type { ProseParagraph } from './realize.ts';
 import { withLead } from './luan.ts';
 import { severityParagraphs } from './severity.ts';
-import type { ChartInput } from '../types.ts';
+import type { ChartInput, Knowledge } from '../types.ts';
 
 const UNCHECKED = new Set(['pho_thong']);
 
@@ -22,9 +22,33 @@ function tiedOk(s: ProseParagraph['sentences'][number], kept: ProseParagraph['se
   return !!s.trace.attach && kept.some(k => k !== s && k.trace.step === s.trace.attach && (k.trace.basis === 'sach' || k.trace.basis === 'tinh_toan'));
 }
 
-export function checkedParagraphs(ps: ProseParagraph[], chart?: ChartInput): ProseParagraph[] {
+/** Habitual additive openers (the owner's style brief, docs/plans/NARRATIVE-STYLE-PROMPT.md §3; plan G10.7): they add nothing a reader
+ *  needs, so within one paragraph only the first one stays; a later one is dropped and the sentence starts on its own words. Connectors that
+ *  carry a relation (Dẫu vậy, Vì vậy, Tuy nhiên …) are not touched. */
+const HABIT_OPENER = /^(Bên cạnh đó|Ngoài ra|Thêm vào đó|Thêm nữa|Hơn nữa|Song song với điều ấy|Song song với những nét ấy|Cùng với đó),\s+/u;
+/** the same causal joint said again and again in one paragraph ("…; vì vậy …" five times): from the second on, it turns to another causal
+ *  joint of the same meaning */
+const CAUSAL = [', nên ', ': ', '; do đó ', ', vì thế '];
+export function connectorParagraphs(ps: ProseParagraph[]): ProseParagraph[] {
+  return ps.map(p => {
+    let seen = 0, vv = 0, changed = false;
+    const sentences = p.sentences.map(s0 => {
+      let s = s0;
+      if (s.text.includes('; vì vậy ') && ++vv > 1) { s = { ...s, text: s.text.replace('; vì vậy ', CAUSAL[(vv - 2) % CAUSAL.length]) }; changed = true; }
+      const m = s.text.match(HABIT_OPENER);
+      if (!m) return s;
+      if (++seen === 1) return s;
+      changed = true;
+      const rest = s.text.slice(m[0].length);
+      return { ...s, text: rest.charAt(0).toLocaleUpperCase('vi') + rest.slice(1) };
+    });
+    return changed ? { ...p, sentences, text: sentences.map(s => s.text).join(' ') } : p;
+  });
+}
+
+export function checkedParagraphs(ps: ProseParagraph[], chart?: ChartInput, k?: Knowledge): ProseParagraph[] {
   // grave book sentences (claim_severity.json, owner decision Q2 2026-11-07) leave the main text for a neutral Đọc sâu line first
-  return severityParagraphs(ps, chart).flatMap(p => {
+  return connectorParagraphs(severityParagraphs(ps, chart, k)).flatMap(p => {
     const kept0 = p.sentences.filter(s => !UNCHECKED.has(s.trace.basis));
     const kept = kept0.filter(s => tiedOk(s, kept0));
     if (!kept.length || (kept.length < p.sentences.length && kept.every(s => (s.trace.basis === 'he_thong' || s.trace.basis === 'tong_hop' || s.trace.basis === 'minh_hoa' || s.trace.basis === 'loi_khuyen') && !OWN(s)))) return [];
@@ -36,12 +60,12 @@ export function checkedParagraphs(ps: ProseParagraph[], chart?: ChartInput): Pro
 }
 
 /** A prose chapter (or the Bát Tự reading with its per-section `chapters`, or the overview with its `card`) with the unchecked parts removed. */
-export function checkedOnly<T extends { paragraphs: ProseParagraph[]; text: string; chapters?: unknown; card?: unknown; advice?: unknown }>(ch: T, chart?: ChartInput): T {
-  const paragraphs = checkedParagraphs(ch.paragraphs, chart);
+export function checkedOnly<T extends { paragraphs: ProseParagraph[]; text: string; chapters?: unknown; card?: unknown; advice?: unknown }>(ch: T, chart?: ChartInput, k?: Knowledge): T {
+  const paragraphs = checkedParagraphs(ch.paragraphs, chart, k);
   const out: T = { ...ch, paragraphs, text: paragraphs.map(p => p.text).join('\n\n') };
   if (ch.chapters && typeof ch.chapters === 'object' && !Array.isArray(ch.chapters))
     (out as { chapters: Record<string, ProseParagraph[]> }).chapters = Object.fromEntries(Object.entries(ch.chapters as Record<string, ProseParagraph[]>)
-      .map(([id, ps]) => [id, checkedParagraphs(ps, chart)] as const).filter(([, ps]) => ps.length));
+      .map(([id, ps]) => [id, checkedParagraphs(ps, chart, k)] as const).filter(([, ps]) => ps.length));
   if (Array.isArray(ch.card)) (out as { card: Array<{ basis: string }> }).card = (ch.card as Array<{ basis: string }>).filter(f => !UNCHECKED.has(f.basis));
   return out;
 }

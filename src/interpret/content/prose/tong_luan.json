@@ -85,5 +85,26 @@
  "best_off": [
   "Mặt khá nhất là {domain} ({verdict}), dựa trên {ground}, song chưa vững bằng một chỗ dựa thật",
   "Xếp trên cả là {domain} ({verdict}), dựa trên {ground}, nhưng đó chưa phải một chỗ dựa chắc"
- ]
+ ],
+ "dec_best_tie": [
+  "Không chặng nào nổi hẳn lên: {list} tuổi cùng ở mức {level}",
+  "Mức cao nhất, {level}, chia đều cho các chặng {list} tuổi"
+ ],
+ "dec_worst_tie": [
+  "{list} tuổi cùng xuống mức {level}",
+  "các chặng {list} tuổi cùng ở mức thấp nhất, {level}"
+ ],
+ "next": [
+  "Hai chặng kế tiếp đáng chú ý: {list}",
+  "Nhìn hai mươi năm tới: {list}"
+ ],
+ "cross": [
+  "Đặt hai hệ cạnh nhau ở chặng {a}–{b} tuổi ({yfrom}–{yto}): Tử Vi xếp mức {tv} (cung {pal}), còn Bát Tự đi vận {pillar}, {bt}; {agree}",
+  "Ở chặng {a}–{b} tuổi ({yfrom}–{yto}), Tử Vi cho mức {tv} với cung {pal}, Bát Tự cho vận {pillar} {bt}; {agree}"
+ ],
+ "cross_agree": {
+  "cung": "hai hệ cùng chiều",
+  "venh": "hai hệ vênh nhau, mỗi bên xét một lẽ riêng nên cả hai được giữ",
+  "giua": "một bên ở mức giữa, nên chưa thể nói hai hệ cùng hay ngược chiều"
+ }
 }

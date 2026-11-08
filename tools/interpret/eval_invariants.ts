@@ -20,7 +20,7 @@ const all: Array<Violation & { label: string }> = [];
 let n = 0;
 const t0 = Date.now();
 for (const [label, f] of [...refs, ...corpus.map((c, i) => [`corpus#${i}`, c.facts] as [string, ChartInput])]) {
-  const chs = proseAllChapters(f, K, { allowDraft: true, deep: true, luan: true }).map(c => checkedOnly(c as never, f)) as never;
+  const chs = proseAllChapters(f, K, { allowDraft: true, deep: true, luan: true }).map(c => checkedOnly(c as never, f, K)) as never;
   n += sentencesOf(chs).length;
   for (const v of checkInvariants(f, chs)) if (!only || v.inv === only) all.push({ ...v, label });
 }

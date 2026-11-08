@@ -17,7 +17,8 @@ import norms from '../../../engine/data/kg/index_norms.json' with { type: 'json'
 
 export interface TongLuanLib {
   status: string; lead: string[]; best: string[]; worst: string[]; middle: string[]; same: string[]; open: string[]; health: string[];
-  best_multi?: string[]; worst_multi?: string[]; pair?: string[]; best_off?: string[];
+  best_multi?: string[]; worst_multi?: string[]; pair?: string[]; best_off?: string[]; dec_best_tie?: string[]; dec_worst_tie?: string[]; next?: string[];
+  cross?: string[]; cross_agree?: Record<string, string>;
   dec_best: string[]; dec_worst: string[]; turn_up: string[]; turn_down: string[]; current: string[]; advice: string[];
   /** the lowest decade whose book side leans good; a ranked domain whose core palace the twelve-palace chart reads the other way */
   dec_worst_rel?: string[]; radar_best?: string[]; radar_worst?: string[];
@@ -61,6 +62,26 @@ function groundOf(chart: ChartInput, v: DomainVerdict): { text: string; cause?: 
   const own = el?.star ? chart.palaces.find(p => p.stars.includes(el.star!) || p.major_stars.includes(el.star!))?.name : undefined;
   const pal = own ?? el?.palace ?? '';
   return el ? { text: `${name} ở cung ${pal}${own && own !== el.palace ? ` chiếu sang cung ${el.palace}` : ''}`.trim(), cause: { domain: v.id, ruleId: '', stars: [{ name, palace: pal }] } } : { text: '' };
+}
+
+/** The Tử Vi đại hạn beside the Bát Tự đại vận that covers most of its years (plan G6.2). Tử Vi ages are tuổi âm (year = lunar birth year +
+ *  age − 1); the Bát Tự luck pillars carry their start year. The Bát Tự verdict is the facts' reconcile verdict (bazi_deep pipeline). */
+export function crossSystems(chart: ChartInput, decades: Array<{ age_from: number; age_to: number; palace: string; level: number; level_vi: string; current?: boolean; insufficient?: boolean }>) {
+  const b = chart.bazi as { luck?: Array<{ name: string; start_year: number }>; deep?: { luck?: Array<{ pillar: string; reconcile?: { verdict: string } }> } } | undefined;
+  const lunar = (chart as { lunar_year?: number }).lunar_year ?? chart.birth_year;
+  if (!b?.luck?.length || !lunar) return [];
+  const VI: Record<string, string> = { thuan: 'thuận', kha_thuan: 'khá thuận', co_dieu_kien: 'tốt xấu tùy điều kiện', nang: 'nặng', tron: 'nửa thuận nửa nặng' };
+  const good = (tv: number) => tv >= 3, bad = (tv: number) => tv <= 1;
+  const ci = decades.findIndex(d => d.current);
+  return decades.filter(d => !d.insufficient && d.age_from < RANK_AGE_LIMIT).map(d => {
+    const y1 = lunar + d.age_from - 1, y2 = lunar + d.age_to - 1;
+    const over = b.luck!.map(l => ({ l, n: Math.max(0, Math.min(y2, l.start_year + 9) - Math.max(y1, l.start_year) + 1) })).sort((a, c) => c.n - a.n)[0];
+    const v = b.deep?.luck?.find(x => x.pillar === over.l.name)?.reconcile?.verdict ?? '';
+    const btGood = v === 'thuan' || v === 'kha_thuan', btBad = v === 'nang';
+    const agree = (good(d.level) && btGood) || (bad(d.level) && btBad) ? 'cung' : (good(d.level) && btBad) || (bad(d.level) && btGood) ? 'venh' : 'giua';
+    const idx = decades.indexOf(d);
+    return { a: d.age_from, b: d.age_to, y1, y2, pal: d.palace, tv: d.level_vi, pillar: over.l.name, bt: v, btVi: VI[v] ?? v, agree, current: !!d.current, next: ci >= 0 && idx === ci + 1 };
+  }).filter(x => x.bt);
 }
 
 export function proseTongLuan(chart: ChartInput, k: Knowledge, seed: string, engine: string, allowDraft: boolean, ledger?: Ledger): ProseTongLuan {
@@ -145,12 +166,30 @@ export function proseTongLuan(chart: ChartInput, k: Knowledge, seed: string, eng
       const dv = (d: typeof ds[number]) => ({ a: String(d.age_from), b: String(d.age_to), pal: d.palace, level: d.level_vi });
       // the lowest decade is lowest against the corpus; when its own book side leans good, the sentence says so (review of the live charts 2026-10-25)
       const rel = bookLean(lo.items) > 0 && L!.dec_worst_rel?.length ? m.pick('dec_worst_rel', L!.dec_worst_rel) : '';
-      if (hi.level !== lo.level) say(p2, `${fill(m.pick('dec_best', L!.dec_best), dv(hi))}; ${fill(m.pick('dec_worst', L!.dec_worst), dv(lo))}${rel}`, 'tong_luan:decades', ix, 'he_thong');
+      // no decade is called the best or the lowest when another shares its level (owner decision Q4: not when the difference is small)
+      const tiesHi = ds.filter(d => d.level === hi.level), tiesLo = ds.filter(d => d.level === lo.level);
+      const many = (xs: typeof ds) => joinVi(xs.slice(0, 3).map(d => `${d.age_from}–${d.age_to}`));
+      const bestTxt = tiesHi.length > 1 && L!.dec_best_tie?.length ? fill(m.pick('dec_best_tie', L!.dec_best_tie), { list: many(tiesHi), level: hi.level_vi }) : fill(m.pick('dec_best', L!.dec_best), dv(hi));
+      const worstTxt = tiesLo.length > 1 && L!.dec_worst_tie?.length ? fill(m.pick('dec_worst_tie', L!.dec_worst_tie), { list: many(tiesLo), level: lo.level_vi }) : `${fill(m.pick('dec_worst', L!.dec_worst), dv(lo))}${rel}`;
+      if (hi.level !== lo.level) say(p2, `${bestTxt}; ${worstTxt}`, 'tong_luan:decades', { ...ix, note: `${ix.note} Chặng nào cùng mức với chặng khác thì không gọi là cao nhất hay thấp nhất (quyết định Q4 của chủ dự án).` }, 'he_thong');
       const jumps = ds.slice(1).map((d, i) => ({ d, prev: ds[i], j: d.level - ds[i].level })).filter(x => x.j !== 0).sort((a, b) => Math.abs(b.j) - Math.abs(a.j) || a.d.age_from - b.d.age_from);
       const t = jumps[0];
       if (t && Math.abs(t.j) >= 2) say(p2, fill(m.pick(t.j > 0 ? 'turn_up' : 'turn_down', t.j > 0 ? L!.turn_up : L!.turn_down), { a: String(t.d.age_from), pal: t.d.palace, from: t.prev.level_vi, to: t.d.level_vi }), 'tong_luan:turn', ix, 'he_thong');
       const cur = ds.find(d => d.current);  // (an insufficient current decade is left out above: nothing to say of its level)
       if (cur && cur !== hi && cur !== lo) say(p2, fill(m.pick('current', L!.current), dv(cur)), 'tong_luan:current', ix, 'he_thong');
+      // the decades worth watching next (owner decision Q4: current, the next 20–30 years, the life-wide ranking)
+      const all = computeIndices(chart, k, NORMS).decades;
+      const ci = all.findIndex(d => d.current);
+      const next = ci >= 0 ? all.slice(ci + 1, ci + 3).filter(d => !d.insufficient && d.age_from < RANK_AGE_LIMIT) : [];
+      if (next.length && L!.next?.length) say(p2, fill(m.pick('next', L!.next), { list: joinVi(next.map(d => `${d.age_from}–${d.age_to} tuổi (cung ${d.palace}) mức ${d.level_vi.toLowerCase()}`)) }), 'tong_luan:next', ix, 'he_thong');
+    }
+    // the two systems decade by decade (plan G6.2): the Tử Vi đại hạn and the Bát Tự đại vận that covers most of its years, each with its own
+    // level, and whether they agree; never merged into one score
+    const X = crossSystems(chart, computeIndices(chart, k, NORMS).decades);
+    if (X.length && L!.cross?.length) {
+      const pick = X.filter(x => x.current || x.next).slice(0, 2);
+      for (const x of pick) say(p2, fill(m.pick(`cross|${x.a}`, L!.cross), { a: String(x.a), b: String(x.b), yfrom: String(x.y1), yto: String(x.y2), tv: x.tv.toLowerCase(), pal: x.pal, pillar: x.pillar, bt: x.btVi,
+        agree: L!.cross_agree?.[x.agree] ?? '' }), 'tong_luan:cross', { note: 'Hai hệ đo khác nhau: mức Tử Vi theo chỉ số hệ thống của đại hạn; phán quyết Bát Tự theo bảng cách và điều hậu của Thiệu Vĩ Hoa cho đại vận phủ phần lớn những năm ấy. Không gộp thành một điểm.' }, 'he_thong');
     }
   }
   const paragraphs: ProseParagraph[] = ([['structure', p1], ['course', p2], ['balance', p3]] as Array<[ProseParagraph['role'], ProseSentence[]]>).filter(([, xs]) => xs.length)

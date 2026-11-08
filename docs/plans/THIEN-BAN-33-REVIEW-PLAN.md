@@ -734,3 +734,28 @@ Theo quyết định Q5: thử, chỉ vài chỗ nhỏ, tiết kiệm token.
 **Chưa làm**
 - Phép thử nhiễu cho độ chắc vượng nhược (G2.2).
 - Câu chữ Bát Tự còn lặp "Bên cạnh đó… Ngoài ra…" (G10).
+
+### G6 và G10.7 (cách 1) bản 1 — 2026-11-08
+
+**G6, vận hạn**
+
+- **G6.0.** Mỗi đại hạn trước 80 tuổi có câu "chặng này kích hoạt tổ hợp Quan Lộc (Hóa Quyền vào Thái Âm)…". Câu này nêu tổ hợp nguyên cục nào có thành viên bị Tứ Hóa của hạn chạm vào, dựa trên trường `activation` của G9.
+- **G6.1.** Tổng luận có ba dạng nhìn:
+  - chặng hiện tại;
+  - hai chặng kế tiếp;
+  - xếp hạng toàn đời, chỉ các chặng bắt đầu trước 80 tuổi. Chặng nào cùng mức với chặng khác thì nói là "ngang", không gọi "cao nhất" hay "thấp nhất".
+
+  **Chưa làm:** phép thử đổi hạng trên 5 mẫu corpus.
+- **G6.2.** Tổng luận đối chiếu hai hệ cho chặng hiện tại và chặng kế. Câu nêu mức Tử Vi, vận Bát Tự phủ phần lớn những năm ấy cùng phán quyết của nó, và cho biết hai bên cùng chiều, vênh, hay một bên ở mức giữa. Hai bên không gộp thành một điểm (`tong_luan.ts crossSystems`). Lá chủ dự án: chặng 23–32 tuổi Tử Vi xếp thuận, vận Mậu Tuất nặng, nên ghi "hai hệ vênh nhau".
+- **G6.3.** Ghi chú mức đại hạn thêm câu "xếp hạng theo quy tắc của hệ thống, chưa phải dự báo đã được hiệu chuẩn". **Chưa làm:** phép đo độ ổn định.
+- **G6.4.** Câu mốc tuổi của lời cổ được đặt cạnh mức các đại hạn từ mốc ấy (`checkedOnly` nhận thêm `k`).
+
+**G10.7, cách 1 (không dùng LLM)**
+
+- `checked.ts connectorParagraphs`: trong một đoạn chỉ giữ từ nối thói quen đầu tiên ("Bên cạnh đó", "Ngoài ra"…). Từ câu thứ hai, "; vì vậy" lần lượt đổi sang ", nên", ":", "; do đó", ", vì thế".
+- `glossary.ts`: mỗi thuật ngữ (nhật chủ, dụng thần, hỷ thần, kỵ thần, điều hậu, vô chính diệu, xung chiếu, tam phương tứ chính, đại hạn, đại vận) được chú giải ở lần gặp đầu trong đoạn chính. Không chèn vào giữa một tên riêng, không làm câu vượt 35 chữ. Route áp dụng cho báo cáo `all`.
+- `quick_check`: cấm lối "không phải … mà là …" và các tính từ phóng đại trong khung câu.
+- Câu cảnh báo của lớp câu nặng có ba cách nói, chọn theo chương.
+- **Số đo trên 40 lá** (`tools/interpret/eval_style.ts`): từ nối thói quen giảm từ 3,21 xuống 1,70 trên 100 câu. Đoạn lặp từ nối giảm từ 123 xuống 0. Đoạn lặp "; vì vậy" giảm từ 32 xuống 0. Câu dài hơn 35 chữ giảm từ 10,79% xuống 10,46%.
+
+**Chưa làm:** ba bộ khung câu riêng cho ba giọng; đoạn năm lớp (G10.1); bước phản biện đầy đủ (G10.5); kiểm thử phản chứng ở mức cấu hình (G10.6).

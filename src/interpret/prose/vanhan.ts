@@ -16,10 +16,12 @@ import { Micro, finish, lowerFirst } from './micro.ts';
 import type { ProseParagraph, ProseSentence } from './realize.ts';
 import { validateProse } from './validate.ts';
 import { readPalace, type StructureLib } from './deep.ts';
+import { configurationOf } from '../reason/configuration.ts';
+import { infer } from './chapter.ts';
+import { RANK_AGE_LIMIT } from './tong_luan.ts';
 import norms from '../../../engine/data/kg/index_norms.json' with { type: 'json' };
 import { computeIndices, luuStars, type IndexNorms, type Item } from '../indices.ts';
 import { buildLedger, verdictKey, type DomainVerdict, type Ledger } from '../reason/ledger.ts';
-import { infer } from './chapter.ts';
 import { khaoLuanLines, toanThuLines, trungPhung } from './vanhan_books.ts';
 
 export interface VanHanLibrary {
@@ -49,7 +51,7 @@ export interface VanHanLibrary {
   /** the closing by the hạn's level on the system indices (0 … 4); when the level runs against the hạn's book sentences, the frame that says so */
   /** a book reading already told for an earlier hạn, recalled ({span}: that hạn's ages; DEEP-3) */
   reading_again?: string[]; level_again?: string[];
-  level: Record<string, string[]>; level_against: Record<'low' | 'high', string[]>; level_thin?: string[]; level_word: Record<string, string>;
+  config_touch?: string[]; level: Record<string, string[]>; level_against: Record<'low' | 'high', string[]>; level_thin?: string[]; level_word: Record<string, string>;
   /** a level against the books with no heavy item on the other side: the level is relative to the corpus */
   level_why_rel?: Record<'low' | 'high', string>; level_against_mixed?: Record<'low' | 'high', string[]>;
 }
@@ -140,6 +142,8 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
   // "nơi xem hôn nhân, vốn …" in every decade)
   const natalTold = new Set<string>(), klTold = new Set<string>();
   let qkTold = false;
+  // the natal configurations of the domain palaces (G6.0: a hạn is read as acting on them)
+  const cfgs = usable ? ['Quan Lộc', 'Tài Bạch', 'Điền Trạch', 'Phu Thê', 'Mệnh'].map(P => configurationOf(chart, k, P, infer(chart, k).resolved)) : [];
   let prevLevel: { level: number; vi: string } | null = null;
   // DEEP-3: a frame the chapter already said in an earlier hạn takes another variant when there is one (the level and trend lines read the
   // same across ten hạn), and a book reading told for an earlier hạn is recalled by that hạn instead of retold
@@ -271,6 +275,20 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       st.trace.note = 'Tứ Hóa theo can của cung đại hạn là thông lệ; nghĩa của mỗi Hóa theo Khảo Luận tr.195-197.';
       xs.push(st);
     }
+    // the hạn acting on the natal structure (plan THIEN-BAN-33 G6.0): which domain configurations it touches — a Hóa of the hạn landing on a
+    // member of a core palace's configuration (configuration.ts activation); at most two, decades before 80 only
+    if (d.age_from < RANK_AGE_LIMIT && L!.config_touch?.length) {
+      const touched = cfgs.flatMap(c => c.activation.filter(a => a.age_from === d.age_from && a.members.length).map(a => ({ c, a })))
+        .filter(x => x.c.palace !== d.palace).slice(0, 2);
+      if (touched.length) {
+        // one Hóa per configuration, said short (the full list is in the analysis): keeps the line under the 35-word bound
+        const list = joinNames(touched.map(x => `tổ hợp ${x.c.palace} (${(x.a.what.split(', ').find(w => w.startsWith('Hóa')) ?? x.a.what).replace(' của hạn vào ', ' vào ')})`));
+        const st = sentence(fill(m.pick(`${key}|cfg`, L!.config_touch), { list }), [], ['KL pp.195-197'], 'tinh_toan');
+        st.trace.step = 'config:touch';
+        st.trace.note = 'Tổ hợp nguyên cục (reason/configuration.ts) mà Tứ Hóa theo can của cung đại hạn rơi vào thành viên: đó là phần của cấu trúc gốc mà chặng này kích hoạt.';
+        xs.push(st);
+      }
+    }
     // the current hạn: the year's lưu stars that land in it (KL pp.41-42; positions only)
     if (chart.year?.dai_han?.age_from === d.age_from && curYear) {
       const here = Object.entries(luu).filter(([, p]) => p === d.palace).map(([s0]) => s0);
@@ -305,7 +323,7 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       if (!levelSpan.has(lv)) levelSpan.set(lv, `${d.age_from}–${d.age_to}`);
       const st = sentence(text, [], [], 'he_thong', 'answer');
       st.trace.step = `level:${lv}`;
-      st.trace.note = 'Mức của chặng theo chỉ số hệ thống (thông lệ, xếp theo phân vị của 1.000 lá số mẫu), cùng mức với biểu đồ ở phần Tổng quan.';
+      st.trace.note = 'Mức của chặng theo chỉ số hệ thống (thông lệ, xếp theo phân vị của 1.000 lá số mẫu), cùng mức với biểu đồ ở phần Tổng quan. Đây là xếp hạng theo quy tắc của hệ thống, chưa phải dự báo đã được hiệu chuẩn.';
       xs.push(st);
       // childhood (a hạn starting before 13) asks nothing of the person: no posture there
       const ps = d.age_from >= 13 ? postureLine(L!, m, `${key}|posture`, lv, idx!.menh_state, lvx!.level_vi) : null;
