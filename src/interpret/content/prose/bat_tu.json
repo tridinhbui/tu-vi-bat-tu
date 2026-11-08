@@ -1316,6 +1316,23 @@
    "Ba chỗ đứng sát nhật chủ là {near}; không chỗ nào là Ấn, nên Tài và Quan chưa tính là chảy vào nhật chủ.",
    "Đứng sát nhật chủ chỉ có {near}, không có Ấn lộ, nên mạch Tài sinh Quan, Quan sinh Ấn chưa tính là chảy vào nhật chủ."
   ],
+  "natal_one": [
+   "Hai lời về thế chung của lá số chỉ khác nhau ở một điều: {groups} có đủ sức đỡ thân thì tốt, nhẹ thì hung vì {heavy} quá nặng.",
+   "Lời tốt và lời hung về cả lá số gặp nhau ở cùng một chỗ: sức của {groups} đỡ thân trước {heavy}."
+  ],
+  "natal_one_light": [
+   "Trên lá này {groups}, không tính chính nhật chủ, chỉ giữ {frac} tổng số độ và không lộ lên can, tức còn nhẹ."
+  ],
+  "natal_one_light_so": [
+   "Vì vậy, với nguyên cục lời hung đứng; lời tốt thành khi vận mang {groups} tới.",
+   "Nên xét riêng nguyên cục thì lời hung đúng hơn, còn lời tốt chờ những vận mang {groups}."
+  ],
+  "natal_one_carry": [
+   "Trên lá này {groups} giữ {frac} tổng số độ và có lộ lên can, nên chỗ đỡ thân có thật."
+  ],
+  "natal_one_carry_so": [
+   "Vì vậy lời tốt đứng, còn lời hung là điều cần giữ khi {heavy} nặng thêm."
+  ],
   "chain_hidden": [
    "Dù vậy, {branch} có tàng {an} ngay dưới {quan}: đường Quan sinh Ấn, Ấn sinh thân có thật, chỉ ở mức vừa vì Ấn chưa lộ lên can.",
    "Đường ngầm vẫn có: {an} tàng trong {branch}, ngay dưới {quan}, nên Quan sinh được Ấn và Ấn sinh được thân, ở mức vừa vì Ấn chưa lộ."

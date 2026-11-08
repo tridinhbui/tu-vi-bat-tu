@@ -724,8 +724,13 @@ Theo quyết định Q5: thử, chỉ vài chỗ nhỏ, tiết kiệm token.
 - **G3.1.** Câu "chưa nối được" đổi thành "chưa tính là chảy vào nhật chủ" (đúng điều kiện ZZ tr.50). Thêm câu "chi giờ Dần có tàng Giáp (Chính Ấn) ngay dưới Nhâm (Chính Quan): đường Quan sinh Ấn, Ấn sinh thân có thật, chỉ ở mức vừa".
 - **G2.4.** Vận nặng mà can vận khắc chính chữ đang khắc dụng thần (Mậu khắc Nhâm) thì đoạn chính nói ra, và phán quyết giảm một bậc độ chắc. Phán quyết vẫn là nặng.
 
+**G3.2, G3.3 (2026-11-08)**
+
+- `engine/data/bazi_deep/opposed.json` liệt kê các cặp lời về thế chung đi ngược nhau. Lời "thành" của bảng thành bại (TVH tr.367–369, điều kiện "có Ấn / Tỉ Kiếp hộ thân, sinh thân") đối với lời "hung" (TVH tr.171, cùng nhóm ấy "nhẹ" hay "không có").
+- Khi cả hai cùng bắn, `bazi_kin.ts` nói chúng chỉ khác nhau ở sức đỡ thân, đo sức ấy trên lá (phần độ, không tính chính nhật chủ, và có lộ lên can hay không), rồi nói lời nào đứng với nguyên cục và lời kia thành khi nào.
+- Lá chủ dự án: Ấn và Tỉ Kiếp chừng 18% và không lộ lên can, nên lời hung đứng với nguyên cục, còn lời tốt thành khi vận mang Ấn, Tỉ Kiếp tới.
+- Test trên 61 lá: mọi cặp cùng bắn đều có câu phán quyết.
+
 **Chưa làm**
-- G3.2: phép kiểm cặp lời trái nhau. Ví dụ "Tài vượng… nên hung" đứng cạnh "có Ấn hoặc Tỉ Kiếp hộ thân được đánh giá là mệnh tốt".
-- G3.3: một phán quyết nguyên cục duy nhất.
 - Phép thử nhiễu cho độ chắc vượng nhược (G2.2).
 - Câu chữ Bát Tự còn lặp "Bên cạnh đó… Ngoài ra…" (G10).

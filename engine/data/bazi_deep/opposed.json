@@ -1,0 +1,12 @@
+{
+ "version": "bazi-opposed-1",
+ "date": "2026-11-08",
+ "basis": "he_thong",
+ "note": "Cặp lời Bát Tự đi ngược nhau về thế chung của lá số (plan THIEN-BAN-33 G3.2). Mỗi cặp: lời 'thành' của bảng thành bại Thiệu Vĩ Hoa tr.367-369 (điều kiện 'có Ấn / Tỉ Kiếp hộ thân, sinh thân') và lời 'hung' của Thiệu Vĩ Hoa tr.171 (cùng nhóm ấy 'nhẹ' hay 'không có'). Hai lời chỉ khác nhau ở sức của nhóm đỡ thân; khi cả hai cùng đứng trên một lá số, bản luận nói điều kiện ấy trên lá này đang ở phía nào (G3.3), không để hai lời đứng cạnh nhau mà không có câu nối. Ngưỡng 'nhẹ' là ngưỡng của chính luật hung (phần độ dưới 12%, ghi trong luật).",
+ "pairs": [
+  { "id": "ho_than_tai", "pos": ["BT_TVH_TB_TAI_2"], "neg": ["BT_TVHK_CH10"], "groups": ["Ấn", "Tỉ Kiếp"], "heavy": "Tài" },
+  { "id": "sinh_than_quan", "pos": ["BT_TVH_TB_QUAN_2"], "neg": ["BT_TVHK_CH12"], "groups": ["Ấn"], "heavy": "Quan Sát" },
+  { "id": "sinh_than_sat", "pos": ["BT_TVH_TB_SAT_3"], "neg": ["BT_TVHK_CH14"], "groups": ["Ấn", "Thực Thương"], "heavy": "Quan Sát" },
+  { "id": "ho_than_thuc", "pos": ["BT_TVH_TB_THUC_3"], "neg": ["BT_TVHK_CH18"], "groups": ["Ấn"], "heavy": "Thực Thương" }
+ ]
+}

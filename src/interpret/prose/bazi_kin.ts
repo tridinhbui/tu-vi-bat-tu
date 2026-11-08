@@ -8,6 +8,7 @@
 // "tài vận tốt" when Tài is strong and does not reach the day master; on work, p.51 #3-5 by the same 流入日主. Nothing here names a book or a page
 // in the text: the page is in each sentence's note.
 import type { ChartInput } from '../types.ts';
+import OPPOSED from '../../../engine/data/bazi_deep/opposed.json' with { type: 'json' };
 import { Micro, finish, lowerFirst } from './micro.ts';
 import type { ProseParagraph, ProseSentence, SentenceTrace } from './realize.ts';
 
@@ -37,7 +38,7 @@ export interface BaziKin { detail: KinDetail; findings: KinFinding[] }
 export interface KinYear { gods: string[]; fill_void: boolean; natal_void_gods: string[]; findings: KinFinding[] }
 export interface KinFrames {
   rule: string[]; rule_next: string[]; lead: Record<string, string[]>;
-  two_books: string[]; rule_many: string[]; two_ways: string[]; rank_two: string[]; tai_flat: string[]; tai_flow: string[]; tai_flow_tmm: string[]; dm_wait: string[]; why_noflow: string[]; why_noflow_an: string[]; chain_hidden?: string[]; chain_far?: string[]; why_flow: string[]; capped: string[]; capped_dm: string[]; two_sides: string[];
+  two_books: string[]; rule_many: string[]; two_ways: string[]; rank_two: string[]; tai_flat: string[]; tai_flow: string[]; tai_flow_tmm: string[]; dm_wait: string[]; why_noflow: string[]; why_noflow_an: string[]; chain_hidden?: string[]; chain_far?: string[]; natal_one?: string[]; natal_one_light?: string[]; natal_one_carry?: string[]; natal_one_light_so?: string[]; natal_one_carry_so?: string[]; why_flow: string[]; capped: string[]; capped_dm: string[]; two_sides: string[];
   layout: string[]; work_field: string[]; work_field_day: string[]; work_place: string[]; work_none: string[];
   spouse: string[]; spouse_none: string[]; day_combine: string[]; parents: string[]; siblings: string[]; siblings_an: string[]; children: string[]; children_hour: string[];
   tmm: string[];
@@ -338,6 +339,33 @@ export function kinBazi(chart: ChartInput, m: Micro, F: KinFrames | undefined, r
   // the short reading, the rest in its deep fold
   const fo: ProseSentence[] = [], fodeep: ProseSentence[] = [];
   fsT.filter(f => f.topic === 'fortune').forEach((f, i) => rule(i < 2 ? fo : fodeep, f, 'fo', i < 2 ? i : 1));
+  // one natal standing where two book sentences on the whole chart point opposite ways (plan THIEN-BAN-33 G3.2 / G3.3,
+  // engine/data/bazi_deep/opposed.json): the thành bại "mệnh tốt" needs the supporting groups to carry the day master, the cát hung "hung"
+  // says those groups are light; the chart's own share of them decides which stands for the natal chart, and the other is the condition
+  const deepF = (chart.bazi as { deep?: { verified?: Array<{ rule_id: string }>; depth?: { score?: { total: number; elements: Array<{ group: string; heaven: number; earth: number; total: number }> } } } } | undefined)?.deep;
+  const firedIds = new Set([...(deepF?.verified ?? []).map(v => v.rule_id), ...fs.map(f => f.rule_id)]);
+  const SC = deepF?.depth?.score;
+  for (const pr of (OPPOSED as { pairs: Array<{ id: string; pos: string[]; neg: string[]; groups: string[]; heavy: string }> }).pairs) {
+    if (!pr.pos.some(id => firedIds.has(id)) || !pr.neg.some(id => firedIds.has(id)) || !SC || !F.natal_one?.length) continue;
+    // Tỉ Kiếp is counted without the day master itself (the hung rule's own note): with no other Tỉ Kiếp stem, its stem degrees are the
+    // day master's
+    const pil = (chart.bazi as { pillars?: Record<string, { stem_ten_god: string | null }> } | undefined)?.pillars ?? {};
+    const tiStem = ['year', 'month', 'hour'].some(p2 => ['Tỉ Kiên', 'Kiếp Tài'].includes(pil[p2]?.stem_ten_god ?? ''));
+    const deg = (e: { group: string; heaven: number; total: number }) => e.group === 'Tỉ Kiếp' && !tiStem ? e.total - e.heaven : e.total;
+    const rows = SC.elements.filter(e => pr.groups.includes(e.group));
+    const share = rows.reduce((a, e) => a + deg(e), 0) / (SC.total || 1);
+    const onStems = rows.some(e => e.group === 'Tỉ Kiếp' ? tiStem : e.heaven > 0);
+    // the light side holds when each group is light (the hung rule's own threshold, under 12 %) and none stands on a stem
+    const light = rows.every(e => deg(e) / (SC.total || 1) < 0.12) && !onStems;
+    say(fo, fill(m.pick(`kin|n1|${pr.id}`, F.natal_one), { groups: join(pr.groups), heavy: pr.heavy }), 'he_thong', ['TVH pp.367-369', 'TVH p.171'], [],
+      { step: `natal:one:${pr.id}`, note: 'Hai lời của Thiệu Vĩ Hoa (tr.367-369 và tr.171) chỉ khác nhau ở sức của nhóm đỡ thân; câu này nói điều kiện ấy trên lá số đang ở phía nào (engine/data/bazi_deep/opposed.json, quy ước có nhãn).' });
+    // the short reading carries no digits (REVIEW-19 W6): the share in words, its exact value in the note
+    const v2 = { groups: join(pr.groups), frac: fracVi(share), heavy: pr.heavy };
+    say(fo, fill(m.pick(`kin|n2|${pr.id}`, light ? F.natal_one_light! : F.natal_one_carry!), v2), 'tinh_toan', ['TVH pp.331-355'], [], { step: `natal:one:${pr.id}:side`, tone: light ? 'neg' : 'pos',
+      note: `${pr.groups.join(' + ')}: ${Math.round(share * 1000) / 10}% tổng số độ (Thiệu Vĩ Hoa tr.331-355), Tỉ Kiếp không tính chính nhật chủ; luật hung (tr.171) gọi một nhóm là nhẹ khi dưới 12%.` });
+    const V3 = light ? F.natal_one_light_so : F.natal_one_carry_so;
+    if (V3?.length) say(fo, fill(m.pick(`kin|n3|${pr.id}`, V3), v2), 'he_thong', ['TVH pp.367-369', 'TVH p.171'], [], { step: `natal:one:${pr.id}:verdict`, tone: light ? 'neg' : 'pos' });
+  }
   const lf = lead('fortune', fo);
   P('cach-cuc', fo, { lead: lf || undefined, topic: 'kin_fortune' });
   P('cach-cuc', fodeep, deep(F.num_title?.fortune ?? 'thanh, trọc và cát hung'));
