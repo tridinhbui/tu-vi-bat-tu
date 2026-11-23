@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -115,7 +116,8 @@ def test_errata_entry(e):
     from tvbt.kinh_dich import texts
     assert e["basis"] in ERRATA["basis"] and e["corrected"] != e["printed"] and e["why"]
     assert e["image"] == "the page image shows the printed words"
-    page = kd_page(e["page"])
+    flat = lambda t: re.sub(r"^(===.*|@cont.*|@note.*|@\w+ ?)", "", t, flags=re.M)   # the words may run onto the next page
+    page = flat(kd_page(e["page"])) + " " + flat(kd_page(e["page"] + 1))
     assert " ".join(e["printed"].split()) in " ".join(page.split())
     seg = texts.quẻ_texts(e["n"])["segments"][e["seg"]]
     assert e["corrected"] in seg["layers"][e["layer"]] and any(x["printed"] == e["printed"] for x in seg["errata"])
@@ -127,4 +129,7 @@ def test_errata_entry(e):
 
 def kd_page(p: int) -> str:
     import book_text
-    return book_text.page_text("KD", p)
+    try:
+        return book_text.page_text("KD", p)
+    except StopIteration:      # a page the scan does not have (the blank pages around the title pages and the end)
+        return ""

@@ -272,42 +272,51 @@ The transcription still keeps the print. The reader sees a corrected reading onl
 - In a reading, a quoted line that holds a correction carries the same note in its căn cứ.
 
 **When a place gets an entry.** Both of these must hold:
-1. **The page image shows the printed words.** 107 places were looked at on the image by four separate agents, one line each. 106 were printed as transcribed. The one left out is the doubled comma in Tốn hào 6 Trình Di: the second mark may be a speck.
-2. **Something other than the misprint decides the correction** (`basis`):
+1. **The page image shows the printed words**, exactly as transcribed.
+2. **Something other than the misprint decides the correction** (`basis`). When two readings are possible, the place stays as printed.
+
+**432 entries in 61 quẻ, made in two rounds.**
 
 | basis | what decides | entries |
 |---|---|---|
-| `loi_kinh` | the Hán of the same line (周易, WEB:zh_zhouyi) | 51 |
-| `ban_nghia` | Chu Hy's 周易本義 in Hán (WEB:zh_chuan_yi) | 27 |
-| `ngu_canh` | the context: a doubled word, a dropped tone mark, a word the same passage prints correctly | 13 |
-| `cau_truc` | the quẻ's own lines: a hào named Chín where 周易 has 六, or the reverse | 8 |
-| `trinh_truyen` | Trình Di's 伊川易傳 in Hán (WEB:zh_chuan_yi) | 7 |
+| `trinh_truyen` | Trình Di's 伊川易傳 in Hán (WEB:zh_chuan_yi) | 178 |
+| `ngu_canh` | the context: a doubled word, a dropped tone mark, a word the same passage prints correctly | 87 |
+| `loi_kinh` | the Hán of the same line (周易, WEB:zh_zhouyi) | 82 |
+| `ban_nghia` | Chu Hy's 周易本義 in Hán (WEB:zh_chuan_yi) | 74 |
+| `cau_truc` | the quẻ's own lines: a hào named Chín where 周易 has 六, or the reverse | 10 |
 | `chu_thich` | the translator's own footnote on that line | 1 |
-
-The 107 entries span 51 quẻ:
 
 | layer | entries |
 |---|---|
-| Dịch nghĩa | 61 |
-| Chu Hy | 30 |
-| Trình Di | 12 |
-| tiên nho | 2 |
-| dịch âm | 2 |
+| Trình Di | 240 |
+| Chu Hy | 91 |
+| Dịch nghĩa | 85 |
+| tiên nho | 8 |
+| dịch âm | 8 |
 
 **New Hán source.** `WEB:zh_chuan_yi` is a new snapshot (`tools/snapshot_wikisource.py zh_chuan_yi`). It holds the rendered text of Wikisource's 四庫全書 transclusions of 周易本義 卷1–4 and 伊川易傳 卷1–4. These are the originals of the two commentaries that Ngô Tất Tố translates. Some glyphs are the scan's own forms (䝉, 隂).
 
-**How the candidates were found:**
+**Round 1 (107 entries).**
 - **Hào names.** Every "Chín/Sáu + position" in a quẻ's own text was checked against that quẻ's lines. Mentions of another quẻ were dropped by hand. The trigram order ("dưới X trên Y") was checked the same way.
-- **Readers' flags.** Of the flags in docs/review/kinh-dich-dien-giai-review.md, these were taken: every one in a Dịch nghĩa, and every one inside a line that the interpretation quotes.
+- **Readers' flags** from docs/review/kinh-dich-dien-giai-review.md: every one in a Dịch nghĩa, and every one inside a line that the interpretation quotes.
+- **Image check.** Four agents looked at the 107 places on the page images, one line each. 106 were printed as transcribed. The one left out is the doubled comma in Tốn hào 6 Trình Di: the second mark may be a speck.
 
-**Interpretation quotes.** 34 quotes in `dien_giai/*.json` held a printed misreading. They were rewritten to the corrected words, so the lint still finds each quote in its layer.
+**Round 2 (325 entries).**
+- **Readers' flags in the commentary layers.** Every remaining flag was taken up, quẻ group by quẻ group. Each was decided against the 本義 or 程傳 Hán, and the page image was checked.
+- **The 9 Wikisource quẻ** (Kiền, Khôn, Truân, Mông, Nhu, Tụng, Sư, Hàm, Hằng). Each one-word difference between the print and vi.wikisource was a candidate where Wikisource has the right word, e.g. "Hào Chính Ba", "kém nửa Kiềm", "ăn năm". These places had already been seen on the print by the transcription check, and they were checked on the image again (53 of 53 printed as transcribed).
+- **Review.** Each proposed entry was reviewed before it went in. 8 were dropped because the right word was not certain or the misprint was an omission, e.g. "lợi xướng", "chuộng trời hiền", "Tiểu Súc là sự chứa lớn", "mờ thì nuôi".
+- **The flags that were not corrected**, one line each with the reason, are in docs/review/kinh-dich-errata-skipped.md. Reasons include: uncertain, a real word, punctuation, a sentence printed twice, an omission, or a "[?]".
 
-**Left as printed** (the right reading is not certain):
-- Lâm Đại tượng "tứ dậy" (教思);
-- Phong Thoán truyện "dé" (昃) and "tiêu sinh";
-- Tổn hào 4 "cả tốt". This one follows the book's own Hán (元吉 printed), so it is not a Vietnamese misprint.
-- Gia Nhân hào 3 "rông dỡ" and hào 5 "kinh mình";
-- Khuê tiểu tượng 3 "Dùng kiểm";
-- Hoán hào 4 "cả hai mà tốt";
-- the omissions in Cách hào 6 and Tốn hào 6;
-- every flag in the body of the Trình Di and Chu Hy layers outside the quoted lines (a later round).
+**Transcription corrections.** Four places where the image shows the transcriber erred were corrected in `pages.txt` and `<n>.json`:
+- Giải tiểu tượng 6 tiên nho: "cưới" → "cưỡi";
+- Chấn hào 6 Chu Hy: "tử tỉnh" → "từ tỉnh" (the print; the errata then reads "tu tỉnh");
+- Quy Muội hào 3 Chu Hy: "chụa" → "chựa" (the print; the errata then reads "chưa");
+- Vị Tế tiểu tượng 1 Chu Hy: "chữa" → "chừa" (the print, already right).
+
+Three "[?]" marks can be read on the image ("xem", "thuận", "Nhân" in Tỷ, Lý and Thái). They are listed in the skipped file and left for a transcription pass.
+
+**Interpretation quotes.** 65 quotes in `dien_giai/*.json` held a printed misreading. They were rewritten to the corrected words, so the lint still finds each quote in its layer.
+
+**Not covered.**
+- Quẻ 46–48 (Thăng, Khốn, Tỉnh) had no readers' flags, and their commentary was not read for misprints.
+- Elsewhere, only flagged passages were read. An unflagged misprint can remain.

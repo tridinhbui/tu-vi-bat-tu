@@ -1,0 +1,311 @@
+# Kinh Dịch: flagged misprints left as printed (đính chính round 2, 2026-11-22)
+
+Each line is a place readers flagged in docs/review/kinh-dich-dien-giai-review.md that was NOT corrected, with the reason. "already in errata" means round 1 corrected it. The corrections themselves are in engine/data/kinh_dich/ntt/errata.json.
+
+## Group A
+
+- 8 intro.trinh_di «thì là các nước trên đất» — uncertain (水在地上; "cái nước" or "là nước ở" both possible); print SAME
+- 8 hao4.chu_hy «Kẻ x[?]m» — "[?]" mark; print has a broken letter, reads "xem" (transcription matter)
+- 8 tieu_tuong2.trinh_di «Hào Ba» — already in errata
+- 8 thoan_truyen.nghia «đạo cũng vậy» — already in errata
+- 9 thoan_truyen.nghia «coi tây ta» — already in errata
+- 9 thoan.trinh_di «nên gọi là "giao"» — not a misprint (郊 = giao)
+- 9 hao4.nghia lowercase — capitalisation
+- 9 hao4.chu_hy «Cho mới răn» — already in errata
+- 10 hao6.chu_hy «của lẻ xem» — already in errata
+- 10 hao5.chu_hy «gia cho được» — already in errata
+- 10 tieu_tuong6.tien_nho «đầu lấy Dương» — already in errata
+- 10 dai_tuong.nghia «đấng quân vương» — already in errata
+- 10 tieu_tuong5 comma — punctuation only
+- 10 hao4.trinh_di «bậc cương thả quá» — uncertain (剛决之過; "thả" is not a near misprint of a forced word); print SAME
+- 10 hao3.trinh_di unclosed quote — quote-mark style
+- 10 thoan_truyen.trinh_di «xuôi thuậ[?]» — "[?]" mark; print shows a broken "thuận" (transcription matter)
+- 10 tieu_tuong4.trinh_di «là kẻ sự xuôi thuận tự xử» — omitted word (以順自處 suggests "kẻ lấy sự"); print SAME
+- 11 hao1.chu_hy «"Thịnh Chinh" là đi thì tốt» — uncertain (本義 征行之吉也: "Chinh" or "Chinh cát"); print SAME
+- 11 hao2.chu_hy «hào Sáu Hai ứng» — already in errata
+- 11 hao3.chu_hy «Sắp qua giữa phố, chỗ là lúc» — uncertain (將過於中…之時也; exact words not forced); print SAME
+- 11 dai_tuong.nghia/trinh_di «giúp tập sự» / «giúp lập sự» — uncertain, translator's rendering of 相 (print has both)
+- 11 dai_tuong.trinh_di «đấng [?]hân quân» — "[?]" mark; print shows a broken "Nhân" (transcription matter)
+- 11 thoan_truyen.nghia «trí giống nhau» — already in errata
+- 11 intro.trinh_di stray period «Khôn Âm ở trên. Kiền» — punctuation only
+- 11 tieu_tuong5.trinh_di «mà điều đó đã nghe theo» — uncertain (所聽從者); "chí nguyên" in the same passage is corrected
+- 12 thoan_truyen.nghia «thông giao nhau» — already in errata
+- 12 intro.trinh_di «trời đất giao nhau. Âm dương hòa hợp là thái» — punctuation only (translator's compression)
+- 12 tieu_tuong2.nghia «không loạn dân vậy» — uncertain (羣 / print's Hán 君; translator's word not forced); print SAME
+- 12 tieu_tuong3.nghia «ngồi» — already in errata
+- 12 hao4.chu_hy quote marks — quote-mark style ("không lôi" is corrected)
+- 12 hao5 Hán «繫于苞喪» — Hán misprint
+- 12 hao5.nghia «tốt[?]» — "[?]" mark; print shows "tốt" with a stray mark
+- 12 hao5.trinh_di «làm tắt nghỉ cuộc của thiên hạ» (missing "bĩ") — omitted word
+- 12 tieu_tuong1.trinh_di «nên phải ở yên ý cái lòng quân vẫn» — uncertain (garbled; 故安之耳心固未嘗不在天下 does not force one wording)
+- 12 hao3.trinh_di «cùng thì phái lạm» — uncertain ("phải lạm" or "phóng lạm"); print SAME
+- 12 hao2.chu_hy «không nên vị những kẻ kia» — real word (vị = vì, archaic); print SAME
+- 13 thoan.chu_hy «hào Sáu Năm» — already in errata
+- 13 intro.trinh_di «chủ quẻ Khôn» — already in errata
+- 13 hao6.nghia/trinh_di «đồng», chu_hy «Đồng ở trong nội» — not a misprint (translator renders 郊 as "đồng" throughout)
+- 13 hao3.trinh_di «chấn giữa hào Hai hào Năm» — uncertain ("chắn" or "chen"; 居二五之間); print SAME
+- 13 hao1.nghia no period — punctuation only
+- 14 hao4 Hán «匪其尫» — Hán misprint
+- 14 hao1.trinh_di sentence printed twice — out of scope ("hướng" in it is corrected)
+- 14 hao4.trinh_di «駟[?]彭彭» — Hán / "[?]" mark (print shows 駟騵彭彭)
+- 14 hao4.chu_hy «nó ở ngoài ngôi mềm» — uncertain (以其處柔也; "ở vào" or "ở" not forced); print SAME
+- 15 hao2.nghia «Kiêu sự nhún» — already in errata
+- 15 hao6.trinh_di «nó lợi vở sự» — uncertain ("về" or "ở"); print SAME
+- 15 tieu_tuong1.tien_nho «cái đất nuôi đức» — uncertain, no Hán text to decide; print SAME
+- 16 hao1.trinh_di «chất Âm như ngôi dưới» — uncertain (以隂柔居下: needs "nhu ở", more than one change); print SAME
+- 16 thoan_truyen.trinh_di «từ là cứng mà được người ứng theo» — uncertain (剛得衆應也; "tức là" likely but not forced); print SAME
+- 16 intro.trinh_di «nó hăng hái mà đánh» — uncertain (奮發其聲; the right word is not forced); print SAME
+
+## Group B
+
+- 17 thoan.chu_hy «phải lời về sự trinh» — already in errata
+- 17 hao5.trinh_di «ứng với hào Chín Hai» — already in errata
+- 17 thoan_truyen.trinh_di «chịu nước dưới» (x2) — uncertain (以貴下賤: nhún/lún?), printed the same twice
+- 17 tieu_tuong6.chu_hy «l[?]» — "[?]" mark
+- 17 hao1.trinh_di unclosed quote — punctuation only
+- 17 hao4.nghia lowercase — capitalisation
+- 18 hao1.nghia «có con, cho không lỗi» — already in errata
+- 18 hao5.nghia «dùng nhen» — already in errata
+- 18 hao1.chu_hy «nhức dậy» — uncertain; "nhức" also renders 振 in dai_tuong ("nhức giúp cho dân"), may be the translator's word
+- 18 hao2.trinh_di «cố hỹ» — uncertain, no single reading (貞固盡)
+- 18 hao6.trinh_di «gốc nâng» — uncertain (尊高敦尚)
+- 18 dai_tuong.trinh_di «l[?]» — "[?]" mark
+- 19 thoan.chu_hy «tháng một khí Âm» — already in errata
+- 19 dai_tuong.nghia «tứ dậy» — uncertain; the commentary prints "tứ dậy" too (教思 → dạy?), left as printed
+- 19 thoan.trinh_di «dăn dổ» — uncertain (răn/dặn)
+- 19 hao5.trinh_di «m[?]» — "[?]" mark
+- 19 intro «quẻ Ty» — book's spelling of 比 (quẻ Ty elsewhere too), not a misprint
+- 19 tieu_tuong2.trinh_di «được mục trung» — uncertain (mực/mức)
+- 19 tieu_tuong2.trinh_di «không phải là vội hẳn» — translator's wording
+- 19 tieu_tuong2.trinh_di «押亦» — Hán misprint
+- 19 tieu_tuong2.trinh_di «Hào Năm là thể, thuận» — punctuation only
+- 19 tieu_tuong6.trinh_di «ứng với Đầu hào Hai» — omitted word (應乎初與二), wording of the fix uncertain
+- 20 thoan.nghia «rửa mà không cứng» — already in errata
+- 20 thoan.chu_hy 有孚若 missing 顒, lost full stop — omission / punctuation
+- 21 hao2.trinh_di «Dụng hình được trung chính.» printed twice — sentence printed twice, out of scope
+- 21 tieu_tuong3.trinh_di «nó vô hình phạt» — uncertain (所刑者)
+- 21 hao4.chu_hy «胾 (sy)» — reading of the Hán word, not decided
+- 21 hao6.chu_hy «Hạ nghĩa là đội» — not a misprint: 何 here is read "hạ" (本義 何可反; Dịch âm "Hạ hiệu")
+- 22 hao3.nghia «tố[?]» — "[?]" mark
+- 22 hao5.trinh_di «[?]» x2 — no "[?]" in this layer of the transcription
+- 22 hao5.trinh_di «vườn dược» — uncertain (園圃; no source decides the Vietnamese word)
+- 22 dai_tuong.chu_hy «q[?][?]» — "[?]" mark
+- 22 intro «phần sức» — real reading (賁 also read phần)
+- 22 intro/dai_tuong «chùm» — consistent spelling in the book, not a misprint
+- 22 thoan.trinh_di unclosed quote — punctuation only
+- 23 hao5.nghia «lấy cung nhân được yên» — already in errata
+- 23 hao6.trinh_di «chỗ hẻ» — uncertain (hở/kẽ)
+- 23 hao6.trinh_di unbalanced quotes — punctuation only
+- 23 tieu_tuong5.trinh_di doubled «đứng đầu» — translator's rendering of 駢首, uncertain
+- 23 dai_tuong «cu[?]» — "[?]" mark
+- 23 intro «tư[?][?]g» — "[?]" mark
+- 24 thoan.chu_hy sentence printed twice — out of scope
+- 24 thoan.chu_hy inverted quotes — punctuation only
+- 24 thoan_truyen.nghia «động mà thấy sự thuận» — already in errata
+- 24 tieu_tuong2.nghia «biết lớn với kẻ nhân» — misprint for 下 but nhún/lún both possible, uncertain
+- 24 hao2.trinh_di «chịu lún nó» — possibly the translator's word, uncertain
+- 24 hao1.trinh_di «Chữ Âm là chi» — omitted Hán character 祇, out of scope
+- 24 hao5.trinh_di «ngôi vua[?]» — "[?]" mark
+- 24 hao6.tien_nho «Thể mẹ» — not a misprint (translator's footnote: tức là quẻ Khôn)
+- 25 thoan.chu_hy «ứng với hào Chín Hai» — already in errata
+- 25 tieu_tuong3.nghia «hại của người ấy» — already in errata
+- 25 hao4.nghia «Hào Chín Tư;» — already in errata
+- 25 hao2.trinh_di «việc đầu tư của sự làm ruộng» — uncertain (耕農之始)
+- 25 hao2.trinh_di «thích nghi của không khí» — translator's choice for 風氣
+- 25 hao3.trinh_di repeated phrase — sentence printed twice, out of scope
+- 25 dai_tuong.trinh_di «phú tình» — uncertain
+- 25 tieu_tuong4 «l[?]i», «ch[?]» — "[?]" mark
+- 25 intro «càn dỡ» — consistent spelling in the book (7 times), not a misprint
+- 25 hao4.trinh_di (note) second «ở thể Kiền»: the print shows «ở thế Kiền», the transcription already reads «thể» — transcription differs, no reader-facing error
+
+## Group C
+
+- 26 hao3.nghia «(no gloss of 利艱貞吉)» — omission, out of scope
+- 26 hao6.trinh_di «Quẻ Tiểu Súc là sự chứa lớn» — the dropped 小畜 clause (eye-skip) is an omission, out of scope; only "Tiểu Súc"→"Đại Súc" entered
+- 26 hao3.chu_hy «như chữ [?] (nhật)» — "[?]" mark
+- 26 hao5.trinh_di «thiến bỏ cái khung» / «thiến cái khụng» — uncertain: 勢 is clear but the intended Vietnamese word is not decided
+- 26 tieu_tuong5.nghia «có phúc vây» — already in errata
+- 27 tieu_tuong6.nghia «Bởi nuôi, ngu, tốt» — already in errata
+- 27 hao5.nghia «chăng khá» — already in errata
+- 27 hao1.trinh_di «trễ nhép» — uncertain ("nhép" left as printed; only "nhỏ dài"→"nhỏ dãi" entered)
+- 27 hao2.trinh_di «“coi chăn, … ”đảo nuôi"» — quote-mark style
+- 28 thoan_truyen.nghia «Cũng quá thường mà được giữa» — already in errata
+- 28 hao2.trinh_di «Từ đó, Hào Đại quá, … như hào Hai vào hào Tư đó» — sentence printed twice, out of scope ("vào"→"và" entered in both copies)
+- 28 hao4.trinh_di «cao vọi» — real word
+- 28 dai_tuong.tien_nho «chằm đáng ở dưới» — uncertain, no Hán source for this Chu Hy remark
+- 28 hao6.trinh_di «ngập thủm đỉnh đầu» — uncertain (intended word not decided)
+- 29 hao3.trinh_di «mà đong chỗ không trung chính» — uncertain (đóng / đứng both possible)
+- 29 hao4.chu_hy «hào Chín Tư được gần với nó» — already in errata
+- 29 hao4.chu_hy «石執匕» — Hán misprint; the âm "hiệp thủy" also left (reading convention unclear)
+- 29 hao5.trinh_di «Chữ [?] nên đọc là chỉ» — "[?]" mark
+- 29 thoan_truyen.nghia «điềm tín» — uncertain (điều / đức both possible)
+- 30 hao1.trinh_di «second "Truyện của Trình Di." paragraph (Chu Hy-like)» — print labels it so; layer structure, out of scope ("thẻ Ly", "Kinh đó" entered)
+- 30 hao5.trinh_di «đáng bảo là êb êb thiện» — garbled, the intended word is not decided
+- 30 tieu_tuong6.trinh_di «hào Chín Năm» — already in errata
+- 33 hao1 «no Trình Di; Chu Hy missing period» — omission / punctuation only
+- 33 hao2.trinh_di «đạo x[?]ôi thuận» — "[?]" mark
+- 33 hao4.tien_nho «1.» — stray mark, not a word misprint
+- 33 hao5.trinh_di «xử được hải đạo trung chính» — uncertain (cái đạo / bỏ chữ, not decided)
+- 33 hao5.trinh_di «hào Chín Hai» — already in errata
+- 33 thoan_truyen.nghia «cũng thì đi» — already in errata
+- 33 tieu_tuong3.trinh_di «nhưng có thể đương nổi việc lớn» — omitted word (不/豈); exact wording not decided
+- 33 tieu_tuong4.nghia «yên trốn» — already in errata
+- 33 tieu_tuong5.trinh_di «hành động hay ngừng trôi» — uncertain
+- 34 hao5.nghia «ăn năm» — already in errata
+- 34 hao6.nghia «chẳng hai toại» — already in errata
+- 34 hao3.chu_hy «quá về dường dũng» — uncertain (đường / sự)
+- 34 tieu_tuong5.trinh_di «Lấy hào ở ngôi Năm» — omitted word, out of scope
+- 34 hao5.chu_hy «cầy húc» — real word (cầy = cày)
+- 34 thoan_truyen.chu_hy «fragment» — omission, out of scope
+- 35 hao2.chu_hy «Hào Sáu Năm trung chính» — already in errata
+- 35 hao3.nghia «Mọi người tín» — already in errata
+- 35 thoan.trinh_di «yêu đương đãi đọa» — uncertain (đãi ngộ?), not a clear letter slip
+- 35 dai_tuong «lowercase» — capitalisation
+- 35 thoan_truyen «missing 順而» — omission, out of scope
+- 35 tieu_tuong4.tien_nho / 36 tieu_tuong1.tien_nho «Vương Đồng Nghê / Vương Đồng Khuê» — proper name, nothing in the sources decides it
+- 36 hao1.nghia «đủ thửa cánh» — already in errata
+- 36 hao3.trinh_di «chùm đầu của đám tối» — uncertain (ch/tr spelling variant)
+- 36 hao5.trinh_di «nếu không sự sáng của mình» — omitted word, out of scope
+- 36 hao6.chu_hy «thể khôn» — capitalisation
+- 36 dai_tuong.trinh_di «dọng người» — uncertain (dong / dung); only "hào chúng"→"hòa chúng" entered
+- 37 hao5.chu_hy «cách 2 Thái miếu» — stray digit, not a word misprint
+- 37 hao4.trinh_di «comma» — punctuation only
+- 37 tieu_tuong3.nghia «hơn hơn» — already in errata
+- 37 hao3.trinh_di «tự mình rông dỡ» — uncertain
+- 37 tieu_tuong5.trinh_di «bà phi của vua Văn Bằng như thân sửa, phép đựng» — garbled, correct words not decided
+- 38 tieu_tuong3.trinh_di «giữa hai hào Âm» — already in errata
+- 38 tieu_tuong3.nghia «ngồi chẳng đáng» — already in errata
+- 38 tieu_tuong3.trinh_di «Dùng kiểm bất chính» — uncertain
+- 38 thoan_truyen.nghia «thửa chi» — already in errata
+- 38 hao6.chu_hy «người thân tỉnh» — uncertain (thân thích / thân tình)
+- 38 hao2.trinh_di «uấn minh» — already in errata
+- 38 hao5.nghia «missing label» — out of scope
+- 39 hao4.chu_hy «hào Chín Hai» — already in errata
+- 39 hao6.chu_hy «Sáu Năm» — already in errata
+- 39 thoan.nghia «Đông B[?]c» — "[?]" mark
+- 39 thoan_truyen.nghia «thuở đạo» — already in errata
+
+## Group D
+
+- 40 hao2.trinh_di «stray period» — punctuation only
+- 40 hao6.trinh_di «riêng có tài chưa giải» — uncertain (獨有未解者: "cái" or "hại" both possible)
+- 40 hao6.trinh_di «[?] phát động» — [?] mark (a printed line is lost in the scan)
+- 40 hao6.nghia «comma» — punctuation only
+- 41 hao4.nghia «cả tốt» — not a misprint (the book's own Hán prints 元吉)
+- 41 thoan_truyen.trinh_di «hoặc rộng» — already in errata
+- 41 dai_tuong.nghia «comma» — punctuation only
+- 42 thoan.chu_hy «dưới Tốn trên Chấn» — already in errata
+- 42 tieu_tuong3.trinh_di «Nếu là hình thi» — uncertain (若平時: "bình thì" or "bình thời"; not flagged)
+- 43 hao3.nghia «đường ướt» — already in errata
+- 43 hao1.nghia «đi thẳng được, là lỗi» — already in errata
+- 43 hao1.trinh_di «repeated sentence» — out of scope (sentence printed twice)
+- 43 tieu_tuong2.nghia «drops 莫夜/中» — omission of the translation, not a misprint
+- 43 tieu_tuong6.trinh_di «tiêu nhân» — already in errata
+- 43 thoan_truyen.trinh_di «sân lớn phong trào nhà vua» — uncertain (王朝大庭; the right words are not forced)
+- 43 dai_tuong.tien_nho «bị khỏi» — real word (translator's italic "khỏi" for 決, used consistently in the passage)
+- 43 dai_tuong.tien_nho «明則/明忌» — Hán, out of scope
+- 43 hao3 «鳩/溫/無鳩» — Hán misprints, out of scope
+- 43 intro «doubled» — out of scope (repeated text)
+- 44 hao1.trinh_di «xý dụ» — uncertain ("thí dụ" or "ví dụ")
+- 44 dai_tuong.nghia «vui coi đó» — already in errata
+- 44 intro.trinh_di «không đâu mà trả đụng» — uncertain ("chả" or "chẳng")
+- 44 thoan.chu_hy «mới quẻ tháng Năm» — uncertain (missing "là" or "mới" for "mà")
+- 44 tieu_tuong4.nghia «dash» — punctuation only
+- 45 thoan.nghia «hạnh» — already in errata
+- 45 hao2.nghia «tin bèn lời» — already in errata
+- 45 hao1.chu_hy «Răn kẻ nên» — already in errata
+- 45 hao3.chu_hy «bị khối» — already in errata
+- 45 hao4.chu_hy «các các» — already in errata
+- 45 hao1.nghia «kểu» — already in errata
+- 45 tieu_tuong4.trinh_di «[?][?]i» — [?] mark
+- 45 tieu_tuong6.trinh_di «full stop» — punctuation only
+- 45 hao6 «齎資/齎咨» — Hán, out of scope
+- 49 hao6.nghia «missing "tốt"» — not a misprint (the book's own Hán prints 居貞 without 吉)
+- 49 tieu_tuong6.nghia «báo biến» — already in errata
+- 49 tieu_tuong3.trinh_di «"?" at end» — punctuation only
+- 50 hao3.nghia «chọn tốt» — already in errata
+- 50 hao4.nghia «thửa tột giết kín» — already in errata
+- 50 hao4 «刑[?]» — [?] mark / Hán
+- 50 hao1.nghia «comma» — punctuation only
+- 50 thoan_truyen.trinh_di «Lấy cây nhúm lửa» — real word ("nhúm lửa" makes sense; "nhún" only a guess)
+- 51 hao2.nghia «Hào Chín Hai» — already in errata
+- 51 hao2.nghia «(?)» — [?] mark
+- 51 hao2.chu_hy «Sáu Năm cưỡi» — already in errata
+- 51 hao5.nghia «(?) missing 有事» — [?] mark / omission
+- 51 hao4.trinh_di «[?]m» — [?] mark
+- 51 hao4.trinh_di «không thể nhức nhổ» — uncertain (莫能奮; right word not forced)
+- 51 hao6.chu_hy «kh[?]i» — [?] mark
+- 52 thoan.trinh_di «với thì đậu là không có lỗi» — uncertain (於止為无咎; "thì" may be the translator's)
+- 52 hao5.chu_hy «năm năm mất» / «Ăn ăn» — already in errata
+- 52 hao5 «言有孚 vs 言有序» — Hán, out of scope
+- 52 tieu_tuong2.nghia «chứa» — already in errata
+- 52 tieu_tuong6.nghia «Đầy» — already in errata
+
+## Group E
+
+- 53 hao1.chu_hy «phái trên» — already in errata
+- 53 hao2.nghia missing label "Hào Sáu Hai" and "tốt" — omission; the printed Hán line also lacks 吉
+- 53 hao3.chu_hy «giữ» — already in errata
+- 53 hao5.chu_hy «vào Tư» — already in errata
+- 53 hao6.nghia «lộng» — already in errata
+- 53 hao6.trinh_di 陸/逵 «chữ 陸 (quì)» — Hán misprint
+- 53 thoan_truyen.nghia «chẳng cũng» — already in errata
+- 53 intro.trinh_di (flag unspecified; «Cái của sự đậu sinh ra» read) — uncertain, translator wording
+- 54 thoan.trinh_di «Lấy sự đẹp lòng mà động, động mà.» truncated — omitted text
+- 54 hao1.nghia «quẻ biết xẻo» — already in errata
+- 54 hao1.chu_hy «Những» — already in errata
+- 54 hao2.trinh_di «kẻ chột» — not a misprint (眇 = chột)
+- 54 hao2.trinh_di «đều lợi» — already in errata
+- 54 hao3.chu_hy quote marks «“chụa ... ”Tu"» — quote-mark style
+- 54 thoan_truyen.nghia missing «chẳng» (天地不交) — already in errata
+- 54 dai_tuong.trinh_di «điều là» — already in errata
+- 54 dai_tuong.chu_hy «đó là biết lúc chót sẽ hỏng» — uncertain (maybe "đó mà biết"), two readings
+- 54 tieu_tuong2.tien_nho «đều yêu với lẽ thường» — uncertain ("yên"?), no Hán, two readings
+- 55 hao5.chu_hy «mềm tốt» — already in errata
+- 55 hao3.chu_hy «Chữ 旆 (bái) một bản chép là chữ 沛» variant reversed — Hán misprint
+- 55 hao3 沫/沬 — Hán misprint
+- 55 tieu_tuong6.nghia «của» — already in errata
+- 55 thoan_truyen.nghia «cùng tiêu sinh» — not a misprint ("tiêu sinh" is the book's rendering of 消息, also in Trình Di)
+- 55 thoan_truyen.trinh_di/nghia «dé» (昃) — uncertain, printed the same in both layers
+- 56 hao5.nghia «chọn lấy» — already in errata
+- 56 tieu_tuong2.nghia «chọn không lỗi» — already in errata
+- 56 hao3.nghia «nhà trợ» — already in errata
+- 56 thoan_truyen.trinh_di «Hào Sáu Trên ở ngôi Năm» — already in errata
+- 56 [?] in thoan.chu_hy, hao5.chu_hy, tieu_tuong3.trinh_di — "[?]" marks
+- 57 hao5.nghia «không gì lợi» — already in errata
+- 57 hao6.nghia missing «chính bền» — omission; printed Hán line also lacks 貞
+- 57 hao5.chu_hy «định là» — already in errata
+- 57 hao6.trinh_di «,,» — punctuation only
+- 57 tieu_tuong6.chu_hy stray caption "[hình: quẻ Đoái...]" — not a misprint (transcription/layout matter)
+- 58 thoan_truyen.nghia «dân nghĩ sự có chết» — already in errata
+- 58 thoan_truyen.nghia missing «lòng» («Dùng sự đẹp để phạm») — omitted word, translator variance
+- 58 thoan_truyen.trinh_di «cái đẹp đẹp lòng» — uncertain (說之道 suggests "cái đạo đẹp lòng" but not a minimal misprint)
+- 58 hao5.nghia «Tin chung đẽo» — already in errata
+- 59 hao1 Hán 用拯馬壯，吉，悔亡 — Hán matter
+- 59 hao4.chu_hy «vâng thờ ông của Chín Năm» — uncertain ("ông vua"?), two readings
+- 59 hao4.trinh_di «nghĩa cùng chờ nhau» — not a misprint (義相須)
+- 59 hao5.chu_hy «Dương thì tan» — already in errata
+- 59 [?] in tieu_tuong4, hao6.chu_hy, tieu_tuong6 — "[?]" marks
+- 60 thoan.chu_hy «Lai thể quẻ» — already in errata
+- 60 hao5.trinh_di garbled («tức mà kẻ ở lời Thoán», «yên lòng mà làm thiên hạ mà đẹp lòng») — uncertain, no single minimal reading
+- 60 tieu_tuong4.trinh_di «Trở nên vâng theo» — uncertain (上承 suggests "Trên vâng theo"), two readings
+- 61 hao1.chu_hy «giư[?]» — "[?]" mark
+- 61 thoan_truyen.trinh_di «gi[?]a» — "[?]" mark
+- 61 thoan_truyen.nghia «lợi cá» — already in errata
+- 61 tieu_tuong1.nghia «Lời nói Tượng» — already in errata
+- 61 tieu_tuong2.nghia «Con có họa» — already in errata
+- 61 hao3.tien_nho «kẻ sáng địch với mình» — uncertain, no Hán
+- 61 tieu_tuong3 Hán 可鼓 (或鼓) — Hán misprint
+- 62 hao5.trinh_di «há nên công được» — not a misprint (豈能成功)
+- 62 dai_tuong.trinh_di «vượt qua vượt thường» — uncertain, no single minimal reading
+- 62 tieu_tuong3.nghia «noi» — already in errata
+- 62 thoan_truyen.nghia «Có Tượng có chim bay» — uncertain ("con chim"? or extra "có"), two readings
+- 62 hao2.trinh_di «bầy tôi» — real word (臣)
+- 63 hao4.trinh_di «chữ [?] (nhu)» — "[?]" mark
+- 63 hao4.trinh_di «hẻ dò» — uncertain ("kẽ" or "hở"), two readings
+- 64 hao5.nghia «Hào Chín Năm» — already in errata
+- 64 hao1.nghia «tiếp đáng!» — already in errata
+- 64 hao4.chu_hy garbled/contradictory (不貞之資: «tư chất chính bền») — garbled doubled sentence, out of scope
+- 64 hao6.trinh_di «công dỡ quá lễ» — uncertain (躭肆), no single reading
+- 64 tieu_tuong3.nghia «chẳng đang» — already in errata
+- 64 hao3 «lợi» vs 不利 — Hán/edition matter, not a misprint

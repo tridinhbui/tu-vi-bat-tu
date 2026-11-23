@@ -61,7 +61,7 @@ chuyển sang `approved`.
 
 Mỗi mục "Stretch" là câu diễn giải đi xa hơn lời bàn (chủ đề mà lời bàn không nói thẳng); "Possible misprints" là chỗ nghi lỗi in hoặc lỗi chép, đã gửi phiên chép sách kiểm trên ảnh trang.
 
-Cập nhật 2026-11-22: các lỗi in trong Dịch nghĩa, trong những câu đang được trích, và mọi tên hào hay quái sai đã được đính chính cho người đọc (`engine/data/kinh_dich/ntt/errata.json`, 107 chỗ, mỗi chỗ đã soi trên ảnh trang và có căn cứ chữ Hán). Những chỗ chưa chắc chữ đúng, và lỗi chính tả trong thân lời bàn ngoài các câu trích, vẫn để như bản in: xem docs/KINH-DICH-NTT-TRANSCRIPTION.md, mục "Đính chính".
+Cập nhật 2026-11-22: các lỗi in đã đánh dấu ở đây đã được xử lý qua hai đợt. 432 chỗ được đính chính cho người đọc (`engine/data/kinh_dich/ntt/errata.json`); mỗi chỗ đã soi trên ảnh trang và có căn cứ chữ Hán hoặc ngữ cảnh. Những chỗ không sửa đều có lý do, ghi ở docs/review/kinh-dich-errata-skipped.md. Cách làm xem docs/KINH-DICH-NTT-TRANSCRIPTION.md, mục "Đính chính".
 
 ## 11-13 (Thái, Bĩ, Đồng Nhân) — lint ok
 Stretch:
