@@ -106,6 +106,7 @@ def _nz(s: str) -> str:
     import re
     v = str.maketrans({"隂": "陰", "徳": "德", "衆": "眾", "无": "無", "説": "說", "爲": "為", "䝉": "蒙", "羣": "群", "逺": "遠", "曵": "曳", "乗": "乘",
                        "㢲": "巽"})
+    s = re.sub(r"\{\{另\|([^|}]*)\|[^}]*\}\}", r"\1", s)     # Wikisource's variant template {{另|printed|variant}}: the first form
     return re.sub(r"[^㐀-鿿]", "", s.translate(v))
 
 

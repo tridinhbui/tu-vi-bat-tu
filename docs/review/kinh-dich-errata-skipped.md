@@ -1,4 +1,4 @@
-# Kinh Dịch: flagged misprints left as printed (đính chính round 2, 2026-11-22)
+# Kinh Dịch: misprints considered and left as printed (đính chính, 2026-11-22)
 
 Each line is a place readers flagged in docs/review/kinh-dich-dien-giai-review.md that was NOT corrected, with the reason. "already in errata" means round 1 corrected it. The corrections themselves are in engine/data/kinh_dich/ntt/errata.json.
 
@@ -309,3 +309,514 @@ Each line is a place readers flagged in docs/review/kinh-dich-dien-giai-review.m
 - 64 hao6.trinh_di «công dỡ quá lễ» — uncertain (躭肆), no single reading
 - 64 tieu_tuong3.nghia «chẳng đang» — already in errata
 - 64 hao3 «lợi» vs 不利 — Hán/edition matter, not a misprint
+
+## Dropped at review (rounds 2–4)
+
+Proposed by a reader agent and rejected when the entries were reviewed:
+- 11 thoan.trinh_di «lợi xướng»: "lợi" is not a near misprint of "hòa".
+- 26 thoan_truyen.nghia «chuộng trời hiền»: "trời" is not a near misprint of "người".
+- 26 hao6.trinh_di «Tiểu Súc là sự chứa lớn»: this comes from an omitted clause, and renaming the quẻ would not restore it.
+- 27 hao1.trinh_di «mà mờ thì nuôi»: the intended words are not certain.
+- 30 tieu_tuong1.am «dĩ tựu cữu dã»: "tựu" is not a near misprint of the reading of 辟.
+- 43 tieu_tuong5.trinh_di «Ông, người ta»: "Ôi" and "Phàm" are both possible for 夫.
+- 46 tieu_tuong4.nghia «việc thuận này», 48 hao2.trinh_di «này nó đi xuống», 47 dai_tuong.am «tri mệnh»: each is a real word.
+- 51 hao6.trinh_di «mình mình»: entered in round 2 and withdrawn in round 4, because it is the book's habit.
+
+## Round 4, G1
+
+- 8 intro.trinh_di «Quẻ ty» — capitalisation
+- 8 thoan.trinh_di «Chỉn nên kíp kíp» — archaic word (固宜汲汲), capital C is capitalisation only
+- 8 hao4.nghia «Kẻ ngoài liền lại với chính tốt!» — translator's rendering of 外比之; "với" for 之 odd but not forced
+- 8 tieu_tuong5.nghia «vì trung chính vậy» — omitted word (位正中也), not a misprint
+- 8 tieu_tuong5.chu_hy «Bởi tại của người trên» — omitted word "đức" (由上之徳); out of scope
+- 9 intro.trinh_di «nối quẻ Tỵ» — spelling variant of Ty
+- 9 thoan_truyen.am «nhu đắc vị nhi thượng, hạ ứng chi» — punctuation only
+- 9 hao2.trinh_di «mới có dắt nhau» / chu_hy «có thể có dắt với hào Chín Đầu» — print shows "có"; "co dắt" possible but not forced (牽連)
+- 9 hao2.trinh_di «mà lại co dắt hào Hai» — real word (相牽)
+- 9 hao2.chu_hy «dần dần gần với chỗ hiểm» — 本義 漸近於隂 says "hào Âm", but "hiểm" is not a near misprint of a forced word; translator's rendering
+- 9 hao3.am «Dư thoát bức» — the book's reading of 輹, its own habit
+- 9 hao3.trinh_di «Hào Ba là hào ở Dương» — odd wording (三以陽爻), not forced
+- 9 hao3.trinh_di «dương con mắt» — spelling variant of "giương"
+- 9 hao4.am / tieu_tuong4.am «Dịch xuất» capital D — capitalisation
+- 9 hao4.chu_hy «vì nó muốn mềm thuận» — 以其柔順得正 has no "muốn", but the fix is not forced
+- 9 hao6.trinh_di «thì thành "Chuộng đức chở"» — missing period, punctuation only
+- 10 intro.trinh_di «Lý nghĩa là giầy, là bị giầy...» — ellipsis, punctuation only
+- 10 thoan_truyen.am «bất khứu» — the book's reading of 疚, print shows it; not forced
+- 10 thoan_truyen.trinh_di «Dương Cương» capital C — capitalisation
+- 10 hao1.trinh_di «Xéo chỗ thấp nghĩa là đi» — 履不處者行之義 differs, but translator's rendering, no near misprint
+- 10 hao1.trinh_di «tham bạo hành động» — 貪躁 would be "tham táo", but "bạo" is a real word, not forced
+- 10 hao2.nghia «người uẩn chính bền» — likely "u uẩn"/"u ẩn", but which word was dropped is not forced
+- 10 hao3.tien_nho «ứng với nhau hào Chín Trên» — odd word order, no source to decide
+- 10 tieu_tuong3.trinh_di «mà cứ muốn chăm chăm muốn cứng» — repeated "muốn" not adjacent; not forced
+- 10 tieu_tuong5.trinh_di «thì dùng được chỗ chính đáng» — 雖使得正 suggests "dù", but "dùng" may render 使; uncertain
+- 10 tieu_tuong5.trinh_di «Ở ngôi chí, tôn» — punctuation only
+- 10 hao6.trinh_di «thì thiện là tốt» — 則善且吉; "là" for 且 odd but not forced
+- 11 thoan.trinh_di «Âm Dương lợi xướng» — 隂陽和暢 gives "hòa sướng", but two letters differ and the spelling of the fix is not certain
+- 11 dai_tuong.am «Thiên địa giao. Thái» — punctuation only
+- 11 hao1.am «dĩ kỳ vậng» — the book's own reading of 彙, used in all three layers
+- 11 hao1.trinh_di «ở chỗ cùng thời đã thái» — missing punctuation
+- 11 tieu_tuong1.nghia «Lời Tượng viết rằng» — wording variant, not a misprint
+- 11 hao2.am «Bao Hoang» — capitalisation
+- 11 hao2.trinh_di «Có ngờ rằng trên nói: "dùng để tay không lội sông"» — omitted clause (上云包荒…此云用馮河); out of scope
+- 11 hao2.trinh_di «Nhờ vậy mà không biết rằng» — 不知 suggests "Nhưng mà", not forced
+- 11 hao2.trinh_di «đem lượng làm dong» — spelling variant of "dung"
+- 11 hao2.trinh_di «phí bỏ hết sự riêng tây» — "phải"/"phế" both possible; uncertain
+- 11 hao3.nghia «chớ lo thừa sự tín» — "không lỗi" (无咎) omitted; out of scope
+- 11 hao3.trinh_di «Không lỗi điều hẹn là tin» — real phrase ("lỗi hẹn")
+- 11 hao3.tien_nho «Âm trong khi đi, đã có cơ lại» — maybe "Đương trong khi đi", no source to decide
+- 11 hao5.trinh_di «Thơ Đa sĩ» — "Thơ" is a regional reading of 書; not a misprint
+- 11 hao5.chu_hy «Là thế Âm, ở ngôi tôn» — 以隂居尊; "thể"/"lấy" both possible, uncertain
+- 11 hao6.am «trinh lận!.» / hao6.nghia «chớ dùng quân tự ấp» — punctuation only
+
+## Round 4, G2
+
+- 12 thoan.nghia «Bỉ đấy (?)» — variant spelling of 否 (bỉ/bĩ both current), not a misprint; print SAME
+- 12 thoan.chu_hy «quẻ Ty» — book's habit for 比 (quẻ 8 prints "quẻ Ty" throughout)
+- 12 dai_tuong.am «ty nạn» — variant reading of 辟 (tỵ/ty), not forced
+- 12 thoan_truyen.trinh_di «là để tìm việc chính trị» — translator's rendering of 所以治也, not forced
+- 12 hao1.nghia «lấy vầng nó» — book's own word for 彙 (also "vầng đi" in quẻ 11)
+- 12 hao1.tien_nho «e là gò gập» — uncertain, no Hán text to decide
+- 12 hao3.trinh_di «cái của chúng vẫn bọc chứa» — omitted word (其所包畜), not a misprint
+- 12 hao4.trinh_di «Dương cương thế mạnh» — uncertain (健體 suggests "thể", but "thế" is used the same way in hao6.chu_hy «Lấy thế Dương cương»)
+- 12 hao4.trinh_di «mà lại chỗ sát gần» — omitted word, not a misprint
+- 12 hao5.am «Hưu phủ» — real reading of 否 (phủ), not forced
+- 12 tieu_tuong5.trinh_di «hầu làm nên gì» — archaic usage, not forced
+- 12 tieu_tuong6.am «hà, khả trường dã» — punctuation only
+- 13 intro.trinh_di «ở thời của kẻ Đồng nhân» — uncertain (在同人之時; "quẻ" likely but "ở thời Đồng nhân" also possible); print SAME
+- 13 intro.trinh_di «tính lửa bốc lên ngang với nhau» — translator's rendering of 與天同也
+- 13 thoan_truyen.nghia «Cùng với người đồng hanh thông!» — omitted word ("ở"), not a misprint
+- 13 thoan_truyen.trinh_di «tỏ rõ về lý do, do nên» — uncertain (君子明理故能; wording not forced)
+- 13 hao3.trinh_di «song lý không thẳng, nghĩa không thẳng» — uncertain (義不勝 = "không thắng", but the translator renders 義不勝 loosely elsewhere, e.g. tieu_tuong4 "nghĩa không chính đáng"); print not checked
+- 13 hao3.trinh_di «các hào Dương phát ra đều muốn» — translator's rendering (諸陽之志), not a near misprint
+- 13 hao5.am «tiên hào diếu» — variant reading of 咷 (quẻ 56 prints "hào diêu"), not forced
+- 13 hao5.trinh_di «mà cùng để tỏ cái nghĩa» — uncertain (而明; no single forced word)
+- 13 hao5.chu_hy «Nhưng ví về nghĩa lý» — real word (ví = if), not forced
+- 13 tieu_tuong5.nghia «Lúc trước sự cùng, người» — punctuation only
+- 13 tieu_tuong4.am / trinh_di stray commas — punctuation only
+- 14 thoan.trinh_di «có thể hơn hanh thông» — uncertain (卦之才可以元亨; "cả lớn" likely but the misprinted word is not near)
+- 14 thoan_truyen.nghia «Quẻ đại hữu» — capitalisation
+- 14 thoan_truyen.trinh_di «được các hào Dương tôn quý» — translator's rendering of 為諸陽所宗
+- 14 dai_tuong.am «thiên thượng. Đại hữu,» — punctuation only
+- 14 hao1.trinh_di «không dính tới sự tai» — real word, translator's rendering
+- 14 hao3.nghia «Hào Chín Ba.» — punctuation only
+- 14 hao3.trinh_di «đều là đấng thiên tử» — omitted word ("của"), not a misprint
+- 14 hao4.trinh_di «thơ Tài chì» — uncertain (詩載驅 = "Tái khu"; the print's name is too far from it to be a single misprint, likely translator's slip)
+- 14 tieu_tuong5.nghia «Thửa tin dường giao như vậy» — uncertain ("giao nhau vậy" as in hao5.nghia is likely, but "như vậy" is real words)
+- 14 tieu_tuong5.trinh_di «thờ người trên có sự phu tín» — punctuation only
+- 14 hao6.chu_hy «biết xéo coi điều tín» — uncertain (履信; "noi" possible, not forced)
+- 14 hao6.chu_hy «mà chuộng người» — omitted word (尚賢 "người hiền"), not a misprint
+- 14 tieu_tuong6.nghia «được tốt sự trời giúp» — punctuation only
+- 15 thoan_truyen.chu_hy «mới có câu sau chót» — uncertain (所以君子有終也; "câu" reads oddly but no forced word)
+- 15 dai_tuong.am «biểu đa ích quả» — uncertain reading of 裒, not forced
+- 15 dai_tuong.trinh_di «cái cao chót» — book's own wording (twice in the passage)
+- 15 hao3.nghia «nhọc mà nhún, sau chót, tốt» — omitted word ("có"), not a misprint
+- 15 hao3.trinh_di «ấy là một người trên thì được vua tin dùng» — uncertain/omitted words (上為君所任下為衆所從), not forced
+- 15 hao4.am «vi khiêm» — book's reading of 撝 (trinh_di glosses "Vi" the same way)
+- 15 hao4.trinh_di «đức nhún lún thấp khiêm tốn» — uncertain (卑巽以讓; "nhún thấp" possible, punctuation also missing)
+- 15 tieu_tuong4.nghia «Lời Tượng nói rằng.» — punctuation only
+- 15 hao5.trinh_di «Hào năm» — capitalisation
+- 15 hao6.am «chính ấp quốc» — book's habit for 征 (also "chính" in 24, 34, 47, 49)
+- 15 tieu_tuong1.tien_nho unclosed quote after «Trương Nam Hiên nói rằng» — quote-mark style
+
+## Round 4, G3
+
+- 16 intro.trinh_di «thông xướng hòa vui» — book's own habit (also dai_tuong), 通暢; left as printed
+- 16 thoan.chu_hy «lợi về sự dựng vua, dùng quân» — not a misprint (本義 利以立君用師)
+- 16 thoan_truyen.trinh_di «mối giường đính chính» — real old spelling (giường mối), print SAME
+- 16 dai_tuong.nghia «thịnh dâng đức Thượng đế» — real honorific "Đức", not a misprint
+- 16 dai_tuong.trinh_di «Lúc bế thì mất» — uncertain (始閉鬱: "uất"?), the right word is not forced
+- 16 hao3.trinh_di «cự tuyệt cũng có là có sự ăn năn» — uncertain wording (亦有悔也), more than one fix possible
+- 16 hao4.nghia «Bởi đó là vui» — real wording; trinh_di and tieu_tuong4 say "Bởi đó mà vui" but "là" reads; left as printed
+- 16 hao4.chu_hy «nên lại nhân đó là tỏ lời răn» — uncertain (故又因而戒之)
+- 16 hao6.am «hữu thâu» — book's habit for 渝 (also 6 and 17)
+- 16 hao6.trinh_di «dông dỡ về sự vui» — uncertain (耽肆), no single reading
+- 17 thoan_truyen.trinh_di «vì đây thì với nghĩa là thứ hai» — garbled vs 諸卦時與義是兩事 but the fix is not forced
+- 17 thoan_truyen fn 248.1 «ủe Tuỳ lớn lắm thya» — print shows these letters (quẻ / thay), but footnotes are outside the six layers
+- 17 dai_tuong.tien_nho «cái Tượng sấm vào trong đất» — no Hán for this Chu Tử dialogue (本義 says 雷藏澤中); uncertain
+- 17 hao1.chu_hy «mà đổi vẻ thường» — uncertain (變其常), real words
+- 17 hao3.nghia «theo mà có tìm, lợi về ở trinh» — omitted word (得), out of scope
+- 17 hao3.trinh_di «tà nịnh, xu họa» — uncertain (邪謟趨利: "xu lợi"?), more than one letter
+- 17 hao3.chu_hy «tà my» — book's habit for 邪媚 (also twice in quẻ 40)
+- 17 hao4.chu_hy «người trên yên lòng mà theo trở xuống» — translator's wording
+- 17 tieu_tuong1.nghia «không lỗi vậy» for 不失也 — translator's wording
+- 18 thoan.chu_hy «cho việc sau là không đến hỏng quá» — uncertain (而不使至于大壊: là/mà), reads either way
+- 18 hao3.trinh_di «chỗ đính chính» — book's habit (đính chính = chính đính)
+- 18 hao6.trinh_di «có được, lỗi, lớn, nhỏ» — uncertain (得失小大: "mất"?), not a one-letter fix
+- 18 tieu_tuong5.nghia «Cán đáng cho cha, dùng vâng lấy đức» — omitted word (譽), out of scope
+- 19 thoan_truyen.trinh_di «khi Dương bắt đầu sinh» — can read "khi" (when); 陽始生於復 does not force "khí"
+- 19 thoan_truyen.trinh_di «tháng kiến vị» — 未 read "vị", a real reading
+- 19 dai_tuong.trinh_di «chỗ khoảng nước vậy» — uncertain (水之際也), no single reading
+- 19 hao1.tien_nho «chua nó là "khắc" và "đều"» / «công thấp» — no Hán to decide; "khắp"/"thấy" likely but not forced
+- 19 hao1.tien_nho «hào Chín Hai cũng gọi là "Hàm"» — omitted word (Chín Đầu), out of scope
+- 19 tieu_tuong6.tien_nho «chỉ là trọng quẻ ứng nhau» — two readings (trong quẻ / trọn quẻ), print SAME
+
+## Round 4, G4
+
+- 20 thoan.trinh_di «rót rượu cự xưởng» — uncertain (程傳 鬱鬯; translator may mean 秬鬯; reading of the Hán word)
+- 20 thoan_truyen.nghia/thoan.nghia «Quẻ quan» / «Quẻ quán» — capitalisation / reading of the quẻ name, not a misprint
+- 20 hao4.trinh_di «xem nội những sự» — uncertain ("nội" may be the translator's word)
+- 20 hao4.trinh_di «lợi dùng khách chưng vua» — omission of "làm"; out of scope
+- 20 tieu_tuong4.trinh_di «Thượng là chuộng chí» — translator's rendering of 志尚
+- 20 tieu_tuong5.nghia «Tượng viết: Xem ta sinh» — Dịch nghĩa keeps "Tượng viết" instead of "Lời Tượng nói rằng"; meaning not wrong, style
+- 20 tieu_tuong6.trinh_di «không lỗi với đạo quân tử» — translator's rendering of 不失於君子
+- 21 intro.trinh_di «sáng soi mà oai nhức» — uncertain (威震; no single reading forced)
+- 21 thoan_truyen.tien_nho «nói sự cực dụng ngục là khó vậy» — no Hán source for Hồ Vân Phong; uncertain
+- 21 hao4.trinh_di «phàm kẻ quá cứng đều là không trinh» — translator's rendering of 凡失剛者
+- 21 hao4.chu_hy «Ý nói có cắn càng sâu» — 愈堅 rendered "sâu"; translator's word, not a letter slip
+- 22 hao1.trinh_di «việc làm của mình làm mà thôi» — stray "làm" (惟自賁飾其所行而已) but not an adjacent doubling; uncertain
+- 22 hao3.chu_hy «đắm đuối ở nơi vẫn yên» — 溺於所安; "vẫn" may stand for another word, no single reading forced
+- 22 hao3.chu_hy «Một hào Dương ở giữa hào Âm» — omission of "hai" (二隂); out of scope
+- 22 hao4.am «phan như» — reading of 皤; not decided
+- 22 dai_tuong.chu_hy «ngưng đậu» — real word
+- 22 tieu_tuong2.tien_nho «Hào Hai là hào cứng mềm trang sức cho nhau» — no Hán source for Chu Hán Thượng; uncertain
+- 23 dai_tuong.am «quân tử dĩ hậu hạ an trạch» — 周易 has 上以; but the book's own Hán line prints 君子, so the Dịch âm follows its Hán (Hán misprint out of scope)
+- 23 hao1.trinh_di «ấy là công lấn ngay» — 程傳 邪侵正; "công" vs "tà" not a letter slip, uncertain
+- 23 hao2.trinh_di/chu_hy «Bễ là gốc giường» — translator's rendering of 牀幹, used twice
+- 23 thoan_truyen.trinh_di «giốc chuộng» — old spelling of "dốc" (敦尚), real word
+- 23 hao5.chu_hy «Âm cung nhân ... mà bị chế, với loài Dương» — punctuation only
+
+## Round 4, G5
+
+- 24 hao6.am «bất khắc chính» — 征 is read "chính" in five other Dịch âm lines (15, 30, 34, 47 ×2), the book's habit
+- 24 thoan.trinh_di «khi Dương tiêu đi» — reads as "when Dương wanes" (陽之消), two readings possible
+- 24 thoan.trinh_di «Khí Dương mùa xuân phát ra khí Âm lạnh bẻ gẫy» — omitted "bị" (為隂寒所折), omission, out of scope
+- 24 tieu_tuong4.am «Tượng viết: - Trung hành» — stray dash, punctuation only
+- 24 hao6.trinh_di «trở lại đường, thiện» — stray comma, punctuation only
+- 24 hao6.tien_nho «四大眚 (tứ đại sảnh)» — Hán misprint for 肆, out of scope
+- 24 hao6.tien_nho «Kiền nguyên là mười, Khôn nguyên là một» — Hồ Vân Phong's Hán not available to decide, uncertain
+- 25 hao2.trinh_di «không phải do tâm lý gây ra» — 心意 suggests "tâm ý", but "tâm lý" is a real word the translator may have chosen, uncertain
+- 25 dai_tuong.trinh_di «đạo đối thì vật nuôi» — 對時育物 word order, translator's phrasing, uncertain
+- 25 dai_tuong.chu_hy «bắt chước lượng đó» — 法此: "lượng" reads oddly but "tượng"/"lẽ" both possible, uncertain
+- 25 tieu_tuong2.trinh_di «Ắt vì lời lãi về sự gặt» — 非必以穫畬之富而為 rephrased by the translator, not a clear misprint
+- 25 hao2.tien_nho «những việc có vì lẽ gì mà làm» — no Hán of Trần Tiềm Thất to decide, uncertain
+- 25 tieu_tuong1.am «Vô vọng, chi vãng» — stray comma, punctuation only
+- 25 thoan_truyen.am «hành hỹ tai» — reads 哉 correctly (the Hán line prints 災), not a misprint in Vietnamese
+- 26 tieu_tuong2.am «trung vô vưu dã» — 本義 and the Wikisource 周易 both read 中无尤, so "trung" matches the commentary text
+- 26 hao5.trinh_di «cái bụng lợi dụng của ức triệu người» — 利欲 suggests "lợi dục", but "lợi dụng" is a real word, uncertain
+- 26 hao5.trinh_di «có nghề nông trang» — 農桑 is "nông tang", but "nông trang" is a real word that reads acceptably, uncertain
+- 26 hao4.trinh_di «thì hào phía dưới ứng với hào Đầu» — 四下應於初: "Tư" dropped, omission, out of scope
+- 26 hao4.trinh_di «cày húc» (twice) — consistent in the passage for 觝觸, left as printed
+- 26 hao1.trinh_di «thì là hợp với chí với nhau» — 合志: extra "với" possible but the phrase still reads, uncertain
+- 26 thoan_truyen.chu_hy «sự biến hóa của quẻ và thể thích lời quẻ» — 以卦變卦體言之: likely "thể quẻ" with words dropped, omission, uncertain
+- 26 thoan.nghia «chẳng ăn ở nhà, tốt lợi sang sông lớn» — missing comma, punctuation only
+- 26 hao6.trinh_di «Quẻ Tiểu Súc là sự chứa lớn» — decided in kinh-dich-errata-skipped.md (note: the "Tiểu Súc"→"Đại Súc" entry it mentions is not in errata.json)
+- 27 hao2.am «chinh hung dã» — the Hán line has no 也; an added syllable rather than a misread, uncertain
+- 27 hao2.trinh_di «nếu cần sự nuôi ở hào Chín Trên» — 若求頥于上九 suggests "cầu", but "cần" reads acceptably, uncertain
+- 27 thoan_truyen.chu_hy «giúp tập sự thích nghi» — 輔相 suggests "giúp rập", but the intended word is not decided, uncertain
+- 27 dai_tuong.trinh_di «dưới núi có sấm động ở dưới núi» — 山下有雷雷震於山下: second "sấm" dropped, omission, out of scope
+- 27 dai_tuong.trinh_di «động ở rễ vỏ» — 根荄: translator's word, uncertain
+- 27 tieu_tuong4.trinh_di «sáng tỏ chùm khắp» — "chùm" for trùm, old spelling, left as printed
+- 27 tieu_tuong6.tien_nho «hỏng về động càn» — no Hán of Lý Long Sơn to decide, uncertain
+- 27 thoan_truyen.chu_hy layer holds Trình Di's paragraph before the short Chu Hy line — structure, not a misprint
+- 27 thoan.am «quan di tự cầu» / hao4.am «trục trục vô cữu» — missing commas, punctuation only
+
+## Round 4, G6
+
+- 28 hao4.trinh_di «như cây cao vọi» — real word (Hán 如棟之隆起 is "cột", but "cây" is a real word and may be the translator's; not a near misprint)
+- 28 tieu_tuong6.nghia «Cái hung của quẻ quá lội» — uncertain ("quẻ" reads oddly for 過涉之凶 but the intended word is not forced)
+- 28 hao2.trinh_di «Cây Dương là khí Dương, một vật dễ cảm vậy» — translator's rendering of 楊者陽氣易感之物, not a misprint
+- 28 tieu_tuong5 «no Lời kinh, Dịch âm, Dịch nghĩa» — omission, out of scope
+- 28 hao2.nghia «Cây Dương khô» — capitalisation
+- 29 thoan_truyen.trinh_di «cái đạo chí thành, chỗ nào mà thông suốt được!» — omitted word (至誠之道何所不通: "chẳng" missing); omission, out of scope
+- 29 thoan_truyen.chu_hy «câu thứ hai Tượng của quẻ» — omitted word (以卦象), out of scope
+- 29 dai_tuong.trinh_di «liền lù không vội» — uncertain (洊習而不驟; intended word not forced)
+- 29 tieu_tuong2.trinh_di «Đương hai lần hiểm nó hãm» — uncertain (方為二隂所陷 "hai Âm"; not a near misprint, could be translator's)
+- 29 hao3.nghia «hiểm vào gối» — uncertain (險且枕; "và"/"lại" not forced, Hồ Song Hồ reads "gối vào")
+- 29 hao4.trinh_di «cửa sổ hễ mà có thể» — omission ("tròn" and a period dropped), out of scope
+- 29 hao6.am «huy chiền» — uncertain (纆 音墨 "mặc"; "chiền" is not a near misprint of it, may be the translator's reading)
+- 29 hao4.am / tieu_tuong4.am «quỹ» / «quĩ» — spelling variant
+- 30 thoan_truyen.trinh_di «hào Năm hào Hai đến chỗ trung chính» — uncertain (五二皆處中正; "đều [ở]" not forced, "đến" may be the translator's verb)
+- 30 hao1.trinh_di «hầu đến nóng nẩy tự động sự xéo của mình» — uncertain (幾於躁動其履錯然; wording not forced)
+- 30 hao5.am «Thế đà nhược! Thích ta nhược!» — follows the printed Hán (出, 戚 missing); Hán misprint / omission, out of scope
+- 30 hao6.am «hoạch phi kỳ sũ» — book habit (醜 printed "sũ" also in quẻ 53, "xũ"/"xú" elsewhere)
+- 30 tieu_tuong4.nghia «Đột nhiên thửa lại» — real word, translator's rendering
+- 30 tieu_tuong4.chu_hy «chỗ dong» — spelling variant
+- 30 thoan_truyen.am «nãi hóa thành, thiên hạ» — punctuation only
+- 33 hao3.trinh_di «Sự trốn qui ở mau mà xa» — real word (遯貴速而逺 suggests "quý", but "qui (quy) ở" is a real phrase)
+- 33 dai_tuong.chu_hy «việc tự nhủ của đấng quân tử» — uncertain (嚴者君子自守之常 "tự giữ"; not a near misprint)
+- 33 tieu_tuong3.nghia «Vướng trốn mà dữ» — translator's word for 厲, not a misprint
+- 33 hao1.tien_nho «Quẻ khác lấy "dưới" làm hào Đầu…» — unlabelled Trình Di paragraph; layer structure, out of scope
+- 33 hao4.am / hao5.am «Cửu tứ» / «Cửu ngũ» — capitalisation
+- 33 hao1.chu_hy «cách nguy đó Kẻ xem» — punctuation only
+
+## Round 4, G7
+
+- 34 intro.trinh_di «vật không thể trốn đều cùng chót» — uncertain (物不可以終遯; "đến" likely but not forced, "đều" still reads)
+- 34 hao1.am «chính hung» — book's habit (征 printed "chính" in 15, 24, 47, 49 too)
+- 34 tieu_tuong2.trinh_di «không lỗi sự chính» — book's habit ("lỗi" for 失 also in 36 thoan, 36 dai_tuong)
+- 34 hao3.am / hao4.am «doanh» for 羸 — book's habit (both places)
+- 34 hao3.chu_hy «đó tiểu nhân thì dùng sự mạnh» — uncertain, reads oddly but no single forced word
+- 34 hao4.trinh_di «hai lần cứng» — not a misprint (重剛)
+- 34 hao4.chu_hy «cho nên Tượng. Chiêm của nó» — punctuation only
+- 34 hao4.han «大輿之輹» — Hán misprint, out of scope
+- 34 thoan_truyen.nghia «Quẻ tráng» — omitted word, out of scope
+- 34 tieu_tuong1.nghia «Lời tượng» — capitalisation
+- 35 intro.trinh_di «cho nên tiếp được quẻ Tấn» — real words (受之以晉; elsewhere "tiếp đến quẻ", but "tiếp được" is not a broken reading)
+- 35 thoan.trinh_di «nghĩa là tước là hầu trị an» — uncertain (治安之侯; extra "là" or other slip, not forced)
+- 35 hao1.nghia «dường đun lại vậy» — real word (摧; lời Tượng has "bẻ")
+- 35 hao1.nghia «Hào Sáu Đầu;» — punctuation only
+- 35 hao1.trinh_di «thì chẳng vì săng sắc cầu cạnh» — uncertain (非汲汲以失其守; words not forced)
+- 35 dai_tuong.nghia «đấng quân tử» lowercase — capitalisation
+- 35 tieu_tuong6.trinh_di «tức là sự sáng đáng tiếc vậy» — uncertain (猶可吝也; no single forced word)
+- 35 tieu_tuong6.trinh_di «thánh nhân nói cách, làm hết lẽ phải» — garbled (聖人言盡善之道), correct words not decided
+- 35 hao6.am «Tấn kỳ dốc» — d/gi spelling variant of "giốc", not forced; print SAME
+- 35 hao6.chu_hy «dùng sự cực cứng thì làng nhỏ» — uncertain (以極剛治小邑: "thì" may be a slip for "trị" or a dropped word); print SAME
+- 35 tieu_tuong4.tien_nho «Trong thì mềm tiến» — no Hán; "trong thì" is the book's phrasing (also 36 thoan_truyen)
+- 36 thoan.trinh_di «không lỗi đạo trinh chính» — book's habit ("lỗi" for 失)
+- 36 thoan_truyen.trinh_di «thân với nước ấy» — uncertain (身處其國内; "với" for "ở" is not a near slip)
+- 36 dai_tuong.am «dĩ ly chúng» — tone of 蒞 (lị/lỵ) not decided by the book; uncertain
+- 36 dai_tuong.trinh_di «mà đâu yên đó» — real words (衆親而安)
+- 36 hao1.tien_nho «Quẻ Minh di, chứa tối ở trên» — uncertain ("chúa tối" likely, as "ám chúa" at hào Tư, but no Hán and "chứa" is a real word); print SAME
+- 36 hao2.trinh_di «Đấng quân tử kẻ bị âm tối làm hại» — uncertain (君子為隂闇所傷; stray "kẻ", correct words not forced)
+- 36 hao2.trinh_di «có thể làm việc thì đó» — real words (於斯時)
+- 36 hao3.trinh_di «lại chỗ cứng mà tiến lên» — omitted word, out of scope
+- 36 hao3.chu_hy «nổi lên ở trên ngục Hạ đài» — uncertain, not a clear letter slip
+- 36 hao4.tien_nho «mà biểu được cái lòng» — uncertain ("biết" or "hiểu"); no Hán
+- 36 hao4.tien_nho «không thể giúp dập» — spelling variant (giúp rập)
+- 36 hao6.nghia «Chẳng sáng, tối đầu lên» — punctuation only
+- 36 tieu_tuong6.am «Sơ Đăng» — capitalisation
+- 36 tieu_tuong3.han «南狩志之» / tieu_tuong6.han «除登» — Hán misprints, out of scope
+- 37 thoan.nghia «Quẻ gia nhân» / thoan_truyen.nghia «Lời thoán» / tieu_tuong1.nghia «ngăn ngừa» / hao1.trinh_di «Hào đầu» — capitalisation
+- 37 thoan.trinh_di «vì chính là cái thân chính đính» — omitted word (夫正者身正也), out of scope
+- 37 dai_tuong.trinh_di «chính lấy mình mình» — book's habit ("mình mình" in 9 places)
+- 37 hao1.trinh_di «ở đàn bà thì ắt có sự ăn năn» — uncertain (羣居必有悔; correct words not decided)
+- 37 hao3.trinh_di «vẫn có tổn tại» — uncertain (雖於人情不能无傷: "tổn hại" likely, two letters off); NOTE transcription says «tổn tại» but print shows «tồn tại» (DIFFERS)
+- 37 hao5.am «Vương cách hữu gia, vật, tuất cát» — punctuation follows the book's Hán, not a word misprint
+- 37 hao6.trinh_di «không giữ được thường thường» — real word, uncertain
+- 37 fn 425.1,2 «tốt bậc» (fn 426.1 has «tột bậc») and fn 427.2 «đức Không Tử» — footnotes, not a correctable layer
+- 37 hao1.han «晦亡», hao3.han «晦», thoan.han «女真», hao2.han «逐» — Hán misprints, out of scope
+
+## Round 4, G8
+
+- 38 thoan_truyen.chu_hy «mà người khen thêm» — uncertain (而贊之: "ngợi khen" likely, but "người" can be the respectful pronoun for Khổng Tử)
+- 38 dai_tuong.trinh_di «về sự "cầu đạo thường của trời cho"» — uncertain (秉彛: "cầm/giữ" likely, no single forced word)
+- 38 hao2.trinh_di «"cứng mềm trái nhau" Dương thắng» — uncertain (剛柔相戾之意勝: "đương thắng" likely, but Hán has no 方)
+- 38 tieu_tuong1.am «dĩ ty cữu» — uncertain reading of 辟 (tị/ty), not forced
+- 38 hao3.am «thiên thả ty» — reading of 劓 left as printed (book's own reading)
+- 39 thoan.chu_hy «đương ở trong hồi chữ Kiển» — reads oddly, real words; not forced
+- 39 thoan_truyen.trinh_di «nói lẽ rất chính» — "nói" may be "noi" (由至正之理), uncertain; only "rât" corrected
+- 39 hao3.nghia «Đi kiển lại thì lại» — translator's wording (來反), not forced
+- 39 tieu_tuong4.trinh_di «sự dùng ai có nơi chốn của nấy» — garbled order but no single reading
+- 39 hao5.trinh_di «quẻ Chuân» — book's habit (24, 39, 47 all print Chuân)
+- 39 tieu_tuong5.trinh_di «Chu Khải» — 顗 has more than one reading
+- 40 thoan_truyen.trinh_di «được hòa xướng» — real word (和暢 more often "hòa sướng"); not forced
+- 40 dai_tuong.trinh_di «thì ân đức» — omitted verb (施恩仁), out of scope
+- 40 tieu_tuong1.am «nghĩa vô cửu dã» — book's habit ("cửu dã" for 咎 in 1, 19, 30, 32, 40, 56, 63)
+- 40 hao3.am / tieu_tuong3.am «tri khấu», «tri nhung» — book's habit within the quẻ (致 printed "tri" in both places)
+- 40 tieu_tuong3.am «diệt khả» — book's habit (亦 printed "diệt" in 20 too, same phrase)
+- 40 hao3.trinh_di «cả việc cả chính» — reads oddly (大正非隂柔所能也), no single forced reading
+- 40 hao3.chu_hy «lánh mà đi đi» — real reading (去之), not a doubled-word misprint
+- 40 hao2.trinh_di «Bắt được nó thì là đạo trung chính» / «lòng vua đã tin chúng» — loose translation, not a misprint
+- 41 intro.trinh_di «Ví như đầy lũy» — likely "đắp lũy" (壘土) but not forced
+- 41 thoan.tien_nho «quĩ là thịnh soạn» — a number seems missing; no source text, omission
+- 41 thoan_truyen.trinh_di «văn với thực vẫn phải chở nhau» — real word (相須), not forced
+- 41 thoan.trinh_di «nóc cao tường trạm» — "trạm" is an old spelling of "chạm"; left as printed
+- 41 tieu_tuong1.trinh_di «trong đời chuốc dùng» — likely "chuộng dùng" (崇用) but "chuốc" is a real word; uncertain
+- 41 tieu_tuong1.am «chuyên vãng» — 遄 has more than one reading; not forced
+- 41 hao2.trinh_di «thì có thể cho người trên» — omitted word (能益其上), "ích"/"thêm" both possible
+- 41 hao3.trinh_di «Hai hào Dương Đầu và hai hào Âm» — omission ("và Hai" missing), out of scope
+- 41 hao5.trinh_di «thì người bạn sẽ giúp đỡ mình» — omission (十朋), out of scope
+- 41 hao6.trinh_di «nghĩa nào theo thì của nghĩa ấy» — garbled (各因其時取大者言之), no single reading
+- 41 hao5.tien_nho «Uông Nghiện Chương» — name, no source to check
+
+## Round 4, G9
+
+- 42 thoan_truyen.trinh_di «Chữ 益 (ích) làm ra chữ 木» — uncertain (益誤作木 suggests "lầm ra", but "làm ra" is a real phrase that still reads); print SAME
+- 42 thoan_truyen.trinh_di «cả sáng rệt vậy» — real word (大光顯; "rệt" as in "rõ rệt")
+- 42 thoan_truyen.trinh_di «nào đúng tính mệnh của vật ấy» — uncertain (各正性命 suggests "đều", not forced)
+- 42 thoan_truyen.chu_hy «Đây lại lấy quẻ Tốn mà nói» — not a misprint (translator's rendering of 又以此極言)
+- 42 hao2.trinh_di «trống rỗng lòng mình đều cầu được ích» — uncertain (虛其中以求益 suggests "để cầu"; "đều" is a real word)
+- 42 hao3.am «trung hàng» — real word ("hàng" is a reading of 行)
+- 42 tieu_tuong1.nghia «kẻ dưới chẳng được dầy vậy» — omitted word (事), translator's rendering
+- 42 tieu_tuong3.chu_hy «mệt lòng nhược trí» — uncertain (困心衡慮; "nhọc trí" likely but not forced)
+- 42 tieu_tuong5.trinh_di «nhớ đức ta để làm nên» — uncertain (以為惠 suggests "làm ơn"; "làm nên" is a real phrase)
+- 42 hao5.am «hữu phu,, huệ» — punctuation only
+- 42 footnote 472.1 «hào Chín Năm quẻ Tốn» — footnote, outside the layers (the line is 損 六五)
+- 43 intro.trinh_di «tiêu suy vậy hầu hết vậy» — out of scope (doubled text, already decided)
+- 43 thoan.am «Quyết, dương vu vương đình» — real word ("quyết" is a reading of 夬)
+- 43 thoan.trinh_di «mà không giảm sự răn ngừa» — uncertain (不敢忘戒備; "giảm" is a real word)
+- 43 thoan.trinh_di «thì không có gì...» — omitted words, print shows the dots
+- 43 hao3.trinh_di «Tráng vu cữu» (second gloss) — uncertain (follows the print's shifted Hán 壯于，鳩)
+- 43 hao4.am «Điêu vô phu» — uncertain (臀 is printed "Điêu" here and "Điến" in 44 hao3; the translator's reading is not settled)
+- 43 hao4.trinh_di «muốn đi, thì ở không mềm» — uncertain (居柔 suggests "ở ngôi mềm"; the replaced word is not forced)
+- 43 hao4.chu_hy «chắn đằng trước rẽ» — uncertain (當其前; garbled but no single reading)
+- 43 tieu_tuong4.trinh_di «sự của nó chật vật» — omitted word ("đi")
+- 43 hao5.am «Nghiến lục» — the book's own reading of 莧陸, used throughout the hào
+- 43 hao6.trinh_di «Thể nói ắt phải tiêu hết» — uncertain (其勢必須消盡; "Thế nó" likely but two letters change)
+- 44 intro.trinh_di «cái gốc hợp nhau, thì có thể gặp nhau» — uncertain (本合則何遇; garbled sense but no single reading)
+- 44 thoan.chu_hy «Vì nó vốn không phải cái là mong đợi» — uncertain (本非所望; the replaced word is not forced)
+- 44 thoan_truyen.am «nghĩa đại hỹ tai» — spelling variant of "hĩ"
+- 44 hao2.trinh_di «liền xát với nhau» — real word / spelling (s/x; "xát" also used elsewhere); 宻比
+- 44 hao3.am «Điến vô phu» — uncertain (see 43 hao4)
+- 44 hao5.trinh_di «uấn mình» — the book's own habit (four times in the passage)
+- 44 hao4.nghia label printed «Dịch âm» before the Dịch nghĩa line — label, not text
+- 44 footnote 497.1 «đương đắp tượng thuê» — footnote, outside the layers (版築 = đắp tường)
+- 45 thoan.trinh_di «mà có làm cho các ngài lại đến» — omitted word (而能致其來格: "có thể")
+- 45 thoan.chu_hy «Con sinh lớn ắt phải dùng đến rồi sau mới có sự họp» — uncertain (大牲必聚而後有聚則可以有所往; garbled, no single reading)
+- 45 hao2.trinh_di «giữ nhau thì lìa» — uncertain (相待則離 = "đợi nhau"; not a near misprint)
+- 45 hao3.trinh_di «Chỉ có đi lên mà hào Sáu Trên» — uncertain (往而從上六; "mà" for "theo" not forced)
+- 45 hao3.chu_hy «Hào sáu là kẻ Âm mềm» — omitted word ("Ba")
+- 45 hao5.trinh_di «lòng chưa được xướng» — spelling (s/x, "sướng"); not forced
+- 45 hao2.chu_hy ends with a comma — punctuation only
+- 45 hao6 label 上九 — Hán, out of scope
+
+## Round 4, G10
+
+- 49 intro.trinh_di «thì đi quẻ Khuê mà thôi» / «nói tới với nhau» — uncertain (暌而已 / 相就; right words not forced)
+- 49 hao5.chu_hy «biến là thửa đổi mà lông mượt» — uncertain (希革 "thưa da"; "thửa" is a real word, reading not forced)
+- 49 tieu_tuong6.trinh_di «nếu lại theo đổi mà trị họ» — uncertain (更往而治之; "theo đuổi" likely but not forced)
+- 49 tien_nho «chỗ bịa tạc» — no Hán basis; may be the translator's word
+- 49 hao1.trinh_di «sự càn dỡ» — uncertain (僭妄; right word not forced)
+- 50 hao1.chu_hy «phía trên ứng với nhau với hào Chín Tư» — translator's wording, not a doubled word
+- 50 hao2.chu_hy «không thể tới nói» — uncertain (不能以就之; right word not forced)
+- 50 hao6.chu_hy «không gì không hợp» — translator's word (无不利), not a letter slip
+- 50 dai_tuong.chu_hy «sách Lão Tử» — translator's attribution error (中庸), not a misprint
+- 50 dai_tuong.trinh_di «không khếch chân» — uncertain (毋跛)
+- 51 hao2.nghia «lên chân chín gò» — uncertain (躋于九陵; "chưng" likely but not forced)
+- 51 dai_tuong.trinh_di «sửa chính mình mình» — book's habit ("mình mình" = oneself, used often)
+- 51 thoan.chu_hy «múc đồ múc trong vạc» — uncertain (舉鼎實; right word not forced)
+- 51 hao1.trinh_di «Hay sự sợ đến» — archaic "hay" (= biết), real word
+- 52 thoan.trinh_di «chẳng thấy mình mình» — book's habit ("mình mình" = oneself)
+- 52 hao6.trinh_di «đóng chốt cuộc đậu» — book's habit ("chốt" for 終 in several places)
+- 52 hao1.trinh_di «có thể mới không sai» — uncertain ("có thế"? not forced)
+- 52 hao3.am «liệt kỳ di» — uncertain (夤 = "dần"; not a letter slip, may be the translator's reading)
+- 52 hao6.chu_hy «kẻ hậu kỹ về sự đậu» — uncertain (敦厚於止)
+- 52 tieu_tuong6.trinh_di «giầy dốc» — spelling variant of "dầy"
+
+## Round 4, G11
+
+- 53 hao3.am / tieu_tuong3.am «sũ» (醜) — book's own habit (quẻ 30 also prints "kỳ sũ")
+- 53 dai_tuong.trinh_di «Dời thói đổi lễ» (移風易俗) — real phrase, translator wording
+- 53 hao3.chu_hy «vợ đẻ chẳng nuôi» (孕) — translator wording
+- 53 tieu_tuong6.nghia «khả dùng» (hào line has "khá dùng") — real word
+- 53 hao5.trinh_di «con sếu vẫn đậu» — uncertain, translator wording
+- 53 tieu_tuong3.nghia «lỗi thửa đạo» (失) — book's habit ("lỗi" for 失)
+- 54 hao1.am / tieu_tuong1.am «bí năng lý» (跛) — book's own habit, printed the same in both
+- 54 thoan_truyen.trinh_di «do đạo đường chính» (常正之道) — real phrase, translator wording
+- 54 dai_tuong.trinh_di «răn dỗ cẩn thận» (戒慎) — book's own habit ("răn dỗ" in quẻ 1, 43, 63)
+- 54 hao4.trinh_di «không đắt chồng» — real word
+- 54 hao3.trinh_di «ở ngôi ba» — capitalisation only
+- 54 tieu_tuong2.trinh_di «thường chính, của vợ chồng» — punctuation only
+- 55 tieu_tuong4(b).trinh_di «vua Tượng Âm mà tối thì không trung chính» (君隂柔而臣不中正) — garbled, but more than one repair possible ("tôi thì" / "tối, tôi thì"); uncertain
+- 55 hao6.am «tam tuế bất thục» (覿) — book's own habit (quẻ 47 prints the same)
+- 55 thoan.chu_hy «có cách đáng lo» (有憂道) — translator wording
+- 55 hao3.trinh_di «gặp hào Sáu Trên, tức là giữa, tức là» — uncertain, no single repair
+- 55 dai_tuong.nghia missing «Lời Tượng nói rằng» — omission
+- 55 hao1.nghia «Hào chín Đầu» — capitalisation only
+- 55 hao6.chu_hy «"Không người "chẳng thấy"» — quote-mark style
+- 55 thoan_truyen.nghia «cho nên thịnh;:» — punctuation only
+- 56 hao3.trinh_di «ở thời kỳ lữ» (same passage prints "thời ky lữ") — "thời kỳ" is a real word, two readings possible
+- 56 hao4.chu_hy «thứ đồ để giã mình» (Ngữ loại quote) — no Hán in snapshot, uncertain
+- 56 hao4.chu_hy «Hợp cả thái quẻ mà xem» — uncertain, no Hán, more than one repair
+- 56 hao4.chu_hy «ứng Thiện chua rằng» (應劭) — proper name, uncertain
+- 56 hao6.am «hào diêu» (號咷) — book's own habit (quẻ 13 prints "hào diếu")
+- 56 tieu_tuong6.trinh_di «trọn chẳng chưng nghe» vs Dịch nghĩa «trọn chẳng nghe» — translator wording
+- 56 seg3.am «đại hỹ tai» — spelling variant (y/i), book habit
+- 56 hao3.am «Cửu tam.» — punctuation/capitalisation only
+
+## Round 4, G12
+
+- 57 hao3.trinh_di «kẻ có cưỡi lên là chất cứng» — 所乗者剛 suggests "kẻ nó cưỡi lên", but "có" is a real word; uncertain
+- 57 hao4.tien_nho «cau đậu» (twice) — 乾豆 would be "can đậu", but printed the same twice and no Hán source for the Tiên Nho layer; uncertain
+- 57 tieu_tuong6.trinh_di «được là chính định ư?» — 得為正乎 has no word for "định"; could be "chính đính"; two readings
+- 57 hao6.trinh_di «với đạo “thẳng” là hung» — 正道 rendered "thẳng"; translator's choice
+- 58 thoan_truyen.am «dân niệm kỳ tử» — follows the printed Hán 民念其死 (Hán misprint); Dịch nghĩa already corrected
+- 58 thoan_truyen.trinh_di «vui phục với nghĩa là không ngại sự chết» — 說服於義而不恤其死 suggests "mà", but "là" also reads; two readings
+- 58 tieu_tuong2.nghia «Tín đẹp lòng mà tốt» — 孚 rendered "tín" here vs "tin" in the hào; real word, translator variance
+- 58 hao4.trinh_di/chu_hy «giữa đường chính (đính)» (three times, 守正) — same use in several places, book's habit
+- 58 hao4.nghia «thẳng ghét» — 介疾, translator's rendering
+- 59 thoan_truyen.trinh_di «Quẻ Hoán là thành quẻ Hoán là bởi» — 渙之成渙由… suggests "mà thành", but two readings
+- 59 hao1.chu_hy «chỉ thì biết thuận với hào Chín Hai» — 但能順乎九二; "thì" odd but no single minimal reading
+- 59 hao2.am / tieu_tuong2.am «kỳ ngột» — 机 read "ngột" in both places, book's habit
+- 59 hao5.trinh_di «cứu nó nghĩa khiến cho hợp lại» — 拯之使合也; odd "nghĩa" but meaning clear, uncertain
+- 59 tieu_tuong5.nghia «Chỗ ở của vua ở không lỗi» — 王居无咎; extra "ở" may be the translator's; uncertain
+- 59 tieu_tuong6.trinh_di «chuân thửa mỡ» — 屯 spelt "Chuân" across the book, book's habit
+- 59 hao5.chu_hy «Lục Chi» (陸贄) — name spelling, not decided by the sources
+- 60 thoan_truyen.nghia «Trời đất có chừng mực là bốn mùa nên» — 天地節而四時成 suggests "mà", but "là" also reads; uncertain
+- 60 thoan_truyen.trinh_di «xa xỉ không dở» — 侈肆; odd but no single minimal reading
+- 60 dai_tuong.nghia «mà chế độ» (制數度, "số" missing) — omission
+- 60 hao5.am «cát vãng hữu thượng» — punctuation only
+
+## Round 4, G13
+
+- 61 thoan.chu_hy «mà không thể làm cho sự chính bền lớn ra» — 不可以失其貞 is "làm mất", but no minimal change gives it; translator wording
+- 61 thoan_truyen.am «cập đồn ngư dã» (信 missing) — omission, and the book's own Hán line also omits 信及豚魚也
+- 61 thoan_truyen.nghia «giữ tin để lợi về chính bền» — 中孚以利貞 read as a verb phrase; translator wording
+- 61 thoan_truyen.trinh_di «cưỡi cây vượt ra» — 乗木濟川 ("vượt sông"), but "ra" has no single minimal reading
+- 61 hao1.trinh_di «nếu không có ý» — 若有他 ("có ý khác"); "còn" or reordering, two readings
+- 61 hao2.chu_hy «tước ta mày giàng» — spelling variant of "ràng", real word
+- 61 hao3.nghia «hoặc khóc hoặc múa» — 歌 is "hát", but "múa" is not a misprint shape; translator wording
+- 61 hao4.am / tieu_tuong4.am «mã xất vong» — 匹 normally "thất", but printed the same way twice; book's habit
+- 61 hao4.trinh_di «hai ngựa xem mỗi cặp một sắc» — 兩驂 ("hai ngựa kèm"?), no single sure reading
+- 62 intro.trinh_di / dai_tuong.trinh_di «sấm nhức» — used twice for 震; book's habit
+- 62 thoan.trinh_di «Chẳng lỗi với lẽ nên phải ở đương thời» — 不失時宜 ("mất"), but "lỗi" is a real word that reads; translator wording
+- 62 thoan.am / thoan_truyen.am «phi điểu dị chi âm» — 遺 is "di", but printed "dị" twice; book's habit
+- 62 tieu_tuong2.am «thần bất khả dã» (過 missing) — omission
+- 62 tieu_tuong4.nghia «trọn chẳng khá lớn vậy» — 長 read as "lớn", as Trình Di's comment does; translator wording
+- 62 hao5.chu_hy «mà lấn lấy hào Sáu Hai để làm giúp kẻ cho mình» — 弋取 ("bắn lấy"), but "lấn"/"bắn" is not a clean misprint and the rest of the sentence is reordered; uncertain
+- 62 thoan_truyen.chu_hy heading printed «Bản chính của Chu Hy» (p.644) — heading, not in a text layer
+- 63 intro.trinh_di «cho nên tiếp đến quẻ tế» (Ký missing) — omission
+- 63 hao1.am «Sở Cửu» — 初 printed "Sở" in several quẻ; book's habit
+- 63 tieu_tuong3.am «bại dã» (憊) — real reading of 憊
+- 63 tieu_tuong3.nghia «Lời của Tượng» — style
+- 63 hao6.trinh_di «cho nên nói có cùng cực đến nỗi ướt đầu» — 故言其窮至於濡首 ("nó"?), but the printed words read as a sentence and "nó"/"cái" are both possible; uncertain
+- 64 thoan_truyen.am «vô sở lợi» — 攸 read "sở" by meaning (thoan.am has "du"); not a misprint shape
+- 64 tieu_tuong1.am «diệc bất trí cực dã» — "trí" is a real reading of 知
+- 64 hao4.nghia «Chính bền, ăn năn mất» (tốt missing) — omission
+- 64 hao4.nghia / trinh_di «nhức» (震) — book's habit
+- 64 hao4.trinh_di «Làm cho thiên hạ quá sự gian nan» — 濟 rendered "quá"; translator wording
+- 64 hao5.am «vong hối» — the book's own Hán line prints 悔亡; edition matter, two readings
+- 64 hao5.chu_hy «lại có đức sáng láng được thịnh ... đức là tốt mà lại tốt» — 光輝之盛 / 吉而又吉, but no single minimal reading for "được"/"đức"; uncertain
+- 64 tieu_tuong6.nghia «cũng chẳng tiết độ vậy» (biết missing) — omission
+
+## Round 3, quẻ 46–48
+
+- 46 thoan_truyen.trinh_di «biết nhũn mà thuận» — real word (nhũn, as in nhũn nhặn); could be the translator's, uncertain
+- 46 dai_tuong.trinh_di «học nghiệp được đầy đặc» — real word for 充實, translator's choice
+- 46 hao2.chu_hy «chưa có người nào không dùng đến sự kiểu sức» — real word (矯飾 kiểu sức)
+- 46 hao4.trinh_di «thì Hanh và tốt vả không lỗi nữa» — "vả" is a real word for 且; capital H is capitalisation only
+- 46 hao4.tien_nho «với "vua dùng hưởng ở núi tây, chỉ là» — missing closing quote mark, punctuation only
+- 46 hao5.footnote «Có thể dịch là lên tháng» — footnote, not one of the layers in scope ("thang" meant)
+- 46 hao6.am «lợi vu bất tức chi trinh» — Dịch âm is right; the Hán line printed 升 for 貞 (Hán misprint, out of scope)
+- 46 tieu_tuong2.han «往無咎,上巽也» — Hán misprint, out of scope
+- 46 tieu_tuong3 printed label «Dịch âm» for the Dịch nghĩa — label issue, not a word misprint
+- 46 tieu_tuong5.nghia «Chính bền, tốt lên thềm» — punctuation only
+- 47 thoan.chu_hy «không thể đương nổi?» / «“chính bền”:» — punctuation only
+- 47 thoan_truyen.am «thượng khẩu nãi cùng dã» — Dịch âm is right; the Hán printed 不 for 乃 (Hán misprint)
+- 47 hao1.am «Điến khốn … bất thục» — the translator reads 臀 "điến" and 覿 "thục" elsewhere too (quẻ 44, 55); his reading
+- 47 hao1.trinh_di «không có vật vì che chở» — "gì" likely but not forced (无所庇); uncertain
+- 47 hao2.am «chính hung» — 征 printed "chính" in several quẻ (15, 24, 34, 47, 49); looks like the book's habit, not a one-off misprint
+- 47 hao6.am «chính cát» — same as above
+- 47 hao2.trinh_di «Đấy lấy nghĩa về việc đi lại» — "Đấy" is a real word
+- 47 hao3.chu_hy «mà vợ thì là hào Sáu, còn nghĩa của nó. Hệ từ nói đủ rồi» — punctuation only
+- 47 tieu_tuong3.nghia «cưỡi cứng vậy» — 承 rendered "cưỡi" following Trình Di's 乘; translator's choice
+- 47 hao4.trinh_di «đều yên với cự chính định của mình» — Hán 各安其正 does not force one word for "cự"; uncertain
+- 47 tieu_tuong4.trinh_di «Hào Tư với hào Đầu mà cách hào Hai» — 應 seems omitted; omitted word, out of scope
+- 47 hao5.nghia «Xẻo mũi, chặt chân» without "Hào Chín Năm:" — omission, out of scope
+- 47 hao5.trinh_di «đó là trước khi khốn mà thong thả» — 始困 rendered loosely; translator's wording
+- 47 hao5.trinh_di «tự để nói về địa lý» — Hán 祀地祇 (địa kỳ), but not a typical misprint; may be the translator's own rendering, uncertain
+- 47 hao5.trinh_di «thì sau mới, có vui mừng» / «mới được, thụ phúc» — punctuation only
+- 47 tieu_tuong5.han «志位得也» / tieu_tuong6.han «位當也» / hao6.han «上九» — Hán misprints, out of scope
+- 47 hao6.trinh_di «không việc gì, không khốn» — punctuation only (无所不困)
+- 47 hao6.trinh_di «Hào Ba ở ngôi cứng đóng chỗ hiểm» — "đóng" (= đóng ở) is a real word
+- 47 hao6.tien_nho «Từ hào Tư trở lên … từ hào Tư trở xuống» — one of the two is probably swapped, but no Hán to decide which; uncertain
+- 47 hao6.tien_nho «để làm cho sự cũng được thông» — "cùng" likely, but no Hán; two readings possible
+- 48 intro.tien_nho «nước suối đã kín sắp ra khỏi giếng» — unclear, no Hán; uncertain
+- 48 thoan.trinh_di «tức là không mất được» — "không" before "được" omitted; omitted word, out of scope
+- 48 thoan_truyen.trinh_di «chưa dòng dây chạc» — "dòng" (thả dây xuống) is a real word
+- 48 thoan_truyen.trinh_di «Lọ là cái để đun nước lên» — "đun" (= đẩy) is a real word; uncertain
+- 48 thoan_truyen.nghia «Vào chưng nước mà đưa nước lên» — "Nhún" omitted; omission, out of scope
+- 48 thoan tien_nho «không thểdời đi tới làng» — missing space only
+- 48 dai_tuong.am «khuyến tưởng» — 相 printed with varying tones elsewhere (quẻ 11 "phụ tường"); the book's habit, uncertain
+- 48 dai_tuong.trinh_di «cái đồ máu mắt đầm múc nước» — garbled but no Hán word decides it (乃器汲水); uncertain
+- 48 dai_tuong.chu_hy «Yên ủi dân là để trị nuôi dân» — Hán 以君養民 ("vua"); not a clear misprint of one word; uncertain
+- 48 hao1.am / tieu_tuong1.am «Tỉnh mê» — 泥 printed "mê" twice; consistent, may be the book's reading; uncertain
+- 48 hao4.trinh_di «“Thịu” là xây cách chồng chất» — "gạch" likely (砌累) but not forced; uncertain
+- 48 tieu_tuong4.nghia «Giếng xây dựng bờ không lỗi» — extra word "dựng", still readable; not a clear misprint
+- 48 hao5.am «hàn toàn thực» — "toàn" is an accepted reading of 泉
+- 48 hao5.trinh_di «để tạo giếng thế là rất hay» — Hán 於井道 ("về đạo giếng"); more than one letter wrong, the exact printed intent uncertain
+- 48 hao6.nghia «chớ chùm» — Chu Hy glosses “Trùm”, but "chùm" may be a period ch/tr spelling; uncertain
+- 48 hao6.trinh_di «Ở lấp, lấy mà không che» — Hán 居井之上 … 取而不蔽; "Ở lấp" unclear, no single fix forced
+- 48 hao3.nghia «Hào chín Ba» — capitalisation only
+- 48 tieu_tuong3.nghia «tìm vua sáng, cùng chịu phúc vậy» — added "cùng"; translator's wording
+- 48 tieu_tuong6.am «nguyên cát» lowercase — capitalisation only

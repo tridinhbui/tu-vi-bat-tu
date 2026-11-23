@@ -577,6 +577,22 @@
   },
   {
    "n": 8,
+   "seg": "thoan",
+   "layer": "am",
+   "page": 170,
+   "printed": "Bất minh phương lai",
+   "corrected": "Bất ninh phương lai",
+   "basis": "loi_kinh",
+   "why": "Chữ 寧 đọc là \"ninh\" (yên).",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/比",
+    "quote": "不寧方來，後夫凶"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 8,
    "seg": "thoan_truyen",
    "layer": "nghia",
    "page": 171,
@@ -588,6 +604,22 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/比",
     "quote": "其道窮也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 8,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 173,
+   "printed": "Hữu phu doanh mẫu",
+   "corrected": "Hữu phu doanh phẫu",
+   "basis": "loi_kinh",
+   "why": "Chữ 缶 (cái chậu) đọc là \"phẫu\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/比",
+    "quote": "有孚盈缶，終來有它"
    },
    "image": "the page image shows the printed words"
   },
@@ -647,6 +679,38 @@
   },
   {
    "n": 8,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 177,
+   "printed": "uốn mình mà theo, cầu thả mà hợp",
+   "corrected": "uốn mình mà theo, cẩu thả mà hợp",
+   "basis": "trinh_truyen",
+   "why": "Chữ 苟 là \"cẩu\" (cẩu thả).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "巧言令色曲從苟合"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 8,
+   "seg": "tieu_tuong5",
+   "layer": "am",
+   "page": 178,
+   "printed": "thất tiền cấm dã",
+   "corrected": "thất tiền cầm dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 禽 (chim) đọc là \"cầm\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/比",
+    "quote": "舍逆取順，失前禽也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 8,
    "seg": "hao6",
    "layer": "trinh_di",
    "page": 179,
@@ -654,6 +718,17 @@
    "corrected": "Thủ tức là đầu",
    "basis": "ngu_canh",
    "why": "Chữ in hỏng, đúng là \"tức là\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 8,
+   "seg": "tieu_tuong6",
+   "layer": "tien_nho",
+   "page": 179,
+   "printed": "được nó không đủ làm đầu",
+   "corrected": "đức nó không đủ làm đầu",
+   "basis": "ngu_canh",
+   "why": "Đối với \"hiệu lực của nó\" ở vế sau, chữ đúng là \"đức\".",
    "image": "the page image shows the printed words"
   },
   {
@@ -669,6 +744,54 @@
   },
   {
    "n": 9,
+   "seg": "thoan",
+   "layer": "trinh_di",
+   "page": 180,
+   "printed": "Mây tuy chưa họp đã dầy",
+   "corrected": "Mây tuy chứa họp đã dầy",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"chứa họp\" (畜聚).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "雲之畜聚雖密而不成雨"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 9,
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "page": 181,
+   "printed": "mây dầy và vật thuộc về Âm",
+   "corrected": "mây dầy là vật thuộc về Âm",
+   "basis": "ban_nghia",
+   "why": "Nguyên văn: mây dầy là vật thuộc Âm (密雲隂物).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷1",
+    "quote": "蓋密雲隂物西郊隂方"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 9,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 181,
+   "printed": "Trên dưới năm hào Âm đều ứng",
+   "corrected": "Trên dưới năm hào Dương đều ứng",
+   "basis": "trinh_truyen",
+   "why": "Quẻ chỉ có một hào Âm; năm hào ứng với nó là hào Dương (五陽).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "上下五陽皆應之"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 9,
    "seg": "thoan_truyen",
    "layer": "nghia",
    "page": 182,
@@ -680,6 +803,70 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/小畜",
     "quote": "自我西郊"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 9,
+   "seg": "hao1",
+   "layer": "trinh_di",
+   "page": 183,
+   "printed": "không như thế thì không có lỗi",
+   "corrected": "không như thế thì có lỗi",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"không như thế thì có lỗi\" (不如是則有咎).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "亦不害於不如是則有咎之義"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 9,
+   "seg": "hao2",
+   "layer": "nghia",
+   "page": 184,
+   "printed": "Giặt trở lại",
+   "corrected": "Dắt trở lại",
+   "basis": "loi_kinh",
+   "why": "Chữ 牽 là \"dắt\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/小畜",
+    "quote": "牽復，吉"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 9,
+   "seg": "tieu_tuong2",
+   "layer": "am",
+   "page": 184,
+   "printed": "Khiêm phục tại trung",
+   "corrected": "Khiên phục tại trung",
+   "basis": "loi_kinh",
+   "why": "Chữ 牽 đọc là \"khiên\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/小畜",
+    "quote": "牽復在中，亦不自失也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 9,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 185,
+   "printed": "phu thể phản mục",
+   "corrected": "phu thê phản mục",
+   "basis": "loi_kinh",
+   "why": "Chữ 妻 (vợ) đọc là \"thê\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/小畜",
+    "quote": "夫妻反目"
    },
    "image": "the page image shows the printed words"
   },
@@ -729,6 +916,22 @@
   {
    "n": 9,
    "seg": "hao6",
+   "layer": "am",
+   "page": 187,
+   "printed": "Ký vu, ký xử",
+   "corrected": "Ký vũ, ký xử",
+   "basis": "loi_kinh",
+   "why": "Chữ 雨 (mưa) đọc là \"vũ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/小畜",
+    "quote": "既雨既處，尚得載"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 9,
+   "seg": "hao6",
    "layer": "trinh_di",
    "page": 188,
    "printed": "Đã mưu là hòa",
@@ -755,6 +958,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷1",
     "quote": "婦若貞固守此危厲之道也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 9,
+   "seg": "tieu_tuong6",
+   "layer": "am",
+   "page": 188,
+   "printed": "ký sử, đức tình tài dã",
+   "corrected": "ký xử, đức tích tái dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 處 đọc là \"xử\", 積 là \"tích\", 載 là \"tái\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/小畜",
+    "quote": "既雨既處，德積載也"
    },
    "image": "the page image shows the printed words"
   },
@@ -819,6 +1038,22 @@
   },
   {
    "n": 10,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 190,
+   "printed": "chính là lý chí trong thiên hạ",
+   "corrected": "chính là chí lý trong thiên hạ",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"chí lý\" (至理), hai chữ in đảo.",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "下順乎上陰承乎陽天下之至理也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 10,
    "seg": "tieu_tuong1",
    "layer": "trinh_di",
    "page": 191,
@@ -842,6 +1077,38 @@
    "corrected": "sự vốn có của mình",
    "basis": "ngu_canh",
    "why": "Câu đầu đoạn in đúng \"sự vốn có của mình\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 10,
+   "seg": "hao1",
+   "layer": "trinh_di",
+   "page": 191,
+   "printed": "ắt phải kêu dật",
+   "corrected": "ắt phải kiêu dật",
+   "basis": "trinh_truyen",
+   "why": "Chữ 驕溢 là \"kiêu dật\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "既得其進驕溢必矣"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 10,
+   "seg": "tieu_tuong1",
+   "layer": "trinh_di",
+   "page": 191,
+   "printed": "Nếu lòng muốn sanh",
+   "corrected": "Nếu lòng muốn sang",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là lòng muốn sang trọng (欲貴).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "若欲貴之心與行道之心交戰"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -878,6 +1145,38 @@
   },
   {
    "n": 10,
+   "seg": "tieu_tuong4",
+   "layer": "am",
+   "page": 194,
+   "printed": "Tố tốc chung cát",
+   "corrected": "Tố tố chung cát",
+   "basis": "loi_kinh",
+   "why": "Hai chữ 愬愬 giống nhau, đều đọc \"tố\" như ở lời hào.",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/履",
+    "quote": "愬愬終吉，志行也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 10,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 194,
+   "printed": "Nếu cứ vậy ta cương minh",
+   "corrected": "Nếu cứ cậy ta cương minh",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là tự cậy sự cương minh của mình (自任剛明).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "若自任剛明決行不顧"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 10,
    "seg": "hao6",
    "layer": "chu_hy",
    "page": 195,
@@ -904,6 +1203,54 @@
    "image": "the page image shows the printed words"
   },
   {
+   "n": 10,
+   "seg": "hao6",
+   "layer": "trinh_di",
+   "page": 195,
+   "printed": "sự thiện các họa phúc",
+   "corrected": "sự thiện ác họa phúc",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"thiện ác\" (善惡).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "以考其善惡禍福"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 10,
+   "seg": "hao6",
+   "layer": "chu_hy",
+   "page": 195,
+   "printed": "để xét điều hành của nó",
+   "corrected": "để xét điềm lành của nó",
+   "basis": "ban_nghia",
+   "why": "Chữ 祥 là \"điềm lành\", như ở Dịch nghĩa.",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷1",
+    "quote": "之終以考其祥周旋无虧"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 10,
+   "seg": "tieu_tuong6",
+   "layer": "am",
+   "page": 195,
+   "printed": "đại hữu khác dã",
+   "corrected": "đại hữu khánh dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 慶 đọc là \"khánh\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/履",
+    "quote": "元吉在上，大有慶也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
    "n": 11,
    "seg": "thoan_truyen",
    "layer": "nghia",
@@ -916,6 +1263,38 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/泰",
     "quote": "上下交而其志同也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 11,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 197,
+   "printed": "cát hanh, tức thị thiên địa",
+   "corrected": "cát hanh, tắc thị thiên địa",
+   "basis": "loi_kinh",
+   "why": "Chữ 則 đọc là \"tắc\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/泰",
+    "quote": "則是天地交而萬物通也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 11,
+   "seg": "dai_tuong",
+   "layer": "am",
+   "page": 197,
+   "printed": "phụ tường thiên địa",
+   "corrected": "phụ tướng thiên địa",
+   "basis": "loi_kinh",
+   "why": "Chữ 相 ở đây đọc là \"tướng\" (giúp), như Chu Hy viết \"phụ tướng\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/泰",
+    "quote": "輔相天地之宜"
    },
    "image": "the page image shows the printed words"
   },
@@ -937,6 +1316,33 @@
   },
   {
    "n": 11,
+   "seg": "dai_tuong",
+   "layer": "trinh_di",
+   "page": 198,
+   "printed": "để đỡ dần phụ trợ",
+   "corrected": "để đỡ đần phụ trợ",
+   "basis": "ngu_canh",
+   "why": "Cùng đoạn này in \"đỡ đần\" ở các chỗ khác.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 11,
+   "seg": "hao2",
+   "layer": "am",
+   "page": 199,
+   "printed": "bất hà dĩ",
+   "corrected": "bất hà di",
+   "basis": "loi_kinh",
+   "why": "Chữ 遺 (bỏ sót) đọc là \"di\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/泰",
+    "quote": "不遐遺；朋亡"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 11,
    "seg": "hao2",
    "layer": "chu_hy",
    "page": 200,
@@ -953,6 +1359,54 @@
   },
   {
    "n": 11,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 202,
+   "printed": "hào Hai Âm trên",
+   "corrected": "hai hào Âm trên",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là hai hào Âm ở trên (上二陰), không phải hào Hai.",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "上二陰亦志在趨下"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 11,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 203,
+   "printed": "vua Thang là Thiếu Ất",
+   "corrected": "vua Thang là Thiên Ất",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"Thiên Ất\" (天乙).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "史謂湯為天乙"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 11,
+   "seg": "hao5",
+   "layer": "tien_nho",
+   "page": 203,
+   "printed": "Đế Ất quý muội",
+   "corrected": "Đế Ất quy muội",
+   "basis": "loi_kinh",
+   "why": "Chữ 歸 đọc là \"quy\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/泰",
+    "quote": "帝乙歸妹，以祉，元吉"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 11,
    "seg": "tieu_tuong5",
    "layer": "trinh_di",
    "page": 204,
@@ -964,6 +1418,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷1",
     "quote": "由其以中道合而行其志願也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 11,
+   "seg": "tieu_tuong5",
+   "layer": "am",
+   "page": 204,
+   "printed": "Di chỉ, nguyên cát",
+   "corrected": "Dĩ chỉ, nguyên cát",
+   "basis": "loi_kinh",
+   "why": "Chữ 以 đọc là \"dĩ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/泰",
+    "quote": "以祉，元吉。中以行願也"
    },
    "image": "the page image shows the printed words"
   },
@@ -985,6 +1455,38 @@
   },
   {
    "n": 12,
+   "seg": "dai_tuong",
+   "layer": "am",
+   "page": 207,
+   "printed": "Tượng viết: Tiên địa bất giao",
+   "corrected": "Tượng viết: Thiên địa bất giao",
+   "basis": "loi_kinh",
+   "why": "Chữ 天 đọc là \"thiên\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/否",
+    "quote": "天地不交，否"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 12,
+   "seg": "dai_tuong",
+   "layer": "am",
+   "page": 207,
+   "printed": "Bĩ, quan tử dĩ kiệm đức",
+   "corrected": "Bĩ, quân tử dĩ kiệm đức",
+   "basis": "loi_kinh",
+   "why": "Chữ 君子 đọc là \"quân tử\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/否",
+    "quote": "君子以儉德辟難"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 12,
    "seg": "tieu_tuong3",
    "layer": "nghia",
    "page": 210,
@@ -996,6 +1498,22 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/否",
     "quote": "包羞位不當也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 12,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 210,
+   "printed": "thể Âm nhu không chung chính",
+   "corrected": "thể Âm nhu không trung chính",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"không trung chính\" (不中不正).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "三以陰柔不中不正而居否"
    },
    "image": "the page image shows the printed words"
   },
@@ -1044,6 +1562,22 @@
   },
   {
    "n": 13,
+   "seg": "intro",
+   "layer": "trinh_di",
+   "page": 213,
+   "printed": "Nó là kẻ Kiền trên Ly dưới",
+   "corrected": "Nó là quẻ Kiền trên Ly dưới",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"quẻ\" (為卦乾上離下).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "為卦乾上離下"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 13,
    "seg": "thoan",
    "layer": "chu_hy",
    "page": 214,
@@ -1060,6 +1594,38 @@
   },
   {
    "n": 13,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 215,
+   "printed": "Đông nhân vu dã, hanh",
+   "corrected": "Đồng nhân vu dã, hanh",
+   "basis": "loi_kinh",
+   "why": "Chữ 同 đọc là \"đồng\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/同人",
+    "quote": "同人于野，亨"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 13,
+   "seg": "dai_tuong",
+   "layer": "am",
+   "page": 216,
+   "printed": "quan tử dĩ loại lộc biện vật",
+   "corrected": "quân tử dĩ loại tộc biện vật",
+   "basis": "loi_kinh",
+   "why": "Chữ 君子 đọc là \"quân tử\", chữ 族 đọc là \"tộc\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/同人",
+    "quote": "君子以類族辨物"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 13,
    "seg": "hao2",
    "layer": "chu_hy",
    "page": 217,
@@ -1071,6 +1637,65 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷1",
     "quote": "宗黨也六二雖中且正"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 13,
+   "seg": "hao4",
+   "layer": "nghia",
+   "page": 219,
+   "printed": "Cưỡi thừa tường",
+   "corrected": "Cưỡi thửa tường",
+   "basis": "ngu_canh",
+   "why": "Chữ 其 là \"thửa\", như lời Tượng ngay sau in \"Cưỡi thửa tường\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 13,
+   "seg": "hao5",
+   "layer": "am",
+   "page": 220,
+   "printed": "đại sự khắc tương ngộ",
+   "corrected": "đại sư khắc tương ngộ",
+   "basis": "loi_kinh",
+   "why": "Chữ 師 đọc là \"sư\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/同人",
+    "quote": "大師克相遇"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 13,
+   "seg": "tieu_tuong5",
+   "layer": "am",
+   "page": 220,
+   "printed": "đại sự tương ngộ",
+   "corrected": "đại sư tương ngộ",
+   "basis": "loi_kinh",
+   "why": "Chữ 師 đọc là \"sư\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/同人",
+    "quote": "大師相遇，言相克也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 14,
+   "seg": "thoan",
+   "layer": "trinh_di",
+   "page": 222,
+   "printed": "Vì nó cương kiên văn minh",
+   "corrected": "Vì nó cương kiện văn minh",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"cương kiện\" (剛健).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "由剛健文明應天時行故能元亨也"
    },
    "image": "the page image shows the printed words"
   },
@@ -1092,6 +1717,17 @@
   },
   {
    "n": 14,
+   "seg": "hao2",
+   "layer": "nghia",
+   "page": 224,
+   "printed": "Xe lớn để chở, có thừa đi",
+   "corrected": "Xe lớn để chở, có thửa đi",
+   "basis": "ngu_canh",
+   "why": "Chữ 攸 là \"thửa\", như lời Trình Di và Chu Hy ngay dưới in \"có thửa đi\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 14,
    "seg": "hao4",
    "layer": "chu_hy",
    "page": 227,
@@ -1103,6 +1739,38 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷1",
     "quote": "彭字音義未詳"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 14,
+   "seg": "tieu_tuong4",
+   "layer": "am",
+   "page": 227,
+   "printed": "vô cữu, minh biệt tích dã",
+   "corrected": "vô cữu, minh biện tích dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 辨 đọc là \"biện\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/大有",
+    "quote": "匪其彭，无咎；明辨晰也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 14,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 227,
+   "printed": "Ông vua giữa đức mềm",
+   "corrected": "Ông vua giữ đức mềm",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"giữ\" (執柔).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷1",
+    "quote": "人君執柔守中而以孚信接於下"
    },
    "image": "the page image shows the printed words"
   },
@@ -1124,6 +1792,22 @@
   },
   {
    "n": 15,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 231,
+   "printed": "Khiêm tốn nhi quang",
+   "corrected": "Khiêm tôn nhi quang",
+   "basis": "loi_kinh",
+   "why": "Chữ 尊 đọc là \"tôn\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/謙",
+    "quote": "謙尊而光，卑而不可逾"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 15,
    "seg": "hao2",
    "layer": "nghia",
    "page": 233,
@@ -1135,6 +1819,38 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/謙",
     "quote": "鳴謙"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 15,
+   "seg": "hao3",
+   "layer": "chu_hy",
+   "page": 234,
+   "printed": "Cả quẻ có một hào Dương, ở dưới thể trên",
+   "corrected": "Cả quẻ có một hào Dương, ở trên thể dưới",
+   "basis": "ban_nghia",
+   "why": "Hào Chín Ba ở trên thể dưới (居下之上).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷1",
+    "quote": "卦唯一陽居下之上剛而得正"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 15,
+   "seg": "tieu_tuong6",
+   "layer": "am",
+   "page": 237,
+   "printed": "khả dụng hành sự chinh ấp quốc",
+   "corrected": "khả dụng hành sư chinh ấp quốc",
+   "basis": "loi_kinh",
+   "why": "Chữ 師 đọc là \"sư\", như lời hào ngay trên in \"hành sư\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/謙",
+    "quote": "可用行師，征邑國也"
    },
    "image": "the page image shows the printed words"
   },
@@ -1167,6 +1883,54 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷2",
     "quote": "先王觀雷出地而奮和暢發於聲之象"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 16,
+   "seg": "thoan_truyen",
+   "layer": "nghia",
+   "page": 240,
+   "printed": "thì hành phạt thanh giản",
+   "corrected": "thì hình phạt thanh giản",
+   "basis": "loi_kinh",
+   "why": "Chữ 刑 là \"hình\": hình phạt.",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/豫",
+    "quote": "則刑罰清而民服"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 16,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 240,
+   "printed": "hình phạt thanh giảm mà",
+   "corrected": "hình phạt thanh giản mà",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"thanh giản\" (清簡).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "刑罸清簡而萬民服也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 16,
+   "seg": "dai_tuong",
+   "layer": "am",
+   "page": 240,
+   "printed": "tiên vương dĩ tắc nhạc sùng đức",
+   "corrected": "tiên vương dĩ tác nhạc sùng đức",
+   "basis": "loi_kinh",
+   "why": "Chữ 作 đọc là \"tác\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/豫",
+    "quote": "先王以作樂崇德"
    },
    "image": "the page image shows the printed words"
   },
@@ -1211,6 +1975,38 @@
    "corrected": "cơ vi của hết mọi việc",
    "basis": "ngu_canh",
    "why": "Cụm \"của hết mọi\" in lặp.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 16,
+   "seg": "tieu_tuong3",
+   "layer": "am",
+   "page": 243,
+   "printed": "Vu dư hữu hối",
+   "corrected": "Vu dự hữu hối",
+   "basis": "loi_kinh",
+   "why": "Chữ 豫 đọc là \"dự\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/豫",
+    "quote": "盱豫有悔"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 16,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 243,
+   "printed": "tụ họp tóe lại",
+   "corrected": "tụ họp tóc lại",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"họp tóc\" (聚髮).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "簪之名簪取聚髮也"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -1312,6 +2108,22 @@
   {
    "n": 17,
    "seg": "thoan",
+   "layer": "nghia",
+   "page": 246,
+   "printed": "Quẻ Tùy cả, lợi, trinh",
+   "corrected": "Quẻ Tùy cả, hanh, lợi, trinh",
+   "basis": "loi_kinh",
+   "why": "Lời kinh có chữ 亨 (hanh), bản in sót.",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/隨",
+    "quote": "隨：元亨。利貞"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 17,
+   "seg": "thoan",
    "layer": "chu_hy",
    "page": 247,
    "printed": "nhưng phải lời về sự trinh",
@@ -1322,6 +2134,54 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷1",
     "quote": "然必利於貞乃得无咎"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 17,
+   "seg": "thoan_truyen",
+   "layer": "chu_hy",
+   "page": 248,
+   "printed": "nay nó theo đó",
+   "corrected": "nay nên theo đó",
+   "basis": "ban_nghia",
+   "why": "Nguyên văn là \"nay nên theo\" (今當從之).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷1",
+    "quote": "王肅本時字在之字下今當從之"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 17,
+   "seg": "dai_tuong",
+   "layer": "trinh_di",
+   "page": 248,
+   "printed": "Đó là khởi cơ tùy thời",
+   "corrected": "Đó là khởi cư tùy thời",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"khởi cư\" (起居).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "起居隨時適其宜也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 17,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 251,
+   "printed": "nghĩa là từ ở vào chỗ chính đính",
+   "corrected": "nghĩa là tự ở vào chỗ chính đính",
+   "basis": "trinh_truyen",
+   "why": "Chữ 自處 là \"tự ở\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "故云利居貞自處於正"
    },
    "image": "the page image shows the printed words"
   },
@@ -1391,6 +2251,22 @@
   },
   {
    "n": 18,
+   "seg": "intro",
+   "layer": "trinh_di",
+   "page": 255,
+   "printed": "Truyện của họ Tạ nói rằng",
+   "corrected": "Truyện của họ Tả nói rằng",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là Tả thị truyện (左氏傳).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "左氏傳云風落山"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 18,
    "seg": "thoan",
    "layer": "chu_hy",
    "page": 256,
@@ -1418,6 +2294,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷1",
     "quote": "下卑巽而上苟止"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 18,
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "page": 256,
+   "printed": "sau giáp ba ngày là định",
+   "corrected": "sau giáp ba ngày là đinh",
+   "basis": "ban_nghia",
+   "why": "Chữ 丁 là can \"đinh\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷1",
+    "quote": "先甲三日辛也後甲三日丁也"
    },
    "image": "the page image shows the printed words"
   },
@@ -1471,6 +2363,22 @@
   },
   {
    "n": 18,
+   "seg": "hao4",
+   "layer": "chu_hy",
+   "page": 261,
+   "printed": "rộng rãi để chỉ sự cổ",
+   "corrected": "rộng rãi để trị sự cổ",
+   "basis": "ban_nghia",
+   "why": "Nguyên văn là \"trị\" (治).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷1",
+    "quote": "寛裕以治蠱之象也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 18,
    "seg": "hao6",
    "layer": "trinh_di",
    "page": 262,
@@ -1519,6 +2427,22 @@
   },
   {
    "n": 19,
+   "seg": "intro",
+   "layer": "trinh_di",
+   "page": 264,
+   "printed": "Các vật ở gần trời",
+   "corrected": "Các vật ở gầm trời",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"gầm trời\" (天下).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "天下之物密近相臨者"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 19,
    "seg": "thoan",
    "layer": "chu_hy",
    "page": 265,
@@ -1562,6 +2486,49 @@
   },
   {
    "n": 19,
+   "seg": "tieu_tuong1",
+   "layer": "trinh_di",
+   "page": 267,
+   "printed": "vì chí hào Hai ở sự làm điều chính đính",
+   "corrected": "vì chí hào Chín ở sự làm điều chính đính",
+   "basis": "trinh_truyen",
+   "why": "Câu này nói hào Chín Đầu (九之志), không phải hào Hai.",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "所謂貞吉九之志在於行正也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 19,
+   "seg": "tieu_tuong2",
+   "layer": "trinh_di",
+   "page": 268,
+   "printed": "(dĩ là dã)",
+   "corrected": "(dĩ là đã)",
+   "basis": "ngu_canh",
+   "why": "Chữ 已 (dĩ) nghĩa là \"đã\", đối với 未 là \"chưa\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 19,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 268,
+   "printed": "vô do lợi",
+   "corrected": "vô du lợi",
+   "basis": "loi_kinh",
+   "why": "Chữ 攸 đọc là \"du\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/臨",
+    "quote": "甘臨，无攸利"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 19,
    "seg": "hao4",
    "layer": "nghia",
    "page": 269,
@@ -1569,6 +2536,22 @@
    "corrected": "Hào Sáu Tư: Rất tới",
    "basis": "ngu_canh",
    "why": "Dấu sau tên hào là dấu hai chấm như các hào khác.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 19,
+   "seg": "tieu_tuong3",
+   "layer": "am",
+   "page": 269,
+   "printed": "kỳ ưu chi, cửu bất trường dã",
+   "corrected": "ký ưu chi, cữu bất trường dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 既 đọc là \"ký\", chữ 咎 đọc là \"cữu\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/臨",
+    "quote": "既憂之，咎不長也"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -1616,6 +2599,38 @@
   },
   {
    "n": 20,
+   "seg": "thoan",
+   "layer": "trinh_di",
+   "page": 272,
+   "printed": "làm cho biểu ghi ngay thẳng",
+   "corrected": "làm cho biểu nghi ngay thẳng",
+   "basis": "trinh_truyen",
+   "why": "Chữ 表儀 là \"biểu nghi\" (dáng mẫu mực).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "居上者正其表儀以為下民之觀"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 20,
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "page": 273,
+   "printed": "bốn hào Âm dương lớn",
+   "corrected": "bốn hào Âm đương lớn",
+   "basis": "ban_nghia",
+   "why": "Ý là bốn hào Âm đang lớn (四隂長).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷1",
+    "quote": "此卦四隂長而二陽消"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 20,
    "seg": "hao2",
    "layer": "trinh_di",
    "page": 275,
@@ -1627,6 +2642,38 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷2",
     "quote": "二既不能明見九五之道"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 20,
+   "seg": "hao1",
+   "layer": "chu_hy",
+   "page": 275,
+   "printed": "là tượng “trẻ em”",
+   "corrected": "là tượng “trẻ xem”",
+   "basis": "ban_nghia",
+   "why": "Chữ 童觀 là \"trẻ xem\", như lời hào.",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷1",
+    "quote": "不能逺見童觀之象"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 20,
+   "seg": "hao2",
+   "layer": "trinh_di",
+   "page": 275,
+   "printed": "Hai Hào ứng với hào Năm",
+   "corrected": "Hào Hai ứng với hào Năm",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"hào Hai ứng với hào Năm\" (二應於五).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "六二闚觀利女貞二應於五觀於五也"
    },
    "image": "the page image shows the printed words"
   },
@@ -1648,6 +2695,22 @@
   },
   {
    "n": 20,
+   "seg": "tieu_tuong2",
+   "layer": "am",
+   "page": 276,
+   "printed": "diệt khả xú dã",
+   "corrected": "diệc khả xú dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 亦 đọc là \"diệc\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/觀",
+    "quote": "窺觀女貞，亦可醜也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 20,
    "seg": "hao4",
    "layer": "trinh_di",
    "page": 277,
@@ -1655,6 +2718,54 @@
    "corrected": "Lợi dụng làm khách chưng vua",
    "basis": "ngu_canh",
    "why": "Lời hào và câu sau in \"khách chưng vua\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 20,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 277,
+   "printed": "mà nó rằng “nước”",
+   "corrected": "mà nói rằng “nước”",
+   "basis": "trinh_truyen",
+   "why": "Chữ 云 là \"nói\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "不指君之身而云國者"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 20,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 277,
+   "printed": "những sự hàn vi trong một mình",
+   "corrected": "những sự hành vi trong một mình",
+   "basis": "trinh_truyen",
+   "why": "Chữ 行 là \"hành vi\" (việc làm).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "豈止觀其行一身乎"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 20,
+   "seg": "tieu_tuong5",
+   "layer": "chu_hy",
+   "page": 278,
+   "printed": "ông vua muốn đem cái của mình đã làm",
+   "corrected": "ông vua muốn xem cái của mình đã làm",
+   "basis": "ban_nghia",
+   "why": "Chữ 觀 là \"xem\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷1",
+    "quote": "明人君觀己所行不但一身之得失"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -1709,6 +2820,22 @@
    "corrected": "tức là \"động mà sáng\"",
    "basis": "ngu_canh",
    "why": "\"Tác là\" in sai, là \"tức là\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 21,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 282,
+   "printed": "lợi dùng ngục dã",
+   "corrected": "lợi dụng ngục dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 用 đọc là \"dụng\" (lời Thoán in \"lợi dụng ngục\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/噬嗑",
+    "quote": "雖不當位，利用獄也"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -1793,6 +2920,38 @@
   },
   {
    "n": 21,
+   "seg": "hao4",
+   "layer": "am",
+   "page": 285,
+   "printed": "lợi gian trình, cát",
+   "corrected": "lợi gian trinh, cát",
+   "basis": "loi_kinh",
+   "why": "Chữ 貞 đọc là \"trinh\" (lời Tượng in \"lợi gian trinh\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/噬嗑",
+    "quote": "噬乾胏，得金矢，利艱貞，吉"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 21,
+   "seg": "hao5",
+   "layer": "am",
+   "page": 286,
+   "printed": "trinh lệ, γô cữu",
+   "corrected": "trinh lệ, vô cữu",
+   "basis": "loi_kinh",
+   "why": "Chữ 无 đọc là \"vô\"; chữ \"v\" in hỏng.",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/噬嗑",
+    "quote": "得黃金，貞厲，无咎"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 21,
    "seg": "tieu_tuong6",
    "layer": "tien_nho",
    "page": 288,
@@ -1815,6 +2974,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷1",
     "quote": "陽得隂助而離明於内"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 22,
+   "seg": "thoan",
+   "layer": "am",
+   "page": 289,
+   "printed": "Bí hanh, lợi tiểu hữu du vãng",
+   "corrected": "Bí hanh, tiểu lợi hữu du vãng",
+   "basis": "loi_kinh",
+   "why": "Lời kinh là 小利 \"tiểu lợi\" (lời Thoán truyện in \"tiểu lợi hữu du vãng\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/賁",
+    "quote": "賁：亨。小利有攸往"
    },
    "image": "the page image shows the printed words"
   },
@@ -1874,6 +3049,22 @@
   },
   {
    "n": 22,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 296,
+   "printed": "Nếu biết phận sự trang sức",
+   "corrected": "Nếu biết nhận sự trang sức",
+   "basis": "trinh_truyen",
+   "why": "Chữ 受 là \"nhận\" (câu trên in \"nhận sự trang sức\").",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "若能受賁於上九受其裁制"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 22,
    "seg": "tieu_tuong6",
    "layer": "trinh_di",
    "page": 297,
@@ -1885,6 +3076,38 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷2",
     "quote": "以其在上而得志也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 22,
+   "seg": "hao6",
+   "layer": "am",
+   "page": 297,
+   "printed": "Bạch bi, vô cữu",
+   "corrected": "Bạch bí, vô cữu",
+   "basis": "loi_kinh",
+   "why": "Chữ 賁 đọc là \"bí\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/賁",
+    "quote": "白賁，无咎"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 22,
+   "seg": "tieu_tuong6",
+   "layer": "am",
+   "page": 297,
+   "printed": "Bách bí vô cữu",
+   "corrected": "Bạch bí vô cữu",
+   "basis": "loi_kinh",
+   "why": "Chữ 白 đọc là \"bạch\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/賁",
+    "quote": "白賁无咎，上得志也"
    },
    "image": "the page image shows the printed words"
   },
@@ -1917,6 +3140,38 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/剝",
     "quote": "以宮人寵"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 23,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 303,
+   "printed": "cả là vật thuộc về Âm",
+   "corrected": "cá là vật thuộc về Âm",
+   "basis": "trinh_truyen",
+   "why": "Chữ 魚 là \"cá\" (Chu Hy cũng in \"Cá là vật thuộc về Âm\").",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "五羣隂之主也魚隂物故以為象"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 23,
+   "seg": "tieu_tuong5",
+   "layer": "trinh_di",
+   "page": 303,
+   "printed": "tiêu đẽo hào Dương đều nỗi cùng cực",
+   "corrected": "tiêu đẽo hào Dương đến nỗi cùng cực",
+   "basis": "trinh_truyen",
+   "why": "Chữ 以至於極 là \"đến nỗi cùng cực\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "羣隂消剝於陽以至於極"
    },
    "image": "the page image shows the printed words"
   },
@@ -1985,6 +3240,22 @@
    "image": "the page image shows the printed words"
   },
   {
+   "n": 23,
+   "seg": "hao6",
+   "layer": "trinh_di",
+   "page": 304,
+   "printed": "một hào Âm cùng tôn hào Dương",
+   "corrected": "mọi hào Âm cùng tôn hào Dương",
+   "basis": "trinh_truyen",
+   "why": "Chữ 衆隂 là \"mọi hào Âm\" (quẻ có năm hào Âm).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "在卦亦衆隂宗陽為共載之象"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
    "n": 24,
    "seg": "intro",
    "layer": "trinh_di",
@@ -2013,6 +3284,22 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/復",
     "quote": "動而以順行"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 24,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 307,
+   "printed": "Phục kỳ hiến thiên địa",
+   "corrected": "Phục kỳ kiến thiên địa",
+   "basis": "loi_kinh",
+   "why": "Chữ 見 đọc là \"kiến\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/復",
+    "quote": "復其見天地之心乎"
    },
    "image": "the page image shows the printed words"
   },
@@ -2135,6 +3422,113 @@
    "image": "the page image shows the printed words"
   },
   {
+   "n": 25,
+   "seg": "tieu_tuong6",
+   "layer": "am",
+   "page": 322,
+   "printed": "Vô vọng chi hành, củng chi tai dã",
+   "corrected": "Vô vọng chi hành, cùng chi tai dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 窮 đọc là \"cùng\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/无妄",
+    "quote": "无妄之行，窮之災也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 26,
+   "seg": "intro",
+   "layer": "trinh_di",
+   "page": 323,
+   "printed": "Súc là chứa ngăn, lại là chưa họp",
+   "corrected": "Súc là chứa ngăn, lại là chứa họp",
+   "basis": "trinh_truyen",
+   "why": "Chữ 畜聚 là \"chứa họp\", như câu ngay sau.",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "畜為畜止又為畜聚"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 26,
+   "seg": "thoan",
+   "layer": "trinh_di",
+   "page": 323,
+   "printed": "theo nghĩa dưới lớn mà nói",
+   "corrected": "theo nghĩa chứa lớn mà nói",
+   "basis": "trinh_truyen",
+   "why": "Chữ 大畜 là \"chứa lớn\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "據大畜之義而言"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 26,
+   "seg": "hao1",
+   "layer": "chu_hy",
+   "page": 326,
+   "printed": "cho nền lời Chiêm",
+   "corrected": "cho nên lời Chiêm",
+   "basis": "ngu_canh",
+   "why": "Chữ \"nên\" (cho nên) in sai dấu.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 26,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 327,
+   "printed": "lợi hữu du vàng",
+   "corrected": "lợi hữu du vãng",
+   "basis": "loi_kinh",
+   "why": "Chữ 往 đọc là \"vãng\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/大畜",
+    "quote": "日閑輿衛，利有攸往"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 26,
+   "seg": "hao3",
+   "layer": "nghia",
+   "page": 327,
+   "printed": "xe, vệ, lại có thửa đi",
+   "corrected": "xe, vệ, lợi có thửa đi",
+   "basis": "loi_kinh",
+   "why": "Chữ 利 là \"lợi\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/大畜",
+    "quote": "日閑輿衛，利有攸往"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 26,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 328,
+   "printed": "thì sẽ lại có thửa đi",
+   "corrected": "thì sẽ lợi có thửa đi",
+   "basis": "trinh_truyen",
+   "why": "Chữ 利 là \"lợi\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "其防衞則利有攸往矣"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
    "n": 26,
    "seg": "hao4",
    "layer": "trinh_di",
@@ -2195,6 +3589,22 @@
    "image": "the page image shows the printed words"
   },
   {
+   "n": 26,
+   "seg": "tieu_tuong6",
+   "layer": "nghia",
+   "page": 331,
+   "printed": "Đường cả thông hanh vậy",
+   "corrected": "Đường cả thông hành vậy",
+   "basis": "loi_kinh",
+   "why": "Chữ 行 là \"hành\" (thông hành).",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/大畜",
+    "quote": "何天之衢，道大行也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
    "n": 27,
    "seg": "intro",
    "layer": "trinh_di",
@@ -2223,6 +3633,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷2",
     "quote": "外實而中虚人頥頷之象也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 27,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 333,
+   "printed": "dưỡng chinh tắc cát dã",
+   "corrected": "dưỡng chính tắc cát dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 正 đọc là \"chính\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/頤",
+    "quote": "頤貞吉，養正則吉也"
    },
    "image": "the page image shows the printed words"
   },
@@ -2260,6 +3686,54 @@
   },
   {
    "n": 27,
+   "seg": "tieu_tuong1",
+   "layer": "am",
+   "page": 335,
+   "printed": "Quan ngã đóa đi",
+   "corrected": "Quan ngã đóa di",
+   "basis": "loi_kinh",
+   "why": "Chữ 頤 đọc là \"di\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/頤",
+    "quote": "觀我朵頤，亦不足貴也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 27,
+   "seg": "hao2",
+   "layer": "trinh_di",
+   "page": 335,
+   "printed": "Gò là vật ở người mà cao",
+   "corrected": "Gò là vật ở ngoài mà cao",
+   "basis": "trinh_truyen",
+   "why": "Chữ 外 là \"ngoài\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "丘在外而髙之物"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 27,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 337,
+   "printed": "hào Ba bên trái lỗi chính đạo",
+   "corrected": "hào Ba bèn trái lỗi chính đạo",
+   "basis": "trinh_truyen",
+   "why": "Chữ 乃 là \"bèn\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "三乃拂違正道"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 27,
    "seg": "hao5",
    "layer": "nghia",
    "page": 338,
@@ -2271,6 +3745,54 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/頤",
     "quote": "不可涉大川"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 27,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 338,
+   "printed": "là kẻ mà người ta kinh",
+   "corrected": "là kẻ mà người ta khinh",
+   "basis": "trinh_truyen",
+   "why": "Chữ 輕 là \"khinh\" (coi thường).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "賴人以濟人之所輕"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 27,
+   "seg": "tieu_tuong4",
+   "layer": "trinh_di",
+   "page": 338,
+   "printed": "Điên đảo của nuôi mà sở dĩ tốt",
+   "corrected": "Điên đảo cầu nuôi mà sở dĩ tốt",
+   "basis": "trinh_truyen",
+   "why": "Chữ 求養 là \"cầu nuôi\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "顛倒求養而所以吉者"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 27,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 339,
+   "printed": "cho nên nó rằng: chẳng khá",
+   "corrected": "cho nên nói rằng: chẳng khá",
+   "basis": "trinh_truyen",
+   "why": "Chữ 云 là \"nói\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "故云不可渉大川也"
    },
    "image": "the page image shows the printed words"
   },
@@ -2320,6 +3842,17 @@
     "chapter": "周易/大過",
     "quote": "剛過而中"
    },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 28,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 342,
+   "printed": "Đống não, bản mạt",
+   "corrected": "Đống nạo, bản mạt",
+   "basis": "ngu_canh",
+   "why": "Chữ 橈 sách đọc là \"nạo\" (Đống nạo), như ở lời quẻ.",
    "image": "the page image shows the printed words"
   },
   {
@@ -2383,6 +3916,17 @@
   },
   {
    "n": 28,
+   "seg": "tieu_tuong4",
+   "layer": "am",
+   "page": 346,
+   "printed": "bất hạo hồ hạ dã",
+   "corrected": "bất nạo hồ hạ dã",
+   "basis": "ngu_canh",
+   "why": "Chữ 橈 sách đọc là \"nạo\", như ở lời quẻ.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 28,
    "seg": "tieu_tuong5",
    "layer": "trinh_di",
    "page": 347,
@@ -2395,6 +3939,108 @@
     "chapter": "伊川易傳 (四庫全書本)/卷2",
     "quote": "枯楊不生根而生華"
    },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 28,
+   "seg": "hao6",
+   "layer": "am",
+   "page": 347,
+   "printed": "Quả thiệp, diệt đính",
+   "corrected": "Quá thiệp, diệt đính",
+   "basis": "ngu_canh",
+   "why": "Chữ 過 đọc là \"quá\" (Quá thiệp), như ở lời Tượng hào này.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 28,
+   "seg": "hao6",
+   "layer": "trinh_di",
+   "page": 347,
+   "printed": "chẳng cần nguy vọng, xéo lên",
+   "corrected": "chẳng cần nguy vong, xéo lên",
+   "basis": "trinh_truyen",
+   "why": "Chữ 危亡 là \"nguy vong\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "直過常越理不恤危亡"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 29,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 351,
+   "printed": "hiểm chi thì dụng đại hỹ tại",
+   "corrected": "hiểm chi thì dụng đại hỹ tai",
+   "basis": "loi_kinh",
+   "why": "Chữ 哉 đọc là \"tai\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/坎",
+    "quote": "時用大矣哉"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 29,
+   "seg": "dai_tuong",
+   "layer": "trinh_di",
+   "page": 351,
+   "printed": "nếu bảo gấp chưa hiện mà vội",
+   "corrected": "nếu bảo gấp chưa hiểu mà vội",
+   "basis": "trinh_truyen",
+   "why": "Chữ 喻 là \"hiểu\" (bảo gấp chưa hiểu).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "若驟告未喻遽責其從"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 29,
+   "seg": "hao1",
+   "layer": "trinh_di",
+   "page": 352,
+   "printed": "chỉ là cản hãm vào chỗ sâu hiểm",
+   "corrected": "chỉ là càng hãm vào chỗ sâu hiểm",
+   "basis": "trinh_truyen",
+   "why": "Chữ 益 là \"càng\" (càng hãm vào).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "唯益䧟於湥險耳"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 29,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 353,
+   "printed": "hiền thả chẩm",
+   "corrected": "hiểm thả chẩm",
+   "basis": "loi_kinh",
+   "why": "Chữ 險 đọc là \"hiểm\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/坎",
+    "quote": "來之坎坎險且枕"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 29,
+   "seg": "hao3",
+   "layer": "tien_nho",
+   "page": 353,
+   "printed": "sau gối, chứ “gối” có hai ý",
+   "corrected": "sau gối, chữ “gối” có hai ý",
+   "basis": "ngu_canh",
+   "why": "Đây nói về chữ \"gối\".",
    "image": "the page image shows the printed words"
   },
   {
@@ -2426,6 +4072,33 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷1",
     "quote": "周禮大祭三貳"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 29,
+   "seg": "hao4",
+   "layer": "tien_nho",
+   "page": 355,
+   "printed": "(đại đế tam nhị)",
+   "corrected": "(đại tế tam nhị)",
+   "basis": "ngu_canh",
+   "why": "Chữ 祭 đọc là \"tế\", như đoạn sau in \"đại tế tam nhị\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 29,
+   "seg": "hao6",
+   "layer": "trinh_di",
+   "page": 357,
+   "printed": "chắc nó không để ra được",
+   "corrected": "chắc nó không thể ra được",
+   "basis": "trinh_truyen",
+   "why": "Chữ 不能 là \"không thể\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷2",
+    "quote": "隂柔而陷之湥其不能出矣"
    },
    "image": "the page image shows the printed words"
   },
@@ -2463,6 +4136,54 @@
   },
   {
    "n": 30,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 360,
+   "printed": "Lý thác nhiên, kinh chi vô cữu",
+   "corrected": "Lý thác nhiên, kính chi vô cữu",
+   "basis": "loi_kinh",
+   "why": "Chữ 敬 đọc là \"kính\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/離",
+    "quote": "履錯然敬之無咎"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 30,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 361,
+   "printed": "bất cỗ phẫu nhị nhi ca",
+   "corrected": "bất cổ phẫu nhi ca",
+   "basis": "loi_kinh",
+   "why": "Câu kinh là 不鼓缶而歌, không có chữ \"nhị\"; 鼓 đọc là \"cổ\", 缶 là \"phẫu\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/離",
+    "quote": "不鼓缶而歌"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 30,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 361,
+   "printed": "tắc đại diệt chi ta",
+   "corrected": "tắc đại điệt chi ta",
+   "basis": "loi_kinh",
+   "why": "Chữ 耋 đọc là \"điệt\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/離",
+    "quote": "則大耋"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 30,
    "seg": "hao5",
    "layer": "trinh_di",
    "page": 363,
@@ -2474,6 +4195,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷2",
     "quote": "唯其明也故能畏懼之湥"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 30,
+   "seg": "hao6",
+   "layer": "am",
+   "page": 363,
+   "printed": "hữu giá, chiết thủ",
+   "corrected": "hữu gia, chiết thủ",
+   "basis": "loi_kinh",
+   "why": "Chữ 嘉 đọc là \"gia\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/離",
+    "quote": "王用出征有嘉折首"
    },
    "image": "the page image shows the printed words"
   },
@@ -2507,6 +4244,17 @@
     "chapter": "周易本義 (四庫全書本)/卷1",
     "quote": "剛明及逺威震而刑不濫"
    },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 30,
+   "seg": "hao6",
+   "layer": "trinh_di",
+   "page": 364,
+   "printed": "nếu trủy cứu hết",
+   "corrected": "nếu truy cứu hết",
+   "basis": "ngu_canh",
+   "why": "\"Trủy cứu\" là chữ \"truy cứu\" in sai dấu (究 = cứu).",
    "image": "the page image shows the printed words"
   },
   {
@@ -2749,6 +4497,22 @@
   },
   {
    "n": 33,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 387,
+   "printed": "dẫu lúc khí Âm Dương lớn",
+   "corrected": "dẫu lúc khí Âm đương lớn",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"lúc khí Âm đương lớn\" (隂長之時).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "雖隂長之時如卦之才"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 33,
    "seg": "hao3",
    "layer": "trinh_di",
    "page": 390,
@@ -2760,6 +4524,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "有所係累則安能速且逺也害於遯矣"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 33,
+   "seg": "tieu_tuong3",
+   "layer": "am",
+   "page": 391,
+   "printed": "sức thần thiếp cát",
+   "corrected": "xúc thần thiếp cát",
+   "basis": "loi_kinh",
+   "why": "Chữ 畜 sách đọc là \"xúc\", như ở lời hào Ba.",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/遯",
+    "quote": "畜臣妾吉不可大事也"
    },
    "image": "the page image shows the printed words"
   },
@@ -2813,6 +4593,22 @@
   },
   {
    "n": 34,
+   "seg": "dai_tuong",
+   "layer": "am",
+   "page": 395,
+   "printed": "quân tử dĩ phi lễ vật lý",
+   "corrected": "quân tử dĩ phi lễ phất lý",
+   "basis": "loi_kinh",
+   "why": "Chữ 弗 đọc là \"phất\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/大壯",
+    "quote": "君子以非禮弗履"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 34,
    "seg": "hao3",
    "layer": "trinh_di",
    "page": 398,
@@ -2840,6 +4636,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "足以致凶而方言其危"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 34,
+   "seg": "hao4",
+   "layer": "am",
+   "page": 398,
+   "printed": "Cử Trinh cát, hối vong",
+   "corrected": "Cửu Tứ: Trinh cát, hối vong",
+   "basis": "cau_truc",
+   "why": "Đây là hào Chín Tư (九四), đọc là \"Cửu Tứ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/大壯",
+    "quote": "九四"
    },
    "image": "the page image shows the printed words"
   },
@@ -2952,6 +4764,22 @@
   },
   {
    "n": 34,
+   "seg": "hao5",
+   "layer": "am",
+   "page": 399,
+   "printed": "vu dị, vỏ hổi",
+   "corrected": "vu dị, vô hối",
+   "basis": "loi_kinh",
+   "why": "Chữ 无悔 đọc là \"vô hối\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/大壯",
+    "quote": "喪羊于易，无悔"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 34,
    "seg": "hao6",
    "layer": "nghia",
    "page": 400,
@@ -2963,6 +4791,38 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/大壯",
     "quote": "不能遂"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 34,
+   "seg": "hao6",
+   "layer": "am",
+   "page": 400,
+   "printed": "Dê dương xúc phiên",
+   "corrected": "Đê dương xúc phiên",
+   "basis": "loi_kinh",
+   "why": "Chữ 羝 đọc là \"đê\", như ở hào Chín Ba.",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/大壯",
+    "quote": "羝羊觸藩，不能退"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 35,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 404,
+   "printed": "võng phu, dạ vô cữu",
+   "corrected": "võng phu, dụ vô cữu",
+   "basis": "loi_kinh",
+   "why": "Chữ 裕 đọc là \"dụ\", như ở lời Tượng hào này.",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/晉",
+    "quote": "罔孚，裕无咎"
    },
    "image": "the page image shows the printed words"
   },
@@ -2995,6 +4855,70 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷2",
     "quote": "初居下位未有官守之命"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 35,
+   "seg": "tieu_tuong1",
+   "layer": "trinh_di",
+   "page": 405,
+   "printed": "chưa chịu mệnh nhận thức",
+   "corrected": "chưa chịu mệnh nhận chức",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"nhận chức\" (當職任).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "始進未受命當職任故也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 35,
+   "seg": "hao2",
+   "layer": "nghia",
+   "page": 405,
+   "printed": "ấy chưng thuở bà nội",
+   "corrected": "ấy chưng thửa bà nội",
+   "basis": "loi_kinh",
+   "why": "Chữ 其 là \"thửa\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/晉",
+    "quote": "受茲介福，于其王母"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 35,
+   "seg": "hao2",
+   "layer": "trinh_di",
+   "page": 405,
+   "printed": "Hào Hai ấy đạo trung chính tự giữ",
+   "corrected": "Hào Hai lấy đạo trung chính tự giữ",
+   "basis": "trinh_truyen",
+   "why": "Chữ 以 là \"lấy\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "二以中正之道自守"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 35,
+   "seg": "hao2",
+   "layer": "trinh_di",
+   "page": 405,
+   "printed": "sầu nghĩa mà tiến lên khó khăn",
+   "corrected": "sầu nghĩa là tiến lên khó khăn",
+   "basis": "trinh_truyen",
+   "why": "Chữ 謂 là \"nghĩa là\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "可憂愁謂其進之難也"
    },
    "image": "the page image shows the printed words"
   },
@@ -3134,6 +5058,38 @@
   },
   {
    "n": 36,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 411,
+   "printed": "chính kỳ chí, Cả tử dĩ chi",
+   "corrected": "chính kỳ chí, Cơ tử dĩ chi",
+   "basis": "loi_kinh",
+   "why": "Chữ 箕子 đọc là \"Cơ tử\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/明夷",
+    "quote": "內難而能正其志，箕子以之"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 36,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 411,
+   "printed": "cái đức thành sáng của mình",
+   "corrected": "cái đức thánh sáng của mình",
+   "basis": "trinh_truyen",
+   "why": "Chữ 明聖 là \"sáng thánh\", đức của bậc thánh.",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "而内不失其明聖"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 36,
    "seg": "hao1",
    "layer": "nghia",
    "page": 412,
@@ -3193,6 +5149,22 @@
   },
   {
    "n": 36,
+   "seg": "hao1",
+   "layer": "trinh_di",
+   "page": 413,
+   "printed": "biết cơ là sự thật riêng",
+   "corrected": "biết cơ là sự thấy riêng",
+   "basis": "trinh_truyen",
+   "why": "Chữ 獨見 là \"sự thấy riêng\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "夫知幾者君子之獨見"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 36,
    "seg": "hao2",
    "layer": "trinh_di",
    "page": 414,
@@ -3204,6 +5176,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "拯用壯健之馬"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 36,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 414,
+   "printed": "Minh di vu nam thù",
+   "corrected": "Minh di vu nam thú",
+   "basis": "loi_kinh",
+   "why": "Chữ 狩 đọc là \"thú\", như ở lời Tượng hào này.",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/明夷",
+    "quote": "明夷于南狩"
    },
    "image": "the page image shows the printed words"
   },
@@ -3289,6 +5277,22 @@
   },
   {
    "n": 36,
+   "seg": "tieu_tuong3",
+   "layer": "am",
+   "page": 415,
+   "printed": "nãi đại bất đắc dã",
+   "corrected": "nãi đại đắc dã",
+   "basis": "loi_kinh",
+   "why": "Nguyên văn là 乃大得, không có chữ \"bất\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/明夷",
+    "quote": "南狩之志，乃大得也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 36,
    "seg": "hao4",
    "layer": "trinh_di",
    "page": 416,
@@ -3296,6 +5300,102 @@
    "corrected": "thuận với vua",
    "basis": "ngu_canh",
    "why": "Chữ \"với\" in lặp.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 36,
+   "seg": "hao4",
+   "layer": "am",
+   "page": 416,
+   "printed": "vu xuất môn định",
+   "corrected": "vu xuất môn đình",
+   "basis": "loi_kinh",
+   "why": "Chữ 庭 đọc là \"đình\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/明夷",
+    "quote": "于出門庭"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 36,
+   "seg": "tieu_tuong6",
+   "layer": "am",
+   "page": 419,
+   "printed": "thất đắc dã",
+   "corrected": "thất tắc dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 則 đọc là \"tắc\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/明夷",
+    "quote": "後入于地，失則也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 37,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 421,
+   "printed": "thiện địa chi đại nghĩa dã",
+   "corrected": "thiên địa chi đại nghĩa dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 天 đọc là \"thiên\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/家人",
+    "quote": "天地之大義也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 37,
+   "seg": "dai_tuong",
+   "layer": "trinh_di",
+   "page": 422,
+   "printed": "một câu hỏi, một sự hành động",
+   "corrected": "một câu nói, một sự hành động",
+   "basis": "trinh_truyen",
+   "why": "Chữ 言 là \"nói\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "正身之道一言一動不可易也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 37,
+   "seg": "hao1",
+   "layer": "trinh_di",
+   "page": 422,
+   "printed": "hại ân nghĩa, hại luận lý",
+   "corrected": "hại ân nghĩa, hại luân lý",
+   "basis": "trinh_truyen",
+   "why": "Chữ 倫理 là \"luân lý\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "傷恩義害倫理"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 37,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 422,
+   "printed": "Sở Cửu: Nhàn hữu gia",
+   "corrected": "Sơ Cửu: Nhàn hữu gia",
+   "basis": "cau_truc",
+   "why": "Hào đầu là \"Sơ Cửu\" (初九); chữ 初 đọc là \"sơ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/家人",
+    "quote": "初九"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -3348,6 +5448,38 @@
   },
   {
    "n": 37,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 424,
+   "printed": "phu tử hy hy, chung lận",
+   "corrected": "phụ tử hy hy, chung lận",
+   "basis": "loi_kinh",
+   "why": "Chữ 婦 đọc là \"phụ\", như ở lời Tượng hào này.",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/家人",
+    "quote": "婦子嘻嘻，終吝"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 37,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 424,
+   "printed": "cần phải dùng Âm nhiều hơn",
+   "corrected": "cần phải dùng ân nhiều hơn",
+   "basis": "trinh_truyen",
+   "why": "Chữ 恩 là \"ân\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "骨肉恩勝嚴過故悔也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 37,
    "seg": "hao5",
    "layer": "trinh_di",
    "page": 426,
@@ -3359,6 +5491,65 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "五恭己於外二正家於内"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 37,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 426,
+   "printed": "sửa mình để tẩy nhà",
+   "corrected": "sửa mình để tề nhà",
+   "basis": "trinh_truyen",
+   "why": "Chữ 齊家 là \"tề nhà\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "夫王者之道修身以齊家"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 37,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 426,
+   "printed": "chính là làm gốc",
+   "corrected": "chính nhà làm gốc",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"kính mình, chính nhà\" (恭己正家).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "未有不以恭己正家爲本"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 37,
+   "seg": "hao6",
+   "layer": "nghia",
+   "page": 426,
+   "printed": "Có tin, đường oai nghiêm vậy",
+   "corrected": "Có tin, dường oai nghiêm vậy",
+   "basis": "ngu_canh",
+   "why": "Chữ 威如 là \"dường oai nghiêm vậy\", như ở lời Tượng và lời Trình Di.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "intro",
+   "layer": "trinh_di",
+   "page": 428,
+   "printed": "nhau, cùng là nghĩa trái lìa",
+   "corrected": "nhau, cũng là nghĩa trái lìa",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"cũng\" (亦).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "是其志不同行也亦爲暌義"
    },
    "image": "the page image shows the printed words"
   },
@@ -3375,6 +5566,22 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/睽",
     "quote": "男女睽而其志通也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 430,
+   "printed": "bấm thục khí của Âm Dương",
+   "corrected": "bẩm thụ khí của Âm Dương",
+   "basis": "trinh_truyen",
+   "why": "Chữ 禀 là \"bẩm\" (bẩm thụ).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "得天地之和禀隂陽之氣"
    },
    "image": "the page image shows the printed words"
   },
@@ -3418,6 +5625,54 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "始為二陽所戹是无初也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "tieu_tuong2",
+   "layer": "trinh_di",
+   "page": 433,
+   "printed": "Gặp không phải là uấn đạo đưa đón",
+   "corrected": "Gặp không phải là uốn đạo đưa đón",
+   "basis": "trinh_truyen",
+   "why": "Chữ 枉道 là \"uốn đạo\", như ở lời hào này.",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "遇非枉道迎逢也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 433,
+   "printed": "muốn tiến lên để hợp chỉ với hào Trên",
+   "corrected": "muốn tiến lên để hợp chí với hào Trên",
+   "basis": "trinh_truyen",
+   "why": "Chữ 志 là \"chí\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "欲進與上合志"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 433,
+   "printed": "nhưng ở chỗ ứng mà chí định đi",
+   "corrected": "nhưng ở chỗ cứng mà chí định đi",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"ở chỗ cứng\" (處剛).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "三雖隂柔處剛而志行"
    },
    "image": "the page image shows the printed words"
   },
@@ -3471,6 +5726,38 @@
   },
   {
    "n": 38,
+   "seg": "tieu_tuong3",
+   "layer": "trinh_di",
+   "page": 434,
+   "printed": "cho nên có sự gian ác như thế",
+   "corrected": "cho nên có sự gian ách như thế",
+   "basis": "trinh_truyen",
+   "why": "Chữ 艱戹 là \"gian ách\" (khó khăn, khốn đốn).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "所以有如是艱戹由位不當也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 434,
+   "printed": "đều không có kẻ ứng viên",
+   "corrected": "đều không có kẻ ứng viện",
+   "basis": "trinh_truyen",
+   "why": "Chữ 應援 là \"ứng viện\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "各无應援自然同德相親"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
    "seg": "hao5",
    "layer": "chu_hy",
    "page": 435,
@@ -3482,6 +5769,86 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷2",
     "quote": "以隂居陽悔也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "hao6",
+   "layer": "am",
+   "page": 436,
+   "printed": "Khuê cố kiến thị phụ đồ",
+   "corrected": "Khuê cô kiến thị phụ đồ",
+   "basis": "loi_kinh",
+   "why": "Chữ 孤 đọc là \"cô\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/睽",
+    "quote": "睽孤， 見豕負涂"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "hao6",
+   "layer": "trinh_di",
+   "page": 436,
+   "printed": "con lợn bẩn thỉu mà loại cõng đội bùn lầm",
+   "corrected": "con lợn bẩn thỉu mà lại cõng đội bùn lầm",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"mà lại\" (而又).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "如豕之汚穢而又背負泥塗"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "hao6",
+   "layer": "trinh_di",
+   "page": 436,
+   "printed": "đại phạm đến lỗi đạo đến cực điểm",
+   "corrected": "đại phàm đến lỗi đạo đến cực điểm",
+   "basis": "trinh_truyen",
+   "why": "Chữ 大凡 là \"đại phàm\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "大凡失道既極則必反正理"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "hao6",
+   "layer": "trinh_di",
+   "page": 436,
+   "printed": "“trước gương chưng cung”",
+   "corrected": "“trước giương chưng cung”",
+   "basis": "trinh_truyen",
+   "why": "Chữ 張 là \"giương\" (giương cung).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "先張之弧始疑惡而欲射之也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 38,
+   "seg": "tieu_tuong6",
+   "layer": "am",
+   "page": 437,
+   "printed": "Ngô vũ chi cát",
+   "corrected": "Ngộ vũ chi cát",
+   "basis": "loi_kinh",
+   "why": "Chữ 遇 đọc là \"ngộ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/睽",
+    "quote": "遇雨之吉，群疑亡也"
    },
    "image": "the page image shows the printed words"
   },
@@ -3532,6 +5899,38 @@
    "n": 39,
    "seg": "thoan_truyen",
    "layer": "trinh_di",
+   "page": 439,
+   "printed": "cũng như Kiển là mạnh",
+   "corrected": "cũng như Kiền là mạnh",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là quẻ Kiền (乾) là mạnh.",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "蹇之為難如乾之為健"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 39,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 439,
+   "printed": "kỳ đạo cũng dã",
+   "corrected": "kỳ đạo cùng dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 窮 đọc là \"cùng\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/蹇",
+    "quote": "不利東北，其道窮也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 39,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
    "page": 440,
    "printed": "Dương kiển mà lại đậu",
    "corrected": "Đương kiển mà lại đậu",
@@ -3542,6 +5941,33 @@
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "方蹇而又止危險之地"
    },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 39,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 440,
+   "printed": "không lấy đến nghĩa “hành quẻ”",
+   "corrected": "không lấy đến nghĩa “thành quẻ”",
+   "basis": "trinh_truyen",
+   "why": "Chữ 成 là \"thành\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "不取成坎之義也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 39,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 440,
+   "printed": "nói lẽ rât chính",
+   "corrected": "nói lẽ rất chính",
+   "basis": "ngu_canh",
+   "why": "Chữ là \"rất\" (至正: rất chính).",
    "image": "the page image shows the printed words"
   },
   {
@@ -3573,6 +5999,81 @@
   },
   {
    "n": 39,
+   "seg": "tieu_tuong1",
+   "layer": "trinh_di",
+   "page": 441,
+   "printed": "Các hào đều đi thi kiển",
+   "corrected": "Các hào đều đi thì kiển",
+   "basis": "ngu_canh",
+   "why": "Chữ là \"thì\", như câu sau \"mà đi thì kiển\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 39,
+   "seg": "hao2",
+   "layer": "am",
+   "page": 442,
+   "printed": "phí cung chi cố",
+   "corrected": "phỉ cung chi cố",
+   "basis": "loi_kinh",
+   "why": "Chữ 匪 đọc là \"phỉ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/蹇",
+    "quote": "王臣蹇蹇，匪躬之故"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 39,
+   "seg": "tieu_tuong2",
+   "layer": "am",
+   "page": 442,
+   "printed": "chung vô cưu dã",
+   "corrected": "chung vô vưu dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 尤 đọc là \"vưu\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/蹇",
+    "quote": "王臣蹇蹇，終无尤也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 39,
+   "seg": "tieu_tuong2",
+   "layer": "nghia",
+   "page": 442,
+   "printed": "Tôi vua kiển, sau chót",
+   "corrected": "Tôi vua kiển kiển, sau chót",
+   "basis": "loi_kinh",
+   "why": "Nguyên văn là \"kiển kiển\" (蹇蹇), như ở lời hào.",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/蹇",
+    "quote": "王臣蹇蹇，終无尤也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 39,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 442,
+   "printed": "Vãng kiểu lai phản",
+   "corrected": "Vãng kiển lai phản",
+   "basis": "loi_kinh",
+   "why": "Chữ 蹇 đọc là \"kiển\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/蹇",
+    "quote": "往蹇來反"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 39,
    "seg": "hao4",
    "layer": "chu_hy",
    "page": 443,
@@ -3584,6 +6085,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷2",
     "quote": "連於九三合力以濟"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 39,
+   "seg": "hao4",
+   "layer": "am",
+   "page": 443,
+   "printed": "Lúc Tứ: Vãng kiển",
+   "corrected": "Lục Tứ: Vãng kiển",
+   "basis": "cau_truc",
+   "why": "Đây là hào Sáu Tư (六四), đọc là \"Lục Tứ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/蹇",
+    "quote": "六四"
    },
    "image": "the page image shows the printed words"
   },
@@ -3712,6 +6229,54 @@
   },
   {
    "n": 40,
+   "seg": "thoan_truyen",
+   "layer": "chu_hy",
+   "page": 449,
+   "printed": "Đây là nó cho cùng cực",
+   "corrected": "Đây là nói cho cùng cực",
+   "basis": "ban_nghia",
+   "why": "Chữ 言 là \"nói\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "極言而贊其大也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 40,
+   "seg": "hao1",
+   "layer": "trinh_di",
+   "page": 450,
+   "printed": "tự cử được phải thì là không lỗi",
+   "corrected": "tự xử được phải thì là không lỗi",
+   "basis": "trinh_truyen",
+   "why": "Chữ 處 là \"xử\", như câu trên \"xử được cứng mềm\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "唯自處得宜則為无咎矣"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 40,
+   "seg": "hao2",
+   "layer": "am",
+   "page": 450,
+   "printed": "Cửu Nhi: Điền hoạch",
+   "corrected": "Cửu Nhị: Điền hoạch",
+   "basis": "cau_truc",
+   "why": "Đây là hào Chín Hai (九二), đọc là \"Cửu Nhị\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/解",
+    "quote": "九二"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 40,
    "seg": "hao2",
    "layer": "trinh_di",
    "page": 451,
@@ -3723,6 +6288,49 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "田者去害之事狐者邪媚之獸"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 40,
+   "seg": "hao2",
+   "layer": "trinh_di",
+   "page": 451,
+   "printed": "họ sẽ làm lại chính nhân",
+   "corrected": "họ sẽ làm hại chính nhân",
+   "basis": "trinh_truyen",
+   "why": "Chữ 害 là \"hại\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "慮其有間而害正也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 40,
+   "seg": "hao2",
+   "layer": "trinh_di",
+   "page": 451,
+   "printed": "tức là nhưng kẻ tiểu nhân",
+   "corrected": "tức là những kẻ tiểu nhân",
+   "basis": "ngu_canh",
+   "why": "Chữ là \"những\" (ba hào Âm là những kẻ tiểu nhân).",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 40,
+   "seg": "tieu_tuong3",
+   "layer": "am",
+   "page": 452,
+   "printed": "diệt khả xũ dã",
+   "corrected": "diệc khả xú dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 亦 đọc là \"diệc\", chữ 醜 đọc là \"xú\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/解",
+    "quote": "負且乘，亦可丑也"
    },
    "image": "the page image shows the printed words"
   },
@@ -3744,6 +6352,54 @@
   },
   {
    "n": 40,
+   "seg": "hao4",
+   "layer": "nghia",
+   "page": 453,
+   "printed": "Giải ngốn chân cái mày, bằng",
+   "corrected": "Giải ngón chân cái mày, bằng",
+   "basis": "loi_kinh",
+   "why": "Chữ 拇 là \"ngón chân cái\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/解",
+    "quote": "解而拇，朋至斯孚"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 40,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 453,
+   "printed": "chinh sỹ sẽ đều lui xa",
+   "corrected": "chính sỹ sẽ đều lui xa",
+   "basis": "trinh_truyen",
+   "why": "Chữ 正士 là \"chính sỹ\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "則賢人正士逺退矣"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 40,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 453,
+   "printed": "mà thật bụng tượng đắc",
+   "corrected": "mà thật bụng tương đắc",
+   "basis": "trinh_truyen",
+   "why": "Chữ 相得 là \"tương đắc\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "君子之黨進而誠相得也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 40,
    "seg": "hao6",
    "layer": "trinh_di",
    "page": 455,
@@ -3759,6 +6415,92 @@
    "image": "the page image shows the printed words"
   },
   {
+   "n": 40,
+   "seg": "hao6",
+   "layer": "trinh_di",
+   "page": 455,
+   "printed": "lìa khỏi bên trong mà đi hẳn",
+   "corrected": "lìa khỏi bên trong mà chưa đi hẳn",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"chưa đi\" (未去), như câu sau \"mà nó chưa đi\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "故在墉上離乎内而未去也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 40,
+   "seg": "tieu_tuong6",
+   "layer": "am",
+   "page": 455,
+   "printed": "dĩ giải bồi dã",
+   "corrected": "dĩ giải bội dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 悖 đọc là \"bội\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/解",
+    "quote": "公用射隼，以解悖也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
+   "seg": "intro",
+   "layer": "trinh_di",
+   "page": 457,
+   "printed": "cho trên là quả Tổn",
+   "corrected": "cho trên là quẻ Tổn",
+   "basis": "ngu_canh",
+   "why": "Chữ là \"quẻ\", như vế trên \"là quẻ Ích\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
+   "seg": "thoan",
+   "layer": "trinh_di",
+   "page": 458,
+   "printed": "Đấng thánh lấy nhân lấy sự",
+   "corrected": "Đấng thánh nhân lấy sự",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"đấng thánh nhân lấy sự thà kiệm\" (聖人以寧儉).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "聖人以寧儉為禮之本"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
+   "seg": "thoan",
+   "layer": "trinh_di",
+   "page": 458,
+   "printed": "làm gốc của lẽ",
+   "corrected": "làm gốc của lễ",
+   "basis": "trinh_truyen",
+   "why": "Chữ 禮 là \"lễ\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "聖人以寧儉為禮之本"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
+   "seg": "thoan",
+   "layer": "tien_nho",
+   "page": 459,
+   "printed": "\"Hai quĩ, khá dùng thưởng\"",
+   "corrected": "\"Hai quĩ, khá dùng hưởng\"",
+   "basis": "ngu_canh",
+   "why": "Chữ là \"hưởng\", như ngay câu sau và lời kinh.",
+   "image": "the page image shows the printed words"
+  },
+  {
    "n": 41,
    "seg": "thoan_truyen",
    "layer": "trinh_di",
@@ -3767,6 +6509,38 @@
    "corrected": "hoặc đầy, hoặc rỗng",
    "basis": "ngu_canh",
    "why": "Đầy và rỗng (盈虛) đi đôi.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 460,
+   "printed": "Hai quĩ có thể cứng rồi",
+   "corrected": "Hai quĩ có thể cúng rồi",
+   "basis": "trinh_truyen",
+   "why": "Chữ 享 là \"cúng\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "曰何所用哉二簋可以享也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 461,
+   "printed": "xuyền váng, vô cữu",
+   "corrected": "xuyền vãng, vô cữu",
+   "basis": "loi_kinh",
+   "why": "Chữ 往 đọc là \"vãng\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/損",
+    "quote": "祀事遄往，无咎"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -3799,6 +6573,33 @@
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "二所謂利貞謂以中為志也"
    },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 463,
+   "printed": "không cái gì mà có đôi",
+   "corrected": "không cái gì mà không có đôi",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"không gì không có đôi\" (无不二).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "盖天下无不二者"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 463,
+   "printed": "bởi hai hàolên xuống",
+   "corrected": "bởi hai hào lên xuống",
+   "basis": "ngu_canh",
+   "why": "Thiếu khoảng cách giữa \"hào\" và \"lên\".",
    "image": "the page image shows the printed words"
   },
   {
@@ -3851,6 +6652,49 @@
   },
   {
    "n": 41,
+   "seg": "tieu_tuong3",
+   "layer": "am",
+   "page": 464,
+   "printed": "tam đắc nghi dã",
+   "corrected": "tam tắc nghi dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 則 đọc là \"tắc\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/損",
+    "quote": "一人行，三則疑也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
+   "seg": "tieu_tuong3",
+   "layer": "tien_nho",
+   "page": 464,
+   "printed": "thế là hào Ba với Năm là đôi",
+   "corrected": "thế là hào Hai với Năm là đôi",
+   "basis": "ngu_canh",
+   "why": "Câu trước nói hào Chín Hai và hào Sáu Năm, nên đôi này là hào Hai với hào Năm.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 465,
+   "printed": "“Mưa theo nhiều người",
+   "corrected": "“Mưu theo nhiều người",
+   "basis": "trinh_truyen",
+   "why": "Chữ 謀 là \"mưu\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "古人曰謀從衆則合天心"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 41,
    "seg": "hao6",
    "layer": "chu_hy",
    "page": 467,
@@ -3883,6 +6727,70 @@
   },
   {
    "n": 42,
+   "seg": "intro",
+   "layer": "trinh_di",
+   "page": 468,
+   "printed": "Dương biến ra Âm là quẻ Tốn",
+   "corrected": "Dương biến ra Âm là quẻ Tổn",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là quẻ Tổn (損), đối với quẻ Ích ở câu sau.",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "陽變而為隂者損也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 468,
+   "printed": "dân nguyệt vô cương",
+   "corrected": "dân duyệt vô cương",
+   "basis": "loi_kinh",
+   "why": "Chữ 說 ở đây đọc là \"duyệt\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/益",
+    "quote": "民說无疆"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
+   "seg": "thoan_truyen",
+   "layer": "nghia",
+   "page": 469,
+   "printed": "Lợi sang lớn, đạo ích",
+   "corrected": "Lợi sang sông lớn, đạo ích",
+   "basis": "loi_kinh",
+   "why": "大川 là \"sông lớn\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/益",
+    "quote": "利涉大川，木道乃行"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
+   "seg": "hao1",
+   "layer": "trinh_di",
+   "page": 471,
+   "printed": "Hào Tư chủ thể nhún nhuận",
+   "corrected": "Hào Tư chủ thể nhún thuận",
+   "basis": "trinh_truyen",
+   "why": "Chữ 順 là \"thuận\" (câu sau in đúng \"thuận\").",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "四㢲順之主上能㢲於君下能順於賢才"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
    "seg": "hao1",
    "layer": "tien_nho",
    "page": 472,
@@ -3890,6 +6798,38 @@
    "corrected": "có việc tuy tốt mà lý",
    "basis": "ngu_canh",
    "why": "Câu sau là \"thế là tốt mà có lỗi\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
+   "seg": "hao2",
+   "layer": "trinh_di",
+   "page": 473,
+   "printed": "trong đạo cần ích",
+   "corrected": "trong đạo cầu ích",
+   "basis": "trinh_truyen",
+   "why": "Chữ 求 là \"cầu\" (cùng đoạn in đúng \"đạo cầu ích\").",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "剛為固守求益之至善"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
+   "seg": "hao2",
+   "layer": "trinh_di",
+   "page": 473,
+   "printed": "mãi mãi chí bền",
+   "corrected": "mãi mãi chính bền",
+   "basis": "trinh_truyen",
+   "why": "Chữ 貞 là \"chính bền\" (cùng đoạn in đúng \"mãi mãi chính bền\").",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "故戒能常永貞固則吉也"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -3969,6 +6909,38 @@
   },
   {
    "n": 42,
+   "seg": "hao3",
+   "layer": "chu_hy",
+   "page": 475,
+   "printed": "nó ở trên thế dưới",
+   "corrected": "nó ở trên thể dưới",
+   "basis": "ban_nghia",
+   "why": "Hào Ba ở trên thể dưới (居下之上).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "然當益下之時居下之上"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
+   "seg": "hao4",
+   "layer": "am",
+   "page": 475,
+   "printed": "cáp công tòng",
+   "corrected": "cáo công tòng",
+   "basis": "loi_kinh",
+   "why": "Chữ 告 đọc là \"cáo\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/益",
+    "quote": "中行，告公從"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
    "seg": "hao4",
    "layer": "chu_hy",
    "page": 476,
@@ -4044,6 +7016,38 @@
   },
   {
    "n": 42,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 477,
+   "printed": "chí thành yên đội",
+   "corrected": "chí thành yêu đội",
+   "basis": "trinh_truyen",
+   "why": "Chữ 愛戴 là \"yêu đội\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "天下之人无不至誠愛戴"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
+   "seg": "tieu_tuong5",
+   "layer": "am",
+   "page": 477,
+   "printed": "vật vấn chi kỹ",
+   "corrected": "vật vấn chi hỹ",
+   "basis": "loi_kinh",
+   "why": "Chữ 矣 đọc là \"hỹ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/益",
+    "quote": "勿問之矣"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
    "seg": "tieu_tuong6",
    "layer": "trinh_di",
    "page": 478,
@@ -4056,6 +7060,65 @@
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "非其偏己之辭也苟不偏己"
    },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 42,
+   "seg": "tieu_tuong6",
+   "layer": "am",
+   "page": 478,
+   "printed": "tự ngoại tại dã",
+   "corrected": "tự ngoại lai dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 來 đọc là \"lai\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/益",
+    "quote": "或擊之，自外來也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
+   "seg": "intro",
+   "layer": "trinh_di",
+   "page": 479,
+   "printed": "thì chầm là chỗ nước tụ",
+   "corrected": "thì chằm là chỗ nước tụ",
+   "basis": "trinh_truyen",
+   "why": "Chữ 澤 là \"chằm\" (lời Tượng in đúng \"Chằm là chỗ nước tụ\").",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "以二體言之澤水之聚也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
+   "seg": "thoan",
+   "layer": "am",
+   "page": 479,
+   "printed": "bất lợi tức nhưng",
+   "corrected": "bất lợi tức nhung",
+   "basis": "loi_kinh",
+   "why": "Chữ 戎 đọc là \"nhung\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/夬",
+    "quote": "告自邑，不利即戎"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
+   "seg": "thoan",
+   "layer": "trinh_di",
+   "page": 480,
+   "printed": "nghĩa là khi Dương tuy thịnh",
+   "corrected": "nghĩa là khí Dương tuy thịnh",
+   "basis": "ngu_canh",
+   "why": "Câu đối với \"khí Âm tuy suy\" ngay sau (陽雖盛…隂雖微).",
    "image": "the page image shows the printed words"
   },
   {
@@ -4092,6 +7155,22 @@
   },
   {
    "n": 43,
+   "seg": "thoan_truyen",
+   "layer": "chu_hy",
+   "page": 482,
+   "printed": "là lấy thế quẻ mà nói",
+   "corrected": "là lấy thể quẻ mà nói",
+   "basis": "ban_nghia",
+   "why": "Chữ 卦體 là \"thể quẻ\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "柔乘五剛以卦體言"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
    "seg": "hao1",
    "layer": "nghia",
    "page": 483,
@@ -4119,6 +7198,38 @@
   },
   {
    "n": 43,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 483,
+   "printed": "Sở Cửu",
+   "corrected": "Sơ Cửu",
+   "basis": "cau_truc",
+   "why": "Chữ 初 đọc là \"sơ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/夬",
+    "quote": "初九"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
+   "seg": "hao1",
+   "layer": "trinh_di",
+   "page": 483,
+   "printed": "Thi quyết mà đi",
+   "corrected": "Thì quyết mà đi",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"thì quyết\" (夬之時).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "夬之時而往往决也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
    "seg": "tieu_tuong2",
    "layer": "trinh_di",
    "page": 484,
@@ -4135,6 +7246,22 @@
   },
   {
    "n": 43,
+   "seg": "tieu_tuong1",
+   "layer": "am",
+   "page": 484,
+   "printed": "cữu da",
+   "corrected": "cữu dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 也 đọc là \"dã\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/夬",
+    "quote": "不勝而往，咎也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
    "seg": "hao3",
    "layer": "nghia",
    "page": 485,
@@ -4146,6 +7273,65 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/夬",
     "quote": "遇雨若濡"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
+   "seg": "hao3",
+   "layer": "nghia",
+   "page": 485,
+   "printed": "Mạnh chưng gồ má",
+   "corrected": "Mạnh chưng gò má",
+   "basis": "ngu_canh",
+   "why": "Chữ 頄 là \"gò má\" (Trình Di, Chu Hy cùng hào in đúng).",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 485,
+   "printed": "hữu uấn, hữu quân tử",
+   "corrected": "hữu uấn, quân tử",
+   "basis": "trinh_truyen",
+   "why": "Chữ \"hữu\" thứ hai in thừa (nguyên văn 有愠君子夬夬).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "若濡有愠君子夬夬无咎"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
+   "seg": "hao3",
+   "layer": "chu_hy",
+   "page": 486,
+   "printed": "cũng như đi mình gặp mưa",
+   "corrected": "cũng như đi một mình gặp mưa",
+   "basis": "ban_nghia",
+   "why": "Chữ 獨行 là \"đi một mình\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "則雖合於上六如獨行遇"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 486,
+   "printed": "nhưng đít không da mà ở không yên",
+   "corrected": "như đít không da mà ở không yên",
+   "basis": "trinh_truyen",
+   "why": "Chữ 猶 là \"như\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "猶臀傷而居不能安也"
    },
    "image": "the page image shows the printed words"
   },
@@ -4178,6 +7364,22 @@
   },
   {
    "n": 43,
+   "seg": "hao6",
+   "layer": "trinh_di",
+   "page": 488,
+   "printed": "sự kêu gào, sự hãi",
+   "corrected": "sự kêu gào, sợ hãi",
+   "basis": "trinh_truyen",
+   "why": "Chữ 畏懼 là \"sợ hãi\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "故云无用號咷畏懼終必有凶也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
    "seg": "tieu_tuong6",
    "layer": "trinh_di",
    "page": 489,
@@ -4185,6 +7387,22 @@
    "corrected": "quyết trừ đạo kẻ tiểu nhân",
    "basis": "ngu_canh",
    "why": "Câu trước in đúng \"tiểu nhân\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 43,
+   "seg": "tieu_tuong6",
+   "layer": "trinh_di",
+   "page": 489,
+   "printed": "một chữ bình thành",
+   "corrected": "một chữ bình thanh",
+   "basis": "trinh_truyen",
+   "why": "Chữ 平聲 là \"bình thanh\", đối với \"khứ thanh\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "一平聲字何害而讀易者"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -4296,6 +7514,38 @@
   },
   {
    "n": 44,
+   "seg": "dai_tuong",
+   "layer": "trinh_di",
+   "page": 493,
+   "printed": "sử nên đạo trời đất",
+   "corrected": "sửa nên đạo trời đất",
+   "basis": "trinh_truyen",
+   "why": "Chữ 財成 là \"sửa nên\" (quẻ Thái dịch \"sửa nên đạo của trời đất\").",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "稱后者后王之所為也財成天地之道"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 44,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 495,
+   "printed": "không dám động can",
+   "corrected": "không dám động càn",
+   "basis": "trinh_truyen",
+   "why": "Chữ 妄動 là \"động càn\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷3",
+    "quote": "不正而懐危懼不敢妄動"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 44,
    "seg": "hao4",
    "layer": "trinh_di",
    "page": 496,
@@ -4307,6 +7557,38 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "遇之道君臣民主夫婦朋友皆在焉"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 44,
+   "seg": "hao5",
+   "layer": "am",
+   "page": 496,
+   "printed": "Dĩ kỷ bảo qua",
+   "corrected": "Dĩ kỷ bao qua",
+   "basis": "loi_kinh",
+   "why": "Chữ 包 đọc là \"bao\" (như \"Bao hữu ngư\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/姤",
+    "quote": "以杞包瓜"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 44,
+   "seg": "hao5",
+   "layer": "chu_hy",
+   "page": 497,
+   "printed": "lấy đức Chương cứng",
+   "corrected": "lấy đức Dương cứng",
+   "basis": "ban_nghia",
+   "why": "Chữ 陽剛 là \"Dương cứng\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "五以陽剛中正主卦於上"
    },
    "image": "the page image shows the printed words"
   },
@@ -4440,6 +7722,33 @@
   },
   {
    "n": 45,
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "page": 502,
+   "printed": "tức là là lời Chiêm",
+   "corrected": "tức là lời Chiêm",
+   "basis": "ngu_canh",
+   "why": "Chữ \"là\" in lặp.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 45,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 502,
+   "printed": "tu dĩ chính dã",
+   "corrected": "tụ dĩ chính dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 聚 đọc là \"tụ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/萃",
+    "quote": "聚以正也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 45,
    "seg": "thoan_truyen",
    "layer": "am",
    "page": 503,
@@ -4467,6 +7776,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "觀萃之理可以見天地萬物之情也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 45,
+   "seg": "dai_tuong",
+   "layer": "am",
+   "page": 503,
+   "printed": "Trạch thượng ư địa, Tuy",
+   "corrected": "Trạch thượng ư địa, Tụy",
+   "basis": "loi_kinh",
+   "why": "Chữ 萃 đọc là \"Tụy\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/萃",
+    "quote": "澤上于地，萃"
    },
    "image": "the page image shows the printed words"
   },
@@ -4574,6 +7899,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷3",
     "quote": "乃當萃而未合者也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 45,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 506,
+   "printed": "Tụy như, tư như",
+   "corrected": "Tụy như, ta như",
+   "basis": "loi_kinh",
+   "why": "Chữ 嗟 đọc là \"ta\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/萃",
+    "quote": "萃如，嗟如"
    },
    "image": "the page image shows the printed words"
   },
@@ -5217,6 +8558,86 @@
   },
   {
    "n": 49,
+   "seg": "thoan",
+   "layer": "trinh_di",
+   "page": 538,
+   "printed": "Vì vậy, cố nhân mới coi",
+   "corrected": "Vì vậy, cổ nhân mới coi",
+   "basis": "trinh_truyen",
+   "why": "Chữ 古人 là \"cổ nhân\" (người xưa).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "古人所以重改作也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 49,
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "page": 539,
+   "printed": "có vẻ hào vui đẹp lòng",
+   "corrected": "có vẻ hòa vui đẹp lòng",
+   "basis": "ban_nghia",
+   "why": "Chữ 和 là \"hòa\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "外有和説之氣"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 49,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 540,
+   "printed": "cách nhi đảng",
+   "corrected": "cách nhi đáng",
+   "basis": "loi_kinh",
+   "why": "Chữ 當 đọc là \"đáng\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/革",
+    "quote": "革而當，其悔乃亡"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 49,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 540,
+   "printed": "không lẽ gì không nết",
+   "corrected": "không lẽ gì không hết",
+   "basis": "trinh_truyen",
+   "why": "Nguyên văn là \"lẽ không gì không hết\" (理无不盡).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "不盡事无不察說則人心和順"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 49,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 541,
+   "printed": "cuộc dời lần dời",
+   "corrected": "cuộc đời lần dời",
+   "basis": "trinh_truyen",
+   "why": "Chữ 世故 là \"cuộc đời\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "天道變改世故遷易"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 49,
    "seg": "hao2",
    "layer": "trinh_di",
    "page": 542,
@@ -5249,6 +8670,22 @@
   },
   {
    "n": 49,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 543,
+   "printed": "Chính hung trinh lệ",
+   "corrected": "Chinh hung trinh lệ",
+   "basis": "loi_kinh",
+   "why": "Chữ 征 đọc là \"chinh\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/革",
+    "quote": "征凶，貞厲"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 49,
    "seg": "tieu_tuong4",
    "layer": "trinh_di",
    "page": 544,
@@ -5256,6 +8693,22 @@
    "corrected": "Lòng thành đã tột bậc",
    "basis": "ngu_canh",
    "why": "\"Tộc bậc\" không có nghĩa; là \"tột bậc\" (誠既至).",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 49,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 544,
+   "printed": "là thử có thể thay đổi",
+   "corrected": "là thì có thể thay đổi",
+   "basis": "trinh_truyen",
+   "why": "Chữ 時 là \"thì\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "離下體而進上體革之時也"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -5324,6 +8777,54 @@
   },
   {
    "n": 50,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 549,
+   "printed": "quẻ Ly sang mà rỗng giữa",
+   "corrected": "quẻ Ly sáng mà rỗng giữa",
+   "basis": "trinh_truyen",
+   "why": "Chữ 明 là \"sáng\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "離明而中虚於上"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 50,
+   "seg": "tieu_tuong1",
+   "layer": "am",
+   "page": 550,
+   "printed": "Đỉnh điển chỉ",
+   "corrected": "Đỉnh điên chỉ",
+   "basis": "loi_kinh",
+   "why": "Chữ 顛 đọc là \"điên\" (lời hào in đúng \"điên chỉ\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/鼎",
+    "quote": "鼎顛趾，未悖也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 50,
+   "seg": "tieu_tuong1",
+   "layer": "trinh_di",
+   "page": 550,
+   "printed": "vò nó có khi phải dốc",
+   "corrected": "vì nó có khi phải dốc",
+   "basis": "trinh_truyen",
+   "why": "Chữ 蓋 là \"vì\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "然非必為悖者蓋有傾出否惡之時也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 50,
    "seg": "hao3",
    "layer": "nghia",
    "page": 551,
@@ -5335,6 +8836,22 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/鼎",
     "quote": "終吉"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 50,
+   "seg": "hao3",
+   "layer": "trinh_di",
+   "page": 551,
+   "printed": "hào Ba dương sắp hòa hợp",
+   "corrected": "hào Ba đương sắp hòa hợp",
+   "basis": "trinh_truyen",
+   "why": "Chữ 方 là \"đương\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "言五與三方將和合"
    },
    "image": "the page image shows the printed words"
   },
@@ -5362,6 +8879,177 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷2",
     "quote": "為得其正苟能自守則隂陽將和"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 50,
+   "seg": "hao4",
+   "layer": "am",
+   "page": 552,
+   "printed": "Đinh chiết túc",
+   "corrected": "Đỉnh chiết túc",
+   "basis": "loi_kinh",
+   "why": "Chữ 鼎 đọc là \"đỉnh\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/鼎",
+    "quote": "鼎折足，覆公餗"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 50,
+   "seg": "tieu_tuong6",
+   "layer": "nghia",
+   "page": 554,
+   "printed": "Tai ngọc ở trên",
+   "corrected": "Quai ngọc ở trên",
+   "basis": "loi_kinh",
+   "why": "Chữ 鉉 là \"quai\" (lời hào in đúng \"quai ngọc\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/鼎",
+    "quote": "玉鉉在上，剛柔節也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 51,
+   "seg": "thoan",
+   "layer": "am",
+   "page": 555,
+   "printed": "Chấn lại hích hích",
+   "corrected": "Chấn lai hích hích",
+   "basis": "loi_kinh",
+   "why": "Chữ 來 đọc là \"lai\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/震",
+    "quote": "震來虩虩，笑言啞啞"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 51,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 556,
+   "printed": "chấn lại hích hích",
+   "corrected": "chấn lai hích hích",
+   "basis": "loi_kinh",
+   "why": "Chữ 來 đọc là \"lai\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/震",
+    "quote": "震來虩虩，恐致福也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 51,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 556,
+   "printed": "khủy trí phúc dã",
+   "corrected": "khủng trí phúc dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 恐 đọc là \"khủng\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/震",
+    "quote": "震來虩虩，恐致福也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 51,
+   "seg": "thoan_truyen",
+   "layer": "nghia",
+   "page": 556,
+   "printed": "vì mà sợ đến phúc vậy",
+   "corrected": "vì sợ mà đến phúc vậy",
+   "basis": "ngu_canh",
+   "why": "Lời Tượng hào Đầu in đúng câu này: \"vì sợ mà đến phúc vậy\".",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 51,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 556,
+   "printed": "cụ nhỉ dã",
+   "corrected": "cụ nhĩ dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 邇 đọc là \"nhĩ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/震",
+    "quote": "驚遠而懼邇也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 51,
+   "seg": "thoan",
+   "layer": "trinh_di",
+   "page": 556,
+   "printed": "mà cầu thân",
+   "corrected": "mà cầu thần",
+   "basis": "trinh_truyen",
+   "why": "Chữ 神 là \"thần\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "方其酌裸以求神"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 51,
+   "seg": "thoan",
+   "layer": "chu_hy",
+   "page": 556,
+   "printed": "là đáng khiếp sợ",
+   "corrected": "là dáng khiếp sợ",
+   "basis": "ban_nghia",
+   "why": "Chữ 貌 là \"dáng\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "虩虩恐懼驚顧之貌"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 51,
+   "seg": "dai_tuong",
+   "layer": "trinh_di",
+   "page": 557,
+   "printed": "Đấng quân tử sự oai của trời",
+   "corrected": "Đấng quân tử sợ oai của trời",
+   "basis": "trinh_truyen",
+   "why": "Chữ 畏 là \"sợ\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "君子畏天之威則修正其身"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 51,
+   "seg": "dai_tuong",
+   "layer": "trinh_di",
+   "page": 557,
+   "printed": "nghĩa xét lỗi mình",
+   "corrected": "nghĩ xét lỗi mình",
+   "basis": "trinh_truyen",
+   "why": "Chữ 思 là \"nghĩ\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "思省其過咎而改之"
    },
    "image": "the page image shows the printed words"
   },
@@ -5415,13 +9103,18 @@
   },
   {
    "n": 51,
-   "seg": "hao6",
-   "layer": "trinh_di",
-   "page": 562,
-   "printed": "chỗ gần với mình mình",
-   "corrected": "chỗ gần với mình",
-   "basis": "ngu_canh",
-   "why": "Chữ \"mình\" in lặp.",
+   "seg": "hao4",
+   "layer": "am",
+   "page": 560,
+   "printed": "ngoại nật",
+   "corrected": "toại nật",
+   "basis": "loi_kinh",
+   "why": "Chữ 遂 đọc là \"toại\" (lời Tượng in đúng \"toại nật\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/震",
+    "quote": "震遂泥"
+   },
    "image": "the page image shows the printed words"
   },
   {
@@ -5570,6 +9263,22 @@
   },
   {
    "n": 52,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 565,
+   "printed": "Thĩ dĩ bất hoạch",
+   "corrected": "Thị dĩ bất hoạch",
+   "basis": "loi_kinh",
+   "why": "Chữ 是 đọc là \"thị\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/艮",
+    "quote": "是以不獲其身"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 52,
    "seg": "dai_tuong",
    "layer": "trinh_di",
    "page": 566,
@@ -5629,6 +9338,38 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷4",
     "quote": "六二居中得正得止之道者也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 52,
+   "seg": "hao2",
+   "layer": "chu_hy",
+   "page": 567,
+   "printed": "quá cứng không giữ mà đậu",
+   "corrected": "quá cứng không giữa mà đậu",
+   "basis": "ban_nghia",
+   "why": "Chữ 不中 là \"không giữa\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "腓所隨也而過剛不中以"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 52,
+   "seg": "hao3",
+   "layer": "chu_hy",
+   "page": 568,
+   "printed": "không có duỗi được nữa",
+   "corrected": "không co duỗi được nữa",
+   "basis": "ban_nghia",
+   "why": "Chữ 屈伸 là \"co duỗi\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "則不得屈伸而上下判隔"
    },
    "image": "the page image shows the printed words"
   },
@@ -5805,6 +9546,22 @@
   },
   {
    "n": 53,
+   "seg": "hao2",
+   "layer": "trinh_di",
+   "page": 574,
+   "printed": "Năm lấy đạo giữ chính ứng nhau",
+   "corrected": "Năm lấy đạo giữa chính ứng nhau",
+   "basis": "trinh_truyen",
+   "why": "中正 là \"giữa chính\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "二與九五之君以中正之道相應"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 53,
    "seg": "hao3",
    "layer": "chu_hy",
    "page": 575,
@@ -5832,6 +9589,22 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/漸",
     "quote": "飲食衎衎，不素飽也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 53,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 575,
+   "printed": "phự dựng bất dục",
+   "corrected": "phụ dựng bất dục",
+   "basis": "loi_kinh",
+   "why": "Chữ 婦 đọc là \"phụ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/漸",
+    "quote": "婦孕不育"
    },
    "image": "the page image shows the printed words"
   },
@@ -6099,6 +9872,22 @@
    "image": "the page image shows the printed words"
   },
   {
+   "n": 54,
+   "seg": "hao6",
+   "layer": "am",
+   "page": 586,
+   "printed": "Nữ thừa không, vô thật",
+   "corrected": "Nữ thừa khuông, vô thật",
+   "basis": "loi_kinh",
+   "why": "Chữ 筐 đọc là \"khuông\" (lời Tượng cũng in \"thừa hư khuông\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/歸妹",
+    "quote": "女承筐无實，士刲羊无血"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
    "n": 55,
    "seg": "hao1",
    "layer": "nghia",
@@ -6127,6 +9916,38 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷4",
     "quote": "三應於上上應而无位"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 55,
+   "seg": "hao4",
+   "layer": "chu_hy",
+   "page": 594,
+   "printed": "\"Di\" là ngang hành",
+   "corrected": "\"Di\" là ngang hàng",
+   "basis": "ban_nghia",
+   "why": "等夷 là \"ngang hàng\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "夷等夷也謂初九"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 55,
+   "seg": "tieu_tuong4",
+   "layer": "trinh_di",
+   "page": 594,
+   "printed": "Ngôi chẳng đáng ý nó hào này",
+   "corrected": "Ngôi chẳng đáng ý nói hào này",
+   "basis": "trinh_truyen",
+   "why": "謂 là \"ý nói\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "位不當謂以不中正居髙位"
    },
    "image": "the page image shows the printed words"
   },
@@ -6197,6 +10018,22 @@
   {
    "n": 56,
    "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 598,
+   "printed": "chỉ nhi lê hồ minh",
+   "corrected": "chỉ nhi lệ hồ minh",
+   "basis": "loi_kinh",
+   "why": "Chữ 麗 đọc là \"lệ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/旅",
+    "quote": "止而麗乎明，是以小亨"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 56,
+   "seg": "thoan_truyen",
    "layer": "trinh_di",
    "page": 599,
    "printed": "Hào Sáu Trên ở ngôi Năm",
@@ -6207,6 +10044,38 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷4",
     "quote": "六上居五柔得中乎外也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 56,
+   "seg": "dai_tuong",
+   "layer": "am",
+   "page": 599,
+   "printed": "dĩ minh thuận dụng hình",
+   "corrected": "dĩ minh thận dụng hình",
+   "basis": "loi_kinh",
+   "why": "Chữ 慎 đọc là \"thận\" (Dịch nghĩa: \"sáng ghín\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/旅",
+    "quote": "君子以明慎用刑"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 56,
+   "seg": "tieu_tuong1",
+   "layer": "trinh_di",
+   "page": 600,
+   "printed": "Chí ý cùng gặt càng",
+   "corrected": "Chí ý cùng ngặt càng",
+   "basis": "trinh_truyen",
+   "why": "窮迫 là \"cùng ngặt\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "志意窮迫益自取災也"
    },
    "image": "the page image shows the printed words"
   },
@@ -6240,6 +10109,81 @@
     "chapter": "周易/旅",
     "quote": "終无尤也"
    },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 56,
+   "seg": "hao2",
+   "layer": "chu_hy",
+   "page": 601,
+   "printed": "có chỗ nương chờ",
+   "corrected": "có chỗ nương nhờ",
+   "basis": "ban_nghia",
+   "why": "有賴 là \"có chỗ nương nhờ\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "得其童僕之貞信則无欺而有賴"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 56,
+   "seg": "tieu_tuong2",
+   "layer": "am",
+   "page": 601,
+   "printed": "chung vô cửu dã",
+   "corrected": "chung vô vưu dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 尤 đọc là \"vưu\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/旅",
+    "quote": "得童僕貞，終无尤也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 56,
+   "seg": "tieu_tuong3",
+   "layer": "am",
+   "page": 602,
+   "printed": "diệc dĩ thương kỹ",
+   "corrected": "diệc dĩ thương hỹ",
+   "basis": "loi_kinh",
+   "why": "Chữ 矣 đọc là \"hỹ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/旅",
+    "quote": "旅焚其次，亦以傷矣"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 56,
+   "seg": "tieu_tuong4",
+   "layer": "am",
+   "page": 603,
+   "printed": "vị đắc vị đã",
+   "corrected": "vị đắc vị dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 也 đọc là \"dã\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/旅",
+    "quote": "旅于處，未得位也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 56,
+   "seg": "hao4",
+   "layer": "chu_hy",
+   "page": 603,
+   "printed": "với chữ 齊 (tư) cung âm",
+   "corrected": "với chữ 齊 (tư) cùng âm",
+   "basis": "ngu_canh",
+   "why": "Hai chữ cùng đọc là \"tư\", tức \"cùng âm\".",
    "image": "the page image shows the printed words"
   },
   {
@@ -6292,6 +10236,22 @@
   },
   {
    "n": 57,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 607,
+   "printed": "thị dĩ tiểu hành, lợi hữu",
+   "corrected": "thị dĩ tiểu hanh, lợi hữu",
+   "basis": "loi_kinh",
+   "why": "Chữ 亨 đọc là \"hanh\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/巽",
+    "quote": "是以小亨"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 57,
    "seg": "hao2",
    "layer": "chu_hy",
    "page": 609,
@@ -6308,6 +10268,70 @@
   },
   {
    "n": 57,
+   "seg": "hao2",
+   "layer": "am",
+   "page": 609,
+   "printed": "dựng sử vu phân nhược",
+   "corrected": "dụng sử vu phân nhược",
+   "basis": "loi_kinh",
+   "why": "Chữ 用 đọc là \"dụng\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/巽",
+    "quote": "用史巫紛若"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 57,
+   "seg": "hao2",
+   "layer": "trinh_di",
+   "page": 609,
+   "printed": "lòng thành tín với đấng thành minh",
+   "corrected": "lòng thành tín với đấng thần minh",
+   "basis": "trinh_truyen",
+   "why": "Chữ 神明 là \"thần minh\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "通誠意於神明者也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 57,
+   "seg": "tieu_tuong2",
+   "layer": "nghia",
+   "page": 609,
+   "printed": "Dường hời vậy mà tốt",
+   "corrected": "Bời bời vậy mà tốt",
+   "basis": "loi_kinh",
+   "why": "紛若 là \"bời bời vậy\" (lời hào in đúng).",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/巽",
+    "quote": "紛若之吉"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 57,
+   "seg": "hao4",
+   "layer": "trinh_di",
+   "page": 610,
+   "printed": "ba phẩm tức là kịp thời trên dưới",
+   "corrected": "ba phẩm tức là kịp tới trên dưới",
+   "basis": "trinh_truyen",
+   "why": "Chữ 及 là \"kịp tới\" (khắp tới trên dưới).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "田𫉬三品及於上下也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 57,
    "seg": "hao5",
    "layer": "nghia",
    "page": 611,
@@ -6319,6 +10343,22 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/巽",
     "quote": "无不利"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 57,
+   "seg": "hao5",
+   "layer": "am",
+   "page": 611,
+   "printed": "vô cơ hữu chung, tiêu canh tam nhật",
+   "corrected": "vô sơ hữu chung, tiên canh tam nhật",
+   "basis": "loi_kinh",
+   "why": "Chữ 初 đọc là \"sơ\", chữ 先 đọc là \"tiên\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/巽",
+    "quote": "无初有終，先庚三日"
    },
    "image": "the page image shows the printed words"
   },
@@ -6382,6 +10422,22 @@
    "image": "the page image shows the printed words"
   },
   {
+   "n": 57,
+   "seg": "tieu_tuong6",
+   "layer": "nghia",
+   "page": 613,
+   "printed": "của búa, chỉnh chưng",
+   "corrected": "của búa, chính chưng",
+   "basis": "loi_kinh",
+   "why": "Chữ 正 là \"chính\" (lời Chu Hy in đúng \"Chính chưng hung\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/巽",
+    "quote": "正乎凶也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
    "n": 58,
    "seg": "thoan_truyen",
    "layer": "nghia",
@@ -6410,6 +10466,38 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷4",
     "quote": "二澤相附麗也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 58,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 615,
+   "printed": "dân khuyết hỹ tai",
+   "corrected": "dân khuyến hỹ tai",
+   "basis": "loi_kinh",
+   "why": "Chữ 勸 đọc là \"khuyến\" (Dịch nghĩa in đúng \"khuyến khích\").",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/兌",
+    "quote": "民勸矣哉"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 58,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 616,
+   "printed": "Sở Cửu: Hòa đoái",
+   "corrected": "Sơ Cửu: Hòa đoái",
+   "basis": "cau_truc",
+   "why": "Hào đầu là \"Sơ Cửu\" (初九).",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/兌",
+    "quote": "初九"
    },
    "image": "the page image shows the printed words"
   },
@@ -6454,6 +10542,33 @@
    "corrected": "không thể quyết đoán",
    "basis": "ngu_canh",
    "why": "Chữ \"đoán\" in vỡ.",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 58,
+   "seg": "tieu_tuong4",
+   "layer": "trinh_di",
+   "page": 618,
+   "printed": "Gọi là cứng, nghĩa là",
+   "corrected": "Gọi là mừng, nghĩa là",
+   "basis": "trinh_truyen",
+   "why": "Câu này giải chữ 喜 là \"mừng\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "所謂喜者若守正而君說之"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 59,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 621,
+   "printed": "Thoát viết: Hoán hanh",
+   "corrected": "Thoán viết: Hoán hanh",
+   "basis": "ngu_canh",
+   "why": "Chữ 彖 đọc là \"Thoán\" (dòng Dịch nghĩa ngay dưới in đúng \"Lời Thoán\").",
    "image": "the page image shows the printed words"
   },
   {
@@ -6602,6 +10717,49 @@
   },
   {
    "n": 60,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 630,
+   "printed": "Thoát viết: Tiết hanh",
+   "corrected": "Thoán viết: Tiết hanh",
+   "basis": "ngu_canh",
+   "why": "Chữ 彖 đọc là \"Thoán\" (dòng Dịch nghĩa ngay dưới in đúng \"Lời Thoán\").",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 60,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 630,
+   "printed": "bá thương tài, bất hại dân",
+   "corrected": "bất thương tài, bất hại dân",
+   "basis": "loi_kinh",
+   "why": "Chữ 不 đọc là \"bất\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/節",
+    "quote": "不傷財，不害民"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 60,
+   "seg": "dai_tuong",
+   "layer": "trinh_di",
+   "page": 630,
+   "printed": "Cái chứa ở trong cái đức",
+   "corrected": "Cái chứa ở trong là đức",
+   "basis": "trinh_truyen",
+   "why": "Chữ 為 là \"là\" (vế sau in đúng \"là nết\").",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "存諸中為徳發於外為行"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 60,
    "seg": "hao1",
    "layer": "trinh_di",
    "page": 631,
@@ -6645,6 +10803,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷2",
     "quote": "以當節時非能節者"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 60,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 632,
+   "printed": "tắt ta nhược",
+   "corrected": "tắc ta nhược",
+   "basis": "loi_kinh",
+   "why": "Chữ 則 đọc là \"tắc\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/節",
+    "quote": "則嗟若"
    },
    "image": "the page image shows the printed words"
   },
@@ -6698,6 +10872,22 @@
   },
   {
    "n": 61,
+   "seg": "dai_tuong",
+   "layer": "trinh_di",
+   "page": 636,
+   "printed": "cho nên là Tượng “giữ tin”",
+   "corrected": "cho nên là Tượng “giữa tin”",
+   "basis": "trinh_truyen",
+   "why": "中孚 là \"giữa tin\" (Chu Hy cùng đoạn in đúng).",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "猶物之感于中故為中孚之象"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 61,
    "seg": "tieu_tuong1",
    "layer": "nghia",
    "page": 637,
@@ -6725,6 +10915,22 @@
   },
   {
    "n": 61,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 637,
+   "printed": "Sở Cửu: Ngu cát",
+   "corrected": "Sơ Cửu: Ngu cát",
+   "basis": "cau_truc",
+   "why": "Hào đầu là \"Sơ Cửu\" (初九); chữ 初 đọc là \"sơ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/中孚",
+    "quote": "初九"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 61,
    "seg": "tieu_tuong2",
    "layer": "nghia",
    "page": 638,
@@ -6736,6 +10942,22 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/中孚",
     "quote": "其子和之"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 61,
+   "seg": "tieu_tuong2",
+   "layer": "am",
+   "page": 638,
+   "printed": "Kỳ Tử họa chi, trung tâm nguyệt dã",
+   "corrected": "Kỳ Tử họa chi, trung tâm nguyện dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 願 đọc là \"nguyện\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/中孚",
+    "quote": "其子和之，中心愿也"
    },
    "image": "the page image shows the printed words"
   },
@@ -6799,6 +11021,81 @@
    "image": "the page image shows the printed words"
   },
   {
+   "n": 61,
+   "seg": "tieu_tuong6",
+   "layer": "am",
+   "page": 641,
+   "printed": "đăng vu thiên, hàn khả trường dã",
+   "corrected": "đăng vu thiên, hà khả trường dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 何 đọc là \"hà\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/中孚",
+    "quote": "翰音登于天，何可長也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 62,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 643,
+   "printed": "Thoát viết: Tiểu quá",
+   "corrected": "Thoán viết: Tiểu quá",
+   "basis": "ngu_canh",
+   "why": "Chữ 彖 đọc là \"Thoán\" (dòng Dịch nghĩa ngay dưới in đúng).",
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 62,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 644,
+   "printed": "bất nghị thượng, nghi hạ",
+   "corrected": "bất nghi thượng, nghi hạ",
+   "basis": "loi_kinh",
+   "why": "Chữ 宜 đọc là \"nghi\" (vế sau in đúng).",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/小過",
+    "quote": "不宜上宜下，大吉；上逆而下順也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 62,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 644,
+   "printed": "nghi hạ, đạt cát, thượng",
+   "corrected": "nghi hạ, đại cát, thượng",
+   "basis": "loi_kinh",
+   "why": "Chữ 大 đọc là \"đại\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/小過",
+    "quote": "不宜上宜下，大吉；上逆而下順也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 62,
+   "seg": "thoan_truyen",
+   "layer": "am",
+   "page": 644,
+   "printed": "thượng nghiệp nhi hạ thuận dã",
+   "corrected": "thượng nghịch nhi hạ thuận dã",
+   "basis": "loi_kinh",
+   "why": "Chữ 逆 đọc là \"nghịch\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/小過",
+    "quote": "不宜上宜下，大吉；上逆而下順也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
    "n": 62,
    "seg": "dai_tuong",
    "layer": "chu_hy",
@@ -6811,6 +11108,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷2",
     "quote": "山上有雷其聲小過"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 62,
+   "seg": "hao1",
+   "layer": "chu_hy",
+   "page": 646,
+   "printed": "Sách Đông Lâm của Quách Phác",
+   "corrected": "Sách Động Lâm của Quách Phác",
+   "basis": "ban_nghia",
+   "why": "Sách 洞林 của Quách Phác là \"Động Lâm\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "周易本義 (四庫全書本)/卷2",
+    "quote": "郭璞洞林占得此"
    },
    "image": "the page image shows the printed words"
   },
@@ -6844,6 +11157,22 @@
   {
    "n": 62,
    "seg": "hao6",
+   "layer": "am",
+   "page": 649,
+   "printed": "phi điểm ly chi",
+   "corrected": "phi điểu ly chi",
+   "basis": "loi_kinh",
+   "why": "Chữ 鳥 đọc là \"điểu\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/小過",
+    "quote": "弗遇過之，飛鳥離之"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 62,
+   "seg": "hao6",
    "layer": "chu_hy",
    "page": 650,
    "printed": "kẻ quá di đã cao mà rất xa",
@@ -6870,6 +11199,70 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "伊川易傳 (四庫全書本)/卷4",
     "quote": "天下萬事已濟之時也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 63,
+   "seg": "thoan",
+   "layer": "trinh_di",
+   "page": 651,
+   "printed": "Chữ “nhỏ” ở dưới, lời nói lên thế",
+   "corrected": "Chữ “nhỏ” ở dưới, lời nói nên thế",
+   "basis": "trinh_truyen",
+   "why": "語當然 là \"lời nói nên thế\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "小字在下語當然也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 63,
+   "seg": "thoan_truyen",
+   "layer": "trinh_di",
+   "page": 652,
+   "printed": "Tài quẻ cứng mềm cứng đáng với ngôi",
+   "corrected": "Tài quẻ cứng mềm chính đáng với ngôi",
+   "basis": "trinh_truyen",
+   "why": "正當 là \"chính đáng\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "卦才剛柔正當其位"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 63,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 653,
+   "printed": "Duệ kỳ luân, nhủ kỳ vỹ",
+   "corrected": "Duệ kỳ luân, nhu kỳ vỹ",
+   "basis": "loi_kinh",
+   "why": "Chữ 濡 đọc là \"nhu\" (hào Sáu Trên in đúng).",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/既濟",
+    "quote": "曳其輪，濡其尾，无咎"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 63,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 653,
+   "printed": "Sở Cửu: Duệ kỳ luân",
+   "corrected": "Sơ Cửu: Duệ kỳ luân",
+   "basis": "cau_truc",
+   "why": "Hào đầu là \"Sơ Cửu\" (初九); chữ 初 đọc là \"sơ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/既濟",
+    "quote": "初九"
    },
    "image": "the page image shows the printed words"
   },
@@ -7035,6 +11428,22 @@
   },
   {
    "n": 64,
+   "seg": "hao1",
+   "layer": "am",
+   "page": 660,
+   "printed": "Sơn lục: Nhu kỳ vĩ lận!",
+   "corrected": "Sơ lục: Nhu kỳ vĩ lận!",
+   "basis": "cau_truc",
+   "why": "Hào Đầu là 初六, đọc là \"Sơ lục\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/未濟",
+    "quote": "初六"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 64,
    "seg": "hao2",
    "layer": "trinh_di",
    "page": 661,
@@ -7057,6 +11466,22 @@
     "book": "WEB:zh_chuan_yi",
     "chapter": "周易本義 (四庫全書本)/卷2",
     "quote": "本非正以中故得正也"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 64,
+   "seg": "hao3",
+   "layer": "am",
+   "page": 661,
+   "printed": "Lục Tam: Vị thế chinh hung",
+   "corrected": "Lục Tam: Vị tế chinh hung",
+   "basis": "loi_kinh",
+   "why": "Chữ 濟 đọc là \"tế\" (lời Tượng ngay sau in đúng).",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/未濟",
+    "quote": "未濟，征凶，利涉大川"
    },
    "image": "the page image shows the printed words"
   },
@@ -7094,6 +11519,22 @@
   },
   {
    "n": 64,
+   "seg": "hao4",
+   "layer": "am",
+   "page": 662,
+   "printed": "Cửu Tý: Trinh cát",
+   "corrected": "Cửu Tứ: Trinh cát",
+   "basis": "cau_truc",
+   "why": "Hào Chín Tư, chữ 四 đọc là \"tứ\".",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/未濟",
+    "quote": "九四"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 64,
    "seg": "hao5",
    "layer": "nghia",
    "page": 663,
@@ -7105,6 +11546,38 @@
     "book": "WEB:zh_zhouyi",
     "chapter": "周易/未濟",
     "quote": "六五"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 64,
+   "seg": "hao5",
+   "layer": "am",
+   "page": 663,
+   "printed": "Cửu ngũ: Trinh cát, vong hối",
+   "corrected": "Lục ngũ: Trinh cát, vong hối",
+   "basis": "cau_truc",
+   "why": "Hào Năm của quẻ Vị Tế là hào âm (六五).",
+   "source": {
+    "book": "WEB:zh_zhouyi",
+    "chapter": "周易/未濟",
+    "quote": "六五"
+   },
+   "image": "the page image shows the printed words"
+  },
+  {
+   "n": 64,
+   "seg": "hao5",
+   "layer": "trinh_di",
+   "page": 663,
+   "printed": "là sự tốt hành của phần đức",
+   "corrected": "là sự tốt lành của phần đức",
+   "basis": "trinh_truyen",
+   "why": "徳之吉 là \"sự tốt lành của phần đức\".",
+   "source": {
+    "book": "WEB:zh_chuan_yi",
+    "chapter": "伊川易傳 (四庫全書本)/卷4",
+    "quote": "柔而能貞徳之吉也"
    },
    "image": "the page image shows the printed words"
   },
