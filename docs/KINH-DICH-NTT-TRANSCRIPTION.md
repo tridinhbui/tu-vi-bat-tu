@@ -275,24 +275,24 @@ The transcription still keeps the print. The reader sees a corrected reading onl
 1. **The page image shows the printed words**, exactly as transcribed.
 2. **Something other than the misprint decides the correction** (`basis`). When two readings are possible, the place stays as printed.
 
-**432 entries in 61 quẻ, made in two rounds.**
+**476 entries in 64 quẻ, made in three rounds.**
 
 | basis | what decides | entries |
 |---|---|---|
-| `trinh_truyen` | Trình Di's 伊川易傳 in Hán (WEB:zh_chuan_yi) | 178 |
-| `ngu_canh` | the context: a doubled word, a dropped tone mark, a word the same passage prints correctly | 87 |
-| `loi_kinh` | the Hán of the same line (周易, WEB:zh_zhouyi) | 82 |
-| `ban_nghia` | Chu Hy's 周易本義 in Hán (WEB:zh_chuan_yi) | 74 |
-| `cau_truc` | the quẻ's own lines: a hào named Chín where 周易 has 六, or the reverse | 10 |
+| `trinh_truyen` | Trình Di's 伊川易傳 in Hán (WEB:zh_chuan_yi) | 200 |
+| `ngu_canh` | the context: a doubled word, a dropped tone mark, a word the same passage prints correctly | 96 |
+| `loi_kinh` | the Hán of the same line (周易, WEB:zh_zhouyi) | 90 |
+| `ban_nghia` | Chu Hy's 周易本義 in Hán (WEB:zh_chuan_yi) | 78 |
+| `cau_truc` | the quẻ's own lines: a hào named Chín where 周易 has 六, or the reverse | 11 |
 | `chu_thich` | the translator's own footnote on that line | 1 |
 
 | layer | entries |
 |---|---|
-| Trình Di | 240 |
-| Chu Hy | 91 |
-| Dịch nghĩa | 85 |
-| tiên nho | 8 |
-| dịch âm | 8 |
+| Trình Di | 262 |
+| Chu Hy | 95 |
+| Dịch nghĩa | 91 |
+| tiên nho | 13 |
+| dịch âm | 15 |
 
 **New Hán source.** `WEB:zh_chuan_yi` is a new snapshot (`tools/snapshot_wikisource.py zh_chuan_yi`). It holds the rendered text of Wikisource's 四庫全書 transclusions of 周易本義 卷1–4 and 伊川易傳 卷1–4. These are the originals of the two commentaries that Ngô Tất Tố translates. Some glyphs are the scan's own forms (䝉, 隂).
 
@@ -313,10 +313,10 @@ The transcription still keeps the print. The reader sees a corrected reading onl
 - Quy Muội hào 3 Chu Hy: "chụa" → "chựa" (the print; the errata then reads "chưa");
 - Vị Tế tiểu tượng 1 Chu Hy: "chữa" → "chừa" (the print, already right).
 
-Three "[?]" marks can be read on the image ("xem", "thuận", "Nhân" in Tỷ, Lý and Thái). They are listed in the skipped file and left for a transcription pass.
+**Round 3 (44 entries).**
+- **Quẻ 46–48** (Thăng, Khốn, Tỉnh) had no readers' flags, so their whole text was read for misprints. 41 entries were kept, after 3 were dropped because the printed word was a real word ("này", "tri mệnh").
+- **Three damaged letters.** In Tỷ hào 4 Chu Hy, Lý Thoán truyện Trình Di and Thái Đại tượng Trình Di, the print has a broken or blotted letter ("x·m", "thuậ⌉", "·hân"). The transcription keeps "[?]", and the errata reads the word from the Hán (占者, 說順, 人君).
 
-**Interpretation quotes.** 65 quotes in `dien_giai/*.json` held a printed misreading. They were rewritten to the corrected words, so the lint still finds each quote in its layer.
+**Interpretation quotes.** 73 quotes in `dien_giai/*.json` held a printed misreading. They were rewritten to the corrected words, so the lint still finds each quote in its layer.
 
-**Not covered.**
-- Quẻ 46–48 (Thăng, Khốn, Tỉnh) had no readers' flags, and their commentary was not read for misprints.
-- Elsewhere, only flagged passages were read. An unflagged misprint can remain.
+**Not covered.** Outside quẻ 46–48, only flagged passages were read and the 9 Wikisource quẻ were compared word by word. An unflagged misprint can remain elsewhere.
