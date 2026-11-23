@@ -67,6 +67,18 @@ SETS = {
         "cite": "Phép bói",
         "status": "public-domain classical texts; Wikisource transcriptions (四庫全書本; 古今圖書集成 with machine punctuation)",
     },
+    # Chu Hy's 本義 and Trình Di's 傳 in Hán, the originals of the two commentaries Ngô Tất Tố translates: the basis for correcting a misprint in
+    # his Vietnamese (a hào or quái named wrongly, a dropped word). Both pages transclude the scanned 四庫全書 volumes, so the rendered text is
+    # saved (〈…〉 holds the small-print commentary; some rare glyphs are the scan's own forms, e.g. 䝉 for 蒙).
+    "zh_chuan_yi": {
+        "site": "zh.wikisource.org",
+        "pages": [],
+        "rendered": [f"周易本義 (四庫全書本)/卷{i}" for i in range(1, 5)] + [f"伊川易傳 (四庫全書本)/卷{i}" for i in range(1, 5)],
+        "title": "周易本義 · 伊川易傳",
+        "label_vi": "Chu Dịch bản nghĩa của Chu Hy và Y Xuyên Dịch truyện của Trình Di (Hán văn, bản Tứ khố toàn thư)",
+        "cite": "Bản nghĩa / Trình truyện",
+        "status": "public-domain classical texts; Wikisource transcriptions of the 四庫全書 scans (rendered text)",
+    },
 }
 
 
@@ -131,7 +143,7 @@ def snapshot(sid: str) -> None:
     titles = list(spec["pages"])
     if "list_prefix" in spec:
         titles += [t for t in list_prefix(spec["site"], spec["list_prefix"]) if t not in titles]
-    chapters = fetch(spec["site"], titles) + [rendered(spec["site"], t) for t in spec.get("rendered", [])]
+    chapters = (fetch(spec["site"], titles) if titles else []) + [rendered(spec["site"], t) for t in spec.get("rendered", [])]
     body = {"source": spec["title"], "site": spec["site"], "fetched": date.today().isoformat(), "chapters": chapters}
     raw = json.dumps(body, ensure_ascii=False, indent=1)
     (OUT / f"{sid}.json").write_text(raw + "\n", "utf-8")
@@ -139,7 +151,7 @@ def snapshot(sid: str) -> None:
     idx = json.loads(idx_file.read_text("utf-8"))
     idx["sources"][sid] = {
         "file": f"{sid}.json", "title": spec["title"], "label_vi": spec["label_vi"], "cite": spec["cite"],
-        "url": f"https://{spec['site']}/wiki/" + urllib.parse.quote(spec["pages"][0]), "pages": len(chapters),
+        "url": f"https://{spec['site']}/wiki/" + urllib.parse.quote((spec["pages"] or spec["rendered"])[0]), "pages": len(chapters),
         "fetched": body["fetched"], "sha256": hashlib.sha256((raw + "\n").encode("utf-8")).hexdigest(), "status": spec["status"],
     }
     idx_file.write_text(json.dumps(idx, ensure_ascii=False, indent=2) + "\n", "utf-8")

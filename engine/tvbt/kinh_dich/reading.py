@@ -330,9 +330,30 @@ class Reader:
         sections = [self.tinh_the(), self.loi_chinh(), self.hao_dong(), self.huong_chuyen(), self.chu_de(), self.dieu_kien(),
                     self.loi_khuyen(), self.cau_truc(), self.que_ho(), self.nguyen_van(), self.truong_phai()]
         sections = [s for s in sections if s and any(p["sentences"] for p in s["paragraphs"])]
+        mark_errata(sections)
         return {"system": "kinh_dich", "topic": self.topic, "hexagram": self.ban, "bien": self.bien, "ho": self.c["ho"],
                 "moving": self.c["moving"], "rule": self.rule, "sections": sections, "missing": sorted(set(self.missing)),
                 "status": "draft"}
+
+
+def errata_note(e: dict) -> str:
+    return f"Đính chính: bản in (tr. {e['page']}) ghi «{e['printed']}», ở đây đọc «{e['corrected']}». {e['why']}"
+
+
+def mark_errata(sections: list[dict]) -> None:
+    """A quoted line in which a misprint of the book was corrected says so in its căn cứ: what the page prints and why it is read otherwise."""
+    for sec in sections:
+        for p in sec["paragraphs"]:
+            for s in p["sentences"]:
+                notes = []
+                for f in s.get("from", []):
+                    if not f.get("quote") or not f.get("hexagram"):
+                        continue
+                    for e in quẻ_texts(f["hexagram"])["segments"].get(f.get("seg"), {}).get("errata", []):
+                        if e["layer"] == f.get("layer") and e["corrected"] in f["quote"]:
+                            notes.append(errata_note(e))
+                if notes:
+                    s["note"] = " ".join(([s["note"]] if s.get("note") else []) + notes)
 
 
 def lower_first(s: str) -> str:

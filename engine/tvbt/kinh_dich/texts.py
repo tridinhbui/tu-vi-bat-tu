@@ -127,6 +127,29 @@ def block_layers(b: dict) -> dict:
 
 
 @lru_cache(maxsize=None)
+def errata() -> list[dict]:
+    """Đính chính: misprints of the book corrected for the reader (engine/data/kinh_dich/ntt/errata.json). The transcription keeps the print;
+    each entry names the printed words (seen on the page image), the corrected words and what decides them: the Hán of the same line (周易),
+    Chu Hy's 本義 or Trình Di's 傳 in Hán (WEB:zh_chuan_yi), the structure of the quẻ, the translator's own footnote, or the context."""
+    f = ntt_dir() / "errata.json"
+    return json.loads(f.read_text("utf-8"))["errata"] if f.exists() else []
+
+
+def apply_errata(n: int, segments: dict) -> None:
+    """Replace each printed misreading by its correction in the joined layers, and list it on the segment (`errata`) for the reader."""
+    for e in errata():
+        if e["n"] != n or e["seg"] not in segments:
+            continue
+        seg = segments[e["seg"]]
+        text = seg["layers"].get(e["layer"], "")
+        if text.count(e["printed"]) != 1:
+            raise ValueError(f"errata {n} {e['seg']}.{e['layer']}: «{e['printed']}» must occur once, found {text.count(e['printed'])}")
+        seg["layers"][e["layer"]] = text.replace(e["printed"], e["corrected"])
+        seg.setdefault("errata", []).append({k: e[k] for k in ("layer", "printed", "corrected", "page", "basis", "why") if k in e}
+                                            | ({"source": e["source"]} if e.get("source") else {}))
+
+
+@lru_cache(maxsize=None)
 def quẻ_texts(n: int) -> dict:
     """{key: {kind, hao?, han, chiem, layers: {am, nghia, trinh_di, chu_hy, tien_nho}, pages, ntt: bool}} for quẻ n, keys as seg_key."""
     q = han_kb()[n]
@@ -157,4 +180,5 @@ def quẻ_texts(n: int) -> dict:
                 seg.setdefault("status", []).append(b["status"])
             if b.get("page") is not None:
                 seg["pages"].append(b["page"])
+        apply_errata(n, out)
     return {"number": n, "han": q["han"], "segments": out, "has_ntt": f.exists(), "unmatched": unmatched}

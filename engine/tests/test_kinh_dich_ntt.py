@@ -94,3 +94,37 @@ def test_page_text_from_transcription():
     assert book_text.pdf_page("KD", 63) == 59 and book_text.pdf_page("KD", 367) == 362 and book_text.pdf_page("KD", 667) == 661
     with pytest.raises(KeyError):
         book_text.pdf_page("KD", 366)
+
+
+# ---------------------------------------------------------------- đính chính (errata.json)
+ERRATA = json.loads((NTT / "errata.json").read_text("utf-8")) if (NTT / "errata.json").exists() else {"basis": {}, "errata": []}
+WEB = ROOT / "engine" / "data" / "sources_web"
+
+
+def _nz(s: str) -> str:
+    import re
+    v = str.maketrans({"隂": "陰", "徳": "德", "衆": "眾", "无": "無", "説": "說", "爲": "為", "䝉": "蒙", "羣": "群", "逺": "遠", "曵": "曳", "乗": "乘",
+                       "㢲": "巽"})
+    return re.sub(r"[^㐀-鿿]", "", s.translate(v))
+
+
+@pytest.mark.parametrize("e", ERRATA["errata"], ids=lambda e: f"{e['n']}-{e['seg']}-{e['layer']}")
+def test_errata_entry(e):
+    """Each correction: the printed words are on that page of the transcription (the print is kept), they occur once in their layer, the
+    page image was seen, the corrected words differ, and the Hán basis is in the saved snapshot it names."""
+    from tvbt.kinh_dich import texts
+    assert e["basis"] in ERRATA["basis"] and e["corrected"] != e["printed"] and e["why"]
+    assert e["image"] == "the page image shows the printed words"
+    page = kd_page(e["page"])
+    assert " ".join(e["printed"].split()) in " ".join(page.split())
+    seg = texts.quẻ_texts(e["n"])["segments"][e["seg"]]
+    assert e["corrected"] in seg["layers"][e["layer"]] and any(x["printed"] == e["printed"] for x in seg["errata"])
+    src = e.get("source")
+    if e["basis"] in ("loi_kinh", "cau_truc", "ban_nghia", "trinh_truyen"):
+        snap = json.loads((WEB / f"{src['book'][4:]}.json").read_text("utf-8"))
+        assert any(_nz(src["quote"]) in _nz(c["text"]) for c in snap["chapters"] if c["chapter"] == src["chapter"])
+
+
+def kd_page(p: int) -> str:
+    import book_text
+    return book_text.page_text("KD", p)

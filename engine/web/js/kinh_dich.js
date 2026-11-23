@@ -155,6 +155,13 @@ async function quẻText(n) {
   return textCache.get(n);
 }
 
+// misprints of the book read otherwise here (engine/data/kinh_dich/ntt/errata.json): what the page prints, and why
+function errataHtml(list) {
+  if (!list.length) return '';
+  const items = list.map(e => `<li>${esc(LAYER[e.layer] || 'dịch âm')}, trang ${esc(e.page)}: bản in ghi «${esc(e.printed)}», ở đây đọc «${esc(e.corrected)}». ${esc(e.why)}${e.source?.quote ? ` <span lang="zh">${esc(e.source.quote)}</span>` : ''}</li>`).join('');
+  return `<details class="kd-basis"><summary>Đính chính lỗi in (${list.length})</summary><ul>${items}</ul></details>`;
+}
+
 async function openHao(cast, p, opener) {
   const sheet = $('#kd-sheet'), box = sheet.firstElementChild;
   const h = cast.hao[p - 1];
@@ -178,6 +185,7 @@ async function openHao(cast, p, opener) {
     ${dg?.gist ? para('Diễn giải hiện đại (bản nháp)', dg.gist.text) : ''}
     <h3>Vị trí</h3><p>Hào ${h.yang ? 'dương' : 'âm'}, ${esc(facts)}. Ngôi của hào theo lệ chung là ngôi ${esc(h.rank)}.</p>
     ${para('Bản nghĩa của Chu Hy', L.chu_hy)}${para('Truyện của Trình Di', L.trinh_di)}
+    ${errataHtml([...(seg.errata || []), ...(tt.errata || [])])}
     ${t.has_translation ? '' : '<p class="notice">Quẻ này chưa có bản dịch Ngô Tất Tố trong kho: chỉ có nguyên văn chữ Hán.</p>'}
     <p class="note small">Bản dịch và lời bàn: Ngô Tất Tố, Kinh Dịch (dịch và chú giải). Ngôi, giữa, ứng theo phần “Những điều nên biết” của sách.</p>`;
 }
