@@ -349,6 +349,10 @@ export function cheHoaUnits(chart: ChartInput, P: string, k: Knowledge, said: Se
     const all = r.tamed.includes('*');
     const tamed = all ? [] : r.tamed.filter(n => has(pal, n) && !r.tamer.includes(n));
     if (!all && !tamed.length) continue;
+    // Tuần and Triệt act on the palace they stand on: a "sợ Tuần, Triệt" or "không sợ Tuần, Triệt" relation holds only when both sides share
+    // that palace, never across a tam phương or xung chiếu (audit 2026-11-22: "Thiên Tướng gặp Triệt từ cung Thiên Di chiếu sang")
+    const TT = (n: string) => n === 'Tuần' || n === 'Triệt';
+    if ((holders.some(TT) || tamed.some(TT)) && hp !== pal) continue;
     // two chính tinh named as one pair ("Cự Đồng hãm …"): both must stand in the palace
     if (r.tamed.length === 2 && r.tamed.every(n => CHINH_TINH.includes(n)) && tamed.length < 2) continue;
     if (all && !pal.major_stars.length && !pal.stars.length) continue;

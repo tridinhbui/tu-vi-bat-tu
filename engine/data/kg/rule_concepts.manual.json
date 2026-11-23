@@ -9037,7 +9037,13 @@
    "asserts": [
     {
      "concept": "rel.jealous",
-     "stance": "affirms"
+     "stance": "affirms",
+     "gender": "nam"
+    },
+    {
+     "concept": "life.indulgent",
+     "stance": "affirms",
+     "gender": "nữ"
     },
     {
      "concept": "rel.strain",
@@ -9045,7 +9051,8 @@
     }
    ],
    "src": "manual",
-   "review": "draft"
+   "review": "draft",
+   "note": "HS p.101 splits by partner: 'vợ thì hay ghen' for a man's chart, 'chồng thì ham chơi' for a woman's; lift.ts keeps only the half for the chart's gender (audit 2026-11-22)"
   },
   "TV_HS_THAM_LANG_PHU_THE_PHU_THE_DAN_THAN": {
    "asserts": [

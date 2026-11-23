@@ -61,3 +61,33 @@ export function citeVi(locator: string): string {
   if (!m) return '';
   return `${{ TH: 'Thực Hành', TT: 'Toàn Thư', KL: 'Khảo Luận' }[m[1] as 'TH' | 'TT' | 'KL']} tr.${m[2].replace(/-/g, '–')}`;
 }
+
+const BRIGHT_CLASS = new Set<DignityLevel>(['miếu', 'vượng', 'đắc']);
+const ORDER: DignityLevel[] = ['miếu', 'vượng', 'đắc', 'lợi', 'bình', 'hãm'];
+type DigCell = { status: string; value?: string; alternatives?: Array<{ value: string | null }>; variants?: Array<{ value: string }> };
+
+/** The level a chính tinh may be read at when its cell has no single checked level but every book that gives one agrees on the class
+ *  (audit 2026-11-22, C5): Tham Lang at Tuất is CONFLICT in Khảo Luận (vượng p.189, miếu p.101) and miếu in Thực Hành and Toàn Thư, yet
+ *  the prose said "không có chính tinh sáng". A CONFLICT cell whose alternatives (and the other schools' readings) are all bright reads
+ *  at the weakest of them; an UNVERIFIED cell does the same when at least two other schools give it and all agree. Any value outside
+ *  the class (a hãm beside a vượng), or a single reading, keeps it unknown: school disagreement is never decided here. */
+export function agreedLevel(cell: DigCell | undefined): DignityLevel | null {
+  if (!cell || (cell.status !== 'CONFLICT' && cell.status !== 'UNVERIFIED')) return null;
+  const alts = (cell.alternatives ?? []).map(a => a.value), vars = (cell.variants ?? []).map(v => v.value);
+  if (alts.some(v => v == null)) return null;
+  const vals = [...alts, ...vars] as DignityLevel[];
+  if (cell.status === 'UNVERIFIED' ? vars.length < 2 : !alts.length) return null;
+  const cls = (v: DignityLevel) => BRIGHT_CLASS.has(v) ? 'bright' : v === 'hãm' ? 'ham' : 'mid';
+  if (!vals.length || vals.some(v => !ORDER.includes(v)) || new Set(vals.map(cls)).size !== 1 || cls(vals[0]) === 'mid') return null;
+  return vals.reduce((a, b) => ORDER.indexOf(b) > ORDER.indexOf(a) ? b : a);
+}
+
+/** The chart with each chính tinh's agreed level filled in where `major_dignity` has none (see agreedLevel), marked in
+ *  `dignity_agreed` so a sentence can tell a page-checked level from an agreed one. Applied once where the facts enter (route.ts). */
+export function withAgreedDignity<T extends { palaces: Array<{ major_stars: string[]; major_dignity: Record<string, string | null>; dignity_status?: Record<string, unknown> }> }>(chart: T): T {
+  return { ...chart, palaces: chart.palaces.map(p => {
+    const add: Record<string, DignityLevel> = {};
+    for (const s of p.major_stars) if (!p.major_dignity?.[s]) { const v = agreedLevel(p.dignity_status?.[s] as DigCell | undefined); if (v) add[s] = v; }
+    return Object.keys(add).length ? { ...p, major_dignity: { ...p.major_dignity, ...add }, dignity_agreed: Object.fromEntries(Object.keys(add).map(s => [s, true])) } : p;
+  }) };
+}

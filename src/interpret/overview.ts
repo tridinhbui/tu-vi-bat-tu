@@ -6,6 +6,7 @@ import { computeIndices, INDICES_VERSION, type IndexNorms, type Indices } from '
 import { reasonMenh, REASONER_VERSION, type ReadingPlan } from './reason/plan.ts';
 import type { Reading } from './reason/adjudicate.ts';
 import type { SeatRef } from './reason/tiers.ts';
+import { withAgreedDignity } from './dignity.ts';
 import { cacheKey, type KnowledgeStore, type OutputCache } from './store.ts';
 import type { ChartInput, Knowledge } from './types.ts';
 
@@ -80,7 +81,8 @@ export async function handleOverview(request: Request, d: OverviewDeps): Promise
   if (!birth) return json({ detail: 'invalid JSON' }, 400);
   const factsRes = await d.facts(birth);
   if (!factsRes.ok) return new Response(factsRes.body, { status: factsRes.status, headers: factsRes.headers });
-  const facts = await factsRes.json() as ChartInput;
+  // a chính tinh every book places in the same class is read at that class (dignity.ts agreedLevel, audit 2026-11-22 C5)
+  const facts = withAgreedDignity(await factsRes.json() as ChartInput);
   const k = await d.store.load();
   const key = await cacheKey([facts.base, facts.decades, facts.year, 'overview', OVERVIEW_VERSION, INDICES_VERSION, REASONER_VERSION, k.version, NORMS.kbVersion, NORMS.version, d.codeRev ?? null]);
   const hit = await d.cache?.get(key);

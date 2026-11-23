@@ -15,6 +15,7 @@ import { planView } from './reason/plan.ts';
 import { analyses } from './reason/analysis.ts';
 import { baziGraph } from './reason/bazi_graph.ts';
 import { cacheKey, type KnowledgeStore, type OutputCache } from './store.ts';
+import { withAgreedDignity } from './dignity.ts';
 import type { ChartInput, Knowledge } from './types.ts';
 
 export interface InterpretDeps {
@@ -59,7 +60,8 @@ export async function handleInterpret(request: Request, d: InterpretDeps): Promi
   const { chapter: _c, mode: _m, ...birth } = body;
   const factsRes = await d.facts(birth);
   if (!factsRes.ok) return new Response(factsRes.body, { status: factsRes.status, headers: factsRes.headers });
-  const facts = await factsRes.json() as ChartInput;
+  // a chính tinh every book places in the same class is read at that class (dignity.ts agreedLevel, audit 2026-11-22 C5)
+  const facts = withAgreedDignity(await factsRes.json() as ChartInput);
   const k = await d.store.load();
   // the Bát Tự chapter reads facts.bazi (pillars, luck), the others the Tử Vi facts; both go into the key so no chapter can hit a stale entry
   const key = await cacheKey([facts.base, facts.decades, facts.year, facts.bazi ?? null, chapter, ENGINE_VERSION, k.version, d.codeRev ?? null, mode, body.analysis === true, mode === 'prose' ? [PROSE_VERSION, d.proseDraft, d.deep !== false, d.luan !== false ? LUAN_VERSION : null, 'checked'] : mode === 'reasoned' ? [NARRATIVE_VERSION, d.proseDraft] : null]);

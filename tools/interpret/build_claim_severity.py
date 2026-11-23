@@ -17,7 +17,9 @@ CLASSES = {
     "tho_yeu": {"topic": "thọ yểu", "re": r"\bthọ\b|yểu|\bchết\b|tử vong|mất sớm|đoản mệnh|mạng vong|chết non|sống lâu|qua đời|tuổi thọ|nguy đến tính mạng"},
     "sinh_san": {"topic": "đường con cái", "re": r"đông con|nhiều con|hiếm con|muộn con|chậm con|không con|vô tự|tuyệt tự|sát con|khó nuôi con|con khó nuôi|ít con|sẩy thai|hư thai|khó có con|hiếm muộn|không có con"},
     "hon_nhan_vo": {"topic": "đổ vỡ hôn nhân", "re": r"ly hôn|ly dị|góa|goá|tái giá|bỏ nhau|đổ vỡ|dang dở|sinh ly tử biệt|khắc vợ|khắc chồng|sát phu|sát thê|lập gia đình hai lần|hai lần lập gia đình|nhiều đời chồng"},
-    "vat_chat_nang": {"topic": "hao tổn tài sản lớn", "re": r"phá sản|chiếm đoạt|tán gia|khuynh gia|bại sản|mất hết|trắng tay|tan cửa nát nhà"},
+    "vat_chat_nang": {"topic": "hao tổn tài sản lớn", "re": r"phá sản|chiếm đoạt|tán gia|khuynh gia|bại sản|mất hết|trắng tay|tan cửa nát nhà|hỏa hoạn|cháy nhà"},
+    # added 2026-11-22 (audit C13): a family "carrying karmic revenge" is as heavy as the others and asks nothing the reader can act on
+    "nghiep_bao": {"topic": "nghiệp báo, oán thù trong dòng họ", "re": r"nghiệp báo|báo oán|thù dai"},
     "tat_xau": {"topic": "thói ham vui, sa đà", "re": r"cờ bạc|phóng đãng|trộm|\bdâm\b|nghiện|rượu chè|gian xảo|gian manh|gian dối|lừa đảo|bất lương|trác táng|đàng điếm"},
     "phap_ly": {"topic": "chuyện tù tội", "re": r"\btù\b|\bngục\b|tù tội|hình ngục|tội vạ"},
     "moc_tuoi": {"topic": "mốc tuổi", "re": r"\b\d{2}\s*tuổi"},

@@ -38,6 +38,10 @@ export function lift(findings: Finding[], k: Knowledge, base: Record<string, Fac
     const facts = { ...(base.chart ?? {}), ...(base[f.subject] ?? {}) };
     const atoms = triggerAtoms(rule.conditions, facts, world, f.palace).filter(x => !x.palace || !(link.protectors ?? []).includes(x.palace)), sig = signature(atoms);
     for (const a of link.asserts) {
+      // a gender-split book sentence ("vợ thì hay ghen, chồng thì ham chơi") asserts only its own half: the partner of this chart
+      // (audit 2026-11-22, C6)
+      const g = (a as { gender?: 'nam' | 'nữ' }).gender;
+      if (g && facts['chart.gender'] !== g) continue;
       out.assertions.push({ key: `${f.ruleId}|${f.subject}|${a.concept}`, ruleId: f.ruleId, subject: f.subject, palace: f.palace, concept: a.concept,
         stance: a.stance, strength: a.strength ?? 'tendency', effect: f.effect, atoms, sig, cites: rule.cites, review: link.review, additive: !!link.additive });
     }

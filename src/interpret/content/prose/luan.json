@@ -1133,7 +1133,7 @@
       "even": "hai bên ngang nhau"
     },
     "shield_only": [
-      "Ở cung Tật Ách có {shield} là những sao cứu giải, mà không có sát tinh, Hóa Kỵ hay chính tinh hãm nào đè lên"
+      "Cung Tật Ách có {shield} đứng về phía cứu giải, và không có sát tinh, Hóa Kỵ hay chính tinh hãm nào đè lên"
     ],
     "press_only": [
       "Cung Tật Ách có {press} mà không có sao cứu giải nào đứng cùng, nên phần giữ gìn là chính"
@@ -1156,5 +1156,16 @@
       "me": "phía mẹ đứng vững hơn phía cha",
       "even": "hai phía ngang nhau"
     }
+  },
+  "frame_tp": {
+    "sat": [
+      "Ba cung chiếu về Mệnh mang {sats}, đều thuộc nhóm sát tinh, nên những điều thuận của Mệnh nói dưới đây cần đọc kèm phần vướng ấy"
+    ],
+    "cat": [
+      "Ba cung chiếu về Mệnh mang {cats}, thuộc nhóm cát tinh, là phần đỡ thêm cho Mệnh"
+    ],
+    "mixed": [
+      "Ba cung chiếu về Mệnh vừa có {cats} thuộc nhóm cát tinh, vừa có {sats} thuộc nhóm sát tinh: phần đỡ và phần vướng đến cùng lúc"
+    ]
   }
 }

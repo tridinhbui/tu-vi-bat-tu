@@ -18,6 +18,8 @@ import type { Labelled } from '../kg/lift.ts';
 import type { Resolved } from '../kg/resolve.ts';
 import { reasonPalace, type ReadingPlan, type Thesis } from '../reason/plan.ts';
 import { courseSentences, COURSE_PALACES } from './course.ts';
+import { computeIndices, type IndexNorms } from '../indices.ts';
+import indexNorms from '../../../engine/data/kg/index_norms.json' with { type: 'json' };
 import { CAT, SAT } from '../kg/atoms.ts';
 import { buildLedger, verdictKey, type DomainVerdict, type Ledger, type LedgerItem } from '../reason/ledger.ts';
 import type { Element } from '../reason/evidence.ts';
@@ -69,6 +71,8 @@ export interface LuanLib {
 export interface LuanChapter extends ProseChapter { title: string; luan: true; theses: string[] }
 
 export const LUAN_VERSION = 'luan-0.2.0';
+const INDEX_NORMS = indexNorms as IndexNorms;
+const GRAVE_NP = /thọ|yểu|chết|bệnh|tai nạn|hiếm muộn|đông con|ít con/iu;
 const fill = (t: string, v: Record<string, string>) => t.replace(/\{([A-Za-z_]+)\}/g, (_, key) => { if (v[key] === undefined) throw new Error(`slot {${key}} unfilled in: ${t}`); return v[key]; });
 const RANK: Record<string, number> = { 'miếu': 6, 'vượng': 5, 'đắc': 4, 'lợi': 3, 'bình': 2, 'hãm': 1 };
 /** pairs that flank a palace from its two neighbours (cung giáp), named as the books name them; Hóa pairs from the natal Tứ Hóa */
@@ -80,7 +84,9 @@ const LATE_FROM = 43;
 /** the last đại hạn told there starts at this age (a hạn from 83 on is left to the đại hạn chapter) */
 const LATE_TO = 73;
 const TOPIC_ORDER: Topic[] = ['tinh_cach', 'su_nghiep', 'tai_loc', 'quy_nhan', 'quan_he', 'the_trang', 'duong_doi'];
-const CONNECTIVE_OPEN = /^(Cũng vậy|Ngoài ra|Đồng thời|Thêm vào đó|Bên cạnh đó|Mặt khác|Hơn nữa|Lại nữa|Cũng thế|Về đường đời|Trên đường đời|Về nhịp chung),\s*/u;
+// an anaphor with nothing before it ("Cũng từ thế ấy") and a topic opener the lead-in replaces ("Riêng chuyện thời điểm") go too (audit
+// 2026-11-22: "Về song thân cũng từ thế ấy, …", "Về sức vóc riêng chuyện thời điểm, …")
+const CONNECTIVE_OPEN = /^(Cũng vậy|Ngoài ra|Đồng thời|Thêm vào đó|Bên cạnh đó|Mặt khác|Hơn nữa|Lại nữa|Cũng thế|Về đường đời|Trên đường đời|Về nhịp chung|Cũng từ thế ấy|Cùng thế ấy|Cũng vì vậy|Riêng chuyện thời điểm|Về thời điểm),\s*/u;
 /** a paragraph holds at most this many sentences before the topic goes on in the next one (the reference's paragraphs run 5–8) */
 const PARA_MAX = 8;
 /** facets whose concepts are traits: only these are set side by side in a tail or named in the closing (a course concept such as
@@ -422,6 +428,22 @@ export function luanChapter(chart: ChartInput, k: Knowledge, id: ProseChapterId,
   let thanNp: string | null = null, thanPal: Palace | null = null, lateAge: string | null = null, lateCalm = false, thanAlone: ProseSentence[] = [];
   if (isMenh) {
     // cung giáp, nhị hợp, lục hại are positions the books in the repository give no natal reading: notes on the frame, not a paragraph
+    // the sát and cát tinh of the three palaces that chiếu into Mệnh, named where they stand: a Mệnh whose tam phương holds Không, Kiếp and
+    // Kình was read without them (audit 2026-11-22, C11). Positions and the books' star groups only; the readings stay with their rules
+    const FT = (L as LuanLib & { frame_tp?: Record<'sat' | 'cat' | 'mixed', string[]> }).frame_tp;
+    if (FT && paras[0]) {
+      const others = [4, 8, 6].map(dd => chart.palaces.find(p => p.branch_index === (pal.branch_index + dd) % 12)!);
+      const at = (names: string[]) => others.map(p => ({ p, xs: names.filter(n => p.stars.includes(n)) })).filter(x => x.xs.length);
+      const say = (xs: Array<{ p: Palace; xs: string[] }>) => joinVi(xs.map(x => `${x.xs.join(', ')} ở ${x.p.name}`));
+      const sats = at(SAT), cats = at(CAT);
+      const nS = sats.reduce((a, x) => a + x.xs.length, 0), nC = cats.reduce((a, x) => a + x.xs.length, 0);
+      const kind = nS >= 2 && nC >= 1 ? 'mixed' : nS >= 2 ? 'sat' : nC >= 2 && !nS ? 'cat' : null;
+      if (kind) {
+        const st = S(fill(W.pick(`ftp|${kind}`, FT[kind]), { sats: say(sats), cats: say(cats) }), { move: 'ANCHOR', step: 'frame:tp', basis: 'tinh_toan', part: 1 });
+        st.trace.note = 'Các sao thuộc nhóm sát tinh (Kình, Đà, Hỏa, Linh, Không, Kiếp) và cát tinh (Tả Hữu, Xương Khúc, Khôi Việt) ở hai cung tam hợp và cung xung chiếu của Mệnh: vị trí và nhóm sao, không thêm lời luận.';
+        paras[0].sentences.push(st); paras[0].text = paras[0].sentences.map(x => x.text).join(' ');
+      }
+    }
     const vt = positionSentences(W, L, chart, pal), frameEnd = paras[0]?.sentences.at(-1);
     if (vt.length && frameEnd) addNote(frameEnd, withLead(lead('vi_tri'), vt.map(s => s.text).join(' ')));
     const than = chart.palaces.find(p => p.is_than) ?? pal;
@@ -720,7 +742,8 @@ function tail(W: Writer, L: LuanLib, xs: ProseSentence[], units: Array<{ seat?: 
   // two strengths set side by side only when both were told plainly: a softened claim means the two do not simply 'go one way'
   else if (!neg.length && !answer && strong.length >= 2) {
     // a palace of other people: two of their traits are not set side by side (DEEP-3: the pairing read the same on most charts)
-    const [a, b] = strong, th = W.theirs(a) || W.theirs(b);
+    // a concept of a grave topic (thọ yểu, bệnh tật …) whose book sentence went to Đọc sâu is not brought back by the synthesis (audit C14)
+    const [a, b] = strong.filter(c => !GRAVE_NP.test(W.np(c))), th = !a || !b || W.theirs(a) || W.theirs(b);
     if (!th)
       out.push(W.sentence(fill(W.pick(`tail|synth|${key}`, L.tail.synth), { a: W.np(a), b: W.np(b) }), { move: 'VALUE', step: `synth:${a}|${b}`, basis: 'he_thong', concepts: [a, b] }));
   }
@@ -799,7 +822,13 @@ function lateSentences(W: Writer, L: LuanLib, chart: ChartInput): { xs: ProseSen
   if (!ds.length) return { xs: [], age: null, calm: false };
   const age = (d: { age_from: number; age_to: number }) => `${d.age_from}–${d.age_to}`;
   const item = (x: typeof ds[number], i: number) => fill(W.pick(`late|item|${i}`, L.late.item), { age: age(x.d), pal: x.d.palace });
-  const neg = ds.filter(x => KL_NEG.has(x.kl!.relation)).slice(0, 3), pos = ds.filter(x => KL_POS.has(x.kl!.relation)).slice(0, 2);
+  // a hạn is told as hard only when its whole level agrees (the đại hạn chapter, the period chart and the palace courses read that level):
+  // a tuổi-against-hạn relation inside a hạn the system ranks Thuận is one of its limits, not the hard hạn of later life (audit
+  // 2026-11-22, C1: "46–55 … chặng phải giữ mình nhất" beside "46–55 … mức chung thuận")
+  const lv = new Map(computeIndices(chart, W.k, INDEX_NORMS).decades.map(d => [d.age_from, d]));
+  const level = (x: typeof ds[number]) => lv.get(x.d.age_from);
+  const neg = ds.filter(x => KL_NEG.has(x.kl!.relation) && !(level(x) && !level(x)!.insufficient && level(x)!.level >= 3)).slice(0, 3),
+    pos = ds.filter(x => KL_POS.has(x.kl!.relation) && !(level(x) && !level(x)!.insufficient && level(x)!.level <= 1)).slice(0, 2);
   const cite = ['KL pp.230-233'];
   const text = neg.length
     ? fill(W.pick('late|list', L.late.list), { neg: joinVi(neg.map(item)), pos: pos.length ? fill(W.pick('late|pos', L.late.pos), { list: joinVi(pos.map((x, i) => item(x, i + 5))) }) : '' })
@@ -1040,12 +1069,15 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   let key: string | null = null;
   const vals: Record<string, string> = { domain: v.label, pos: np(bp), neg: np(bn), link: '', ground: '', limits, palace, stars: '', mitig: '', supports: joinVi(v.supports.map(elName)), S: W.S(), gpos: '', gneg: '', fpos: '', fneg: '' };
   const OPTIONAL = new Set(['mitig']);
+  // the two readings set against each other (bp / bn unless a verdict below picks its own pair)
+  let pI: LedgerItem | undefined = bp, nI: LedgerItem | undefined = bn;
   // health is never judged good or bad: with both sides, the two book readings are named and nothing is concluded (audit 2026-10-22)
   if (v.verdict === 'khong_ket_luan') { const bm = bp ?? best(v.mitig ?? []); if (!(bm && bn) || !G.health_both?.length) return []; key = 'health_both'; vals.pos = np(bm); }
   // both sides and no book sentence between them: named, with what each stands on, and left unresolved
   else if (v.verdict === 'chua_phan_xu') { key = 'chua_phan_xu'; vals.gpos = starsGround(bp, '+'); vals.gneg = starsGround(bn, '-'); }
   // both sides and the system's scale found one heavier (owner decision 2026-10-23): both named, then the heavier side and why
-  else if (v.verdict === 'nghieng_ve' && v.weigh) { key = 'weighed'; vals.pos = np(v.base === '+' ? v.weigh.heavy : v.weigh.light);
+  else if (v.verdict === 'nghieng_ve' && v.weigh) { key = 'weighed'; pI = v.base === '+' ? v.weigh.heavy : v.weigh.light; nI = v.base === '+' ? v.weigh.light : v.weigh.heavy;
+    vals.pos = np(v.base === '+' ? v.weigh.heavy : v.weigh.light);
     vals.neg = np(v.base === '+' ? v.weigh.light : v.weigh.heavy); vals.gpos = starsGround(v.base === '+' ? v.weigh.heavy : v.weigh.light, '+');
     vals.gneg = starsGround(v.base === '+' ? v.weigh.light : v.weigh.heavy, '-'); }
   // two sides on different facets: both hold, each named with what it is about
@@ -1053,7 +1085,7 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   // and telling it would read as "chưa phân xử" for a verdict that says both hold (review 2026-10-22, D)
   else if (v.verdict === 'hai_mat') { const fl = (L as LuanLib & { facet_label?: Record<string, string> }).facet_label ?? {}; key = 'coexist';
     const hp = v.pos.find(x => x.ruleId === v.link?.ruleId) ?? bp!, hn = v.neg.find(x => x.ruleId === v.link?.target) ?? bn!;
-    vals.pos = np(hp); vals.neg = np(hn);
+    pI = hp; nI = hn; vals.pos = np(hp); vals.neg = np(hn);
     vals.fpos = fl[W.concept(hp.concept)?.facet ?? ''] ?? ''; vals.fneg = fl[W.concept(hn.concept)?.facet ?? ''] ?? '';
     if (!vals.fpos || !vals.fneg || vals.fpos === vals.fneg) { key = 'coexist_plain'; vals.gpos = starsGround(hp); vals.gneg = starsGround(hn); } }
   // a limit a book relation makes lighter: still a limit, with its mitigating factor
@@ -1078,6 +1110,14 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
     else if (v.limits.some(l => !bn.stars.includes(l.star ?? ''))) { key = 'neg_struct'; vals.limits = joinVi([...new Set(v.limits.filter(l => !bn.stars.includes(l.star ?? '') && !(l.kind === 'hoa_ky' && v.limits.some(m => m.kind === 'ky_carrier' && m.star === l.star))).map(elName))]); }
     else key = 'neg';
   } else if (lk === 'timing') { key = 'timing_only'; vals.link = linkText(); }
+  // a limit reading that counters a strength shares its concept ("Tử Vi ở Tài Bạch gặp sát tinh: tiền bạc không vượng" is fin.abundance
+  // countered): naming both sides by the concept label set "tài lộc" against "tài lộc" (audit 2026-11-22, C3). The limit side is then
+  // named by its own claim; with no distinct claim the pair is not told as two sides
+  const sideName = new Map<LedgerItem | undefined, string>();
+  if (vals.pos && vals.neg && vals.pos === vals.neg && key && key !== 'health_both') {
+    const cn = claimOf(nI?.ruleId);
+    if (cn && cn !== vals.pos) { vals.neg = cn; sideName.set(nI, `mặt ${cn}`); } else key = null;
+  }
   if (!key || !G[key]?.length || Object.entries(vals).some(([k2, x]) => !x && !OPTIONAL.has(k2) && G[key!].some(t => t.includes(`{${k2}}`)))) {
     return verdictWords ? [W.sentence(fill(W.pick(`lalone|${v.id}`, G.verdict_alone), { domain: v.label, verdict: verdictWords }), tr(5, `ledger:${v.id}`))] : [];
   }
@@ -1090,7 +1130,7 @@ function ledgerSentences(W: Writer, L: LuanLib, v: DomainVerdict, P: string, sh:
   const out = [main];
   if (key === 'weighed' && v.weigh && G.weigh_line?.length) {
     const why = weighWhy(W, G, v);
-    if (why) out.push(W.sentence(fill(W.pick(`lw|${v.id}`, G.weigh_line), { heavy: np(v.weigh.heavy), light: np(v.weigh.light), why }),
+    if (why) out.push(W.sentence(fill(W.pick(`lw|${v.id}`, G.weigh_line), { heavy: sideName.get(v.weigh.heavy) ?? np(v.weigh.heavy), light: sideName.get(v.weigh.light) ?? np(v.weigh.light), why }),
       { ...tr(5, `ledger:${v.id}:weigh`), note: 'Lời tổng hợp: hai mặt đều có căn cứ, không câu sách nào xếp bên nào trên; bên nặng hơn là theo thang cân của hệ thống (chính tinh hơn phụ tinh, cung chính hơn cung tam phương, sao sáng/hãm, Tuần Triệt, số chỗ đứng).' }));
   }
   // two sides left unresolved: what is missing to decide them is said, not left as a bare "chưa phân xử" (review 2026-10-22, B.4) — the

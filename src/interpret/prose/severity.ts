@@ -8,6 +8,7 @@
 // The classes come from engine/data/kg/claim_severity.json (tools/interpret/build_claim_severity.py, hand-reviewed).
 import SEV from '../../../engine/data/kg/claim_severity.json' with { type: 'json' };
 import type { ProseParagraph, ProseSentence } from './realize.ts';
+import { withLead } from './luan.ts';
 import type { ChartInput, Knowledge } from '../types.ts';
 import norms from '../../../engine/data/kg/index_norms.json' with { type: 'json' };
 import { computeIndices, type IndexNorms } from '../indices.ts';
@@ -95,7 +96,8 @@ export function severityParagraphs(ps: ProseParagraph[], chart?: ChartInput, k?:
     if (!changed) return [p];
     // a paragraph left with only the system's own words restated what was moved: it goes (as prose/checked.ts does for phổ thông)
     if (!kept.length || kept.every(s => s.trace.basis !== 'sach' && s.trace.basis !== 'tinh_toan' && !s.trace.ledger)) return [];
-    const sentences = p.lead && !kept[0].text.startsWith(p.lead) ? [{ ...kept[0], text: `${p.lead} ${kept[0].text.charAt(0).toLocaleLowerCase('vi')}${kept[0].text.slice(1)}` }, ...kept.slice(1)] : kept;
+    // the lead-in moves to the first sentence kept, the same way prose/checked.ts moves it (comma, opening anaphor dropped)
+    const sentences = p.lead && !kept[0].text.startsWith(p.lead) ? [{ ...kept[0], text: withLead(p.lead, kept[0].text) }, ...kept.slice(1)] : kept;
     return [{ ...p, sentences, text: sentences.map(s => s.text).join(' ') }];
   });
   if (!moved.length) return out;

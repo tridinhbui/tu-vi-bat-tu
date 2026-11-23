@@ -54,18 +54,31 @@ const joinVi = (xs: string[]) => xs.length <= 1 ? (xs[0] ?? '') : xs.slice(0, -1
 const fnvStr = (s: string) => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
 
 /** A rule's reading split into its claim and its condition, cleaned for a reader; claim null when it is not fit to be voiced as is. */
-export function splitReading(rule: Rule | undefined, k: Knowledge): { claim: string | null; cond: string | null } {
+/** The half of a gender-split book sentence ("vợ thì hay ghen, chồng thì ham chơi") that is about this chart's partner: a woman's
+ *  Phu Thê speaks of her husband, a man's of his wife (audit 2026-11-22, C6). Other sentences pass unchanged. */
+export function partnerHalf(claim: string, gender?: string): string {
+  if (!gender) return claim;
+  const f = gender === 'female' || gender === 'nữ';
+  const m = claim.match(/^(.*?)\b(vợ|chồng) thì ([^,;]+),\s*(vợ|chồng) thì ([^,;]+)(.*)$/u);
+  if (!m || m[2] === m[4]) return claim;
+  const want = f ? 'chồng' : 'vợ', what = m[2] === want ? m[3] : m[5];
+  return `${m[1]}${want} ${what.trim()}${m[6]}`;
+}
+
+export function splitReading(rule: Rule | undefined, k: Knowledge, gender?: string): { claim: string | null; cond: string | null } {
   if (!rule) return { claim: null, cond: null };
   // a rule whose stored reading cannot be voiced as is has its reader words in rule_voice.json (same claim, cleaned)
   const v = k.kg?.ruleVoice?.[rule.id];
-  if (v) return { claim: lowerSafe(v), cond: null };
+  if (v) return { claim: lowerSafe(partnerHalf(v, gender)), cond: null };
   const raw =(rule.reading ?? k.claims[rule.consequences[0]?.claim ?? ''] ?? '').trim();
   const m = raw.match(/^(.*?)\s*\(([^()]*)\)\s*(?:[;:].*)?$/);
-  let claim = (m ? m[1] : raw).replace(/^(khuynh hướng|hạn chế:)\s*/i, '').replace(/;.*$/, '').trim();
+  // a condition clause the rule already tests ("…, chớ gặp tứ sát", "…, cần không gặp sát tinh", "…, kỵ gặp Kình Dương") is not reader
+  // text: printed after a reading that fired, it read as a warning the chart breaks (audit 2026-11-22, C7)
+  let claim = (m ? m[1] : raw).replace(/^(khuynh hướng|hạn chế:)\s*/i, '').replace(/;.*$/, '').replace(/,\s*(?:chớ|kỵ|cần không) gặp [^,;]+$/u, '').trim();
   const cond = m ? m[2].trim() : null;
   const low = ' ' + claim.toLowerCase();
   if (!claim || claim.length > 110 || /[“”"/:()]|sách|nhận định/.test(claim) || META.some(w => low.includes(' ' + w)) || ABSOLUTE.some(w => low.includes(w))) claim = null as unknown as string;
-  return { claim: claim ? lowerSafe(claim) : null, cond: cond && (cond.match(/,/g) ?? []).length < 3 && !META.some(w => (' ' + cond.toLowerCase()).includes(' ' + w)) && !/[/]/.test(cond) ? cond : null };
+  return { claim: claim ? lowerSafe(partnerHalf(claim, gender)) : null, cond: cond && (cond.match(/,/g) ?? []).length < 3 && !META.some(w => (' ' + cond.toLowerCase()).includes(' ' + w)) && !/[/]/.test(cond) ? cond : null };
 }
 
 /** Options for a Writer that is not the reasoned Mệnh chapter's own: a shared variant memory (a report chain), the people a palace speaks of
@@ -112,7 +125,7 @@ export class Writer {
   }
   dig(d: string | undefined, key: string) { return d ? this.pick(`dig|${key}|${d}`, this.k.prose!.frames.dignity[d] ?? [d]) : ''; }
   rule(id: string) { return this.rmap.get(id); }
-  read(id: string) { return splitReading(this.rule(id), this.k); }
+  read(id: string) { return splitReading(this.rule(id), this.k, this.chart.gender); }
   card(id: string) { return this.cards.get(id); }
   pol(id: string) { return this.cmap.get(id)?.pol ?? '~'; }
   /** A concept predicate from its card: 'dễ …' for a limit, the soft form when reduced, 'thường …' otherwise. */
@@ -208,6 +221,9 @@ export class Writer {
     let rest = cond, ok = !!home;
     for (const n of names) if (rest.includes(n)) { rest = rest.split(n).join(' | '); if (!home?.stars.includes(n) && !home?.major_stars.includes(n)) ok = false; }
     for (const h of ['Hóa Lộc', 'Hóa Quyền', 'Hóa Khoa', 'Hóa Kỵ']) if (cond.includes(h)) { const t = this.chart.tu_hoa[h]; if (!t || t.branch !== home?.branch_index) ok = false; }
+    // a condition in the book's shorthand ("Mệnh Tử Phủ Vũ Tướng Sát Phá Liêm Tham đắc địa, Bào và Nô đắc địa": star groups by first
+    // syllable, palaces by nickname) is not reader text: the stars it fired on are named instead (audit 2026-11-22, C12)
+    if (/(?:^|[\s(])(?:[A-ZĐ]\p{L}*\s+){5,}[A-ZĐ]/u.test(cond) || /\b(?:Bào|Nô|Điền|Quan|Tài|Phúc|Thê)\b(?!\s+(?:Lộc|Bạch|Đức|Trạch|Bộc|Thê|Đệ))/u.test(cond)) ok = false;
     if (ok) return lowerSafe(cond);
     const by = new Map<string, string[]>();
     for (const a of atoms) {

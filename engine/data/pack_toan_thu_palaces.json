@@ -16383,6 +16383,32 @@
       "fact": "palace.own_stars",
       "operator": "contains",
       "value": "Văn Xương"
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Kình Dương"
+        },
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Đà La"
+        },
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Hỏa Tinh"
+        },
+        {
+         "fact": "palace.tam_phuong_stars",
+         "operator": "contains",
+         "value": "Linh Tinh"
+        }
+       ]
+      }
      }
     ]
    },

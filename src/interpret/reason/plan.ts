@@ -235,6 +235,12 @@ export function reasonPalace(chart: ChartInput, k: Knowledge, P: string, pre?: {
         // never the same subject as another palace's, so it neither corroborates nor counters it (audit 2026-10-22: "cha mẹ khá giả" is not
         // the children's wealth). Only two palaces of the person's own life may confirm each other.
         if (PEOPLE.has(P) || PEOPLE.has(r.palace ?? '')) continue;
+        // a reading a narrower / stronger fired rule cuts down ("Tử Vi ở Tài Bạch: thóc gạo đầy kho" under "Tử Vi gặp sát tinh: tiền bạc
+        // không vượng") confirms nothing: told as support beside its own counter it reads as a contradiction (audit 2026-11-22, C2)
+        // only when the rule that cut it down is itself a counter-reading of the same concept (a reading merely touched by an automatic
+        // narrowing relation still confirms)
+        if (r.concept === c.concept && r.stance === 'affirms' && r.status !== 'holds'
+          && r.by.some(b => b.type === 'narrows' && resolvedAll.some(o => o.ruleId === b.byRule && o.concept === r.concept && o.stance === 'weakens' && o.status === 'holds'))) continue;
         if (r.concept === c.concept && r.stance === 'affirms') cross.push({ type: 'corroborated', palace: r.palace!, ruleId: r.ruleId, concept: r.concept, cite: r.cites[0], atoms: r.atoms });
         else if ((r.concept === opp && r.stance === 'affirms') || (r.concept === c.concept && r.stance === 'weakens')) cross.push({ type: 'countered', palace: r.palace!, ruleId: r.ruleId, concept: r.concept, cite: r.cites[0], atoms: r.atoms });
       }

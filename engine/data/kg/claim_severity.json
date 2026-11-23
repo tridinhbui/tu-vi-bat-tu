@@ -9,6 +9,7 @@
   "sinh_san",
   "hon_nhan_vo",
   "vat_chat_nang",
+  "nghiep_bao",
   "tat_xau",
   "phap_ly"
  ],
@@ -31,7 +32,11 @@
   },
   "vat_chat_nang": {
    "topic": "hao tổn tài sản lớn",
-   "re": "phá sản|chiếm đoạt|tán gia|khuynh gia|bại sản|mất hết|trắng tay|tan cửa nát nhà"
+   "re": "phá sản|chiếm đoạt|tán gia|khuynh gia|bại sản|mất hết|trắng tay|tan cửa nát nhà|hỏa hoạn|cháy nhà"
+  },
+  "nghiep_bao": {
+   "topic": "nghiệp báo, oán thù trong dòng họ",
+   "re": "nghiệp báo|báo oán|thù dai"
   },
   "tat_xau": {
    "topic": "thói ham vui, sa đà",
@@ -222,6 +227,14 @@
    "cond": "Phá Toái ở Tật Ách",
    "cite": "HS p.192",
    "claim": "lại ít bệnh"
+  },
+  "TV_HS_QUAN_PHU_PHUC_DUC_PHUC_BAO_OAN": {
+   "class": "nghiep_bao",
+   "pol": "-",
+   "palace": "Phúc Đức",
+   "cond": "Quan Phù hoặc Quan Phủ ở Phúc Đức",
+   "cite": "HS p.196",
+   "claim": "dòng họ mang nghiệp báo oán, thù dai kéo dài"
   },
   "TV_HS_TA_PHU_TAT_ACH_TAT_MAU_MANH": {
    "class": "suc_khoe",
@@ -638,6 +651,14 @@
    "cond": "Thiên Y ở Tật Ách",
    "cite": "KL p.122",
    "claim": "có Thiên Y là sao cứu giải bệnh tật"
+  },
+  "TV_PB_TH_DIEN_TRACH_TH_DIEN_TRACH_TANG_LINH_HOA": {
+   "class": "vat_chat_nang",
+   "pol": "-",
+   "palace": "Điền Trạch",
+   "cond": "Tang Môn gặp Linh hoặc Hỏa ở Điền Trạch",
+   "cite": "TH p.111",
+   "claim": "nhà cửa phải đề phòng hỏa hoạn"
   },
   "TV_PB_TH_TAT_ACH_TH_TAT_ACH_THIEN_THO": {
    "class": "tho_yeu",

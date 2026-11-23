@@ -34,7 +34,8 @@ export interface VanHanLibrary {
   /** Khảo Luận pp.230-233 (decades[].kl), Toàn Thư nhập hạn ca (decades[].tt), the hạn's Hóa Quyền/Khoa, the closing, the current year */
   kl_rel: Record<string, string[]>; kl_rel_tone: Record<string, '' | 'pos' | 'neg'>; kl_xung: string[]; kl_nhi_hop: string[]; kl_event: string[];
   tt_lead: string[]; hoa_qk: string[]; kl_stage?: string[]; sum: Record<'good' | 'mixed' | 'hard', string[]>;
-  year: { frame: string[]; luu_thai_tue: string[]; luu_hoa: string[]; luu_dai_han?: string[]; level?: string[]; level_why?: Record<string, string>; level_against?: string[] };
+  year: { frame: string[]; luu_thai_tue: string[]; luu_hoa: string[]; luu_dai_han?: string[]; level?: string[]; level_why?: Record<string, string>; level_against?: string[];
+    luu_here?: string[]; luu_opp?: string[]; luu_ky_here?: string[]; converge?: string[] };
   /** what the period asks for, by its level and the Mệnh state (owner decision 2026-11-07, labelled a system convention): the frames by
    *  posture, the words for the root ({root}) and for a year rather than a hạn */
   posture?: Record<'mo_rong' | 'thu_nho' | 'giu_nhip' | 'giu_cho' | 'phong_thu', string[]> & { root: Record<'sang' | 'toi' | 'vua', string> };
@@ -78,6 +79,10 @@ export function pullOf(items: Item[], side: 'support' | 'limit', stem: string): 
 /** đại hạn shown: those starting by this age */
 /** the đại hạn the report tells: the first ten, the same ten the period chart draws (indices.ts), so no bar is left without words
  *  (review of the live charts 2026-10-25) */
+/** a hạn that ends before this age is a childhood hạn (vanhan, course.ts) */
+export const CHILD_TO = 16;
+/** words of adult matters a childhood hạn does not speak of */
+export const ADULT = /chức|thăng|quan lộc|công danh|sự nghiệp|hôn nhân|vợ|chồng|con cái|lập gia đình|kết hôn|phát tài|tiền của|tài lộc|người cộng sự|kiện tụng|mở rộng/iu;
 export const shownDecades = <D extends { age_from: number }>(chart: { decades: D[] }): D[] => chart.decades.slice(0, 10);
 const GROUPS: Array<{ name: string; branches: string[]; el: string }> = [
   { name: 'Thân Tý Thìn', branches: ['Thân', 'Tý', 'Thìn'], el: 'Thủy' }, { name: 'Dần Ngọ Tuất', branches: ['Dần', 'Ngọ', 'Tuất'], el: 'Hỏa' },
@@ -330,9 +335,18 @@ export function proseVanHan(chart: ChartInput, k: Knowledge, seed: string, engin
       if (ps) { const pt = sentence(ps, [], [], 'he_thong', 'answer'); pt.trace.step = `posture:${postureOf(lv, idx!.menh_state)}`; pt.trace.note = POSTURE_NOTE; xs.push(pt); }
     }
     xs.push(...pr.balance.filter(x => (lv ?? 2) < 3 || x.trace.step === 'advice'));
+    // a childhood hạn (ending before 16) is not read for office, money-making, marriage, children or partners: a book line on promotion or
+    // a Hóa that "eases the marriage" said of a child reads as a template (audit 2026-11-22, C9). Those sentences are left out; the frame stays
+    let mid2 = mid;
+    if (d.age_to < CHILD_TO) for (let i = xs.length - 1; i >= 1; i--) if (ADULT.test(xs[i].text)) {
+      xs.splice(i, 1); if (i < mid2) mid2--;
+      // the sentence now following no longer answers the one removed: its opening "Còn …" goes
+      const nx = xs[i];
+      if (nx && /^(Còn|Còn như)\s/u.test(nx.text)) { const t = nx.text.replace(/^(Còn|Còn như)\s+/u, ''); nx.text = t.charAt(0).toLocaleUpperCase('vi') + t.slice(1); }
+    }
     // one paragraph for where the hạn sits and how it meets the year, one for what happens in it
     // a first paragraph that would only name the hạn palace is not a paragraph of its own: the hạn is told in one
-    const cut = mid > 1 ? mid : 0;
+    const cut = mid2 > 1 ? mid2 : 0;
     starts.push(paragraphs.length);
     for (const part of [xs.slice(0, cut), xs.slice(cut)]) if (part.length) paragraphs.push({ role: 'course', sentences: part, text: part.map(s => s.text).join(' ') });
   }
@@ -397,6 +411,20 @@ function yearParagraphs(chart: ChartInput, k: Knowledge, L: VanHanLibrary, m: Mi
   const yi = computeIndices(chart, k, NORMS).years.find(x => x.current);
   const ldh = (yi as unknown as { luu_dai_han?: string } | undefined)?.luu_dai_han;
   if (ldh && L.year.luu_dai_han?.length) { const st = sentence(fill(m.pick(`${key}|ldh`, L.year.luu_dai_han), { pal: ldh, dom: dom(ldh) }), [], ['TH pp.117-118'], 'tinh_toan'); st.trace.step = 'year:luu_dai_han'; xs.push(st); }
+  // the year's lưu stars on the tiểu hạn palace and on the palace facing it (KL pp.41-42 positions; Khốc, Hư at the tiểu hạn: TH p.114),
+  // the year's Hóa Kỵ on the tiểu hạn palace, and — when several of these meet there — one line that says so (audit 2026-11-22, C10:
+  // a year with the tiểu hạn, the lưu đại hạn, the year's Hóa Kỵ and lưu Khốc Hư on Mệnh, lưu Thái Tuế and Kình facing it, was read as a
+  // plain "Trung bình" with the Kỵ only listed)
+  const HEAVY = ['Kình Dương', 'Đà La', 'Thiên Khốc', 'Thiên Hư', 'Tang Môn', 'Bạch Hổ', 'Thái Tuế'];
+  const opp = chart.palaces.find(p => p.branch_index === (th.branch_index + 6) % 12)!;
+  const ls = luuStars(chart, y.year);
+  const here = HEAVY.filter(n => ls[n] === th.name), there = HEAVY.filter(n => ls[n] === opp.name);
+  const kyHere = (y.luu_tu_hoa_reading ?? []).find(r => r.hoa === 'Hóa Kỵ' && r.palace === th.name);
+  if (here.length && L.year.luu_here?.length) { const st = sentence(fill(m.pick(`${key}|lh`, L.year.luu_here), { th_pal: th.name, stars: joinNames(here) }), [], here.some(n => n === 'Thiên Khốc' || n === 'Thiên Hư') ? ['KL pp.41-42', 'TH p.114'] : ['KL pp.41-42'], 'tinh_toan', 'neg'); st.trace.step = 'year:luu_here'; xs.push(st); }
+  if (there.length && L.year.luu_opp?.length) { const st = sentence(fill(m.pick(`${key}|lo`, L.year.luu_opp), { opp: opp.name, stars: joinNames(there) }), [], ['KL pp.41-42'], 'tinh_toan', 'neg'); st.trace.step = 'year:luu_opp'; xs.push(st); }
+  if (kyHere && L.year.luu_ky_here?.length) { const st = sentence(fill(m.pick(`${key}|lk`, L.year.luu_ky_here), { star: kyHere.star, th_pal: th.name }), [], ['KL pp.195-197'], 'tinh_toan', 'neg'); st.trace.step = 'year:luu_ky_here'; xs.push(st); }
+  const layers = [ldh === th.name, here.length > 0, there.some(n => n === 'Thái Tuế' || n === 'Kình Dương' || n === 'Đà La'), !!kyHere, y.dai_han.palace === th.name].filter(Boolean).length;
+  const converged = layers >= 3 && !!L.year.converge?.length;
   if (yi && !yi.insufficient && L.year.level?.length && L.year.level_why) {
     const top = [...yi.parts].filter(p => p.layer in L.year.level_why!).sort((a, b) => Math.abs(b.value) - Math.abs(a.value))[0];
     const dh = computeIndices(chart, k, NORMS).decades.find(x => x.current);
@@ -408,12 +436,18 @@ function yearParagraphs(chart: ChartInput, k: Knowledge, L: VanHanLibrary, m: Mi
     st.trace.step = `year:level:${yi.level}`;
     st.trace.note = 'Mức của năm theo chỉ số tổng hợp của hệ thống, cùng mức với biểu đồ tiểu vận ở phần Tổng quan; lớp nặng nhất được nêu.';
     xs.push(st);
-    const ms = computeIndices(chart, k, NORMS).menh_state, ps = postureLine(L, m, `${key}|posture`, yi.level, ms, yi.level_vi, true);
+    const ms = computeIndices(chart, k, NORMS).menh_state, ps = converged ? null : postureLine(L, m, `${key}|posture`, yi.level, ms, yi.level_vi, true);
     if (ps) { const pt = sentence(ps, [], [], 'he_thong', 'answer'); pt.trace.step = `posture:${postureOf(yi.level, ms)}`; pt.trace.note = POSTURE_NOTE; xs.push(pt); }
+  }
+  if (converged) {
+    const st = sentence(fill(m.pick(`${key}|cv`, L.year.converge!), { th_pal: th.name, th_dom: dom(th.name) }), [], [], 'he_thong', 'answer');
+    st.trace.step = 'year:converge';
+    st.trace.note = 'Đếm các lớp của năm cùng rơi vào cung tiểu hạn hoặc chiếu thẳng vào nó (lưu đại hạn, sao lưu, Hóa Kỵ lưu, đại hạn): từ ba lớp trở lên thì nói ra. Quy ước có nhãn, không phải lời sách.';
+    xs.push(st);
   }
   if (y.luu_thai_tue_palace) xs.push(sentence(fill(m.pick(`${key}|ltt`, L.year.luu_thai_tue), { pal: y.luu_thai_tue_palace, dom: dom(y.luu_thai_tue_palace) }), [], [], 'pho_thong'));
   for (const r of y.luu_tu_hoa_reading ?? []) {
-    if (!r.palace) continue;
+    if (!r.palace || r === kyHere) continue;
     // what the Hóa brings to the palace it lands in (pho_thong card); Khảo Luận's own position note is generic or lists other palaces
     // what the Hóa does to the palace it lands in: Khảo Luận's own position note (pp.195-197), never a phổ thông card
     const note = r.position_note && r.hoa !== 'Hóa Quyền' ? `, ${r.position_note}` : '';

@@ -47,11 +47,13 @@ export function wholeParagraph(chart: ChartInput, k: Knowledge, P: string, resol
   const bt = c.members.filter(x => x.role === 'bien_tinh').sort((a, b) => Number(a.dignity === 'hãm') - Number(b.dignity === 'hãm') || Number(b.where === 'self') - Number(a.where === 'self')), tl = c.members.filter(x => x.role === 'tro_luc');
   const btTxt = joinVi(bt.slice(0, 2).map(x => `${x.name} ở ${x.palace} (${x.does.replace(/^[^ ]+ là /, '')})`));
   const tlTxt = joinVi([...new Set(tl.map(x => x.name))].slice(0, 3));
-  if (bt.length && !say(xs, fill(m.pick(`${key}|2`, L.l2), { bien: btTxt, tro: tlTxt || 'không sao nào' }), 'whole:2', 'tong_hop', ['KL pp.195-197'])) {
-    say(xs, fill(m.pick(`${key}|2b`, L.l2_bien), { bien: btTxt }), 'whole:2', 'tong_hop', ['KL pp.195-197']);
-    if (tl.length) say(xs, fill(m.pick(`${key}|2t`, L.l2_tro), { tro: tlTxt }), 'whole:2', 'tong_hop');
-  }
-  else if (tl.length) say(xs, fill(m.pick(`${key}|2n`, L.l2_none), { tro: tlTxt }), 'whole:2', 'tong_hop');
+  // the "no Hóa changes it" line only when no member changes it: with a biến tinh it would contradict the sentence just said (audit C4)
+  if (bt.length) {
+    if (!say(xs, fill(m.pick(`${key}|2`, L.l2), { bien: btTxt, tro: tlTxt || 'không sao nào' }), 'whole:2', 'tong_hop', ['KL pp.195-197'])) {
+      say(xs, fill(m.pick(`${key}|2b`, L.l2_bien), { bien: btTxt }), 'whole:2', 'tong_hop', ['KL pp.195-197']);
+      if (tl.length) say(xs, fill(m.pick(`${key}|2t`, L.l2_tro), { tro: tlTxt }), 'whole:2', 'tong_hop');
+    }
+  } else if (tl.length) say(xs, fill(m.pick(`${key}|2n`, L.l2_none), { tro: tlTxt }), 'whole:2', 'tong_hop');
   // 3 mâu thuẫn
   const tr = c.members.filter(x => x.role === 'tru' || x.role === 'pha');
   if (tr.length) {
@@ -60,7 +62,9 @@ export function wholeParagraph(chart: ChartInput, k: Knowledge, P: string, resol
     const good = c.members.filter(x => x.role === 'nen' || x.role === 'bien_tinh' || x.role === 'tro_luc').map(x => x.name);
     const che = c.relations.find(r => r.kind === 'che' && tr.some(x => r.from.startsWith(`${x.name}@`)) && r.to !== `*@${P}`
       && r.to.split('@')[0].split('|').some(n => good.some(g => g.startsWith(n))) && !/giải|cứu|kìm|bớt/u.test(r.note));
-    const why = che ? `; riêng ${che.from.split('@')[0]} chế ${che.to.split('@')[0].split('|').join(', ')}: ${che.note.includes(': ') ? che.note.split(': ').at(-1) : che.note}` : '';
+    // the relation is named; an outcome the book attaches to it that is a verdict on the person ("Mệnh dễ nghèo") is not (audit C13)
+    const outcome = che ? (che.note.includes(': ') ? che.note.split(': ').at(-1)! : che.note) : '';
+    const why = che ? `; riêng ${che.from.split('@')[0]} chế ${che.to.split('@')[0].split('|').join(', ')}${/nghèo|yểu|chết|tai nạn|phá sản|tù/iu.test(outcome) ? '' : `: ${outcome}`}` : '';
     if (!say(xs, fill(m.pick(`${key}|3`, L.l3), { tru: joinVi(tr.slice(0, 3).map(named)), che: why }), 'whole:3', 'tong_hop', che?.cite ? [che.cite] : []))
       say(xs, fill(m.pick(`${key}|3`, L.l3), { tru: joinVi(tr.slice(0, 3).map(named)), che: '' }), 'whole:3', 'tong_hop');
   }
